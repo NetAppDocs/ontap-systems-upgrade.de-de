@@ -1,0 +1,41 @@
+---
+permalink: upgrade/upgrade-check-lifs-register-serial-number.html 
+sidebar: sidebar 
+keywords: lifs 
+summary: Bevor Sie den Ersatz-Node zur Wartung zurücksenden, sollten Sie überprüfen, ob sich die LIFs auf ihren Home-Ports befinden, und bei aktiviertem AutoSupport die Seriennummer des Ersatz-Node registrieren sowie das automatische Giveback zurücksetzen. 
+---
+= Überprüfen Sie die LIFs und registrieren Sie die Seriennummer
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie den Ersatz-Node zur Wartung zurücksenden, müssen Sie überprüfen, ob sich die LIFs auf ihren Home-Ports befinden, und bei aktiviertem AutoSupport die Seriennummer des Ersatz-Node registrieren sowie das automatische Giveback zurücksetzen.
+
+. Vergewissern Sie sich, dass die logischen Schnittstellen ihrem Home-Server und ihren Ports Berichterstellung: `network interface show -is-home false`
++
+Wenn eine der LIFs als falsch aufgeführt ist, stellen Sie sie auf ihre Home-Ports zurück: `network interface revert *`
+
+. Registrieren Sie die Seriennummer des Systems beim NetApp Support.
++
+[cols="1,2"]
+|===
+| Wenn... | Dann... 
+
+
+ a| 
+AutoSupport ist aktiviert
+ a| 
+Senden Sie eine AutoSupport Nachricht, um die Seriennummer zu registrieren.
+
+
+
+ a| 
+AutoSupport ist nicht aktiviert
+ a| 
+Rufen Sie den NetApp Support an, um die Seriennummer zu registrieren.
+
+|===
+. Wenn die automatische Rückübertragung deaktiviert wurde, aktivieren Sie sie erneut: `storage failover modify -node local -auto-giveback true`
+

@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/resume_snapmirror_operations.html 
+keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete 
+summary: 'Setzen Sie die SnapMirror Transfers und Beziehungen fort, wenn Sie Controller mit ONTAP 9.5 bis 9.7 aktualisieren `system controller replace` Befehle.' 
+---
+= Setzen Sie den SnapMirror Betrieb fort
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können SnapMirror Transfers, die vor dem Upgrade stillgelegt wurden, fortsetzen und die SnapMirror Beziehungen fortsetzen. Die Updates sind nach Abschluss des Upgrades im Zeitplan.
+
+.Schritte
+. Überprüfen Sie den SnapMirror Status auf dem Ziel:
++
+`snapmirror show`
+
+. Wiederaufnahme der SnapMirror Beziehung:
++
+`snapmirror resume -destination–vserver _vserver_name_`
+
+

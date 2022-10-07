@@ -1,0 +1,106 @@
+---
+section: upgrade-arl-auto-affa900
+title: Verwenden Sie Befehle zum Austausch eines System-Controllers, um ein Upgrade
+  von AFF A700 auf AFF A900 oder FAS9000 auf FAS9500 durchzuführen
+entries:
+- title: Überblick
+  url: "/upgrade-arl-auto-affa900/index.html"
+- title: Automatisierung des Controller-Upgrades
+  url: "/upgrade-arl-auto-affa900/automate_the_controller_upgrade_process.html"
+- title: Entscheiden Sie, ob der Inhalt der Aggregatverschiebung verwendet werden
+    soll
+  url: "/upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html"
+- title: Die erforderlichen Tools und Dokumentationen
+  url: "/upgrade-arl-auto-affa900/required_tools_and_documentation.html"
+- title: Richtlinien für Controller Upgrades
+  url: "/upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html"
+- title: Überblick über das ARL Upgrade
+  url: "/upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html"
+- title: 'Stufe 1: Upgrade vorbereiten'
+  pdf-filename: 'Stufe 1: Upgrade vorbereiten (Upgrade auf AFF A900 oder FAS9500)'
+  entries:
+  - title: Überprüfen Sie die Upgrade-Hardware
+    url: "/upgrade-arl-auto-affa900/verify_upgrade_hardware.html"
+  - title: Bereiten Sie die Knoten für ein Upgrade vor
+    url: "/upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html"
+  - title: Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagementservers
+      für die Speicherverschlüsselung
+    url: "/upgrade-arl-auto-affa900/get_ip_address_of_external_kms_for_storage_encryption.html"
+- title: 'Stufe 2: Verschieben Sie Ressourcen und Mustern Sie das AFF A700 oder FAS9000
+    Node1 aus'
+  entries:
+  - title: Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich
+      im Besitz von node1 befinden, auf Knoten 2
+    url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html"
+  - title: Verschiebung ausgefallener oder Vetos von Aggregaten
+    url: "/upgrade-arl-auto-affa900/relocate_failed_or_vetoed_aggr.html"
+  - title: Node1 ausmustern
+    url: "/upgrade-arl-auto-affa900/retire_node1.html"
+  - title: Netzboot Nr. 1
+    url: "/upgrade-arl-auto-affa900/netboot_node1.html"
+- title: 'Phase 3: Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen'
+  entries:
+  - title: Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
+    url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
+  - title: Überprüfen Sie die Installation node1
+    url: "/upgrade-arl-auto-affa900/verify_node1_installation.html"
+  - title: Stellen Sie die Key-Manager-Konfiguration auf dem aktualisierten Node1
+      wieder her
+    url: "/upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html"
+  - title: Verschieben Sie Aggregate und NAS-Daten-LIFs, die sich im Besitz von Knoten1
+      befinden, von Knoten 2 auf die aktualisierte Knoten 1
+    url: "/upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html"
+- title: 'Phase 4: Verschieben von Ressourcen von node2 und Ausmustern von Knoten
+    2'
+  entries:
+  - title: Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs von Knoten
+      2 auf Knoten 1
+    url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html"
+  - title: Node2 ausmustern
+    url: "/upgrade-arl-auto-affa900/retire_node2.html"
+- title: 'Phase 5: Installieren Sie die NVRAM- und Controller-Module AFF A900 oder
+    FAS9500 auf node2'
+  entries:
+  - title: Installieren Sie AFF A900 oder FAS9500 NVRAM- und Controller-Module auf
+      node2
+    url: "/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html"
+  - title: Netzboot Nr. 2
+    url: "/upgrade-arl-auto-affa900/netboot_node2.html"
+- title: 'Phase 6: Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen'
+  entries:
+  - title: Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
+    url: "/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html"
+  - title: Überprüfen Sie die Installation node2
+    url: "/upgrade-arl-auto-affa900/verify_node2_installation.html"
+  - title: Wiederherstellen der Key-Manager-Konfiguration auf node2
+    url: "/upgrade-arl-auto-affa900/restore_key_manager_config_node2.html"
+  - title: Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2
+    url: "/upgrade-arl-auto-affa900/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html"
+- title: 'Phase 7: Schließen Sie das Upgrade ab'
+  entries:
+  - title: Stellen Sie sicher, dass die neuen Controller ordnungsgemäß eingerichtet
+      sind
+    url: "/upgrade-arl-auto-affa900/ensure_new_controllers_are_set_up_correctly.html"
+  - title: Richten Sie Storage Encryption auf dem neuen Controller-Modul ein
+    url: "/upgrade-arl-auto-affa900/set_up_storage_encryption_new_module.html"
+  - title: Richten Sie NetApp Volume Encryption auf dem neuen Controller-Modul ein
+    url: "/upgrade-arl-auto-affa900/set_up_netapp_volume_encryption_new_module.html"
+  - title: Ausmustern des alten Systems
+    url: "/upgrade-arl-auto-affa900/decommission_old_system.html"
+  - title: Setzen Sie den SnapMirror Betrieb fort
+    url: "/upgrade-arl-auto-affa900/resume_snapmirror_operations.html"
+- title: Fehlerbehebung
+  pdf-filename: Fehlerbehebung (Upgrade auf AFF A900 oder FAS9500)
+  entries:
+  - title: Überblick
+    url: "/upgrade-arl-auto-affa900/troubleshoot_index.html"
+  - title: Fehler bei der Aggregatverschiebung
+    url: "/upgrade-arl-auto-affa900/aggregate_relocation_failures.html"
+  - title: Neustarts, Panikspiele oder Energiezyklen
+    url: "/upgrade-arl-auto-affa900/reboots_panics_or_power_cycles.html"
+  - title: Probleme, die in mehreren Phasen des Verfahrens auftreten können
+    url: "/upgrade-arl-auto-affa900/issues_in_multiple_stages_of_procedure.html"
+  - title: Fehler bei der LIF-Migration
+    url: "/upgrade-arl-auto-affa900/lif_migration_failure.html"
+- title: Quellen
+  url: "/upgrade-arl-auto-affa900/other_references.html"

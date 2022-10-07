@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/get_ip_address_of_external_kms_for_storage_encryption.html 
+keywords: storage, encryption, authentication, key, manager, external 
+summary: Konfiguration und Management von Storage-Verschlüsselung, Management von Authentifizierungsschlüsseln und Stilllegung der SnapMirror Beziehungen während eines Upgrades von AFF A700 auf AFF A900 
+---
+= Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nach dem Upgrade müssen Sie Storage Encryption sofort konfigurieren und einen Cluster-weiten Authentifizierungsschlüssel einrichten, um die vorherigen Authentifizierungsschlüssel auf Node-Ebene zu ersetzen.
+
+.Schritte
+. Installieren Sie die erforderlichen SSL-Zertifikate (Secure Sockets Layer) von Clients und Servern, die für die Kommunikation mit den Schlüsselverwaltungsservern erforderlich sind:
++
+`security certificate install`
+
+. Konfigurieren Sie die Storage-Verschlüsselung auf allen Nodes mithilfe des folgenden Befehls auf jedem Node:
++
+`security key-manager external enable`
+
+. Fügen Sie für jeden Verschlüsselungsmanagementserver die IP-Adresse hinzu:
++
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
+
+. Vergewissern Sie sich, dass dieselben Verschlüsselungsmanagement-Server konfiguriert und auf allen Knoten im Cluster verfügbar sind:
++
+`security key-manager external show-status`
+
+. Erstellen Sie einen neuen clusterweiten Authentifizierungsschlüssel:
++
+`security key-manager key create`
+
+. Notieren Sie sich die neue Authentifizierungsschlüssel-ID.
+. Rekeyfür alle Self-Encrypting Drives mit dem neuen Authentifizierungsschlüssel:
++
+`storage encryption disk modify -disk * -data-key-id _authentication_key_id_`
+
+
+
+
+
+== Authentifizierungsmanagement mit KMIP-Servern
+
+Ab ONTAP 9.10.1 können Sie KMIP-Server (Key Management Interoperability Protocol) verwenden, um Authentifizierungsschlüssel zu managen.
+
+.Schritte
+. Hinzufügen eines neuen Controllers:
++
+`security key-manager external enable`
+
+. Fügen Sie den Schlüsselmanager hinzu:
++
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
+
+. Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server konfiguriert und für alle Nodes im Cluster verfügbar sind:
++
+`security key-manager external show-status`
+
+. Stellen Sie die Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern auf den neuen Knoten wieder her:
++
+`security key-manager external restore -node _new_controller_name_`
+
+. Rekeyfür alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel:
++
+`storage encryption disk modify -disk * [-data-key-id nonMSID AK]`
+
+. Wenn Sie den Federal Information Processing Standard (FIPS) verwenden, müssen Sie alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel neu verschlüsseln:
++
+`storage encryption disk modify -disk * [-fips-key-id nonMSID AK]`
+
+
+
+
+
+== Management der Storage-Verschlüsselung mit Onboard Key Manager
+
+Sie können den OKM verwenden, um die Verschlüsselung zu verwalten. Wenn Sie OKM verwenden möchten, müssen Sie vor dem Upgrade die Passphrase und das Sicherungsmaterial aufzeichnen.
+
+.Schritte
+. Speichern Sie die Passphrase an einem sicheren Ort.
+. Backup für Recovery-Zwecke erstellen. Führen Sie den folgenden Befehl aus und speichern Sie die Ausgabe:
++
+`security key-manager onboard show-backup`
+
+
+
+
+
+== Stilllegen der SnapMirror Beziehungen (optional)
+
+Bevor Sie mit dem Verfahren fortfahren, müssen Sie bestätigen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.
+
+.Schritte
+. Überprüfen Sie den SnapMirror Beziehungsstatus auf dem Ziel-Cluster:
++
+`snapmirror show`
+
++
+[NOTE]
+====
+Wenn der Status „Übertragen“ lautet, müssen Sie diese Transfers abbrechen:
+`snapmirror abort -destination-vserver _vserver_name_`
+
+====
++
+Der Abbruch schlägt fehl, wenn sich die SnapMirror-Beziehung nicht im Zustand „Übertragen“ befindet.
+
+. Alle Beziehungen zwischen dem Cluster stilllegen:
++
+`snapmirror quiesce -destination-vserver _vserver_name_`
+
+

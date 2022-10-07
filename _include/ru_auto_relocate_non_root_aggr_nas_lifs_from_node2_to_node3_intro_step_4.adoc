@@ -1,0 +1,61 @@
+= 
+:allow-uri-read: 
+
+
+Bevor Sie node2 durch node4 ersetzen können, müssen Sie die nicht-Root-Aggregate, die Eigentum von node2 sind, in node3 verschieben.
+
+Nach den Nachprüfungen aus der vorherigen Phase wird automatisch die Ressourcenfreigabe für node2 gestartet. Die Aggregate außerhalb des Root-Bereichs und LIFs für nicht-SAN-Daten werden von node2 auf node3 migriert.
+
+Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich.
+
+Nach der Migration der Aggregate und LIFs wird der Vorgang zu Verifizierungszwecken angehalten. In dieser Phase müssen Sie überprüfen, ob alle Aggregate ohne Root-Root-Daten und LIFs außerhalb des SAN in node3 migriert werden.
+
+
+NOTE: Der Home-Inhaber für die Aggregate und LIFs werden nicht geändert, nur der aktuelle Besitzer wird geändert.
+
+.Schritte
+. Vergewissern Sie sich, dass alle nicht-Root-Aggregate online sind und ihren Status auf node3:
++
+`storage aggregate show -node _node3_ -state online -root false`
+
++
+Das folgende Beispiel zeigt, dass die nicht-Root-Aggregate auf node2 online sind:
+
++
+....
+cluster::> storage aggregate show -node node3 state online -root false
+
+Aggregate      Size         Available   Used%   State   #Vols  Nodes  RAID     Status
+----------     ---------    ---------   ------  -----   -----  ------ -------  ------
+aggr_1         744.9GB      744.8GB      0%     online  5      node2  raid_dp  normal
+aggr_2         825.0GB      825.0GB      0%     online  1      node2  raid_dp  normal
+2 entries were displayed.
+....
++
+Wenn die Aggregate offline sind oder in node3 offline sind, bringen Sie sie mit dem folgenden Befehl auf node3 online, einmal für jedes Aggregat:
+
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Überprüfen Sie, ob alle Volumes auf node3 online sind, indem Sie den folgenden Befehl auf node3 verwenden und die Ausgabe überprüfen:
++
+`volume show -node _node3_ -state offline`
+
++
+Wenn ein Volume auf node3 offline ist, schalten Sie sie online. Verwenden Sie dazu den folgenden Befehl auf node3, einmal für jedes Volume:
+
++
+`volume online -vserver _vserver_name_ -volume _volume_name_`
+
++
+Der `_vserver_name_` Die Verwendung mit diesem Befehl ist in der Ausgabe des vorherigen gefunden `volume show` Befehl.
+
+. Überprüfen Sie, ob die LIFs zu den richtigen Ports verschoben wurden und über den Status von verfügen `up`. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
++
+`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node_name_ -status-admin up`
+
+. Wenn die Ports, die derzeit Daten-LIFs hosten, nicht auf der neuen Hardware vorhanden sind, entfernen Sie diese aus der Broadcast-Domäne:
++
+`network port broadcast-domain remove-ports`
+
+

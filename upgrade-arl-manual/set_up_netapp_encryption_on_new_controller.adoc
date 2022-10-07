@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/set_up_netapp_encryption_on_new_controller.html 
+keywords: set up, netapp volume encryption, encryption, controller, module 
+summary: Konfigurieren Sie, falls erforderlich, das neue Controller-Modul für NVE bei einem manuellen ARL Upgrade bei Controllern mit ONTAP 9.7 oder einer älteren Version. 
+---
+= Richten Sie NetApp Volume Encryption auf dem neuen Controller-Modul ein
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn der ersetzte Controller oder der HA-Partner des neuen Controllers NetApp Volume Encryption (NVE) verwendet, müssen Sie das neue Controller-Modul für NVE konfigurieren.
+
+Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführt werden. Sie müssen den Befehl auf dem richtigen Node eingeben.
+
+.Schritte
+. Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server weiterhin verfügbar sind, deren Status und ihre Authentifizierungsdaten folgendermaßen sind:
++
+[cols="35,65"]
+|===
+| Für diese ONTAP-Version… | Befehl 
+
+
+| ONTAP 9.6 oder 9.7 | `security key-manager key query -node node` 
+
+
+| ONTAP 9.5 oder früher | `security key-manager key show` 
+|===
+. Fügen Sie die im vorherigen Schritt aufgeführten Verschlüsselungsmanagement-Server der Liste des zentralen Management-Servers des neuen Controllers hinzu:
++
+.. Fügen Sie den Verschlüsselungsmanagementserver mit dem folgenden Befehl hinzu:
++
+`security key-manager -add _key_management_server_ip_address_`
+
+.. Wiederholen Sie den vorherigen Schritt für jeden aufgeführten Key Management Server. Sie können bis zu vier Verschlüsselungsmanagement-Server verknüpfen.
+.. Überprüfen Sie, ob die Verschlüsselungsmanagement-Server erfolgreich hinzugefügt wurden. Verwenden Sie dazu den folgenden Befehl:
++
+`security key-manager show`
+
+
+
+. Führen Sie auf dem neuen Controller-Modul den Setup-Assistenten für das Verschlüsselungsmanagement aus, um die wichtigsten Management-Server einzurichten und zu installieren.
++
+Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandenen Controller-Modul installiert sind.
+
++
+.. Starten Sie den Setup-Assistenten für den Verschlüsselungsmanagement-Server auf dem neuen Knoten, indem Sie den folgenden Befehl verwenden:
++
+`security key-manager setup -node _new_controller_name_`
+
+.. Führen Sie die Schritte im Assistenten zum Konfigurieren von Verschlüsselungsmanagementservern durch.
+
+
+. Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her.
++
+** Authentifizierung für External Key Manager (EKD) wiederherstellen:
++
+`security key-manager external restore`
+
++
+Für diesen Befehl ist die OKM-Passphrase (Onboard Key Manager) erforderlich
+
+** Restore-Authentifizierung für OKM:
++
+[cols="35,65"]
+|===
+| Für diese ONTAP-Version… | Befehl 
+
+
+| Alle anderen ONTAP-Versionen | `security key-manager onboard sync` 
+
+
+| ONTAP 9.5 | `security key-manager setup -node _node_name_` 
+|===
+
+
+
+
+Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder externe Verschlüsselungsmanagementserver nicht erreicht werden konnten. Stellen Sie diese Volumes mit dem folgenden Befehl wieder online:
+
+`volume online`

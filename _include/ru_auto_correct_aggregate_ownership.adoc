@@ -1,0 +1,44 @@
+= Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+:allow-uri-read: 
+
+
+
+
+== Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+
+Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
+
+.Schritte
+. Gibt die Aggregate zurück, die derzeit dem Partner-Node gehören, an den Home-Owner-Node:
++
+`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
+
+. Überprüfen Sie, dass weder node1 noch node2 noch Eigentümer von Aggregaten ist, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+Das folgende Beispiel zeigt die Ausgabe des Befehls, wenn ein Node sowohl der aktuelle Eigentümer als auch der Home-Inhaber von Aggregaten ist:
+
++
+[listing]
+----
+cluster::> storage aggregate show -nodes node1 -is-home true -fields owner-name,home-name,state
+aggregate   home-name  owner-name  state
+---------   ---------  ----------  ------
+aggr1       node1      node1       online
+aggr2       node1      node1       online
+aggr3       node1      node1       online
+aggr4       node1      node1       online
+
+4 entries were displayed.
+----
+
+
+
+
+=== Nachdem Sie fertig sind
+
+Sie müssen den Controller-Ersatzprozess neu starten:
+
+`system controller replace start -nodes _node_names_`

@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+Bei der Aggregatverschiebung (ARL, Aggregate Relocation) fallen während des Upgrades möglicherweise an verschiedenen Punkten aus.

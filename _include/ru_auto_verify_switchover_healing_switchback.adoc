@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+Sie sollten die Umschalttavorgänge, die Reparatur und den Wechsel der MetroCluster Konfiguration überprüfen.
+
+Siehe link:other_references.html["Quellen"] Verbinden mit Inhalten für _MetroCluster Management and Disaster Recovery_ und Verwenden der genannten Verfahren für ausgehandelte Umschaltung, Heilung und Umschalten.

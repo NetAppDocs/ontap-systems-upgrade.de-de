@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/retire_node2.html 
+keywords: retire, node2 
+summary: Fahren Sie node2 herunter, und entfernen Sie es während eines Upgrades von AFF A700 auf AFF A900 aus dem Rack oder Chassis. 
+---
+= Node2 ausmustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Um node2 auszumustern, müssen Sie node2 richtig abschalten und aus dem Rack oder Gehäuse entfernen.
+
+.Schritte
+. Vorgang fortsetzen:
++
+`system controller replace resume`
+
++
+Der Knoten wird automatisch angehalten.
+
+
+
+Sie können nach Abschluss des Upgrades die Decommission node2 deaktivieren. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].

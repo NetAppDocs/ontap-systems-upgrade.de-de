@@ -1,0 +1,14 @@
+= 
+:allow-uri-read: 
+
+
+Zum Upgrade des Node-Paars müssen Sie die ursprünglichen Nodes vorbereiten und anschließend eine Reihe von Schritten sowohl auf den ursprünglichen als auch auf den neuen Nodes durchführen. Anschließend können Sie die ursprünglichen Knoten außer Betrieb nehmen.
+
+.Schritte
+. link:stage1_prepare_for_upgrade.html["Phase 1: Upgrade vorbereiten"]
+. link:stage2_relocate_retire_node1.html["Phase 2: Verschiebung und Außerbetriebnahme von Knoten1"]
+. link:stage_3_install_boot_node3.html["Phase 3: Installieren und booten node3"]
+. link:stage4_record_info_retire_node2.html["Phase 4: Erfassen Sie Informationen und Ruhestand node2"]
+. link:stage5_install_boot_node4.html["Phase 5: Installieren und booten node4"]
+. link:stage6_complete_upgrade.html["Phase 6: Das Upgrade abschließen"]
+

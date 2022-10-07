@@ -1,0 +1,127 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/relocate_node2_non_root_aggr_node3_node4.html 
+keywords: relocate, non-root, aggregates, node3, node4 
+summary: Verschieben von nicht-Root-Aggregaten node2 während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.8 oder höher von node3 auf node4. 
+---
+= Verlagerung von node2 nicht-Root-Aggregaten von node3 auf node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nachdem node2's nicht-Root-Aggregate in node3 verschoben wurden, müssen Sie sie nun von node3 auf node4 verschieben.
+
+.Schritte
+. [[man_relocate_3_4_Step1]]Geben Sie den folgenden Befehl auf beiden Controllern ein, und überprüfen Sie die Ausgabe, um zu ermitteln, welche nicht-Root-Aggregate verschoben werden sollen:
++
+`storage aggregate show -owner-name _node3_ -home-id _node2_system_id_`
+
+. Verschieben Sie die Aggregate, indem Sie die folgenden Teilschritte ausführen:
++
+.. Greifen Sie auf die erweiterte Berechtigungsebene zu, indem Sie den folgenden Befehl auf einem der Nodes eingeben:
++
+`set -privilege advanced`
+
+.. Geben Sie den folgenden Befehl ein:
++
+`storage aggregate relocation start -node _node3_ -destination _node4_ -aggregate-list _aggr_name1, aggr_name2..._ -ndo-controller-upgrade true`
+
++
+Die Aggregatliste ist die Liste der Aggregate, deren Eigentümer node4 sind, die Sie in erhalten haben ,Schritt 1.
+
+.. Geben Sie bei der entsprechenden Aufforderung ein `y`.
++
+Umzüge finden im Hintergrund statt. Um ein Aggregat verschieben zu können, dauerte der Vorgang einige Sekunden oder Minuten. Die Zeit umfasst sowohl einen Client-Ausfall als auch Teile ohne Ausfälle. Mit dem Befehl werden keine Offline- oder eingeschränkten Aggregate verschoben.
+
+.. Zurück zur Administratorebene:
++
+`set -privilege admin`
+
+
+
+. [[Schritt3]]Standortstatus prüfen:
++
+`storage aggregate relocation show -node _node3_`
+
++
+Die Ausgabe wird angezeigt `Done` Für ein Aggregat, nachdem es verlegt wurde.
+
++
+
+NOTE: Warten Sie, bis alle node2-Aggregate in node4 verschoben wurden, bevor Sie mit dem nächsten Schritt fortfahren.
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Bei Umzug von... | Dann... 
+
+
+| Alle Aggregate waren erfolgreich | Gehen Sie zu ,Schritt 5. 
+
+
+| Aggregate sind ausgefallen oder sie wurden Vetos gemacht  a| 
+.. Überprüfen Sie die EMS-Protokolle auf Korrekturmaßnahmen.
+.. Führen Sie die Korrekturmaßnahme durch.
+.. Greifen Sie auf die erweiterte Berechtigungsebene zu, indem Sie den folgenden Befehl auf einem der Nodes eingeben:
++
+`set -privilege advanced`
+
+.. Verschiebung ausgefallener oder Vetos von Aggregaten:
++
+`storage aggregate relocation start -node _node3_ destination _node4_ -aggregate-list _aggr_name1, aggr_name2..._ ndo-controller-upgrade true`
+
++
+Die aggregierte Liste enthält fehlerhafte oder Vetos zusammengesetzte Aggregate.
+
+.. Geben Sie bei der entsprechenden Aufforderung ein `y`.
+.. Kehren Sie zur Administratorebene zurück, indem Sie den folgenden Befehl eingeben:
++
+`set -privilege admin`
+
+
+
+Bei Bedarf können Sie die Verschiebung mit einer der folgenden Methoden erzwingen:
+
+** Veto-Prüfungen überschreiben:
++
+`storage aggregate relocation start -override-vetoes -ndo-controller-upgrade`
+
+** Zielprüfungen überschreiben:
++
+`storage aggregate relocation start -override-destination-checks -ndocontroller-upgrade`
+
+
+
+Weitere Informationen zu den Befehlen zum Verlegen von Storage-Aggregaten finden Sie unter link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregat-Management mit den Befehlen CLI_ und _ONTAP 9: Manual Page Reference_.
+
+|===
+. [[man_relocate_3_4_Step5]]Überprüfen Sie, ob alle node2 nicht-Root-Aggregate online sind und ihren Status auf node4 haben:
++
+`storage aggregate show -node _node4_ -state offline -root false`
+
++
+Die node2 Aggregate wurden in der Ausgabe des Befehls in aufgeführt ,Schritt 1.
+
+. Wenn ein Aggregat offline gegangen ist oder fremd geworden ist, bringen Sie es mit dem folgenden Befehl für jedes Aggregat online:
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Überprüfen Sie, ob alle Volumes in node2 Aggregaten auf node4 online sind:
++
+`volume show -node _node4_ -state offline`
+
+. Wenn Volumes auf node4 offline sind, bringen Sie sie online:
++
+`volume online -vserver _vserver-name_ -volume _volume_name_`
+
+. Senden Sie eine AutoSupport Nachricht nach dem Upgrade an NetApp für node4:
++
+`system node autosupport invoke -node _node4_ -type all -message "_node2_ successfully upgraded from _platform_old_ to _platform_new_"`
+
+

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/stage_6_index.html 
+keywords: complete upgrade, node, unified, target, storage, encryption, MetroCluster, stage 6 
+summary: 'Phase 6-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.5 zu 9.7.' 
+---
+= Phase 6: Schließen Sie das Upgrade ab
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Stellen Sie in Phase 6 sicher, dass die neuen Knoten korrekt eingerichtet sind. Wenn einer der neuen Nodes über einen Unified Target Adapter verfügt, müssen Sie alle Portkonfigurationen wiederherstellen und müssen möglicherweise die Persönlichkeit des Adapters ändern. Sie sollten auch Storage Encryption einrichten, wenn die neuen Nodes verschlüsselt sind. Zudem sollten die alten Nodes außer Betrieb gesetzt werden.
+
+.Schritte
+. link:ensure_new_controllers_are_set_up_correctly.html["Stellen Sie sicher, dass die neuen Controller ordnungsgemäß eingerichtet sind"]
+. link:set_up_storage_encryption_new_module.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]
+. link:set_up_netapp_volume_encryption_new_module.html["Richten Sie NetApp Verschlüsselung auf dem neuen Controller-Modul ein"]
+. link:decommission_old_system.html["Ausmustern des alten Systems"]
+. link:resume_snapmirror_operations.html["Setzen Sie den SnapMirror Betrieb fort"]
+
+
+Bei der MetroCluster FC-Konfiguration müssen die Nodes des Disaster Recovery-/Failover-Standorts so schnell wie möglich ersetzt werden. Nicht übereinstimmende Controller-Modelle in einem MetroCluster wird nicht unterstützt, weil eine falsche Übereinstimmung des Controller-Modells dazu führen kann, dass Disaster Recovery-Spiegelung offline geht. Verwenden Sie den Befehl -`skip-metrocluster-check true` Option zum Umgehen der MetroCluster-Prüfungen, wenn Sie Nodes am zweiten Standort ersetzen.

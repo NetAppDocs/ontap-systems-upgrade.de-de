@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: guidelines, upgrade, aff, a900, a700, ontap, controllers 
+summary: Stellen Sie sich vor, ob Sie mit ARL ein Upgrade einer AFF A700 auf einen AFF A900 durchführen können. 
+---
+= Richtlinien für Controller Upgrades
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Verwenden von ARL zum Upgrade eines Controller-Paars in den folgenden Systemkonfigurationen:
+
+* Upgrade eines AFF A700 Controllers auf ein AFF A900-System mit ONTAP 9.10.1 oder höher
+* Aktualisieren Sie ein Paar FAS9000 Controller auf ein FAS9500 System mit ONTAP 9.10.1P3 oder höher
+
+
+
+
+== Unterstützte Upgrades für ARL
+
+Controller Upgrade von einer AFF A700 auf einen AFF A900 oder von einer FAS9000 mithilfe von ARL auf ein FAS9500 System. Dabei wird das NVRAM-Modul von einer unterstützten Kombination unterstützt. Wenn Sie ein neues AFF A900 oder FAS9500 System als komplettes System mit neuem Gehäuse erhalten haben, finden Sie unter link:other_references.html["Quellen"] Um eine Verbindung zu den Befehlen „System Controller Replace“ zu herstellen, um die Controller Hardware mit ONTAP 9.8 oder höher zu aktualisieren_.
+
+
+WARNING: Dieses Verfahren gilt ausschließlich für ein AFF A700 auf AFF A900 Upgrade mit ONTAP 9.10.1 oder höher und für ein Update der FAS9000 auf FAS9500 mit 9.10.1P3 oder höher. Verwenden Sie dieses Verfahren NICHT, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen.
+
+Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock Enterprise und SnapLock Compliance Volumes konfiguriert sind.
+
+
+
+== 2-Node-Cluster ohne Switches
+
+Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren.
+
+
+
+== Fehlerbehebung
+
+Falls beim Upgrade der Controller Probleme auftreten, lesen Sie den link:troubleshoot_index.html["Fehlerbehebung"] Abschnitt am Ende des Verfahrens für weitere Informationen und mögliche Lösungen.
+
+Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.

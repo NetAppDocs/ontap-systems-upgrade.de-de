@@ -1,0 +1,135 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html 
+keywords: overview, arl, upgrade, owner, controller, hardware 
+summary: Erfahren Sie, wie das Upgrade-Verfahren für den ARL-Controller von AFF A700 auf AFF A900 funktioniert. 
+---
+= Überblick über das ARL Upgrade
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bevor Sie die Nodes mit ARL aktualisieren, sollten Sie unbedingt verstehen, wie das Verfahren funktioniert. In diesem Inhalt wird das Verfahren in mehrere Phasen unterteilt.
+
+
+
+== Aktualisieren Sie das Node-Paar
+
+Zum Upgrade des Node-Paars müssen Sie die ursprünglichen Nodes vorbereiten und dann für die ursprünglichen und die neuen Nodes eine Reihe von Schritten ausführen. Anschließend können Sie die ursprünglichen Knoten außer Betrieb nehmen.
+
+
+
+== Übersicht über die ARL-Upgrade-Sequenz
+
+Während des Verfahrens aktualisieren Sie die ursprüngliche Controller Hardware mit der Ersatz-Controller-Hardware, einem Controller gleichzeitig. Nutzen Sie die HA-Paar-Konfiguration, um das Eigentum von Aggregaten ohne Root-Berechtigungen zu verschieben. Alle Aggregate außerhalb der Root-Ebene müssen zwei Umlagerungen durchlaufen, um das endgültige Ziel zu erreichen, nämlich den korrekten aktualisierten Node.
+
+Jedes Aggregat hat einen Hausbesitzer und aktuellen Eigentümer. Der Hausbesitzer ist der eigentliche Eigentümer des Aggregats, und der aktuelle Eigentümer ist der temporäre Eigentümer.
+
+Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einzelnen Phasen ausführen, und den Zustand der Aggregateigentümer am Ende der Phase. Detaillierte Schritte sind im weiteren Verlauf des Verfahrens aufgeführt:
+
+[cols="35,65"]
+|===
+| Stufe | Schritte 
+
+
+| link:verify_upgrade_hardware.html["Phase 1: Upgrade vorbereiten"]  a| 
+. Überprüfen Sie die Upgrade-Hardware
+. Führen Sie Vorabprüfungen durch, um zu überprüfen, ob Sie den Vorgang durchführen können
+. Korrigieren Sie das Aggregat-Eigentum, wenn eine Vorabprüfung fehlschlägt
+. Geben Sie die Lizenzschlüssel für die Cluster-Basis ein
+. Holen Sie sich eine IP-Adresse für Speicherverschlüsselung
+. Authentifizierungsmanagement durch einen KMIP-Server (Key Management Operabilität Protocol
+. Management der Storage-Verschlüsselung mithilfe eines Onboard-Verschlüsselungsmanagement (OKM)
+. Stilllegen der SnapMirror Beziehungen (optional)
+
+
+Gesamteigentum am Ende von Phase 1:
+
+* Node1 ist der Hausbesitzer und der aktuelle Besitzer der node1 Aggregate
+* Node2 ist der Hausbesitzer und der aktuelle Besitzer der node2 Aggregate
+
+
+
+
+| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Phase 2: Verschieben von Ressourcen von Knoten1 und Ausmustern von AFF A700 oder FAS9000 Node1"]  a| 
+. Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2
+. Verschiebung ausgefallener oder Vetos von Aggregaten
+. Node1 ausmustern
+. Entfernen Sie den AFF A700 oder den FAS9000 Controller und die NVRAM-Module
+. Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node1
+. Netzboot Nr. 1
+
+
+Gesamteigentum am Ende von Phase 2:
+
+* Node2 ist der aktuelle Besitzer von node1 Aggregaten
+* Node2 ist der Hausbesitzer und der aktuelle Besitzer von node2 Aggregaten
+
+
+
+
+| link:boot_node1_with_a900_controller_and_nvs.html["Phase 3: Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
+. Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
+. Vergewissern Sie sich, dass node1 erfolgreich installiert wurde
+. Stellen Sie die Netzwerkkonfiguration für node1 wieder her
+. Stellen Sie die Key-Manager-Konfiguration auf dem aktualisierten Node1 wieder her
+. Verschieben Sie Aggregate und NAS-Daten-LIFs, die sich im Besitz von Knoten1 befinden, von Knoten 2 auf die aktualisierte Knoten 1
+
+
+Gesamteigentum am Ende von Stufe 3:
+
+* Aktualisiertes AFF A900 oder FAS9500 Node1 ist der Eigentümer und aktueller Besitzer von Node1 Aggregaten
+* Node2 ist der Hausbesitzer und der aktuelle Besitzer von node2 Aggregaten
+
+
+
+
+| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["Phase 4: Verlagerung von Ressourcen von node2 und Ausmustern node2"]  a| 
+. Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs von Knoten 2 auf Knoten 1
+. Node2 ausmustern
+
+
+Gesamteigentum am Ende von Stufe 4:
+
+* Der aktualisierte Knoten 1 ist der Hausbesitzer und der aktuelle Besitzer von Aggregaten, die ursprünglich zu node1 gehörten
+* Der aktualisierte Knoten 1 ist der aktuelle Besitzer von node2 Aggregaten
+
+
+
+
+| link:install_a900_nvs_and_controller_on_node2.html["Phase 5: Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2"]  a| 
+. Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2
+. Netzboot Nr. 2
+
+
+Gesamteigentum am Ende von Stufe 5:
+
+* Der aktualisierte Node1 ist der Hausbesitzer und der aktuelle Besitzer der Aggregate, die ursprünglich zu node1 gehörten.
+* Upgrade node2 ist der Hausbesitzer und der aktuelle Besitzer von Aggregaten, die ursprünglich zu node2 gehörten.
+
+
+
+
+| link:boot_node2_with_a900_controller_and_nvs.html["Phase 6: Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
+. Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
+. Überprüfen Sie, ob node2 korrekt installiert ist
+. Stellen Sie die Netzwerkkonfiguration für node2 wieder her
+. Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2
+
+
+
+
+| link:ensure_new_controllers_are_set_up_correctly.html["Phase 7: Das Upgrade abschließen"]  a| 
+. Überprüfen Sie, ob die neuen Controller ordnungsgemäß eingerichtet sind
+. Richten Sie Storage Encryption auf dem neuen Controller-Modul ein
+. Richten Sie NetApp Volume Encryption auf dem neuen Controller-Modul ein.
+. Ausmustern des alten Systems
+. Setzen Sie den NetApp SnapMirror Betrieb wieder ein
+
+
+|===

@@ -1,0 +1,103 @@
+---
+sidebar: sidebar 
+permalink: /upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html 
+keywords: moving, non-root, aggregates, nas, lif, node1, node2 
+summary: Vergewissern Sie sich, dass die NAS-Daten-LIFs auf node1 während eines Upgrades von AFF A700 auf AFF A900 von node2 auf node1 verschoben werden. 
+---
+= Verschieben Sie Aggregate und NAS-Daten-LIFs, die sich im Besitz von Knoten1 befinden, von Knoten 2 auf die aktualisierte Knoten 1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nachdem Sie die Netzwerkkonfiguration auf node1 und bevor Sie Aggregate von node2 nach node1 verschieben, müssen Sie überprüfen, ob die NAS-Daten-LIFs, die zu node1 gehören und sich derzeit auf node2 befinden, von node2 in node1 verschoben werden. Sie müssen außerdem überprüfen, ob die SAN-LIFs auf node1 vorhanden sind.
+
+Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Nachdem Sie node1 in den Online-Modus versetzt haben, müssen Sie überprüfen, ob sich die LIFs in einem ordnungsgemäßen Zustand und auf den entsprechenden Ports befinden.
+
+.Schritte
+. Wiederaufnahme des Betriebs der Versetzung:
++
+`system controller replace resume`
+
++
+Das System führt die folgenden Aufgaben aus:
+
++
+--
+** Cluster-Quorum-Prüfung
+** System-ID-Prüfung
+** Prüfung der Bildversion
+** Überprüfung der Zielplattform
+** Prüfung der Netzwerkanachabilität
+
+
+--
++
+Der Vorgang unterbricht in dieser Phase in der Überprüfung der Netzwerknachprüfbarkeit.
+
+. Durchführen einer Prüfung der Netzwerkfähigkeit:
++
+`network port reachability -show-detail -node node1`
+
++
+Vergewissern Sie sich, dass alle verbundenen Ports, einschließlich der Schnittstellengruppe und VLAN-Ports, ihren Status als anzeigen `OK`.
+
+. Wiederaufnahme des Betriebs der Versetzung:
++
+`system controller replace resume`
+
++
+Das System führt folgende Prüfungen durch:
+
++
+--
+** Cluster-Zustandsprüfung
+** LIF-Statusüberprüfung für Cluster
+
+
+--
++
+Nach Durchführung dieser Prüfungen verschiebt das System die nicht-Root-Aggregate und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, in die neue Knoten1.
+
++
+Der Controller-Ersatzvorgang hält nach Abschluss der Ressourcenverschiebung die Pause ein.
+
+. Überprüfen Sie den Status der Aggregatverschiebung und der LIF-Verschiebung von NAS-Daten:
++
+`system controller replace show-details`
+
++
+Wenn der Austausch des Controllers unterbrochen wird, prüfen und korrigieren Sie den Fehler, falls zutreffend, und führen Sie das Problem anschließend aus `resume` Um den Vorgang fortzusetzen.
+
+. Falls erforderlich, stellen Sie alle vertriebenen LIFs wieder her. Liste aller vertriebenen LIFs:
++
+`cluster controller-replacement network displaced-interface show`
+
++
+Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in node1 wieder her:
+
++
+`cluster controller-replacement network displaced-interface restore-home-node`
+
+. Setzen Sie den Vorgang fort, um das System zur Durchführung der erforderlichen Nachprüfungen zu auffordern:
++
+`system controller replace resume`
+
++
+Das System führt die folgenden Nachprüfungen durch:
+
++
+** Cluster-Quorum-Prüfung
+** Cluster-Zustandsprüfung
+** Aggregatrekonstruktion
+** Aggregatstatus-Prüfung
+** Überprüfung des Festplattenstatus
+** LIF-Statusüberprüfung für Cluster
+** Lautstärkerprüfung
+
+
+

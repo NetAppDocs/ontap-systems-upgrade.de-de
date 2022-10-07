@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/arl_upgrade_workflow.html 
+keywords: upgrade workflow, procedure steps, stages 
+summary: Erfahren Sie, wie das manuelle ARL-Upgrade für ein Controller-Paar mit ONTAP 9.8 oder höher funktioniert. 
+---
+= ARL Upgrade-Workflow
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bevor Sie die Nodes mit ARL aktualisieren, müssen Sie zunächst verstehen, wie das Verfahren funktioniert. In diesem Dokument wird das Verfahren in mehrere Phasen unterteilt.
+
+
+
+== Aktualisieren Sie das Node-Paar
+
+Zum Upgrade des Node-Paars müssen Sie die ursprünglichen Nodes vorbereiten und anschließend eine Reihe von Schritten sowohl auf den ursprünglichen als auch auf den neuen Nodes durchführen. Anschließend können Sie die ursprünglichen Knoten außer Betrieb nehmen.
+
+
+
+== Übersicht über die ARL-Upgrade-Sequenz
+
+Während des Verfahrens aktualisieren Sie die ursprüngliche Controller Hardware mit der Ersatz-Controller-Hardware, einem Controller gleichzeitig. Nutzen Sie die HA-Paar-Konfiguration, um das Eigentum von Aggregaten ohne Root-Berechtigungen zu verschieben. Alle Aggregate außerhalb der Root-Ebene müssen zwei Umlagerungen durchlaufen, um das endgültige Ziel zu erreichen, nämlich den korrekten aktualisierten Node.
+
+Jedes Aggregat hat einen Hausbesitzer und aktuellen Eigentümer. Der Hausbesitzer ist der eigentliche Eigentümer des Aggregats, und der aktuelle Eigentümer ist der temporäre Eigentümer.
+
+Die folgende Abbildung zeigt die Phasen des Verfahrens. Die dicken, hellgrauen Pfeile stehen für die Verschiebung der Aggregate und die Verschiebung der LIFs. Die dünneren schwarzen Pfeile stellen die Entfernung der ursprünglichen Nodes dar. Die kleineren Controller Images stellen die ursprünglichen Nodes dar und die größeren Controller Images repräsentieren die neuen Nodes.
+
+image:arl_upgrade_manual_image1.PNG["Darstellung der Phasen des ARL-Verfahrens"]
+
+Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einzelnen Phasen ausführen, und den Zustand der Aggregateigentümer am Ende der Phase. Detaillierte Schritte sind im weiteren Verlauf des Verfahrens aufgeführt:
+
+[cols="35,65"]
+|===
+| Stufe | Schritte 
+
+
+| link:stage_1_index.html["Phase 1: Upgrade vorbereiten"]  a| 
+. Ermitteln Sie, ob der Controller über Aggregate auf internen Festplatten verfügt.
++
+Dieser Schritt ist nur erforderlich, wenn Sie ein Upgrade von einem Controller mit internem Festplattenlaufwerk durchführen.
+
+. Bereiten Sie die Knoten für ein Upgrade vor.
+. Rekeylaufwerke für Storage Encryption.
++
+Diese Aufgabe ist nur erforderlich, wenn Sie ein Upgrade von einem System mit Self-Encrypting Drives durchführen.
+
+. Überprüfen Sie den SnapMirror Beziehungsstatus im Cluster und legen Sie alle Beziehungen zwischen den Clustern still.
+. Vorbereitungen für den Netzboot
+
+
+Gesamteigentum am Ende von Phase 1:
+
+* Node1 ist der Hausbesitzer und der aktuelle Besitzer der node1 Aggregate.
+* Node2 ist der Hausbesitzer und der aktuelle Besitzer der node2 Aggregate.
+
+
+
+
+| link:stage_2_index.html["Stufe 2: Node1 ausmustern"]  a| 
+. Verschiebung von nicht-Root-Aggregaten von node1 auf node2
+. Verschieben Sie LIFS-Daten anderer Anbieter als SAN von node1 auf node2.
+. Node1-Informationen aufzeichnen.
+. Verschiebung ausgefallener oder Vetos von Aggregaten
+. Node1 ausmustern.
+
+
+Gesamteigentum am Ende von Phase 2:
+
+* Node1 ist der Hausbesitzer von node1 Aggregaten.
+* Node2 ist der aktuelle Besitzer von node1 Aggregaten.
+* Node2 ist der Hausbesitzer und der aktuelle Besitzer von node2 Aggregaten.
+
+
+
+
+| link:stage_3_index.html["Phase 3: Installieren und booten node3"]  a| 
+. Installieren und booten Sie node3.
+. Legen Sie die UTA/UTA2-Konfiguration auf node3 fest.
+. Ports von node1 nach node3 zuordnen.
+. Verschieben Sie logische Schnittstellen (LIFs für nicht-SAN) im Besitz von node1 von node2 auf node3 und überprüfen Sie SNA LIFs auf node3.
+. Verschieben Sie Aggregate ohne Root-Root-Fehler von node2 auf node3.
+. Verschieben Sie LIFs, die nicht-SAN-Daten-LIFs im Besitz von node2 sind, auf Knoten 3.
+
+
+Gesamteigentum am Ende von Stufe 3:
+
+* Node2 ist der Hausbesitzer von node2 Aggregate, aber nicht der aktuelle Eigentümer.
+* Node3 ist der Hausbesitzer und aktuelle Besitzer von Aggregaten, die ursprünglich zu node1 gehören.
+* Node2 ist der Hausbesitzer und aktuelle Besitzer von Aggregaten, die zu node2 gehören, aber nicht der Hausbesitzer.
+
+
+
+
+| link:stage_4_index.html["Stufe 4: Außer Dienst 2"]  a| 
+. Node2-Informationen aufzeichnen.
+. Node2 ausmustern.
+
+
+Es findet keine Änderungen am Aggregateigentum statt.
+
+
+
+| link:stage_5_index.html["Phase 5: Installieren und booten node4"]  a| 
+. installieren und booten sie node4.
+. Legen Sie die UTA/UTA2-Konfiguration auf node4 fest.
+. Weisen Sie Ports von node2 nach node4 zu.
+. Verschieben Sie LIFs, die nicht-SAN-Daten-LIFs im Besitz von node2 sind, von node3 auf node4 und überprüfen Sie SNA LIFs auf node4.
+. Verschiebung von nicht-Root-Aggregaten node2 von Node3 auf node4
+
+
+Gesamteigentum am Ende von Stufe 5:
+
+* Node3 ist der Hausbesitzer und aktuelle Besitzer der Aggregate, die ursprünglich zu node1 gehörten.
+* Node4 ist der Hausbesitzer und aktuelle Besitzer von Aggregaten, die ursprünglich zu node2 gehörten.
+
+
+
+
+| link:stage_6_index.html["Phase 6: Das Upgrade abschließen"]  a| 
+. Überprüfen Sie, ob die neuen Controller ordnungsgemäß eingerichtet sind.
+. Richten Sie auf den neuen Nodes die Storage-Verschlüsselung ein.
++
+Diese Aufgabe ist nur erforderlich, wenn Sie ein Upgrade auf ein System mit Self-Encrypting Drives durchführen.
+
+. Ausmustern des alten Systems
+. Wiederaufnahme der NetApp SnapMirror Beziehungen.
++
+*Hinweis:* die Disaster-Recovery-Updates der Storage Virtual Machine (SVM) werden nicht entsprechend den zugewiesenen Zeitplänen unterbrochen.
+
+
+
+Es findet keine Änderungen am Aggregateigentum statt.
+
+|===

@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/automate_the_controller_upgrade_process.html 
+keywords: automating, controller, upgrade, network, port, aff, a700, a900 
+summary: Verwenden Sie das teilweise automatisierte ARL-Verfahren, um eine AFF A700 auf einen AFF A900 zu aktualisieren. 
+---
+= Automatisierung des Controller-Upgrades
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Während dieses Controller-Upgrades ersetzen Sie einen AFF A700 Controller durch einen AFF A900 Controller oder einen FAS9000 Controller durch einen FAS9500 Controller. Dieser Inhalt enthält die Schritte für das automatisierte Verfahren, bei dem die automatische Festplattenzuordnung und die Überprüfung des Netzwerkports zur Optimierung des Controller-Upgrades verwendet werden.

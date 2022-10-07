@@ -1,0 +1,143 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/guidelines_upgrade_with_arl.html 
+keywords: guidelines, upgrade, controllers, arl, aggregate, relocation 
+summary: Wissen Sie, ob Sie das manuelle ARL-Verfahren für ein Controller-Paar mit ONTAP 9.7 oder einer älteren Version verwenden können. 
+---
+= Richtlinien für das Controller-Upgrade mit ARL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Um zu verstehen, ob Sie bei einem Controller-Upgrade von ONTAP 9.0 bis 9.7 mit Aggregate Relocation (ARL) arbeiten können, hängt von der Plattform und der Konfiguration der ursprünglichen Controller sowie von den Ersatz-Controllern ab.
+
+
+
+== Unterstützte Upgrades für ARL
+
+Unter den folgenden Umständen können Sie ein Upgrade eines Node-Paars mit ARL durchführen:
+
+* Die ursprünglichen Controller und die Ersatz-Controller müssen vor dem Upgrade dieselbe Version von ONTAP 9.x ausgeführt werden.
+* Die Ersatz-Controller müssen die gleiche oder eine höhere Kapazität aufweisen als die ursprünglichen Controller. Bei gleicher oder höherer Kapazität werden Attribute bezeichnet, beispielsweise die Maximalanzahl für NVRAM, Volume, LUN oder Aggregate. Er bezieht sich auch auf die maximale Volume- oder Aggregatgröße der neuen Nodes.
+* Sie können die folgenden Systemtypen aktualisieren:
++
+** Einem FAS System auf ein FAS System.
+** Ein FAS System auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System.
+** Einem AFF System auf ein AFF System.
+** Ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System auf einem FAS System, vorausgesetzt, dass das System mit FlexArray Virtualisierungssoftware oder V-Series System keine Array-LUNs besitzt.
+** Eines V-Series Systems auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System
+
+
+
+
+
+NOTE: Bevor Sie ein AFF-Systemupgrade durchführen, müssen Sie ONTAP auf Version 9.3P12, 9.4P6 oder 9.5P1 oder höher aktualisieren. Diese Versionsebenen sind für ein erfolgreiches Upgrade erforderlich.
+
+* Bei einigen Upgrades des ARL-Controllers können Sie für das Upgrade temporäre Cluster-Ports auf dem Ersatz-Controller verwenden. Wenn Sie beispielsweise je nach Konfiguration der AFF A400 ein Upgrade von einem AFF A300 auf ein AFF A400 System durchführen, können Sie einen der beiden Mezzanine-Ports verwenden oder eine 10-GbE-Netzwerkschnittstellenkarte mit vier Ports für temporäre Cluster-Ports hinzufügen. Nachdem Sie ein Controller-Upgrade über temporäre Cluster-Ports abgeschlossen haben, können Sie Cluster unterbrechungsfrei zu 100-GbE-Ports auf dem Ersatz-Controller migrieren.
+* Wenn Sie ONTAP 9.6P11, 9.7P8 oder neuere Versionen verwenden, wird empfohlen, die Aktivierung von Connectivity, Lebendigkeit und Availability Monitor (CLAM)-Übernahme zu aktivieren, um das Cluster bei bestimmten Node-Ausfällen in Quorum zurückzugeben. Der `kernel-service` Für Befehl ist der erweiterte Zugriff auf die Berechtigungsebene erforderlich. Weitere Informationen finden Sie unter: https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["NetApp KB-Artikel SU436: DIE CLAM-Übernahme hat sich die Standardkonfiguration geändert"^].
+* Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock Enterprise und SnapLock Compliance Volumes konfiguriert sind.
+
+
+Sie müssen überprüfen, ob der ARL-Vorgang auf den Original- und Ersatz-Controllern ausgeführt werden kann. Sie müssen die Größe aller definierten Aggregate und die Anzahl der Festplatten überprüfen, die vom ursprünglichen System unterstützt werden. Vergleichen Sie dann die aggregierte Größe und Anzahl der vom neuen System unterstützten Festplatten. Informationen zum Zugriff auf diese Informationen finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen gleich oder größer sein als die Aggregatgröße und Anzahl der vom ursprünglichen System unterstützten Festplatten.
+
+Sie müssen in den Cluster-Mischregeln validieren, ob neue Nodes zusammen mit den vorhandenen Nodes Teil des Clusters werden können, wenn der ursprüngliche Controller ersetzt wird. Weitere Informationen zu Regeln für die Kombination von Clustern finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+
+
+NOTE: Beide Systeme sind entweder hochverfügbarkeits- (HA) oder kein HA-System. Beide Nodes müssen entweder die Persönlichkeit aktiviert oder deaktiviert sein. Sie können einen Node nicht mit der All-Flash-optimierten Persönlichkeit kombinieren, die bei einem Node aktiviert ist, der nicht im gleichen HA-Paar die Persönlichkeit aktiviert hat. Wenn sich die Persönlichkeiten unterscheiden, wenden Sie sich an den technischen Support.
+
+
+NOTE: Wenn das neue System weniger Steckplätze als das ursprüngliche System besitzt oder weniger oder unterschiedliche Ports vorhanden sind, müssen Sie dem neuen System möglicherweise einen Adapter hinzufügen. Siehe link:other_references.html["Quellen"] Link zum _Hardware Universe_ auf der NetApp Support-Website, um Informationen zu bestimmten Plattformen zu erhalten.
+
+
+
+== Upgrades werden für ARL nicht unterstützt
+
+Sie können die folgenden Aktualisierungen nicht ausführen:
+
+* Zu bzw. von Controllern, die keine ONTAP Version von ONTAP 9.0 auf ONTAP 9.7 ausführen können
++
+Informationen zu Controller-Upgrades für Systeme mit Data ONTAP 7-Mode finden Sie unter link:other_references.html["Quellen"] Link zur NetApp Support Site_.
+
+* Zum Austausch von Controllern, die die mit den ursprünglichen Controllern verbundenen Platten-Shelfs nicht unterstützen.
++
+Informationen zur Unterstützung von Festplatten finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+
+* Von Controllern mit Root-Aggregaten oder Datenaggregaten auf internen Laufwerken.
++
+Wenn Sie Controller mit Root-Aggregaten oder Datenaggregaten auf internen Festplattenlaufwerken aktualisieren möchten, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschiebung von Volumes oder Storage_ und Vorgang _Upgrade eines Node-Paares, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird.
+
++
+
+NOTE: Wenn Sie ONTAP auf Nodes in einem Cluster aktualisieren möchten, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade ONTAP_.
+
+
+
+
+
+== Annahmen und Terminologie
+
+Dieses Dokument wird an folgende Annahmen geschrieben:
+
+* Die Ersatz-Controller-Hardware ist neu und wurde nicht verwendet.
++
+
+WARNING: *Achtung*: Da dieses Verfahren davon ausgeht, dass die Hardware des Ersatzcontrollers neu ist und nicht verwendet wurde, werden die erforderlichen Schritte zur Vorbereitung gebrauchter Controller mit dem ausgeführt `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Wenn bereits die Ersatz-Controller-Hardware verwendet wurde, müssen Sie sich an den technischen Support wenden, insbesondere wenn auf den Controllern Data ONTAP in 7-Mode ausgeführt wurde.
+
+* Die Richtlinien zum Upgrade des Knotenpaars werden gelesen und verstanden.
++
+
+WARNING: *Achtung*: Versuchen Sie nicht, den NVRAM-Inhalt zu löschen. Wenn Sie den Inhalt des NVRAM löschen müssen, wenden Sie sich an den technischen Support von NetApp.
+
+* Sie führen den entsprechenden Befehl vor und nach dem aus `modify` Und die Ausgabe von beiden vergleichen `show` Befehle, um zu überprüfen, dass das `modify` Befehl erfolgreich.
+* Wenn Sie über eine SAN-Konfiguration verfügen, stehen Ihnen auf dem HA-Paar lokale LIFs und Partner-LIFs für jede Storage Virtual Machine (SVM) zur Verfügung. Wenn Sie keine lokalen LIFs für jede SVM haben und keine Partner-LIFs haben, sollten Sie vor dem Upgrade die SAN-Daten-LIF auf dem Remote- und lokalen Node für diese SVM hinzufügen.
+* Wenn Sie in einer SAN-Konfiguration Port-Sets haben, müssen Sie überprüfen, dass jeder gebundene Port-Satz mindestens eine LIF von jedem Node im HA-Paar enthält.
+
+
+Bei diesem Verfahren wird der Begriff „_Boot Environment prompt_“ verwendet, um die Eingabeaufforderung auf einem Node, von dem Sie bestimmte Aufgaben ausführen können, zu lesen, z. B. beim Neubooten des Knotens und beim Drucken oder Festlegen von Umgebungsvariablen. Die Eingabeaufforderung wird manchmal informell als _Boot-Loader Prompt_ bezeichnet.
+
+Die Eingabeaufforderung der Boot-Umgebung wird im folgenden Beispiel angezeigt:
+
+[listing]
+----
+LOADER>
+----
+
+
+== Lizenzierung nach ONTAP 9.7 oder früher
+
+Wenn Sie ein Cluster einrichten, werden Sie vom Setup-Assistenten aufgefordert, den Lizenzschlüssel für die Cluster-Basis einzugeben. Einige Funktionen erfordern jedoch zusätzliche Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
+
+Wenn Sie keine neuen Lizenzschlüssel haben, sind für den neuen Controller derzeit lizenzierte Funktionen im Cluster verfügbar und funktionieren weiterhin. Durch die Verwendung nicht lizenzierter Funktionen auf dem Controller können Sie jedoch möglicherweise die Einhaltung Ihrer Lizenzvereinbarung verschließen. Sie müssen daher nach Abschluss des Upgrades den neuen Lizenzschlüssel oder die neuen Schlüssel für den neuen Controller installieren.
+
+Alle Lizenzschlüssel sind 28 Groß-alphabetische Zeichen lang. Siehe link:other_references.html["Quellen"] Um auf die _NetApp Support Site_ zu verlinken, wo Sie neue 28-stellige Lizenzschlüssel für ONTAP 9.7 erhalten. Oder früher. Die Schlüssel sind im Abschnitt „_My Support_“ unter „_Software licenses_“ verfügbar. Falls auf der Website keine Lizenzschlüssel vorhanden ist, wenden Sie sich an Ihren NetApp Ansprechpartner.
+
+Ausführliche Informationen zur Lizenzierung finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+
+
+
+== Storage-Verschlüsselung
+
+Die ursprünglichen oder die neuen Nodes sind möglicherweise für die Storage-Verschlüsselung aktiviert. In diesem Fall müssen Sie in diesem Verfahren weitere Schritte durchführen, um zu überprüfen, ob die Speicherverschlüsselung ordnungsgemäß eingerichtet ist.
+
+Falls Sie Storage Encryption verwenden möchten, müssen alle dem Node zugeordneten Festplattenlaufwerke über Self-Encrypting Drives verfügen.
+
+
+
+== 2-Node-Cluster ohne Switches
+
+Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren.
+
+
+
+== Fehlerbehebung
+
+Dieses Verfahren enthält Vorschläge zur Fehlerbehebung.
+
+Falls beim Upgrade der Controller Probleme auftreten, finden Sie weitere Informationen im link:troubleshoot_index.html["Fehlerbehebung"] Abschnitt am Ende des Verfahrens für weitere Informationen und mögliche Lösungen.
+
+Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.

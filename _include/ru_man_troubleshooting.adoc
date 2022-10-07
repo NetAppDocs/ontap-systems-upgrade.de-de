@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+Dieses Verfahren enthält Vorschläge zur Fehlerbehebung.
+
+Falls beim Upgrade der Controller Probleme auftreten, finden Sie weitere Informationen im link:troubleshoot_index.html["Fehlerbehebung"] Abschnitt am Ende des Verfahrens für weitere Informationen und mögliche Lösungen.
+
+Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.

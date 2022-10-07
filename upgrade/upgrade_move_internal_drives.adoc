@@ -1,0 +1,47 @@
+---
+permalink: upgrade/upgrade-move-internal-drives.html 
+sidebar: sidebar 
+keywords: node, support, model, upgrading, upgrade, moving, move, storage, internal, sata, drive, ssd, drive, shelf, attach, cluster, transfer, sas, drive, move internal drives from an original node 
+summary: Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können während des Upgrades durch Verschieben von Storage die internen SATA-Laufwerke, SSDs oder SAS-Laufwerke des Nodes in ein Festplatten-Shelf verschoben werden, das mit dem neuen Node im selben Cluster verbunden ist. 
+---
+= Verschieben Sie interne Laufwerke von einem ursprünglichen Knoten
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können während des Upgrades durch Verschieben von Storage die internen SATA-Laufwerke, SSDs oder SAS-Laufwerke des Nodes in ein Festplatten-Shelf verschoben werden, das mit dem neuen Node im selben Cluster verbunden ist.
+
+.Bevor Sie beginnen
+* Sie müssen geprüft haben link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"] Allgemeines zum Verschieben interner Laufwerke.
++
+Wenden Sie sich an den technischen Support, wenn Sie Anleitungen für Ihre Konfiguration benötigen.
+
+* Die Träger für SATA-, SSD- oder SAS-Laufwerke des ursprünglichen Node müssen mit dem neuen Festplatten-Shelf kompatibel sein.
+* Ein kompatibles Festplatten-Shelf muss bereits mit dem neuen Node verbunden sein.
+* Das Festplatten-Shelf muss über genügend freie Schächte verfügen, um die SATA-, SSD- oder SAS-Laufwerksträger vom ursprünglichen Node zu beherbergen.
+
+
+.Schritte
+. Entfernen Sie vorsichtig die Blende von der Vorderseite des Systems.
+. [[Move_int_Drive_2]]Drücken Sie die Entriegelungstaste auf der linken Seite des Laufwerkträgers.
++
+Der Nockengriff am Träger öffnet sich teilweise und der Träger löst sich von der Mittelplatine aus.
+
+. Ziehen Sie den Nockengriff in die vollständig geöffnete Position, um den Träger von der Mittelplatine zu lösen, und schieben Sie ihn dann vorsichtig aus dem Regal.
++
+
+NOTE: Beim Entfernen, Einbau oder Tragen eines Laufwerks immer zwei Hände verwenden. Legen Sie Ihre Hände jedoch nicht auf die Laufwerkstafeln, die auf der Unterseite des Trägers ausgesetzt sind.
+
+. Wenn der Nockengriff offen ist, setzen Sie den Träger in einen Schlitz im neuen Antriebsregal ein, und drücken Sie ihn fest, bis der Träger anhält.
++
+
+NOTE: Verwenden Sie beim Einsetzen des Trägers zwei Hände.
+
+. [[Move_int_Drive_5]] Schließen Sie den Nockengriff, damit der Träger vollständig in der Mittelebene sitzt und der Griff einrastet.
++
+Sie müssen den Griff langsam schließen, damit er korrekt an der Vorderseite des Trägers ausgerichtet ist.
+
+. Wiederholen ,Schritt 2 Bis ,Schritt 5 Bei allen Laufwerken, die Sie auf das neue System migrieren.
+

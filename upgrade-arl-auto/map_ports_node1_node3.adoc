@@ -1,0 +1,251 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/map_ports_node1_node3.html 
+keywords: map, port, node1, node3, settings, restore, cluster 
+summary: 'Überprüfen Sie, ob die physischen Ports auf node1 korrekt zugeordnet zu node3 bei einem Upgrade von Controllern, die ONTAP 9.5 zu 9.7 mit verwenden `system controller replace` Befehle.' 
+---
+= Ports von node1 nach node3 zuordnen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen überprüfen, ob die physischen Ports auf node1 den physischen Ports auf node3 korrekt zugeordnet sind. Dadurch kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
+
+Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
+
+Die Port-Einstellungen können je nach Modell der Nodes variieren. Sie müssen die Port- und LIF-Konfiguration auf dem ursprünglichen Node mit der geplanten Verwendung und Konfiguration des neuen Node kompatibel machen. Dies liegt daran, dass der neue Node beim Booten der gleichen Konfiguration wiedergibt. Dies bedeutet, dass ONTAP beim Booten von node3 versuchen wird, LIFs auf den gleichen Ports zu hosten, die in node1 verwendet wurden.
+
+Wenn also die physischen Ports auf node1 nicht direkt den physischen Ports auf node3 zugeordnet werden, sind daher Änderungen der Software-Konfiguration erforderlich, um nach dem Booten die Cluster-, Management- und Netzwerkkonnektivität wiederherzustellen. Wenn die Cluster-Ports auf node1 nicht direkt den Cluster-Ports auf node3 zugeordnet werden, wird node3 möglicherweise nicht automatisch dem Quorum beitreten, wenn er neu gestartet wird, bis Sie die Software-Konfiguration ändern, um die Cluster-LIFs auf den richtigen physischen Ports zu hosten.
+
+.Schritte
+. Notieren Sie in der Tabelle alle Kabelinformationen für node1, die Ports, Broadcast-Domänen und IPspaces:
++
+|===
+| LIF | Anzahl an Knoten1-Ports | Node1-IPspaces | Broadcast-Domänen der Nr. 1 | Node3-Ports | Node3-IPspaces | Node3 Broadcast-Domänen 
+
+
+| Cluster 1 |  |  |  |  |  |  
+
+
+| Cluster 2 |  |  |  |  |  |  
+
+
+| Cluster 3 |  |  |  |  |  |  
+
+
+| Cluster 4 |  |  |  |  |  |  
+
+
+| Node-Management |  |  |  |  |  |  
+
+
+| Cluster-Management |  |  |  |  |  |  
+
+
+| Daten 1 |  |  |  |  |  |  
+
+
+| Daten 2 |  |  |  |  |  |  
+
+
+| Daten 3 |  |  |  |  |  |  
+
+
+| Daten 4 |  |  |  |  |  |  
+
+
+| San |  |  |  |  |  |  
+
+
+| Intercluster-Port |  |  |  |  |  |  
+|===
+. Zeichnen Sie alle Kabelinformationen für node3, die Ports, Broadcast-Domänen und IPspaces in der Tabelle auf.
+. Führen Sie die folgenden Schritte aus, um zu überprüfen, ob es sich bei dem Setup um ein 2-Node-Cluster ohne Switches handelt:
++
+.. Legen Sie die Berechtigungsebene auf erweitert fest:
++
+`cluster::> set -privilege advanced`
+
+.. Überprüfen Sie, ob es sich um ein 2-Node-Cluster ohne Switches handelt:
++
+`cluster::> network options switchless-cluster show`
+
++
+[listing]
+----
+cluster::*> network options switchless-cluster show
+
+Enable Switchless Cluster: false/true
+----
++
+Der Wert dieser Befehlsausgabe muss dem physischen Status des Systems entsprechen.
+
+.. Zurück zur Administratorberechtigungsebene:
++
+[listing]
+----
+cluster::*> set -privilege admin
+
+cluster::>
+----
+
+
+. Gehen Sie folgendermaßen vor, um Node3 in Quorum zu platzieren:
++
+.. Boot-Knoten 3. Siehe link:install_boot_node3.html["Installieren und booten Sie node3"] Um den Node zu booten, wenn Sie dies noch nicht getan haben.
+.. Vergewissern Sie sich, dass sich die neuen Cluster-Ports in der Cluster Broadcast-Domäne befinden:
++
+`network port show -node _node_ -port _port_ -fields broadcast-domain`
+
++
+Das folgende Beispiel zeigt, dass Port „e0a“ sich in der Cluster-Domäne auf node3 befindet:
+
++
+[listing]
+----
+ cluster::> network port show -node _node3_ -port e0a -fields broadcast-domain
+
+ node       port broadcast-domain
+ ---------- ---- ----------------
+ node3      e0a  Cluster
+----
+.. Wenn sich die Cluster-Ports nicht in der Cluster Broadcast-Domäne befinden, fügen Sie sie mit dem folgenden Befehl hinzu:
++
+`broadcast-domain add-ports -ipspace Cluster -broadcast-domain Cluster -ports _node:port_`
+
++
+Dieses Beispiel fügt Cluster-Port „e1b“ auf Knoten3 hinzu:
+
++
+[listing]
+----
+network port modify -node node3 -port e1b -ipspace Cluster -mtu 9000
+----
+.. Fügen Sie die korrekten Ports zur Cluster Broadcast-Domäne hinzu:
++
+`network port modify -node -port -ipspace Cluster -mtu 9000`
+
++
+Dieses Beispiel fügt Cluster-Port „e1b“ auf node4 hinzu:
+
++
+[listing]
+----
+network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
+----
+.. Migrieren Sie die Cluster-LIFs zu den neuen Ports, einmal für jede LIF:
++
+`network interface migrate -vserver Cluster -lif _lif_name_ -source-node _node3_ -destination-node _node3_ -destination-port _port_name_`
+
+.. Ändern Sie den Startport der Cluster-LIFs:
++
+`network interface modify -vserver Cluster -lif _lif_name_ –home-port _port_name_`
+
+.. Entfernen Sie die alten Ports aus der Cluster Broadcast-Domäne:
++
+`network port broadcast-domain remove-ports`
+
++
+Mit dem folgenden Befehl wird der Port „e0d“ auf node3 entfernt:
+
++
+`network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cluster ‑ports node3:e0d`
+
+.. Vergewissern Sie sich, dass node3 erneut dem Quorum beigetreten ist:
++
+`cluster show -node node3 -fields health`
+
+
+
+. [[Auto_map_3_step5]]Anpassen der Broadcast-Domänen, die Ihre Cluster-LIFs hosten, sowie Node-Management/clustermanagement-LIFs. Vergewissern Sie sich, dass jede Broadcast-Domäne die richtigen Ports enthält. Ein Port kann nicht zwischen Broadcast-Domänen verschoben werden, wenn er als Host oder Home für eine LIF ist, sodass Sie die LIFs möglicherweise wie folgt migrieren und ändern müssen:
++
+.. Zeigen Sie den Startport einer logischen Schnittstelle an:
++
+`network interface show -fields home-node,home-port`
+
+.. Zeigen Sie die Broadcast-Domäne an, die diesen Port enthält:
++
+`network port broadcast-domain show -ports _node_name:port_name_`
+
+.. Ports aus Broadcast-Domänen hinzufügen oder entfernen:
++
+`network port broadcast-domain add-ports`
+
++
+`network port broadcast-domain remove-ports`
+
+.. Ändern Sie den Home-Port eines LIF:
++
+`network interface modify -vserver vserver -lif _lif_name_ –home-port _port_name_`
+
+
+
+. Passen Sie die Broadcast-Domänenmitgliedschaft der Netzwerkports an, die für Intercluster LIFs verwendet werden, mit denselben Befehlen an, wie in dargestellt ,Schritt 5.
+. Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in ,Schritt 5.
+. Wenn auf node1 keine Ports mehr vorhanden waren, löschen Sie sie mit den folgenden Schritten:
++
+.. Zugriff auf die erweiterte Berechtigungsebene auf beiden Nodes:
++
+`set -privilege advanced`
+
+.. So löschen Sie die Ports:
++
+`network port delete -node _node_name_ -port _port_name_`
+
+.. Zurück zur Administratorebene:
++
+`set -privilege admin`
+
+
+
+. Passen Sie alle LIF Failover-Gruppen an:
++
+`network interface modify -failover-group _failover_group_ -failover-policy _failover_policy_`
+
++
+Mit dem folgenden Befehl wird die Failover-Richtlinie auf festgelegt `broadcast-domain-wide` Und verwendet die Ports in der Failover-Gruppe „fg1“ als Failover-Ziele für LIF „data1“ auf node3:
+
++
+`network interface modify -vserver node3 -lif data1 failover-policy broadcast-domainwide -failover-group fg1`
+
++
+Siehe link:other_references.html["Quellen"] Link zu _Netzwerkverwaltung_ oder den Befehlen _ONTAP 9: Manual Page Reference_ für weitere Informationen.
+
+. Überprüfen Sie die Änderungen auf node3:
++
+`network port show -node node3`
+
+. Jedes Cluster-LIF muss an Port 7700 zuhören. Vergewissern Sie sich, dass die Cluster-LIFs an Port 7700 zuhören:
++
+`::> network connections listening show -vserver Cluster`
+
++
+Port 7700, der auf Cluster-Ports hört, ist das erwartete Ergebnis, wie im folgenden Beispiel für ein Cluster mit zwei Nodes dargestellt:
+
++
+[listing]
+----
+Cluster::> network connections listening show -vserver Cluster
+Vserver Name     Interface Name:Local Port     Protocol/Service
+---------------- ----------------------------  -------------------
+Node: NodeA
+Cluster          NodeA_clus1:7700               TCP/ctlopcp
+Cluster          NodeA_clus2:7700               TCP/ctlopcp
+Node: NodeB
+Cluster          NodeB_clus1:7700               TCP/ctlopcp
+Cluster          NodeB_clus2:7700               TCP/ctlopcp
+4 entries were displayed.
+----
+. Setzen Sie bei Bedarf für jede Cluster-LIF, die nicht auf Port 7700 angehört, den Administratorstatus der logischen Schnittstelle auf `down` Und dann `up`:
++
+`::> net int modify -vserver Cluster -lif _cluster-lif_ -status-admin down; net int modify -vserver Cluster -lif _cluster-lif_ -status-admin up`
+
++
+Wiederholen Sie Schritt 11, um zu überprüfen, ob die Cluster-LIF jetzt auf Port 7700 angehört.
+
+

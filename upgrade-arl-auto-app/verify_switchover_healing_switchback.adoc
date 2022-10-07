@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/verify_switchover_healing_switchback.html 
+keywords: verifying, switchover, healing, switchback, metrocluster, management, disaster, recovery, mcc 
+summary: 'Überprüfen Sie beim Upgrade von Controllern mit ONTAP 9.8 oder höher die MetroCluster Konfigurationsumschaltung, -Reparatur und den Wechsel zwischen den Vorgängen beim `system controller replace` Befehle.' 
+---
+= Überprüfung von UmschalttaFunktionen, Healing und Switchback
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie sollten die Umschalttavorgänge, die Reparatur und den Wechsel der MetroCluster Konfiguration überprüfen.
+
+Siehe link:other_references.html["Quellen"] Verbinden mit Inhalten für _MetroCluster Management and Disaster Recovery_ und Verwenden der genannten Verfahren für ausgehandelte Umschaltung, Heilung und Umschalten.

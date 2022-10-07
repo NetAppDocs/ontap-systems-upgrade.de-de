@@ -1,0 +1,11 @@
+---
+section: upgrade-arl
+title: Nutzen Sie Aggregatverschiebung, um ein Upgrade der Controller-Hardware durchzuführen
+entries:
+- title: Überblick
+  url: "/upgrade-arl/index.html"
+- section: upgrade-arl-auto-affa900
+- section: upgrade-arl-auto-app
+- section: upgrade-arl-manual-app
+- section: upgrade-arl-auto
+- section: upgrade-arl-manual

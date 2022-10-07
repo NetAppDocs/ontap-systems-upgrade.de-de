@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/troubleshoot_index.html 
+keywords: troubleshoot, troubleshooting, problem, error, failure 
+summary: Beheben Sie Fehler, die bei einem manuellen ARL Upgrade auf Controllern mit ONTAP 9.7 oder einer älteren Version auftreten können. 
+---
+= Fehlerbehebung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node kann abstürzen, Aggregate werden möglicherweise nicht verschoben oder LIFs werden nicht migriert. Die Ursache des Fehlers und seiner Lösung hängt davon ab, wann der Fehler während des Aktualisierungsvorgangs aufgetreten ist.
+
+Siehe Tabelle, in der die verschiedenen Phasen des Verfahrens im Abschnitt beschrieben werden link:arl_upgrade_workflow.html["ARL Upgrade-Workflow"]. Die Informationen über mögliche Fehler werden in der Phase des Verfahrens aufgelistet.
+
+* link:aggregate_relocation_failures.html["Fehler bei der Aggregatverschiebung"]
+* link:reboots_panics_power_cycles.html["Neustarts, Panikspiele oder Energiezyklen"]
+* link:issues_multiple_stages_of_procedure.html["Probleme, die in mehreren Phasen des Verfahrens auftreten können"]
+* link:lif_migration_failure.html["Fehler bei der LIF-Migration"]
+* link:lifs_invalid_ports_after_upgrade.html["LIFs befinden sich bei ungültigen Ports nach dem Upgrade"]
+

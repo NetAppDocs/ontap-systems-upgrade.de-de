@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/relocate_failed_or_vetoed_aggr.html 
+keywords: relocate, aggregates, fail, veto 
+summary: 'Wenn Sie Controller mit ONTAP 9.5 auf 9.7 aktualisieren, müssen Sie fehlerhafte oder Vetos manuell verschieben `system controller replace` Befehle.' 
+---
+= Verschiebung ausgefallener oder Vetos von Aggregaten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Falls Aggregate nicht verschoben oder ein Vetoo eingesetzt werden kann, müssen sie die Aggregate manuell verschieben oder – falls erforderlich – entweder die Vetos oder Zielprüfungen überschreiben.
+
+Der Umzugsvorgang wird aufgrund des Fehlers angehalten.
+
+.Schritte
+. Überprüfen Sie die EMS-Protokolle, um festzustellen, warum das Aggregat nicht verschoben oder ein Veto eingelegt hat.
+. Verschiebung ausgefallener oder Vetos von Aggregaten:
++
+`storage aggregate relocation start -node _node1_ -destination _node2_ aggregate-list * -ndocontroller-upgrade true`
+
+. Geben Sie bei der entsprechenden Aufforderung ein `y`.
+. Sie können die Verschiebung mit einer der folgenden Methoden erzwingen:
++
+[cols="35,65"]
+|===
+| Option | Beschreibung 
+
+
+| Veto-Prüfungen werden überschrieben | Geben Sie Folgendes ein:
+`storage aggregate relocation start -override-vetoes * -ndocontroller-upgrade true` 
+
+
+| Zielprüfungen überschreiben | Geben Sie Folgendes ein:
+`storage aggregate relocation start -overridedestination-checks * -ndo-controllerupgrade true` 
+|===
+

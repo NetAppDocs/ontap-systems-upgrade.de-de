@@ -1,0 +1,26 @@
+---
+permalink: upgrade/upgrade_considerations_move_san_lifs.html 
+sidebar: sidebar 
+keywords: cluster, san, environment, lif, original, node, unjoin, original, move san lifs 
+summary: Sie müssen nur SAN-LIFs verschieben, wenn Sie die Inhalte des Clusters ändern. 
+---
+= Überlegungen zum Verschieben von SAN-LIFs
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen nur die SAN-LIFs verschieben, wenn Sie beispielsweise den Inhalt des Clusters ändern, indem Sie dem Cluster Nodes hinzufügen oder Nodes aus dem Cluster löschen. Wenn Sie ein LIF verschieben, müssen Sie Ihre FC-Fabric nicht erneut Zone zuweisen oder neue iSCSI-Sitzungen zwischen den verbundenen Hosts des Clusters und der neuen Zielschnittstelle erstellen.
+
+Sie können ein SAN-LIF mit verschieben `network interface modify` Befehl. Zum Verschieben einer SAN-LIF müssen Sie die LIF offline schalten, die LIF auf einen anderen Home-Node oder -Port verschieben und sie anschließend an ihrem neuen Speicherort wieder in den Online-Modus versetzen. ALUA (Asymmetric Logical Unit Access) bietet redundante Pfade und automatische Pfadauswahl als Teil einer ONTAP SAN-Lösung. Wenn also die LIF für die Verschiebung offline geschaltet wird, gibt es keine I/O-Unterbrechung. Der Host versucht einfach erneut, und verschiebt I/O dann zu einer anderen LIF.
+
+Während der LIF-Bewegungen können Sie die folgenden Aufgaben unterbrechungsfrei ausführen:
+
+* Ersetzen Sie ein HA-Paar eines Clusters durch ein aktualisiertes HA-Paar, das für die Hosts, die auf LUN-Daten zugreifen, transparent ist
+* Aktualisieren einer Zielschnittstellenkarte
+* Verschieben Sie die Ressourcen einer Storage Virtual Machine (SVM) von einem Node-Satz in einem Cluster auf eine andere Gruppe von Nodes im selben Cluster
+* Wenn der Host-Server online ist, können Sie eine SAN-LUN auf ein neues HA-Paar verschieben, ohne den Zugriff auf die LUN-Daten vom Host-Server zu unterbrechen
+
+
+Weitere Informationen finden Sie im https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["SAN LIF-Verschiebung"^] Verfahren in der Dokumentation _SAN Storage Management_.

@@ -1,0 +1,10 @@
+= 
+:allow-uri-read: 
+
+
+.Schritte
+. link:relocate_non_root_aggr_node1_node2.html["Verlagerung von Aggregaten außerhalb der Root-Ebene und NAS-Daten-LIFs, die sich im Besitz von node1 auf node2 befinden"]
+. link:move_nas_lifs_node1_node2.html["Das Verschieben von NAS-Daten-LIFs von node1 auf node2"]
+. link:record_node1_information.html["Node1-Informationen werden aufgezeichnet"]
+. link:retire_node1.html["Node1 ausmustern"]
+

@@ -1,0 +1,30 @@
+= Stilllegen der SnapMirror Beziehungen (optional)
+:allow-uri-read: 
+
+
+
+
+== Stilllegen der SnapMirror Beziehungen (optional)
+
+Bevor Sie mit dem Verfahren fortfahren, müssen Sie bestätigen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.
+
+.Schritte
+. Überprüfen Sie den SnapMirror Beziehungsstatus auf dem Ziel-Cluster:
++
+`snapmirror show`
+
++
+[NOTE]
+====
+Wenn der Status „Übertragen“ lautet, müssen Sie diese Transfers abbrechen:
+`snapmirror abort -destination-vserver _vserver_name_`
+
+====
++
+Der Abbruch schlägt fehl, wenn sich die SnapMirror-Beziehung nicht im Zustand „Übertragen“ befindet.
+
+. Alle Beziehungen zwischen dem Cluster stilllegen:
++
+`snapmirror quiesce -destination-vserver _vserver_name_`
+
+

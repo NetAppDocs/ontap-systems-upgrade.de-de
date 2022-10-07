@@ -1,0 +1,148 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/determine_aggregates_on_internal_drives.html 
+keywords: determine, aggregate, disk, drive, controller 
+summary: Vergewissern Sie sich, dass interne Festplattenlaufwerke während eines manuellen ARL-Upgrades bei Controllern mit ONTAP 9.8 oder höher keine Root- oder Datenaggregate enthalten. 
+---
+= Ermitteln Sie, ob der Controller über Aggregate auf internen Festplatten verfügt
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn Sie Controller mit internen Festplatten aktualisieren, müssen Sie mehrere Befehle ausführen und deren Ausgabe überprüfen, um zu bestätigen, dass keines der internen Festplatten Root-Aggregate oder Datenaggregate enthält.
+
+Wenn Sie Controller nicht mit Aggregaten auf internen Festplatten aktualisieren, lassen Sie diesen Abschnitt überspringen und fahren Sie mit dem Abschnitt fort link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
+
+.Schritte
+. Geben Sie die nodeshell, einmal für jeden der ursprünglichen Knoten.
++
+`system node run -node _node_name_`
+
+. Anzeigen der internen Laufwerke:
++
+`sysconfig -av`
+
++
+Das System zeigt ausführliche Informationen über die Konfiguration des Node, einschließlich Storage, an. Diese Informationen werden in der im folgenden Beispiel gezeigten Teilausgabe angezeigt:
+
++
+....
+
+node> sysconfig -av
+slot 0: SAS Host Adapter 0a (PMC-Sierra PM8001 rev. C, SAS, UP)
+                Firmware rev: 01.11.06.00
+                 Base WWN: 5:00a098:0008a3b:b0
+                 Phy State: [0] Enabled, 6.0 Gb/s
+                            [1] Enabled, 6.0 Gb/s
+                            [2] Enabled, 6.0 Gb/s
+                            [3] Enabled, 6.0 Gb/s
+                ID Vendor Model FW Size
+                00.0 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.1 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.2 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.3 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.4 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.5 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.6 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.7 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.8 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.9 : NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.10: NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+                00.11: NETAPP X306_HMARK02TSSM NA04 1695.4GB (3907029168 512B/sect)
+...
+....
+. Untersuchen Sie die Speicherausgabe des `sysconfig -av` Befehl, um die internen Festplattenlaufwerke zu identifizieren, und notieren Sie dann die Informationen.
++
+Interne Laufwerke haben "00." zu Beginn ihrer ID. „00.“ gibt ein internes Festplatten-Shelf an, und die Zahl nach dem Dezimalpunkt gibt das einzelne Festplattenlaufwerk an.
+
+. [[man_aggr_step4]]Geben Sie auf beiden Controllern den folgenden Befehl ein:
++
+`aggr status -r`
+
++
+Das System zeigt den Aggregatstatus des Node an, wie in der Teilausgabe im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+node> aggr status -r
+Aggregate aggr2 (online, raid_dp, parity uninit'd!) (block checksums)
+Plex /aggr2/plex0 (online, normal, active)
+RAID group /aggr2/plex0/rg0 (normal, block checksums)
+
+RAID Disk Device    HA SHELF BAY CHAN Pool Type RPM  Used (MB/blks)     Phys (MB/blks)
+--------- --------- -- ----- --- ---- ---- ---- ---- ------------------ ------------------
+dparity   0a.00.1   0a   0    1  SA:B  0   BSAS 7200 1695466/3472315904 1695759/3472914816
+parity    0a.00.3   0a   0    3  SA:B  0   BSAS 7200 1695466/3472315904 1695759/3472914816
+data      0a.00.9   0a   0    9  SA:B  0   BSAS 7200 1695466/3472315904 1695759/3472914816
+...
+----
++
+
+NOTE: Das Gerät, das zum Erstellen des Aggregats verwendet wird, ist möglicherweise keine physische Festplatte, sondern möglicherweise eine Partition.
+
+. Überprüfen Sie die Ausgabe des `aggr status -r` Befehl, um die Aggregate mithilfe interner Festplatten zu identifizieren und dann die Informationen aufzuzeichnen.
++
+Im Beispiel im vorherigen Schritt verwendet „aggr2“ interne Laufwerke, wie durch die Shelf-ID von „0“ angegeben.
+
+. Geben Sie bei beiden Controllern den folgenden Befehl ein:
++
+`aggr status -y`
+
++
+Das System zeigt Informationen zu den Volumes auf dem Aggregat an, wie in der teilweise Ausgabe im folgenden Beispiel dargestellt:
+
++
+....
+node> aggr status -v
+...
+ aggr2   online   raid_dp, aggr    nosnap=off, raidtype=raid_dp, raidsize=14,
+                  64-bit           raid_lost_write=on, ignore_inconsistent=off,
+                  rlw_on           snapmirrored=off, resyncsnaptime=60,
+                                   fs_size_fixed=off, lost_write_protect=on,
+                                   ha_policy=cfo, hybrid_enabled=off, percent_snapshot_space=0%,
+                                   free_space_realloc=off, raid_cv=on, thorough_scrub=off
+         Volumes: vol6, vol5, vol14
+...
+ aggr0   online   raid_dp, aggr    root, diskroot, nosnap=off, raidtype=raid_dp,
+                  64-bit           raidsize=14, raid_lost_write=on, ignore_inconsistent=off,
+                  rlw_on           snapmirrored=off,  resyncsnaptime=60, fs_size_fixed=off,
+                                   lost_write_protect=on, ha_policy=cfo, hybrid_enabled=off,
+                                   percent_snapshot_space=0%, free_space_realloc=off, raid_cv=on
+         Volumes: vol0
+....
++
+Basierend auf der Ausgabe in ,Schritt 4 Schritt 6 verwendet aggr2 drei interne Laufwerke – „0a.00.1“, „0a.00.3“ und „0a.00.9“ – und die Volumes auf „aggr2“ sind „vol6“, „vol5“ und „vol14“. Auch in der Ausgabe von Schritt 6 enthält die Auslesung für „aggr0“ das Wort „root“ am Anfang der Information für das Aggregat. Das bedeutet, dass es ein Root-Volume enthält.
+
+. Überprüfen Sie die Ausgabe des `aggr status -v` Befehl zur Ermittlung der Volumes, die zu beliebigen Aggregaten gehören, die sich auf einem internen Laufwerk befinden und ob eines dieser Volumes ein Root-Volume enthalten soll
+. Beenden Sie den nodeshell, indem Sie auf jedem Controller den folgenden Befehl eingeben:
++
+`exit`
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Wenn die Controller | Dann... 
+
+
+| Enthalten keine Aggregate auf internen Festplatten | Fahren Sie mit diesem Verfahren fort. 
+
+
+| Enthalten Aggregate, aber keine Volumes auf den internen Festplattenlaufwerken | Fahren Sie mit diesem Verfahren fort. *Hinweis*: Bevor Sie fortfahren, müssen Sie die Aggregate offline stellen und dann die Aggregate auf den internen Festplatten zerstören. Siehe link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregatmanagement mit CLI_ Inhalt für Informationen über das Managen von Aggregaten. 
+
+
+| Enthalten nicht-Root-Volumes auf den internen Laufwerken | Fahren Sie mit diesem Verfahren fort. *Hinweis*: Bevor Sie fortfahren, müssen Sie die Volumes in ein externes Festplatten-Shelf verschieben, die Aggregate offline stellen und dann die Aggregate auf den internen Festplatten zerstören. Siehe link:other_references.html["Quellen"] Informationen über das Verschieben von Volumes erhalten Sie unter Verweis auf das Management von _Festplatte und Aggregaten mit dem CLI_ Inhalt. 
+
+
+| Enthalten Root-Volumes auf den internen Laufwerken | Fahren Sie mit diesem Verfahren nicht fort. Sie können ein Upgrade der Controller durchführen, indem Sie auf verweisen link:other_references.html["Quellen"] Zum Verlinken auf die _NetApp Support Site_ und das Verfahren _Aktualisieren der Controller Hardware auf einem Node-Paar, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird. 
+
+
+| Enthalten nicht-Root-Volumes auf den internen Laufwerken und Sie können die Volumes nicht in einen externen Speicher verschieben | Fahren Sie mit diesem Verfahren nicht fort. Sie können die Controller mithilfe des Verfahrens _aktualisieren Sie die Controller-Hardware auf einem Node-Paar, auf dem Clustered Data ONTAP ausgeführt wird, indem Sie Volumes_ verschieben. Siehe link:other_references.html["Quellen"] Um auf die _NetApp Support Site_ zu verlinken, auf die Sie Zugriff haben. 
+|===
+

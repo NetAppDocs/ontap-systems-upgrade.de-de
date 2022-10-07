@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+Wenn Sie ein Cluster einrichten, werden Sie vom Setup-Assistenten aufgefordert, den Lizenzschlüssel für die Cluster-Basis einzugeben. Einige Funktionen erfordern jedoch zusätzliche Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
+
+Wenn Sie keine neuen Lizenzschlüssel haben, sind für den neuen Controller derzeit lizenzierte Funktionen im Cluster verfügbar und funktionieren weiterhin. Durch die Verwendung nicht lizenzierter Funktionen auf dem Controller können Sie jedoch möglicherweise die Einhaltung Ihrer Lizenzvereinbarung verschließen. Sie müssen daher nach Abschluss des Upgrades den neuen Lizenzschlüssel oder die neuen Schlüssel für den neuen Controller installieren.

@@ -1,0 +1,28 @@
+---
+permalink: upgrade/upgrade-install-new-nodes.html 
+sidebar: sidebar 
+keywords: upgrade, moving, move, storage, install, node3, node4, attach, power, console, network, connection, install the new nodes 
+summary: Wenn Sie ein Upgrade durch Verschiebung von Storage durchführen, installieren Sie zunächst die Knoten 3 und node4 und verbinden Sie die Netz-, Konsolen- und Netzwerkverbindungen mit den neuen Nodes. 
+---
+= Die neuen Nodes installieren
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie ein Upgrade durch Verschiebung von Storage durchführen, installieren Sie zunächst die Knoten 3 und node4 und verbinden Sie die Netz-, Konsolen- und Netzwerkverbindungen mit den neuen Nodes.
+
+.Schritte
+. Installieren Sie bei Bedarf Adapter in node3 und node4, und befolgen Sie die Anweisungen im entsprechenden Installationsverfahren für den Adapter.
+. Installieren Sie die neuen Nodes gemäß den Anweisungen _Installation und Setup_ für die Plattform.
++
+Verbinden Sie jetzt keine Festplatten-Shelfs der ursprünglichen Nodes mit den neuen Nodes.
+
+. Schließen Sie die Stromversorgungs- und Konsolenverbindungen an das HA-Paar Node3/node4 an, und befolgen Sie dabei die Anweisungen „ _Installation und Setup_“ für die Plattform.
+. Schließen Sie die Netzwerkkabel an.
+. Übertragen Sie alle verbleibenden Kabel – abgesehen von Storage-Shelf-Kabeln – vom Node1/node2 HA-Paar auf die entsprechenden Ports in node3/node4.
++
+Dazu gehören Fibre-Channel- und Ethernet-Kabel, die nicht zum Anschluss von Storage-Shelfs verwendet werden.
+
+

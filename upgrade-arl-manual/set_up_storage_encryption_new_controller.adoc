@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/set_up_storage_encryption_new_controller.html 
+keywords: set up, setup, storage encryption, new, controller, module 
+summary: Konfigurieren Sie bei Bedarf die Speicherverschlüsselung, installieren Sie SSL-Zertifikate und richten Sie während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.7 oder einer älteren Version Schlüsselmanagementserver ein. 
+---
+= Richten Sie Storage Encryption auf dem neuen Controller-Modul ein
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn der ersetzte Controller oder der HA-Partner des neuen Controllers Storage Encryption verwendet, müssen Sie das neue Controller-Modul für Storage Encryption konfigurieren, einschließlich der Installation von SSL-Zertifikaten und der Einrichtung von Key Management-Servern.
+
+Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführt werden. Sie müssen den Befehl auf dem richtigen Node eingeben.
+
+.Schritte
+. Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server weiterhin verfügbar sind, deren Status und ihre Authentifizierungsdaten folgendermaßen sind:
++
+`security key-manager show -status`
+
++
+`security key-manager query`
+
+. Fügen Sie die im vorherigen Schritt aufgeführten Verschlüsselungsmanagement-Server der Liste des zentralen Management-Servers im neuen Controller hinzu.
++
+.. Fügen Sie den Schlüsselverwaltungsserver hinzu:
++
+`security key-manager -add _key_management_server_ip_address_`
+
+.. Wiederholen Sie den vorherigen Schritt für jeden aufgeführten Key Management Server.
++
+Sie können bis zu vier Verschlüsselungsmanagement-Server verknüpfen.
+
+.. Überprüfen Sie, ob die Verschlüsselungsmanagementserver erfolgreich hinzugefügt wurden:
++
+`security key-manager show`
+
+
+
+. Führen Sie auf dem neuen Controller-Modul den Setup-Assistenten für das Verschlüsselungsmanagement aus, um die wichtigsten Management-Server einzurichten und zu installieren.
++
+Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandenen Controller-Modul installiert sind.
+
++
+.. Starten Sie den Setup-Assistenten für den Schlüsselmanagementserver auf dem neuen Knoten:
++
+`security key-manager setup -node _new_controller_name_`
+
+.. Führen Sie die Schritte im Assistenten zum Konfigurieren von Verschlüsselungsmanagementservern durch.
+
+
+. Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her:
++
+`security key-manager restore -node _new_controller_name_`
+
+

@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/verify_node3_installation.html 
+keywords: verify, node3, install, installation, node4 
+summary: Überprüfen Sie während eines manuellen ARL Upgrades bei Controllern mit ONTAP 9.7 oder einer älteren Version die Installation und Kommunikation mit node2. 
+---
+= Überprüfen Sie die Installation von node3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nach der Installation und dem Booten von node3 müssen Sie überprüfen, ob er korrekt installiert ist, dass er Teil des Clusters ist und mit node2 kommunizieren kann.
+
+.Schritte
+. [[Schritt1]] an der Systemaufforderung melden Sie sich bei node3 an. Überprüfen Sie dann, ob node3 Teil desselben Clusters ist wie node2 und sich in einem ordnungsgemäßen Zustand:
++
+`cluster show`
+
+. [[Schritt2]]] überprüft, ob node3 mit node2 kommunizieren kann und dass alle LIFs aktiv sind:
++
+`network interface show -curr-node _node3_`
+
+. [[Schritt3]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Falls das Cluster... | Dann... 
+
+
+| In einer SAN-Umgebung erfolgreich positionieren | Vollständig ,Schritt 4 Und gehen Sie dann zum Abschnitt link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Das Verschieben von NAS-Daten-LIFs von node1 von node2 auf node3 und die Überprüfung von SAN-LIFs auf node3"]. 
+
+
+| Nicht in einer SAN-Umgebung | Überspringen Sie Schritt 4, und fahren Sie mit fort link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Das Verschieben von NAS-Daten-LIFs von node1 von node2 auf node3 und die Überprüfung von SAN-LIFs auf node3"]. 
+|===
+. [[stee4]] Überprüfen Sie, dass node2 und node3 im Quorum sind, indem Sie auf einem der Knoten den folgenden Befehl eingeben und dessen Ausgabe prüfen:
++
+`event log show -messagename scsiblade.*`
+
++
+Das folgende Beispiel zeigt die Ausgabe, wenn sich die Nodes im Cluster im Quorum befinden:
+
++
+[listing]
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----
+

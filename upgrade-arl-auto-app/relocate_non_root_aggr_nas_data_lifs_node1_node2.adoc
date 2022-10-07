@@ -1,0 +1,84 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/relocate_non_root_aggr_nas_data_lifs_node1_node2.html 
+keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2 
+summary: 'Verschieben Sie Aggregate und NAS-Daten-LIFs von Knoten 1 auf Knoten 2 und verschieben Sie die Ressourcen anderer 1 in Knoten 3, wenn Sie Controller mit ONTAP 9.8 oder höher mit aktualisieren `system controller replace` Befehle.' 
+---
+= Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bevor Sie node1 durch Node3 ersetzen können, müssen Sie die nicht-Root-Aggregate und NAS-Daten-LIFs von node1 auf node2 verschieben, bevor Sie die Ressourcen von node1 schließlich in node3 verschieben.
+
+Der Vorgang sollte bereits angehalten werden, wenn Sie mit der Aufgabe beginnen. Sie müssen den Vorgang manuell fortsetzen.
+
+Nach der Migration der Aggregate und LIFs wird der Vorgang zu Verifizierungszwecken angehalten. In dieser Phase müssen Sie überprüfen, ob alle Aggregate ohne Root-Root-Daten und LIFs außerhalb des SAN in node3 migriert werden.
+
+
+NOTE: Der Home-Inhaber für die Aggregate und LIFs wird nicht geändert, nur der aktuelle Besitzer wird geändert.
+
+.Schritte
+. Wiederaufnahme der Vorgänge für die Aggregatverschiebung und die LIF-Verschiebung von NAS-Daten:
++
+`system controller replace resume`
+
++
+Alle Aggregate ohne Root-Root-Root-Root-Daten und LIFs werden von node1 auf node2 migriert.
+
++
+Der Vorgang angehalten, damit Sie überprüfen können, ob alle node1-Aggregate und LIFs für nicht-SAN-Daten in node2 migriert wurden.
+
+. Überprüfen Sie den Status der Aggregatverschiebung und der LIF-Verschiebung von NAS-Daten:
++
+`system controller replace show-details`
+
+. Wenn der Vorgang noch angehalten wird, vergewissern Sie sich, dass alle nicht-Root-Aggregate online sind, damit ihr Status bei node2 lautet:
++
+`storage aggregate show -node _node2_ -state online -root false`
+
++
+Das folgende Beispiel zeigt, dass die nicht-Root-Aggregate auf node2 online sind:
+
++
+[listing]
+----
+cluster::> storage aggregate show -node node2 state online -root false
+
+Aggregate  Size     Available  Used%  State  #Vols  Nodes  RAID Status
+---------  -------  ---------  -----  ------ -----  ------ --------------
+aggr_1     744.9GB  744.8GB    0%     online     5  node2  raid_dp,normal
+aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
+2 entries were displayed.
+----
++
+Wenn die Aggregate offline gegangen sind oder in node2 fremd geworden sind, bringen Sie sie mit dem folgenden Befehl auf node2, einmal für jedes Aggregat online:
+
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Überprüfen Sie, ob alle Volumes auf node2 online sind, indem Sie den folgenden Befehl auf node2 verwenden und seine Ausgabe überprüfen:
++
+`volume show -node _node2_ -state offline`
+
++
+Wenn ein Volume auf node2 offline ist, bringen Sie sie mit dem folgenden Befehl auf node2 für jedes Volume online:
+
++
+`volume online -vserver _vserver_name_ -volume _volume_name_`
+
++
+Der `_vserver_name_` Die Verwendung mit diesem Befehl ist in der Ausgabe des vorherigen gefunden `volume show` Befehl.
+
+
+
+. [[schritt5]]Wenn irgendeine LIFs inaktiv sind, setzen Sie den Administratorstatus der LIFs auf `up` Mit dem folgenden Befehl, so wie es für jedes LIF ist:
++
+`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _nodename_ -status-admin up`
+
+

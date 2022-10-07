@@ -1,0 +1,191 @@
+= 
+:allow-uri-read: 
+
+
+Bevor Sie node1 herunterfahren und außer Betrieb nehmen können, müssen Sie Informationen über das Cluster-Netzwerk, die Management- und FC-Ports sowie seine NVRAM-System-ID aufzeichnen. Sie benötigen diese Informationen später im Verfahren, wenn Sie node1 Node3 zuordnen und Festplatten neu zuweisen.
+
+.Schritte
+. [[STep1]]Geben Sie den folgenden Befehl ein, und erfassen Sie die Ausgabe:
++
+`network route show`
+
++
+Das System zeigt eine Ausgabe wie im folgenden Beispiel an:
+
++
+[listing]
+----
+ cluster::> network route show
+
+ Vserver        Destination    Gateway      Metric
+  -------------- -------------- ----------- -------
+  iscsi vserver  0.0.0.0/0      10.10.50.1  20
+  node1          0.0.0.0/0      10.10.20.1  10
+  ....
+  node2          0.0.0.0/0      192.169.1.1 20
+----
+. Geben Sie den folgenden Befehl ein und erfassen Sie die Ausgabe:
++
+`vserver services name-service dns show`
+
++
+Das System zeigt eine Ausgabe wie im folgenden Beispiel an:
+
++
+[listing]
+----
+ cluster::> vserver services name-service dns show
+                                                               Name
+ Vserver        State     Domains                              Servers
+ -------------- --------- ------------------------------------ ---------------
+ node 1 2       enabled   alpha.beta.gamma.netapp.com          10.10.60.10,
+                                                               10.10.60.20
+ vs_base1       enabled   alpha.beta.gamma.netapp.com,         10.10.60.10,
+                          beta.gamma.netapp.com,               10.10.60.20
+ ...
+ ...
+ vs peer1        enabled  alpha.beta.gamma.netapp.com,         10.10.60.10,
+                          gamma.netapp.com                     10.10.60.20
+----
+. [[man_Record_node1_step3]]Suchen Sie die Cluster-Netzwerk- und Node-Management-Ports auf node1, indem Sie auf einem der Controller den folgenden Befehl eingeben:
++
+`network interface show -curr-node _node1_ -role cluster,intercluster,node-mgmt,cluster-mgmt`
+
++
+Das System zeigt die LIFs für das Cluster, das Intercluster, das Node-Management und das Cluster-Management für den Node im Cluster an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+ cluster::> network interface show -curr-node <node1>
+            -role cluster,intercluster,node-mgmt,cluster-mgmt
+
+              Logical       Status     Network            Current  Current Is
+  Vserver     Interface     Admin/Oper Address/Mask       Node     Port    Home
+  ----------- ------------- ---------- ------------------ -------- ------- ----
+  vserver1
+              cluster mgmt   up/up     192.168.x.xxx/24   node1    e0c     true
+  node1
+              intercluster   up/up     192.168.x.xxx/24   node1    e0e     true
+              clus1          up/up     169.254.xx.xx/24   node1    e0a     true
+              clus2          up/up     169.254.xx.xx/24   node1    e0b     true
+              mgmt1          up/up     192.168.x.xxx/24   node1    e0c     true
+ 5 entries were displayed.
+----
++
+
+NOTE: Das System verfügt möglicherweise über keine Intercluster-LIFs.
+
+. Erfassen Sie die Informationen in der Ausgabe des Befehls in ,Schritt 3 Zur Verwendung im Abschnitt link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"].
++
+Die Ausgabeinformationen sind erforderlich, um die neuen Controller-Ports den alten Controller-Ports zuzuordnen.
+
+. Geben Sie den folgenden Befehl für node1 ein:
++
+`network port show -node _node1_ -type physical`
+
++
+Das System zeigt die physischen Ports auf dem Node an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+ sti8080mcc-htp-008::> network port show -node sti8080mcc-htp-008 -type physical
+
+ Node: sti8080mcc-htp-008
+
+                                                                  Ignore
+                                            Speed(Mbps)  Health   Health
+ Port  IPspace  Broadcast Domain Link MTU   Admin/Oper   Status   Status
+ ----  -------  ---------------- ---- ----  -----------  -------  -------
+ e0M   Default  Mgmt             up   1500  auto/1000    healthy  false
+ e0a   Default  Default          up   9000  auto/10000   healthy  false
+ e0b   Default  -                up   9000  auto/10000   healthy  false
+ e0c   Default  -                down 9000  auto/-       -        false
+ e0d   Default  -                down 9000  auto/-       -        false
+ e0e   Cluster  Cluster          up   9000  auto/10000   healthy  false
+ e0f   Default  -                up   9000  auto/10000   healthy  false
+ e0g   Cluster  Cluster          up   9000  auto/10000   healthy  false
+ e0h   Default  Default          up   9000  auto/10000   healthy  false
+ 9 entries were displayed.
+----
+. Notieren Sie die Ports und ihre Broadcast-Domänen.
++
+Die Broadcast-Domänen müssen später im Verfahren den neuen Ports auf dem neuen Controller zugeordnet werden.
+
+. Geben Sie den folgenden Befehl für node1 ein:
++
+`network fcp adapter show -node _node1_`
+
++
+Das System zeigt die FC-Ports auf dem Node an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+ cluster::> fcp adapter show -node <node1>
+                      Connection  Host
+ Node         Adapter Established Port Address
+ ------------ ------- ----------- ------------
+ node1
+               0a     ptp         11400
+ node1
+               0c     ptp         11700
+ node1
+               6a     loop        0
+ node1
+               6b     loop        0
+ 4 entries were displayed.
+----
+. Notieren Sie die Ports.
++
+Die Ausgabeinformationen sind erforderlich, um die neuen FC-Ports auf dem neuen Controller später im Verfahren zuzuordnen.
+
+. Falls Sie dies zuvor nicht getan haben, überprüfen Sie, ob auf node1 Schnittstellengruppen oder VLANs konfiguriert sind, indem Sie die folgenden Befehle eingeben:
++
+`network port ifgrp show`
+
++
+`network port vlan show`
+
++
+Sie verwenden die Informationen im Abschnitt link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"].
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="60,40"]
+|===
+| Sie suchen... | Dann... 
+
+
+| Die NVRAM-System-ID-Nummer im Abschnitt wurde aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten auf das Upgrade vor"]. | Weiter mit dem nächsten Abschnitt link:retire_node1.html["Node1 ausmustern"]. 
+
+
+| Die NVRAM-System-ID-Nummer wurde nicht in den Abschnitt aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten auf das Upgrade vor"] | Vollständig ,Schritt 11 Und ,Schritt 12 Und dann weiter zu link:retire_node1.html["Node1 ausmustern"]. 
+|===
+. [[man_Record_node1_ste11]]Geben Sie den folgenden Befehl auf einem der Controller ein:
++
+`system node show -instance -node _node1_`
+
++
+Das System zeigt Informationen über node1 an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+ cluster::> system node show -instance -node <node1>
+                              Node: node1
+                             Owner:
+                          Location: GDl
+                             Model: FAS6240
+                     Serial Number: 700000484678
+                         Asset Tag: -
+                            Uptime: 20 days 00:07
+                   NVRAM System ID: 1873757983
+                         System ID: 1873757983
+                            Vendor: NetApp
+                            Health: true
+                       Eligibility: true
+----
+. [[man_Record_node1_step12]]notieren Sie die im Abschnitt zu verwendende NVRAM-System-ID link:install_boot_node3.html["Installieren und booten Sie node3"].
+

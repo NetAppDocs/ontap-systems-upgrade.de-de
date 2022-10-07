@@ -1,0 +1,60 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Der Home-Inhaber für die Aggregate und LIFs wird nicht geändert, nur der aktuelle Besitzer wird geändert.
+
+.Schritte
+. Wiederaufnahme der Vorgänge für die Aggregatverschiebung und die LIF-Verschiebung von NAS-Daten:
++
+`system controller replace resume`
+
++
+Alle Aggregate ohne Root-Root-Root-Root-Daten und LIFs werden von node1 auf node2 migriert.
+
++
+Der Vorgang angehalten, damit Sie überprüfen können, ob alle node1-Aggregate und LIFs für nicht-SAN-Daten in node2 migriert wurden.
+
+. Überprüfen Sie den Status der Aggregatverschiebung und der LIF-Verschiebung von NAS-Daten:
++
+`system controller replace show-details`
+
+. Wenn der Vorgang noch angehalten wird, vergewissern Sie sich, dass alle nicht-Root-Aggregate online sind, damit ihr Status bei node2 lautet:
++
+`storage aggregate show -node _node2_ -state online -root false`
+
++
+Das folgende Beispiel zeigt, dass die nicht-Root-Aggregate auf node2 online sind:
+
++
+[listing]
+----
+cluster::> storage aggregate show -node node2 state online -root false
+
+Aggregate  Size     Available  Used%  State  #Vols  Nodes  RAID Status
+---------  -------  ---------  -----  ------ -----  ------ --------------
+aggr_1     744.9GB  744.8GB    0%     online     5  node2  raid_dp,normal
+aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
+2 entries were displayed.
+----
++
+Wenn die Aggregate offline gegangen sind oder in node2 fremd geworden sind, bringen Sie sie mit dem folgenden Befehl auf node2, einmal für jedes Aggregat online:
+
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Überprüfen Sie, ob alle Volumes auf node2 online sind, indem Sie den folgenden Befehl auf node2 verwenden und seine Ausgabe überprüfen:
++
+`volume show -node _node2_ -state offline`
+
++
+Wenn ein Volume auf node2 offline ist, bringen Sie sie mit dem folgenden Befehl auf node2 für jedes Volume online:
+
++
+`volume online -vserver _vserver_name_ -volume _volume_name_`
+
++
+Der `_vserver_name_` Die Verwendung mit diesem Befehl ist in der Ausgabe des vorherigen gefunden `volume show` Befehl.
+
+

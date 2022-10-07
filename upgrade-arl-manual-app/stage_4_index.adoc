@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/stage_4_index.html 
+keywords: stage 4, node2, retire, information 
+summary: Phase 4 Prozessreihenfolge für ein manuelles ARL Upgrade bei Controllern mit ONTAP 9.8 oder höher. 
+---
+= Phase 4: Notieren Sie node2-Informationen und entfernen Sie node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Während Phase 4 notieren Sie node2 Informationen und setzen dann node2 in den Ruhestand.
+
+.Schritte
+. link:record_node2_information.html["Node2-Informationen aufzeichnen"]
+. link:retire_node2.html["Node2 ausmustern"]
+

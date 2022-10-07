@@ -1,0 +1,11 @@
+= 
+:allow-uri-read: 
+
+
+Sie müssen sicherstellen, dass die physischen Ports auf node1 den physischen Ports auf node3 korrekt zugeordnet werden. Somit kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
+
+Sie müssen von _Hardware Universe_ bereits über die Ports auf den neuen Nodes verfügen. (Gehen Sie zu link:other_references.html["Quellen"] Zum Verknüpfen mit dem _Hardware Universe_). Sie verwenden die Informationen später in diesem Abschnitt und in link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
+
+Die Softwarekonfiguration von node3 muss mit der physischen Konnektivität von node3 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
+
+Die Port-Einstellungen können je nach Modell der Nodes variieren.

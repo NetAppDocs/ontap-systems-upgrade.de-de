@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+Die Verschlüsselungskonfiguration mit den neuen Nodes synchronisieren, indem Sie die folgenden Schritte durchführen:
+
+.Schritte
+. Synchronisieren Sie die Verschlüsselungskonfiguration für Onboard Key Manager (OKM) mithilfe des folgenden Befehls an der Cluster-Eingabeaufforderung:
++
+`security key-manager onboard sync`
+
+. Geben Sie die Cluster-weite Passphrase für das OKM ein.
+

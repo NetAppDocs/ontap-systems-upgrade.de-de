@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
+
+Möglicherweise müssen Sie die abschließen  FC ports on node4 Abschnitt, der  and configure UTA/UTA2 ports on node4, Oder beide Abschnitte.

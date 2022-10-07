@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/required_tools_documentation.html 
+keywords: Tool, documentation, center, content, reference, worksheet 
+summary: Sie benötigen bestimmte Tools und Dokumentation, um ein manuelles ARL Upgrade auf Controllern mit ONTAP 9.7 oder einer älteren Version durchzuführen. 
+---
+= Die erforderlichen Tools und Dokumentationen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen über spezielle Tools verfügen, um die neue Hardware zu installieren, und Sie müssen während des Upgrade-Prozesses andere Dokumente referenzieren. Sie müssen außerdem die für das Controller-Upgrade wichtigen Informationen aufzeichnen. Zum Aufzeichnen von Informationen wird ein Arbeitsblatt bereitgestellt.
+
+Für die Durchführung des Upgrades benötigen Sie die folgenden Tools:
+
+* Erdungsband
+* #2 Kreuzschlitzschraubendreher
+
+
+Wechseln Sie zum link:other_references.html["Quellen"] Abschnitt für den Zugriff auf die Liste der für dieses Upgrade erforderlichen Referenzdokumente.

@@ -1,0 +1,180 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html 
+keywords: preparing, nodes, upgrade, stage 1, prechecks 
+summary: Bereiten Sie die Nodes vor und führen Sie eine Reihe von Vorabprüfungen bei einem AFF A700 auf AFF A900 Upgrade durch. 
+---
+= Bereiten Sie die Knoten für ein Upgrade vor
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+In Phase 1 müssen Sie die Nodes auf das Upgrade vorbereiten und eine Reihe von Vorabprüfungen durchführen. Sie müssen sich auch auf den Netzboot der neuen Controller vorbereiten.
+
+.Schritte
+. Starten Sie den Controller-Ersatzprozess, indem Sie den folgenden Befehl im erweiterten Berechtigungsmodus der ONTAP-Befehlszeile eingeben:
++
+`set -privilege advanced`
+
++
+`system controller replace start -nodes _node_names_`
+
++
+Sie werden eine Ausgabe wie die folgende sehen:
+
++
+....
+Warning:
+1. Current ONTAP version is 9.x
+
+2. Verify that NVMEM or NVRAM batteries of the new nodes are charged, and charge them if they are not. You need to physically check the new nodes to see if the NVMEM or NVRAM  batteries are charged. You can check the battery status either by connecting to a serial console or using SSH, logging into the Service Processor (SP) or Baseboard Management Controller (BMC) for your system, and use the system sensors to see if the battery has a sufficient charge.
+
+Attention: Do not try to clear the NVRAM contents. If there is a need to clear the contents of NVRAM, contact NetApp technical support.
+
+3. If a controller was previously part of a different cluster, run wipeconfig before using it as the replacement controller.
+
+Do you want to continue? {y|n}: y
+....
+. Wählen Sie `y`. Sie sehen die folgende Ausgabe:
++
+....
+Controller replacement operation: Prechecks in progress.
+Controller replacement operation has been paused for user intervention.
+....
++
+In der Vorabprüfungen-Phase führt das System die folgende Liste der Überprüfungen im Hintergrund aus.
+
++
+[cols="35,65"]
+|===
+| Pre-Check | Beschreibung 
+
+
+| Cluster-Integritätsprüfung | Überprüft alle Nodes im Cluster, um sicherzustellen, dass sie sich in einem ordnungsgemäßen Zustand befinden. 
+
+
+| Statusprüfung Der Aggregatverschiebung | Überprüft, ob eine Aggregatverschiebung bereits erfolgt. Wenn eine weitere Aggregatverschiebung erfolgt, schlägt die Prüfung fehl. 
+
+
+| Modellname Prüfen | Überprüft, ob die Controller-Modelle bei diesem Verfahren unterstützt werden. Wenn die Modelle nicht unterstützt werden, schlägt die Aufgabe fehl. 
+
+
+| Cluster-Quorum-Prüfung | Überprüft, ob die zu ersetzenden Nodes sich in Quorum befinden. Wenn sich die Knoten nicht im Quorum befinden, schlägt die Aufgabe fehl. 
+
+
+| Überprüfung Der Bildversion | Überprüft, ob die zu ersetzenden Nodes dieselbe Version von ONTAP ausführen. Wenn sich die ONTAP-Image-Versionen unterscheiden, schlägt die Aufgabe fehl. Die neuen Knoten müssen auf ihren ursprünglichen Knoten dieselbe Version von ONTAP 9.x installiert sein. Wenn die neuen Nodes über eine andere Version von ONTAP installiert sind, müssen Sie die neuen Controller nach der Installation als Netzboot einsetzen. Anweisungen zum Upgrade von ONTAP finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade ONTAP_. 
+
+
+| HA-Statusüberprüfung | Überprüft, ob beide Nodes, die ersetzt werden, in einer HA-Paar-Konfiguration mit Hochverfügbarkeit vorhanden sind. Wenn das Speicher-Failover für die Controller nicht aktiviert ist, schlägt die Aufgabe fehl. 
+
+
+| Aggregatstatus-Prüfung | Wenn die Nodes ersetzt werden, eigene Aggregate, für die sie nicht der Home-Inhaber sind, schlägt die Aufgabe fehl. Die Nodes sollten nicht im Besitz von nicht lokalen Aggregaten sein. 
+
+
+| Überprüfung Des Festplattenstatus | Wenn zu ersetzende Knoten keine oder fehlerhafte Festplatten haben, schlägt die Aufgabe fehl. Wenn Festplatten fehlen, lesen Sie link:other_references.html["Quellen"] Verbinden mit _Disk- und Aggregatmanagement mit CLI_, _logischem Storage-Management mit CLI_ und _High Availability Management_, um Storage für das HA-Paar zu konfigurieren. 
+
+
+| LIF-Statusüberprüfung von Daten | Überprüft, ob für einen der zu ersetzenden Nodes keine lokalen Daten-LIFs vorhanden sind. Die Nodes sollten keine Daten-LIFs enthalten, für die sie nicht der Home-Inhaber sind. Wenn einer der Nodes nicht-lokale Daten-LIFs enthält, schlägt die Aufgabe fehl. 
+
+
+| LIF-Status des Clusters | Überprüft, ob die Cluster-LIFs für beide Nodes aktiv sind. Wenn die Cluster-LIFs ausgefallen sind, schlägt die Aufgabe fehl. 
+
+
+| ASUP-Statusprüfung | Wenn AutoSupport-Benachrichtigungen nicht konfiguriert sind, schlägt die Aufgabe fehl. Bevor Sie mit dem Austausch des Controllers beginnen, müssen Sie AutoSupport aktivieren. 
+
+
+| CPU-Auslastungs-Prüfung | Überprüft, ob die CPU-Auslastung bei allen zu ersetzenden Nodes mehr als 50 % beträgt. Wenn die CPU-Nutzung über einen erheblichen Zeitraum mehr als 50 % beträgt, schlägt die Aufgabe fehl. 
+
+
+| Aggregatrekonstruktion | Überprüft, ob bei beliebigen Datenaggregaten eine Rekonstruktion durchgeführt wird. Wenn die Aggregatrekonstruktion ausgeführt wird, schlägt die Aufgabe fehl. 
+
+
+| Knoten Affinität Job Überprüfung | Überprüft, ob Jobs mit Knotenorientierung ausgeführt werden. Wenn Knotenaffinitätsjobs ausgeführt werden, schlägt die Prüfung fehl. 
+|===
+. Wenn der Controller-Ersatzvorgang gestartet und die Vorabprüfungen abgeschlossen sind, wird der Vorgang angehalten. In diesem Fall können Sie die Ausgabedaten sammeln, die Sie zu einem späteren Zeitpunkt im Controller-Upgrade-Prozess benötigen könnten.
+. Führen Sie den folgenden Befehlssatz aus, wie durch das Verfahren zum Austausch des Controllers auf der Systemkonsole gesteuert.
++
+Sie müssen die Ausgabe der folgenden Befehle einzeln ausführen und speichern:
+
++
+** `vserver services name-service dns show`
+** `network interface show -curr-node _nodename_ -role cluster,intercluster,node-mgmt,cluster-mgmt,data`
+** `network port show -node _node_name_ -type physical`
+** `service-processor show -node * -instance`
+** `network fcp adapter show -node _node_name_`
+** `network port ifgrp show`
+** `system node show -instance -node _node_name_`
+** `run -node _node_name_ sysconfig`
+** `storage aggregate show -node _node_name_`
+** `volume show -node _node_name_`
+** `storage array config show -switch _switch_name_`
+** `system license show -owner _node_name_`
+** `storage encryption disk show`
+** `security key-manager onboard show-backup`
+** `security key-manager external show`
+** `security key-manager external show-status`
+** `reachability show -detail`
+
+
+
+
+
+NOTE: Wenn NetApp Volume Encryption mit Onboard Key Manager verwendet wird, halten Sie die Schlüsselmanager-Passphrase bereit, um die Resynchronisierung des Schlüsselmanagers später im Verfahren abzuschließen.
+
+
+
+== Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+
+Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
+
+.Schritte
+. Gibt die Aggregate zurück, die derzeit dem Partner-Node gehören, an den Home-Owner-Node:
++
+`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
+
+. Überprüfen Sie, dass weder node1 noch node2 noch Eigentümer von Aggregaten ist, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+Das folgende Beispiel zeigt die Ausgabe des Befehls, wenn ein Node sowohl der aktuelle Eigentümer als auch der Home-Inhaber von Aggregaten ist:
+
++
+[listing]
+----
+cluster::> storage aggregate show -nodes node1 -is-home true -fields owner-name,home-name,state
+aggregate   home-name  owner-name  state
+---------   ---------  ----------  ------
+aggr1       node1      node1       online
+aggr2       node1      node1       online
+aggr3       node1      node1       online
+aggr4       node1      node1       online
+
+4 entries were displayed.
+----
+
+
+
+
+=== Nachdem Sie fertig sind
+
+Sie müssen den Controller-Ersatzprozess neu starten:
+
+`system controller replace start -nodes _node_names_`
+
+
+
+== Lizenz
+
+Wenn Sie ein Cluster einrichten, werden Sie vom Setup-Assistenten aufgefordert, den Lizenzschlüssel für die Cluster-Basis einzugeben. Einige Funktionen erfordern jedoch zusätzliche Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
+
+Wenn Sie keine neuen Lizenzschlüssel haben, stehen dem neuen Controller derzeit lizenzierte Funktionen im Cluster zur Verfügung. Durch die Verwendung nicht lizenzierter Funktionen auf dem Controller können Sie jedoch möglicherweise die Einhaltung Ihrer Lizenzvereinbarung verschließen. Sie sollten daher nach Abschluss des Upgrades den neuen Lizenzschlüssel oder die neuen Schlüssel für den neuen Controller installieren.
+
+Siehe link:other_references.html["Quellen"] Um auf die _NetApp Support Site_ zu verlinken, erhalten Sie neue 2-stellige Lizenzschlüssel für 9.10.1 oder höher. Die Schlüssel sind im Abschnitt „_My Support_“ unter „_Software licenses_“ verfügbar. Falls auf der Website keine Lizenzschlüssel vorhanden ist, wenden Sie sich an Ihren NetApp Ansprechpartner.
+
+Ausführliche Informationen zur Lizenzierung finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.

@@ -1,0 +1,138 @@
+= 
+:allow-uri-read: 
+
+
+Bevor Sie node2 durch node4 ersetzen können, müssen Sie eine AutoSupport-Nachricht für node2 senden und dann die nicht-Root-Aggregate verschieben, die im Besitz von node2 sind, in node3.
+
+.Schritte
+. [[Schritt1]] Senden Sie eine AutoSupport-Nachricht an NetApp für node2:
++
+`system node autosupport invoke -node _node2_ -type all -message "Upgrading _node2_ from _platform_old_ to _platform_new_"`
+
+. Überprüfen Sie, ob die AutoSupport Meldung gesendet wurde:
++
+`system node autosupport show -node _node2_ -instance`
+
++
+Die Felder „Letzter Betreff gesendet:“ und „Letzter Zeitpunkt gesendet:“ enthalten den Nachrichtentitel der letzten gesendeten Nachricht und den Zeitpunkt, zu dem die Nachricht gesendet wurde.
+
+. [[Schritt3]]Verschiebung der nicht-Root-Aggregate:
++
+.. Legen Sie die Berechtigungsebene auf erweitert fest:
++
+`set -privilege advanced`
+
+.. Listen Sie die Aggregate auf, die Eigentum von node2 sind:
++
+`storage aggregate show -owner-name _node2_`
+
+.. Starten Sie die Aggregatverschiebung:
++
+`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controller-upgrade true`
+
++
+
+NOTE: Der Befehl sucht nur Aggregate außerhalb des Root-Bereichs.
+
+.. Geben Sie bei der entsprechenden Aufforderung ein `y`.
++
+Umzüge finden im Hintergrund statt. Für die Verschiebung eines Aggregats kann dieser Zeitraum von wenigen Sekunden bis hin zu einigen Minuten dauern. Die Zeit umfasst sowohl einen Client-Ausfall als auch Teile ohne Ausfälle. Mit dem Befehl werden keine Offline- oder eingeschränkten Aggregate verschoben.
+
+.. Zurück zur Administratorberechtigungsebene:
++
+`set -privilege admin`
+
+
+
+. Überprüfen Sie den Versetzungsstatus von node2:
++
+`storage aggregate relocation show -node _node2_`
+
++
+Die Ausgabe zeigt „Fertig“ für ein Aggregat an, nachdem es verschoben wurde.
+
++
+
+NOTE: Sie müssen warten, bis alle Aggregate, die sich im Besitz von node2 befinden, in node3 verschoben wurden, bevor Sie mit dem nächsten Schritt fortfahren.
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Bei Umzug von... | Dann... 
+
+
+| Alle Aggregate waren erfolgreich | Gehen Sie zu ,Schritt 6. 
+
+
+| Aggregate sind ausgefallen oder sie wurden Vetos  a| 
+.. Detaillierte Statusmeldung anzeigen:
++
+`storage aggregate show -instance`
+
++
+Sie können auch die EMS-Protokolle überprüfen, um die erforderlichen Korrekturmaßnahmen anzuzeigen.
+
++
+
+NOTE: Der `event log show` Befehl listet alle Fehler auf, die aufgetreten sind.
+
+.. Führen Sie die Korrekturmaßnahme durch.
+.. Legen Sie die Berechtigungsebene auf erweitert fest:
++
+`set -privilege advanced`
+
+.. Verschiebung ausgefallener oder Vetos von Aggregaten:
++
+`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controllerupgrade true`
+
+.. Geben Sie bei der entsprechenden Aufforderung ein `y`.
+.. Zurück zur Administratorberechtigungsebene:
++
+`set -privilege admin`
+
+
+
+Bei Bedarf können Sie die Verschiebung mit einer der folgenden Methoden erzwingen:
+
+** Durch Überschreiben von Veto-Prüfungen:
++
+`storage aggregate relocation start -override-vetoes true -ndo-controller-upgrade`
+
+** Durch Überschreiben von Zielprüfungen:
++
+`storage aggregate relocation start -override-destination-checks true -ndocontroller-upgrade`
+
+
+
+Weitere Informationen zu den Befehlen für die Verschiebung des Storage-Aggregats finden Sie unter link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregat-Management mit den Befehlen CLI_ und _ONTAP 9: Manual Page Reference_.
+
+|===
+. [[man_relocate_2_3_step6]]Stellen Sie sicher, dass alle nicht-Root-Aggregate online sind auf node3:
++
+`storage aggregate show -node _node3_ -state offline -root false`
+
++
+Wenn irgendwelche Aggregate offline gegangen sind oder fremd geworden sind, müssen Sie sie online bringen, einmal für jedes Aggregat:
+
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Vergewissern Sie sich, dass alle Volumes auf node3 online sind:
++
+`volume show -node _node3_ -state offline`
+
++
+Wenn Volumes auf Knoten3 offline sind, müssen Sie sie einmal für jedes Volume online bringen:
+
++
+`volume online -vserver _Vserver-name_ -volume _volume-name_`
+
+. Vergewissern Sie sich, dass node2 keine Online-Aggregate besitzt, die nicht im Root-Modus sind:
++
+`storage aggregate show -owner-name _node2_ -ha-policy sfo -state online`
+
++
+Die Befehlsausgabe sollte nicht online nicht-Root-Aggregate anzeigen, da alle nicht-Root-Online-Aggregate bereits in node3 verschoben wurden.
+
+

@@ -1,0 +1,30 @@
+= 
+:allow-uri-read: 
+
+
+Falls Aggregate nicht verschoben oder ein Vetos ausfällt, müssen sie die Aggregate manuell verschieben oder, falls erforderlich, die Vetos oder Zielprüfungen überschreiben.
+
+Der Umzugsvorgang wird aufgrund des Fehlers angehalten.
+
+.Schritte
+. Überprüfen Sie die EMS-Protokolle (Event Management System), um festzustellen, warum das Aggregat nicht verschoben oder gegen ein Vetos eingesetzt wurde.
+. Verschiebung ausgefallener oder Vetos von Aggregaten:
++
+`storage aggregate relocation start -node _node1_ -destination _node2_ -aggregate-list _aggr_name_ -ndo-controller-upgrade true`
+
+. Geben Sie bei der entsprechenden Aufforderung ein `y`.
+. Sie können die Verschiebung mit einer der folgenden Methoden erzwingen:
+
+
+[cols="35,65"]
+|===
+| Option | Beschreibung 
+
+
+| Veto-Prüfungen werden überschrieben | Verwenden Sie den folgenden Befehl:
+`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_ -ndo-controller-upgrade true -override-vetoes true` 
+
+
+| Zielprüfungen überschreiben | Verwenden Sie den folgenden Befehl:
+`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_ -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
+|===

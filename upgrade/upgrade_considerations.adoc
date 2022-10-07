@@ -1,0 +1,92 @@
+---
+permalink: upgrade/upgrade-considerations.html 
+sidebar: sidebar 
+keywords: plan, upgrade, consideration, contact, technical, support, recommendation, guidance, cluster, considerations for upgrading controller hardware 
+summary: Bei der Planung des Upgrades sollten Sie sich mit den allgemeinen Überlegungen zum Upgrade vertraut machen. Wenden Sie sich bei Bedarf an den technischen Support, um Empfehlungen und Hinweise zu erhalten, die der Konfiguration Ihres Clusters spezifisch sind. 
+---
+= Überlegungen für ein Upgrade der Controller-Hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Zur Planung des Upgrades müssen Sie sich mit den allgemeinen Upgrade-Überlegungen vertraut machen. Wenden Sie sich bei Bedarf an den technischen Support, um Empfehlungen und Hinweise zu erhalten, die der Konfiguration Ihres Clusters spezifisch sind.
+
+Anforderungen und Einschränkungen zu erfüllen
+
+* Das Upgrade durch Verschiebung von Storage ist mit Unterbrechungen verbunden. Das Upgrade durch Verschieben von Volumes erfolgt unterbrechungsfrei.
+* Die neuen Nodes müssen dieselbe Softwareversion wie die ursprünglichen Nodes unterstützen.
++
+link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Upgrade von ONTAP"^]
+
+* Sie müssen die maximale Cluster-Größe beobachten.
++
+Beim Upgrade durch Verschieben von Volumes werden neue Nodes dem Cluster hinzugefügt, bevor die ursprünglichen Nodes entfernt werden. Stellen Sie sicher, dass die Anzahl der Controller im Cluster während des Verfahrens nicht die unterstützte maximale Cluster-Größe überschreitet.
+
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+* Wenn Sie ein anderes Controller-Plattformmodell in einem Cluster kombinieren, müssen Sie die Regeln für die Kombination von Storage-Plattformen befolgen.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+* Die neuen Nodes müssen über genügend Storage verfügen, um den mit den Original-Nodes verbundenen Storage unterzubringen.
++
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Festplatten- und Aggregatmanagement mit CLI"^]
+
+* Die Größe des Root-Aggregats und die Anzahl der vom neuen System unterstützten Festplatten muss mindestens der vom ursprünglichen System unterstützten Festplatten entsprechen.
++
+Informationen zu den Größenanforderungen für das Root-Aggregat finden Sie im https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+* Die Controller in einem HA-Paar müssen zwei AFF-Modelle oder zwei FAS-Modelle sein.
+* Sie können ein Upgrade durchführen, indem Sie Volumes oder physischen Storage von einem FAS2xxx zu einem späteren FAS2xxx verschieben, wenn sich die Nodes im selben Cluster befinden. So können Sie beispielsweise Volumes oder physischen Storage von einem FAS2552 auf eine FAS2750 verschieben.
+* Wenn Sie ein HA-Paar in einem Cluster mit mehreren HA-Paaren aktualisieren, müssen Sie Epsilon auf den Node eines HA-Paars verschieben, ohne ein Controller-Upgrade durchführen zu müssen. Wenn Sie beispielsweise nodeA/nodeB in einem Cluster mit der HA-Paar-Konfiguration nodeA/nodeB und nodeC/nodded aktualisieren, müssen Sie Epsilon auf nodeC oder nodded verschieben.
+* Wenn Sie ONTAP 9.6P11, 9.7P8 oder neuere Versionen verwenden, wird empfohlen, die Aktivierung von Connectivity, Lebendigkeit und Availability Monitor (CLAM)-Übernahme zu aktivieren, um das Cluster bei bestimmten Node-Ausfällen in Quorum zurückzugeben. Der `kernel-service` Für Befehl ist der erweiterte Zugriff auf die Berechtigungsebene erforderlich. Weitere Informationen finden Sie unter: https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["NetApp KB-Artikel SU436: DIE CLAM-Übernahme hat sich die Standardkonfiguration geändert"^]. Ab ONTAP 9.8 beginnt der `kcs-enable-takeover` Standardmäßig ist der Parameter aktiviert.
+* Informationen zum Upgrade einer MetroCluster Konfiguration mit zwei Nodes finden Sie unter: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Wahl einer Upgrade- oder Aktualisierungsmethode"^]
+
+
+Systeme mit internem Storage
+
+
+NOTE: Die folgenden Systeme verfügen über internen Storage: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700S, AFF A800, AFF A250 UND AFF C190.
+
+* Wenn Ihr System nicht oben aufgeführt ist, lesen Sie den https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
+* Wenn Sie über ein System mit internem Storage verfügen, wird die empfohlene Upgrade-Methode durch Verschieben von Volumes empfohlen.
+* Wenn Sie ein System mit internem Storage haben, können Sie das System in ein Laufwerk-Shelf konvertieren und an einen neuen Node im selben Cluster anschließen. FAS2520 Controller können nicht in ein Festplatten-Shelf konvertiert werden.
++
+Das Konvertieren eines FAS255x-Systems in ein Laufwerk-Shelf ist eine optionale Aufgabe im Workflow für das Upgrade durch Verschiebung von Storage.
+
+* Falls Sie ein System mit internem Storage oder einem System mit Volumes oder Aggregaten auf internen SATA-Laufwerken oder SSDs haben, können Sie das Upgrade durchführen, indem Sie den internen Storage auf ein Festplatten-Shelf übertragen, das mit dem neuen Node im selben Cluster verbunden ist.
++
+Der Transfer des internen Speichers ist eine optionale Aufgabe im Workflow für das Upgrade durch die Verschiebung des Storage.
+
+
+
+Situationen, in denen weitere Schritte erforderlich sein könnten
+
+* Wenn das neue System weniger Steckplätze als das ursprüngliche System hat oder weniger oder unterschiedliche Porttypen vorhanden sind, müssen Sie dem neuen System möglicherweise einen Adapter hinzufügen.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+* Verwenden die ursprünglichen Nodes oder neuen Nodes FlexArray-Virtualisierungssoftware.
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["NetApp KB-Artikel: Welche Schritte sind mit FlexArray beschäftigt, um Controller-Upgrades und -Austausch von NetApp zu vermeiden"^]
+
+* Wenn Ihr Cluster über SAN Hosts verfügt, müssen Sie möglicherweise Schritte Unternehmen, um Probleme mit den Änderungen der LUN-Seriennummer zu beheben.
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["So können Probleme während des Austauschs der Storage Controller-Hauptplatine und des Upgrades mit iSCSI und FCP behoben werden"^]
+
+* Wenn Ihr System Out-of-Band-ACP verwendet, müssen Sie möglicherweise von Out-of-Band-ACP zu bandinternen ACP migrieren.
++
+https://kb.netapp.com/app/answers/answer_view/a_id/1029778["NetApp KB-Artikel 1029778: Einrichtung und Support in-Band ACP"^]
+
+
+
+*Verwandte Informationen*
+
+xref:upgrade-methods.adoc[Wählen Sie Methoden zum Upgrade der Controller-Hardware]
+
+xref:upgrade-by-moving-storage-parent.adoc[Upgrade von Controller Hardware durch Storage-Verschiebung]
+
+xref:upgrade-by-moving-volumes-parent.adoc[Aktualisieren Sie die Controller Hardware durch Verschieben von Volumes]

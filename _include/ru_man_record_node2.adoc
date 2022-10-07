@@ -1,0 +1,131 @@
+= 
+:allow-uri-read: 
+
+
+Bevor Sie node2 herunterfahren und außer Betrieb nehmen können, müssen Sie Informationen über das Cluster-Netzwerk, die Management- und FC-Ports sowie seine NVRAM-System-ID aufzeichnen. Sie benötigen diese Informationen später im Verfahren, wenn Sie node2 node4 zuordnen und Festplatten neu zuweisen.
+
+.Schritte
+. Ermitteln Sie die Cluster-Netzwerk-, Node-Management-, Cluster- und Cluster-Management-Ports auf node2:
++
+`network interface show -curr-node _node_name_ -role cluster,intercluster,nodemgmt,cluster-mgmt`
+
++
+Das System zeigt die LIFs für diesen Node und andere Nodes im Cluster an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+cluster::> network interface show -curr-node node2 -role
+cluster,intercluster,node-mgmt,cluster-mgmt
+         Logical     Status     Network            Current     Current Is
+Vserver  Interface   Admin/Oper Address/Mask       Node        Port    Home
+-------- ----------  ---------- ------------------ ----------  ------- ----
+node2
+         intercluster up/up     192.168.1.202/24   node2       e0e     true
+         clus1        up/up     169.254.xx.xx/24   node2       e0a     true
+         clus2        up/up     169.254.xx.xx/24   node2       e0b     true
+         mgmt1        up/up     192.168.0.xxx/24   node2       e0c     true
+4 entries were displayed.
+----
++
+
+NOTE: Das System verfügt möglicherweise über keine Intercluster-LIFs. Sie erhalten eine Cluster-Management-LIF nur auf einem Node eines Node-Paars. In der Beispielausgabe von wurde ein Cluster-Management-LIF angezeigt link:record_node1_information.html#step["Schritt 1"] In _Port-Informationen für Node1 aufzeichnen_.
+
+. Erfassen Sie die Informationen in der Ausgabe, die im Abschnitt verwendet werden sollen link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
++
+Die Ausgabeinformationen sind erforderlich, um die neuen Controller-Ports den alten Controller-Ports zuzuordnen.
+
+. Physische Ports auf node2 bestimmen:
++
+`network port show -node _node_name_ -type physical` +
+
++
+`_node_name_` Ist der Node, der migriert wird.
+
++
+Das System zeigt die physischen Ports auf node2 an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+cluster::> network port show -node node2 -type physical
+
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- -----------
+node2
+       e0M       Default      IP_address       up       1500  auto/100
+       e0a       Default      -                up       1500  auto/1000
+       e0b       Default      -                up       1500  auto/1000
+       e1a       Cluster      Cluster          up       9000  auto/10000
+       e1b       Cluster      Cluster          up       9000  auto/10000
+5 entries were displayed.
+----
+. Notieren Sie die Ports und ihre Broadcast-Domänen.
++
+Die Broadcast-Domänen müssen später im Verfahren den Ports auf dem neuen Controller zugeordnet werden.
+
+. Bestimmen Sie die FC-Ports auf node2:
++
+`network fcp adapter show`
+
++
+Das System zeigt die FC-Ports auf dem node2 an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+cluster::> network fcp adapter show -node node2
+                     Connection  Host
+Node         Adapter Established Port Address
+------------ ------- ----------- ------------
+node2
+             0a      ptp         11400
+node2
+             0c      ptp         11700
+node2
+             6a      loop        0
+node2
+             6b      loop        0
+4 entries were displayed.
+----
+. Notieren Sie die Ports.
++
+Die Ausgabeinformationen sind erforderlich, um die neuen FC-Ports auf dem neuen Controller später im Verfahren zuzuordnen.
+
+. Falls Sie dies zuvor noch nicht getan haben, überprüfen Sie, ob auf node2 Schnittstellengruppen oder VLANs konfiguriert sind:
++
+`ifgrp show`
+
++
+`vlan show`
+
++
+Sie verwenden die Informationen im Abschnitt link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Sie suchen... | Dann... 
+
+
+| Die NVRAM-System-ID-Nummer in wurde aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] | Gehen Sie zu link:retire_node2.html["Node2 ausmustern"]. 
+
+
+| Die NVRAM-System-ID-Nummer in wurde nicht aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] | Vollständig ,Schritt 9 Und ,Schritt 10 Und fahren Sie dann mit dem nächsten Abschnitt fort, link:retire_node2.html["Node2 ausmustern"]. 
+|===
+. [[man_record_2_steep9]]die Attribute von node2 anzeigen:
++
+`system node show -instance -node node2`
+
++
+[listing]
+----
+cluster::> system node show -instance -node node2
+                            ...
+                 NVRAM System ID: system_ID
+                           ...
+----
+. [[man_record_2_steep10]]notieren Sie die im Abschnitt zu verwendende NVRAM-System-ID link:install_boot_node4.html["installieren und booten sie node4"].
+

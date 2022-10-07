@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node kann abstürzen, Aggregate werden möglicherweise nicht verschoben oder LIFs werden nicht migriert. Die Ursache des Fehlers und seiner Lösung hängt davon ab, wann der Fehler während des Aktualisierungsvorgangs aufgetreten ist.
+
+Siehe Tabelle, in der die verschiedenen Phasen des Verfahrens im Abschnitt beschrieben werden link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"]. Informationen über mögliche Ausfälle werden in der Phase des Verfahrens aufgelistet.

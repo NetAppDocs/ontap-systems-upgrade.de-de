@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/stage_4_index.html 
+keywords: relocate, retire, node2, LIF, node3, non-root aggregates, stage 4 
+summary: 'Phase 4-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
+---
+= Phase 4: Knoten2 verschieben und ausmustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Während Phase 4 werden alle nicht-Root-Aggregate von node2 auf node3 verschoben. Die nicht-SAN-Daten-LIFs im Besitz von node2 werden in node3 verschoben. Sie müssen die nötigen node2-Informationen notieren und dann node2 stilllegen.
+
+.Schritte
+. link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten 2 auf Knoten 3"]
+. link:retire_node2.html["Node2 ausmustern"]
+

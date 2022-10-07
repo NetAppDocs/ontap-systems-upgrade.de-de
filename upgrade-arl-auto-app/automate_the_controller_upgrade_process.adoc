@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/automate_the_controller_upgrade_process.html 
+keywords: automating, controller, upgrade, process, network, port, ha 
+summary: Verwenden Sie das teilweise automatisierte ARL-Verfahren, um Controller mit ONTAP 9.8 oder höher zu aktualisieren. 
+---
+= Automatisierung des Controller-Upgrades
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Während eines Controller-Upgrades wird der Controller durch einen anderen Controller ersetzt, auf dem eine neuere oder leistungsstärkere Plattform läuft. In früheren Versionen dieses Inhalts enthielten Anweisungen für einen unterbrechungsfreien Controller-Update, der vollständig manuell ausgeführt wurde. Dieser Inhalt enthält die Schritte für das neue automatisierte Verfahren, bei dem automatische Überprüfungen der Netzwerkanschlüsse eingesetzt werden, um das Upgrade-Erlebnis für die Controller weiter zu vereinfachen.
+
+Der manuelle Prozess war langwierig und komplex, aber in diesem vereinfachten Verfahren können Sie ein Controller-Update mithilfe von Aggregatverschiebung implementieren, sodass effizientere, unterbrechungsfreie Upgrades für HA-Paare möglich sind. Vor allem in Bezug auf Validierung, Sammlung von Informationen und Nachprüfungen sind deutlich weniger manuelle Schritte erforderlich.

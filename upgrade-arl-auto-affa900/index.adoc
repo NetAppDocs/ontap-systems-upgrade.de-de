@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/index.html 
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology, aff, a700, a900 
+summary: Sie können Controller Hardware bei einer AFF A700 auf einen AFF A900 upgraden, indem Sie das Controller-Modul und NVS ersetzen. 
+---
+= Überblick
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Aggregate Relocation (ARL) für die folgenden Systemkonfigurationen:
+
+[cols="30,20,20,30"]
+|===
+| Methode | ONTAP-Version | Unterstützte Systeme | Beschreibung 
+
+
+| Wird Verwendet `system controller replace` Befehle | 9.10.1 oder höher | AFF A700 AUF AFF A900 | Konvertiert ein AFF A700 System in ein AFF A900 System, das für das A700 Chassis sorgt 
+
+
+| Wird Verwendet `system controller replace` Befehle | 9.10.1 P3 oder höher | FAS9000 auf FAS9500 Systeme | Konvertiert ein FAS9000 System in ein FAS9500 System, wobei das FAS9000 Chassis erhalten bleibt. 
+|===
+Sie können bei der Controller Hardware auf einem HA-Paar unterbrechungsfrei Upgrades durchführen, indem Sie den Controller und die NVRAM-Module austauschen. Zum einen migrieren Sie die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes zu den Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden.
+
+Während dieses Controller-Upgrades ersetzen Sie nur die beiden vor Ort austauschbaren Einheiten (FRUs) auf jedem Node der AFF A700 oder FAS9000 System durch die neuen FRUs.
+
+
+NOTE: Sie müssen die I/O-Karten, Datenkabel, Platten-Shelfs und Festplatten nicht verschieben, trennen oder erneut anschließen.
+
+Bei diesem Verfahren wird eine Methode namens Aggregate Relocation (ARL) verwendet. Diese Methode nutzt die HA-Konfiguration. So können Sie die Eigentümerschaft von nicht-Root-Aggregaten von einem Node auf einen anderen verschieben, wenn sie Storage innerhalb desselben Clusters gemeinsam nutzen.
+
+Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren Aggregate mehrmals von Node zu Node, um sicherzustellen, dass mindestens ein Node während des Upgrades Daten von den Aggregaten bereitstellt. Sie migrieren beim Fortfahren Daten-LIFs zwischen Nodes im Cluster.
+
+
+NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in diesem Dokument verwendet. Wenn Sie das Verfahren befolgen, müssen Sie die tatsächlichen Namen Ihrer Knoten ersetzen.
+
+.Wichtige Informationen
+* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie sollten auch lesen und verstehen, die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien für Controller Upgrades"] Und das link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"] Abschnitte vor Beginn der Aktualisierung.
+* Bei diesem Verfahren wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht in einem anderen System verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor als Teil eines anderen ONTAP Clusters oder als Standalone-System mit einem einzelnen Node verwendet wurde.
+* Sie können dieses Verfahren zum Upgrade der Controller Hardware in Clustern mit mehr als zwei Nodes verwenden. Sie müssen jedoch die Verfahren für jedes HA-Paar im Cluster separat durchführen.
+* Dieses Verfahren gilt nur für AFF A700 und FAS9000 Systeme. Weitere Controller-Modelle, für die ein Upgrade auf ein AFF A900 oder FAS9500 System erforderlich ist, finden Sie unter link:other_references.html["Quellen"] Verbinden mit den Befehlen „System Controller Replace“ („System Controller Replace“) zum Aktualisieren der Controller-Hardware mit ONTAP 9.8 oder höher_ und zum manuellen Upgrade der Controller Hardware mit ONTAP 9.8 oder höher_-Inhalten.
+* Die AFF Systeme A900 und FAS9500 unterstützen nur High-Line-Strom (200 V bis 240 V). Wenn Ihr AFF A700 oder FAS9000 System mit niedriger Netzspannung (100 V bis 120 V) ausgeführt wird, müssen Sie vor diesem Verfahren die Eingangsspannung der AFF A700 oder FAS9000 konvertieren.
+* Falls Sie ein Upgrade von einem AFF A700 oder FAS9000 System mit Ausfallzeit durchführen, können Sie bei einem Controller-Hardware-Upgrade entweder den Storage verlagern oder den technischen Support kontaktieren. Siehe link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+

@@ -1,0 +1,172 @@
+---
+permalink: upgrade/upgrade-prepare-when-moving-storage.html 
+sidebar: sidebar 
+keywords: licenses 
+summary: Vor dem Upgrade des Storage müssen Lizenzinformationen von den Original-Nodes erfasst, die Netzwerkkonfiguration geplant, die System-IDs aufgezeichnet und die benötigten Dateien für einen Netzboot vorbereitet werden. 
+---
+= Bereiten Sie sich bei der Verschiebung des Storage auf das Upgrade vor
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vor dem Upgrade des Storage müssen Lizenzinformationen von den Original-Nodes erfasst, die Netzwerkkonfiguration geplant, die System-IDs aufgezeichnet und die benötigten Dateien für einen Netzboot vorbereitet werden.
+
+.Schritte
+. Lizenzinformationen der ursprünglichen Knoten, node1 und node2, anzeigen und aufzeichnen:
++
+`system license show`
+
+. Wenn Sie Storage Encryption auf dem HA-Paar node1/node2 verwenden und für die neuen Nodes verschlüsselungsfähige Festplatten vorhanden sind, stellen Sie sicher, dass die Festplatten der ursprünglichen Nodes korrekt codiert sind:
++
+.. Informationen zu Self-Encrypting Drives (SEDs) anzeigen
++
+`storage encryption disk show`
+
+.. Wenn Festplatten mit einem nicht hergestellten Secure ID-Schlüssel (Non-MSID) verknüpft sind, müssen Sie diese auf einen MSID-Schlüssel umgeben
++
+`storage encryption disk modify`
+
+
+
+. [[Prepare_move_Store_3]]Aufzeichnung von Port- und LIF-Konfigurationsinformationen auf das node1/node2 HA-Paar:
++
+[cols="1,2"]
+|===
+| So zeigen Sie Informationen über... | Eingeben... 
+
+
+ a| 
+Shelfs, Anzahl der Festplatten in jedem Shelf, Flash Storage-Details, Speicher, NVRAM und Netzwerkkarten
+ a| 
+`system node run -node _node_name_ sysconfig`
+
+
+
+ a| 
+LIFs für das Cluster-Netzwerk- und Node-Management
+ a| 
+`network interface show -role cluster,node-mgmt`
+
+
+
+ a| 
+Physische Ports
+ a| 
+`network port show -node _node_name_ -type physical`
+
+
+
+ a| 
+Failover-Gruppen
+ a| 
+`network interface failover-groups show -vserver _vserver_name_`
+
+Notieren Sie die Namen und Ports der Failover-Gruppen, die nicht clusterweit sind.
+
+
+
+ a| 
+VLAN-Konfiguration
+ a| 
+`network port vlan show -node _node_name_`
+
+Zeichnen Sie die Paarung jedes Netzwerkports und jeder VLAN-ID auf.
+
+
+
+ a| 
+Konfiguration der Schnittstellengruppe
+ a| 
+`network port ifgrp show -node _node_name_ -instance`
+
+Notieren Sie die Namen der Schnittstellengruppen und der ihnen zugewiesenen Ports.
+
+
+
+ a| 
+Broadcast-Domänen
+ a| 
+`network port broadcast-domain show`
+
+
+
+ a| 
+Informationen zu IPspace
+ a| 
+`network ipspace show`
+
+|===
+. Informieren Sie sich bei jedem neuen Node, auf den Sie ein Upgrade durchführen, über die standardmäßigen Cluster-Ports, Daten-Ports und Node-Management-Ports: https://hwu.netapp.com["NetApp Hardware Universe"^]
+. [[assign_lifs]]bestimmte Systeme, z. B. FAS8300, AFF A400 oder FAS8700 Verwenden Sie die Ports „e0a“ und „e0b“ als Hochverfügbarkeits-Interconnect-Ports (HA). Wenn Sie ein Upgrade von einem System, z. B. einer FAS8200 oder einer AFF A300, in ein System durchführen, das die Ports „e0a“ und „e0b“ als HA Interconnect Ports verwendet, Sie müssen die Management- und Intercluster-LIFs, die für diese Ports des ursprünglichen Systems konfiguriert sind, anderen Ports am Ersatzsystem zuweisen.
++
+
+WARNING: Wenn die Ports „e0a“ und „e0b“ als HA Interconnect Ports auf dem Austauschsystem verwendet werden, können alle Management- oder Intercluster-LIFs, die auf diesen Ports konfiguriert sind, zu einem Upgrade-Ausfall führen, indem sie verhindern, dass die HA-Konfiguration die Ports „e0a“ und „e0b“ verwendet, um auf das Ersatzsystem zu booten.
+
++
+--
+.. Überprüfen Sie, ob Ihr Ersatzteil-System die Ports „e0a“ und „e0b“ als HA-Ports verwendet: https://hwu.netapp.com["NetApp Hardware Universe"^]
+.. Falls erforderlich, geben Sie die Management- oder Intercluster-LIFs an, die auf den Ports „e0a“ und „e0b“ auf dem Originalsystem konfiguriert sind:
++
+`network interface show -home-port _port_name_`
+
+.. Weisen Sie bei Bedarf nur die betroffenen Management- oder Intercluster-LIFs den Netzwerk-Ports zu, die nicht als HA-Ports auf dem Ersatzsystem verwendet werden, neu zu:
++
+`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-port _new_port_name_`
+
++
+`network interface revert -vserver _vserver_name_ -lif _LIF_name_`
+
++
+Im folgenden Beispiel werden die Management- und Intercluster-LIFs auf den Netzwerk-Ports „e0a“ und „e0b“ den Netzwerk-Ports „e1a“ und „e1b“ neu zugewiesen. Ihre Nodes verwenden möglicherweise unterschiedliche Netzwerk-Ports, da diese je nach System variieren.
+
++
+image::../upgrade/media/reassign_lifs.PNG[Neuzuordnen von LIFs zu Netzwerk-Ports im Ersatzsystem]
+
+
+
+--
+. [[Prepare_move_Store_5]]Laden Sie die für das Netzboot verwendeten Dateien herunter und bereiten Sie sie vor.
++
+Nachdem Sie die neuen Nodes installiert haben, müssen Sie möglicherweise als Netzboot fahren, um sicherzustellen, dass die neuen Nodes dieselbe Version von ONTAP wie die ursprünglichen Nodes ausführen. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einem Webserver ablegen, auf den das System zugreifen kann.
+
++
+.. Auf das zugreifen https://mysupport.netapp.com/site/["NetApp Support Website"^] Zum Herunterladen der Dateien zum Ausführen des Netzboots des Systems.
+.. Laden Sie die entsprechende ONTAP Software im Bereich Software Downloads auf der NetApp Support Website herunter und speichern Sie die `<ontap_version>_image.tgz` Datei in einem webbasierten Verzeichnis.
+.. Wechseln Sie in das Verzeichnis für den Zugriff über das Internet, und stellen Sie sicher, dass die benötigten Dateien verfügbar sind.
+
+
++
+[cols="1,2"]
+|===
+| Für... | Dann... 
+
+
+ a| 
+*SYSTEME DER FAS2200, FAS2500, FAS3200, FAS6200, FAS/AFF8000 SERIE*
+ a| 
+Extrahieren Sie den Inhalt des `<ontap_version>_image.tgz` Datei zum Zielverzeichnis:
+`tar -zxvf <ontap_version>_image.tgz`
+
+*Hinweis:* Wenn Sie die Inhalte auf Windows extrahieren, verwenden Sie 7-Zip oder WinRAR, um das Netzboot-Bild zu extrahieren.
+
+Ihre Verzeichnisliste sollte einen Netzboot-Ordner mit einer Kernel-Datei enthalten:
+`netboot/kernel`
+
+
+
+ a| 
+*Alle anderen Systeme*
+ a| 
+Ihre Verzeichnisliste sollte die folgende Datei enthalten:
+
+`<ontap_version>_image.tgz`
+
+
+NOTE: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` Datei:
+
+|===
+
+
+Sie werden die Informationen im Verzeichnis verwenden, um xref:upgrade-set-up-new-nodes.adoc[Richten Sie die neuen Nodes ein].

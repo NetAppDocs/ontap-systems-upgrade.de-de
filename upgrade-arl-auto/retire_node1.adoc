@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/retire_node1.html 
+keywords: retire, node1 
+summary: 'Deaktivieren Sie das HA-Paar mit node2 und fahren Sie node1 herunter, wenn Sie ein Upgrade von Controllern durchführen, die ONTAP 9.5 zu 9.7 verwenden `system controller replace` Befehle.' 
+---
+= Node1 ausmustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Um „node1“ außer Betrieb zu nehmen, setzen Sie den automatischen Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 ordnungsgemäß herunterzufahren. Später müssen Sie den Knoten1 aus dem Rack oder Gehäuse entfernen.
+
+.Schritte
+. Vorgang fortsetzen:
++
+`system controller replace resume`
+
+. Vergewissern Sie sich, dass node1 angehalten wurde:
++
+`system controller replace show-details`
+
+
+
+Sie können Node1 nach Abschluss des Upgrades außer Betrieb nehmen. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].

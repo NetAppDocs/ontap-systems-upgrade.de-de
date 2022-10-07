@@ -1,0 +1,16 @@
+= 
+:allow-uri-read: 
+
+
+* Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock Enterprise und SnapLock Compliance Volumes konfiguriert sind.
+
+
+Sie müssen überprüfen, ob der ARL-Vorgang auf den Original- und Ersatz-Controllern ausgeführt werden kann. Sie müssen die Größe aller definierten Aggregate und die Anzahl der Festplatten überprüfen, die vom ursprünglichen System unterstützt werden. Vergleichen Sie dann die aggregierte Größe und Anzahl der vom neuen System unterstützten Festplatten. Informationen zum Zugriff auf diese Informationen finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen gleich oder größer sein als die Aggregatgröße und Anzahl der vom ursprünglichen System unterstützten Festplatten.
+
+Sie müssen in den Cluster-Mischregeln validieren, ob neue Nodes zusammen mit den vorhandenen Nodes Teil des Clusters werden können, wenn der ursprüngliche Controller ersetzt wird. Weitere Informationen zu Regeln für die Kombination von Clustern finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+
+
+NOTE: Beide Systeme sind entweder hochverfügbarkeits- (HA) oder kein HA-System. Beide Nodes müssen entweder die Persönlichkeit aktiviert oder deaktiviert sein. Sie können einen Node nicht mit der All-Flash-optimierten Persönlichkeit kombinieren, die bei einem Node aktiviert ist, der nicht im gleichen HA-Paar die Persönlichkeit aktiviert hat. Wenn sich die Persönlichkeiten unterscheiden, wenden Sie sich an den technischen Support.
+
+
+NOTE: Wenn das neue System weniger Steckplätze als das ursprüngliche System besitzt oder weniger oder unterschiedliche Ports vorhanden sind, müssen Sie dem neuen System möglicherweise einen Adapter hinzufügen. Siehe link:other_references.html["Quellen"] Link zum _Hardware Universe_ auf der NetApp Support-Website, um Informationen zu bestimmten Plattformen zu erhalten.

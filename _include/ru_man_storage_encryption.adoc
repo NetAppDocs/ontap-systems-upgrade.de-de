@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+Die ursprünglichen oder die neuen Nodes sind möglicherweise für die Storage-Verschlüsselung aktiviert. In diesem Fall müssen Sie in diesem Verfahren weitere Schritte durchführen, um zu überprüfen, ob die Speicherverschlüsselung ordnungsgemäß eingerichtet ist.
+
+Falls Sie Storage Encryption verwenden möchten, müssen alle dem Node zugeordneten Festplattenlaufwerke über Self-Encrypting Drives verfügen.

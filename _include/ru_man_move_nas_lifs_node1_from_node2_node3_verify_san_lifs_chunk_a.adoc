@@ -1,0 +1,123 @@
+= 
+:allow-uri-read: 
+
+
+Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs sich in einem ordnungsgemäßen Zustand befinden und sich auf den entsprechenden Ports befinden, nachdem Sie node3 in den Online-Modus versetzt haben.
+
+.Schritte
+. [[Schritt1]]Listen Sie alle NAS-Daten-LIFs auf, die nicht im Besitz von node2 sind, indem Sie auf einem der beiden Knoten den folgenden Befehl eingeben und die Ausgabe erfassen:
++
+`network interface show -role data -curr-node _node2_ -is-home false -home-node _node3_`
+
+. [[Arbeitsblatt_Schritt2]] Wenn das Cluster für SAN-LIFs konfiguriert ist, notieren Sie die SAN-LIFs `adapter` Und `switch-port` Konfigurationsinformationen in diesem link:worksheet_information_before_moving_san_lifs_node3.html["Arbeitsblatt"] Zur späteren Verwendung im Verfahren.
++
+.. Führen Sie die SAN-LIFs auf node2 auf und untersuchen Sie die Ausgabe:
++
+`network interface show -data-protocol fc*`
+
++
+Das System gibt die Ausgabe wie im folgenden Beispiel zurück:
+
++
+[listing]
+----
+cluster1::> net int show -data-protocol fc*
+  (network interface show)
+             Logical     Status     Network            Current        Current Is
+Vserver      Interface   Admin/Oper Address/Mask       Node           Port    Home
+-----------  ----------  ---------- ------------------ -------------  ------- ----
+svm2_cluster1
+             lif_svm2_cluster1_340
+                         up/up      20:02:00:50:56:b0:39:99
+                                                       cluster1-01    1b      true
+             lif_svm2_cluster1_398
+                         up/up      20:03:00:50:56:b0:39:99
+                                                       cluster1-02    1a      true
+             lif_svm2_cluster1_691
+                         up/up      20:01:00:50:56:b0:39:99
+                                                       cluster1-01    1a      true
+             lif_svm2_cluster1_925
+                         up/up      20:04:00:50:56:b0:39:99
+                                                       cluster1-02    1b      true
+4 entries were displayed.
+----
+.. Führen Sie die vorhandenen Konfigurationen auf und untersuchen Sie die Ausgabe:
++
+`fcp adapter show -fields switch-port,fc-wwpn`
+
++
+Das System gibt die Ausgabe wie im folgenden Beispiel zurück:
+
++
+[listing]
+----
+cluster1::> fcp adapter show -fields switch-port,fc-wwpn
+  (network fcp adapter show)
+node         adapter  fc-wwpn                  switch-port
+-----------  -------  -----------------------  -------------
+cluster1-01  0a       50:0a:09:82:9c:13:38:00  ACME Switch:0
+cluster1-01  0b       50:0a:09:82:9c:13:38:01  ACME Switch:1
+cluster1-01  0c       50:0a:09:82:9c:13:38:02  ACME Switch:2
+cluster1-01  0d       50:0a:09:82:9c:13:38:03  ACME Switch:3
+cluster1-01  0e       50:0a:09:82:9c:13:38:04  ACME Switch:4
+cluster1-01  0f       50:0a:09:82:9c:13:38:05  ACME Switch:5
+cluster1-01  1a       50:0a:09:82:9c:13:38:06  ACME Switch:6
+cluster1-01  1b       50:0a:09:82:9c:13:38:07  ACME Switch:7
+cluster1-02  0a       50:0a:09:82:9c:6c:36:00  ACME Switch:0
+cluster1-02  0b       50:0a:09:82:9c:6c:36:01  ACME Switch:1
+cluster1-02  0c       50:0a:09:82:9c:6c:36:02  ACME Switch:2
+cluster1-02  0d       50:0a:09:82:9c:6c:36:03  ACME Switch:3
+cluster1-02  0e       50:0a:09:82:9c:6c:36:04  ACME Switch:4
+cluster1-02  0f       50:0a:09:82:9c:6c:36:05  ACME Switch:5
+cluster1-02  1a       50:0a:09:82:9c:6c:36:06  ACME Switch:6
+cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
+16 entries were displayed
+----
+
+
+. [[Schritt3]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Falls Knoten 1... | Dann... 
+
+
+| Schnittstellengruppen oder VLANs wurden konfiguriert | Gehen Sie zu ,Schritt 4. 
+
+
+| Schnittstellengruppen oder VLANs waren nicht konfiguriert | Überspringen Sie Schritt 4, und fahren Sie mit fort ,Schritt 5. 
+|===
+. [[man_lif_verify_3_step3]]führen Sie die folgenden Teilschritte durch, um alle auf Schnittstellengruppen und VLANs gehosteten NAS-Daten-LIFs zu migrieren, die sich ursprünglich auf node1 von node2 auf node3 befanden:
++
+.. [[man_lif_verify_3_subzepa]]Migrieren Sie alle auf node2 gehosteten Daten-LIFs, die zuvor zu node1 auf einer Schnittstellengruppe gehörten, zu einem Port auf node3, der in der Lage ist, LIFs auf demselben Netzwerk zu hosten, indem Sie den folgenden Befehl eingeben – einmal für jede LIF:
++
+`network interface migrate -vserver _vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
+
+.. Ändern Sie den Home-Port und den Home-Node der LIF in ,Unterschritt A Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
++
+`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node3_ -home-port _netport|ifgrp_`
+
+.. [[man_lif_verify_3_subsepc]]Migrieren Sie alle auf node2 gehosteten Daten-LIFs, die zuvor zu node1 auf einem VLAN-Port gehörten, zu einem Port auf node3, der in der Lage ist, LIFs auf demselben Netzwerk zu hosten, indem Sie den folgenden Befehl eingeben – einmal für jede LIF:
++
+`network interface migrate -vserver _vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
+
+.. Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt C Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
++
+`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node3_ -home-port _netport|ifgrp_`
+
+
+
+. [[man_lif_verify_3_step4]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="25,75"]
+|===
+| Wenn das Cluster konfiguriert ist für... | Dann... 
+
+
+| NAS | Vollständig ,Schritt 6 Und ,Schritt 7, überspringen Sie Schritt 8, und abgeschlossen ,Schritt 9 Bis ,Schritt 12. 
+
+
+| San | Deaktivieren Sie alle SAN-LIFs auf dem Node, um sie für das Upgrade herunterzufahren:
+`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node_to_upgrade_ -home-port _netport|ifgrp_ -status-admin down` 
+|===
+

@@ -1,0 +1,139 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/relocate_non_root_aggr_node1_node2.html 
+keywords: node1, node2, aggregate, relocation, storage 
+summary: Verschieben Sie die Aggregate ohne Root-Root-Fehler von node1 auf node2 und überprüfen Sie die Verschiebung während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.7 oder einer älteren Version. 
+---
+= Verschiebung von nicht-Root-Aggregaten von node1 auf node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bevor Sie node1 durch node3 ersetzen können, müssen Sie die nicht-Root-Aggregate von node1 auf node2 verschieben, indem Sie den Befehl Storage Aggregate Relocation verwenden und dann die Verschiebung überprüfen.
+
+.Schritte
+. [[Schritt1]]Verschieben der nicht-Root-Aggregate durch Ausfüllen der folgenden Teilschritte:
++
+.. Legen Sie die Berechtigungsebene auf erweitert fest:
++
+`set -privilege advanced`
+
+.. Geben Sie den folgenden Befehl ein:
++
+`storage aggregate relocation start -node _node1_ -destination _node2_ -aggregate-list * -ndo-controller-upgrade true`
+
+.. Geben Sie bei der entsprechenden Aufforderung ein `y`.
++
+Umzüge werden im Hintergrund stattfinden. Um ein Aggregat verschieben zu können, dauerte der Vorgang einige Sekunden oder Minuten. Die Zeit umfasst sowohl einen Client-Ausfall als auch Teile ohne Ausfälle. Mit dem Befehl werden keine Offline- oder eingeschränkten Aggregate verschoben.
+
+.. Kehren Sie zur Administratorebene zurück, indem Sie den folgenden Befehl eingeben:
++
+`set -privilege admin`
+
+
+
+. Überprüfen Sie den Versetzungsstatus, indem Sie auf node1 den folgenden Befehl eingeben:
++
+`storage aggregate relocation show -node _node1_`
+
++
+Die Ausgabe wird angezeigt `Done` Für ein Aggregat, nachdem es verlegt wurde.
+
++
+
+NOTE: Warten Sie, bis alle nicht-Root-Aggregate im Besitz von node1 in node2 verschoben wurden, bevor Sie mit dem nächsten Schritt fortfahren.
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Wenn Umzug... | Dann... 
+
+
+| Von allen Aggregaten ist erfolgreich | Gehen Sie zu ,Schritt 4. 
+
+
+| Fällt ein Aggregate aus oder kommt ein Vetos vor  a| 
+.. Überprüfen Sie die EMS-Protokolle auf Korrekturmaßnahmen.
+.. Führen Sie die Korrekturmaßnahme durch.
+.. Verschiebung ausgefallener oder Vetos von Aggregaten:
+`storage aggregate relocation start -node _node1_ - destination _node2_ -aggregate-list * -ndo-controller-upgrade true`
+.. Geben Sie bei der entsprechenden Aufforderung ein `y`.
+.. Zurück zur Administratorebene:
+`set -privilege admin`Bei Bedarf können Sie die Verschiebung mit einer der folgenden Methoden erzwingen:
++
+*** Veto-Prüfungen überschreiben:
+`storage aggregate relocation start -override-vetoes true -ndo-controller-upgrade`
+*** Zielprüfungen überschreiben:
+`storage aggregate relocation start -override-destination-checks true -ndo-controller-upgrade`
+
+
+
+
+Siehe link:other_references.html["Quellen"] Link zum _Disk- und Aggregatmanagement mit dem CLI_ Inhalt und den _ONTAP 9 Befehlen: Manual Page Reference_ Weitere Informationen zu den Befehlen zum Verlegen von Speicheraggregaten.
+
+|===
+. [[man_relocate_1_2_step4]] Überprüfen Sie, ob alle nicht-Root-Aggregate online sind und ihren Status auf node2:
++
+`storage aggregate show -node _node2_ -state online -root false`
+
++
+Das folgende Beispiel zeigt, dass die nicht-Root-Aggregate auf node2 online sind:
+
++
+[listing]
+----
+cluster::> storage aggregate show -node node2 state online -root false
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+aggr_1
+           744.9GB 744.8GB      0% online       5 node2            raid_dp,
+                                                                   normal
+aggr_2     825.0GB 825.0GB      0% online       1 node2            raid_dp,
+                                                                   normal
+2 entries were displayed.
+----
++
+Wenn die Aggregate offline gegangen sind oder in node2 fremd geworden sind, bringen Sie sie mit dem folgenden Befehl auf node2, einmal für jedes Aggregat online:
+
++
+`storage aggregate online -aggregate _aggr_name_`
+
+. Überprüfen Sie, ob alle Volumes auf node2 online sind, indem Sie den folgenden Befehl auf node2 eingeben und seine Ausgabe prüfen:
++
+`volume show -node _node2_ -state offline`
+
++
+Wenn ein Volume auf node2 offline ist, bringen Sie sie mit dem folgenden Befehl auf node2 für jedes Volume online:
+
++
+`volume online -vserver _vserver-name_ -volume _volume-name_`
+
++
+Der `vserver-name` Die Verwendung mit diesem Befehl ist in der Ausgabe des vorherigen gefunden `volume show` Befehl.
+
+. Geben Sie auf node2 den folgenden Befehl ein:
++
+`storage failover show -node _node2_`
+
++
+Die Ausgabe sollte die folgende Meldung anzeigen:
+
++
+[listing]
+----
+Node owns partner's aggregates as part of the nondisruptive controller upgrade procedure.
+----
+. Vergewissern Sie sich, dass node1 keine im Besitz von nicht-Root-Aggregaten ist, die online sind:
++
+`storage aggregate show -owner-name _node1_ -ha-policy sfo -state online`
+
++
+Die Ausgabe sollte keine online nicht-Root-Aggregate anzeigen, die bereits in node2 verschoben wurden.
+
+

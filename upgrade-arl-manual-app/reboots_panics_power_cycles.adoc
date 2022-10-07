@@ -1,0 +1,218 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/reboots_panics_power_cycles.html 
+keywords: reboot, crash, panic, failure, upgrade 
+summary: Während der verschiedenen Phasen eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.8 oder höher kann das System abstürzt – neu gebootet, Panik oder ein aus- und Wiedereinschalten durchlaufen. 
+---
+= Neustarts, Panikspiele oder Energiezyklen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Das System kann in verschiedenen Phasen des Upgrades abstürzt, z. B. neu gebootet, in Panik geraten oder aus- und wieder eingeschaltet werden. Die Lösung dieser Probleme hängt davon ab, wann sie auftreten.
+
+
+
+== Neustarts, Panikspiele oder Energiezyklen in Phase 2
+
+Abstürze können vor, während oder unmittelbar nach Phase 2 auftreten, während der Sie Aggregate von node1 auf node2 verschieben, Daten-LIFs und SAN-LIFs im Besitz von node1 auf node2 verschieben, node1-Informationen aufzeichnen und Knoten1 ausmustern.
+
+
+
+=== Node1 oder node2 stürzt vor Phase 2 ab, und HA ist noch aktiviert
+
+Wenn node1 oder node2 vor Phase 2 abstürzt, wurden noch keine Aggregate verschoben und die HA-Konfiguration ist noch aktiviert.
+
+Takeover und Giveback können normal fortgesetzt werden.
+
+.Schritte
+. Überprüfen Sie die Konsole auf EMS-Meldungen, die das System möglicherweise ausgegeben hat, und ergreifen Sie die empfohlenen Korrekturmaßnahmen.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node1 stürzt während oder direkt nach Phase 2 ab, und HA ist noch aktiviert
+
+Einige oder alle Aggregate wurden von node1 in node2 verschoben und die HA ist noch aktiviert. Node2 wird das Root-Volume von node1 und alle nicht-Root-Aggregate übernehmen, die nicht verschoben wurden.
+
+Das Eigentum an verlagerten Aggregaten sieht mit dem Eigentum nicht-Root-Aggregaten identisch aus, die übernommen wurden, da sich der Home-Eigentümer nicht geändert hat. Wenn node1 in den eintritt `waiting for giveback state`, Node2 wird alle node1 nicht-Root-Aggregate zurückgeben.
+
+.Schritte
+. Vollständig link:relocate_non_root_aggr_node1_node2.html#step1["Schritt 1"] Im Abschnitt _Non-Root-Aggregate wieder von node1 nach node2_ verschieben.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node1 stürzt nach Phase 2 ab, während HA deaktiviert ist
+
+Node2 wird nicht übernehmen, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
+
+.Schritte
+. Knoten 1 aufbring.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
++
+Möglicherweise sehen Sie einige Änderungen in der Ausgabe von `storage failover show` Befehl, aber das ist typisch und hat keine Auswirkung auf das Verfahren. Siehe Abschnitt Fehlerbehebung link:issues_multiple_stages_of_procedure.html#Unexpected-storage-failover-show-command-output["Unerwarteter Storage-Failover zeigt die Befehlsausgabe an"].
+
+
+
+
+
+=== Node2 fällt während oder nach Phase 2 aus, bei aktiviertem HA
+
+Node1 hat einige oder alle seine Aggregate in node2 verschoben. HA ist aktiviert.
+
+Node1 wird alle Aggregate node2 sowie alle eigenen Aggregate übernehmen, die es auf node2 verlagert hatte. Wenn node2 in den eintritt `Waiting for Giveback` Zustand: Node1 gibt alle Aggregate node2 zurück.
+
+.Schritte
+. Vollständig link:relocate_non_root_aggr_node1_node2.html#step1["Schritt 1"] Im Abschnitt _Non-Root-Aggregate wieder von node1 nach node2_ verschieben.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node2 stürzt nach Phase 2 ab und nach HA ist deaktiviert
+
+Node1 wird nicht übernehmen.
+
+.Schritte
+. Knoten 2 aufbring.
++
+Ein Client-Ausfall wird für alle Aggregate auftreten, während node2 gestartet wird.
+
+. Fahren Sie mit dem verbleibenden Upgrade des Node-Paars fort.
+
+
+
+
+== Neustarts, Panikspiele oder Energiezyklen in Phase 3
+
+Ausfälle können während oder unmittelbar nach Phase 3 auftreten. In dieser Phase installieren und booten Sie Node3, weisen Ports von node1 zu node3 zu, verschieben Daten-LIFs und SAN-LIFs, die zu node1 und node2 zu node3 gehören, und verschieben alle Aggregate von node2 auf node3.
+
+
+
+=== Knoten 2 Absturz in Phase 3 mit deaktiviertem HA und vor dem Verschieben von Aggregaten
+
+Node3 wird nach einem Absturz nach einem node2 nicht mehr übernehmen, da HA bereits deaktiviert ist.
+
+.Schritte
+. Knoten 2 aufbring.
++
+Ein Client-Ausfall wird für alle Aggregate auftreten, während node2 gestartet wird.
+
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node2 stürzt während Phase 3 ab, nachdem einige oder alle Aggregate verschoben wurden
+
+Node2 hat einige oder alle seine Aggregate in Node3 verschoben, die Daten von Aggregaten bereitstellen, die umgezogen wurden. HA ist deaktiviert.
+
+Es wird ein Client-Ausfall für Aggregate geben, die nicht verlagert wurden.
+
+.Schritte
+. Knoten 2 aufbring.
+. Verschieben Sie die verbleibenden Aggregate durch Abschluss link:relocate_non_root_aggr_node2_node3.html#step1["Schritt 1"] Bis link:relocate_non_root_aggr_node2_node3.html#step3["Schritt 3"] Im Abschnitt _Non-Root-Aggregate von node2 auf node3_ verschieben.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node3 stürzt während Phase 3 und vor node2 hat alle Aggregate verschoben
+
+Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
+
+.Schritte
+. Knoten 3 aufbring.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node3 stürzt während der Phase 3 während der Aggregatverschiebung ab
+
+Falls node3 abstürzt, während node2 Aggregate zu node3 verschoben wird, wird node2 die Verschiebung aller verbleibenden Aggregate abbrechen.
+
+Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in Knoten 3 verlagert wurden, begegnen ein Client-Ausfall, während node3 gebootet wird.
+
+.Schritte
+. Knoten 3 aufbring.
+. Vollständig link:relocate_non_root_aggr_node2_node3.html#step3["Schritt 3"] Wieder im Abschnitt _Verschiebung von nicht-Root-Aggregaten von node2 zu node3_.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node3 startet nach einem Absturz in Phase 3 nicht
+
+Aufgrund eines katastrophalen Ausfalls kann nach einem Absturz in Phase 3 nicht node3 gestartet werden.
+
+.Schritt
+. Wenden Sie sich an den technischen Support.
+
+
+
+
+=== Node2 stürzt nach Phase 3 aber vor Phase 5 ab
+
+Node3 stellt weiterhin Daten für alle Aggregate bereit. Das HA-Paar ist deaktiviert.
+
+.Schritte
+. Knoten 2 aufbring.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node3 stürzt nach Phase 3, aber vor Phase 5 ab
+
+Node3 stürzt nach Phase 3, aber vor Phase 5 ab. Das HA-Paar ist deaktiviert.
+
+.Schritte
+. Knoten 3 aufbring.
++
+Es gibt einen Client-Ausfall für alle Aggregate.
+
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+== Neustarts, Panikspiele oder Energiezyklen in Phase 5
+
+Es können zu Abstürzen kommen, während Phase 5, in der Sie node4 installieren und booten, Ports von node2 nach node4 abbilden, Daten-LIFs und SAN-LIFs, die zu node2 von node3 nach node4 gehören, und alle Aggregate von node2 in node4 verschieben.
+
+
+
+=== Node3 stürzt in Phase 5 ab
+
+Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node4 übernimmt nicht, dient aber weiterhin nicht-Root-Aggregate, die node3 bereits verschoben hat. Das HA-Paar ist deaktiviert.
+
+Es gibt einen Ausfall für den Rest der Aggregate, bis node3 wieder hochfährt.
+
+.Schritte
+. Knoten 3 aufbring.
+. Verschiebung der verbleibenden Aggregate, die zu Knoten 2 gehörten, durch Wiederholung link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Schritt 1"] Bis link:relocate_node2_non_root_aggr_node3_node4.html#step3["Schritt 3"] Im Abschnitt _Verschiebung der nicht-Root-Aggregate von node2 nach node3_.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node4 stürzt in Phase 5 ab
+
+Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node3 übernimmt nicht die Übernahme, dient aber weiterhin nicht-Root-Aggregate, die Node3 besitzt, sowie solche, die nicht verlagert wurden. HA ist deaktiviert.
+
+Es gibt einen Ausfall für nicht-Root-Aggregate, die bereits verschoben wurden, bis node4 wieder hochfährt.
+
+.Schritte
+. bringen sie node4 auf.
+. Verschiebung der verbleibenden Aggregate, die zu node2 gehörten, durch erneute Fertigstellung link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Schritt 1"] Bis link:relocate_node2_non_root_aggr_node3_node4.html#step3["Schritt 3"] In _Verschiebung der nicht-Root-Aggregate von node2 nach node4_.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+

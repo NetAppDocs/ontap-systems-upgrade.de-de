@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: guidelines, upgrading, controllers, ARL 
+summary: 'Informieren Sie sich, ob Sie Controller mit ONTAP 9.8 oder höher mit aktualisieren können `system controller replace` Befehle.' 
+---
+= Richtlinien für das Controller-Upgrade mit ARL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Um zu verstehen, ob Sie mithilfe von ARL ein Upgrade für ein Controller-Paar mit ONTAP 9.8 oder höher durchführen können, hängt von der Plattform und der Konfiguration der ursprünglichen Controller sowie von Ersatz-Controllern ab.
+
+
+
+== Unterstützte Upgrades für ARL
+
+Wenn Sie ein Node-Paar mit diesem ARL-Verfahren für ONTAP 9.8 oder höher aktualisieren, müssen Sie sicherstellen, dass ARL auf den Original- und Austausch-Controllern ausgeführt werden kann.
+
+Sie müssen die Größe aller definierten Aggregate und die Anzahl der Festplatten überprüfen, die vom ursprünglichen System unterstützt werden. Dann müssen Sie die Aggregatgröße und Anzahl der unterstützten Festplatten mit der Aggregatgröße und der Anzahl der vom neuen System unterstützten Festplatten vergleichen. Siehe link:other_references.html["Quellen"] Link zum _Hardware Universe_, wo diese Information verfügbar ist. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen gleich oder größer sein als die Aggregatgröße und Anzahl der vom ursprünglichen System unterstützten Festplatten.
+
+Sie müssen in den Cluster-Mischregeln validieren, ob neue Nodes zusammen mit den vorhandenen Nodes Teil des Clusters werden können, wenn der ursprüngliche Controller ersetzt wird. Weitere Informationen zu Regeln für die Kombination von Clustern finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+
+
+NOTE: Informationen zum Upgrade eines Systems, das interne Laufwerke unterstützt (z. B. eine FAS2700 oder AFF A250), aber KEINE internen Laufwerke enthält, finden Sie unter link:other_references.html["Quellen"] Und verwenden Sie das Verfahren in der _Aggregate Relocation, um den für Ihre Version von ONTAP korrekten Controller-Hardware_-Inhalt manuell zu aktualisieren.
+
+Wenn Sie ein System mit mehr als zwei Cluster-Ports pro Node, wie z. B. einem FAS8080 oder AFF8080 System, haben Sie vor dem Upgrade die Cluster-LIFs zu zwei Cluster-Ports pro Node zu migrieren und neu zu starten. Wenn Sie das Controller-Upgrade mit mehr als zwei Cluster-Ports pro Node durchführen, fehlen möglicherweise nach dem Upgrade Cluster-LIFs auf dem neuen Controller.
+
+Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock Enterprise und SnapLock Compliance Volumes konfiguriert sind.
+
+
+
+== 2-Node-Cluster ohne Switches
+
+Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren.
+
+
+
+== Upgrades werden für ARL nicht unterstützt
+
+Sie können die folgenden Aktualisierungen nicht ausführen:
+
+* Zum Austausch von Controllern, die die mit den ursprünglichen Controllern verbundenen Platten-Shelfs nicht unterstützen
++
+Siehe link:other_references.html["Quellen"] Um Informationen zur Hardware Universe Festplattenunterstützung zu erhalten.
+
+* Um Controller der Einstiegsklasse mit internen Laufwerken zu erhalten, beispielsweise eine FAS 2500.
++
+Informationen zum Upgrade von Controllern der Einstiegsklasse mit internen Laufwerken finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade durch Verschiebung von Volumes oder Storage_ und Vorgang _Upgrade eines Node-Paares, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird.
+
+
+
+
+
+== Fehlerbehebung
+
+Falls beim Upgrade der Controller Probleme auftreten, finden Sie weitere Informationen im link:troubleshoot_index.html["Fehlerbehebung"] Abschnitt am Ende des Verfahrens für weitere Informationen und mögliche Lösungen.
+
+Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.

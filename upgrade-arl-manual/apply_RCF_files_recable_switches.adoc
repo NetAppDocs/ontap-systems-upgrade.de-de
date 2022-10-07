@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/apply_RCF_files_recable_switches.html 
+keywords: rcf files, reference configuration, switches, nodes, recable, fc 
+summary: Installieren Sie RCF-Dateien, um Cisco und Brocade Switches während eines manuellen ARL Upgrades bei Controllern mit ONTAP 9.7 oder einer älteren Version neu zu konfigurieren. 
+---
+= Wenden Sie RCF-Dateien an und stellen Sie die Schalter wieder ein
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen die entsprechenden Referenzkonfigurationsdateien (RCfs) anwenden, um Ihre Switches neu zu konfigurieren, damit sie die neuen Nodes aufnehmen können. Nachdem Sie die RCFs angewendet haben, können Sie die Schalter umschalten.
+
+Die Verwendung des FC-Switch-Ports muss mit der in der Installation and Configuration_-Inhaltsanweisung _Fabric-Attached MetroCluster beschriebenen Nutzung übereinstimmen, damit die RCFs verwendet werden können. Gehen Sie zu link:other_references.html["Quellen"] Zum Verlinken auf den Content _Fabric-Attached MetroCluster Installation and Configuration_.
+
+.Schritte
+. Wechseln Sie zum https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF-Downloads"^] Wählen Sie die RCFs für Ihre Switch-Konfiguration aus.
++
+Sie müssen die RCFs verwenden, die zu Ihren Switch-Modellen passen.
+
+. Installieren Sie die FC-Switch-RCFs, indem Sie das Verfahren auswählen, das Ihren Switch-Modellen entspricht, und befolgen Sie die Installationsanweisungen:
++
+** https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_install_the_brocade_fc_switch_rcf_file.html["Installieren Sie einen Brocade FC-Switch RCF"^]
+** https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_download_and_install_the_cisco_fc_switch_rcf_files.html["Installieren Sie einen Cisco FC-Switch RCF"^]
+
+
+. Vergewissern Sie sich, dass die Switch-Konfiguration gespeichert ist.
+. Verkabeln Sie beide FC-to-SAS-Bridges mithilfe des in erstellten Verkabelungslayouts zu den FC-Switches link:determine_new_cabling_layout.html["Bestimmen Sie das neue Verkabelungslayout"].
+. Vergewissern Sie sich, dass die Ports online sind:
++
+** Verwenden Sie für Brocade-Switches den `switchshow` Befehl.
+** Verwenden Sie für Cisco-Switches die Show `interface brief` Befehl.
+
+
+. Verkabeln Sie die FC-VI-Ports von den Controllern mit den Switches.
+. Vergewissern Sie sich von den vorhandenen Nodes, dass die FC-VI-Ports online sind:
++
+`metrocluster interconnect adapter show`
+
++
+`metrocluster interconnect mirror show`
+
+

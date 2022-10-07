@@ -1,0 +1,9 @@
+= 
+:allow-uri-read: 
+
+
+Dieser Inhalt beschreibt, wie die Controller-Hardware dank Aggregatverschiebung unterbrechungsfrei aktualisiert werden kann.
+
+Sie können die Controller-Hardware auf einem Node-Paar, auf dem ONTAP 9 ausgeführt wird, unterbrechungsfrei aktualisieren, indem Sie Aggregate anderer Anbieter von den ursprünglichen Nodes auf die neuen Nodes im selben Cluster migrieren. Auf die Daten, die auf den Nodes gehostet werden, die während des Upgrades zugegriffen werden kann.
+
+Bei diesem Verfahren wird eine Methode namens Aggregate Relocation (ARL) verwendet. Diese Methode nutzt die HA-Konfiguration. So können Sie die Eigentümerschaft von nicht-Root-Aggregaten von einem Node auf einen anderen verschieben, wenn sie Storage innerhalb desselben Clusters gemeinsam nutzen.

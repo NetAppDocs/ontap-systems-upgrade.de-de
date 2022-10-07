@@ -1,0 +1,12 @@
+= 
+:allow-uri-read: 
+
+
+Nach Abschluss des Upgrades befinden sich die logischen FC-Schnittstellen (LIFs) bei einer MetroCluster-Konfiguration möglicherweise auf falschen Ports. Sie können einen Neusynchronisierung durchführen, um die LIFs den richtigen Ports zuzuweisen.
+
+.Schritt
+. Geben Sie das ein `metrocluster vserver resync` Befehl zum Neuzuweisen der LIFs zu den richtigen Ports.
++
+`metrocluster vserver resync -vserver _vserver_name_ fcp-mc.headupgrade.test.vs`
+
+

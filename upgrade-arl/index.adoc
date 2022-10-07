@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl/index.html 
+keywords: aggregate, relocation, moving, manual, upgrade, relocate, hardware 
+summary: Nutzen Sie Aggregatverschiebung, um ein Upgrade der Controller-Hardware durchzuführen 
+---
+= Überblick
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+In diesem Inhalt wird beschrieben, wie Sie mithilfe von Aggregate Relocation (ARL) ein unterbrechungsfreies Upgrade der Controller-Hardware durchführen.
+
+Weitere Methoden zum Upgrade Ihrer Controller-Hardware finden Sie unter xref:other_references.adoc[Quellen] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+
+Sie können die Controller-Hardware auf einem Node-Paar mit ONTAP unterbrechungsfrei aktualisieren, indem Sie Aggregate anderer Anbieter von den ursprünglichen Nodes auf die neuen Nodes im selben Cluster migrieren. Auf die Daten, die auf den Nodes gehostet werden, die während des Upgrades zugegriffen werden kann.
+
+ARL bietet sich aus der HA-Konfiguration die Möglichkeit, die Eigentümerschaft von nicht-Root-Aggregaten von einem Node auf einen anderen zu verschieben, wenn sie Storage innerhalb desselben Clusters gemeinsam nutzen.
+
+Es gibt zwei ARL-Methoden für ein Upgrade Ihrer Controller-Hardware unter Verwendung von Systembefehlen oder ein manuelles Upgrade. Bevor Sie beginnen, müssen Sie überprüfen, ob Sie den richtigen Inhalt für die Controller-Hardware-Aktualisierung ausgewählt haben.
+
+Wenn Sie ein Upgrade mithilfe von Systembefehlen durchführen, finden Sie in der folgenden Tabelle:
+
+[cols="30,70"]
+|===
+| Wenn Sie diese ONTAP-Version laufen… | Verwenden Sie…, um ein Upgrade mit Systembefehlen durchzuführen 
+
+
+| 9.10.1 oder höher | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Verwenden Sie „System Controller Replace“-Befehle, um AFF A700 auf AFF A900 mit ONTAP 9.10.1 oder höher zu aktualisieren"] 
+
+
+| 9.8 oder höher | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Verwenden Sie „System Controller Replace“-Befehle, um das Upgrade der Controller Hardware mit ONTAP 9.8 oder höher durchzuführen"] 
+
+
+| 9.5 bis 9.7 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["Verwenden Sie „System Controller Replace“-Befehle, um Controller Hardware mit ONTAP 9.5 auf ONTAP 9.7 zu aktualisieren"] 
+|===
+Wenn Sie ein manuelles Upgrade durchführen, lesen Sie bitte die folgende Tabelle:
+
+[cols="30,70"]
+|===
+| Wenn Sie diese ONTAP-Version laufen… | Um ein manuelles Upgrade durchzuführen, verwenden Sie… 
+
+
+| 9.8 oder höher | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["Führen Sie ein manuelles Upgrade der Controller-Hardware mit ONTAP 9.8 oder höher durch"] 
+
+
+| 9.0 bis 9.7 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["Manuelles Upgrade der Controller-Hardware mit ONTAP 9.7 oder einer älteren Version"] 
+|===

@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+Sie müssen über spezielle Tools verfügen, um die neue Hardware zu installieren, und Sie müssen während des Upgrade-Prozesses andere Dokumente referenzieren. Sie müssen außerdem die für das Controller-Upgrade wichtigen Informationen aufzeichnen. Zum Aufzeichnen von Informationen wird ein Arbeitsblatt bereitgestellt.
+
+Für die Durchführung des Upgrades benötigen Sie die folgenden Tools:
+
+* Erdungsband
+* #2 Kreuzschlitzschraubendreher
+
+
+Wechseln Sie zum link:other_references.html["Quellen"] Abschnitt für den Zugriff auf die Liste der für dieses Upgrade erforderlichen Referenzdokumente.

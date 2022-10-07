@@ -1,0 +1,32 @@
+= 
+:allow-uri-read: 
+
+
+Mit ONTAP 9.5 und höher können KMIP-Server (Key Management Interoperability Protocol) Authentifizierungsschlüssel managen.
+
+.Schritte
+. Hinzufügen eines neuen Controllers:
++
+`security key-manager setup -node _new_controller_name_`
+
+. Fügen Sie den Schlüsselmanager hinzu:
++
+`security key-manager -add _key_management_server_ip_address_`
+
+. Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server konfiguriert und für alle Nodes im Cluster verfügbar sind:
++
+`security key-manager show -status`
+
+. Stellen Sie die Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern auf den neuen Knoten wieder her:
++
+`security key-manager restore -node _new_controller_name_`
+
+. Rekeyfür alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel:
++
+`storage encryption disk modify -disk * [-data-key-id nonMSID AK]`
+
+. Wenn Sie den Federal Information Processing Standard (FIPS) verwenden, müssen Sie alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel neu verschlüsseln:
++
+`storage encryption disk* modify -disk * [-fips-key-id nonMSID AK]`
+
+

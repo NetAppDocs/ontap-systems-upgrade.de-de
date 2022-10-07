@@ -1,0 +1,66 @@
+---
+permalink: upgrade/upgrade-complete-move-volumes.html 
+sidebar: sidebar 
+keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
+summary: 'Um das Upgrade durch Verschieben von Volumes abzuschließen, müssen Sie den Serviceprozessor \(SP\) konfigurieren, neue Lizenzen installieren und AutoSupport einrichten. Möglicherweise müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder NCA-Ports konfigurieren.' 
+---
+= Schließen Sie das Upgrade ab
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um das Upgrade durch Verschieben von Volumes abzuschließen, müssen Sie den Service-Prozessor (SP) konfigurieren, neue Lizenzen installieren und AutoSupport einrichten. Möglicherweise müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder NCA-Ports konfigurieren.
+
+. Konfigurieren Sie je nach Bedarf den SP auf den neuen Nodes:
++
+`system service-processor network modify`
+
+. Installieren neuer Lizenzen auf den neuen Nodes nach Bedarf:
++
+`system license add`
+
+. AutoSupport auf den neuen Nodes einrichten:
++
+`system node autosupport modify`
+
+. Senden Sie von jedem neuen Node eine AutoSupport Nachricht nach dem Upgrade an den technischen Support:
++
+`system node autosupport invoke -node node_name -type all -message "node_name successfully upgraded from platform_old to platform_new"`
+
+. Stellen Sie die Speicher- oder Volume Encryption-Funktionalität mithilfe des entsprechenden Verfahrens im wieder herhttps://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Management der Verschlüsselung über CLI"^] Inhalt:
++
+Je nachdem, ob Sie integriertes oder externes Verschlüsselungsmanagement verwenden, sollten Sie eines der folgenden Verfahren verwenden:
+
++
+** „`Wiederherstellung der integrierten Verschlüsselungsschlüssel für das Verschlüsselungsmanagement`“
+** „`Wiederherstellen der externen Verschlüsselungsschlüssel für das Verschlüsselungsmanagement`“
+
+
+. Wenn die neuen Nodes FC-Ports (Onboard oder auf FC-Adaptern), integrierte CNA-Ports oder eine CNA-Karte aufweisen, konfigurieren Sie die FC- oder CNA-Ports, geben Sie an der Eingabeaufforderung des Storage-Systems den folgenden Befehl ein:
++
+`system node hardware unified-connect modify -node node-name -adapter adapter-name -mode {fc|cna} -type {target|initiator}`
+
++
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN-Management mit CLI"^]
+
++
+Sie können die CNA-Konfiguration nur ändern, wenn die CNA-Adapter offline sind.
+
+. Richten Sie bei Bedarf ein Cluster ohne Switches an den neuen Nodes ein.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migration zu einem Switch-basierten Cluster mit zwei Nodes mit Cisco Cluster-Switches"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migration zu einem 2-Node-Cluster mit NetApp CN1610 Cluster-Switches"^]
+
+. Mustern Sie die Originalsysteme bei Bedarf über die NetApp Support Site aus. So informieren Sie NetApp, dass die Systeme nicht mehr in Betrieb sind und aus Support-Datenbanken entfernt werden können:
++
+.. Melden Sie sich bei an https://mysupport.netapp.com/site/global/dashboard["NetApp Support"^] Standort.
+.. Klicken Sie auf den Link *My Installed Systems*.
+.. Geben Sie auf der Seite *Installed Systems* die Seriennummer des alten Systems in das Formular ein und klicken Sie dann auf *Go!*
+.. Füllen Sie auf der Decommission-Formularseite das Formular aus und klicken Sie auf *Absenden*.
+
+
+

@@ -1,0 +1,32 @@
+---
+permalink: upgrade/upgrade-convert-node-to-shelf.html 
+sidebar: sidebar 
+keywords: node, support, model, process, upgrading, upgrade, moving, move, convert, drive, shelf, attach, convert an original node to a drive shelf 
+summary: Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können Sie den Node während des Upgrades durch Verschieben des Storage in ein Festplatten-Shelf konvertieren und dann an die neuen Nodes im selben Cluster anschließen. 
+---
+= Konvertieren eines ursprünglichen Node in ein Laufwerk-Shelf
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können Sie den Node während des Upgrades durch Verschieben des Storage in ein Festplatten-Shelf konvertieren und dann an die neuen Nodes im selben Cluster anschließen.
+
+Sie müssen geprüft haben link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"] Informationen zum Konvertieren eines Node in ein Laufwerk-Shelf. Wenden Sie sich an den technischen Support, wenn Sie Anleitungen für Ihre Konfiguration benötigen.
+
+.Schritte
+. Ersetzen Sie die Controller-Module im Node, den Sie mit den entsprechenden IOM-Modulen konvertieren.
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+. Legen Sie die Festplatten-Shelf-ID fest.
++
+Jedes Festplatten-Shelf, einschließlich des Chassis, erfordert eine eindeutige ID.
+
+. Setzen Sie andere Festplatten-Shelf-IDs bei Bedarf zurück.
+. Schalten Sie alle mit den neuen Nodes verbundenen Laufwerk-Shelfs aus und schalten Sie dann den Strom für die neuen Nodes aus.
+. Verkabeln Sie das umgewandelte Festplatten-Shelf mit einem SAS-Port auf dem neuen System und bei Verwendung von Out-of-Band-ACP-Verkabelung zum ACP-Port auf dem neuen Node.
+. Schalten Sie das umgewandelte Laufwerk-Shelf und alle anderen an die neuen Nodes angeschlossenen Laufwerk-Shelfs ein.
+. Schalten Sie die neuen Nodes ein und unterbrechen Sie dann den Boot-Prozess auf jedem Node, indem Sie Strg-C drücken, um auf die Eingabeaufforderung der Boot-Umgebung zuzugreifen.
+

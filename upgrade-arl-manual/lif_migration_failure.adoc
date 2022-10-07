@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/lif_migration_failure.html 
+keywords: lif, migration, failure, error, troubleshoot 
+summary: LIFs sind nach der Migration in Phase 2, Phase 3 oder Phase 5 während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.7 oder einer älteren Version nicht online. 
+---
+= Fehler bei der LIF-Migration
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nach der Migration der LIFs sind diese nach der Migration in Phase 2, Phase 3 oder Phase 5 möglicherweise nicht online.
+
+.Schritte
+. Vergewissern Sie sich, dass die MTU-Port-Größe mit der Größe des Quell-Nodes identisch ist.
++
+Wenn beispielsweise die MTU-Größe des Cluster-Ports am Quell-Node 9000 ist, sollte sie auf dem Ziel-Node 9000 sein.
+
+. Überprüfen Sie die physische Konnektivität des Netzwerkkabels, wenn der physische Status des Ports „ausgefallen“ ist.
+

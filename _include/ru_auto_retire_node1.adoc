@@ -1,0 +1,18 @@
+= 
+:allow-uri-read: 
+
+
+Um „node1“ außer Betrieb zu nehmen, setzen Sie den automatischen Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 ordnungsgemäß herunterzufahren. Später müssen Sie den Knoten1 aus dem Rack oder Gehäuse entfernen.
+
+.Schritte
+. Vorgang fortsetzen:
++
+`system controller replace resume`
+
+. Vergewissern Sie sich, dass node1 angehalten wurde:
++
+`system controller replace show-details`
+
+
+
+Sie können Node1 nach Abschluss des Upgrades außer Betrieb nehmen. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].

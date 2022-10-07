@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage_6_index.html 
+keywords: stage 6, complete, upgrade, set up, setup, controller, storage encryption, netapp encryption, decommission, resume snapmirror 
+summary: Phase 6-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controllern mit ONTAP 9.7 oder einer älteren Version 
+---
+= Phase 6: Schließen Sie das Upgrade ab
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+In Phase 6 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet sind. Wenn einer der neuen Nodes über einen Unified Target Adapter verfügt, müssen Sie alle Portkonfigurationen wiederherstellen und müssen möglicherweise die Persönlichkeit des Adapters ändern. Sie müssen auch Storage Encryption einrichten, wenn die neuen Nodes verschlüsselt sind. Zudem müssen die alten Nodes außer Betrieb gesetzt werden.
+
+. link:ensure_controllers_set_up_correctly.html["Stellen Sie sicher, dass die neuen Controller ordnungsgemäß eingerichtet sind"]
+. link:set_up_storage_encryption_new_controller.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]
+. link:set_up_netapp_encryption_on_new_controller.html["Richten Sie NetApp Verschlüsselung auf dem neuen Controller-Modul ein"]
+. link:decommission_old_system.html["Ausmustern des alten Systems"]
+. link:resume_snapmirror_ops.html["Setzen Sie den SnapMirror Betrieb fort"]
+

@@ -1,0 +1,39 @@
+---
+permalink: upgrade/upgrade-install-and-join-new-nodes-move-vols.html 
+sidebar: sidebar 
+keywords: install, node, join, cluster, volume, original, node, install the new nodes and joining them to the cluster 
+summary: Sie müssen die neuen Nodes installieren und sie dem Cluster hinzufügen, damit Sie Volumes von den ursprünglichen Nodes verschieben können. 
+---
+= Installieren Sie die neuen Nodes und fügen Sie sie dem Cluster hinzu
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen die neuen Nodes installieren und sie dem Cluster hinzufügen, damit Sie Volumes von den ursprünglichen Nodes verschieben können.
+
+Wenn Sie ein Upgrade der Controller Hardware durch Verschieben von Volumes durchführen, müssen sich sowohl die ursprünglichen Nodes als auch die neuen Nodes im selben Cluster befinden.
+
+.Schritt
+. Installieren Sie die neuen Nodes und fügen Sie sie zum Cluster hinzu:
++
+[cols="1,2"]
+|===
+| Wenn das Cluster ausgeführt wird... | Befolgen Sie die Anweisungen unter... 
+
+
+ a| 
+ONTAP 9.0 oder höher
+ a| 
+https://docs.netapp.com/us-en/ontap-sm-classic/expansion/index.html["Administration der Cluster-Erweiterung"^]
+
+
+
+ a| 
+Versionen vor ONTAP 9.0
+ a| 
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["Finden Sie das Express Handbuch zur Cluster-Erweiterung für Ihre Version von Data ONTAP 8"^]
+
+|===
+

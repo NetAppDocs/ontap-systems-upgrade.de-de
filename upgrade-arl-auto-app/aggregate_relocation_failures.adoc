@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/aggregate_relocation_failures.html 
+keywords: aggregate, relocation, failures, ARL 
+summary: 'Fehlerbehebung bei Ausfällen der Aggregatverschiebung, die bei der Verwendung auftreten können `system controller replace` Befehle zum Upgrade von Controllern mit ONTAP 9.8 oder höher.' 
+---
+= Fehler bei der Aggregatverschiebung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bei der Aggregatverschiebung (ARL, Aggregate Relocation) fallen während des Upgrades möglicherweise an verschiedenen Punkten aus.
+
+
+
+== Prüfen Sie, ob Aggregate Relocation Failure vorhanden sind
+
+Während des Verfahrens kann ARL in Phase 2, Phase 3 oder Phase 5 fehlschlagen.
+
+.Schritte
+. Geben Sie den folgenden Befehl ein und überprüfen Sie die Ausgabe:
++
+`storage aggregate relocation show`
+
++
+Der `storage aggregate relocation show` Der Befehl zeigt Ihnen, welche Aggregate erfolgreich umgezogen wurden und welche nicht, zusammen mit den Ursachen des Ausfalls.
+
+. Überprüfen Sie die Konsole auf EMS-Nachrichten.
+. Führen Sie eine der folgenden Aktionen durch:
++
+** Führen Sie die entsprechenden Korrekturmaßnahmen durch, je nach der Ausgabe des `storage aggregate relocation show` Befehl und Ausgabe der EMS-Nachricht.
+** Erzwingen Sie das verlagern des Aggregats oder der Aggregate mit dem `override-vetoes` Oder die Option `override-destination-checks` Option des `storage aggregate relocation start` Befehl.
+
+
++
+Ausführliche Informationen zum `storage aggregate relocation start`, `override-vetoes`, und `override-destination-checks` Optionen finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _ONTAP 9.8: Manual Page Reference_.
+
+
+
+
+
+== Aggregate, die ursprünglich auf node1 waren, gehören node4 nach Abschluss des Upgrades
+
+Beim Abschluss des Upgrade-Verfahrens sollte die Knoten3 der neue Home-Node von Aggregaten sein, die ursprünglich als Home-Node die Knoten1 hatten. Sie können sie nach dem Upgrade verschieben.
+
+Unter den folgenden Umständen kann es nicht gelingen, Aggregate ordnungsgemäß zu verschieben und Node 1 als Home Node anstelle von Knoten3 zu verwenden:
+
+* In Phase 3, wenn Aggregate von node2 auf node3 verschoben werden. Einige der verlagerten Aggregate haben die Nr. 1 als Home-Node. Ein solches Aggregat könnte zum Beispiel „aggr_Node_1“ heißen. Wenn die Verlagerung von aggr_Node_1 während Phase 3 fehlschlägt und eine Verlagerung nicht erzwungen werden kann, dann wird das Aggregat auf node2 zurückgelassen.
+* Nach Stufe 4, wenn node2 durch node4 ersetzt wird. Wenn node2 ersetzt wird, kommt aggr_Node_1 mit node4 als Home-Node statt node3 online.
+
+
+Sie können das falsche Eigentümerproblem nach Phase 6 beheben, wenn ein Storage-Failover aktiviert wurde, indem Sie die folgenden Schritte durchführen:
+
+.Schritte
+. Geben Sie den folgenden Befehl ein, um eine Liste der Aggregate zu erhalten:
++
+`storage aggregate show -nodes _node4_ -is-home true`
+
++
+Informationen zur Identifizierung von Aggregaten, die nicht korrekt verschoben wurden, finden Sie in der Liste der Aggregate mit dem Home-Inhaber von node1, die Sie im Abschnitt erhalten haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Und vergleichen Sie ihn mit der Ausgabe des obigen Befehls.
+
+. Vergleichen Sie die Ausgabe von Schritt 1 mit der Ausgabe, die Sie für Knoten 1 im Abschnitt aufgenommen haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Und beachten Sie alle Aggregate, die nicht korrekt verschoben wurden.
+. [[Auto_aggr_relocate_fail_Step3]]Verschiebung der Aggregate links auf node4:
++
+`storage aggregate relocation start -node _node4_ -aggr _aggr_node_1_ -destination _node3_`
+
++
+Verwenden Sie das nicht `-ndo-controller-upgrade` Parameter während dieser Verschiebung.
+
+. Vergewissern Sie sich, dass node3 jetzt der Haupteigentümer der Aggregate ist:
++
+`storage aggregate show -aggregate _aggr1,aggr2,aggr3..._ -fields home-name`
+
++
+`_aggr1,aggr2,aggr3..._` Ist die Liste der Aggregate, die node1 als ursprünglichen Besitzer hatten.
+
++
+Aggregate, die nicht über Node3 als Hausbesitzer verfügen, können mit dem gleichen Relocation-Befehl in auf node3 verschoben werden ,Schritt 3.
+
+

@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/decide_to_use_arl_guide.html 
+keywords: decision, decision, what to use, upgrade, HA pair, metrocluster, storage encryption, volume encryption, NSE, NVE 
+summary: Entscheiden Sie, ob Sie mit dem manuellen ARL-Verfahren Storage-Controller in einem HA-Paar mit neuen Controllern mit ONTAP 9.8 oder höher aktualisieren. 
+---
+= Entscheiden Sie, ob Sie das Verfahren zur Aggregatverschiebung verwenden
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+In diesem Inhalt wird beschrieben, wie Sie die Storage Controller in einem HA-Paar mit neuen Controllern aktualisieren und dabei alle vorhandenen Daten und Festplatten beibehalten. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
+
+Verwenden Sie diese Inhalte unter folgenden Umständen:
+
+* Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
+* Sie sind in der Verwaltung von ONTAP erfahren und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.
+* Sie verfügen über ein System, bei dem Fabric MetroCluster Konfigurationen mit 4 und 8 Nodes und ONTAP 9.8 oder höher zum Einsatz kommen.
+
+
+
+NOTE: Dabei können Sie NetApp Storage Encryption (NSE) und NetApp Volume Encryption (NVE) verwenden.
+
+Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+
+Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _ONTAP 9_, wo Sie auf die Produktdokumentation zu ONTAP 9 zugreifen können.

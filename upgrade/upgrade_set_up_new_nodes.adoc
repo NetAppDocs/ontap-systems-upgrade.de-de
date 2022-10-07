@@ -1,0 +1,123 @@
+---
+permalink: upgrade/upgrade-set-up-new-nodes.html 
+sidebar: sidebar 
+keywords: upgrade, nodes, moving, storage, port, original, new 
+summary: Während des Upgrades durch Verschiebung des Storage schalten Sie node3 und node4 ein, starten das Software-Image und konfigurieren die Nodes. 
+---
+= Richten Sie die neuen Nodes ein
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Während des Upgrades durch Verschiebung des Storage schalten Sie node3 und node4 ein, starten das Software-Image und konfigurieren die Nodes. Zwischen Original und neuen Nodes kann das physische Port-Layout abweichen. Um das richtige Layout von Ports und Verbindungen zu identifizieren, sollten Ports zwischen Original- und Ersatz-Nodes zugeordnet werden.
+
+Wenn sich die Version der auf den neuen Nodes ausgeführten ONTAP von der Version auf den ursprünglichen Nodes unterscheidet, müssen Sie die richtige Version heruntergeladen haben `<ontap_version>_image.tgz` Datei von der NetApp Support Site in ein Web-zugängliches Verzeichnis (siehe _Vorbereitung auf das Upgrade beim Verschieben von Storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["Schritt 5"]). Sie benötigen den `<ontap_version>_image.tgz` Datei zum Ausführen eines Netzboots des Systems
+
+.Schritte
+. Schalten Sie den Netzschalter auf node3 ein, und drücken Sie dann sofort Strg-C an der Konsole, um auf die LOADER-Eingabeaufforderung zuzugreifen.
++
+Wenn sich Node3 und node4 im selben Chassis befinden, fahren Sie mit Schritt 2 fort. Falls nicht, fahren Sie mit Schritt 3 fort.
+
+. Wenn sich Node3 und node4 in einer Einzel-Chassis-Konfiguration befinden (mit Controllern im selben Chassis):
++
+.. Schließen Sie eine serielle Konsole an node4 an.
+.. Schalten Sie node4 ein, wenn er nicht bereits EINGESCHALTET ist, und unterbrechen Sie den Bootvorgang, indem Sie am Konsolenterminal Strg-C drücken, um auf die LOADER-Eingabeaufforderung zuzugreifen.
++
+Die Stromversorgung sollte bereits EINGESCHALTET sein, wenn sich beide Controller im gleichen Chassis befinden.
+
++
+Verlassen sie node4 an DER LOADER-Eingabeaufforderung. Sie kehren zu diesem Verfahren zurück und wiederholen Sie diese Schritte, nachdem node3 installiert wurde.
+
+
+
+. Geben Sie an der LOADER-Eingabeaufforderung den folgenden Befehl ein:
++
+`set-defaults`
+
+. Konfigurieren Sie an der Eingabeaufforderung DES LOADERS die Netzboot-Verbindung für eine Management-LIF:
++
+[cols="25,75"]
+|===
+| Wenn IP-Adresse... | Dann... 
+
+
+| DHCP | Konfigurieren der automatischen Verbindung:
+`ifconfig e0M -auto` 
+
+
+| Festgelegt | Konfigurieren Sie die manuelle Verbindung:
+`ifconfig e0M -addr=ip_addr -mask=netmask -gw=gateway` 
+|===
+. Führen Sie an der Loader-Eingabeaufforderung einen Netzboot auf der Knoten 3 aus:
++
+[cols="25,75"]
+|===
+| Für... | Dann... 
+
+
+| SYSTEME DER FAS2200, FAS2500, FAS3200, FAS6200, FAS/AFF8000 SERIE | `netboot \http://web_server_ip/path_to_webaccessible_directory/netboot/kernel` 
+
+
+| Alle anderen Systeme | `netboot \http://web_server_ip/path_to_webaccessible_directory/ontap_version_image.tgz` 
+|===
++
+Der `path_to_the_web-accessible_directory` Befindet sich der Speicherort des heruntergeladenen
+`<ontap_version>_image.tgz` Datei:
+
++
+
+NOTE: Wenn Sie die neuen Controller nicht als Netzboot senden können, wenden Sie sich an den technischen Support.
+
+. Wählen Sie im Startmenü die Option *(7) Neue Software zuerst installieren* aus, um das neue Software-Image auf das Boot-Gerät herunterzuladen und zu installieren.
++
+Ignorieren Sie die folgende Meldung: `"This procedure is not supported for NonDisruptive Upgrade on an HA pair"`. Dies gilt für unterbrechungsfreie Software-Upgrades, nicht für Controller-Upgrades.
+
+. Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie y ein, und geben Sie bei Aufforderung zum Paket die URL der Bilddatei ein:
++
+`/http://web_server_ip/path_to_web-accessible_directory/<ontap_version>_image.tgz`
+
++
+Geben Sie ggf. Benutzernamen/Passwort ein, oder drücken Sie die Eingabetaste, um fortzufahren.
+
+. Eingabe `n` So überspringen Sie die Backup-Recovery, wenn eine Eingabeaufforderung wie die folgende angezeigt wird:
++
+[listing]
+----
+`Do you want to restore the backup configuration now? {y|n}`
+----
+. Starten Sie den Neustart durch Eingabe `y` Wenn eine Eingabeaufforderung wie die folgende angezeigt wird:
++
+[listing]
+----
+`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}`
+----
+. Unterbrechen Sie den Neubootvorgang, indem Sie Strg-C drücken, um das Boot-Menü anzuzeigen, wenn das System Sie dazu auffordert.
+. Wählen Sie im Startmenü *(5) Boot-Modus* aus, um auf den Wartungsmodus zuzugreifen.
+. Nehmen Sie gegebenenfalls Änderungen an den FC- oder CNA-Ports am Node vor, und booten Sie den Node im Wartungsmodus neu.
++
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN-Management mit CLI"^]
+
+. Sie müssen überprüfen, ob die Ausgabe des Befehls angezeigt wird `ha`:
++
+[listing]
+----
+*> ha-config show
+ Chassis HA configuration: ha
+ Controller HA configuration: ha
+----
++
+Systeme zeichnen sich in EINEM PROM auf, ob sie in einem HA-Paar oder einer eigenständigen Konfiguration sind. Der Status muss auf allen Komponenten im Standalone-System oder im HA-Paar der gleiche sein
+
++
+Der `ha-config modify controller ha` Mit Befehlen wird konfiguriert `ha` Für die Controller-Einstellung. Der `ha-config modify chassis ha` Mit Befehlen wird konfiguriert `ha` Für die Gehäuseeinstellung.
+
+. Beenden des Wartungsmodus:
++
+`halt`
+
++
+Das System wird an der LOADER-Eingabeaufforderung angehalten
+
+

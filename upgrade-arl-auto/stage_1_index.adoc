@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/stage_1_index.html 
+keywords: Prepare nodes for upgrade, storage encryption, KMS, key management server, stage 1 
+summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.5 zu 9.7.' 
+---
+= Stufe 1: Upgrade vorbereiten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+In Phase 1 müssen Sie die Nodes auf das Upgrade vorbereiten und eine Reihe von Vorabprüfungen durchführen. Möglicherweise müssen Sie Festplatten für die Speicherverschlüsselung neu verschlüsseln. Sie müssen sich auch auf den Netzboot der neuen Controller vorbereiten.
+
+.Schritte
+. link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"]
+. link:get_ip_address_of_external_kms_for_storage_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagementservers für die Speicherverschlüsselung"]
+

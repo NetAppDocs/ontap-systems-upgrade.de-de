@@ -1,0 +1,51 @@
+---
+permalink: upgrade/upgrade-prepare-when-moving-volumes.html 
+sidebar: sidebar 
+keywords: perform, preparation, upgrading, upgrade, controller, hardware, moving, move, volume, prepare for the upgrade when moving volumes 
+summary: Vor dem Upgrade der Controller-Hardware müssen Sie einige Vorbereitungsschritte durchführen, indem Sie Volumes verschieben. 
+---
+= Vorbereitung auf das Upgrade beim Verschieben von Volumes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vor dem Upgrade der Controller-Hardware müssen Sie einige Vorbereitungsschritte durchführen, indem Sie Volumes verschieben.
+
+.Schritte
+. Anzeigen der Volumes auf den ursprünglichen Knoten:
++
+`volume show`
+
++
+Mit der Befehlsausgabe können Sie die Liste der Volumes vorbereiten, die zu den neuen Nodes verschoben werden sollen.
+
+. Lizenzinformationen der ursprünglichen Knoten anzeigen und aufzeichnen:
++
+`system license show`
+
+. Wenn Sie Storage Encryption auf den ursprünglichen Knoten verwenden und die neuen Knoten verschlüsselungsfähige Laufwerke haben, stellen Sie sicher, dass die Festplatten der ursprünglichen Knoten korrekt codiert sind:
++
+.. Informationen zu Self-Encrypting Drives (SEDs) anzeigen:
++
+`storage encryption disk show`
+
+.. Wenn Festplatten mit einem nicht hergestellten Schlüssel für sichere ID (Non-MSID) verknüpft sind, müssen Sie diese auf einen MSID-Schlüssel erneut eingeben:
++
+`storage encryption disk modify`
+
+
+
+. Wenn sich der Cluster derzeit in einer Konfiguration mit zwei Nodes ohne Switches befindet, migrieren Sie das Cluster unter Verwendung des bevorzugten Switch-Typs zu einem Switch mit zwei Nodes.
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migration zu einem Switch-basierten Cluster mit zwei Nodes mit Cisco Cluster-Switches"^]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migration zu einem 2-Node-Cluster mit NetApp CN1610 Cluster-Switches"^]
+
+. Senden Sie von jedem Original-Node eine AutoSupport Meldung, um über den technischen Support des Upgrades zu informieren:
++
+`system node autosupport invoke -node _node_name_ -type all -message "Upgrading node_name from _platform_original_ to _platform_new_"`
+
+

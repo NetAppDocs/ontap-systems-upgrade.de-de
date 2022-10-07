@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/verify_swtichover_healing_switchback.html 
+keywords: verify,switchover, healing, switchback, negotiated, mcc, metrocluster 
+summary: Überprüfen Sie bei einem manuellen ARL Upgrade bei Controllern mit ONTAP 9.7 oder einer älteren Version den Betrieb zwischen Umschaltung, Healing und Switchback. 
+---
+= Überprüfung von UmschalttaFunktionen, Healing und Switchback
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie sollten die Umschalttavorgänge, die Reparatur und den Wechsel der MetroCluster Konfiguration überprüfen.
+
+Siehe link:other_references.html["Quellen"] Verbinden mit Inhalten für _MetroCluster Management and Disaster Recovery_ und Befolgen der Verfahren für ausgehandelte Umschaltung, Heilung und Umschalten.

@@ -1,0 +1,27 @@
+---
+permalink: upgrade/upgrade-optional-move-internal-storage.html 
+sidebar: sidebar 
+keywords: node, support, model, internal, sata, drive, ssd, moving, move, upgrading, upgrade, convert, move internal storage or convert the system to a drive shelf 
+summary: Wenn es sich bei Ihrem ursprünglichen Node um eines der unterstützten Modelle handelt, können Sie dessen interne SATA-Laufwerke, SSDs oder SAS-Laufwerke in ein Festplatten-Shelf verschieben, das während des Upgrades durch die Verschiebung des Storage mit den neuen Nodes verbunden ist. Sie können das System auch in ein Laufwerk-Shelf konvertieren und an die neuen Nodes anschließen. 
+---
+= Überblick
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn es sich bei Ihrem ursprünglichen Node um eines der unterstützten Modelle handelt, können Sie dessen interne SATA-Laufwerke, SSDs oder SAS-Laufwerke in ein Festplatten-Shelf verschieben, das während des Upgrades durch die Verschiebung des Storage mit den neuen Nodes verbunden ist. Sie können das System auch in ein Laufwerk-Shelf konvertieren und an die neuen Nodes anschließen.
+
+Sie können Laufwerke oder Laufwerk-Shelfs nur innerhalb desselben Clusters verschieben.
+
+.Wahlmöglichkeiten
+* link:upgrade-move-internal-drives.html["Verschieben Sie interne Laufwerke von einem ursprünglichen Knoten"]
++
+Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können während des Upgrades durch Verschieben von Storage die internen SATA-Laufwerke, SSDs oder SAS-Laufwerke des Nodes in ein Festplatten-Shelf verschoben werden, das mit dem neuen Node im selben Cluster verbunden ist.
+
+* link:upgrade-convert-node-to-shelf.html["Konvertieren eines ursprünglichen Node in ein Laufwerk-Shelf"]
++
+Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können Sie den Node während des Upgrades durch Verschieben des Storage in ein Festplatten-Shelf konvertieren und dann an die neuen Nodes im selben Cluster anschließen.
+
+

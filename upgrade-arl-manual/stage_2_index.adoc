@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage_2_index.html 
+keywords: relocate, retire, node1, steps,  stage 2 
+summary: Phase 2-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controllern mit ONTAP 9.7 oder einer älteren Version. 
+---
+= Stufe 2: Knoten1 verschieben und ausmustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Während Phase 2 verschieben Sie die node1-Aggregate und LIFs auf Knoten2, erfassen Node1-Informationen und Mustern die Knoten1 aus.
+
+.Schritte
+. link:relocate_non_root_aggr_node1_node2.html["Verlagerung von Aggregaten außerhalb der Root-Ebene und NAS-Daten-LIFs, die sich im Besitz von node1 auf node2 befinden"]
+. link:move_nas_lifs_node1_node2.html["Das Verschieben von NAS-Daten-LIFs von node1 auf node2"]
+. link:record_node1_information.html["Node1-Informationen werden aufgezeichnet"]
+. link:retire_node1.html["Node1 ausmustern"]
+

@@ -1,0 +1,103 @@
+---
+permalink: upgrade/upgrade-create-aggregate-move-volumes.html 
+sidebar: sidebar 
+keywords: create, aggregate, node, store, volume, original, node, identify, aggregate, individually, create an aggregate and moving volumes to the new nodes 
+summary: Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die Volumes zu speichern, die Sie von den ursprünglichen Nodes verschieben möchten. Sie müssen ein Aggregat für jedes Volume identifizieren und jedes Volume einzeln verschieben. 
+---
+= Erstellung eines Aggregats und Verschiebung von Volumes zu den neuen Nodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die Volumes zu speichern, die Sie von den ursprünglichen Nodes verschieben möchten. Sie müssen ein Aggregat für jedes Volume identifizieren und jedes Volume einzeln verschieben.
+
+Beziehungen zur Datensicherungsspiegelung müssen initialisiert werden, bevor Sie ein Volume verschieben können.
+
+https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html["Hier finden Sie das erforderliche Datenschutzverfahren"^].
+
+.Schritte
+. Erstellen Sie auf jedem neuen Node mindestens ein Aggregat:
++
+`storage aggregate create -aggregate aggr_name -node new_node_name -diskcount integer`
+
+. Fügen Sie das neue Aggregat derselben SVM auf dem ursprünglichen Node hinzu, von dem Sie die Volumes verschieben möchten:
++
+`vserver add-aggregates`
+
++
+Sowohl das neue Aggregat als auch das alte Aggregat, aus dem das Volume verschoben werden soll, müssen sich in derselben SVM befinden.
+
+. Vergewissern Sie sich, dass das neue Aggregat nun derselben SVM wie das Aggregat auf dem ursprünglichen Node zugewiesen ist:
++
+`vserver show -vserversvm_name`
+
+. Informationen zu den Volumes anzeigen, die von den ursprünglichen Nodes zu den neuen Nodes verschoben werden sollen:
++
+`volume show -vserver svm_name -node original_node_name`
+
++
+Sie sollten die Befehlsausgabe für einen späteren Verweis behalten.
+
++
+Im folgenden Beispiel werden Volumes auf der SVM „vs1“ und der Node „node0“ angezeigt:
+
++
+[listing]
+----
+cluster::> volume show -vserver vs1 -node node0
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+vs1       clone        aggr1        online     RW         40MB    37.87MB    5%
+vs1       vol1         aggr1        online     RW         40MB    37.87MB    5%
+vs1       vs1root      aggr1        online     RW         20MB    18.88MB    5%
+3 entries were displayed.
+----
+. Bestimmen Sie ein Aggregat, zu dem Sie ein bestimmtes Volume verschieben können:
++
+`volume move target-aggr show -vserver svm_name -volume vol_name`
+
++
+Das folgende Beispiel zeigt, dass das „user_max“ Volume auf der SVM „vs2“ in beliebige Aggregate verschoben werden kann:
+
++
+[listing]
+----
+cluster::> volume move target-aggr show -vserver vs2 -volume user_max
+Aggregate Name   Available Size  Storage Type
+--------------   --------------  ------------
+aggr2            467.9GB         FCAL
+node12a_aggr3    10.34GB         FCAL
+node12a_aggr2    10.36GB         FCAL
+node12a_aggr1    10.36GB         FCAL
+node12a_aggr4    10.36GB         FCAL
+5 entries were displayed
+----
+. Führen Sie für jedes Volume, das Sie verschieben möchten, eine Validierungsprüfung durch, um sicherzustellen, dass es in das angegebene Aggregat verschoben werden kann:
++
+`volume move start -vserver svm_name -volume volume_name -destination-aggregate destination_aggregate_name -perform-validation-only true`
+
+. Verschieben Sie die Volumes nacheinander (Erweiterte Berechtigungsebene):
++
+`volume move start -vserver svm_name -volume vol_name -destination-aggregate destination_aggr_name -cutover-window integer`
+
++
+Sie können das Node-Root-Volume (vol0) nicht verschieben. Andere Volumes, einschließlich SVM-Root-Volumes, können verschoben werden.
+
+. Zeigen Sie das Ergebnis des an `volume move` Vorgang zur Überprüfung der erfolgreichen Verschiebung der Volumes:
++
+`volume move show -vserver svm_name -volume vol_name`
+
+. Wenn der `volume move` Der Vorgang schließt die letzte Phase nach mehreren Versuchen nicht ab. Erzwingen Sie die Verschiebung zum Abschluss:
++
+`volume move trigger-cutover -vserver svm_name -volume vol_name -force true`
+
++
+Wenn der Vorgang zum Verschieben eines Volumes beendet wird, kann der Client-Zugriff auf das zu verschiebende Volume unterbrochen werden.
+
+. Überprüfen Sie, ob die Volumes erfolgreich zu der angegebenen SVM verschoben wurden und sich im korrekten Aggregat befinden:
++
+`volume show -vserver svm_name`
+
+

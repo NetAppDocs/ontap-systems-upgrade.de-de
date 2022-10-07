@@ -1,0 +1,186 @@
+= Neustarts, Panikzugänge oder Energiezyklen während der Vorprüfphase
+:allow-uri-read: 
+
+
+Das System kann in verschiedenen Phasen des Upgrades abstürzt, z. B. neu gebootet, in Panik geraten oder aus- und wieder eingeschaltet werden.
+
+Die Lösung dieser Probleme hängt davon ab, wann sie auftreten.
+
+
+
+== Neustarts, Panikzugänge oder Energiezyklen während der Vorprüfphase
+
+
+
+=== Node1 oder node2 stürzt vor der Pre-Check-Phase ab, während das HA-Paar noch aktiviert ist
+
+Wenn node1 oder node2 vor der Pre-Check-Phase abstürzt, wurden noch keine Aggregate verschoben und die HA-Paar-Konfiguration ist noch aktiviert.
+
+Takeover und Giveback können normal fortgesetzt werden.
+
+.Schritte
+. Überprüfen Sie die Konsole auf EMS-Meldungen, die das System möglicherweise ausgegeben hat, und ergreifen Sie die empfohlenen Korrekturmaßnahmen.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+== Neustarts, Panikzugänge oder Energiezyklen während der ersten Ressourcenfreigabephase
+
+
+
+=== Node1 stürzt während der ersten Resource-Release-Phase ab, während das HA-Paar noch aktiviert ist
+
+Einige oder alle Aggregate wurden von node1 in node2 verschoben und das HA-Paar ist noch aktiviert. Node2 übernimmt das Root-Volume von node1 und alle nicht-Root-Aggregate, die nicht verschoben wurden.
+
+Eigentum an Aggregaten, die verschoben wurden, sehen genauso aus wie das Eigentum von nicht-Root-Aggregaten, die übernommen wurden, da sich der Home-Eigentümer nicht geändert hat.
+
+Wenn node1 in den eintritt `waiting for giveback` Status, node2 gibt alle node1 nicht-Root-Aggregate zurück.
+
+.Schritte
+. Nachdem node1 gestartet wurde, sind alle nicht-Root-Aggregate von node1 zurück in node1 verschoben. Sie müssen eine manuelle Aggregatverschiebung der Aggregate von node1 nach node2 durchführen:
+`storage aggregate relocation start -node node1 -destination node2 -aggregate -list * -ndocontroller-upgrade true`
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node1 stürzt während der ersten Ressourcen-Release-Phase ab, während das HA-Paar deaktiviert ist
+
+Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
+
+.Schritte
+. Knoten 1 aufbring.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node2 schlägt während der ersten Phase der Ressourcenfreigabe fehl, während das HA-Paar noch aktiviert ist
+
+Node1 hat einige oder alle seine Aggregate in node2 verschoben. Das HA-Paar ist aktiviert.
+
+Node1 übernimmt alle node2 Aggregate sowie jedes seiner eigenen Aggregate, die auf node2 verschoben wurden. Beim Booten von node2 wird die Aggregatverschiebung automatisch abgeschlossen.
+
+.Schritte
+. Knoten 2 aufbring.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node2 stürzt während der ersten Resource-Release-Phase ab und nachdem HA-Paar deaktiviert ist
+
+Node1 übernimmt nicht.
+
+.Schritte
+. Knoten 2 aufbring.
++
+Ein Client-Ausfall tritt für alle Aggregate auf, während node2 gestartet wird.
+
+. Fahren Sie mit dem verbleibenden Upgrade des Node-Paars fort.
+
+
+
+
+== Startet während der ersten Verifikationsphase neu, erzeugt eine Panik oder schaltet die Stromversorgung aus
+
+
+
+=== Node2 stürzt in der ersten Überprüfungsphase ab, wobei das HA-Paar deaktiviert ist
+
+Node3 übernimmt nach einem Absturz nach einem node2 nicht, da das HA-Paar bereits deaktiviert ist.
+
+.Schritte
+. Knoten 2 aufbring.
++
+Ein Client-Ausfall tritt für alle Aggregate auf, während node2 gestartet wird.
+
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node3 stürzt in der ersten Verifizierungsphase ab, wobei das HA-Paar deaktiviert ist
+
+Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
+
+.Schritte
+. Knoten 3 aufbring.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+== Neustarts, Panikzucken oder Energiezyklen während der ersten Ressourcen-Wiederholen-Phase
+
+
+
+=== Knoten 2 stürzt während der ersten Ressourcen-Wiederholen Phase während der Aggregat-Verschiebung ab
+
+Node2 hat einige oder alle seine Aggregate von node1 in node3 verschoben. Node3 stellt Daten von Aggregaten bereit, die verlagert wurden. Das HA-Paar ist deaktiviert und somit gibt es keine Übernahme.
+
+Es gibt einen Client-Ausfall für Aggregate, die nicht verschoben wurden. Beim Booten von node2 werden die Aggregate von node1 auf node3 verschoben.
+
+.Schritte
+. Knoten 2 aufbring.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+=== Node3 stürzt während der ersten Phase zur Ressourcenrückgewinnung während der Aggregatverschiebung ab
+
+Falls node3 abstürzt, während node2 Aggregate zu node3 verschoben wird, wird die Aufgabe nach dem Booten von node3 fortgesetzt.
+
+Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in Knoten 3 verlagert wurden, begegnen ein Client-Ausfall, während node3 gebootet wird.
+
+.Schritte
+. Knoten 3 aufbring.
+. Führen Sie das Controller-Upgrade fort.
+
+
+
+
+== Neustarts, Panikspiele oder Energiezyklen während der Nachprüfphase
+
+
+
+=== Node2 oder node3 stürzt während der Post-Check-Phase ab
+
+Das HA-Paar ist deaktiviert, damit dies keine Übernahme ist. Es gibt einen Client-Ausfall für Aggregate, die zum neu gebooteten Node gehören.
+
+.Schritte
+. Bringen Sie den Node hoch.
+. Fahren Sie mit dem Upgrade des Node-Paars fort.
+
+
+
+
+== Neustarts, Panikzucken oder Energiezyklen während der zweiten Ressourcenfreigabephase
+
+
+
+=== Node3 stürzt während der zweiten Resource-Release-Phase ab
+
+Wenn node3 abstürzt, während node2 Aggregate verschoben, wird die Aufgabe nach dem Booten von node3 fortgesetzt.
+
+Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in Node3 verlagert wurden, und Node3 eigene Aggregate stoßen auf Client-Ausfälle, während Node3 gebootet wird.
+
+.Schritte
+. Knoten 3 aufbring.
+. Fahren Sie mit dem Controller-Upgrade fort.
+
+
+
+
+=== Node2 stürzt während der zweiten Resource-Release-Phase ab
+
+Wenn node2 während der Aggregatverschiebung abstürzt, wird node2 nicht übernommen.
+
+Node3 dient weiterhin den Aggregaten, die verschoben wurden, doch die Aggregate von node2 stoßen auf Client-Ausfälle.
+
+.Schritte
+. Knoten 2 aufbring.
+. Fahren Sie mit dem Controller-Upgrade fort.
+

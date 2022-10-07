@@ -1,0 +1,8 @@
+= 
+:allow-uri-read: 
+
+
+. Informationen zum Einrichten eines Clusters ohne Switches auf den neuen Nodes finden Sie unter link:other_references.html["Quellen"] Um eine Verbindung zur NetApp Support Site_ zu erhalten, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.
+
+
+Wenn die Speicherverschlüsselung auf node3 und node4 aktiviert ist, füllen Sie den Abschnitt aus link:set_up_storage_encryption_new_module.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]. Andernfalls füllen Sie den Abschnitt aus link:decommission_old_system.html["Ausmustern des alten Systems"].

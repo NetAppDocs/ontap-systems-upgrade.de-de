@@ -1,0 +1,27 @@
+---
+permalink: upgrade/upgrade-methods.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von den Plattformmodellen der ursprünglichen Nodes ab. Sie führen ein Upgrade entweder durch Verschieben des Storage \(a disruptive dure\) oder durch Verschieben der Volumes \(a disruptive Procedure\) durch.' 
+---
+= Wählen Sie Methoden zum Upgrade der Controller-Hardware
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von den Plattformmodellen der ursprünglichen Nodes ab. Sie führen ein Upgrade entweder durch Verschieben des Storage (bei Unterbrechungen) oder durch Verschieben der Volumes (ein unterbrechungsfreies Verfahren) durch.
+
+image::../upgrade/media/methods_for_upgrading_controller_hardware.png[Methoden für das Upgrade der Controller-Hardware]
+
+
+NOTE: Modelle mit internen Laufwerken sind: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700S, AFF A800, AFF A250.
+
+Wenn Ihr System nicht oben aufgeführt ist, lesen Sie den https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
+
+*Verwandte Informationen*
+
+link:upgrade-by-moving-storage-parent.html["Workflow für Upgrades durch Verschieben von Storage"]
+
+link:upgrade-by-moving-volumes-parent.html["Workflow für Upgrades durch Verschieben von Volumes"]

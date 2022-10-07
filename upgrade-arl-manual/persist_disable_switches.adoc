@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/persist_disable_switches.html 
+keywords: disable, switches, fabric, persistent, modify, configuration, configure 
+summary: Deaktivieren Sie Brocade- und Cisco-Switches in der Fabric, und ändern Sie die Konfiguration während eines manuellen ARL Upgrades bei Controllern mit ONTAP 9.7 oder einer älteren Version. 
+---
+= Die Schalter werden persistenz deaktiviert
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen die Switches in der Fabric dauerhaft deaktivieren, damit Sie seine Konfiguration ändern können.
+
+Sie deaktivieren die Switches, indem Sie die Befehle in der Switch-Befehlszeile ausführen. Die dafür verwendeten Befehle sind keine ONTAP-Befehle.
+
+Deaktivieren Sie den Switch dauerhaft:
+
+* Verwenden Sie für Brocade-Switches den `switchCfgPersistentDisable` Befehl.
+* Verwenden Sie für Cisco Switches das `suspend` Befehl.
+
+
+Mit dem folgenden Befehl wird ein Brocade Switch dauerhaft deaktiviert:
+
+[listing]
+----
+FC_switch_A_1:admin> switchCfgPersistentDisable
+----
+Mit dem folgenden Befehl wird ein Cisco-Switch deaktiviert:
+
+[listing]
+----
+vsan [vsna #] suspend
+----

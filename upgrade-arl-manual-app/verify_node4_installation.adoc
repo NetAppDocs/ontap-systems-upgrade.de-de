@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/verify_node4_installation.html 
+keywords: verify, install, node4, cluster, communicate 
+summary: Überprüfen Sie die installation und Kommunikation mit node4 bei einem manuellen ARL Upgrade auf Controllern mit ONTAP 9.8 oder höher. 
+---
+= Überprüfen Sie die installation von node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nach der Installation und dem Booten von node4 müssen Sie überprüfen, ob node4 korrekt installiert ist, dass er Teil des Clusters ist und mit node3 kommunizieren kann.
+
+.Schritte
+. Melden Sie sich an der Eingabeaufforderung des Systems bei node4 an.
+. Vergewissern Sie sich, dass node4 Teil desselben Clusters wie node3 und des entsprechenden Clusters ist, indem Sie den folgenden Befehl eingeben:
++
+`cluster show`
+
+. Vergewissern Sie sich, dass node4 mit node3 kommunizieren kann und dass alle LIFs über den folgenden Befehl verfügen:
++
+`network interface show -curr-node _node4_`
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+|===
+| Wenn node4... | Dann... 
+
+
+| In einem Gehäuse getrennt von node3  a| 
+Verbinden Sie den HA Interconnect zwischen den Nodes, indem Sie die folgenden Schritte ausführen:
+
+.. Schließen Sie den oberen Interconnect-Port von node3 an den oberen Interconnect-Port von node4 an.
+.. Schließen Sie den unteren Interconnect-Port von node3 an den unteren Interconnect-Port von node4 an.
+.. Gehen Sie zu ,Schritt 5.
+
+
+
+
+| Im selben Chassis wie Node3 | Gehen Sie zu ,Schritt 5. Sie müssen den HA Interconnect nicht manuell zwischen den Nodes verbinden. In derselben Chassis-Konfiguration wird der HA Interconnect automatisch über die Backplane verbunden. 
+|===
+. [[Schritt5]]Nehmen Sie eine der folgenden Aktionen:
++
+|===
+| Falls das Cluster... | Dann... 
+
+
+| In einer SAN-Umgebung erfolgreich positionieren | Führen Sie Schritt 6 aus, und fahren Sie mit dem Abschnitt fort link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["Verschieben Sie die NAS-Daten-LIFs von node2 von node3 auf node4 und überprüfen Sie SAN LIFs auf node4"]. 
+
+
+| Nicht in einer SAN-Umgebung | Überspringen Sie Schritt 6, gehen Sie zum Abschnittlink:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["Verschieben Sie die NAS-Daten-LIFs von node2 von node3 auf node4 und überprüfen Sie SAN LIFs auf node4"]. 
+|===
+. Stellen Sie sicher, dass sowohl node3 als auch node4 Quorum sind, indem Sie auf einem der Knoten den folgenden Befehl eingeben:
++
+`event log show -messagename scsiblade.*`
+
++
+Das folgende Beispiel zeigt die Ausgabe, wenn sich die Nodes im Cluster im Quorum befinden:
+
++
+[listing]
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----
+

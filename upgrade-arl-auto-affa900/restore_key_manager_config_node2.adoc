@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/restore_key_manager_config_node2.html 
+keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption 
+summary: Falls erforderlich, stellen Sie die Key-Manager-Konfiguration auf node2 während eines AFF A700 auf ein AFF A900-Upgrade wieder her. 
+---
+= Wiederherstellen der Key-Manager-Konfiguration auf node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn Sie mithilfe von NetApp Volume Encryption (NVE) Volumes auf dem von Ihnen aktualisieren System verschlüsseln, muss die Verschlüsselungskonfiguration mit den neuen Nodes synchronisiert werden. Wenn Sie den Schlüsselmanager nicht wiederherstellen, werden bei dem Verschieben der Node2-Aggregate mit ARL von dem aktualisierten Node1 auf den aktualisierten Node2 verschlüsselte Volumes offline geschaltet.
+
+Die Verschlüsselungskonfiguration mit den neuen Nodes synchronisieren, indem Sie die folgenden Schritte durchführen:
+
+.Schritte
+. Synchronisieren Sie die Verschlüsselungskonfiguration für Onboard Key Manager (OKM) mithilfe des folgenden Befehls an der Cluster-Eingabeaufforderung:
++
+`security key-manager onboard sync`
+
+. Geben Sie die Cluster-weite Passphrase für das OKM ein.
+

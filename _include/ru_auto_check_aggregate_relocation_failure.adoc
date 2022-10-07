@@ -1,0 +1,26 @@
+= Prüfen Sie, ob Aggregate Relocation Failure vorhanden sind
+:allow-uri-read: 
+
+
+
+
+== Prüfen Sie, ob Aggregate Relocation Failure vorhanden sind
+
+Während des Verfahrens kann ARL in Phase 2, Phase 3 oder Phase 5 fehlschlagen.
+
+.Schritte
+. Geben Sie den folgenden Befehl ein und überprüfen Sie die Ausgabe:
++
+`storage aggregate relocation show`
+
++
+Der `storage aggregate relocation show` Der Befehl zeigt Ihnen, welche Aggregate erfolgreich umgezogen wurden und welche nicht, zusammen mit den Ursachen des Ausfalls.
+
+. Überprüfen Sie die Konsole auf EMS-Nachrichten.
+. Führen Sie eine der folgenden Aktionen durch:
++
+** Führen Sie die entsprechenden Korrekturmaßnahmen durch, je nach der Ausgabe des `storage aggregate relocation show` Befehl und Ausgabe der EMS-Nachricht.
+** Erzwingen Sie das verlagern des Aggregats oder der Aggregate mit dem `override-vetoes` Oder die Option `override-destination-checks` Option des `storage aggregate relocation start` Befehl.
+
+
+

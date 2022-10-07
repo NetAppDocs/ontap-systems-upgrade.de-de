@@ -1,0 +1,43 @@
+= 
+:allow-uri-read: 
+
+
+. [[Auto_Check_4_steep17]]Drücken Sie `Ctrl-C` Während des automatischen Bootens, um den Node auf dem zu beenden `LOADER>` Eingabeaufforderung:
+. Wechseln Sie an der Loader-Eingabeaufforderung in den Wartungsmodus:
++
+`boot_ontap maint`
+
+. Zeigen Sie im Wartungsmodus alle zuvor festgelegten Initiator-Ports an, die sich jetzt im Ziel-Modus befinden:
++
+`ucadmin show`
+
++
+Ändern Sie die Ports zurück in den Initiatormodus:
+
++
+`ucadmin modify -m fc -t initiator -f _adapter name_`
+
+. Vergewissern Sie sich, dass die Ports in den Initiatormodus geändert wurden:
++
+`ucadmin show`
+
+. Beenden des Wartungsmodus:
++
+`halt`
+
++
+[NOTE]
+====
+Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu ,Schritt 22.
+
+Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten verwendet, zu einem System, das sowohl interne als auch externe Festplatten unterstützt, z. B. ein AFF A800 System, finden Sie unter ,Schritt 23.
+
+====
+. [[Auto_Check_4_step 22]]Booten Sie an der Loader-Eingabeaufforderung:
++
+`boot_ontap`
+
++
+Beim Booten erkennt der Node jetzt alle Festplatten, die zuvor ihm zugewiesen waren, und kann wie erwartet gebootet werden.
+
+

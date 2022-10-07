@@ -1,0 +1,66 @@
+= 
+:allow-uri-read: 
+
+
+Sie müssen node4 als Netzboot ausführen, wenn es nicht die gleiche Version von ONTAP 9 hat, die auf node2 installiert ist. Nachdem sie node4 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien auf das Boot-Medium für nachfolgende Systemstarts herunterladen, indem Sie den Anweisungen in folgen link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"].
+
+.Wichtig:
+* Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten ,Schritt 1 Bis ,Schritt 21, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen zu link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Konfigurieren Sie FC-Ports auf node4"] Und nach link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["UTA/UTA2-Ports auf node4 prüfen und konfigurieren"], Eingabe von Befehlen im Wartungsmodus. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren ,Schritt 23.
+* Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt ausfüllen und mit fortfahren link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
+
+
+.Schritte
+. [[Auto_install4_step1]]stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt.
++
+Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4 an der gleichen Stelle wie node3 platzieren. Wenn sich Node2 und node4 im selben Chassis befinden, befindet sich node4 bereits in der entsprechenden Rack-Position.
+
+. installieren sie node4 im Rack gemäß den Anweisungen in der Anleitung _Installation and Setup Instructions_ für das Node-Modell.
+. Kabel node4, ziehen Sie die Verbindungen von node2 nach node4.
++
+Verkabeln Sie die folgenden Verbindungen mithilfe der Anleitung im _Installation and Setup Instructions_ oder beim _FlexArray Installation Requirements and Reference_ für die node4-Plattform, dem entsprechenden Platten-Shelf-Dokument und _High Availability Management_.
+
++
+Siehe link:other_references.html["Quellen"] Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und „ Reference_“ und „ High Availability Management_“.
+
++
+** Konsole (Remote-Management-Port)
+** Cluster-Ports
+** Datenports
+** Cluster- und Node-Management-Ports
+** Storage
+** SAN-Konfigurationen: ISCSI Ethernet und FC Switch Ports
++
+
+NOTE: Möglicherweise müssen Sie die Interconnect-Karte/FC-VI-Karte oder die Interconnect/FC-VI-Kabelverbindung von node2 auf node4 nicht verschieben, da die meisten Plattform-Modelle über einzigartige Interconnect-Kartenmodelle verfügen. Bei der MetroCluster Konfiguration müssen Sie die FC-VI-Kabelverbindungen von node2 nach node4 verschieben. Wenn der neue Host keine FC-VI-Karte besitzt, müssen Sie möglicherweise die FC-VI-Karte verschieben.
+
+
+
+. Schalten Sie node4 ein, und unterbrechen Sie den Bootvorgang, indem Sie auf drücken `Ctrl-C` An der Konsole, um auf die Eingabeaufforderung für die Boot-Umgebung zuzugreifen.
++
+
+NOTE: Wenn Sie node4 booten, wird möglicherweise die folgende Warnmeldung angezeigt:
+
++
+....
+WARNING: The battery is unfit to retain data during a power outage. This is likely
+         because the battery is discharged but could be due to other temporary
+         conditions.
+         When the battery is ready, the boot process will complete
+         and services will be engaged. To override this delay, press 'c' followed
+         by 'Enter'
+....
+. Wenn die Warnmeldung in Schritt 4 angezeigt wird, führen Sie die folgenden Schritte aus:
++
+.. Überprüfen Sie auf Meldungen der Konsole, die auf ein anderes Problem als eine schwache NVRAM-Batterie hinweisen und ergreifen Sie gegebenenfalls erforderliche Korrekturmaßnahmen.
+.. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
++
+
+WARNING: *Achtung: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht geladen werden darf, kann dies zu einem Datenverlust führen.*
+
++
+
+NOTE: Siehe link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"].
+
+
+
+

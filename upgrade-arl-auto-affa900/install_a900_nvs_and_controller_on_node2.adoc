@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html 
+keywords: install, NVRAM, aff, a900, node2, controller, module 
+summary: Installationsanweisungen für ein AFF A900-NVRAM-Modul und ein Controller-Modul während des ARL-Controller-Upgrades. 
+---
+= Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen die NVRAM- und Controller-Module AFF A900 oder FAS9500 installieren, die Sie für das Upgrade auf node2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
+
+Wenn du nicht bereits geerdet bist, beground dich richtig.
+
+
+
+== Installieren Sie das AFF A900 oder FAS9500 NVRAM-Modul
+
+Gehen Sie wie folgt vor, um das AFF A900 oder FAS9500 NVRAM-Modul in Steckplatz 6 der Node2 zu installieren.
+
+.Schritte
+. Richten Sie das NVRAM-Modul an den Kanten der Gehäuseöffnung in Steckplatz 6 aus.
+. Schieben Sie das NVRAM-Modul vorsichtig in den Steckplatz, bis der vorletzte und nummerierte E/A-Nockenriegel mit dem E/A-Nockenstift einrastet. Drücken Sie dann den E/A-Nockenverschluss bis zum Verriegeln des NVRAM-Moduls.
+
+
+
+
+== Installieren Sie das AFF A900 oder FAS9500 Controller-Modul in node2
+
+Gehen Sie wie folgt vor, um das AFF A900 oder FAS9500 Controller-Modul in node2 zu installieren.
+
+.Schritte
+. Richten Sie das Ende des Controller-Moduls an Schacht B im Chassis aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
++
+
+TIP: Das Bay-Etikett befindet sich auf dem Chassis direkt über dem Controller-Modul.
+
++
+
+NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Chassis ein, wenn Sie dazu später beim Verfahren aufgefordert werden.
+
+. Verkabeln Sie die Management- und Konsolen-Ports mit dem node2-Controller-Modul.
++
+
+NOTE: Da das Chassis bereits eingeschaltet ist, startet node2, sobald es vollständig eingesetzt ist. Um das Booten von node2 zu vermeiden, wird empfohlen, die Konsole und die Managementkabel mit dem node2-Controller-Modul zu verbinden, bevor das Controller-Modul vollständig in den Steckplatz eingesetzt wird.
+
+. Drücken Sie das Controller-Modul fest in das Gehäuse, bis es auf die Mittelebene trifft und vollständig sitzt.
++
+Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist.
+
++
+
+WARNING: Um Schäden an den Anschlüssen zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft verwenden.
+
+. Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
+. Nachdem Sie DIE AUTOBOOT-Funktion unterbrochen haben, wird node2 an der LOADER-Eingabeaufforderung angehalten. Wenn SIE DIE AUTOBOOT-Zeit nicht unterbrechen und node2 den Startvorgang startet, warten Sie auf die Eingabeaufforderung und drücken Sie *Strg-C*, um in das Startmenü zu gelangen. Nachdem der Knoten im Startmenü angehalten wurde, verwenden Sie die Option `8` Um den Node neu zu booten und den AUTOBOOT während des Neubootens zu unterbrechen.
+

@@ -1,0 +1,211 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/verify_node1_installation.html 
+keywords: verifying, verify, node1, install, installation, aff, a900, NVRAM, controller 
+summary: Überprüfen Sie die Installation node1 mit dem AFF A900-Controller-Modul und dem NVRAM-Modul. 
+---
+= Überprüfen Sie die Installation node1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen die Node1-Installation mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen überprüfen. Da keine Änderung an physischen Ports vorgenommen wird, sind Sie nicht verpflichtet, die physischen Ports von der alten Knoten1 auf den Ersatz-Knoten1 zuzuordnen.
+
+Nachdem Sie node1 mit dem AFF A900 oder FAS9500 Controller-Modul gebootet haben, müssen Sie überprüfen, ob es korrekt installiert ist. Sie müssen warten, bis node1 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
+
+An diesem Punkt in der Prozedur sollte der Upgrade-Vorgang des Controllers angehalten sein, da node1 versucht hat, Quorum automatisch beizutreten.
+
+.Schritte
+. Vergewissern Sie sich, dass node1 dem Quorum beigetreten ist:
++
+`cluster show -node node1 -fields health`
+
++
+Die Ausgabe des `health` Feld muss sein `true`.
+
+. Vergewissern Sie sich, dass node1 Teil desselben Clusters wie node2 ist und dass er sich in einem ordnungsgemäßen Zustand befindet:
++
+`cluster show`
+
+. Wechseln in den erweiterten Berechtigungsmodus:
++
+`set advanced`
+
+. Überprüfen Sie den Status des Controller-Austauschvorgangs und vergewissern Sie sich, dass er sich in einem Pause-Zustand befindet und sich im gleichen Zustand wie zuvor in node1 befand, um die physischen Aufgaben beim Installieren neuer Controller und Verschieben von Kabeln auszuführen:
++
+`system controller replace show`
+
++
+`system controller replace show-details`
+
+. Setzen Sie den Austausch des Controllers wieder ein:
++
+`system controller replace resume`
+
+. Der Controller-Ersatzvorgang hält für Eingriffe mit der folgenden Meldung an:
++
+[listing]
+----
+Cluster::*> system controller replace show
+Node          Status                       Error-Action
+------------  ------------------------     ------------------------------------
+Node1         Paused-for-intervention      Follow the instructions given in
+                                           Step Details
+Node2         None
+
+Step Details:
+--------------------------------------------
+To complete the Network Reachability task, the ONTAP network configuration must be manually adjusted to match the new physical network configuration of the hardware. This includes:
+
+
+1. Re-create the interface group, if needed, before restoring VLANs. For detailed commands and instructions, refer to the "Re-creating VLANs, ifgrps, and broadcast domains" section of the upgrade controller hardware guide for the ONTAP version running on the new controllers.
+2. Run the command "cluster controller-replacement network displaced-vlans show" to check if any VLAN is displaced.
+3. If any VLAN is displaced, run the command "cluster controller-replacement network displaced-vlans restore" to restore the VLAN on the desired port.
+2 entries were displayed.
+----
++
+
+NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Broadcast-Domänen_ unter node1_ umbenannt.
+
+. Wenn sich der Controller-Austausch im Status „Pause“ befindet, fahren Sie mit fort  network configuration on node1.
+
+
+
+
+== Stellen Sie die Netzwerkkonfiguration auf node1 wieder her
+
+Nachdem Sie bestätigt haben, dass node1 sich im Quorum befindet und mit node2 kommunizieren kann, überprüfen Sie, dass node1 VLANs, Interface Groups und Broadcast-Domains auf node1 gesehen werden. Überprüfen Sie außerdem, ob alle node1-Netzwerk-Ports in ihren richtigen Broadcast-Domänen konfiguriert sind.
+
+Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit dem Inhalt _Network Management_.
+
+.Schritte
+. Listen Sie alle physischen Ports auf, die auf Upgrade-Knoten1 stehen:
++
+`network port show -node node1`
+
++
+Alle physischen Netzwerk-Ports, VLAN-Ports und Schnittstellen-Gruppen-Ports auf dem Node werden angezeigt. In dieser Ausgabe sehen Sie alle physischen Ports, die in verschoben wurden `Cluster` Broadcast-Domäne von ONTAP Sie können diese Ausgabe verwenden, um die Entscheidung zu erleichtern, welche Ports als Ports für Schnittstellengruppen, als VLAN-Basis-Ports oder als eigenständige physische Ports zum Hosten von LIFs verwendet werden sollten.
+
+. Liste der Broadcast-Domänen auf dem Cluster:
++
+`broadcast-domain show`
+
+. Die Erreichbarkeit des Netzwerkports aller Ports auf node1 auflisten:
++
+`network port reachability show -node node1`
+
++
+Die Ausgabe sollte wie im folgenden Beispiel angezeigt werden:
+
++
+[listing]
+----
+Cluster::> reachability show -node node1
+  (network port reachability show)
+Node      Port     Expected Reachability                Reachability Status
+--------- -------- ------------------------------------ ---------------------
+Node1
+          a0a      Default:Default                      ok
+          a0a-822  Default:822                          ok
+          a0a-823  Default:823                          ok
+          e0M      Default:Mgmt                         ok
+          e11a     -                                    no-reachability
+          e11b     -                                    no-reachability
+          e11c     -                                    no-reachability
+          e11d     -                                    no-reachability
+          e3a      -                                    no-reachability
+          e3b      -                                    no-reachability
+          e4a      Cluster:Cluster                      ok
+          e4e      Cluster:Cluster                      ok
+          e5a      -                                    no-reachability
+          e7a      -                                    no-reachability
+          e9a      Default:Default                      ok
+          e9a-822  Default:822                          ok
+          e9a-823  Default:823                          ok
+          e9b      Default:Default                      ok
+          e9b-822  Default:822                          ok
+          e9b-823  Default:823                          ok
+          e9c      Default:Default                      ok
+          e9d      Default:Default                      ok
+22 entries were displayed.
+----
++
+Im vorherigen Beispiel wurde node1 nach dem Austausch des Controllers gebootet. Einige Ports verfügen nicht über Reachability, da es keine physische Verbindung gibt. Sie müssen alle Ports mit einem anderen Status als für die Erreichbarkeit reparieren `ok`.
+
++
+
+NOTE: Während eines Upgrades von AFF A700 zu AFF A900 oder eines FAS9000 zu FAS9500 Controllers sollten sich die Netzwerk-Ports und ihre Konnektivität nicht ändern. Alle Ports sollten sich in den richtigen Broadcast-Domänen befinden, und die Erreichbarkeit des Netzwerkports sollte sich nicht ändern. Bevor Sie jedoch LIFs von node2 zurück auf node1 verschieben, müssen Sie die Erreichbarkeit und den Integritätsstatus der Netzwerk-Ports überprüfen.
+
+. [[restore_node1_stee4]]Reparieren Sie die Erreichbarkeit für jeden Port auf node1 mit einem anderen Status als der Erreichbarkeit `ok` Mit dem folgenden Befehl in der folgenden Reihenfolge:
++
+`network port reachability repair -node _node_name_  -port _port_name_`
+
++
+--
+.. Physische Ports
+.. VLAN-Ports
+
+
+--
++
+Die Ausgabe sollte wie im folgenden Beispiel angezeigt werden:
+
++
+[listing]
+----
+Cluster ::> reachability repair -node node1 -port e11b
+----
++
+[listing]
+----
+Warning: Repairing port "node1:e11b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
+----
++
+Eine Warnmeldung, wie im vorhergehenden Beispiel dargestellt, wird für Ports mit einem Wiederanmeldungs-Status erwartet, die sich vom Status der Erreichbarkeit der Broadcast-Domäne unterscheiden können, in der sie sich derzeit befindet. Überprüfen Sie die Verbindung des Ports und die Antwort `y` Oder `n` Je nach Bedarf.
+
++
+Überprüfen Sie, ob alle physischen Ports die erwartete Erreichbarkeit haben:
+
++
+`network port reachability show`
+
++
+Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn jedoch die Erreichbarkeit eines Ports nicht ermittelt werden kann und keiner der bestehenden Broadcast-Domänen angehört, wird ONTAP neue Broadcast-Domains für diese Ports erstellen.
+
+. Überprüfen der Port-Erreichbarkeit:
++
+`network port reachability show`
+
++
+Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn ein Port einen anderen Status als diese beiden meldet, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in ,Schritt 4.
+
+. Vergewissern Sie sich, dass alle Ports in Broadcast-Domänen platziert wurden:
++
+`network port show`
+
+. Vergewissern Sie sich, dass alle Ports in den Broadcast-Domänen die richtige MTU (Maximum Transmission Unit) konfiguriert haben:
++
+`network port broadcast-domain show`
+
+. Stellen Sie die LIF-Home-Ports wieder her und geben Sie ggf. den Vserver und die LIF-Home-Ports an, die Sie mit folgenden Schritten wiederherstellen müssen:
++
+.. Führen Sie alle vertriebenen LIFs auf:
++
+`displaced-interface show`
+
+.. LIF-Home-Knoten und Home-Ports wiederherstellen:
++
+`displaced-interface restore-home-node -node _node_name_ -vserver _vserver_name_ -lif-name _LIF_name_`
+
+
+
+. Überprüfen Sie, ob alle LIFs einen Home Port haben und administrativ höher sind:
++
+`network interface show -fields home-port,status-admin`
+
+

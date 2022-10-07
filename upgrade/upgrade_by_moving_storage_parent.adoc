@@ -1,0 +1,29 @@
+---
+permalink: upgrade/upgrade-by-moving-storage-parent.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: Bei einem Upgrade durch Verschieben des Storage bereiten Sie die Original-Nodes vor und richten die neuen Nodes ein. Einige Plattformmodelle unterstützen den Transfer von internem Storage zu den neuen Nodes. Sie weisen Festplatten neu zu und stellen die Root-Volume-Konfiguration den neuen Nodes wieder her und konfigurieren Netzwerkports. Das Upgrade durch Verschiebung von Storage führt zu Unterbrechungen. 
+---
+= Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bei einem Upgrade der Controller Hardware durch Verschiebung des Storage bereiten Sie die Original-Nodes vor und richten die neuen Nodes ein. Einige Plattformmodelle unterstützen den Transfer von internem Storage zu den neuen Nodes. Sie weisen Festplatten neu zu und stellen die Root-Volume-Konfiguration den neuen Nodes wieder her und konfigurieren Netzwerkports. Das Upgrade durch Verschiebung von Storage führt zu Unterbrechungen.
+
+image::../upgrade/media/workflow_for_upgrading_by_moving_storage.png[Workflow für Upgrades der Controller-Hardware durch Verschieben des Storage]
+
+.Schritte
+. xref:upgrade-prepare-when-moving-storage.adoc[Bereiten Sie sich bei der Verschiebung des Storage auf das Upgrade vor]
+. xref:upgrade-shutdown-remove-original-nodes.adoc[Fahren Sie die ursprünglichen Nodes herunter]
+. xref:upgrade-remove-disk-ownership-new-nodes.adoc[Entfernen Sie die Eigentumsrechte an den Festplatten, die mit den neuen Nodes verbunden sind]
+. xref:upgrade-reset-default-configuration-node3-and-node4.adoc[Setzen Sie die Standardkonfiguration auf den neuen Nodes zurück]
+. xref:upgrade-install-new-nodes.adoc[Die neuen Nodes installieren]
+. xref:upgrade-set-up-new-nodes.adoc[Richten Sie die neuen Nodes ein]
+. xref:upgrade-optional-move-internal-storage.adoc[Optional: Verschieben Sie internen Storage oder konvertieren Sie das System in ein Festplatten-Shelf]
+. xref:upgrade-attach-shelves-reassign-disks.adoc[Verbinden Sie Storage Shelfs und weisen Sie Festplatten neu zu]
+. xref:upgrade-restore-root-volume-config.adoc[Wiederherstellung der Konfiguration des Root-Volumes]
+. xref:upgrade-complete.adoc[Schließen Sie das Upgrade ab]
+

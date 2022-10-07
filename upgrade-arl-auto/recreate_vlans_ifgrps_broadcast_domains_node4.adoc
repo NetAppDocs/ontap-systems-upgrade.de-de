@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node4.html 
+keywords: node4, interface group, VLANs, broadcast domains, re-create 
+summary: 'Erstellen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen auf node4 neu, wenn Sie die Controller mit ONTAP 9.5 auf 9.7 aktualisieren `system controller replace` Befehle.' 
+---
+= VLANs, Schnittstellengruppen und Broadcast-Domänen auf node4 neu erstellen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nachdem Sie bestätigt haben, dass node4 sich im Quorum befindet und mit node3 kommunizieren kann, müssen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen von node2 auf node4 neu erstellen. Sie müssen auch die node3-Ports zu den neu erstellten Broadcast-Domänen hinzufügen.
+
+Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Und Link zu _Network Management_.
+
+.Schritte
+. Erstellen Sie die VLANs auf node4 mithilfe der node2-Informationen, die im aufgezeichnet wurden, neu link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten 2 auf Knoten 3"] Abschnitt:
++
+`network port vlan create -node _node4_ -vlan _vlan-names_`
+
+. Erstellen Sie die Schnittstellengruppen auf node4 mithilfe der node2-Informationen, die im aufgezeichnet wurden, neu link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten 2 auf Knoten 3"] Abschnitt:
++
+`network port ifgrp create -node _node4_ -ifgrp _port_ifgrp_names_-distr-func`
+
+. Erstellen Sie die Broadcast-Domänen auf node4 mithilfe der node2-Informationen, die im aufgezeichnet wurden, erneut link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten 2 auf Knoten 3"] Abschnitt:
++
+`network port broadcast-domain create -ipspace Default -broadcast-domain _broadcast_domain_names_ -mtu _mtu_size_ -ports _node_name:port_name,node_name:port_name_`
+
+. Fügen Sie die node4-Ports zu den neu erstellten Broadcast-Domänen hinzu:
++
+`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_names_ -ports _node_name:port_name,node_name:port_name_`
+
+

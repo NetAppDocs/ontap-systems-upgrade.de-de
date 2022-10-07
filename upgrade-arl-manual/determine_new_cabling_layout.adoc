@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/determine_new_cabling_layout.html 
+keywords: cable, cabling, layout, disk shelf, fc switches 
+summary: Bestimmen Sie das Verkabelungslayout für neue Controller-Module und Festplatten-Shelfs bei einem manuellen ARL Upgrade bei Controllern mit ONTAP 9.7 oder einer älteren Version. 
+---
+= Bestimmen Sie das neue Verkabelungslayout
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen die Verkabelung der neuen Controller-Module und aller neuen Platten-Shelfs zu den vorhandenen FC-Switches bestimmen.
+
+Diese Aufgabe muss an jedem MetroCluster Standort ausgeführt werden.
+
+Ermitteln Sie mithilfe des Inhalts _Fabric-Attached MetroCluster Installation and Configuration_ das Verkabelungslayout für Ihren Switch-Typ. Verwenden Sie dabei die Portnutzung für eine MetroCluster-Konfiguration mit acht Nodes. Die Nutzung des FC-Switch-Ports muss der in dem Inhalt beschriebenen Nutzung entsprechen, sodass die Referenzkonfigurationsdateien (RCFs) verwendet werden können.
+
+Gehen Sie zu link:other_references.html["Quellen"] Zum Verlinken auf den Content _Fabric-Attached MetroCluster Installation and Configuration_.
+
+
+NOTE: Wenn Ihre Umgebung nicht so verkabelt werden kann, wie RCFs verwendet werden können, wenden Sie sich an den technischen Support. Verwenden Sie dieses Verfahren nicht, wenn die Verkabelung keine RCFs verwenden kann.

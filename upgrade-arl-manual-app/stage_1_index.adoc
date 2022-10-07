@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/stage_1_index.html 
+keywords: stage 1, prepare, upgrade, steps 
+summary: Phase 1-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controllern mit ONTAP 9.8 oder höher. 
+---
+= Stufe 1: Bereiten Sie sich auf das Upgrade vor
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+In Phase 1 müssen Sie die Nodes auf das Upgrade vorbereiten und eine Reihe von Vorabprüfungen durchführen. Möglicherweise müssen Sie Festplatten für die Speicherverschlüsselung neu verschlüsseln. Sie müssen sich auch auf den Netzboot der neuen Controller vorbereiten.
+
+.Schritte
+. link:determine_aggregates_on_internal_drives.html["Ermitteln Sie, ob der Controller über Aggregate auf internen Festplatten verfügt"]
+. link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"]
+. link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagementservers für die Speicherverschlüsselung"]
+. link:manage_authentication_kmip.html["Authentifizierungsmanagement mit KMIP-Servern"]
+. link:manage_authentication_okm.html["Verwalten Sie die Authentifizierung über einen integrierten Schlüsselmanager"]
+. link:quiesce_snapmirror_relationships.html["SnapMirror Beziehungen stilllegen"]
+. link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"]
+

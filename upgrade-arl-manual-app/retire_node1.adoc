@@ -1,0 +1,208 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/retire_node1.html 
+keywords: retire, node1, epsilon, shut down, failover 
+summary: Deaktivieren Sie das HA-Paar mit node2 und schalten Sie node1 während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.8 oder höher korrekt aus. 
+---
+= Node1 ausmustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Um node1 außer Betrieb zu nehmen, müssen Sie das HA-Paar mit node2 deaktivieren, Node1 richtig herunterfahren und aus dem Rack oder Chassis entfernen.
+
+.Schritte
+. Überprüfen Sie die Anzahl der Nodes im Cluster:
++
+`cluster show`
+
++
+Das System zeigt die Nodes im Cluster an, wie im folgenden Beispiel dargestellt:
+
++
+[listing]
+----
+cluster::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+. [[man_retid_1_steep2]]Speicherausfallschutz nach Bedarf deaktivieren:
++
+[cols="35,65"]
+|===
+| Falls das Cluster... | Dann... 
+
+
+| Eines Clusters mit zwei Nodes  a| 
+.. Deaktivieren Sie die Hochverfügbarkeit des Clusters, indem Sie auf einem der Nodes den folgenden Befehl eingeben:
+
+
+`cluster ha modify -configured false`
+
+.. Deaktivier Speicher-Failover:
+
+
+`storage failover modify -node _node1_ -enabled false`
+
+
+
+| Ein Cluster mit mehr als zwei Nodes | Deaktivier Speicher-Failover:
+`storage failover modify -node _node1_ -enabled false` 
+|===
+. Überprüfen Sie, ob der Storage-Failover deaktiviert wurde:
++
+`storage failover show`
+
++
+Das folgende Beispiel zeigt die Ausgabe von `storage failover show` Befehl, wenn Storage-Failover für einen Node deaktiviert wurde:
+
++
+[listing]
+----
+ cluster::> storage failover show
+                               Takeover
+ Node           Partner        Possible State Description
+ -------------- -------------- -------- -------------------------------------
+ node1          node2          false    Connected to node2, Takeover
+                                        is not possible: Storage failover is
+                                        disabled
+
+ node2          node1          false    Node owns partner's aggregates as part
+                                        of the nondisruptive controller upgrade
+                                        procedure. Takeover is not possible:
+                                        Storage failover is disabled
+ 2 entries were displayed.
+----
+. Überprüfen Sie den Daten-LIF-Status:
++
+`network interface show -role data -curr-node _node2_ -home-node _node1_`
+
++
+Sehen Sie in der Spalte *Status Admin/Oper* nach, ob LIFs nicht verfügbar sind. Wenn LIFs ausgefallen sind, lesen Sie das link:troubleshoot_index.html["Troublehsoot"] Abschnitt.
+
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Falls das Cluster... | Dann... 
+
+
+| Eines Clusters mit zwei Nodes | Gehen Sie zu ,Schritt 6. 
+
+
+| Ein Cluster mit mehr als zwei Nodes | Gehen Sie zu ,Schritt 8. 
+|===
+. [[man_retid_1_ste6]]Zugriff auf die erweiterte Berechtigungsebene auf beiden Knoten:
++
+`set -privilege advanced`
+
+. [[step7]]Überprüfen Sie, ob die Cluster-HA deaktiviert wurde:
++
+`cluster ha show`
+
++
+Vom System wird die folgende Meldung angezeigt:
+
++
+[listing]
+----
+High Availability Configured: false
+----
++
+Wenn Cluster HA nicht deaktiviert wurde, wiederholen Sie den Vorgang ,Schritt 2.
+
+. [[man_retip_1_ste8]]Prüfen Sie, ob node1 aktuell epsilon hält:
++
+`cluster show`
+
++
+Da in einem Cluster mit einer geraden Anzahl von Nodes eine Krawatte möglich ist, verfügt ein Node über eine zusätzliche fraktionale Abstimmungsgewichtung namens epsilon. Siehe link:other_references.html["Quellen"] Um weitere Informationen zur _System Administration Reference_ zu erhalten.
+
++
+[NOTE]
+====
+Wenn Sie ein Cluster mit vier Nodes haben, liegt das Epsilon auf einem Node in einem anderen HA-Paar im Cluster.
+
+Wenn Sie ein HA-Paar in einem Cluster mit mehreren HA-Paaren aktualisieren, müssen Sie Epsilon auf den Node eines HA-Paars verschieben, ohne ein Controller-Upgrade durchführen zu müssen. Wenn Sie beispielsweise nodeA/nodeB in einem Cluster mit der HA-Paar-Konfiguration nodeA/nodeB und nodeC/nodded aktualisieren, müssen Sie Epsilon auf nodeC oder nodded verschieben.
+
+====
++
+Das folgende Beispiel zeigt, dass bei node1 Epsilon gehalten wird:
+
++
+[listing]
+----
+ cluster::*> cluster show
+
+ Node                 Health  Eligibility  Epsilon
+ -------------------- ------- ------------ ------------
+ node1                true    true         true
+ node2                true    true         false
+----
+. Wenn node1 das Epsilon hält, markieren Sie das Epsilon `false` Auf dem Knoten, so dass er auf die node2 übertragen werden kann:
++
+`cluster modify -node _node1_ -epsilon false`
+
+. Übertragen Sie das Epsilon auf node2, indem Sie epsilon markieren `true` Auf Knoten 2:
++
+`cluster modify -node _node2_ -epsilon true`
+
+. Vergewissern Sie sich, dass die Änderung in node2 aufgetreten ist:
++
+`cluster show`
+
++
+[listing]
+----
+ cluster::*> cluster show
+ Node                 Health  Eligibility  Epsilon
+ -------------------- ------- ------------ ------------
+ node1                true    true         false
+ node2                true    true         true
+----
++
+Das Epsilon für node2 sollte nun wahr sein und das Epsilon für node1 sollte falsch sein.
+
+. Überprüfen Sie, ob es sich um ein 2-Node-Cluster ohne Switches handelt:
++
+`network options switchless-cluster show`
+
++
+[listing]
+----
+ cluster::*> network options switchless-cluster show
+
+ Enable Switchless Cluster: false/true
+----
++
+Der Wert dieses Befehls muss mit dem physischen Status des Systems übereinstimmen.
+
+. Zurück zur Administratorebene:
++
+`set -privilege admin`
+
+. Stop node1 von der Eingabeaufforderung node1:
++
+`system node halt -node _node1_`
+
++
+
+WARNING: *Achtung*: Wenn sich Node1 im selben Gehäuse wie node2 befindet, schalten Sie das Gehäuse nicht über den Netzschalter oder durch Ziehen des Netzkabels aus. Wenn Sie das tun, wird node2, der Daten bereitstellt, ausfallen.
+
+. Wenn Sie vom System aufgefordert werden, zu bestätigen, dass Sie das System anhalten möchten, geben Sie ein `y`.
++
+Der Node wird an der Eingabeaufforderung der Boot-Umgebung angehalten.
+
+. Wenn in node1 die Eingabeaufforderung für die Boot-Umgebung angezeigt wird, entfernen Sie sie aus dem Chassis oder dem Rack.
++
+Sie können Node1 nach Abschluss des Upgrades außer Betrieb nehmen. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].
+
+

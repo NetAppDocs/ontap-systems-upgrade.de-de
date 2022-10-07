@@ -1,0 +1,127 @@
+---
+permalink: upgrade/upgrade-shutdown-remove-original-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: Wenn Sie die ursprünglichen Nodes herunterfahren und entfernen, müssen Sie eine AutoSupport-Meldung über das Upgrade senden, die Mailboxen zerstören, die Nodes herunterfahren und das Chassis entfernen. 
+---
+= Fahren Sie die ursprünglichen Nodes herunter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie die ursprünglichen Nodes herunterfahren und entfernen, müssen Sie eine AutoSupport-Meldung über das Upgrade senden, die Mailboxen zerstören, die Nodes herunterfahren und das Chassis entfernen.
+
+.Schritte
+. Senden Sie eine AutoSupport-Nachricht von node1 und node2, um den technischen Support über das Upgrade zu informieren:
++
+`system node autosupport invoke -node _node_name_ -type all -message "MAINT=2h Upgrading _node_name_ from _platform_original_ to _platform_new_"`
+
+. Deaktivieren Sie Hochverfügbarkeit oder Storage-Failover bei node1 und node2:
++
+[cols="1,2"]
+|===
+| Wenn Sie ein... | Eingeben... 
+
+
+ a| 
+Cluster mit zwei Nodes
+ a| 
+.. `cluster ha modify -configured false`
+.. `storage failover modify -node _node_name_ -enabled false`
+
+
+
+
+ a| 
+Cluster mit mehr als zwei Nodes
+ a| 
+`storage failover modify -node _node_name_ -enabled false`
+
+|===
+. Stoppen Sie den Knoten:
++
+`system node halt -node _node_name_`
+
++
+Sie können die Quorum-Prüfung während des Neustarts mit unterdrücken `-ignore-quorum-warnings` Option.
+
+. Stellen Sie eine Verbindung zur seriellen Konsole her, wenn Sie noch nicht verbunden sind. Der Node muss die Eingabeaufforderung DES LOADERS aufweisen. Verwenden Sie die `boot_ontap maint` Befehl zum Booten im Wartungsmodus.
++
+Es wird möglicherweise eine Meldung angezeigt, in der Sie gefragt werden, ob der Partner-Node ausgefallen ist oder dass die Übernahme auf dem Partner-Node manuell deaktiviert ist. Sie können eingeben `yes` Um fortzufahren.
+
+. [[shutdown_Node_step5]]Nehmen Sie die System-ID jedes ursprünglichen Node auf, die im Wartungsmodus über die Informationen zum Festplattenbesitzer abgerufen wird:
++
+`disk show -v`
+
++
+Sie benötigen die System-IDs, wenn Sie den neuen Nodes Festplatten aus den ursprünglichen Nodes zuweisen.
+
++
+[listing]
+----
+*> disk show -v
+Local System ID: 118049495
+DISK    OWNER               POOL    SERIAL NUMBER          HOME
+----    -----               ----    -------------          ----
+0a.33   node1 (118049495)   Pool0   3KS6BN970000973655KL   node1 (118049495)
+0a.32   node1 (118049495)   Pool0   3KS6BCKD000097363ZHK   node1 (118049495)
+0a.36   node1 (118049495)   Pool0   3KS6BL9H000097364W74   node1 (118049495)
+...
+----
+. Wenn Sie eine FC- oder CNA-Port-Konfiguration haben, zeigen Sie im Wartungsmodus die Konfiguration an:
++
+`ucadmin show`
+
++
+Sie sollten die Befehlsausgabe für einen späteren Verweis notieren.
+
++
+[listing]
+----
+*> ucadmin show
+Current Current Pending   Pending
+Adapter Mode    Type      Mode    Type    Status
+------- ------- --------- ------- ------- ------
+0e      fc      initiator -       -       online
+0f      fc      initiator -       -       online
+0g      cna     target    -       -       online
+0h      cna     target    -       -       online
+...
+----
+. Zerstören Sie im Wartungsmodus die Mailboxen node1 und node2: +
++
+`mailbox destroy local`
+
++
+In der Konsole wird eine Meldung wie die folgende angezeigt:
+
++
+[listing]
+----
+Destroying mailboxes forces a node to create new empty mailboxes, which
+clears any takeover state, removes all knowledge of out-of-date plexes and
+mirrored volumes, and will prevent management services from going online in
+2-node cluster HA configurations.
+Are you sure you want to destroy the local mailboxes?
+----
+. Löschen Sie die Mailboxen, indem Sie eingeben `y` Wenn eine Eingabeaufforderung wie die folgende angezeigt wird:
++
+[listing]
+----
+.............Mailboxes destroyed
+Takeover On Reboot option will be set to ON after the node boots.
+This option is ON by default except on setups that have iSCSI or FCP license.
+Use "storage failover modify -node <nodename> -onreboot false" to turn it OFF.
+
+*>
+----
+. Beenden des Wartungsmodus:
++
+`halt`
+
+. Schalten Sie die Stromversorgung für Node1 und Node2 aus, und ziehen Sie sie von der Stromquelle ab.
+. Alle Kabel von Node1 und node2 beschriften und entfernen.
+. Entfernen Sie das Gehäuse mit Node1 und Node2.
+

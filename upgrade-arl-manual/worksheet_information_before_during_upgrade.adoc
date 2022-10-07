@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/worksheet_information_before_during_upgrade.html 
+keywords: worksheet, stage, information, node ID, LIF, licensing key, IP address 
+summary: Sammeln Sie bei einem manuellen ARL Upgrade auf Controllern mit ONTAP 9.7 oder einer älteren Version bestimmte Informationen. 
+---
+= Worksheet: Zu erfassend vor und während des Controller-Upgrades
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen bestimmte Informationen erfassen, um die ursprünglichen Nodes erfolgreich aktualisieren zu können. Die Informationen umfassen Node-IDs, Port- und LIF-Details, Lizenzschlüssel und IP-Adressen.
+
+Sie können das folgende Arbeitsblatt verwenden, um Informationen zur Verwendung zu einem späteren Zeitpunkt bei dem Verfahren aufzuzeichnen:
+
+|===
+| Erforderliche Informationen | Wenn erfasst | Wenn verwendet | Erfassten Informationen Fertigzustellen 
+
+
+| Modell, System-ID, Seriennummer der ursprünglichen Nodes | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Phase 3: _Installieren und Booten node3_ Stufe 5: _Installieren und Booten von node4_ Stufe 6: _Decommission das alte System_ |  
+
+
+| Shelf- und Festplatteninformationen, Flash Storage-Details, Arbeitsspeicher, NVRAM und Adapterkarten auf den ursprünglichen Nodes | Phase 1: _Vorbereiten der Knoten für das Upgrade_ | Während des gesamten Verfahrens |  
+
+
+| Online-Aggregate und Volumes auf den ursprünglichen Nodes | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Während des gesamten Verfahrens zur Überprüfung, ob Aggregate und Volumes online bleiben, außer bei kurzen Standortverlagerungen |  
+
+
+| Ausgabe von Befehlen `network port vlan show` Und `network port ifgrp show` | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Stufe 3: _Map Ports von node1 nach node3_ Stufe 5: _Map Ports von node2 nach node4_ |  
+
+
+| (Nur SAN-Umgebungen) Standardkonfiguration von FC-Ports | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Beim Konfigurieren von FC-Ports auf den neuen Nodes |  
+
+
+| (Systeme der V-Series oder Systeme mit FlexArray-Virtualisierungssoftware) Topologie für V-Series Systeme oder Systeme mit FlexArray Virtualisierungssoftware | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Stufe 3: _Installieren und Booten node3_ Stufe 5: _Installieren und Booten von node4_ |  
+
+
+| IP-Adresse der SPs | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Stufe 6: _Bestätigen Sie, dass die neuen Controller korrekt eingerichtet sind_ |  
+
+
+| Lizenzschlüssel | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Stufe 6: _Bestätigen Sie, dass die neuen Controller korrekt eingerichtet sind_ |  
+
+
+| IP-Adresse für den externen Schlüsselverwaltungsserver | Phase 1: _Rekey Disks für Speicherverschlüsselung_ | Phase 6: _Storage Encryption auf den neuen Nodes einrichten_ |  
+
+
+| Name und Pfad des per Web zugänglichen Verzeichnisses, bei dem Sie Dateien auf die Nodes als Netzboot herunterladen | Stufe 1: _Netzboot vorbereiten_ | Stufe 3: _Installieren und Booten node3_ Stufe 5: _Installieren und Booten von node4_ |  
+
+
+| LIFs für nicht-SAN-Daten im Besitz von Node1 | Phase 2: _Verschieben Sie nicht-SAN-logische Datenschnittstellen von node1 auf node2_ | Später im Abschnitt |  
+
+
+| Cluster, Intercluster, Node-Management, Cluster-Management und physische Ports | Phase 2: _Node1-Informationen aufzeichnen_ | Stufe 3: _Installieren und Booten node3_ Stufe 3: _Kartenanschlüsse von node1 nach node3_ |  
+
+
+| Ports auf neuen Nodes | Phase 3: _Map Ports von node1 nach node3_ | Später im Abschnitt und im Abschnitt _Kartenanschlüsse von node2 nach node4_ |  
+
+
+| Verfügbare Ports und Broadcast-Domänen auf Knoten 3 | Phase 3: _Map Ports von node1 nach node3_ | Später im Abschnitt |  
+
+
+| Logische Schnittstellen (Non-SAN) sind nicht im Besitz von node2 | _Verschieben von LIFs für nicht-SAN-Daten, die zu node1 von node2 zu node3 gehören und SAN-LIFs auf node3_ überprüfen | Später im Abschnitt |  
+
+
+| LIFs für nicht-SAN-Daten im Besitz von node2 | Phase 3: _Verschieben Sie nicht-SAN-logische Datenschnittstellen von node2 auf node3_ | Später im Abschnitt |  
+
+
+| Cluster, Intercluster, Node-Management, Cluster-Management und physische Ports | Stufe 4: _Node2-Informationen aufzeichnen_ | Stufe 5: _Installation und Booten von node4_ Stufe 5:_ Kartenanschlüsse von node2 nach node4_ |  
+
+
+| Cluster-Netzwerk-Ports auf node4 | Stufe 5: _Map Ports von node2 nach node4_ | Später im Abschnitt |  
+
+
+| Verfügbare Ports und Broadcast-Domänen auf node4 | Stufe 5: _Map Ports von node2 nach node4_ | Später im Abschnitt |  
+
+
+| Private und öffentliche SSL-Zertifikate für das Storage-System und private SSL-Zertifikate für jeden Schlüsselmanagementserver | Phase 6: _Storage Encryption auf den neuen Nodes einrichten_ | Später im Abschnitt |  
+|===

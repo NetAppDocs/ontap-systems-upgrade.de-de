@@ -1,0 +1,18 @@
+= 
+:allow-uri-read: 
+
+
+.Schritte
+. Führen Sie zum Synchronisieren der Verschlüsselungskonfiguration für Onboard Key Manager den folgenden Befehl an der Cluster-Eingabeaufforderung aus:
++
+|===
+| Für diese ONTAP-Version… | Befehl 
+
+
+| ONTAP 9.6 oder 9.7 | `security key-manager onboard sync` 
+
+
+| ONTAP 9.5 | `security key-manager setup -node _node_name_` 
+|===
+. Geben Sie die Cluster-weite Passphrase für das Onboard Key Manager ein.
+

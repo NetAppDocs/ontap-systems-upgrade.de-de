@@ -1,0 +1,11 @@
+= 
+:allow-uri-read: 
+
+
+In diesem Inhalt wird beschrieben, wie Sie die Storage Controller in einem HA-Paar mit neuen Controllern aktualisieren und dabei alle vorhandenen Daten und Festplatten beibehalten. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
+
+Verwenden Sie diese Inhalte unter folgenden Umständen:
+
+* Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
+* Sie sind in der Verwaltung von ONTAP erfahren und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.
+

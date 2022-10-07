@@ -1,0 +1,383 @@
+= 
+:allow-uri-read: 
+
+
+. Notieren Sie das Modell, die System-ID und die Seriennummer beider Nodes:
++
+`system node show -node _node1,node2_ -instance`
+
++
+
+NOTE: Sie verwenden die Informationen, um Festplatten neu zuzuweisen und die ursprünglichen Nodes außer Betrieb zu nehmen.
+
+. Geben Sie in node1 und node2 den folgenden Befehl ein und notieren Sie Informationen über die Shelfs, die Anzahl der Festplatten in jedem Shelf, die Flash Storage-Details, den Arbeitsspeicher, NVRAM und die Netzwerkkarten aus der Ausgabe:
++
+`run -node _node_name_ sysconfig`
+
++
+
+NOTE: Sie können die Informationen verwenden, um Teile oder Zubehör zu identifizieren, die Sie auf node3 oder node4 übertragen möchten. Wenn Sie nicht wissen, ob die Nodes V-Series Systeme sind oder über FlexArray-Virtualisierungssoftware verfügen, können Sie das auch aus der Ausgabe lernen.
+
+. Geben Sie sowohl bei node1 als auch bei node2 den folgenden Befehl ein und notieren Sie die Aggregate, die auf beiden Nodes online sind:
++
+`storage aggregate show -node _node_name_ -state online`
+
++
+
+NOTE: Mithilfe dieser Informationen und der Informationen im folgenden Unterschritt können Sie überprüfen, ob die Aggregate und Volumes während des gesamten Verfahrens online bleiben, mit Ausnahme des kurzen Zeitraums, in dem sie während der Verschiebung offline sind.
+
+. [[man_prepare_nodes_step19]]Geben Sie sowohl für node1 als auch für node2 den folgenden Befehl ein und notieren Sie die Volumes, die auf beiden Knoten offline sind:
++
+`volume show -node _node_name_ -state offline`
+
++
+
+NOTE: Nach dem Upgrade führen Sie den Befehl erneut aus und vergleichen die Ausgabe mit der Ausgabe in diesem Schritt, um zu sehen, ob andere Volumes offline gegangen sind.
+
++
+.. Geben Sie die folgenden Befehle ein, um zu ermitteln, ob Schnittstellengruppen oder VLANs auf node1 oder node2 konfiguriert sind:
++
+`network port ifgrp show`
+
++
+`network port vlan show`
+
++
+Beachten Sie, ob Schnittstellengruppen oder VLANs auf node1 oder node2 konfiguriert sind. Diese Informationen benötigen Sie im nächsten Schritt und später im Verfahren.
+
+.. Führen Sie die folgenden Teilschritte sowohl bei node1 als auch bei node2 durch, um zu bestätigen, dass die physischen Ports im weiteren Verlauf des Verfahrens korrekt zugeordnet werden können:
+
+
+. Geben Sie den folgenden Befehl ein, um zu ermitteln, ob außer den Failover-Gruppen auf dem Node Failover-Gruppen vorhanden sind `clusterwide`:
++
+`network interface failover-groups show`
+
++
+Failover-Gruppen sind Gruppen von Netzwerk-Ports, die sich im System befinden. Da durch ein Upgrade der Controller-Hardware der Standort physischer Ports geändert werden kann, können Failover-Gruppen während des Upgrades unbeabsichtigt geändert werden.
+
++
+Das System zeigt Failover-Gruppen auf dem Node an, wie im folgenden Beispiel dargestellt:
+
++
+....
+cluster::> network interface failover-groups show
+
+Vserver             Group             Targets
+------------------- ----------------- ----------
+Cluster             Cluster           node1:e0a, node1:e0b
+                                      node2:e0a, node2:e0b
+
+fg_6210_e0c         Default           node1:e0c, node1:e0d
+                                      node1:e0e, node2:e0c
+                                      node2:e0d, node2:e0e
+
+2 entries were displayed.
+....
+. Wenn es andere Failover-Gruppen als gibt `clusterwide`Notieren Sie die Namen der Failover-Gruppen und die Ports, die zu den Failover-Gruppen gehören.
+. Geben Sie den folgenden Befehl ein, um zu ermitteln, ob auf dem Node konfigurierte VLANs vorhanden sind:
++
+`network port vlan show -node _node_name_`
+
++
+VLANs werden über physische Ports konfiguriert. Wenn sich die physischen Ports ändern, müssen die VLANs später im Verfahren neu erstellt werden.
+
++
+Das System zeigt VLANs an, die auf dem Knoten konfiguriert sind, wie im folgenden Beispiel dargestellt:
+
++
+....
+cluster::> network port vlan show
+
+Network Network
+Node    VLAN Name Port    VLAN ID MAC Address
+------  --------- ------- ------- ------------------
+node1   e1b-70    e1b     70      00:15:17:76:7b:69
+....
+. Wenn auf dem Node VLANs konfiguriert sind, notieren Sie sich jeden Netzwerkport und die Verbindung zwischen VLAN-ID.
++
+.. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Wenn Interface Groups oder VLANS... | Dann... 
+
+
+| Auf node1 oder node2 | Vollständig ,Schritt 23 Und ,Schritt 24. 
+
+
+| Nicht auf node1 oder node2 | Gehen Sie zu ,Schritt 24. 
+|===
+.. [[man_prepare_Nodes_step23] Wenn Sie nicht wissen, ob sich node1 und node2 in einer SAN- oder nicht-SAN-Umgebung befinden, geben Sie den folgenden Befehl ein und überprüfen die Ausgabe:
++
+`network interface show -vserver _vserver_name_ -data-protocol iscsi|fcp`
+
++
+Wenn iSCSI oder FC für die SVM konfiguriert ist, wird mit dem Befehl eine Meldung wie das folgende Beispiel angezeigt:
+
++
+....
+cluster::> network interface show -vserver Vserver8970 -data-protocol iscsi|fcp
+There are no entries matching your query.
+....
++
+Sie können bestätigen, dass sich der Knoten in einer NAS-Umgebung befindet, indem Sie den verwenden `network interface show` Befehl mit dem `-data-protocol nfs|cifs` Parameter.
+
++
+Wenn iSCSI oder FC für die SVM konfiguriert ist, wird mit dem Befehl eine Meldung wie das folgende Beispiel angezeigt:
+
++
+....
+cluster::> network interface show -vserver vs1 -data-protocol iscsi|fcp
+
+         Logical    Status     Network            Current  Current Is
+Vserver  Interface  Admin/Oper Address/Mask       Node     Port    Home
+-------- ---------- ---------- ------------------ -------- ------- ----
+vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true
+....
+.. [[man_prepare_Nodes_step24]]Stellen Sie sicher, dass alle Knoten im Cluster Quorum sind, indem Sie die folgenden Teilschritte ausführen:
+
+
+. Geben Sie die erweiterte Berechtigungsebene ein:
++
+`set -privilege advanced`
+
++
+Vom System wird die folgende Meldung angezeigt:
+
++
+....
+Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
+Do you wish to continue? (y or n):
+....
+. Eingabe `y`.
+. Überprüfen Sie einmal für jeden Node den Cluster-Service-Status im Kernel:
++
+`cluster kernel-service show`
+
++
+Vom System wird eine Meldung wie das folgende Beispiel angezeigt:
+
++
+....
+cluster::*> cluster kernel-service show
+
+Master        Cluster       Quorum        Availability  Operational
+Node          Node          Status        Status        Status
+------------- ------------- ------------- ------------- -------------
+node1         node1         in-quorum     true          operational
+              node2         in-quorum     true          operational
+
+2 entries were displayed.
+....
++
+Nodes in einem Cluster sind Quorum, wenn eine einfache Mehrheit der Nodes in einem ordnungsgemäßen Zustand ist und miteinander kommunizieren kann. Weitere Informationen finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+
+. Zurück zur Administratorberechtigungsebene:
++
+`set -privilege admin`
+
++
+.. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Wenn der Cluster... | Dann... 
+
+
+| Ist SAN konfiguriert | Gehen Sie zu ,Schritt 26. 
+
+
+| Hat kein SAN konfiguriert | Gehen Sie zu ,Schritt 29. 
+|===
+.. [[man_prepare_Nodes_step26]]Stellen Sie sicher, dass SAN LIFs auf node1 und node2 für jede SVM sind, bei der entweder SAN iSCSI oder FC Service aktiviert ist, indem Sie den folgenden Befehl eingeben und seine Ausgabe prüfen:
++
+`network interface show -data-protocol iscsi|fcp -home-node _node_name_`
+
++
+Der Befehl zeigt SAN LIF-Informationen für node1 und node2 an. Die folgenden Beispiele zeigen den Status in der Spalte Status Admin/Oper nach oben/oben und geben an, dass SAN-iSCSI- und FC-Service aktiviert sind:
+
++
+....
+cluster::> network interface show -data-protocol iscsi|fcp
+            Logical    Status     Network                  Current   Current Is
+Vserver     Interface  Admin/Oper Address/Mask             Node      Port    Home
+----------- ---------- ---------- ------------------       --------- ------- ----
+a_vs_iscsi  data1      up/up      10.228.32.190/21         node1     e0a     true
+            data2      up/up      10.228.32.192/21         node2     e0a     true
+
+b_vs_fcp    data1      up/up      20:09:00:a0:98:19:9f:b0  node1     0c      true
+            data2      up/up      20:0a:00:a0:98:19:9f:b0  node2     0c      true
+
+c_vs_iscsi_fcp data1   up/up      20:0d:00:a0:98:19:9f:b0  node2     0c      true
+            data2      up/up      20:0e:00:a0:98:19:9f:b0  node2     0c      true
+            data3      up/up      10.228.34.190/21         node2     e0b     true
+            data4      up/up      10.228.34.192/21         node2     e0b     true
+....
++
+Alternativ können Sie ausführlichere LIF-Informationen anzeigen, indem Sie den folgenden Befehl eingeben:
+
++
+`network interface show -instance -data-protocol iscsi|fcp`
+
+.. Erfassen Sie die Standardkonfiguration aller FC-Ports an den ursprünglichen Nodes, indem Sie den folgenden Befehl eingeben und die Ausgabe für Ihre Systeme aufzeichnen:
++
+`ucadmin show`
+
++
+Der Befehl zeigt Informationen zu allen FC-Ports im Cluster an, wie im folgenden Beispiel dargestellt:
+
++
+....
+cluster::> ucadmin show
+
+                Current Current   Pending Pending   Admin
+Node    Adapter Mode    Type      Mode    Type      Status
+------- ------- ------- --------- ------- --------- -----------
+node1   0a      fc      initiator -       -         online
+node1   0b      fc      initiator -       -         online
+node1   0c      fc      initiator -       -         online
+node1   0d      fc      initiator -       -         online
+node2   0a      fc      initiator -       -         online
+node2   0b      fc      initiator -       -         online
+node2   0c      fc      initiator -       -         online
+node2   0d      fc      initiator -       -         online
+8 entries were displayed.
+....
++
+Sie können die Informationen nach dem Upgrade verwenden, um die Konfiguration von FC-Ports auf den neuen Nodes einzustellen.
+
+.. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware aktualisieren, erfassen Sie Informationen über die Topologie der Original-Nodes, indem Sie den folgenden Befehl eingeben und die Ausgabe aufzeichnen:
++
+`storage array config show -switch`
+
++
+Das System zeigt Topologieinformationen wie im folgenden Beispiel dargestellt an:
+
++
+....
+cluster::> storage array config show -switch
+
+      LUN LUN                                  Target Side Initiator Side Initi-
+Node  Grp Cnt Array Name    Array Target Port  Switch Port Switch Port    ator
+----- --- --- ------------- ------------------ ----------- -------------- ------
+node1 0   50  I_1818FAStT_1
+                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:3  0d
+                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:4  2b
+                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:1  0c
+node2 0   50  I_1818FAStT_1
+                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:1  0d
+                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:2  2b
+                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:3  0c
+                            208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
+7 entries were displayed.
+....
+.. [[man_prepare_Nodes_steep29]]die folgenden Teilschritte ausführen:
+
+
+. Geben Sie an einem der Original-Nodes den folgenden Befehl ein und notieren Sie die Ausgabe:
++
+`service-processor show -node * -instance`
+
++
+Das System zeigt auf beiden Nodes detaillierte Informationen zum SP an.
+
+. Vergewissern Sie sich, dass der SP-Status lautet `online`.
+. Vergewissern Sie sich, dass das SP-Netzwerk konfiguriert ist.
+. Notieren Sie die IP-Adresse und andere Informationen zum SP.
++
+Möglicherweise möchten Sie die Netzwerkparameter der Remote-Verwaltungsgeräte, in diesem Fall die SPs, vom ursprünglichen System für die SPs auf den neuen Knoten wieder verwenden. Ausführliche Informationen zum SP finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _Systemadministration Reference_ und _ONTAP 9: Manual Page Reference_.
+
++
+.. [[man_prepare_Nodes_step30]]Wenn die neuen Nodes dieselben lizenzierten Funktionen wie die ursprünglichen Knoten haben sollen, geben Sie den folgenden Befehl ein, um die Clusterlizenzen auf dem ursprünglichen System anzuzeigen:
++
+`system license show -owner *`
+
++
+Das folgende Beispiel zeigt die Websitelizenzen für Cluster1:
+
++
+....
+system license show -owner *
+Serial Number: 1-80-000013
+Owner: cluster1
+
+Package           Type    Description           Expiration
+----------------- ------- --------------------- -----------
+Base              site    Cluster Base License  -
+NFS               site    NFS License           -
+CIFS              site    CIFS License          -
+SnapMirror        site    SnapMirror License    -
+FlexClone         site    FlexClone License     -
+SnapVault         site    SnapVault License     -
+6 entries were displayed.
+....
+.. Beschaffung neuer Lizenzschlüssel für die neuen Nodes auf der _NetApp Support Site_. Siehe link:other_references.html["Quellen"] Zum Link zu _NetApp Support Site_.
++
+Falls auf der Website keine Lizenzschlüssel vorhanden ist, wenden Sie sich an Ihren NetApp Ansprechpartner.
+
+.. Überprüfen Sie, ob im Original-System AutoSupport aktiviert ist, indem Sie auf jedem Node den folgenden Befehl eingeben und seine Ausgabe überprüfen:
++
+`system node autosupport show -node _node1,node2_`
+
++
+Die Befehlsausgabe gibt an, ob AutoSupport aktiviert ist. Wie im folgenden Beispiel gezeigt:
+
++
+....
+cluster::> system node autosupport show -node node1,node2
+
+Node             State     From          To                Mail Hosts
+---------------- --------- ------------- ----------------  ----------
+node1            enable    Postmaster    admin@netapp.com  mailhost
+
+node2            enable    Postmaster    -                 mailhost
+2 entries were displayed.
+....
+.. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Wenn das ursprüngliche System... | Dann... 
+
+
+| Hat AutoSupport aktiviert...  a| 
+... Gehen Sie zu ,Schritt 34.
+... Wechseln Sie zum Abschnitt link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption"].
+
+
+
+
+| AutoSupport ist nicht aktiviert...  a| 
+... Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsreferenz_ folgen. (Siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der Referenz _Systemadministration_.)
++
+*Hinweis:* AutoSupport ist standardmäßig aktiviert, wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren. Sie können AutoSupport zwar jederzeit deaktivieren, jedoch sollten Sie sie aktiviert lassen. Wenn Sie AutoSupport aktivieren, können Sie erheblich dabei helfen, Probleme und Lösungen zu identifizieren, sollten bei Ihrem Storage-System Probleme auftreten.
+
+... Wechseln Sie zum link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption"] Abschnitt.
+
+
+|===
+.. [[man_prepare_nodes_step34]]Überprüfen Sie, ob AutoSupport mit den korrekten E-Mail-IDs für den Mailhost konfiguriert ist, indem Sie auf beiden Originalknoten den folgenden Befehl eingeben und die Ausgabe prüfen:
++
+`system node autosupport show -node node_name -instance`
+
++
+Ausführliche Informationen zu AutoSupport finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _Systemadministration Reference_ und _ONTAP 9: Manual Page Reference_.
+
+.. [[man_prepare_Nodes_step35,Schritt 35]] Senden Sie eine AutoSupport-Nachricht für node1 an NetApp, indem Sie den folgenden Befehl eingeben:
++
+`system node autosupport invoke -node node1 -type all -message "Upgrading node1 from platform_old to platform_new"`
+
++
+
+NOTE: Senden Sie jetzt keine AutoSupport Nachricht für node2 an NetApp. Sie gehen das später im Verfahren vor.
+
+.. [[man_prepare_nodes_ste36, Schritt 36]] Überprüfen Sie, ob die AutoSupport-Meldung gesendet wurde, indem Sie den folgenden Befehl eingeben und die Ausgabe prüfen:
++
+`system node autosupport show -node _node1_ -instance`
+
++
+Felder `Last Subject Sent:` Und `Last Time Sent:` Enthält den Nachrichtentitel der letzten gesendeten Nachricht und den Zeitpunkt, zu dem die Nachricht gesendet wurde.
+
+
+
+

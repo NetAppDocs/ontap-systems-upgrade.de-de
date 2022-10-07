@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/quiesce_snapmirror_relationships.html 
+keywords: quiesce, snapmirror, relationship, netboot, destination cluster 
+summary: Bevor Sie das System zum Netzboot fahren, müssen alle SnapMirror Beziehungen während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.7 oder einer älteren Version stilllegen. 
+---
+= SnapMirror Beziehungen stilllegen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Bevor Sie das System zum Netzboot ausführen, müssen Sie bestätigen, dass alle SnapMirror-Beziehungen stillgelegt sind. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.
+
+.Schritte
+. Überprüfen Sie den SnapMirror Beziehungsstatus auf dem Ziel-Cluster:
++
+`snapmirror show`
+
++
+
+NOTE: Wenn der Status lautet `Transferring`, Sie müssen diese Transfers abbrechen:
+`snapmirror abort -destination-vserver _vserver name_`
+
++
+Der Abbruch schlägt fehl, wenn die SnapMirror-Beziehung sich nicht im befindet `Transferring` Bundesland.
+
+. Alle Beziehungen zwischen dem Cluster stilllegen:
++
+`snapmirror quiesce -destination-vserver _vserver-name_`
+
+

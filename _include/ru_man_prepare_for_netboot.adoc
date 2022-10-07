@@ -1,0 +1,36 @@
+= 
+:allow-uri-read: 
+
+
+Nachdem Sie später noch Node3 und node4 physisch gerast haben, müssen Sie sie eventuell als Netzboot Netboot eingesetzt werden. Der Begriff _boots_ bedeutet, dass Sie von einem ONTAP Image, das auf einem Remote-Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einem Webserver ablegen, auf den das System zugreifen kann.
+
+.Bevor Sie beginnen
+* Vergewissern Sie sich, dass Sie mit dem System auf einen HTTP-Server zugreifen können.
+* Siehe link:other_references.html["Quellen"] Um eine Verknüpfung zur NetApp Support-Website zu erhalten und die erforderlichen Systemdateien für Ihre Plattform und die richtige Version von ONTAP herunterzuladen.
+
+
+Sie müssen die neuen Controller als Netzboot ansehen, wenn sie nicht die gleiche Version von ONTAP 9 auf ihnen installiert sind, die auf den ursprünglichen Controllern installiert ist. Nachdem Sie jeden neuen Controller installiert haben, starten Sie das System über das auf dem Webserver gespeicherte ONTAP 9-Image. Anschließend können Sie die richtigen Dateien auf das Boot-Medium herunterladen, um später das System zu booten.
+
+Sie müssen die Controller jedoch nicht per Netzboot fahren, wenn auf den Original-Controllern die gleiche Version von ONTAP 9 installiert ist. Wenn ja, können Sie diesen Abschnitt überspringen und mit fortfahren link:stage_3_install_boot_node3.html["Phase 3: Installieren und booten node3"].
+
+.Schritte
+. [[man_Netzboot_Step1]]auf der NetApp Support-Website können Sie die Dateien herunterladen, die zum Ausführen des Netzboots des Systems verwendet werden.
+. Laden Sie die entsprechende ONTAP Software im Bereich Software Downloads auf der NetApp Support Website herunter und speichern Sie die `<ontap_version>_image.tgz` Datei in einem webbasierten Verzeichnis.
+. Wechseln Sie in das Verzeichnis für den Zugriff über das Internet, und stellen Sie sicher, dass die benötigten Dateien verfügbar sind.
++
+[cols="35,65"]
+|===
+| Für... | Dann... 
+
+
+| Systeme der FAS/AFF8000 Serie | Extrahieren Sie den Inhalt des `<ontap_version>_image.tgz` Datei zum Zielverzeichnis:
+`tar -zxvf <ontap_version>_image.tgz`*Hinweis*: Wenn Sie die Inhalte unter Windows extrahieren, verwenden Sie 7-Zip oder WinRAR, um das Netzboot-Bild zu extrahieren. Ihre Verzeichnisliste sollte einen Netzboot-Ordner mit einer Kernel-Datei enthalten:
+`netboot/kernel` 
+
+
+| Alle anderen Systeme | Ihre Verzeichnisliste sollte die folgende Datei enthalten: `<ontap_version>_image.tgz`*Hinweis*: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` Datei: 
+|===
++
+Sie verwenden Informationen in den Verzeichnissen in link:stage_3_install_boot_node3.html["Phase 3"].
+
+

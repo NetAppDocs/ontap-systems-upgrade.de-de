@@ -1,0 +1,326 @@
+= 
+:allow-uri-read: 
+
+
+Bevor Sie die ursprünglichen Nodes ersetzen können, müssen Sie bestätigen, dass sich die Nodes in einem HA-Paar befinden, dass keine fehlenden oder ausgefallenen Festplatten vorhanden sind, auf den Storage der jeweils anderen Nodes zugreifen können und keine Daten-LIFs besitzen, die den anderen Nodes im Cluster zugewiesen sind. Sie müssen auch Informationen über die ursprünglichen Nodes sammeln und bestätigen, dass alle Knoten im Cluster Quorum sind, wenn sich der Cluster in einer SAN-Umgebung befindet.
+
+.Schritte
+. Vergewissern Sie sich, dass jeder der ursprünglichen Nodes über ausreichende Ressourcen verfügt, um den Workload beider Nodes im Übernahmemodus angemessen zu unterstützen.
++
+Siehe link:other_references.html["Quellen"] Um zu _High Availability Management_ zu verlinken und im Abschnitt „ Best Practices für HA-Paare_“ zu folgen. Keine der ursprünglichen Nodes sollte mit einer Auslastung von über 50 % laufen. Wenn ein Node eine Auslastung von unter 50 % aufweist, kann er die Lasten für beide Nodes während des Controller-Upgrades verarbeiten.
+
+. Führen Sie die folgenden Teilschritte durch, um eine Performance-Baseline für die ursprünglichen Nodes zu erstellen:
++
+.. Stellen Sie sicher, dass das Benutzerkonto für den Diagnosebenutzer entsperrt ist.
++
+*Wichtig*: Das diagnostische Benutzerkonto ist nur für diagnostische Zwecke auf niedriger Ebene gedacht und sollte nur mit Anleitung durch den technischen Support verwendet werden.
+
++
+*Wichtig*: Informationen zum Entsperren der Benutzerkonten finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+
+.. Siehe link:other_references.html["Quellen"] Wenn Sie einen Link zur NetApp Support-Website_ erhalten möchten, können Sie den Performance and Statistics Collector (Perfstat Converged) herunterladen.
++
+Mit dem konvergenten Perfstat Tool können Sie eine Performance-Baseline für den Vergleich nach dem Upgrade erstellen.
+
+.. Erstellen Sie eine Performance-Baseline gemäß den Anweisungen auf der NetApp Support Site.
+
+
+. Siehe link:other_references.html["Quellen"] Einen Link zur NetApp Support Site_ öffnen und einen Support-Case auf der NetApp Support Site eröffnen.
++
+Sie können den Fall verwenden, um eventuelle Probleme während des Upgrades zu melden.
+
+. Überprüfen Sie, ob NVMEM oder NVRAM-Batterien der Node3 und node4 geladen sind, und laden Sie sie, falls nicht, auf.
++
+Sie müssen Node 3 und node4 physisch überprüfen, um zu ermitteln, ob die NVMEM- oder NVRAM-Batterien geladen sind. Informationen zu den LEDs für das Modell node3 und node4 finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+
++
+
+WARNING: *Achtung* Versuchen Sie nicht, den NVRAM-Inhalt zu löschen. Wenn der Inhalt des NVRAM gelöscht werden muss, wenden Sie sich an den technischen Support von NetApp.
+
+. Überprüfen Sie die Version von ONTAP auf node3 und node4.
++
+Die neuen Knoten müssen auf ihren ursprünglichen Knoten dieselbe Version von ONTAP 9.x installiert sein. Wenn die neuen Nodes über eine andere Version der ONTAP installiert sind, müssen Sie die neuen Controller nach der Installation neu laden. Anweisungen zum Upgrade von ONTAP finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade ONTAP_.
+
++
+Informationen über die Version von ONTAP auf node3 und node4 sollten in den Versandkartons enthalten sein. Die ONTAP-Version wird angezeigt, wenn der Node hochgefahren wird oder Sie können den Node im Wartungsmodus booten und den Befehl ausführen:
+
++
+`version`
+
+. Überprüfen Sie, ob Sie zwei oder vier Cluster LIFs auf node1 und node2 haben:
++
+`network interface show -role cluster`
+
++
+Das System zeigt alle Cluster-LIFs an, wie im folgenden Beispiel gezeigt:
+
++
+....
+cluster::> network interface show -role cluster
+        Logical    Status     Network          Current  Current Is
+Vserver Interface  Admin/Oper Address/Mask     Node     Port    Home
+------- ---------- ---------- ---------------- -------- ------- ----
+node1
+        clus1      up/up      172.17.177.2/24  node1    e0c     true
+        clus2      up/up      172.17.177.6/24  node1    e0e     true
+node2
+        clus1      up/up      172.17.177.3/24  node2    e0c     true
+        clus2      up/up      172.17.177.7/24  node2    e0e     true
+....
+. Wenn Sie zwei oder vier Cluster LIFs auf node1 oder node2 haben, stellen Sie sicher, dass Sie beide Cluster LIFs über alle verfügbaren Pfade pingen können, indem Sie die folgenden Unterschritte ausführen:
++
+.. Geben Sie die erweiterte Berechtigungsebene ein:
++
+`set -privilege advanced`
+
++
+Vom System wird die folgende Meldung angezeigt:
+
++
+....
+Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
+Do you wish to continue? (y or n):
+....
+.. Eingabe `y`.
+.. Pingen der Knoten und Testen der Konnektivität:
++
+`cluster ping-cluster -node node_name`
+
++
+Vom System wird eine Meldung wie das folgende Beispiel angezeigt:
+
++
+....
+cluster::*> cluster ping-cluster -node node1
+Host is node1
+Getting addresses from network interface table...
+Local = 10.254.231.102 10.254.91.42
+Remote = 10.254.42.25 10.254.16.228
+Ping status:
+...
+Basic connectivity succeeds on 4 path(s) Basic connectivity fails on 0 path(s)
+................
+Detected 1500 byte MTU on 4 path(s):
+Local 10.254.231.102 to Remote 10.254.16.228
+Local 10.254.231.102 to Remote 10.254.42.25
+Local 10.254.91.42 to Remote 10.254.16.228
+Local 10.254.91.42 to Remote 10.254.42.25
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+....
++
+Wenn der Node zwei Cluster Ports verwendet, sollten Sie sehen, dass er in vier Pfaden kommunizieren kann, wie im Beispiel dargestellt.
+
+.. Zurück zur Berechtigung auf Administratorebene:
++
+`set -privilege admin`
+
+
+
+. Vergewissern Sie sich, dass sich node1 und node2 in einem HA-Paar befinden und überprüfen Sie, dass die Knoten miteinander verbunden sind und dass Übernahme möglich ist:
++
+`storage failover show`
+
++
+Das folgende Beispiel zeigt die Ausgabe, wenn die Nodes miteinander verbunden sind und Takeover möglich ist:
+
++
+....
+cluster::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------
+node1          node2          true     Connected to node2
+node2          node1          true     Connected to node1
+....
++
+Beide Nodes sollten sich im partiellen Giveback enthalten. Das folgende Beispiel zeigt, dass sich node1 teilweise im Giveback befindet:
+
++
+....
+cluster::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------
+node1          node2          true     Connected to node2, Partial giveback
+node2          node1          true     Connected to node1
+....
++
+Wenn einer der beiden Nodes sich als Teil des Giveback befindet, verwenden Sie den `storage failover giveback` Führen Sie den Befehl zum Giveback durch, und verwenden Sie dann den `storage failover show-giveback` Befehl um sicherzustellen, dass noch keine Aggregate zurückgegeben werden müssen. Ausführliche Informationen zu den Befehlen finden Sie unter link:other_references.html["Quellen"] Link zu _High Availability Management_.
+
+. [[man_prepare_nodes_step9]]Bestätigen Sie, dass weder node1 noch node2 die Aggregate besitzen, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+Wenn weder node1 noch node2 besitzt Aggregate, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer), gibt das System eine Meldung ähnlich dem folgenden Beispiel zurück:
+
++
+....
+cluster::> storage aggregate show -node node2 -is-home false -fields owner-name,homename,state
+There are no entries matching your query.
+....
++
+Im folgenden Beispiel wird die Ausgabe des Befehls für einen Node mit dem Namen node2 angezeigt, der der Home-Inhaber, jedoch nicht der aktuelle Eigentümer von vier Aggregaten ist:
+
++
+....
+cluster::> storage aggregate show -node node2 -is-home false
+               -fields owner-name,home-name,state
+
+aggregate     home-name    owner-name   state
+------------- ------------ ------------ ------
+aggr1         node1        node2        online
+aggr2         node1        node2        online
+aggr3         node1        node2        online
+aggr4         node1        node2        online
+
+4 entries were displayed.
+....
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Wenn der Befehl in ausgeführt wird ,Schritt 9... | Dann... 
+
+
+| Leere Ausgabe | Überspringen Sie Schritt 11, und fahren Sie mit fort ,Schritt 12. 
+
+
+| Hatte eine Ausgabe | Gehen Sie zu ,Schritt 11. 
+|===
+. [[man_prepare_Nodes_step11] Wenn node1 oder node2 Aggregate besitzt, für die es der aktuelle Eigentümer, aber nicht der Besitzer des Hauses ist, führen Sie die folgenden Teilschritte durch:
++
+.. Gibt die Aggregate zurück, die derzeit dem Partner-Node gehören, an den Home-Owner-Node:
++
+`storage failover giveback -ofnode _home_node_name_`
+
+.. Überprüfen Sie, dass weder node1 noch node2 noch Eigentümer von Aggregaten ist, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
++
+`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
+
++
+Das folgende Beispiel zeigt die Ausgabe des Befehls, wenn ein Node sowohl der aktuelle Eigentümer als auch der Home-Inhaber von Aggregaten ist:
+
++
+....
+cluster::> storage aggregate show -nodes node1
+          -is-home true -fields owner-name,home-name,state
+
+aggregate     home-name    owner-name   state
+------------- ------------ ------------ ------
+aggr1         node1        node1        online
+aggr2         node1        node1        online
+aggr3         node1        node1        online
+aggr4         node1        node1        online
+
+4 entries were displayed.
+....
+
+
+. [[man_prepare_Nodes_step12]] Bestätigen, dass node1 und node2 auf den Speicher des anderen zugreifen können und überprüfen, dass keine Festplatten fehlen:
++
+`storage failover show -fields local-missing-disks,partner-missing-disks`
+
++
+Im folgenden Beispiel wird die Ausgabe angezeigt, wenn keine Festplatten fehlen:
+
++
+....
+cluster::> storage failover show -fields local-missing-disks,partner-missing-disks
+
+node     local-missing-disks partner-missing-disks
+-------- ------------------- ---------------------
+node1    None                None
+node2    None                None
+....
++
+Wenn Festplatten fehlen, lesen Sie link:other_references.html["Quellen"] Verbinden mit _Disk- und Aggregatmanagement mit CLI_, _logischem Storage-Management mit CLI_ und _High Availability Management_, um Storage für das HA-Paar zu konfigurieren.
+
+. Vergewissern Sie sich, dass node1 und node2 gesund sind und am Cluster teilnehmen können:
++
+`cluster show`
+
++
+Das folgende Beispiel zeigt die Ausgabe, wenn beide Nodes qualifiziert und ordnungsgemäß sind:
+
++
+....
+cluster::> cluster show
+
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+....
+. Legen Sie die Berechtigungsebene auf erweitert fest:
++
+`set -privilege advanced`
+
+. [[man_prepare_Nodes_ste15]] Bestätigen Sie, dass node1 und node2 dieselbe ONTAP-Version ausführen:
++
+`system node image show -node _node1,node2_ -iscurrent true`
+
++
+Im folgenden Beispiel wird die Ausgabe des Befehls angezeigt:
+
++
+....
+cluster::*> system node image show -node node1,node2 -iscurrent true
+
+                 Is      Is                Install
+Node     Image   Default Current Version   Date
+-------- ------- ------- ------- --------- -------------------
+node1
+         image1  true    true    9.1         2/7/2017 20:22:06
+node2
+         image1  true    true    9.1         2/7/2017 20:20:48
+
+2 entries were displayed.
+....
+. Vergewissern Sie sich, dass weder node1 noch node2 Eigentümer sämtlicher Daten-LIFs sind, die zu anderen Nodes im Cluster gehören, und überprüfen Sie die `Current Node` Und `Is Home` Spalten in der Ausgabe:
++
+`network interface show -role data -is-home false -curr-node _node_name_`
+
++
+Das folgende Beispiel zeigt die Ausgabe, wenn node1 keine LIFs besitzt, die im Besitz anderer Nodes im Cluster sind:
+
++
+....
+cluster::> network interface show -role data -is-home false -curr-node node1
+ There are no entries matching your query.
+....
++
+Das folgende Beispiel zeigt die Ausgabe, wenn Node1 dem anderen Node gehören wird, der Eigentümer von Daten-LIFs:
+
++
+....
+cluster::> network interface show -role data -is-home false -curr-node node1
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+vs0
+            data1      up/up      172.18.103.137/24  node1         e0d     false
+            data2      up/up      172.18.103.143/24  node1         e0f     false
+
+2 entries were displayed.
+....
+. Wenn die Ausgabe in ,Schritt 15 Zeigt, dass Node1 oder node2 Eigentümer beliebiger Daten-LIFs sind, die sich im Besitz anderer Nodes im Cluster befinden. Migrieren Sie die Daten-LIFs von node1 oder node2:
++
+`network interface revert -vserver * -lif *`
+
++
+Ausführliche Informationen zum `network interface revert` Befehl, siehe link:other_references.html["Quellen"] Link zu den Befehlen _ONTAP 9: Manual Page Reference_.
+
+. Überprüfen Sie, ob node1 oder node2 ausgefallene Festplatten besitzt:
++
+`storage disk show -nodelist _node1,node2_ -broken`
+
++
+Wenn eine der Festplatten ausgefallen ist, entfernen Sie sie gemäß den Anweisungen in _Disk und Aggregat-Management mit der CLI_. (Siehe link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregatmanagement mit CLI_.)
+
+. Sammeln Sie Informationen über node1 und node2, indem Sie die folgenden Unterschritte ausführen und die Ausgabe jedes Befehls aufzeichnen:
+

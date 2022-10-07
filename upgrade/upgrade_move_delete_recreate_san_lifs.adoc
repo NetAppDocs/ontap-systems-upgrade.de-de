@@ -1,0 +1,19 @@
+---
+permalink: upgrade/upgrade_move_delete_recreate_san_lifs.html 
+sidebar: sidebar 
+keywords: cluster, san, environment, delete, lif, re-create, move san lifs, create 
+summary: Abhängig von Ihren Cluster-Inhalten und Ihrer Cluster-Umgebung müssen Sie SAN-LIFs verschieben, löschen oder erstellen oder gelöschte SAN-LIFs neu erstellen. 
+---
+= Überblick
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Abhängig von Ihren Cluster-Inhalten und Ihrer Cluster-Umgebung müssen Sie SAN-LIFs verschieben, löschen oder erstellen oder gelöschte SAN-LIFs neu erstellen.
+
+* link:upgrade_considerations_move_san_lifs.html["Überlegungen zum Verschieben VON SAN-LIFS"]
+* link:upgrade-delete-san-lifs.html["Das Löschen von SAN LIFs ist von den ursprünglichen Nodes nicht mehr erforderlich"]
+* link:upgrade_create_recreate_san_lifs.html["Erstellung neuer SAN-LIFs oder erneuter Erstellung gelöschter SAN-LIFs"]
+

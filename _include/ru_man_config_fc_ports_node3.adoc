@@ -1,0 +1,143 @@
+= Konfigurieren Sie FC-Ports auf node3
+:allow-uri-read: 
+
+
+
+
+== Konfigurieren Sie FC-Ports auf node3
+
+Wenn node3 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in Betrieb nehmen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.
+
+Sie müssen die Werte der FC-Port-Einstellungen von node1 haben, die Sie in gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
+
+Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node3.
+
+
+NOTE: *Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein. Wenn Sie über ein V-Series System oder über FlexArray-Virtualisierungssoftware verfügen und mit Storage-Arrays verbunden sind, geben Sie im Wartungsmodus in diesem Abschnitt Befehle ein.
+
+.Schritte
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="35,65"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann... 
+
+
+| Festplatten sind vorhanden | Gehen Sie zu ,Schritt 5 
+
+
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu ,Schritt 2 
+|===
+. [[man_config_3_step2]]Boot node3 und Zugriff auf Wartungsmodus:
++
+`boot_ontap maint`
+
+. [[Schritt3]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann... 
+
+
+| Festplatten sind vorhanden | Geben Sie den folgenden Befehl ein:
+`system node hardware unified-connect show` 
+
+
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden. | Geben Sie den folgenden Befehl ein
+`ucadmin show` 
+|===
++
+Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im System an.
+
+. [[Schritt4]]Vergleichen Sie die FC-Einstellungen von node3 mit den Einstellungen, die Sie zuvor aus node1 erfasst haben.
+. [[man_config_3_step5]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Wenn die FC-Standardeinstellungen auf den neuen Nodes sind... | Dann... 
+
+
+| Das gleiche wie jene, die ihr auf Node1 gefangen habt | Gehen Sie zu ,Schritt 11. 
+
+
+| Anders als jene, die du auf Node1 gefangen hast | Gehen Sie zu ,Schritt 6. 
+|===
+. [[man_config_3_step6]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann... 
+
+
+| Festplatten sind vorhanden  a| 
+Ändern Sie die FC-Ports auf node3 nach Bedarf, indem Sie einen der folgenden Befehle eingeben:
+
+** So programmieren Sie Zielanschlüsse:
+`system node hardware unified-connect modify -type | -t target -adapter _port_name_`
+** So programmieren Sie Initiator-Ports:
+`system node hardware unified-connect modify -type | -t initiator -adapter _port_name_`
+
+
+`-t` Ist der FC4-Typ: Target oder Initiator.
+
+
+
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Ändern Sie die FC-Ports auf node3 nach Bedarf, indem Sie den folgenden Befehl eingeben:
+`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
+
+`-t` Ist der FC4-Typ, das Ziel oder der Initiator. *Hinweis*: Die FC-Ports müssen als Initiatoren programmiert werden. 
+|===
+. [[step7]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann... 
+
+
+| Festplatten sind vorhanden | Überprüfen Sie die neuen Einstellungen, indem Sie den folgenden Befehl eingeben und die Ausgabe überprüfen:
+`system node hardware unified-connect show` 
+
+
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Überprüfen Sie die neuen Einstellungen, indem Sie den folgenden Befehl eingeben und die Ausgabe überprüfen:
+`ucadmin show` 
+|===
+. [[Schritt8]]Beenden des Wartungsmodus durch Eingabe des folgenden Befehls:
++
+`halt`
+
+. [[Schritt9]]nach Eingabe des Befehls warten Sie, bis das System an der Eingabeaufforderung der Boot-Umgebung angehalten wird.
+. [[ste10]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann... 
+
+
+| Ist ein V-Series System oder verfügt FlexArray Virtualisierungssoftware mit Clustered Data ONTAP 8.3 | Boot Node3 und Wartung an der Eingabeaufforderung für die Boot-Umgebung:
+`boot_ontap maint` 
+
+
+| Ist kein V-Series System oder verfügt über keine FlexArray Virtualisierungssoftware | Boot node3 an der Eingabeaufforderung Boot-Umgebung:
+`boot_ontap` 
+|===
+. [[man_config_3_step11]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="35,65"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann... 
+
+
+| Festplatten sind vorhanden  a| 
+** Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, gehen Sie zu  and configure UTA/UTA2 ports on node3.
+** Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen  and configure UTA/UTA2 ports on node3 Und gehen Sie zu link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"].
+
+
+
+
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
+** Wenn kein Knoten 3 über eine Karte oder Onboard-Ports verfügt, gehen Sie zu  and configure UTA/UTA2 ports on node3.
+** Wenn kein Karten- oder Onboard-Port für node3 vorhanden ist, überspringen Sie  and configure UTA/UTA2 ports on node3, Und zurück zu _Install und Boot node3_ und wieder bei link:install_boot_node3.html#step7["Schritt 7"].
+
+
+|===
+

@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/index.html 
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
+summary: 'Sie können ein Upgrade der Controller-Hardware mit ONTAP 9.5 auf 9.7 mit durchführen `system controller replace` Befehle, Verlagerung des Besitzes von nicht-Root-Aggregaten.' 
+---
+= Überblick
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Aggregate Relocation (ARL) für die folgenden Systemkonfigurationen:
+
+[cols="40,20,40"]
+|===
+| Methode | ONTAP-Version | Unterstützte Systeme 
+
+
+| Wird Verwendet `system controller replace` Befehle | 9.5 bis 9.7 | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_95_97_supported_systems["Link zur unterstützten Systemmatrix"] 
+|===
+Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren Aggregate mehrmals von Node zu Node, um zu bestätigen, dass mindestens ein Node während des Upgrades Daten von den Aggregaten bereitstellt. Außerdem migrieren Sie Daten-logische Schnittstellen (LIFs) und weisen Sie die Netzwerk-Ports auf dem neuen Controller den Schnittstellengruppen zu, während Sie fortfahren.
+
+In dieser Information werden die ursprünglichen Knoten „node1“ und „node2“ genannt und die neuen Knoten „node3“ und „node4“ genannt. Während des beschriebenen Verfahrens wird "node1" durch "node3" ersetzt und "node2" durch "node4" ersetzt.
+
+Die Begriffe "node1", "node2", "node3" und "node4" werden nur verwendet, um zwischen den ursprünglichen und den neuen Knoten zu unterscheiden. Wenn Sie das Verfahren befolgen, müssen Sie die richtigen Namen Ihrer ursprünglichen und neuen Knoten ersetzen. In der Realität ändern sich die Namen der Knoten jedoch nicht: „node3“ hat den gleichen Namen wie „node1“ und „node4“ hat nach dem Upgrade der Controller-Hardware den gleichen Namen wie „node2“.
+
+Während dieser Informationen bezieht sich der Begriff „Systeme mit FlexArray-Virtualisierungssoftware“ auf Systeme, die zu diesen neuen Plattformen gehören. Der Begriff „V-Series System“ bezieht sich auf getrennte Hardwaresysteme, die an Storage Arrays angeschlossen werden können.
+
+.Wichtige Informationen:
+* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen auch lesen und verstehen link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien für das Controller-Upgrade mit ARL"] Und das link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"] Vor Beginn des Upgrades.
+* Bei dieser Vorgehensweise wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Wenn bereits die Ersatz-Controller-Hardware verwendet wurde, müssen Sie sich an den technischen Support wenden, insbesondere wenn auf den Controllern Data ONTAP in 7-Mode ausgeführt wurde.
+* Sie können dieses Verfahren zum Upgrade der Controller Hardware in Clustern mit mehr als zwei Nodes verwenden. Sie müssen jedoch die Verfahren für jedes HA-Paar im Cluster separat durchführen.
+* Dieses Verfahren gilt für FAS Systeme, V-Series Systeme, AFF Systeme und Systeme mit FlexArray Virtualisierungssoftware. FAS Systeme, die nach ONTAP 9.5 freigegeben wurden, können an Speicher-Arrays angebunden werden, wenn die erforderliche Lizenz installiert ist. Die vorhandenen Systeme der V-Serie werden von ONTAP 9.5 unterstützt. Weitere Informationen zu den Modellen Storage Array und V-Series finden Sie unter link:other_references.html["Quellen"] Zu verlinken auf „Hardware Universe_“ und „V-Series Supportmatrix“.
+* Ab ONTAP 9.6 gilt dieses Verfahren für Systeme mit MetroCluster-Konfiguration mit 4 Nodes oder höher. Da sich die MetroCluster-Konfigurationsstandorte an zwei physisch unterschiedlichen Standorten befinden können, muss das automatisierte Controller-Upgrade für ein HA-Paar individuell an jedem MetroCluster Standort durchgeführt werden.
+* Wenn Sie ein Upgrade von einem AFF A320 System durchführen, können Sie das Upgrade der Controller-Hardware durch Volume-Verschiebung durchführen oder den technischen Support kontaktieren. Wenn Sie bereit sind, die Lautstärke zu verschieben, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+

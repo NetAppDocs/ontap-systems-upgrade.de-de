@@ -1,0 +1,20 @@
+= 
+:allow-uri-read: 
+
+
+Sie können die Authentifizierungsschlüssel mit einem integrierten Schlüsselmanager verwalten. Wenn Sie ein OKM (Onboard Key Manager) verwenden möchten, müssen Sie vor Beginn des Upgrades die Passphrase und das Backup-Material aufzeichnen.
+
+.Schritte
+. Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server für alle Knoten im Cluster verfügbar sind:
++
+`security key-manager key show`
+
+. Rekeyfür alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel:
++
+`storage encryption disk modify -disk * [-data-key-id nonMSID AK>]`
+
+. Wenn Sie den Federal Information Processing Standard (FIPS) verwenden, müssen Sie alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel neu verschlüsseln:
++
+`storage encryption disk* modify -disk * [-fips-key-id nonMSID AK]`
+
+

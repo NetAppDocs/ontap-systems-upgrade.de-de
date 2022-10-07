@@ -1,0 +1,73 @@
+= Konfigurieren Sie FC-Ports auf node4
+:allow-uri-read: 
+
+
+
+
+== Konfigurieren Sie FC-Ports auf node4
+
+Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.
+
+Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
+
+Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node4.
+
+*Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, müssen Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
+
+.Schritte
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="30,70"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann… 
+
+
+| Festplatten sind vorhanden | `system node hardware unified-connect show` 
+
+
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `ucadmin show` 
+|===
++
+Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im System an.
+
+. Vergleichen Sie die FC-Einstellungen auf node4 mit den Einstellungen, die Sie zuvor aus node1 erfasst haben.
+. Führen Sie eine der folgenden Aktionen durch:
++
+[cols="30,70"]
+|===
+| Wenn das System, das Sie aktualisieren... | Dann… 
+
+
+| Festplatten sind vorhanden  a| 
+Ändern Sie die FC-Ports auf node4 nach Bedarf:
+
+** So programmieren Sie Zielanschlüsse:
++
+`ucadmin modify -m fc -t target _adapter_`
+
+** So programmieren Sie Initiator-Ports:
++
+`ucadmin modify -m fc -t initiator _adapter_`
+
+
+
+`-t` Ist der FC4-Typ: Target oder Initiator.
+
+
+
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Ändern Sie die FC-Ports auf node4 nach Bedarf:
+`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
+
+`-t` Ist der FC4-Typ, das Ziel oder der Initiator. *Hinweis*: Die FC-Ports müssen als Initiatoren programmiert werden. 
+|===
+. Beenden des Wartungsmodus:
++
+`halt`
+
+. Booten des Systems von der Loader-Eingabeaufforderung:
++
+`boot_ontap menu`
+
+. Nachdem Sie den Befehl eingegeben haben, warten Sie, bis das System an der Eingabeaufforderung der Boot-Umgebung angehalten wird.
+. Wählen Sie die Option `5` Wählen Sie im Bootmenü für den Wartungsmodus aus.
+

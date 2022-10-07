@@ -1,0 +1,17 @@
+= 
+:allow-uri-read: 
+
+
+Um node2 auszumustern, müssen Sie node2 richtig abschalten und aus dem Rack oder Gehäuse entfernen.
+
+.Schritte
+. Vorgang fortsetzen:
++
+`system controller replace resume`
+
++
+Der Knoten wird automatisch angehalten.
+
+
+
+Sie können nach Abschluss des Upgrades die Decommission node2 deaktivieren. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].

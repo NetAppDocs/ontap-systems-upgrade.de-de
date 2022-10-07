@@ -1,0 +1,31 @@
+---
+permalink: upgrade/upgrade-recable-system.html 
+sidebar: sidebar 
+keywords: run, diagnostic, recable, controller, module, storage, network, connection, recable the system 
+summary: Nach dem Ausführen der Diagnose müssen Sie die Speicher- und Netzwerkverbindungen des Controller-Moduls wieder herstellen können. 
+---
+= Neuverkabeln des Systems
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach Ausführung der Diagnose müssen Sie die Speicher- und Netzwerkverbindungen des Controller-Moduls wieder herstellen können.
+
+. Das System neu aufführen.
+. Überprüfen Sie mithilfe von Config Advisor, ob die Verkabelung korrekt ist.
++
+.. Laden Sie Config Advisor von der NetApp Support-Website herunter und installieren Sie sie.
++
+http://mysupport.netapp.com/["mysupport.netapp.com"]
+
+.. Geben Sie die Informationen für das Zielsystem ein, und klicken Sie dann auf *Daten erfassen*.
+.. Klicken Sie auf die Registerkarte *Verkabelung* und prüfen Sie die Ausgabe.
++
+Stellen Sie sicher, dass alle Festplatten-Shelfs angezeigt werden und alle Festplatten in der Ausgabe angezeigt werden. So beheben Sie mögliche Verkabelungsprobleme.
+
+.. Überprüfen Sie die andere Verkabelung, indem Sie auf die entsprechende Registerkarte klicken und dann die Ausgabe von Config Advisor überprüfen.
+
+
+

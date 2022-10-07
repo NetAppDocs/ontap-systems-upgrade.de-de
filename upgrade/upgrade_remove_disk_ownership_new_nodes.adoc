@@ -1,0 +1,101 @@
+---
+permalink: upgrade/upgrade-remove-disk-ownership-new-nodes.html 
+sidebar: sidebar 
+keywords: node, internal, disk, add-on, shelves, attach, system, interfere, controller, upgrade, remove, ownership, node3, node4, node, remove ownership of disks attached to the new nodes 
+summary: Wenn die neuen Nodes über interne Festplatten oder mit dem System verbundene zusätzliche Shelfs verfügen, können diese die Controller-Upgrades stören. Führen Sie die folgenden Schritte aus, um den Besitz neuer Festplatten zu entfernen, die mit node3/node4 geliefert wurden. 
+---
+= Entfernen Sie die Eigentumsrechte an den Festplatten, die mit den neuen Nodes verbunden sind
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn die neuen Nodes über interne Festplatten oder mit dem System verbundene zusätzliche Shelfs verfügen, können diese die Controller-Upgrades stören. Führen Sie die folgenden Schritte aus, um den Besitz neuer Festplatten zu entfernen, die mit node3/node4 geliefert wurden.
+
+Diese Schritte werden auf den Knoten 3 und node4 nacheinander durchgeführt. Die Knotenfolge spielt keine Rolle.
+
+[NOTE]
+====
+* Die Regale von node1 und node2 sind in diesem Stadium nicht physisch mit Node3 und node4 verbunden.
+* Sie müssen sich nur noch für Festplatten und Shelfs, die mit neuen Controllern geliefert wurden, eignen, entfernen.
+* Sie müssen keine Eigentümer von Festplatten entfernen, wenn Sie die Hardware aktualisieren, indem Sie einen alten Controller durch einen neuen Controller auf einer internen Laufwerksplattform austauschen und gleichzeitig das Gehäuse und die Festplatten des alten Controllers behalten.
++
+Wenn Sie beispielsweise ein Upgrade Ihres Systems von A200 auf A220 durchführen, indem Sie das alte A200 Controller-Modul nur durch das neue A220 Controller-Modul ersetzen und gleichzeitig das Gehäuse und die Festplatten der alten A200 beibehalten, Sie würden die Eigentumsrechte an Festplatten für das neue A220-Controller-Modul nicht wie in diesem Abschnitt beschrieben entfernen _Eigentum von Festplatten entfernen, die an den neuen Nodes_ angeschlossen sind.
+
++
+Wenden Sie sich an den technischen Support von NetApp, wenn Sie Fragen zum Entfernen des Festplattenbesitzes während eines Controller-Upgrades haben.
+
++
+Die folgende Liste umfasst Systeme mit internem Storage: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700S, AFF A800, AFF A250.
+
++
+Wenn Ihr System nicht oben aufgeführt ist, lesen Sie den https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
+
+
+
+====
+.Schritte
+. Geben Sie an der LOADER-Eingabeaufforderung des Node den Befehl ein:
++
+`boot_ontap menu`
+
+. Geben Sie an der Eingabeaufforderung des Startmenüs ein `9a` Und drücken Sie dann die Eingabetaste.
++
+Auf dem folgenden Bildschirm wird die Eingabeaufforderung des Startmenüs angezeigt.
+
++
+[listing]
+----
+Please choose one of the following:
+
+    (1) Normal Boot.
+    (2) Boot without /etc/rc.
+    (3) Change password.
+    (4) Clean configuration and initialize all disks.
+    (5) Maintenance mode boot.
+    (6) Update flash from backup config.
+    (7) Install new software first.
+    (8) Reboot node.
+    (9) Configure Advanced Drive Partitioning.
+    Selection (1-9)?  9a
+----
+. Entfernen Sie den Festplattenbesitzer, indem Sie eingeben `y` Wenn eine Eingabeaufforderung wie die folgende angezeigt wird:
++
+[listing]
+----
+
+########## WARNING ##########
+
+This is a disruptive operation and will result in the
+    loss of all filesystem data. Before proceeding further,
+    make sure that:
+    1) This option (9a) has been executed or will be executed
+    on the HA partner node, prior to reinitializing either
+    system in the HA-pair.
+    2) The HA partner node is currently in a halted state or
+    at the LOADER prompt.
+
+
+    Do you still want to continue (yes/no)? yes
+----
++
+Das System beseitigt die Festplatteneigentümer und kehrt zum Startmenü zurück.
+
+. Geben Sie im Startmenü ein `5` Um in den Wartungsmodus zu wechseln.
+. Führen Sie im Wartungsmodus den aus `disk show` Befehl.
++
+Es sollten keine Festplatten aufgelistet werden.
+
+. Führen Sie den Befehl ` aus
++
+`disk show -a`
+
++
+Die Zuweisung aller aufgeführten Festplatten sollte aufgehoben werden.
+
+. Beenden des Wartungsmodus:
++
+`halt`
+
+

@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/verify_node3_installation.html 
+keywords: install, boot, node3, join quorum, restore, key, manager 
+summary: 'Stellen Sie sicher, dass node3 dem Quorum beitreten, VLANs, Schnittstellengruppen und Broadcast-Domänen von node1 neu erstellen und die Key-Manager-Konfiguration wiederherstellen, wenn Sie Controller mit ONTAP 9.5 bis 9.7 aktualisieren `system controller replace` Befehle.' 
+---
+= Überprüfen Sie die Installation von node3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nach der Installation und dem Booten von node3 müssen Sie überprüfen, ob die Installation korrekt ist. Sie müssen warten, bis Knoten 3 dem Quorum beitreten und dann den Umzugsvorgang fortsetzen.
+
+An diesem Punkt des Verfahrens wird der Vorgang angehalten, da node3 dem Quorum beitritt.
+
+.Schritte
+. Vergewissern Sie sich, dass node3 dem Quorum beigetreten ist:
++
+`cluster show -node node3 -fields health`
+
+. Vergewissern Sie sich, dass node3 Teil desselben Clusters wie node2 ist und dass er sich in einem ordnungsgemäßen Zustand befindet:
++
+`cluster show`
+
+. Überprüfen Sie den Status des Vorgangs, und überprüfen Sie, ob die Konfigurationsinformationen für node3 identisch sind mit node1:
++
+`system controller replace show-details`
+
++
+Wenn sich die Konfiguration für node3 unterscheidet, kann zu einem späteren Zeitpunkt eine Systemunterbrechung auftreten.
+
+. Überprüfen Sie, ob der ersetzte Controller für die MetroCluster-Konfiguration ordnungsgemäß konfiguriert ist, die MetroCluster-Konfiguration sollte sich im ordnungsgemäßen Zustand befinden und nicht im Switchover-Modus. Siehe link:verify_health_of_metrocluster_config.html["Überprüfen Sie den Systemzustand der MetroCluster-Konfiguration"].
+
+
+
+
+== Erneutes Erstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen auf Knoten3
+
+Nachdem Sie bestätigt haben, dass node3 sich im Quorum befindet und mit node2 kommunizieren kann, müssen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen von node1 auf node3 neu erstellen. Sie müssen auch die node3-Ports zu den neu erstellten Broadcast-Domänen hinzufügen.
+
+Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Und Link zu _Network Management_.
+
+.Schritte
+. Erstellen Sie die VLANs auf Node3 anhand der Node1-Informationen, die im aufgezeichnet wurden, erneut link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2"] Abschnitt:
++
+`network port vlan create -node _node_name_ -vlan _vlan-names_`
+
+. Erstellen Sie die Schnittstellengruppen auf node3 mit den node1-Informationen, die im aufgezeichnet wurden, erneut link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2"] Abschnitt:
++
+`network port ifgrp create -node _node_name_ -ifgrp _port_ifgrp_names_-distr-func`
+
+. Erstellen Sie die Broadcast-Domänen auf node3 mithilfe der node1-Informationen, die im aufgezeichnet wurden, erneut link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2"] Abschnitt:
++
+`network port broadcast-domain create -ipspace Default -broadcast-domain _broadcast_domain_names_ -mtu _mtu_size_ -ports _node_name:port_name,node_name:port_name_`
+
+. Fügen Sie die node3-Ports zu den neu erstellten Broadcast-Domänen hinzu:
++
+`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_names_ -ports _node_name:port_name,node_name:port_name_`
+
+
+
+
+
+== Wiederherstellung der Key-Manager-Konfiguration auf Knoten 3
+
+Wenn Sie mithilfe von NetApp Volume Encryption (NVE) Volumes auf dem von Ihnen aktualisieren System verschlüsseln, muss die Verschlüsselungskonfiguration mit den neuen Nodes synchronisiert werden. Wenn Sie den Schlüsselmanager nicht wiederherstellen, werden beim Verschieben der Node1-Aggregate mit ARL von node2 auf Knoten 3 verschlüsselte Volumes offline geschaltet.
+
+.Schritte
+. Führen Sie zum Synchronisieren der Verschlüsselungskonfiguration für Onboard Key Manager den folgenden Befehl an der Cluster-Eingabeaufforderung aus:
++
+|===
+| Für diese ONTAP-Version… | Befehl 
+
+
+| ONTAP 9.6 oder 9.7 | `security key-manager onboard sync` 
+
+
+| ONTAP 9.5 | `security key-manager setup -node _node_name_` 
+|===
+. Geben Sie die Cluster-weite Passphrase für das Onboard Key Manager ein.
+
