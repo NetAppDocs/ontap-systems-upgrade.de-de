@@ -76,7 +76,7 @@ NOTE: Wenn die Kombination aus dem Controller-Upgrade-Modell nicht in der oben s
 
 ^3^für FAS8020, FAS8040, AFF8020 und AFF8040 System-Upgrades zu den in der Tabelle oben aufgeführten Zielaustausch-Controllern müssen die Ersatz-Controller dieselbe ONTAP-Version wie der alte Controller ausführen. Hinweis: FAS8020, FAS8040, AFF8020 und AFF8040 Systeme unterstützen ONTAP Versionen nicht später als ONTAP 9.8.
 
-^4^Überprüfen Sie die unterstützten ONTAP-Versionen für Ihr Controller-Upgrade.
+^4^die folgende Tabelle zeigt die minimal- und später unterstützten ONTAP-Versionen für diese Controller-Upgrade-Kombinationen.
 
 [cols="20,30,20,30"]
 |===
@@ -89,17 +89,27 @@ NOTE: Wenn die Kombination aus dem Controller-Upgrade-Modell nicht in der oben s
 | AFF A320 | 9.9.1 oder höher | AFF A400 | 9.9.1 oder höher 
 
 
-| AFF8060 | 9.8P13 oder höher Patches | AFF A900 | 9.10.1 oder höher 
+| AFF8060 | 9.8P13 oder höher Patches | AFF A900 | 9.10.1 bis 9.12.1 
 
 
-| AFF8080 | 9.8P10 oder höher Patches | AFF A900 | 9.10.1 oder höher 
+| AFF8080 | 9.8P10 oder höher Patches | AFF A900 | 9.10.1 bis 9.12.1 
 
 
-| FAS8060 | 9.8P13 oder höher Patches | FAS9500 | 9.10.1P3 oder höher 
+| FAS8060 | 9.8P13 oder höher Patches | FAS9500 | 9.10.1P3 bis 9.12.1 
 
 
-| FAS8080 | Patches ab 9.8P12 | FAS9500 | 9.10.1P3 oder höher 
+| FAS8080 | Patches ab 9.8P12 | FAS9500 | 9.10.1P3 bis 9.12.1 
 |===
+[NOTE]
+====
+Für die in der vorherigen Tabelle aufgeführten Upgrade-Kombinationen:
+
+* Es ist nicht erforderlich, dieselbe ONTAP-Version auf den vorhandenen Controllern und Ersatz-Controllern zu verwenden. Das Upgrade der ONTAP Software wird bei dem Controller-Upgrade durchgeführt.
+* Wenn Sie ein Upgrade durchführen, müssen Sie einen Ersatz-Controller mit einer unterstützten ONTAP-Version und Patch-Ebene installieren.
+* Nach dem Starten des Vorgangs und dem Upgrade des ersten Node ist es nicht möglich, das Controller-Upgrade abzubrechen oder wieder auszuführen.
+
+
+====
 Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
 Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _ONTAP 9_, wo Sie auf die Produktdokumentation zu ONTAP 9 zugreifen können.
