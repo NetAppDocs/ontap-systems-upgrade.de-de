@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-11-25 07:38:00 +0000">11/25/2022</time>
     
   
 
@@ -4672,7 +4672,7 @@ Wenn die Kombination aus dem Controller-Upgrade-Modell nicht in der oben stehend
 <p><sup>3</sup>für FAS8020, FAS8040, AFF8020 und AFF8040 System-Upgrades zu den in der Tabelle oben aufgeführten Zielaustausch-Controllern müssen die Ersatz-Controller dieselbe ONTAP-Version wie der alte Controller ausführen. Hinweis: FAS8020, FAS8040, AFF8020 und AFF8040 Systeme unterstützen ONTAP Versionen nicht später als ONTAP 9.8.</p>
 </div>
 <div class="paragraph">
-<p><sup>4</sup>Überprüfen Sie die unterstützten ONTAP-Versionen für Ihr Controller-Upgrade.</p>
+<p><sup>4</sup>die folgende Tabelle zeigt die minimal- und später unterstützten ONTAP-Versionen für diese Controller-Upgrade-Kombinationen.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -4704,28 +4704,55 @@ Wenn die Kombination aus dem Controller-Upgrade-Modell nicht in der oben stehend
 <td class="tableblock halign-left valign-top"><p class="tableblock">AFF8060</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">9.8P13 oder höher Patches</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 oder höher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 bis 9.12.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AFF8080</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">9.8P10 oder höher Patches</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 oder höher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 bis 9.12.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FAS8060</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">9.8P13 oder höher Patches</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FAS9500</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P3 oder höher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P3 bis 9.12.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FAS8080</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Patches ab 9.8P12</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FAS9500</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P3 oder höher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P3 bis 9.12.1</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Anmerkung">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Für die in der vorherigen Tabelle aufgeführten Upgrade-Kombinationen:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Es ist nicht erforderlich, dieselbe ONTAP-Version auf den vorhandenen Controllern und Ersatz-Controllern zu verwenden. Das Upgrade der ONTAP Software wird bei dem Controller-Upgrade durchgeführt.</p>
+</li>
+<li>
+<p>Wenn Sie ein Upgrade durchführen, müssen Sie einen Ersatz-Controller mit einer unterstützten ONTAP-Version und Patch-Ebene installieren.</p>
+</li>
+<li>
+<p>Nach dem Starten des Vorgangs und dem Upgrade des ersten Node ist es nicht möglich, das Controller-Upgrade abzubrechen oder wieder auszuführen.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie <a href="other_references.html">"Quellen"</a> Link zu <em>Upgrade durch Verschieben von Volumes oder Storage</em>.</p>
 </div>
