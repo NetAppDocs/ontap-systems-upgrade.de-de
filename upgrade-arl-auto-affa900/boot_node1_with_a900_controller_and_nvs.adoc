@@ -54,6 +54,7 @@ Das folgende Beispiel kann als Referenz verwendet werden:
 
 +
 .Erweitern Sie das Ausgabebeispiel der Konsole
+[%collapsible]
 ====
 [listing]
 ----

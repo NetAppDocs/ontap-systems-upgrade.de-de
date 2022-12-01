@@ -295,6 +295,7 @@ Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu ,Schritt 23
 . [[Auto_Check_4_Steppen15]] in node4 wechseln Sie zum Startmenü und wählen Sie 22/7 und die Option ausgeblendet aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node2 ein, um die Festplatten von node2 node4 wie im folgenden Beispiel neu zuzuweisen.
 +
 .Erweitern Sie das Ausgabebeispiel der Konsole
+[%collapsible]
 ====
 [listing]
 ----

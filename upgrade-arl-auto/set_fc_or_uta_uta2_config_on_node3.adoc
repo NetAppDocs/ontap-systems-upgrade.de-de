@@ -310,6 +310,7 @@ Adapter  Mode       Type        Mode     Type        Status
 . [[auto9597_Check_node3_step15]]in node3 gehen Sie zum Startmenü und wählen Sie die verborgene Option mit 22/7 aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 zu node3 wie im folgenden Beispiel neu zuzuweisen.
 +
 .Erweitern Sie das Ausgabebeispiel der Konsole
+[%collapsible]
 ====
 [listing]
 ----

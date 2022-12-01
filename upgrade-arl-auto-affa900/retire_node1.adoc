@@ -124,8 +124,11 @@ image::../media/black_circle_two.png[Nummer zwei]
 
 == Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node1
 
-Sie müssen die NVRAM- und Controller-Module AFF A900 oder FAS9500 installieren, die Sie für das Upgrade auf Node1 erhalten haben.
+Installieren Sie AFF A900 oder FAS9500 NVRAM- und Controller-Module, die Sie für das Upgrade auf Knoten1 erhalten haben.
 
+Bei der Installation müssen Sie Folgendes beachten:
+
+* Verschieben Sie alle Leereinfüllmodule in den Steckplätzen 6-1 und 6-2 vom alten NVRAM-Modul in das neue NVRAM-Modul.
 * Bewegen Sie das coredump-Gerät NICHT vom AFF A700 NVRAM-Modul in das AFF A900 NVRAM-Modul.
 * Verschieben Sie alle Flash Cache Module, die im FAS9000 NVRAM-Modul installiert sind, auf das FAS9500 NVRAM-Modul.
 
