@@ -6,5 +6,5 @@
 +
 `halt`
 
-. [[Schritt14]]Boot-Knoten in Boot-Menü durch Ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu ,Schritt 23.
+. [[Schritt14]]Boot-Knoten in Boot-Menü durch Ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu <<auto_check3_step23,Schritt 23>>.
 

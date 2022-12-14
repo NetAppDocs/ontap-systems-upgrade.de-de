@@ -43,7 +43,7 @@ NOTE: Warten Sie, bis alle nicht-Root-Aggregate im Besitz von node1 in node2 ver
 | Wenn Umzug... | Dann... 
 
 
-| Von allen Aggregaten ist erfolgreich | Gehen Sie zu ,Schritt 4. 
+| Von allen Aggregaten ist erfolgreich | Gehen Sie zu <<man_relocate_1_2_step4,Schritt 4>>. 
 
 
 | Fällt ein Aggregate aus oder kommt ein Vetos vor  a| 

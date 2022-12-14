@@ -4,7 +4,8 @@
 
 Wenn node3 integrierte FC-Ports, Onboard Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
-Möglicherweise müssen Sie den Abschnitt ausfüllen  FC ports on node3, Der Abschnitt  and configure UTA/UTA2 ports on node3, Oder beide Abschnitte.
+.Über diese Aufgabe
+Möglicherweise müssen Sie den Abschnitt ausfüllen <<Konfigurieren Sie FC-Ports auf node3>>, Der Abschnitt <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>, Oder beide Abschnitte.
 
 
 NOTE: Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begriff UTA2 auf Adapter und Ports des konvergierten Netzwerkadapters (CNA). Allerdings verwendet die CLI den Begriff CNA.

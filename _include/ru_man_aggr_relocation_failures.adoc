@@ -36,6 +36,7 @@ Ausführliche Informationen zum `storage aggregate relocation start`, `override-
 
 Beim Abschluss des Upgrade-Verfahrens muss die Knoten3 der neue Home-Node von Aggregaten sein, die ursprünglich als Home-Node die Knoten1 hatten. Sie können sie nach dem Upgrade verschieben.
 
+.Über diese Aufgabe
 Unter den folgenden Umständen kann es nicht gelingen, Aggregate ordnungsgemäß zu verschieben und Node 1 als Home Node anstelle von Knoten3 zu verwenden:
 
 * In Phase 3, wenn Aggregate von node2 auf node3 verschoben werden. Einige der verlagerten Aggregate haben die Nr. 1 als Home-Node. Ein solches Aggregat könnte zum Beispiel „aggr_Node_1“ heißen. Wenn die Verlagerung von aggr_Node_1 während Phase 3 fehlschlägt und eine Verlagerung nicht erzwungen werden kann, dann wird das Aggregat auf node2 zurückgelassen.
@@ -52,7 +53,7 @@ Sie können das falsche Eigentümerproblem nach Phase 6 beheben, wenn ein Storag
 +
 Informationen zur Identifizierung von Aggregaten, die nicht korrekt verschoben wurden, finden Sie in der Liste der Aggregate mit dem Home-Inhaber von node1, die Sie im Abschnitt erhalten haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Und vergleichen Sie ihn mit der Ausgabe des obigen Befehls.
 
-. [[Schritt2]]Vergleichen Sie die Ausgabe von ,Schritt 1 Mit der Ausgabe, die Sie für node1 im Abschnitt aufgenommen haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Und beachten Sie alle Aggregate, die nicht korrekt verschoben wurden.
+. [[Schritt2]]Vergleichen Sie die Ausgabe von <<man_aggr_fail_step1,Schritt 1>> Mit der Ausgabe, die Sie für node1 im Abschnitt aufgenommen haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Und beachten Sie alle Aggregate, die nicht korrekt verschoben wurden.
 . [[man_aggr_fail_Step3]]Verschiebung der Aggregate links auf node4:
 +
 `storage aggregate relocation start -node _node4_ -aggr _aggr_node_1_ -destination _node3_`
@@ -68,6 +69,6 @@ Verwenden Sie das nicht `-ndo-controller-upgrade` Parameter während dieser Vers
 `_aggr1,aggr2,aggr3..._` Ist die Liste der Aggregate, die node1 als ursprünglichen Besitzer hatten.
 
 +
-Aggregate, die nicht über Node3 als Hausbesitzer verfügen, können mit dem gleichen Relocation-Befehl in auf node3 verschoben werden ,Schritt 3.
+Aggregate, die nicht über Node3 als Hausbesitzer verfügen, können mit dem gleichen Relocation-Befehl in auf node3 verschoben werden <<man_aggr_fail_Step3,Schritt 3>>.
 
 

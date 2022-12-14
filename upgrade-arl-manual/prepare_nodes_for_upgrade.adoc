@@ -195,13 +195,13 @@ aggr4         node1        node2        online
 +
 [cols="35,65"]
 |===
-| Wenn der Befehl in ausgeführt wird ,Schritt 9... | Dann... 
+| Wenn der Befehl in ausgeführt wird <<man_prepare_nodes_step9,Schritt 9>>... | Dann... 
 
 
-| Leere Ausgabe | Überspringen Sie Schritt 11, und fahren Sie mit fort ,Schritt 12. 
+| Leere Ausgabe | Überspringen Sie Schritt 11, und fahren Sie mit fort <<man_prepare_nodes_step12,Schritt 12>>. 
 
 
-| Hatte eine Ausgabe | Gehen Sie zu ,Schritt 11. 
+| Hatte eine Ausgabe | Gehen Sie zu <<man_prepare_nodes_step11,Schritt 11>>. 
 |===
 . [[man_prepare_Nodes_step11] Wenn node1 oder node2 Aggregate besitzt, für die es der aktuelle Eigentümer, aber nicht der Besitzer des Hauses ist, führen Sie die folgenden Teilschritte durch:
 +
@@ -320,7 +320,7 @@ vs0
 
 2 entries were displayed.
 ....
-. Wenn die Ausgabe in ,Schritt 15 Zeigt, dass Node1 oder node2 Eigentümer beliebiger Daten-LIFs sind, die sich im Besitz anderer Nodes im Cluster befinden. Migrieren Sie die Daten-LIFs von node1 oder node2:
+. Wenn die Ausgabe in <<man_prepare_nodes_step15,Schritt 15>> Zeigt, dass Node1 oder node2 Eigentümer beliebiger Daten-LIFs sind, die sich im Besitz anderer Nodes im Cluster befinden. Migrieren Sie die Daten-LIFs von node1 oder node2:
 +
 `network interface revert -vserver * -lif *`
 
@@ -439,10 +439,10 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 | Wenn Interface Groups oder VLANS... | Dann... 
 
 
-| Auf node1 oder node2 | Vollständig ,Schritt 23 Und ,Schritt 24. 
+| Auf node1 oder node2 | Vollständig <<man_prepare_nodes_step23,Schritt 23>> Und <<man_prepare_nodes_step24,Schritt 24>>. 
 
 
-| Nicht auf node1 oder node2 | Gehen Sie zu ,Schritt 24. 
+| Nicht auf node1 oder node2 | Gehen Sie zu <<man_prepare_nodes_step24,Schritt 24>>. 
 |===
 .. [[man_prepare_Nodes_step23] Wenn Sie nicht wissen, ob sich node1 und node2 in einer SAN- oder nicht-SAN-Umgebung befinden, geben Sie den folgenden Befehl ein und überprüfen die Ausgabe:
 +
@@ -521,10 +521,10 @@ Nodes in einem Cluster sind Quorum, wenn eine einfache Mehrheit der Nodes in ein
 | Wenn der Cluster... | Dann... 
 
 
-| Ist SAN konfiguriert | Gehen Sie zu ,Schritt 26. 
+| Ist SAN konfiguriert | Gehen Sie zu <<man_prepare_nodes_step26,Schritt 26>>. 
 
 
-| Hat kein SAN konfiguriert | Gehen Sie zu ,Schritt 29. 
+| Hat kein SAN konfiguriert | Gehen Sie zu <<man_prepare_nodes_step29,Schritt 29>>. 
 |===
 .. [[man_prepare_Nodes_step26]]Stellen Sie sicher, dass SAN LIFs auf node1 und node2 für jede SVM sind, bei der entweder SAN iSCSI oder FC Service aktiviert ist, indem Sie den folgenden Befehl eingeben und seine Ausgabe prüfen:
 +
@@ -678,7 +678,7 @@ node2            enable    Postmaster    -                 mailhost
 
 
 | Hat AutoSupport aktiviert...  a| 
-... Gehen Sie zu ,Schritt 34.
+... Gehen Sie zu <<man_prepare_nodes_step34,Schritt 34>>.
 ... Wechseln Sie zum Abschnitt link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption"].
 
 

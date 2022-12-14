@@ -16,8 +16,10 @@ summary: Verschiebung von nicht-Root-Aggregaten node2 während eines AFF A700 au
 [role="lead"]
 Bevor Sie node2 durch das AFF A900 oder das FAS9500 Controller-Modul und das NVRAM-Modul ersetzen können, müssen Sie zuerst die nicht-Root-Aggregate, die sich im Besitz von node2 befinden, in node1 verschieben.
 
+.Bevor Sie beginnen
 Nach den Nachprüfungen aus der vorherigen Phase wird automatisch die Ressourcenfreigabe für node2 gestartet. Die Aggregate außerhalb des Root-Bereichs und LIFs für nicht-SAN-Daten werden von node2 in die neue Knoten1 migriert.
 
+.Über diese Aufgabe
 Nach der Migration der Aggregate und LIFs wird der Vorgang zu Verifizierungszwecken angehalten. An dieser Phase müssen Sie überprüfen, ob alle Aggregate ohne Root-Root-Daten und LIFs außerhalb des SAN in die neue Knoten1 migriert werden.
 
 Der Home-Inhaber für die Aggregate und LIFs werden nicht geändert, nur der aktuelle Besitzer wird geändert.

@@ -28,6 +28,7 @@ Die Lösung dieser Probleme hängt davon ab, wann sie auftreten.
 
 Wenn node1 oder node2 vor der Pre-Check-Phase abstürzt, wurden noch keine Aggregate verschoben und die HA-Paar-Konfiguration ist noch aktiviert.
 
+.Über diese Aufgabe
 Takeover und Giveback können normal fortgesetzt werden.
 
 .Schritte
@@ -45,6 +46,7 @@ Takeover und Giveback können normal fortgesetzt werden.
 
 Einige oder alle Aggregate wurden von node1 in node2 verschoben und das HA-Paar ist noch aktiviert. Node2 übernimmt das Root-Volume von node1 und alle nicht-Root-Aggregate, die nicht verschoben wurden.
 
+.Über diese Aufgabe
 Eigentum an Aggregaten, die verschoben wurden, sehen genauso aus wie das Eigentum von nicht-Root-Aggregaten, die übernommen wurden, da sich der Home-Eigentümer nicht geändert hat.
 
 Wenn node1 in den eintritt `waiting for giveback` Status, node2 gibt alle node1 nicht-Root-Aggregate zurück.
@@ -72,6 +74,7 @@ Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Agg
 
 Node1 hat einige oder alle seine Aggregate in node2 verschoben. Das HA-Paar ist aktiviert.
 
+.Über diese Aufgabe
 Node1 übernimmt alle node2 Aggregate sowie jedes seiner eigenen Aggregate, die auf node2 verschoben wurden. Beim Booten von node2 wird die Aggregatverschiebung automatisch abgeschlossen.
 
 .Schritte
@@ -132,6 +135,7 @@ Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Agg
 
 Node2 hat einige oder alle seine Aggregate von node1 in node1 verschoben. Node1 liefert Daten von Aggregaten, die verschoben wurden. Das HA-Paar ist deaktiviert und somit gibt es keine Übernahme.
 
+.Über diese Aufgabe
 Es gibt einen Client-Ausfall für Aggregate, die nicht verschoben wurden. Beim Booten von node2 werden die Aggregate von node1 auf node1 verschoben.
 
 .Schritte
@@ -145,6 +149,7 @@ Es gibt einen Client-Ausfall für Aggregate, die nicht verschoben wurden. Beim B
 
 Wenn node1 abstürzt, während node2 Aggregate zu node1 verschoben wird, wird die Aufgabe nach dem Booten von node1 fortgesetzt.
 
+.Über diese Aufgabe
 Node2 dient weiterhin verbleibenden Aggregaten, aber Aggregate, die bereits in Knoten 1 verlagert wurden, begegnen ein Client-Ausfall, während node1 gebootet wird.
 
 .Schritte
@@ -177,6 +182,7 @@ Das HA-Paar ist deaktiviert, damit dies keine Übernahme ist. Es gibt einen Clie
 
 Wenn node1 abstürzt, während node2 Aggregate verschoben wird, wird die Aufgabe nach dem Booten von node1 fortgesetzt.
 
+.Über diese Aufgabe
 Node2 dient weiterhin verbleibenden Aggregaten, aber Aggregate, die bereits in Node1 verlagert wurden und Node1 eigene Aggregate, begegnen Client-Ausfällen, während node1 gebootet wird.
 
 .Schritte
@@ -190,6 +196,7 @@ Node2 dient weiterhin verbleibenden Aggregaten, aber Aggregate, die bereits in N
 
 Wenn node2 während der Aggregatverschiebung abstürzt, wird node2 nicht übernommen.
 
+.Über diese Aufgabe
 Node1 dient weiterhin den Aggregaten, die verschoben wurden, aber die Aggregate von node2 stoßen auf Client-Ausfälle.
 
 .Schritte
@@ -207,6 +214,7 @@ Node1 dient weiterhin den Aggregaten, die verschoben wurden, aber die Aggregate 
 
 Wenn während dieser Phase node1 abstürzt, wird die Übernahme nicht ausgeführt, da das HA-Paar bereits deaktiviert ist.
 
+.Über diese Aufgabe
 Es gibt einen Client-Ausfall für alle Aggregate, bis node1 neu gebootet wird.
 
 .Schritte
@@ -220,6 +228,7 @@ Es gibt einen Client-Ausfall für alle Aggregate, bis node1 neu gebootet wird.
 
 Wenn während dieser Phase node2 abstürzt, wird die Übernahme nicht durchgeführt. Node1 dient Daten aus den Aggregaten.
 
+.Über diese Aufgabe
 Es gibt einen Ausfall für nicht-Root-Aggregate, die bereits so lange verschoben wurden bis nach einem Neustart von node2.
 
 .Schritte

@@ -20,7 +20,7 @@ Nachdem node2's nicht-Root-Aggregate in node3 verschoben wurden, müssen Sie sie
 `storage aggregate relocation start -node _node3_ -destination _node4_ -aggregate-list _aggr_name1, aggr_name2..._ -ndo-controller-upgrade true`
 
 +
-Die Aggregatliste ist die Liste der Aggregate, deren Eigentümer node4 sind, die Sie in erhalten haben ,Schritt 1.
+Die Aggregatliste ist die Liste der Aggregate, deren Eigentümer node4 sind, die Sie in erhalten haben <<man_relocate_3_4_Step1,Schritt 1>>.
 
 .. Geben Sie bei der entsprechenden Aufforderung ein `y`.
 +
@@ -50,7 +50,7 @@ NOTE: Warten Sie, bis alle node2-Aggregate in node4 verschoben wurden, bevor Sie
 | Bei Umzug von... | Dann... 
 
 
-| Alle Aggregate waren erfolgreich | Gehen Sie zu ,Schritt 5. 
+| Alle Aggregate waren erfolgreich | Gehen Sie zu <<man_relocate_3_4_Step5,Schritt 5>>. 
 
 
 | Aggregate sind ausgefallen oder sie wurden Vetos gemacht  a| 
@@ -94,7 +94,7 @@ Weitere Informationen zu den Befehlen zum Verlegen von Storage-Aggregaten finden
 `storage aggregate show -node _node4_ -state offline -root false`
 
 +
-Die node2 Aggregate wurden in der Ausgabe des Befehls in aufgeführt ,Schritt 1.
+Die node2 Aggregate wurden in der Ausgabe des Befehls in aufgeführt <<man_relocate_3_4_Step1,Schritt 1>>.
 
 . Wenn ein Aggregat offline gegangen ist oder fremd geworden ist, bringen Sie es mit dem folgenden Befehl für jedes Aggregat online:
 +

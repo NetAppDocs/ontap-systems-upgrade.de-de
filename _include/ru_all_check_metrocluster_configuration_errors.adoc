@@ -4,6 +4,7 @@
 
 Sie können das Active IQ Config Advisor Tool auf der NetApp Support-Website verwenden, um häufige Konfigurationsfehler zu überprüfen.
 
+.Über diese Aufgabe
 Active IQ Config Advisor ist ein Tool zur Konfigurationsvalidierung und Statusüberprüfung. Sie können die Lösung sowohl an sicheren Standorten als auch an nicht sicheren Standorten zur Datenerfassung und Systemanalyse einsetzen.
 
 

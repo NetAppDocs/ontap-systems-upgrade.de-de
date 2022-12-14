@@ -2,6 +2,7 @@
 :allow-uri-read: 
 
 
+.Über diese Aufgabe
 Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs sich in einem ordnungsgemäßen Zustand befinden und sich auf den entsprechenden Ports befinden, nachdem Sie node3 in den Online-Modus versetzt haben.
 
 .Schritte
@@ -82,10 +83,10 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | Falls Knoten 1... | Dann... 
 
 
-| Schnittstellengruppen oder VLANs wurden konfiguriert | Gehen Sie zu ,Schritt 4. 
+| Schnittstellengruppen oder VLANs wurden konfiguriert | Gehen Sie zu <<man_lif_verify_3_step3,Schritt 4>>. 
 
 
-| Schnittstellengruppen oder VLANs waren nicht konfiguriert | Überspringen Sie Schritt 4, und fahren Sie mit fort ,Schritt 5. 
+| Schnittstellengruppen oder VLANs waren nicht konfiguriert | Überspringen Sie Schritt 4, und fahren Sie mit fort <<man_lif_verify_3_step4,Schritt 5>>. 
 |===
 . [[man_lif_verify_3_step3]]führen Sie die folgenden Teilschritte durch, um alle auf Schnittstellengruppen und VLANs gehosteten NAS-Daten-LIFs zu migrieren, die sich ursprünglich auf node1 von node2 auf node3 befanden:
 +
@@ -93,7 +94,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
 
-.. Ändern Sie den Home-Port und den Home-Node der LIF in ,Unterschritt A Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
+.. Ändern Sie den Home-Port und den Home-Node der LIF in <<man_lif_verify_3_substepa,Unterschritt A>> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
 +
 `network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node3_ -home-port _netport|ifgrp_`
 
@@ -101,7 +102,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
 
-.. Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt C Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
+.. Ändern Sie den Home-Port und den Home-Node der LIFs in <<man_lif_verify_3_substepc,Unterschritt C>> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
 +
 `network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node3_ -home-port _netport|ifgrp_`
 
@@ -114,7 +115,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | Wenn das Cluster konfiguriert ist für... | Dann... 
 
 
-| NAS | Vollständig ,Schritt 6 Und ,Schritt 7, überspringen Sie Schritt 8, und abgeschlossen ,Schritt 9 Bis ,Schritt 12. 
+| NAS | Vollständig <<man_lif_verify_3_step5,Schritt 6>> Und <<man_lif_verify_3_step6,Schritt 7>>, überspringen Sie Schritt 8, und abgeschlossen <<man_lif_verify_3_step8,Schritt 9>> Bis <<man_lif_verify_3_step11,Schritt 12>>. 
 
 
 | San | Deaktivieren Sie alle SAN-LIFs auf dem Node, um sie für das Upgrade herunterzufahren:

@@ -16,15 +16,16 @@ summary: Konfiguration von node4 integrierten FC-Ports, UTA/UTA2-Ports oder UTA/
 [role="lead"]
 Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
-Möglicherweise müssen Sie den Abschluss abschließen  FC ports on node4, Das  and configure UTA/UTA2 ports on node4, Oder beide Abschnitte.
+.Über diese Aufgabe
+Möglicherweise müssen Sie den Abschluss abschließen <<Konfigurieren Sie FC-Ports auf node4>>, Das <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>, Oder beide Abschnitte.
 
 Wenn node4 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat und Sie ein System mit Storage-Festplatten aktualisieren, können Sie weiter gehen link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
 
 Wenn Sie jedoch ein V-Series System oder FlexArray-Virtualisierungssoftware haben und mit Storage-Arrays verbunden sind und node4 keine integrierten FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie zum Abschnitt _Installation and Boot node4_ zurückkehren und wieder aufnehmen link:install_boot_node4.html#Step9["Schritt 9"]. stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt. Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4 an der gleichen Stelle wie node3 platzieren. Wenn sich Node2 und node4 im selben Chassis befinden, befindet sich node4 bereits in der entsprechenden Rack-Position.
 
 .Wahlmöglichkeiten
-*  FC ports on node4
-*  and configure UTA/UTA2 ports on node4
+* <<Konfigurieren Sie FC-Ports auf node4>>
+* <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>
 
 
 
@@ -33,9 +34,11 @@ Wenn Sie jedoch ein V-Series System oder FlexArray-Virtualisierungssoftware habe
 
 Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.
 
+.Bevor Sie beginnen
 Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
 
-Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node4.
+.Über diese Aufgabe
+Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
 *Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, müssen Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
 
@@ -47,10 +50,10 @@ Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfi
 | Wenn das System, das Sie aktualisieren... | Dann… 
 
 
-| Festplatten sind vorhanden | Gehen Sie zu ,Schritt 5. 
+| Festplatten sind vorhanden | Gehen Sie zu <<man_config_4_Step5,Schritt 5>>. 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu ,Schritt 2. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu <<man_config_4_Step2,Schritt 2>>. 
 |===
 . [[man_config_4_Step2]]Zugriff auf den Wartungsmodus:
 +
@@ -122,10 +125,10 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 | Wenn die FC-Standardeinstellungen auf den neuen Nodes sind... | Dann… 
 
 
-| Das gleiche wie diejenigen, die Sie auf den ursprünglichen Knoten erfasst | Gehen Sie zu ,Schritt 11. 
+| Das gleiche wie diejenigen, die Sie auf den ursprünglichen Knoten erfasst | Gehen Sie zu <<man_config_4_Step11,Schritt 11>>. 
 
 
-| Anders als jene, die Sie auf den ursprünglichen Knoten erfasst haben | Gehen Sie zu ,Schritt 8. 
+| Anders als jene, die Sie auf den ursprünglichen Knoten erfasst haben | Gehen Sie zu <<man_config_4_Step8,Schritt 8>>. 
 |===
 . [[man_config_4_Step8]]Wartungsmodus beenden:
 +
@@ -154,14 +157,14 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 
 
 | Festplatten sind vorhanden  a| 
-** Gehen Sie zu  and configure UTA/UTA2 ports on node4 Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
+** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
 ** Überspringen Sie den Abschnitt und gehen Sie zu link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] Wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat.
 
 
 
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-** Gehen Sie zu  and configure UTA/UTA2 ports on node4 Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
+** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
 ** Überspringen Sie den Abschnitt _UTA/UTA2-Ports auf node4_ überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, kehren Sie zum Abschnitt _Installieren und Booten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#Step9["Schritt 9"].
 
 
@@ -174,8 +177,10 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 
 Wenn node4 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie je nach Nutzung des aktualisierten Systems konfigurieren.
 
+.Bevor Sie beginnen
 Sie müssen die richtigen SFP+ Module für die UTA/UTA2-Ports besitzen.
 
+.Über diese Aufgabe
 DIE UTA2-Ports können im nativen FC-Modus oder im UTA/UTA2-Modus konfiguriert werden. Der FC-Modus unterstützt FC Initiator und FC Target. Der UTA-/UTA2-Modus ermöglicht es, gleichzeitig NIC- und FCoE-Datenverkehr auf die gleiche 10-GbE-SFP+-Schnittstelle zu übertragen und das FC-Ziel zu unterstützen.
 
 
@@ -236,10 +241,10 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 | Wenn die CNA-Ports... | Dann... 
 
 
-| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu ,Schritt 5. 
+| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu <<man_check_4_Step5,Schritt 5>>. 
 
 
-| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort ,Schritt 13. 
+| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <<man_check_4_Step13,Schritt 13>>. 
 |===
 . [[man_Check_4_Step5]]Nehmen Sie eine der folgenden Aktionen:
 +
@@ -252,7 +257,7 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 `boot_ontap maint` 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu ,Schritt 6. Sie sollten sich bereits im Wartungsmodus befinden. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu <<man_check_4_Step6,Schritt 6>>. Sie sollten sich bereits im Wartungsmodus befinden. 
 |===
 . [[man_Check_4_Step6]]Nehmen Sie eine der folgenden Aktionen:
 +
@@ -261,10 +266,10 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 | Wenn Sie konfigurieren... | Dann... 
 
 
-| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu ,Schritt 7. 
+| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu <<man_check_4_Step7,Schritt 7>>. 
 
 
-| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort ,Schritt 8. 
+| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort <<man_check_4_Step8,Schritt 8>>. 
 |===
 . [[man_Check_4_Step7]]Wenn sich der Adapter im Initiator-Modus befindet und der UTA/UTA2-Port online ist, versetzen Sie den UTA/UTA2-Port in den Offline-Modus:
 +

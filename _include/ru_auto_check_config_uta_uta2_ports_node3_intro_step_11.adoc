@@ -8,8 +8,10 @@
 
 Wenn node3 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie möglicherweise neu konfigurieren, je nachdem, wie Sie das aktualisierte System verwenden möchten.
 
+.Bevor Sie beginnen
 Sie müssen die richtigen SFP+ Module für die UTA/UTA2-Ports besitzen.
 
+.Über diese Aufgabe
 Wenn Sie einen Unified Target Adapter (UTA/UTA2)-Port für FC verwenden möchten, müssen Sie zuerst überprüfen, wie der Port konfiguriert ist.
 
 
@@ -87,10 +89,10 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 | Wenn die UTA/UTA2-Ports... | Dann… 
 
 
-| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu ,Schritt 5. 
+| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu <<auto_check3_step5,Schritt 5>>. 
 
 
-| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort ,Schritt 13. 
+| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <<auto_check3_step13,Schritt 13>>. 
 |===
 . [[Auto_check3_schritt 5]]Nehmen Sie eine der folgenden Aktionen:
 +
@@ -99,10 +101,10 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 | Wenn Sie konfigurieren... | Dann… 
 
 
-| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu ,Schritt 7 
+| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu <<auto_check3_step7,Schritt 7>> 
 
 
-| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort ,Schritt 8. 
+| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort <<auto_check3_step8,Schritt 8>>. 
 |===
 . [[Schritt6]]Wenn sich der Adapter im Initiator-Modus befindet und der UTA/UTA2-Port online ist, versetzen Sie den UTA/UTA2-Port in den Offline-Modus:
 +

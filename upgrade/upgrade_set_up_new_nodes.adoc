@@ -13,6 +13,7 @@ summary: Während des Upgrades durch Verschiebung des Storage schalten Sie node3
 [role="lead"]
 Während des Upgrades durch Verschiebung des Storage schalten Sie node3 und node4 ein, starten das Software-Image und konfigurieren die Nodes. Zwischen Original und neuen Nodes kann das physische Port-Layout abweichen. Um das richtige Layout von Ports und Verbindungen zu identifizieren, sollten Ports zwischen Original- und Ersatz-Nodes zugeordnet werden.
 
+.Bevor Sie beginnen
 Wenn sich die Version der auf den neuen Nodes ausgeführten ONTAP von der Version auf den ursprünglichen Nodes unterscheidet, müssen Sie die richtige Version heruntergeladen haben `<ontap_version>_image.tgz` Datei von der NetApp Support Site in ein Web-zugängliches Verzeichnis (siehe _Vorbereitung auf das Upgrade beim Verschieben von Storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["Schritt 5"]). Sie benötigen den `<ontap_version>_image.tgz` Datei zum Ausführen eines Netzboots des Systems
 
 .Schritte

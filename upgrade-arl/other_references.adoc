@@ -16,8 +16,8 @@ summary: Sie können zu anderen Referenzinhalten und Websites in diesem Thema ve
 [role="lead"]
 Wenn Sie die Verfahren in diesem Inhalt ausführen, müssen Sie möglicherweise Referenzinhalt konsultieren oder zu Referenzwebsites gehen.
 
-*  content
-*  sites
+* <<Referenzinhalt>>
+* <<Referenzstandorte>>
 
 
 

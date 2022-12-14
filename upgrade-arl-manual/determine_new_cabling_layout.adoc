@@ -16,8 +16,10 @@ summary: Bestimmen Sie das Verkabelungslayout für neue Controller-Module und Fe
 [role="lead"]
 Sie müssen die Verkabelung der neuen Controller-Module und aller neuen Platten-Shelfs zu den vorhandenen FC-Switches bestimmen.
 
+.Über diese Aufgabe
 Diese Aufgabe muss an jedem MetroCluster Standort ausgeführt werden.
 
+.Schritt
 Ermitteln Sie mithilfe des Inhalts _Fabric-Attached MetroCluster Installation and Configuration_ das Verkabelungslayout für Ihren Switch-Typ. Verwenden Sie dabei die Portnutzung für eine MetroCluster-Konfiguration mit acht Nodes. Die Nutzung des FC-Switch-Ports muss der in dem Inhalt beschriebenen Nutzung entsprechen, sodass die Referenzkonfigurationsdateien (RCFs) verwendet werden können.
 
 Gehen Sie zu link:other_references.html["Quellen"] Zum Verlinken auf den Content _Fabric-Attached MetroCluster Installation and Configuration_.

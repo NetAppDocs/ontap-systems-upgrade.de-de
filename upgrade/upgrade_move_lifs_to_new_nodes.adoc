@@ -13,6 +13,7 @@ summary: Nachdem Sie die Volumes von den ursprünglichen Nodes verschoben haben,
 [role="lead"]
 Nachdem Sie die Volumes von den ursprünglichen Nodes verschoben haben, müssen Sie die Daten-LIFs und Cluster-Management-LIFs von den ursprünglichen Nodes auf die neuen Nodes migrieren.
 
+.Über diese Aufgabe
 Sie können keine LIF migrieren, die für Copy-Offload-Vorgänge verwendet wird – mit VMware vStorage APIs for Array Integration (VAAI).
 
 .Schritte

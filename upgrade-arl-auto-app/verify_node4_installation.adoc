@@ -16,11 +16,12 @@ summary: 'Überprüfen Sie, ob die physischen Ports von node2 node4 korrekt zuge
 [role="lead"]
 Sie müssen überprüfen, ob die physischen Ports von node2 den physischen Ports auf node4 korrekt zugeordnet sind. Dadurch kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
+.Über diese Aufgabe
 Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
 
 Abhängig vom Modell der Nodes kann das physische Port-Layout variieren. Wenn der neue Node gestartet wird, versucht ONTAP, zu ermitteln, welche Ports die Cluster LIFs hosten sollten, damit es automatisch zu Quorum kommt.
 
-Wenn die physischen Ports auf node2 nicht direkt den physischen Ports auf node4 zugeordnet werden, wird der folgende Abschnitt angezeigt  network configuration on node4 Muss zur Reparatur der Netzwerkverbindung verwendet werden.
+Wenn die physischen Ports auf node2 nicht direkt den physischen Ports auf node4 zugeordnet werden, wird der folgende Abschnitt angezeigt <<Stellen Sie die Netzwerkkonfiguration auf node4 wieder her>> Muss zur Reparatur der Netzwerkverbindung verwendet werden.
 
 Nachdem sie node4 installiert und gestartet haben, müssen Sie überprüfen, ob es ordnungsgemäß installiert wurde. sie müssen warten, bis node4 dem Quorum beitreten und dann den Umzugsvorgang fortsetzen kann.
 
@@ -79,7 +80,7 @@ Wiederholen Sie Schritt 3, um zu überprüfen, ob die Cluster-LIF jetzt auf Port
 
 . Wenn Sie auf einem MetroCluster System arbeiten, überprüfen Sie, ob der ersetzte Controller für die MetroCluster-Konfiguration ordnungsgemäß konfiguriert ist. Die MetroCluster-Konfiguration sollte sich in einem ordnungsgemäßen Zustand befinden. Siehe link:verify_health_of_metrocluster_config.html["Überprüfen Sie den Systemzustand der MetroCluster-Konfiguration"].
 +
-Konfigurieren Sie die Intercluster-LIFs auf dem MetroCluster-Node node4 neu, und überprüfen Sie Cluster-Peering, um die Kommunikation zwischen den MetroCluster-Nodes wiederherzustellen, bevor Sie fortfahren mit ,Schritt 6.
+Konfigurieren Sie die Intercluster-LIFs auf dem MetroCluster-Node node4 neu, und überprüfen Sie Cluster-Peering, um die Kommunikation zwischen den MetroCluster-Nodes wiederherzustellen, bevor Sie fortfahren mit <<auto_verify_4_Step6,Schritt 6>>.
 
 +
 Überprüfen Sie den MetroCluster-Node-Status:
@@ -130,6 +131,7 @@ NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Br
 
 Nachdem Sie bestätigt haben, dass node4 sich im Quorum befindet und mit node3 kommunizieren kann, überprüfen Sie, ob node2 VLANs, Interface Groups und Broadcast-Domains auf node4 zu sehen sind. Überprüfen Sie außerdem, ob alle node4-Netzwerkports in ihren richtigen Broadcast-Domänen konfiguriert sind.
 
+.Über diese Aufgabe
 Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit _Network Management_.
 
 .Schritte
@@ -317,7 +319,7 @@ Warten Sie etwa eine Minute, bis neu wiederhergestellte VLANs in ihren entsprech
 `network port reachability show`
 
 +
-Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn Ports einen anderen Status als diese beiden melden, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in ,Schritt 4.
+Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn Ports einen anderen Status als diese beiden melden, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in <<auto_restore_4_Step4,Schritt 4>>.
 
 . Vergewissern Sie sich, dass alle Ports in Broadcast-Domänen platziert wurden:
 +

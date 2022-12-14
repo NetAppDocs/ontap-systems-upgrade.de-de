@@ -13,6 +13,7 @@ summary: Wenn es sich bei dem ursprünglichen Node um eines der unterstützten M
 [role="lead"]
 Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können Sie den Node während des Upgrades durch Verschieben des Storage in ein Festplatten-Shelf konvertieren und dann an die neuen Nodes im selben Cluster anschließen.
 
+.Bevor Sie beginnen
 Sie müssen geprüft haben link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"] Informationen zum Konvertieren eines Node in ein Laufwerk-Shelf. Wenden Sie sich an den technischen Support, wenn Sie Anleitungen für Ihre Konfiguration benötigen.
 
 .Schritte

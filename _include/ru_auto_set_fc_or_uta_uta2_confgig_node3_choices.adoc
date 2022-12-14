@@ -3,6 +3,6 @@
 
 
 .Wahlmöglichkeiten
-*  FC ports on node3
-*  and configure UTA/UTA2 ports on node3
+* <<Konfigurieren Sie FC-Ports auf node3>>
+* <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>
 

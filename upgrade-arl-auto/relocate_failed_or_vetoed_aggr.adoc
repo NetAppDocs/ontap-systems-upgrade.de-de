@@ -16,6 +16,7 @@ summary: 'Wenn Sie Controller mit ONTAP 9.5 auf 9.7 aktualisieren, müssen Sie f
 [role="lead"]
 Falls Aggregate nicht verschoben oder ein Vetoo eingesetzt werden kann, müssen sie die Aggregate manuell verschieben oder – falls erforderlich – entweder die Vetos oder Zielprüfungen überschreiben.
 
+.Über diese Aufgabe
 Der Umzugsvorgang wird aufgrund des Fehlers angehalten.
 
 .Schritte

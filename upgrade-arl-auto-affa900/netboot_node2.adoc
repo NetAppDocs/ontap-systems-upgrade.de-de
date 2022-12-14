@@ -26,6 +26,7 @@ NOTE: Sie können den Netzboot auch über die USB-Boot-Option ausführen. Siehe 
 * Laden Sie die für Ihr System erforderlichen Systemdateien und die korrekte Version von ONTAP von _NetApp Support Site_ herunter. Siehe link:other_references.html["Quellen"] Link zur NetApp Support Site_.
 
 
+.Über diese Aufgabe
 Sie müssen die neuen Controller als Netzboot ansehen, wenn sie nicht die gleiche Version von ONTAP 9 auf ihnen installiert sind, die auf den ursprünglichen Controllern installiert ist. Nachdem Sie jeden neuen Controller installiert haben, starten Sie das System über das auf dem Webserver gespeicherte ONTAP 9-Image. Anschließend können Sie die richtigen Dateien auf das Boot-Medium herunterladen, um später das System zu booten.
 
 .Schritte
@@ -103,7 +104,7 @@ Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. W
 . Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie ein `y`, Und wenn Sie zur Eingabe des Pakets aufgefordert werden, geben Sie die URL ein:
 `\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
 +
-Der `<path_to_the_web-accessible_directory>` Sollten Sie dazu führen, wo Sie das heruntergeladen haben `<ontap_version>_image.tgz` In ,Schritt 2.
+Der `<path_to_the_web-accessible_directory>` Sollten Sie dazu führen, wo Sie das heruntergeladen haben `<ontap_version>_image.tgz` In <<netboot_node2_step2,Schritt 2>>.
 
 . Führen Sie die folgenden Teilschritte durch, um das Controller-Modul neu zu booten:
 +

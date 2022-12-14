@@ -36,6 +36,7 @@ Nachdem node1 vollständig angehalten wurde, sollte node1 an DER LOADER>-Eingabe
 
 An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Da sich Node1 und Node2 im gleichen Chassis befinden und durch denselben Satz an Netzteilen mit Strom versorgt werden, schalten Sie das Chassis NICHT aus. Achten Sie darauf, nur das Node1-Controller-Modul und das node1-NVRAM-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
 
+.Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
@@ -133,6 +134,7 @@ Bei der Installation müssen Sie Folgendes beachten:
 * Verschieben Sie alle Flash Cache Module, die im FAS9000 NVRAM-Modul installiert sind, auf das FAS9500 NVRAM-Modul.
 
 
+.Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 

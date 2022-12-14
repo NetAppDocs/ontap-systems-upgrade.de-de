@@ -16,14 +16,15 @@ summary: 'Konfigurieren sie node4 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/
 [role="lead"]
 Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
-Möglicherweise müssen Sie die abschließen  FC ports on node4 Abschnitt, der  and configure UTA/UTA2 ports on node4, Oder beide Abschnitte.
+.Über diese Aufgabe
+Möglicherweise müssen Sie die abschließen <<Konfigurieren Sie FC-Ports auf node4>> Abschnitt, der <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>, Oder beide Abschnitte.
 
 
 NOTE: Wenn node4 keine integrierten FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat und Sie ein System mit Storage-Festplatten aktualisieren, können Sie zur springen link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] Abschnitt. Wenn Sie jedoch ein V-Series System oder FlexArray-Virtualisierungssoftware haben und mit Storage-Arrays verbunden sind und node4 keine integrierten FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie zurück in den Abschnitt _Installation und Boot-node4_ und wieder aufnehmen link:install_boot_node4.html#step22["Schritt 22"]. stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt. Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4 an der gleichen Stelle wie node3 platzieren. Wenn sich Node2 und node4 im selben Chassis befinden, befindet sich node4 bereits in der entsprechenden Rack-Position.
 
 .Wahlmöglichkeiten
-*  FC ports on node4
-*  and configure UTA/UTA2 ports on node4
+* <<Konfigurieren Sie FC-Ports auf node4>>
+* <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>
 
 
 
@@ -32,9 +33,11 @@ NOTE: Wenn node4 keine integrierten FC-Ports, Onboard UTA/UTA2-Ports oder eine U
 
 Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.
 
+.Bevor Sie beginnen
 Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
 
-Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node4.
+.Über diese Aufgabe
+Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
 *Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, müssen Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
 
@@ -123,8 +126,10 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 
 Wenn node4 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie je nach Nutzung des aktualisierten Systems konfigurieren.
 
+.Bevor Sie beginnen
 Sie müssen die richtigen SFP+ Module für die UTA/UTA2-Ports besitzen.
 
+.Über diese Aufgabe
 DIE UTA2-Ports können im nativen FC-Modus oder im UTA/UTA2-Modus konfiguriert werden. Der FC-Modus unterstützt FC Initiator und FC Target. Der UTA-/UTA2-Modus ermöglicht es, gleichzeitig NIC- und FCoE-Datenverkehr die gleiche 10-GbE-SFP+-Schnittstelle zu nutzen und das FC-Ziel zu unterstützen.
 
 
@@ -186,10 +191,10 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 | Wenn die CNA-Ports... | Dann… 
 
 
-| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu ,Schritt 5. 
+| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu <<auto_check_4_step5,Schritt 5>>. 
 
 
-| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort ,Schritt 13. 
+| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <<auto_check_4_step13,Schritt 13>>. 
 |===
 . [[Auto_Check_4_step5]]Nehmen Sie eine der folgenden Aktionen:
 +
@@ -198,10 +203,10 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 | Wenn Sie konfigurieren... | Dann… 
 
 
-| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu ,Schritt 7 
+| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu <<auto_check_4_step7,Schritt 7>> 
 
 
-| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort ,Schritt 8. 
+| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort <<auto_check_4_step8,Schritt 8>>. 
 |===
 . Wenn sich der Adapter im Initiator-Modus befindet und der UTA/UTA2-Port online ist, versetzen Sie den UTA/UTA2-Port in den Offline-Modus:
 +
@@ -290,7 +295,7 @@ f-a   2b       fc             target       cna           -             online
 `boot_ontap menu`
 
 +
-Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu ,Schritt 23.
+Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu <<auto_check_4_step23,Schritt 23>>.
 
 . [[Auto_Check_4_Steppen15]]in node4 wechseln Sie zum Startmenü und wählen Sie unter 22/7 die ausgeblendete Option aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node2 ein, um die Festplatten von node2 node4 wie im folgenden Beispiel neu zuzuweisen.
 +
@@ -373,7 +378,7 @@ Override system ID? {y|n} y
 Login: ...
 ----
 ====
-. Wenn das System in eine Reboot-Schleife mit der Meldung geht `no disks found`, Das liegt daran, dass es die Ports wieder in den Zielmodus zurückgesetzt hat und somit keine Disketten sehen kann. Weiter mit ,Schritt 17 Bis ,Schritt 22 Um dies zu beheben.
+. Wenn das System in eine Reboot-Schleife mit der Meldung geht `no disks found`, Das liegt daran, dass es die Ports wieder in den Zielmodus zurückgesetzt hat und somit keine Disketten sehen kann. Weiter mit <<auto_check_4_step17,Schritt 17>> Bis <<auto_check_4_step22,Schritt 22>> Um dies zu beheben.
 . [[Auto_Check_4_steep17]]Drücken Sie `Ctrl-C` Während des automatischen Bootens, um den Node auf dem zu beenden `LOADER>` Eingabeaufforderung:
 . Wechseln Sie an der Loader-Eingabeaufforderung in den Wartungsmodus:
 +
@@ -400,9 +405,9 @@ Login: ...
 +
 [NOTE]
 ====
-Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu ,Schritt 22.
+Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu <<auto_check_4_step22,Schritt 22>>.
 
-Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten verwendet, zu einem System, das sowohl interne als auch externe Festplatten unterstützt, z. B. ein AFF A800 System, finden Sie unter ,Schritt 23.
+Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten verwendet, zu einem System, das sowohl interne als auch externe Festplatten unterstützt, z. B. ein AFF A800 System, finden Sie unter <<auto_check_4_step23,Schritt 23>>.
 
 ====
 . [[Auto_Check_4_step 22]]Booten Sie an der Loader-Eingabeaufforderung:

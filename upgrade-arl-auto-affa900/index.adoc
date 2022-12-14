@@ -28,6 +28,7 @@ Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Agg
 |===
 Sie können bei der Controller Hardware auf einem HA-Paar unterbrechungsfrei Upgrades durchführen, indem Sie den Controller und die NVRAM-Module austauschen. Zum einen migrieren Sie die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes zu den Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden.
 
+.Über diese Aufgabe
 Während dieses Controller-Upgrades ersetzen Sie nur die beiden vor Ort austauschbaren Einheiten (FRUs) auf jedem Node der AFF A700 oder FAS9000 System durch die neuen FRUs.
 
 

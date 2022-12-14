@@ -95,10 +95,10 @@ Sehen Sie in der Spalte *Status Admin/Oper* nach, ob LIFs nicht verfügbar sind.
 | Falls das Cluster... | Dann... 
 
 
-| Eines Clusters mit zwei Nodes | Gehen Sie zu ,Schritt 6. 
+| Eines Clusters mit zwei Nodes | Gehen Sie zu <<man_retire_1_step6,Schritt 6>>. 
 
 
-| Ein Cluster mit mehr als zwei Nodes | Gehen Sie zu ,Schritt 8. 
+| Ein Cluster mit mehr als zwei Nodes | Gehen Sie zu <<man_retire_1_step8,Schritt 8>>. 
 |===
 . [[man_retid_1_ste6]]Zugriff auf die erweiterte Berechtigungsebene auf beiden Knoten:
 +
@@ -117,7 +117,7 @@ Vom System wird die folgende Meldung angezeigt:
 High Availability Configured: false
 ----
 +
-Wenn Cluster HA nicht deaktiviert wurde, wiederholen Sie den Vorgang ,Schritt 2.
+Wenn Cluster HA nicht deaktiviert wurde, wiederholen Sie den Vorgang <<man_retire_1_step2,Schritt 2>>.
 
 . [[man_retip_1_ste8]]Prüfen Sie, ob node1 aktuell epsilon hält:
 +

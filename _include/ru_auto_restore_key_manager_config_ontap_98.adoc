@@ -2,6 +2,7 @@
 :allow-uri-read: 
 
 
+.Über diese Aufgabe
 Die Verschlüsselungskonfiguration mit den neuen Nodes synchronisieren, indem Sie die folgenden Schritte durchführen:
 
 .Schritte

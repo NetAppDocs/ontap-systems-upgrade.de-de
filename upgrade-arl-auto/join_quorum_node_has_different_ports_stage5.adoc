@@ -16,6 +16,7 @@ summary: 'In Phase 5 müssen Sie bestätigen, dass der neue Node dem Quorum Beit
 [role="lead"]
 Der Node mit dem neuen Controller bootet und versucht zuerst, dem Cluster automatisch beizutreten. Wenn der neue Node jedoch einen anderen Satz an Netzwerkports aufweist, müssen Sie die folgenden Schritte durchführen, um zu bestätigen, dass der Node dem Quorum erfolgreich hinzugefügt wurde.
 
+.Über diese Aufgabe
 Sie können diese Anweisungen für alle relevanten Knoten verwenden. Node3 wird in der folgenden Probe verwendet.
 
 .Schritte

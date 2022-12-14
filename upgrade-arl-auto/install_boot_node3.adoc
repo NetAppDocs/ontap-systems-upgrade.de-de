@@ -16,12 +16,13 @@ summary: 'Installieren und booten Sie node3 und installieren Sie ONTAP Software 
 [role="lead"]
 Sie müssen node3 im Rack installieren, Verbindungen von node1 zu node3, Boot node3 übertragen und ONTAP installieren. Sie müssen dann eine der freien Festplatten von node1, alle Festplatten, die zum Root-Volume gehören, und alle nicht-Root-Aggregate, die zuvor nicht in node2 verschoben wurden, wie in diesem Abschnitt beschrieben neu zuweisen.
 
+.Über diese Aufgabe
 Der Umzugsvorgang wird zu Beginn dieser Phase angehalten. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Außerdem müssen Sie überprüfen, ob die SAN-LIFs erfolgreich in Knoten 3 verschoben wurden.
 
 Sie müssen als Netzboot node3 wechseln, wenn nicht die gleiche Version von ONTAP 9 installiert ist auf node1. Nachdem Sie node3 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien auf das Boot-Medium für nachfolgende Systemstarts herunterladen, indem Sie den Anweisungen in folgen link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"].
 
 .Wichtig:
-* Wenn Sie ein mit Storage Arrays verbundenes V-Series System oder ein System über FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Upgrades erforderlich ,Schritt 1 Bis ,Schritt 21, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen im link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Abschnitte nach Bedarf, geben Sie Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren ,Schritt 23.
+* Wenn Sie ein mit Storage Arrays verbundenes V-Series System oder ein System über FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Upgrades erforderlich <<auto_install3_step1,Schritt 1>> Bis <<auto_install3_step21,Schritt 21>>, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen im link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Abschnitte nach Bedarf, geben Sie Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<auto_install3_step23,Schritt 23>>.
 * Wenn Sie ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt abschließen und anschließend mit den fortfahren link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie Abschnitte ein, und geben Sie Befehle an der Cluster-Eingabeaufforderung ein.
 
 
@@ -69,7 +70,7 @@ WARNING: The battery is unfit to retain data during a power outage. This is like
 When the battery is ready, the boot process will complete and services will be engaged.
 To override this delay, press 'c' followed by 'Enter'
 ....
-. [[Auto_install3_step5]]Wenn die Warnmeldung in angezeigt wird ,Schritt 4, Nehmen Sie die folgenden Aktionen:
+. [[Auto_install3_step5]]Wenn die Warnmeldung in angezeigt wird <<auto_install3_step4,Schritt 4>>, Nehmen Sie die folgenden Aktionen:
 +
 .. Überprüfen Sie auf Meldungen der Konsole, die auf ein anderes Problem als eine schwache NVRAM-Batterie hinweisen und ergreifen Sie gegebenenfalls erforderliche Korrekturmaßnahmen.
 .. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
@@ -236,12 +237,12 @@ Unterbrechen Sie den Autoboot, indem Sie auf drücken `Ctrl-C` An der Eingabeauf
 | Wenn Ihr System... | Beschreibung 
 
 
-| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu ,Schritt 23 
+| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install3_step23,Schritt 23>> 
 
 
 | Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
 .. Weiter mit Abschnitt link:set_fc_or_uta_uta2_config_on_node3.html["Einstellen der FC- oder UTA/UTA2-Konfiguration auf node3"] Und vervollständigen Sie die Unterabschnitte in diesem Abschnitt.
-.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit ,Schritt 23.
+.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<auto_install3_step23,Schritt 23>>.
 
 
 *Wichtig*: Sie müssen FC Onboard-Ports, CNA Onboard Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Serie oder dem System mit FlexArray Virtualisierungssoftware booten.

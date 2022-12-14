@@ -16,10 +16,12 @@ summary: Konfigurieren Sie für ONTAP 9.1 oder höher das Portlayout neu, und we
 [role="lead"]
 Wenn das vorhandene FC-Switch-Layout vor ONTAP 9.1 konfiguriert wurde, müssen Sie das Port-Layout neu konfigurieren und die neuesten RCFs (Reference Configuration Files) anwenden. Dieses Verfahren gilt nur für MetroCluster FC-Konfigurationen.
 
+.Bevor Sie beginnen
 Sie müssen die in der Fabric-Domäne vorhandenen FC-Switches identifizieren.
 
 Sie benötigen das Admin-Passwort und den Zugriff auf einen FTP- oder SCP-Server.
 
+.Über diese Aufgabe
 Sie müssen diese Aufgabe ausführen, wenn Ihr vorhandenes FC Switch-Layout vor ONTAP 9.1 konfiguriert wurde und Sie ein Upgrade auf ein in ONTAP 9.1 oder höher unterstütztes Plattformmodell durchführen. Dies ist _nicht_ erforderlich, wenn Sie ein Upgrade von einem vorhandenen Switch-Layout durchführen, das für ONTAP 9.1 oder höher konfiguriert wurde.
 
 Dieser Vorgang läuft unterbrechungsfrei ab und dauert etwa vier Stunden (außer Rack und Stack), wenn Festplatten gelöscht werden.

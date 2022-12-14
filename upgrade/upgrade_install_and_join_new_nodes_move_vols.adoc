@@ -13,6 +13,7 @@ summary: Sie müssen die neuen Nodes installieren und sie dem Cluster hinzufüge
 [role="lead"]
 Sie müssen die neuen Nodes installieren und sie dem Cluster hinzufügen, damit Sie Volumes von den ursprünglichen Nodes verschieben können.
 
+.Über diese Aufgabe
 Wenn Sie ein Upgrade der Controller Hardware durch Verschieben von Volumes durchführen, müssen sich sowohl die ursprünglichen Nodes als auch die neuen Nodes im selben Cluster befinden.
 
 .Schritt

@@ -37,12 +37,12 @@ Verbinden Sie den HA Interconnect zwischen den Nodes, indem Sie die folgenden Sc
 
 .. Schließen Sie den oberen Interconnect-Port von node3 an den oberen Interconnect-Port von node4 an.
 .. Schließen Sie den unteren Interconnect-Port von node3 an den unteren Interconnect-Port von node4 an.
-.. Gehen Sie zu ,Schritt 5.
+.. Gehen Sie zu <<step5,Schritt 5>>.
 
 
 
 
-| Im selben Chassis wie Node3 | Gehen Sie zu ,Schritt 5. Sie müssen den HA Interconnect nicht manuell zwischen den Nodes verbinden. In derselben Chassis-Konfiguration wird der HA Interconnect automatisch über die Backplane verbunden. 
+| Im selben Chassis wie Node3 | Gehen Sie zu <<step5,Schritt 5>>. Sie müssen den HA Interconnect nicht manuell zwischen den Nodes verbinden. In derselben Chassis-Konfiguration wird der HA Interconnect automatisch über die Backplane verbunden. 
 |===
 . [[Schritt5]]Nehmen Sie eine der folgenden Aktionen:
 +

@@ -24,10 +24,10 @@ Um node2 auszumustern, müssen Sie node2 richtig abschalten und aus dem Rack ode
 | Falls das Cluster... | Dann... 
 
 
-| Eines Clusters mit zwei Nodes | Gehen Sie zu ,Schritt 2. 
+| Eines Clusters mit zwei Nodes | Gehen Sie zu <<man_retire_2_Step2,Schritt 2>>. 
 
 
-| Ein Cluster mit mehr als zwei Nodes | Gehen Sie zu ,Schritt 9. 
+| Ein Cluster mit mehr als zwei Nodes | Gehen Sie zu <<man_retire_2_Step9,Schritt 9>>. 
 |===
 . [[man_retid_2_Step2]]Zugriff auf die erweiterte Berechtigungsebene durch Eingabe des folgenden Befehls auf einem der beiden Knoten:
 +

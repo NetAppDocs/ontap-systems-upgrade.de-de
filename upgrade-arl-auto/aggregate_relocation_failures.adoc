@@ -48,6 +48,7 @@ Ausführliche Informationen zum `storage aggregate relocation start`, `override-
 
 Beim Abschluss des Upgrade-Verfahrens sollte die Knoten3 der neue Home-Node von Aggregaten sein, die ursprünglich als Home-Node die Knoten1 hatten. Sie können sie nach dem Upgrade verschieben.
 
+.Über diese Aufgabe
 Unter den folgenden Umständen kann es nicht gelingen, Aggregate ordnungsgemäß zu verschieben und Node 1 als Home Node anstelle von Knoten3 zu verwenden:
 
 * In Phase 3, wenn Aggregate von node2 auf node3 verschoben werden. Einige der verlagerten Aggregate haben die Nr. 1 als Home-Node. Ein solches Aggregat könnte zum Beispiel „aggr_Node_1“ heißen. Wenn die Verlagerung von aggr_Node_1 während Phase 3 fehlschlägt und eine Verlagerung nicht erzwungen werden kann, dann wird das Aggregat auf node2 zurückgelassen.
@@ -80,6 +81,6 @@ Verwenden Sie das nicht `-ndo-controller-upgrade` Parameter während dieser Vers
 `_aggr1,aggr2,aggr3..._` Ist die Liste der Aggregate, die node1 als ursprünglichen Besitzer hatten.
 
 +
-Aggregate, die nicht über Node3 als Hausbesitzer verfügen, können mit dem gleichen Relocation-Befehl in auf node3 verschoben werden ,Schritt 3.
+Aggregate, die nicht über Node3 als Hausbesitzer verfügen, können mit dem gleichen Relocation-Befehl in auf node3 verschoben werden <<auto_aggr_relocate_fail_Step3,Schritt 3>>.
 
 

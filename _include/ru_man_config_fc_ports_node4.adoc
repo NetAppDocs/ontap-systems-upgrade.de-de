@@ -8,9 +8,11 @@
 
 Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.
 
+.Bevor Sie beginnen
 Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
 
-Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node4.
+.Über diese Aufgabe
+Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
 *Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, müssen Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
 
@@ -22,10 +24,10 @@ Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfi
 | Wenn das System, das Sie aktualisieren... | Dann… 
 
 
-| Festplatten sind vorhanden | Gehen Sie zu ,Schritt 5. 
+| Festplatten sind vorhanden | Gehen Sie zu <<man_config_4_Step5,Schritt 5>>. 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu ,Schritt 2. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu <<man_config_4_Step2,Schritt 2>>. 
 |===
 . [[man_config_4_Step2]]Zugriff auf den Wartungsmodus:
 +
@@ -97,10 +99,10 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 | Wenn die FC-Standardeinstellungen auf den neuen Nodes sind... | Dann… 
 
 
-| Das gleiche wie diejenigen, die Sie auf den ursprünglichen Knoten erfasst | Gehen Sie zu ,Schritt 11. 
+| Das gleiche wie diejenigen, die Sie auf den ursprünglichen Knoten erfasst | Gehen Sie zu <<man_config_4_Step11,Schritt 11>>. 
 
 
-| Anders als jene, die Sie auf den ursprünglichen Knoten erfasst haben | Gehen Sie zu ,Schritt 8. 
+| Anders als jene, die Sie auf den ursprünglichen Knoten erfasst haben | Gehen Sie zu <<man_config_4_Step8,Schritt 8>>. 
 |===
 . [[man_config_4_Step8]]Wartungsmodus beenden:
 +
@@ -129,14 +131,14 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 
 
 | Festplatten sind vorhanden  a| 
-** Gehen Sie zu  and configure UTA/UTA2 ports on node4 Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
+** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
 ** Überspringen Sie den Abschnitt und gehen Sie zu link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] Wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat.
 
 
 
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-** Gehen Sie zu  and configure UTA/UTA2 ports on node4 Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
+** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
 ** Überspringen Sie den Abschnitt _UTA/UTA2-Ports auf node4_ überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, kehren Sie zum Abschnitt _Installieren und Booten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#Step9["Schritt 9"].
 
 

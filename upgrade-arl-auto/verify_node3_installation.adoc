@@ -16,6 +16,7 @@ summary: 'Stellen Sie sicher, dass node3 dem Quorum beitreten, VLANs, Schnittste
 [role="lead"]
 Nach der Installation und dem Booten von node3 müssen Sie überprüfen, ob die Installation korrekt ist. Sie müssen warten, bis Knoten 3 dem Quorum beitreten und dann den Umzugsvorgang fortsetzen.
 
+.Über diese Aufgabe
 An diesem Punkt des Verfahrens wird der Vorgang angehalten, da node3 dem Quorum beitritt.
 
 .Schritte
@@ -43,6 +44,7 @@ Wenn sich die Konfiguration für node3 unterscheidet, kann zu einem späteren Ze
 
 Nachdem Sie bestätigt haben, dass node3 sich im Quorum befindet und mit node2 kommunizieren kann, müssen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen von node1 auf node3 neu erstellen. Sie müssen auch die node3-Ports zu den neu erstellten Broadcast-Domänen hinzufügen.
 
+.Über diese Aufgabe
 Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Und Link zu _Network Management_.
 
 .Schritte

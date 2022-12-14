@@ -16,10 +16,12 @@ summary: Überprüfen Sie, ob die physischen Ports auf node2 während eines manu
 [role="lead"]
 Sie müssen sicherstellen, dass die physischen Ports auf node2 den physischen Ports auf node4 korrekt zugeordnet werden. damit kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
+.Bevor Sie beginnen
 Sie müssen bereits über die Ports auf den neuen Nodes verfügen, um auf diese Informationen zuzugreifen, siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Informationen werden später in diesem Abschnitt verwendet.
 
 die Softwarekonfiguration von node4 muss mit der physischen Konnektivität von node4 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
 
+.Über diese Aufgabe
 Die Port-Einstellungen können je nach Modell der Nodes variieren. Sie müssen den Port des ursprünglichen Node und die LIF-Konfiguration mit dem kompatibel machen, was Sie planen, die Konfiguration des neuen Node zu verwenden. Dies liegt daran, dass der neue Node beim Booten die gleiche Konfiguration wiedergibt. Dies bedeutet, wenn Sie node4 booten, wird Data ONTAP versuchen, LIFs auf den gleichen Ports zu hosten, die in node2 verwendet wurden.
 
 Wenn die physischen Ports auf node2 also nicht direkt den physischen Ports auf node4 zugeordnet werden, sind daher Änderungen der Software-Konfiguration erforderlich, um nach dem Booten die Cluster-, Management- und Netzwerkkonnektivität wiederherzustellen. Wenn die Cluster-Ports auf node2 nicht direkt den Cluster-Ports auf node4 zugeordnet werden, kann node4 das Quorum auch dann nicht automatisch erneut verbinden, wenn es neu gestartet wird, bis eine Softwarekonfiguration geändert wird, um die Cluster LIFs auf den korrekten physischen Ports zu hosten.
@@ -189,8 +191,8 @@ Dieser Befehl entfernt Port „e0d“ auf node4:
 
 
 
-. Passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie gegebenenfalls die Intercluster LIFs mithilfe derselben Befehle, die in dargestellt sind ,Schritt 5.
-. Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in ,Schritt 5.
+. Passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie gegebenenfalls die Intercluster LIFs mithilfe derselben Befehle, die in dargestellt sind <<man_map_2_step5,Schritt 5>>.
+. Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in <<man_map_2_step5,Schritt 5>>.
 . Wenn in node4 keine Ports mehr vorhanden sind, löschen Sie diese wie folgt:
 +
 .. Zugriff auf die erweiterte Berechtigungsebene auf beiden Nodes:

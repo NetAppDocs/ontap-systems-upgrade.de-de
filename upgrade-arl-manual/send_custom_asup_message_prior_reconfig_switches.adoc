@@ -16,6 +16,7 @@ summary: Benachrichtigen Sie den technischen Support von NetApp, dass Wartungsar
 [role="lead"]
 Bevor Sie Ihre Switches neu konfigurieren, müssen Sie eine AutoSupport Meldung ausgeben, um den technischen Support von NetApp über laufende Wartungsarbeiten zu informieren. Die Mitteilung des technischen Supports über laufende Wartungsarbeiten verhindert, dass ein Fall eröffnet wird, wenn eine Störung aufgetreten ist.
 
+.Über diese Aufgabe
 Diese Aufgabe muss auf jedem MetroCluster-Standort ausgeführt werden.
 
 .Schritte

@@ -16,6 +16,7 @@ summary: 'Konfigurieren Sie, falls erforderlich, das neue Controller-Modul für 
 [role="lead"]
 Wenn der ersetzte Controller oder der HA-Partner (High Availability, Hochverfügbarkeit) des neuen Controllers NetApp Volume Encryption (NVE) verwendet, müssen Sie das neue Controller-Modul für NVE konfigurieren.
 
+.Über diese Aufgabe
 Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführt werden. Sie müssen den Befehl auf dem richtigen Node eingeben.
 
 .Schritte
@@ -62,4 +63,5 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 |===
 
 
+.Nachdem Sie fertig sind
 Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder EKM-Server nicht erreicht werden konnten. Stellen Sie diese Volumes mithilfe der wieder online `volume online` Befehl.

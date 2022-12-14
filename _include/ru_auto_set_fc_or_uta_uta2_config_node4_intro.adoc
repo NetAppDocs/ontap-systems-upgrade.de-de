@@ -4,4 +4,5 @@
 
 Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
-Möglicherweise müssen Sie die abschließen  FC ports on node4 Abschnitt, der  and configure UTA/UTA2 ports on node4, Oder beide Abschnitte.
+.Über diese Aufgabe
+Möglicherweise müssen Sie die abschließen <<Konfigurieren Sie FC-Ports auf node4>> Abschnitt, der <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>, Oder beide Abschnitte.

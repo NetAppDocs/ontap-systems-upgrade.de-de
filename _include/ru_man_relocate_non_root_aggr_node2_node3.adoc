@@ -62,7 +62,7 @@ NOTE: Sie müssen warten, bis alle Aggregate, die sich im Besitz von node2 befin
 | Bei Umzug von... | Dann... 
 
 
-| Alle Aggregate waren erfolgreich | Gehen Sie zu ,Schritt 6. 
+| Alle Aggregate waren erfolgreich | Gehen Sie zu <<man_relocate_2_3_step6,Schritt 6>>. 
 
 
 | Aggregate sind ausgefallen oder sie wurden Vetos  a| 

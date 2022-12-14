@@ -76,7 +76,7 @@ Das System zeigt die LIFs für das Cluster, das Intercluster, das Node-Managemen
 
 NOTE: Das System verfügt möglicherweise über keine Intercluster-LIFs.
 
-. Erfassen Sie die Informationen in der Ausgabe des Befehls in ,Schritt 3 Zur Verwendung im Abschnitt link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"].
+. Erfassen Sie die Informationen in der Ausgabe des Befehls in <<man_record_node1_step3,Schritt 3>> Zur Verwendung im Abschnitt link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"].
 +
 Die Ausgabeinformationen sind erforderlich, um die neuen Controller-Ports den alten Controller-Ports zuzuordnen.
 
@@ -161,7 +161,7 @@ Sie verwenden die Informationen im Abschnitt link:map_ports_node1_node3.html["Po
 | Die NVRAM-System-ID-Nummer im Abschnitt wurde aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten auf das Upgrade vor"]. | Weiter mit dem nächsten Abschnitt link:retire_node1.html["Node1 ausmustern"]. 
 
 
-| Die NVRAM-System-ID-Nummer wurde nicht in den Abschnitt aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten auf das Upgrade vor"] | Vollständig ,Schritt 11 Und ,Schritt 12 Und dann weiter zu link:retire_node1.html["Node1 ausmustern"]. 
+| Die NVRAM-System-ID-Nummer wurde nicht in den Abschnitt aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten auf das Upgrade vor"] | Vollständig <<man_record_node1_step11,Schritt 11>> Und <<man_record_node1_step12,Schritt 12>> Und dann weiter zu link:retire_node1.html["Node1 ausmustern"]. 
 |===
 . [[man_Record_node1_ste11]]Geben Sie den folgenden Befehl auf einem der Controller ein:
 +

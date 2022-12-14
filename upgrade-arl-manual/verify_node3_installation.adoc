@@ -32,7 +32,7 @@ Nach der Installation und dem Booten von node3 müssen Sie überprüfen, ob er k
 | Falls das Cluster... | Dann... 
 
 
-| In einer SAN-Umgebung erfolgreich positionieren | Vollständig ,Schritt 4 Und gehen Sie dann zum Abschnitt link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Das Verschieben von NAS-Daten-LIFs von node1 von node2 auf node3 und die Überprüfung von SAN-LIFs auf node3"]. 
+| In einer SAN-Umgebung erfolgreich positionieren | Vollständig <<step4,Schritt 4>> Und gehen Sie dann zum Abschnitt link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Das Verschieben von NAS-Daten-LIFs von node1 von node2 auf node3 und die Überprüfung von SAN-LIFs auf node3"]. 
 
 
 | Nicht in einer SAN-Umgebung | Überspringen Sie Schritt 4, und fahren Sie mit fort link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["Das Verschieben von NAS-Daten-LIFs von node1 von node2 auf node3 und die Überprüfung von SAN-LIFs auf node3"]. 

@@ -28,6 +28,7 @@ Abstürze können vor, während oder unmittelbar nach Phase 2 auftreten, währen
 
 Wenn node1 oder node2 vor Phase 2 abstürzt, wurden noch keine Aggregate verschoben und die HA-Konfiguration ist noch aktiviert.
 
+.Über diese Aufgabe
 Takeover und Giveback können normal fortgesetzt werden.
 
 .Schritte
@@ -41,6 +42,7 @@ Takeover und Giveback können normal fortgesetzt werden.
 
 Einige oder alle Aggregate wurden von node1 in node2 verschoben und die HA ist noch aktiviert. Node2 wird das Root-Volume von node1 und alle nicht-Root-Aggregate übernehmen, die nicht verschoben wurden.
 
+.Über diese Aufgabe
 Das Eigentum an verlagerten Aggregaten sieht mit dem Eigentum nicht-Root-Aggregaten identisch aus, die übernommen wurden, da sich der Home-Eigentümer nicht geändert hat. Wenn node1 in den eintritt `waiting for giveback state`, Node2 wird alle node1 nicht-Root-Aggregate zurückgeben.
 
 .Schritte
@@ -68,6 +70,7 @@ Möglicherweise sehen Sie einige Änderungen in der Ausgabe von `storage failove
 
 Node1 hat einige oder alle seine Aggregate in node2 verschoben. HA ist aktiviert.
 
+.Über diese Aufgabe
 Node1 wird alle Aggregate node2 sowie alle eigenen Aggregate übernehmen, die es auf node2 verlagert hatte. Wenn node2 in den eintritt `Waiting for Giveback` Zustand: Node1 gibt alle Aggregate node2 zurück.
 
 .Schritte
@@ -115,6 +118,7 @@ Ein Client-Ausfall wird für alle Aggregate auftreten, während node2 gestartet 
 
 Node2 hat einige oder alle seine Aggregate in Node3 verschoben, die Daten von Aggregaten bereitstellen, die umgezogen wurden. HA ist deaktiviert.
 
+.Über diese Aufgabe
 Es wird ein Client-Ausfall für Aggregate geben, die nicht verlagert wurden.
 
 .Schritte
@@ -140,6 +144,7 @@ Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Agg
 
 Falls node3 abstürzt, während node2 Aggregate zu node3 verschoben wird, wird node2 die Verschiebung aller verbleibenden Aggregate abbrechen.
 
+.Über diese Aufgabe
 Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in Knoten 3 verlagert wurden, begegnen ein Client-Ausfall, während node3 gebootet wird.
 
 .Schritte
@@ -195,6 +200,7 @@ Es können zu Abstürzen kommen, während Phase 5, in der Sie node4 installieren
 
 Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node4 übernimmt nicht, dient aber weiterhin nicht-Root-Aggregate, die node3 bereits verschoben hat. Das HA-Paar ist deaktiviert.
 
+.Über diese Aufgabe
 Es gibt einen Ausfall für den Rest der Aggregate, bis node3 wieder hochfährt.
 
 .Schritte
@@ -209,6 +215,7 @@ Es gibt einen Ausfall für den Rest der Aggregate, bis node3 wieder hochfährt.
 
 Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node3 übernimmt nicht die Übernahme, dient aber weiterhin nicht-Root-Aggregate, die Node3 besitzt, sowie solche, die nicht verlagert wurden. HA ist deaktiviert.
 
+.Über diese Aufgabe
 Es gibt einen Ausfall für nicht-Root-Aggregate, die bereits verschoben wurden, bis node4 wieder hochfährt.
 
 .Schritte

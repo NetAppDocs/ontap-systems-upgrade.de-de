@@ -183,13 +183,13 @@ aggr4         node1        node2        online
 +
 [cols="35,65"]
 |===
-| Wenn der Befehl in ausgeführt wird ,Schritt 9... | Dann... 
+| Wenn der Befehl in ausgeführt wird <<man_prepare_nodes_step9,Schritt 9>>... | Dann... 
 
 
-| Leere Ausgabe | Überspringen Sie Schritt 11, und fahren Sie mit fort ,Schritt 12. 
+| Leere Ausgabe | Überspringen Sie Schritt 11, und fahren Sie mit fort <<man_prepare_nodes_step12,Schritt 12>>. 
 
 
-| Hatte eine Ausgabe | Gehen Sie zu ,Schritt 11. 
+| Hatte eine Ausgabe | Gehen Sie zu <<man_prepare_nodes_step11,Schritt 11>>. 
 |===
 . [[man_prepare_Nodes_step11] Wenn node1 oder node2 Aggregate besitzt, für die es der aktuelle Eigentümer, aber nicht der Besitzer des Hauses ist, führen Sie die folgenden Teilschritte durch:
 +
@@ -308,7 +308,7 @@ vs0
 
 2 entries were displayed.
 ....
-. Wenn die Ausgabe in ,Schritt 15 Zeigt, dass Node1 oder node2 Eigentümer beliebiger Daten-LIFs sind, die sich im Besitz anderer Nodes im Cluster befinden. Migrieren Sie die Daten-LIFs von node1 oder node2:
+. Wenn die Ausgabe in <<man_prepare_nodes_step15,Schritt 15>> Zeigt, dass Node1 oder node2 Eigentümer beliebiger Daten-LIFs sind, die sich im Besitz anderer Nodes im Cluster befinden. Migrieren Sie die Daten-LIFs von node1 oder node2:
 +
 `network interface revert -vserver * -lif *`
 

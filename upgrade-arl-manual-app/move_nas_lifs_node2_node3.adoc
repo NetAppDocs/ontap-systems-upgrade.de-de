@@ -16,6 +16,7 @@ summary: Verschieben Sie während eines manuellen ARL Upgrades auf Controllern m
 [role="lead"]
 Nachdem Sie die Aggregate von node2 auf node3 verschoben haben, müssen Sie die NAS-Daten-LIFs von node2 auf node3 verschieben.
 
+.Über diese Aufgabe
 Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie müssen überprüfen, ob die LIFs sich in den entsprechenden Ports befinden, nachdem Sie die LIFs von node3 nach node4 verschoben und node4 in den Online-Modus versetzt haben.
 
 .Schritte
@@ -49,10 +50,10 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 | Falls Knoten 2... | Dann... 
 
 
-| Schnittstellengruppen oder VLANs sind konfiguriert | Gehen Sie zu ,Schritt 3. 
+| Schnittstellengruppen oder VLANs sind konfiguriert | Gehen Sie zu <<man_move_lif_2_3_step3,Schritt 3>>. 
 
 
-| Schnittstellengruppen oder VLANs sind nicht konfiguriert | Überspringen Sie Schritt 3, und fahren Sie mit fort ,Schritt 4. 
+| Schnittstellengruppen oder VLANs sind nicht konfiguriert | Überspringen Sie Schritt 3, und fahren Sie mit fort <<man_move_lif_2_3_step4,Schritt 4>>. 
 |===
 . [[man_move_lif_2_3_step3]]Nehmen Sie die folgenden Schritte durch, um die auf Schnittstellengruppen und VLANs auf node2 gehosteten NAS-Daten-LIFs zu migrieren:
 +
@@ -60,7 +61,7 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 +
 `network interface migrate -vserver _Vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
 
-.. Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt A Um den Port und Node, der derzeit die LIFs hostet, geben Sie einmal für jeden Node den folgenden Befehl ein:
+.. Ändern Sie den Home-Port und den Home-Node der LIFs in <<man_move_lif_2_3_substepa,Unterschritt A>> Um den Port und Node, der derzeit die LIFs hostet, geben Sie einmal für jeden Node den folgenden Befehl ein:
 +
 `network interface modify -vserver _Vserver_name_ -lif _LIF_name_ -home-node _node3_ -homeport _netport|ifgrp_`
 
@@ -68,7 +69,7 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 +
 `network interface migrate -vserver _Vserver_name_ -lif _LIF_name_ -destination-node _node3_ –destination-port _netport|ifgrp_`
 
-.. Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt C Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
+.. Ändern Sie den Home-Port und den Home-Node der LIFs in <<man_move_lif_2_3_substepc,Unterschritt C>> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
 +
 `network interface modify -vserver _Vserver_name_ -lif _LIF_name_ -home-node _node3_ -homeport _netport|ifgrp_`
 
@@ -81,13 +82,13 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 | Wenn das Cluster konfiguriert ist für... | Dann... 
 
 
-| NAS | Vollständig ,Schritt 5 Bis ,Schritt 8. 
+| NAS | Vollständig <<man_move_lif_2_3_step5,Schritt 5>> Bis <<man_move_lif_2_3_step8,Schritt 8>>. 
 
 
-| San | Überspringen Sie Schritt 5 bis Schritt 8 und schließen Sie dann ab ,Schritt 9. 
+| San | Überspringen Sie Schritt 5 bis Schritt 8 und schließen Sie dann ab <<man_move_lif_2_3_step9,Schritt 9>>. 
 
 
-| Sowohl NAS als auch SAN | Vollständig ,Schritt 5 Bis ,Schritt 9. 
+| Sowohl NAS als auch SAN | Vollständig <<man_move_lif_2_3_step5,Schritt 5>> Bis <<man_move_lif_2_3_step9,Schritt 9>>. 
 |===
 . [[man_move_lif_2_3_step5]]Wenn auf Ihren Plattformen nicht dieselben Daten-Ports vorhanden sind, fügen Sie die Ports der Broadcast-Domäne hinzu:
 +

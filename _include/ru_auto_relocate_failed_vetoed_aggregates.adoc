@@ -4,6 +4,7 @@
 
 Falls Aggregate nicht verschoben oder ein Vetos ausfällt, müssen sie die Aggregate manuell verschieben oder, falls erforderlich, die Vetos oder Zielprüfungen überschreiben.
 
+.Über diese Aufgabe
 Der Umzugsvorgang wird aufgrund des Fehlers angehalten.
 
 .Schritte

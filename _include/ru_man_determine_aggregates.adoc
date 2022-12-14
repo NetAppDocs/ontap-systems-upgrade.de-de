@@ -4,6 +4,7 @@
 
 Wenn Sie Controller mit internen Festplatten aktualisieren, müssen Sie mehrere Befehle ausführen und deren Ausgabe überprüfen, um zu bestätigen, dass keines der internen Festplatten Root-Aggregate oder Datenaggregate enthält.
 
+.Über diese Aufgabe
 Wenn Sie Controller nicht mit Aggregaten auf internen Festplatten aktualisieren, lassen Sie diesen Abschnitt überspringen und fahren Sie mit dem Abschnitt fort link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
 
 .Schritte
@@ -105,7 +106,7 @@ node> aggr status -v
          Volumes: vol0
 ....
 +
-Basierend auf der Ausgabe in ,Schritt 4 Schritt 6 verwendet aggr2 drei interne Laufwerke – „0a.00.1“, „0a.00.3“ und „0a.00.9“ – und die Volumes auf „aggr2“ sind „vol6“, „vol5“ und „vol14“. Auch in der Ausgabe von Schritt 6 enthält die Auslesung für „aggr0“ das Wort „root“ am Anfang der Information für das Aggregat. Das bedeutet, dass es ein Root-Volume enthält.
+Basierend auf der Ausgabe in <<man_aggr_step4,Schritt 4>> Schritt 6 verwendet aggr2 drei interne Laufwerke – „0a.00.1“, „0a.00.3“ und „0a.00.9“ – und die Volumes auf „aggr2“ sind „vol6“, „vol5“ und „vol14“. Auch in der Ausgabe von Schritt 6 enthält die Auslesung für „aggr0“ das Wort „root“ am Anfang der Information für das Aggregat. Das bedeutet, dass es ein Root-Volume enthält.
 
 . Überprüfen Sie die Ausgabe des `aggr status -v` Befehl zur Ermittlung der Volumes, die zu beliebigen Aggregaten gehören, die sich auf einem internen Laufwerk befinden und ob eines dieser Volumes ein Root-Volume enthalten soll
 . Beenden Sie den nodeshell, indem Sie auf jedem Controller den folgenden Befehl eingeben:

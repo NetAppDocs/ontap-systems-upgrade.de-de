@@ -16,6 +16,7 @@ summary: Installieren Sie RCF-Dateien, um Cisco und Brocade Switches während ei
 [role="lead"]
 Sie müssen die entsprechenden Referenzkonfigurationsdateien (RCfs) anwenden, um Ihre Switches neu zu konfigurieren, damit sie die neuen Nodes aufnehmen können. Nachdem Sie die RCFs angewendet haben, können Sie die Schalter umschalten.
 
+.Bevor Sie beginnen
 Die Verwendung des FC-Switch-Ports muss mit der in der Installation and Configuration_-Inhaltsanweisung _Fabric-Attached MetroCluster beschriebenen Nutzung übereinstimmen, damit die RCFs verwendet werden können. Gehen Sie zu link:other_references.html["Quellen"] Zum Verlinken auf den Content _Fabric-Attached MetroCluster Installation and Configuration_.
 
 .Schritte

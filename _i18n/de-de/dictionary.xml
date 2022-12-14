@@ -4475,4 +4475,7 @@
   <block id="d9e40d62315bfc8bad4f1329f7f9b867" category="paragraph">Bei der Installation müssen Sie Folgendes beachten:</block>
   <block id="342f3ca2519e4e92f56675a89236fce6" category="list-text">Verschieben Sie alle Leereinfüllmodule in den Steckplätzen 6-1 und 6-2 vom alten NVRAM-Modul in das neue NVRAM-Modul.</block>
   <block id="97bcf885640a80425f98f36e28630da4" category="paragraph">Installieren Sie AFF A900 oder FAS9500 NVRAM- und Controller-Module, die Sie für das Upgrade auf Knoten1 erhalten haben.</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">Über diese Aufgabe</block>
+  <block id="3468b73fe010ca505a63fcddaa4f3601" category="paragraph-title">In diesen Informationen verwendete Terminologie</block>
+  <block id="5d022d26a75a4e30fae6648d5bcdd9e5" category="paragraph-title">Für die Konfiguration von MetroCluster FC</block>
 </blocks>

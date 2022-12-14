@@ -16,6 +16,7 @@ summary: 'Überprüfen Sie, ob die physischen Ports auf node1 korrekt zugeordnet
 [role="lead"]
 Sie müssen überprüfen, ob die physischen Ports auf node1 den physischen Ports auf node3 korrekt zugeordnet sind. Dadurch kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
+.Über diese Aufgabe
 Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
 
 Die Port-Einstellungen können je nach Modell der Nodes variieren. Sie müssen die Port- und LIF-Konfiguration auf dem ursprünglichen Node mit der geplanten Verwendung und Konfiguration des neuen Node kompatibel machen. Dies liegt daran, dass der neue Node beim Booten der gleichen Konfiguration wiedergibt. Dies bedeutet, dass ONTAP beim Booten von node3 versuchen wird, LIFs auf den gleichen Ports zu hosten, die in node1 verwendet wurden.
@@ -185,8 +186,8 @@ Mit dem folgenden Befehl wird der Port „e0d“ auf node3 entfernt:
 
 
 
-. Passen Sie die Broadcast-Domänenmitgliedschaft der Netzwerkports an, die für Intercluster LIFs verwendet werden, mit denselben Befehlen an, wie in dargestellt ,Schritt 5.
-. Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in ,Schritt 5.
+. Passen Sie die Broadcast-Domänenmitgliedschaft der Netzwerkports an, die für Intercluster LIFs verwendet werden, mit denselben Befehlen an, wie in dargestellt <<auto_map_3_step5,Schritt 5>>.
+. Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in <<auto_map_3_step5,Schritt 5>>.
 . Wenn auf node1 keine Ports mehr vorhanden waren, löschen Sie sie mit den folgenden Schritten:
 +
 .. Zugriff auf die erweiterte Berechtigungsebene auf beiden Nodes:

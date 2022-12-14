@@ -16,6 +16,7 @@ summary: 'Überprüfen Sie, ob die physischen Ports auf node2 korrekt mit node4 
 [role="lead"]
 Sie müssen überprüfen, ob die physischen Ports auf node2 den physischen Ports auf node4 korrekt zugeordnet sind. Dadurch kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
+.Über diese Aufgabe
 Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
 
 die Softwarekonfiguration von node4 muss mit der physischen Konnektivität von node4 übereinstimmen und die IP-Konnektivität muss wiederhergestellt werden, bevor Sie das Upgrade fortsetzen.
@@ -173,8 +174,8 @@ Dieser Befehl entfernt Port „e0d“ auf node4:
 
 
 
-. Passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie gegebenenfalls die Intercluster LIFs mithilfe derselben Befehle, die in dargestellt sind ,Schritt 5.
-. Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in ,Schritt 5.
+. Passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie gegebenenfalls die Intercluster LIFs mithilfe derselben Befehle, die in dargestellt sind <<auto_map_4_Step5,Schritt 5>>.
+. Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in <<auto_map_4_Step5,Schritt 5>>.
 . Wenn in node4 keine Ports mehr vorhanden sind, löschen Sie diese wie folgt:
 +
 .. Zugriff auf die erweiterte Berechtigungsebene auf beiden Nodes:

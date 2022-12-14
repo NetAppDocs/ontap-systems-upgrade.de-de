@@ -16,8 +16,10 @@ summary: Deaktivieren Sie Brocade- und Cisco-Switches in der Fabric, und ändern
 [role="lead"]
 Sie müssen die Switches in der Fabric dauerhaft deaktivieren, damit Sie seine Konfiguration ändern können.
 
+.Über diese Aufgabe
 Sie deaktivieren die Switches, indem Sie die Befehle in der Switch-Befehlszeile ausführen. Die dafür verwendeten Befehle sind keine ONTAP-Befehle.
 
+.Schritt
 Deaktivieren Sie den Switch dauerhaft:
 
 * Verwenden Sie für Brocade-Switches den `switchCfgPersistentDisable` Befehl.

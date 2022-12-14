@@ -13,6 +13,7 @@ summary: Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die
 [role="lead"]
 Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die Volumes zu speichern, die Sie von den ursprünglichen Nodes verschieben möchten. Sie müssen ein Aggregat für jedes Volume identifizieren und jedes Volume einzeln verschieben.
 
+.Bevor Sie beginnen
 Beziehungen zur Datensicherungsspiegelung müssen initialisiert werden, bevor Sie ein Volume verschieben können.
 
 https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html["Hier finden Sie das erforderliche Datenschutzverfahren"^].

@@ -13,6 +13,7 @@ summary: Wenn es sich bei Ihrem ursprünglichen Node um eines der unterstützten
 [role="lead"]
 Wenn es sich bei Ihrem ursprünglichen Node um eines der unterstützten Modelle handelt, können Sie dessen interne SATA-Laufwerke, SSDs oder SAS-Laufwerke in ein Festplatten-Shelf verschieben, das während des Upgrades durch die Verschiebung des Storage mit den neuen Nodes verbunden ist. Sie können das System auch in ein Laufwerk-Shelf konvertieren und an die neuen Nodes anschließen.
 
+.Über diese Aufgabe
 Sie können Laufwerke oder Laufwerk-Shelfs nur innerhalb desselben Clusters verschieben.
 
 .Wahlmöglichkeiten

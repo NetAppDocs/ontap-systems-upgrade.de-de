@@ -16,6 +16,7 @@ summary: Überprüfen Sie die Installation node1 mit dem AFF A900-Controller-Mod
 [role="lead"]
 Sie müssen die Node1-Installation mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen überprüfen. Da keine Änderung an physischen Ports vorgenommen wird, sind Sie nicht verpflichtet, die physischen Ports von der alten Knoten1 auf den Ersatz-Knoten1 zuzuordnen.
 
+.Über diese Aufgabe
 Nachdem Sie node1 mit dem AFF A900 oder FAS9500 Controller-Modul gebootet haben, müssen Sie überprüfen, ob es korrekt installiert ist. Sie müssen warten, bis node1 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
 
 An diesem Punkt in der Prozedur sollte der Upgrade-Vorgang des Controllers angehalten sein, da node1 versucht hat, Quorum automatisch beizutreten.
@@ -72,7 +73,7 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 
 NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Broadcast-Domänen_ unter node1_ umbenannt.
 
-. Wenn sich der Controller-Austausch im Status „Pause“ befindet, fahren Sie mit fort  network configuration on node1.
+. Wenn sich der Controller-Austausch im Status „Pause“ befindet, fahren Sie mit fort <<Stellen Sie die Netzwerkkonfiguration auf node1 wieder her>>.
 
 
 
@@ -81,6 +82,7 @@ NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Br
 
 Nachdem Sie bestätigt haben, dass node1 sich im Quorum befindet und mit node2 kommunizieren kann, überprüfen Sie, dass node1 VLANs, Interface Groups und Broadcast-Domains auf node1 gesehen werden. Überprüfen Sie außerdem, ob alle node1-Netzwerk-Ports in ihren richtigen Broadcast-Domänen konfiguriert sind.
 
+.Über diese Aufgabe
 Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit dem Inhalt _Network Management_.
 
 .Schritte
@@ -182,7 +184,7 @@ Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, di
 `network port reachability show`
 
 +
-Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn ein Port einen anderen Status als diese beiden meldet, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in ,Schritt 4.
+Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn ein Port einen anderen Status als diese beiden meldet, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in <<restore_node1_step4,Schritt 4>>.
 
 . Vergewissern Sie sich, dass alle Ports in Broadcast-Domänen platziert wurden:
 +

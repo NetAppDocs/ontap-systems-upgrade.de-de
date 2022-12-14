@@ -13,6 +13,7 @@ summary: Sie müssen die Festplatten, die zu node1 bzw. node2 gehörten, Node3 b
 [role="lead"]
 Sie müssen die Festplatten, die zu node1 bzw. node2 gehörten, Node3 bzw. node4 neu zuweisen.
 
+.Über diese Aufgabe
 Sie führen die Schritte in diesem Abschnitt auf Node3 und node4 durch, führen jeden Schritt auf node3 und dann node4 aus, bevor Sie zum nächsten Schritt weitergehen.
 
 .Schritte

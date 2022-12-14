@@ -24,4 +24,5 @@ Stellen Sie in Phase 6 sicher, dass die neuen Knoten korrekt eingerichtet sind. 
 . link:resume_snapmirror_operations.html["Setzen Sie den SnapMirror Betrieb fort"]
 
 
+.Für die Konfiguration von MetroCluster FC
 Bei der MetroCluster FC-Konfiguration müssen die Nodes des Disaster Recovery-/Failover-Standorts so schnell wie möglich ersetzt werden. Nicht übereinstimmende Controller-Modelle in einem MetroCluster wird nicht unterstützt, weil eine falsche Übereinstimmung des Controller-Modells dazu führen kann, dass Disaster Recovery-Spiegelung offline geht. Verwenden Sie den Befehl -`skip-metrocluster-check true` Option zum Umgehen der MetroCluster-Prüfungen, wenn Sie Nodes am zweiten Standort ersetzen.

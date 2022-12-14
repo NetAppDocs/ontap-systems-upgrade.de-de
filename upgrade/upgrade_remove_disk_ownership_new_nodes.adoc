@@ -13,6 +13,7 @@ summary: Wenn die neuen Nodes über interne Festplatten oder mit dem System verb
 [role="lead"]
 Wenn die neuen Nodes über interne Festplatten oder mit dem System verbundene zusätzliche Shelfs verfügen, können diese die Controller-Upgrades stören. Führen Sie die folgenden Schritte aus, um den Besitz neuer Festplatten zu entfernen, die mit node3/node4 geliefert wurden.
 
+.Über diese Aufgabe
 Diese Schritte werden auf den Knoten 3 und node4 nacheinander durchgeführt. Die Knotenfolge spielt keine Rolle.
 
 [NOTE]

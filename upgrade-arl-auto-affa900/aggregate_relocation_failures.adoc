@@ -48,6 +48,7 @@ Ausführliche Informationen zum `storage aggregate relocation start`, `override-
 
 Beim Ende des Upgrade-Verfahrens sollte die Knoten1 der neue Home-Node von Aggregaten sein, die ursprünglich als Home-Node node1 verwendet wurden. Sie können sie nach dem Upgrade verschieben.
 
+.Über diese Aufgabe
 Falls Aggregate nicht korrekt verschoben werden können, d. h. Node 2 statt Knoten 1, wird unter den folgenden Umständen als Home Node verwendet:
 
 * In Phase 3, wenn Aggregate von node2 auf node1 verschoben werden.

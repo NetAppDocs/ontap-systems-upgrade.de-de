@@ -43,5 +43,5 @@ NOTE: Verwenden Sie beim Einsetzen des Trägers zwei Hände.
 +
 Sie müssen den Griff langsam schließen, damit er korrekt an der Vorderseite des Trägers ausgerichtet ist.
 
-. Wiederholen ,Schritt 2 Bis ,Schritt 5 Bei allen Laufwerken, die Sie auf das neue System migrieren.
+. Wiederholen <<move_int_drive_2,Schritt 2>> Bis <<move_int_drive_5,Schritt 5>> Bei allen Laufwerken, die Sie auf das neue System migrieren.
 

@@ -16,8 +16,10 @@ summary: Verschieben Sie die Aggregate und NAS-Daten-LIFs zwischen Knoten 1 und 
 [role="lead"]
 Bevor Sie Node1 durch den AFF A900 oder FAS9500 Controller und NVRAM-Module ersetzen können, müssen Sie die nicht-Root-Aggregate und NAS-Daten-LIFs von node1 auf node2 verschieben, bevor Sie die Ressourcen von node1 auf dem AFF A900 oder FAS9500 System schließlich wieder auf node1 zurücksetzen. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können.
 
+.Bevor Sie beginnen
 Der Vorgang sollte bereits angehalten werden, wenn Sie mit der Aufgabe beginnen. Sie müssen den Vorgang manuell fortsetzen.
 
+.Über diese Aufgabe
 Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Sie müssen während des Upgrades keine SAN-LIFs für den Cluster- oder Systemzustand verschieben. Sie müssen überprüfen, ob sich die LIFs auf den entsprechenden Ports befinden, nachdem Sie als AFF A900 oder FAS9500 System Knoten 1 online gestellt haben.
 
 

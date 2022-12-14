@@ -41,7 +41,7 @@ Diese Eingabeaufforderungen sind möglicherweise in den Konsolenmeldungen verbor
 Wenn `[localhost:disk.encryptNoSupport:ALERT]: Detected FIPS-certified encrypting drive` Und oder `[localhost:diskown.errorDuringIO:error]: error 3 (disk failed) on disk` Fehler auftreten, führen Sie die folgenden Schritte aus:
 
 .. Halten Sie den Node an der LOADER-Eingabeaufforderung an.
-.. Prüfen und setzen Sie die Storage Encryption Boot-Optionen zurück, die in erwähnt sind ,Schritt 1.
+.. Prüfen und setzen Sie die Storage Encryption Boot-Optionen zurück, die in erwähnt sind <<A900_boot_node2,Schritt 1>>.
 .. An der Loader-Eingabeaufforderung booten Sie:
 +
 `boot_ontap`

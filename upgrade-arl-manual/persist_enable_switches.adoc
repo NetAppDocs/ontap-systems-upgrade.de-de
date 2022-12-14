@@ -16,6 +16,7 @@ summary: Aktivieren Sie Brocade und Cisco Switches dauerhaft in dem Fabric währ
 [role="lead"]
 Sie müssen die Switches im Fabric dauerhaft aktivieren.
 
+.Schritt
 Dauerhaft aktivieren Sie den Switch:
 
 * Verwenden Sie für Brocade-Switches den `switchCfgPersistentenable` Befehl.

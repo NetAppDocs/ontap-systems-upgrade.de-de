@@ -16,10 +16,12 @@ summary: Überprüfen Sie, ob die physischen Ports auf node1 bei einem manuellen
 [role="lead"]
 Sie müssen sicherstellen, dass die physischen Ports auf node1 den physischen Ports auf node3 korrekt zugeordnet werden. Somit kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
+.Bevor Sie beginnen
 Sie müssen von _Hardware Universe_ bereits über die Ports auf den neuen Nodes verfügen. (Gehen Sie zu link:other_references.html["Quellen"] Zum Verknüpfen mit dem _Hardware Universe_). Sie verwenden die Informationen später in diesem Abschnitt und in link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
 
 Die Softwarekonfiguration von node3 muss mit der physischen Konnektivität von node3 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
 
+.Über diese Aufgabe
 Die Port-Einstellungen können je nach Modell der Nodes variieren.
 
 Sie müssen den Port des ursprünglichen Node und die LIF-Konfiguration mit dem kompatibel machen, was Sie planen, die Konfiguration des neuen Node zu verwenden. Dies liegt daran, dass der neue Node beim Booten der gleichen Konfiguration wiedergibt. Dies bedeutet, dass ONTAP beim Booten von node3 versuchen wird, LIFs auf den gleichen Ports zu hosten, die in node1 verwendet wurden.
@@ -206,8 +208,8 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 
 
 
-. [[man_map_1_step6]]passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie die LIFs, falls erforderlich, mithilfe derselben Befehle wie in dargestellt ,Schritt 5.
-. [[step7]]passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in ,Schritt 5.
+. [[man_map_1_step6]]passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie die LIFs, falls erforderlich, mithilfe derselben Befehle wie in dargestellt <<man_map_1_step5,Schritt 5>>.
+. [[step7]]passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in <<man_map_1_step5,Schritt 5>>.
 . [[Schritt8]] Wenn auf node1 keine Ports mehr vorhanden sind, gehen Sie wie folgt vor, um sie zu löschen:
 +
 .. Zugriff auf die erweiterte Berechtigungsebene auf beiden Nodes:

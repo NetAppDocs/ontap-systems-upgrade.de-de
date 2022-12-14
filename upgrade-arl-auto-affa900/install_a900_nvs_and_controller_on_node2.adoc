@@ -23,6 +23,7 @@ Bei der Installation müssen Sie Folgendes beachten:
 * Verschieben Sie alle Flash Cache Module, die im FAS9000 NVRAM-Modul installiert sind, auf das FAS9500 NVRAM-Modul.
 
 
+.Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 

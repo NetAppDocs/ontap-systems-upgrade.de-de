@@ -13,6 +13,7 @@ summary: 'Um das Upgrade durch Verschiebung des Storage abzuschließen, müssen 
 [role="lead"]
 Um das Upgrade durch Verschiebung von Storage abzuschließen, müssen alle nicht verwendeten Ports und LIFs von den neuen Nodes gelöscht, der Storage Failover oder Hochverfügbarkeit neu aktiviert, der Service-Prozessor (SP) konfiguriert, neue Lizenzen installiert und AutoSupport eingerichtet werden. Unter Umständen müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder CNA-Ports konfigurieren.
 
+.Bevor Sie beginnen
 Diese Schritte gelten für Systeme mit ONTAP 9.8 oder höher. Wenn Sie ONTAP 9.7 oder eine frühere Version verwenden, müssen Sie das Verfahren unter verwenden xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[Durchführen der letzten Upgrade-Schritte in ONTAP 9.7 oder früher].
 
 .Schritte
@@ -109,4 +110,5 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migration zu einem
 
 
 
+.Nachdem Sie fertig sind
 Sie haben das Upgrade-Verfahren abgeschlossen.

@@ -16,10 +16,12 @@ summary: Überprüfen Sie, ob die physischen Ports auf node2 während eines manu
 [role="lead"]
 Sie müssen sicherstellen, dass die physischen Ports auf node2 den physischen Ports auf node4 korrekt zugeordnet werden. damit kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
+.Bevor Sie beginnen
 Sie müssen bereits über die Ports auf den neuen Nodes verfügen, um auf diese Informationen zuzugreifen, siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Informationen werden später in diesem Abschnitt verwendet.
 
 die Softwarekonfiguration von node4 muss mit der physischen Konnektivität von node4 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
 
+.Über diese Aufgabe
 Die Port-Einstellungen können je nach Modell der Nodes variieren.
 
 .Schritte
@@ -168,7 +170,7 @@ VLAN-Ports erstellen:
 
 NOTE: Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierten Systems müssen Sie unter Umständen Teilschritte (a) bis (g) wiederholen, bis alle Ports dort richtig platziert sind, wo sie benötigt werden.
 
-. Wenn keine VLANs im System konfiguriert sind, fahren Sie mit fort ,Schritt 5. Wenn VLANs konfiguriert sind, stellen Sie versetzte VLANs wieder her, die zuvor auf Ports konfiguriert wurden, die nicht mehr vorhanden sind oder auf Ports konfiguriert wurden, die in eine andere Broadcast-Domäne verschoben wurden.
+. Wenn keine VLANs im System konfiguriert sind, fahren Sie mit fort <<man_map_2_Step5,Schritt 5>>. Wenn VLANs konfiguriert sind, stellen Sie versetzte VLANs wieder her, die zuvor auf Ports konfiguriert wurden, die nicht mehr vorhanden sind oder auf Ports konfiguriert wurden, die in eine andere Broadcast-Domäne verschoben wurden.
 +
 .. Anzeigen der verschobenen VLANs:
 +
@@ -205,7 +207,7 @@ NOTE: Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierte
 
 
 +
-Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn Ports einen anderen Status als diese beiden melden, reparieren Sie die Erreichbarkeit wie in beschrieben ,Schritt 3.
+Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn Ports einen anderen Status als diese beiden melden, reparieren Sie die Erreichbarkeit wie in beschrieben <<man_map_2_Step3,Schritt 3>>.
 
 . Überprüfen Sie, ob alle LIFs administrativ von Ports vorhanden sind, die zu den richtigen Broadcast-Domänen gehören.
 +

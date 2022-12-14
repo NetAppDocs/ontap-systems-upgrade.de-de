@@ -16,6 +16,7 @@ summary: 'Konfigurieren Sie bei Bedarf das neue Controller-Modul für NVE, wenn 
 [role="lead"]
 Wenn der ersetzte Controller oder der HA-Partner des neuen Controllers NetApp Volume Encryption verwendet, müssen Sie das neue Controller-Modul für NetApp Volume Encryption konfigurieren.
 
+.Über diese Aufgabe
 Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführt werden. Sie müssen den Befehl auf dem richtigen Node eingeben.
 
 .Schritte
@@ -84,4 +85,5 @@ Für diesen Befehl ist die OKM-Passphrase (Onboard Key Manager) erforderlich.
 
 
 
+.Nachdem Sie fertig sind
 Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder externe Schlüsselverwaltungsserver nicht erreicht werden konnten. Stellen Sie diese Volumes mit der wieder online `volume online` Befehl.

@@ -16,6 +16,7 @@ summary: Verschieben Sie während eines manuellen ARL Upgrades bei Controllern m
 [role="lead"]
 Nachdem Sie die Ports von node2 nach node4 zugeordnet und bevor Sie node2-Aggregate von node3 auf node4 verschoben haben, müssen Sie die NAS-Daten-LIFs, die sich im Besitz von node2 befinden, verschieben, die sich zurzeit auf node3 von node3 nach node4 befinden. Sie müssen außerdem die SAN LIFs auf node4 überprüfen.
 
+.Über diese Aufgabe
 Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs ordnungsgemäß sind und sich in den entsprechenden Ports befinden, nachdem Sie node4 in den Online-Modus versetzt haben.
 
 .Schritte
@@ -96,10 +97,10 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | Falls Knoten 2... | Beschreibung 
 
 
-| Schnittstellengruppen oder VLANs wurden konfiguriert | Gehen Sie zu ,Schritt 4. 
+| Schnittstellengruppen oder VLANs wurden konfiguriert | Gehen Sie zu <<man_lif_verify_4_Step3,Schritt 4>>. 
 
 
-| Schnittstellengruppen oder VLANs waren nicht konfiguriert | Überspringen Sie Schritt 4, und fahren Sie mit fort ,Schritt 5. 
+| Schnittstellengruppen oder VLANs waren nicht konfiguriert | Überspringen Sie Schritt 4, und fahren Sie mit fort <<man_lif_verify_4_Step4,Schritt 5>>. 
 |===
 . [[man_lif_verify_4_Step3]]Nehmen Sie die folgenden Schritte durch, um alle NAS-Daten-LIFs zu migrieren, die auf Schnittstellengruppen und VLANs gehostet wurden, die sich ursprünglich auf node2 von node3 auf node4 befanden.
 +
@@ -107,7 +108,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node node4 –destination-port _netport|ifgrp_`
 
-.. Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt A Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
+.. Ändern Sie den Home-Port und den Home-Node der LIFs in <<man_lif_verify_4_substepa,Unterschritt A>> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
 +
 `network interface modify -vserver _vserver_name_ -lif _datalif_name_ -home-node node4 home-port _netport|ifgrp_`
 
@@ -115,7 +116,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_ -lif _datalif_name_ -destination-node node4 –destination-port _netport|ifgrp_`
 
-.. Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt C Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
+.. Ändern Sie den Home-Port und den Home-Node der LIFs in <<man_lif_verify_4_substepc,Unterschritt C>> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:
 +
 `network interface modify -vserver _vserver_name_ -lif _datalif_name_ -home-node _node4_ home-port _netport|ifgrp_`
 
@@ -128,13 +129,13 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | Wenn das Cluster konfiguriert ist für... | Dann... 
 
 
-| NAS | Vollständig ,Schritt 6 Bis ,Schritt 9, überspringen Sie Schritt 10, und abgeschlossen ,Schritt 11 Bis ,Schritt 14. 
+| NAS | Vollständig <<man_lif_verify_4_Step5,Schritt 6>> Bis <<man_lif_verify_4_Step8,Schritt 9>>, überspringen Sie Schritt 10, und abgeschlossen <<man_lif_verify_4_Step10,Schritt 11>> Bis <<man_lif_verify_4_Step13,Schritt 14>>. 
 
 
-| San | Überspringen Sie Schritt 6 bis Schritt 9, und schließen Sie sie ab ,Schritt 10 Bis ,Schritt 14. 
+| San | Überspringen Sie Schritt 6 bis Schritt 9, und schließen Sie sie ab <<man_lif_verify_4_Step9,Schritt 10>> Bis <<man_lif_verify_4_Step13,Schritt 14>>. 
 
 
-| Sowohl NAS als auch SAN | Vollständig ,Schritt 6 Bis ,Schritt 14. 
+| Sowohl NAS als auch SAN | Vollständig <<man_lif_verify_4_Step5,Schritt 6>> Bis <<man_lif_verify_4_Step13,Schritt 14>>. 
 |===
 . [[man_lif_verify_4_Step5]]Wenn auf Ihren Plattformen nicht dieselben Daten-Ports vorhanden sind, geben Sie den folgenden Befehl ein, um die Ports der Broadcast-Domäne hinzuzufügen:
 +
@@ -227,7 +228,7 @@ vs1
             lif1         up/up    172.17.176.120/24  node4         e0c     true
             lif2         up/up    172.17.176.121/24  node4
 ----
-.. Überprüfen Sie, ob die neue `adapter` Und `switch-port` Die Konfigurationen sind korrekt, indem die Ausgabe von dem verglichen wird `fcp adapter show` Befehl mit den neuen Konfigurationsinformationen, die Sie im Arbeitsblatt in aufgezeichnet haben ,Schritt 2.
+.. Überprüfen Sie, ob die neue `adapter` Und `switch-port` Die Konfigurationen sind korrekt, indem die Ausgabe von dem verglichen wird `fcp adapter show` Befehl mit den neuen Konfigurationsinformationen, die Sie im Arbeitsblatt in aufgezeichnet haben <<worksheet_step2_node2,Schritt 2>>.
 +
 Liste der neuen SAN LIF-Konfigurationen auf node4:
 

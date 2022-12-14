@@ -13,6 +13,7 @@ summary: Um sicherzustellen, dass Konfigurationsinformationen auf dem Startmediu
 [role="lead"]
 Um sicherzustellen, dass Konfigurationsinformationen auf dem Startmedium nicht das Controller-Upgrade beeinträchtigen, müssen Sie die Konfigurationen von node3 und node4 auf die Standardeinstellungen zurücksetzen.
 
+.Über diese Aufgabe
 Sie müssen die folgenden Schritte auf node3 und node4 ausführen. Sie können die Schritte auf jedem Knoten parallel ausführen.
 
 . Starten Sie den Knoten im Startmenü:

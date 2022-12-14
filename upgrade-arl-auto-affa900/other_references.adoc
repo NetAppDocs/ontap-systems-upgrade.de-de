@@ -16,8 +16,8 @@ summary: Zur Unterstützung eines Controller-Upgrades von AFF A700 auf AFF A900 
 [role="lead"]
 Wenn Sie die Verfahren in diesem Inhalt ausführen, müssen Sie möglicherweise Referenzinhalt konsultieren oder zu Referenzwebsites gehen.
 
-*  content
-*  sites
+* <<Referenzinhalt>>
+* <<Referenzstandorte>>
 
 
 

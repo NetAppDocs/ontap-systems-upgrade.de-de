@@ -16,6 +16,7 @@ summary: 'Stellen Sie bei Bedarf die Key-Manager-Konfiguration auf node4 wieder 
 [role="lead"]
 Wenn Sie mithilfe von NetApp Volume Encryption (NVE) Volumes auf dem von Ihnen aktualisieren System verschlüsseln, muss die Verschlüsselungskonfiguration mit den neuen Nodes synchronisiert werden. Wenn Sie den Schlüsselmanager nicht wiederherstellen, werden beim Verschieben der Node2-Aggregate mit ARL von node3 auf node4 verschlüsselte Volumes offline geschaltet.
 
+.Über diese Aufgabe
 Die Verschlüsselungskonfiguration mit den neuen Nodes synchronisieren, indem Sie die folgenden Schritte durchführen:
 
 .Schritte

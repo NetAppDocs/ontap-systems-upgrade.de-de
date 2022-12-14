@@ -125,7 +125,7 @@ Sie verwenden die Informationen im Abschnitt link:map_ports_node2_node4.html["We
 | Die NVRAM-System-ID-Nummer in wurde aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] | Gehen Sie zu link:retire_node2.html["Node2 ausmustern"]. 
 
 
-| Die NVRAM-System-ID-Nummer in wurde nicht aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] | Vollständig ,Schritt 9 Und ,Schritt 10 Und fahren Sie dann mit dem nächsten Abschnitt fort, link:retire_node2.html["Node2 ausmustern"]. 
+| Die NVRAM-System-ID-Nummer in wurde nicht aufgezeichnet link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] | Vollständig <<man_record_2_step9,Schritt 9>> Und <<man_record_2_step10,Schritt 10>> Und fahren Sie dann mit dem nächsten Abschnitt fort, link:retire_node2.html["Node2 ausmustern"]. 
 |===
 . [[man_record_2_steep9]]die Attribute von node2 anzeigen:
 +

@@ -16,13 +16,14 @@ summary: installieren und booten sie node4 und installieren Sie die ONTAP Softwa
 [role="lead"]
 sie müssen node4 im Rack installieren, Node2-Verbindungen zu node4 übertragen und node4 booten. Sie müssen auch node2-Spares, alle Festplatten der Root-Partition und alle nicht-Root-Aggregate neu zuweisen, die nicht zu node3 früher verschoben wurden.
 
+.Über diese Aufgabe
 Sie müssen node4 als Netzboot fahren, wenn nicht die gleiche Version von ONTAP 9 auf node2 installiert ist. Nachdem sie node4 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien auf das Boot-Medium für den späteren Systemstart herunterladen, indem Sie den Anweisungen unter folgen link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"]
 
 Sie sind jedoch nicht erforderlich, um node4 als Netzboot zu fahren, wenn es die gleiche oder eine höhere Version von Data ONTAP 9 hat, die auf node2 installiert ist.
 
 * Wichtige Informationen:*
 
-* Wenn Sie ein V-Series System oder ein System mit mit mit FlexArray Virtualisierungssoftware aktualisieren, die mit Storage-Arrays verbunden ist, müssen Sie diese vollständig ausführen ,Schritt 1 Bis ,Schritt 7, Lassen Sie diesen Abschnitt bei ,Schritt 8 Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Geben Sie bei Bedarf die Befehle im Wartungsmodus ein. Anschließend müssen Sie zu diesem Abschnitt zurückkehren und den Vorgang unter fortsetzen ,Schritt 9.
+* Wenn Sie ein V-Series System oder ein System mit mit mit FlexArray Virtualisierungssoftware aktualisieren, die mit Storage-Arrays verbunden ist, müssen Sie diese vollständig ausführen <<man_install4_Step1,Schritt 1>> Bis <<man_install4_Step7,Schritt 7>>, Lassen Sie diesen Abschnitt bei <<man_install4_Step8,Schritt 8>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Geben Sie bei Bedarf die Befehle im Wartungsmodus ein. Anschließend müssen Sie zu diesem Abschnitt zurückkehren und den Vorgang unter fortsetzen <<man_install4_Step9,Schritt 9>>.
 * Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt ausfüllen und anschließend mit dem Abschnitt fortfahren link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
 
 
@@ -34,10 +35,10 @@ Sie sind jedoch nicht erforderlich, um node4 als Netzboot zu fahren, wenn es die
 | Wenn node4 wird in ... | Dann... 
 
 
-| Ein von Knoten 3 getrenntes Chassis | Gehen Sie zu ,Schritt 2. 
+| Ein von Knoten 3 getrenntes Chassis | Gehen Sie zu <<man_install4_Step2,Schritt 2>>. 
 
 
-| Im gleichen Chassis mit Knoten3 | Überspringen Sie die Schritte 2 und 3 und gehen Sie zu ,Schritt 4. 
+| Im gleichen Chassis mit Knoten3 | Überspringen Sie die Schritte 2 und 3 und gehen Sie zu <<man_install4_Step4,Schritt 4>>. 
 |===
 . [[man_install4_Step2]] stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt.
 +
@@ -74,10 +75,10 @@ NOTE: Sie müssen die Interconnect-Karte/FC_VI-Karte oder den Interconnect/FC_VI
 | Wenn node4 in... | Dann... 
 
 
-| Im gleichen Chassis wie bei Node3 | Gehen Sie zu ,Schritt 8. 
+| Im gleichen Chassis wie bei Node3 | Gehen Sie zu <<man_install4_Step8,Schritt 8>>. 
 
 
-| Ein von Knoten 3 getrenntes Chassis | Gehen Sie zu ,Schritt 6. 
+| Ein von Knoten 3 getrenntes Chassis | Gehen Sie zu <<man_install4_Step6,Schritt 6>>. 
 |===
 . [[man_install4_Step6]]schalten Sie die Stromversorgung auf node4 ein, und unterbrechen Sie dann den Startvorgang, indem Sie auf drücken `Ctrl-C` Um auf die Eingabeaufforderung für die Boot-Umgebung zuzugreifen.
 +
@@ -112,12 +113,12 @@ WARNING: *Warnung: Die Verzögerung nicht außer Kraft setzen. Wenn der Akku nic
 | Wenn Ihr System... | Dann... 
 
 
-| Verfügt über Festplatten und keinen Back-End-Speicher | Überspringen Sie Schritt 9 bis Schritt 14, und fahren Sie mit fort ,Schritt 15. 
+| Verfügt über Festplatten und keinen Back-End-Speicher | Überspringen Sie Schritt 9 bis Schritt 14, und fahren Sie mit fort <<man_install4_Step15,Schritt 15>>. 
 
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
 .. Gehen Sie zum Abschnitt „ FC- oder UTA/UTA2-Konfiguration auf node4_“ und füllen Sie die Abschnitte aus link:set_fc_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Konfigurieren Sie FC-Ports auf node4"] Und link:set_fc_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["UTA/UTA2-Ports auf node4 prüfen und konfigurieren"], Je nach Ihrem System.
-.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit ,Schritt 9.
+.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<man_install4_Step9,Schritt 9>>.
 
 
 *Wichtig*: Sie müssen FC Onboard-Ports, UTA/UTA2 Onboard-Ports und UTA/UTA2-Karten neu konfigurieren, bevor Sie Data ONTAP auf dem V-Series System booten.
@@ -173,10 +174,10 @@ Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 | Wenn das System, das Sie aktualisieren... | Dann... 
 
 
-| Verfügt nicht über die richtige oder aktuelle ONTAP-Version unter node4 | Gehen Sie zu ,Schritt 20. 
+| Verfügt nicht über die richtige oder aktuelle ONTAP-Version unter node4 | Gehen Sie zu <<man_install4_Step20,Schritt 20>>. 
 
 
-| Hat die richtige oder aktuelle Version von ONTAP auf node4 | Gehen Sie zu ,Schritt 25. 
+| Hat die richtige oder aktuelle Version von ONTAP auf node4 | Gehen Sie zu <<man_install4_Step25,Schritt 25>>. 
 |===
 . [[man_install4_Step20]]Konfigurieren Sie die Netzboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
 +
@@ -298,7 +299,7 @@ DISK         OWNER                       POOL   SERIAL NUMBER   HOME
 `_node2_sysid_ -d _node4_sysid_` 
 |===
 +
-Für das `<node2_sysid>` Wert: Verwenden Sie die in erfassten Informationen link:record_node2_information.html#man_node2_info_step10["Schritt 10"] Des Abschnitts _Record node2 information_. Für `_node4_sysid_`Verwenden Sie die Informationen, die in erfasst werden ,Schritt 23.
+Für das `<node2_sysid>` Wert: Verwenden Sie die in erfassten Informationen link:record_node2_information.html#man_node2_info_step10["Schritt 10"] Des Abschnitts _Record node2 information_. Für `_node4_sysid_`Verwenden Sie die Informationen, die in erfasst werden <<man_install4_step23,Schritt 23>>.
 
 +
 
@@ -441,7 +442,7 @@ Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 +
 `set time _hh:mm:ss_`
 
-. Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in beschrieben ,Schritt 26 Unter Option.
+. Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in beschrieben <<man_install4_Step26,Schritt 26>> Unter Option.
 +
 `printenv partner-sysid`
 

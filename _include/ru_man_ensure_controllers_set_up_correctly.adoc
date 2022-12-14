@@ -36,7 +36,7 @@ node4          node3          true     Connected to node3
 `cluster ha modify -configured true` 
 
 
-| Cluster mit mehr als zwei Nodes | Gehen Sie zu ,Schritt 4. 
+| Cluster mit mehr als zwei Nodes | Gehen Sie zu <<man_ensure_setup_Step4,Schritt 4>>. 
 |===
 . [[man_enfy_Setup_Step4]]Überprüfen Sie, ob node3 und node4 zum selben Cluster gehören, indem Sie den folgenden Befehl eingeben und die Ausgabe überprüfen:
 +
@@ -127,4 +127,5 @@ Gehen Sie zu link:other_references.html["Quellen"] Link zur _Systemverwaltungsre
 . Wenn Sie ein Cluster ohne Switches auf den neuen Nodes einrichten möchten, fahren Sie mit fort link:other_references.html["Quellen"] Um eine Verbindung zur _Network Support Site_ herzustellen, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.
 
 
+.Nachdem Sie fertig sind
 Wenn die Speicherverschlüsselung auf Node3 und node4 aktiviert ist, führen Sie die Schritte in aus link:set_up_storage_encryption_new_controller.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]. Führen Sie andernfalls die Schritte unter aus link:decommission_old_system.html["Ausmustern des alten Systems"].
