@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4566,6 +4566,7 @@
 <p>Wenn node1 oder node2 vor Phase 2 abstürzt, wurden noch keine Aggregate verschoben und die HA-Konfiguration ist noch aktiviert.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Takeover und Giveback können normal fortgesetzt werden.</p>
 </div>
 <div class="olist arabic">
@@ -4586,6 +4587,7 @@
 <p>Einige oder alle Aggregate wurden von node1 in node2 verschoben und die HA ist noch aktiviert. Node2 wird das Root-Volume von node1 und alle nicht-Root-Aggregate übernehmen, die nicht verschoben wurden.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Das Eigentum an verlagerten Aggregaten sieht mit dem Eigentum nicht-Root-Aggregaten identisch aus, die übernommen wurden, da sich der Home-Eigentümer nicht geändert hat. Wenn node1 in den eintritt <code>waiting for giveback state</code>, Node2 wird alle node1 nicht-Root-Aggregate zurückgeben.</p>
 </div>
 <div class="olist arabic">
@@ -4626,6 +4628,7 @@
 <p>Node1 hat einige oder alle seine Aggregate in node2 verschoben. HA ist aktiviert.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Node1 wird alle Aggregate node2 sowie alle eigenen Aggregate übernehmen, die es auf node2 verlagert hatte. Wenn node2 in den eintritt <code>Waiting for Giveback</code> Zustand: Node1 gibt alle Aggregate node2 zurück.</p>
 </div>
 <div class="olist arabic">
@@ -4694,6 +4697,7 @@
 <p>Node2 hat einige oder alle seine Aggregate in Node3 verschoben, die Daten von Aggregaten bereitstellen, die umgezogen wurden. HA ist deaktiviert.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Es wird ein Client-Ausfall für Aggregate geben, die nicht verlagert wurden.</p>
 </div>
 <div class="olist arabic">
@@ -4734,6 +4738,7 @@
 <p>Falls node3 abstürzt, während node2 Aggregate zu node3 verschoben wird, wird node2 die Verschiebung aller verbleibenden Aggregate abbrechen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in Knoten 3 verlagert wurden, begegnen ein Client-Ausfall, während node3 gebootet wird.</p>
 </div>
 <div class="olist arabic">
@@ -4816,6 +4821,7 @@
 <p>Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node4 übernimmt nicht, dient aber weiterhin nicht-Root-Aggregate, die node3 bereits verschoben hat. Das HA-Paar ist deaktiviert.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Es gibt einen Ausfall für den Rest der Aggregate, bis node3 wieder hochfährt.</p>
 </div>
 <div class="olist arabic">
@@ -4839,6 +4845,7 @@
 <p>Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node3 übernimmt nicht die Übernahme, dient aber weiterhin nicht-Root-Aggregate, die Node3 besitzt, sowie solche, die nicht verlagert wurden. HA ist deaktiviert.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Es gibt einen Ausfall für nicht-Root-Aggregate, die bereits verschoben wurden, bis node4 wieder hochfährt.</p>
 </div>
 <div class="olist arabic">

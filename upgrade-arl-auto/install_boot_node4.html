@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,6 +4551,7 @@
 <p>Sie müssen node4 im Rack installieren, Verbindungen von node2 zu node4 übertragen, node4 booten und ONTAP installieren. Sie müssen dann eine der node2 Ersatzfestplatten, alle Festplatten, die zum Root-Volume gehören, und alle nicht-Root-Aggregate, die nicht zu node3 früher in diesem Prozess verschoben wurden, neu zuweisen, wie in diesem Abschnitt beschrieben.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Der Umzugsvorgang wird zu Beginn dieser Phase angehalten. Dieser Vorgang wird größtenteils automatisch durchgeführt. Der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Außerdem müssen Sie überprüfen, ob die NAS-Daten-LIFs erfolgreich in node4 verschoben wurden.</p>
 </div>
 <div class="paragraph">
@@ -4560,7 +4561,7 @@
 <div class="title">Wichtig:</div>
 <ul>
 <li>
-<p>Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten ,Schritt 1 Bis ,Schritt 21, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen zu <a href="set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4">"Konfigurieren Sie FC-Ports auf node4"</a> Und nach <a href="set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4">"UTA/UTA2-Ports auf node4 prüfen und konfigurieren"</a>, Eingabe von Befehlen im Wartungsmodus. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren ,Schritt 23.</p>
+<p>Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <a href="#auto_install4_step1">Schritt 1</a> Bis <a href="#auto_install4_step21">Schritt 21</a>, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen zu <a href="set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4">"Konfigurieren Sie FC-Ports auf node4"</a> Und nach <a href="set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4">"UTA/UTA2-Ports auf node4 prüfen und konfigurieren"</a>, Eingabe von Befehlen im Wartungsmodus. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <a href="#auto_install4_step23">Schritt 23</a>.</p>
 </li>
 <li>
 <p>Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt ausfüllen und mit fortfahren <a href="set_fc_or_uta_uta2_config_node4.html">"Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"</a>, Eingabe von Befehlen an der Cluster-Eingabeaufforderung.</p>
@@ -4943,7 +4944,7 @@ Das System zeichnet in einem PROM auf, ob es sich um ein HA-Paar oder eine eigen
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verfügt über Festplatten und keinen Back-End-Speicher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 23.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#auto_install4_step23">Schritt 23</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist</p></td>
@@ -4953,7 +4954,7 @@ Das System zeichnet in einem PROM auf, ob es sich um ein HA-Paar oder eine eigen
 <p>Weiter mit Abschnitt <a href="set_fc_or_uta_uta2_config_node4.html">"Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"</a> Und vervollständigen Sie die Unterabschnitte in diesem Abschnitt.</p>
 </li>
 <li>
-<p>Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit ,Schritt 23.</p>
+<p>Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <a href="#auto_install4_step23">Schritt 23</a>.</p>
 </li>
 </ol>
 </div>

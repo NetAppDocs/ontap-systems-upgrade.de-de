@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,12 +4551,14 @@
 <p>Sie müssen sicherstellen, dass die physischen Ports auf node1 den physischen Ports auf node3 korrekt zugeordnet werden. Somit kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen von <em>Hardware Universe</em> bereits über die Ports auf den neuen Nodes verfügen. (Gehen Sie zu <a href="other_references.html">"Quellen"</a> Zum Verknüpfen mit dem <em>Hardware Universe</em>). Sie verwenden die Informationen später in diesem Abschnitt und in <a href="map_ports_node2_node4.html">"Weisen Sie Ports von node2 nach node4 zu"</a>.</p>
 </div>
 <div class="paragraph">
 <p>Die Softwarekonfiguration von node3 muss mit der physischen Konnektivität von node3 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Die Port-Einstellungen können je nach Modell der Nodes variieren.</p>
 </div>
 <div class="olist arabic">
@@ -4766,7 +4768,7 @@ Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierten Syst
 </div>
 </li>
 <li>
-<p><a id="Schritt4"></a> Wenn auf dem System keine VLANs konfiguriert sind, fahren Sie mit fort ,Schritt 5. Wenn VLANs konfiguriert sind, stellen Sie versetzte VLANs wieder her, die zuvor auf Ports konfiguriert wurden, die nicht mehr vorhanden sind oder auf Ports konfiguriert wurden, die in eine andere Broadcast-Domäne verschoben wurden.</p>
+<p><a id="Schritt4"></a> Wenn auf dem System keine VLANs konfiguriert sind, fahren Sie mit fort <a href="#man_map_1_step5">Schritt 5</a>. Wenn VLANs konfiguriert sind, stellen Sie versetzte VLANs wieder her, die zuvor auf Ports konfiguriert wurden, die nicht mehr vorhanden sind oder auf Ports konfiguriert wurden, die in eine andere Broadcast-Domäne verschoben wurden.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4821,7 +4823,7 @@ Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierten Syst
 </ol>
 </div>
 <div class="paragraph">
-<p>Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt <code>network port reachability show</code> Der Befehl sollte den Status der Erreichbarkeit für alle verbundenen Ports als „ok“ und den Status als „nicht-Erreichbarkeit“ für Ports ohne physische Konnektivität melden. Wenn Ports einen anderen Status als diese beiden melden, reparieren Sie die Erreichbarkeit wie in beschrieben ,Schritt 3.</p>
+<p>Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt <code>network port reachability show</code> Der Befehl sollte den Status der Erreichbarkeit für alle verbundenen Ports als „ok“ und den Status als „nicht-Erreichbarkeit“ für Ports ohne physische Konnektivität melden. Wenn Ports einen anderen Status als diese beiden melden, reparieren Sie die Erreichbarkeit wie in beschrieben <a href="#man_map_1_step3">Schritt 3</a>.</p>
 </div>
 </li>
 <li>

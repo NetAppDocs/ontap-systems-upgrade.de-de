@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,6 +4551,7 @@
 <p>Sie müssen node3 im Rack installieren, Verbindungen von node1 zu node3, Boot node3 übertragen und ONTAP installieren. Sie müssen auch jede der freien Festplatten von node1, alle Festplatten, die zum Root-Volume gehören, und alle nicht-Root-Aggregate, die nicht früher auf node2 verschoben wurden, neu zuweisen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Sie müssen als Netzboot node3 wechseln, wenn nicht die gleiche Version von ONTAP 9 installiert ist auf node1. Nachdem Sie node3 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien auf das Boot-Medium herunterladen, um später das System zu booten. Siehe <a href="prepare_for_netboot.html">"Vorbereitungen für den Netzboot"</a>.</p>
 </div>
 <div class="paragraph">
@@ -4563,7 +4564,7 @@
 <img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Anmerkung">
 </td>
 <td class="content">
-<strong>Wichtig</strong>: Führen Sie ein Upgrade eines mit Storage-Arrays verbundenen V-Series Systems oder eines Systems mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist, durch ,Schritt 1 Bis ,Schritt 5, Lassen Sie diesen Abschnitt bei ,Schritt 6 Und befolgen Sie die Anweisungen unter <a href="set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a> Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren ,Schritt 7. Wenn Sie jedoch ein System mit Storage-Festplatten aktualisieren, müssen Sie den gesamten Abschnitt abschließen und anschließend mit fortfahren <a href="set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a>, Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
+<strong>Wichtig</strong>: Führen Sie ein Upgrade eines mit Storage-Arrays verbundenen V-Series Systems oder eines Systems mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist, durch <a href="#man_install3_step1">Schritt 1</a> Bis <a href="#man_install3_step5">Schritt 5</a>, Lassen Sie diesen Abschnitt bei <a href="#man_install3_step6">Schritt 6</a> Und befolgen Sie die Anweisungen unter <a href="set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a> Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <a href="#man_install3_step7">Schritt 7</a>. Wenn Sie jedoch ein System mit Storage-Festplatten aktualisieren, müssen Sie den gesamten Abschnitt abschließen und anschließend mit fortfahren <a href="set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a>, Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
 </td>
 </tr>
 </table>
@@ -4670,7 +4671,7 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 </div>
 </li>
 <li>
-<p><a id="man_install3_step5"></a>Wenn die Warnmeldung in angezeigt wird ,Schritt 4, Nehmen Sie die folgenden Aktionen:</p>
+<p><a id="man_install3_step5"></a>Wenn die Warnmeldung in angezeigt wird <a href="#man_install3_step4">Schritt 4</a>, Nehmen Sie die folgenden Aktionen:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4710,7 +4711,7 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verfügt über Festplatten und keinen Back-End-Speicher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7 bis Schritt 12, und fahren Sie mit fort ,Schritt 13.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7 bis Schritt 12, und fahren Sie mit fort <a href="#man_install3_step13">Schritt 13</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist</p></td>
@@ -4720,7 +4721,7 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 <p>Gehen Sie zu <a href="set_fc_uta_uta2_config_node3.html">"Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest"</a> Und vervollständigen Sie die Unterabschnitte <a href="set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a>, Je nach Ihrem System.</p>
 </li>
 <li>
-<p>Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit ,Schritt 7.</p>
+<p>Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <a href="#man_install3_step7">Schritt 7</a>.</p>
 </li>
 </ol>
 </div>
@@ -4789,7 +4790,7 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dual-Chassis-Konfiguration (mit Controllern in anderem Chassis)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 15.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_install3_step15">Schritt 15</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Einzel-Chassis-Konfiguration (mit Controllern im selben Chassis)</p></td>
@@ -4808,13 +4809,13 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 </div>
 </li>
 <li>
-<p>Wenn die Warnmeldung in angezeigt wird ,Schritt 4, Folgen Sie den Anweisungen in ,Schritt 5</p>
+<p>Wenn die Warnmeldung in angezeigt wird <a href="#man_install3_step4">Schritt 4</a>, Folgen Sie den Anweisungen in <a href="#man_install3_step5">Schritt 5</a></p>
 </li>
 <li>
 <p>Schalten Sie das Konsolenkabel von node4 nach node3 zurück.</p>
 </li>
 <li>
-<p>Gehen Sie zu ,Schritt 15.</p>
+<p>Gehen Sie zu <a href="#man_install3_step15">Schritt 15</a>.</p>
 </li>
 </ol>
 </div></div></td>
@@ -4874,11 +4875,11 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Hat <em>Not</em> die richtige oder aktuelle ONTAP-Version auf node3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 20.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_install3_step20">Schritt 20</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verfügt über die richtige oder aktuelle Version von ONTAP auf node3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 25.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_install3_step25">Schritt 25</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5345,7 +5346,7 @@ Wenn der vorherige Unterschritt nicht ausgeführt wird, kann node3 vom internen 
 </div>
 </li>
 <li>
-<p><a id="man_install3_step42"></a>Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in angegeben ,Schritt 28 Schalter unter -p:</p>
+<p><a id="man_install3_step42"></a>Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in angegeben <a href="#man_install3_step28">Schritt 28</a> Schalter unter -p:</p>
 <div class="paragraph">
 <p><code>printenv partner-sysid</code></p>
 </div>

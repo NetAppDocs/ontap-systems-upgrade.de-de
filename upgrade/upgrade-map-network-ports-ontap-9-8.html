@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,9 +4551,11 @@
 <p>Damit node3 und node4 aktiviert werden können, um nach dem Upgrade miteinander im Cluster und mit dem Netzwerk zu kommunizieren, müssen Sie bestätigen, dass die physischen Ports ordnungsgemäß mit den Einstellungen für den vorgesehenen Verwendungszweck konfiguriert sind, z. B. Cluster, Daten usw.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Diese Schritte gelten für Systeme mit ONTAP 9.8 oder höher. Wenn Sie ONTAP 9.7 oder eine frühere Version verwenden, müssen Sie das Verfahren unter verwenden <a href="upgrade-map-network-ports-ontap-9-7-or-earlier.html">Netzwerkports mit ONTAP 9.7 oder einer älteren Version zuordnen</a>.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Sie müssen diese Schritte auf node3 und node4 ausführen.</p>
 </div>
 <div class="admonitionblock note">
@@ -4745,7 +4747,7 @@ Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierten Syst
 </div>
 </li>
 <li>
-<p>Wenn keine VLANs im System konfiguriert sind, fahren Sie mit fort ,Schritt 7. Wenn VLANs konfiguriert sind, stellen Sie versetzte VLANs wieder her, die zuvor auf Ports konfiguriert wurden, die nicht mehr vorhanden sind oder auf Ports konfiguriert wurden, die in eine andere Broadcast-Domäne verschoben wurden.</p>
+<p>Wenn keine VLANs im System konfiguriert sind, fahren Sie mit fort <a href="#map_98_7">Schritt 7</a>. Wenn VLANs konfiguriert sind, stellen Sie versetzte VLANs wieder her, die zuvor auf Ports konfiguriert wurden, die nicht mehr vorhanden sind oder auf Ports konfiguriert wurden, die in eine andere Broadcast-Domäne verschoben wurden.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4800,7 +4802,7 @@ Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierten Syst
 </ol>
 </div>
 <div class="paragraph">
-<p>Wenn alle Ports korrekt konfiguriert und den korrekten Broadcast-Domänen hinzugefügt wurden, sollte der Befehl „Erreichbarkeit des Netzwerkports show“ den Status „Erreichbarkeit“ für alle verbundenen Ports als „OK“ melden und den Status als „nicht-Erreichbarkeit“ für Ports ohne physische Verbindung angeben. Wenn Ports einen anderen Status als diese beiden melden, reparieren Sie die Erreichbarkeit wie in beschrieben ,Schritt 5.</p>
+<p>Wenn alle Ports korrekt konfiguriert und den korrekten Broadcast-Domänen hinzugefügt wurden, sollte der Befehl „Erreichbarkeit des Netzwerkports show“ den Status „Erreichbarkeit“ für alle verbundenen Ports als „OK“ melden und den Status als „nicht-Erreichbarkeit“ für Ports ohne physische Verbindung angeben. Wenn Ports einen anderen Status als diese beiden melden, reparieren Sie die Erreichbarkeit wie in beschrieben <a href="#map_98_5">Schritt 5</a>.</p>
 </div>
 </li>
 <li>

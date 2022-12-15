@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,6 +4551,7 @@
 <p>Sie müssen node3 im Rack installieren, Verbindungen von node1 zu node3, Boot node3 übertragen und ONTAP installieren. Sie müssen dann eine der freien Festplatten von node1, alle Festplatten, die zum Root-Volume gehören, und alle nicht-Root-Aggregate, die zuvor nicht in node2 verschoben wurden, wie in diesem Abschnitt beschrieben neu zuweisen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Der Umzugsvorgang wird zu Beginn dieser Phase angehalten. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Außerdem müssen Sie überprüfen, ob die SAN-LIFs erfolgreich in Knoten 3 verschoben wurden.</p>
 </div>
 <div class="paragraph">
@@ -4560,7 +4561,7 @@
 <div class="title">Wichtig:</div>
 <ul>
 <li>
-<p>Wenn Sie ein mit Storage Arrays verbundenes V-Series System oder ein System über FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Upgrades erforderlich ,Schritt 1 Bis ,Schritt 21, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen im <a href="set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a> Abschnitte nach Bedarf, geben Sie Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren ,Schritt 23.</p>
+<p>Wenn Sie ein mit Storage Arrays verbundenes V-Series System oder ein System über FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Upgrades erforderlich <a href="#auto_install3_step1">Schritt 1</a> Bis <a href="#auto_install3_step21">Schritt 21</a>, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen im <a href="set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a> Abschnitte nach Bedarf, geben Sie Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <a href="#auto_install3_step23">Schritt 23</a>.</p>
 </li>
 <li>
 <p>Wenn Sie ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt abschließen und anschließend mit den fortfahren <a href="set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3">"Konfigurieren Sie FC-Ports auf node3"</a> Und <a href="set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3">"UTA/UTA2-Ports in node3 prüfen und konfigurieren"</a> Geben Sie Abschnitte ein, und geben Sie Befehle an der Cluster-Eingabeaufforderung ein.</p>
@@ -4660,7 +4661,7 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 </div>
 </li>
 <li>
-<p><a id="Auto_install3_step5"></a>Wenn die Warnmeldung in angezeigt wird ,Schritt 4, Nehmen Sie die folgenden Aktionen:</p>
+<p><a id="Auto_install3_step5"></a>Wenn die Warnmeldung in angezeigt wird <a href="#auto_install3_step4">Schritt 4</a>, Nehmen Sie die folgenden Aktionen:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4952,7 +4953,7 @@ Das System zeichnet in einem PROM auf, ob es sich um ein HA-Paar oder eine eigen
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Verfügt über Festplatten und keinen Back-End-Speicher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#auto_install3_step23">Schritt 23</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist</p></td>
@@ -4962,7 +4963,7 @@ Das System zeichnet in einem PROM auf, ob es sich um ein HA-Paar oder eine eigen
 <p>Weiter mit Abschnitt <a href="set_fc_or_uta_uta2_config_on_node3.html">"Einstellen der FC- oder UTA/UTA2-Konfiguration auf node3"</a> Und vervollständigen Sie die Unterabschnitte in diesem Abschnitt.</p>
 </li>
 <li>
-<p>Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit ,Schritt 23.</p>
+<p>Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <a href="#auto_install3_step23">Schritt 23</a>.</p>
 </li>
 </ol>
 </div>

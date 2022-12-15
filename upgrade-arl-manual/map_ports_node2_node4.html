@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,12 +4551,14 @@
 <p>Sie müssen sicherstellen, dass die physischen Ports auf node2 den physischen Ports auf node4 korrekt zugeordnet werden. damit kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen bereits über die Ports auf den neuen Nodes verfügen, um auf diese Informationen zuzugreifen, siehe <a href="other_references.html">"Quellen"</a> Zum Verknüpfen mit der <em>Hardware Universe</em>. Die Informationen werden später in diesem Abschnitt verwendet.</p>
 </div>
 <div class="paragraph">
 <p>die Softwarekonfiguration von node4 muss mit der physischen Konnektivität von node4 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Die Port-Einstellungen können je nach Modell der Nodes variieren. Sie müssen den Port des ursprünglichen Node und die LIF-Konfiguration mit dem kompatibel machen, was Sie planen, die Konfiguration des neuen Node zu verwenden. Dies liegt daran, dass der neue Node beim Booten die gleiche Konfiguration wiedergibt. Dies bedeutet, wenn Sie node4 booten, wird Data ONTAP versuchen, LIFs auf den gleichen Ports zu hosten, die in node2 verwendet wurden.</p>
 </div>
 <div class="paragraph">
@@ -4892,10 +4894,10 @@ Bei einer MetroCluster-Konfiguration können Sie die Broadcast-Domäne unter ein
 </div>
 </li>
 <li>
-<p>Passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie gegebenenfalls die Intercluster LIFs mithilfe derselben Befehle, die in dargestellt sind ,Schritt 5.</p>
+<p>Passen Sie die Intercluster-Broadcast-Domänen an und migrieren Sie gegebenenfalls die Intercluster LIFs mithilfe derselben Befehle, die in dargestellt sind <a href="#man_map_2_step5">Schritt 5</a>.</p>
 </li>
 <li>
-<p>Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in ,Schritt 5.</p>
+<p>Passen Sie alle anderen Broadcast-Domänen an und migrieren Sie die Daten-LIFs, falls erforderlich, mit denselben Befehlen in <a href="#man_map_2_step5">Schritt 5</a>.</p>
 </li>
 <li>
 <p>Wenn in node4 keine Ports mehr vorhanden sind, löschen Sie diese wie folgt:</p>

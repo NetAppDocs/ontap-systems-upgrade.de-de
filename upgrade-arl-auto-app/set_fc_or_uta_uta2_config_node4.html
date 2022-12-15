@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-01 08:14:19 +0000">12/01/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4553,7 +4553,8 @@
 <p>Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.</p>
 </div>
 <div class="paragraph">
-<p>Möglicherweise müssen Sie die abschließen  FC ports on node4 Abschnitt, der  and configure UTA/UTA2 ports on node4, Oder beide Abschnitte.</p>
+<div class="title">Über diese Aufgabe</div>
+<p>Möglicherweise müssen Sie die abschließen <a href="#konfigurieren-sie-fc-ports-auf-node4">Konfigurieren Sie FC-Ports auf node4</a> Abschnitt, der <a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a>, Oder beide Abschnitte.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4571,10 +4572,10 @@ Wenn node4 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA
 <div class="title">Wahlmöglichkeiten</div>
 <ul>
 <li>
-<p>FC ports on node4</p>
+<p><a href="#konfigurieren-sie-fc-ports-auf-node4">Konfigurieren Sie FC-Ports auf node4</a></p>
 </li>
 <li>
-<p>and configure UTA/UTA2 ports on node4</p>
+<p><a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a></p>
 </li>
 </ul>
 </div>
@@ -4587,10 +4588,12 @@ Wenn node4 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA
 <p>Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben <a href="prepare_nodes_for_upgrade.html">"Bereiten Sie die Knoten für ein Upgrade vor"</a>.</p>
 </div>
 <div class="paragraph">
-<p>Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node4.</p>
+<div class="title">Über diese Aufgabe</div>
+<p>Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Wichtig</strong>: Wenn Ihr System über Speicherfestplatten verfügt, müssen Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.</p>
@@ -4725,7 +4728,7 @@ Wenn node4 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Gehen Sie zu  and configure UTA/UTA2 ports on node4 Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:</p>
+<p>Gehen Sie zu <a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:</p>
 </li>
 <li>
 <p>Überspringen Sie den Abschnitt <em>UTA/UTA2-Ports auf node4</em> überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, zurück zum Abschnitt <em>Installation und Boot node4</em>, und wieder bei aufnehmen <a href="install_boot_node4.html#step23">"Schritt 23"</a>.</p>
@@ -4747,9 +4750,11 @@ Wenn node4 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA
 <p>Wenn node4 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie je nach Nutzung des aktualisierten Systems konfigurieren.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen die richtigen SFP+ Module für die UTA/UTA2-Ports besitzen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>DIE UTA2-Ports können im nativen FC-Modus oder im UTA/UTA2-Modus konfiguriert werden. Der FC-Modus unterstützt FC Initiator und FC Target. Der UTA-/UTA2-Modus ermöglicht es, gleichzeitig NIC- und FCoE-Datenverkehr die gleiche 10-GbE-SFP+-Schnittstelle zu nutzen und das FC-Ziel zu unterstützen.</p>
 </div>
 <div class="admonitionblock note">
@@ -4868,11 +4873,11 @@ f-a    0h       cna      target     -          -        online
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Haben Sie nicht die Persönlichkeit, die Sie wollen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#auto_check_4_step5">Schritt 5</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Haben Sie die Persönlichkeit, die Sie wollen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort ,Schritt 13.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <a href="#auto_check_4_step13">Schritt 13</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4893,11 +4898,11 @@ f-a    0h       cna      target     -          -        online
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ports auf einer UTA/UTA2-Karte</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#auto_check_4_step7">Schritt 7</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Onboard UTA/UTA2-Ports</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7, und fahren Sie mit fort ,Schritt 8.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7, und fahren Sie mit fort <a href="#auto_check_4_step8">Schritt 8</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5051,7 +5056,7 @@ f-a   2b       fc             target       cna           -             online
 <p><code>boot_ontap menu</code>.</p>
 </div>
 <div class="paragraph">
-<p>Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu ,Schritt 23</p>
+<p>Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu <a href="#auto_check_4_step23">Schritt 23</a></p>
 </div>
 </li>
 <li>
@@ -5193,7 +5198,7 @@ Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Na
 </div>
 </li>
 <li>
-<p>Wenn das System in eine Reboot-Schleife mit der Meldung geht <code>no disks found</code>, Es zeigt an, dass das System die FC- oder UTA/UTA2-Ports wieder in den Ziel-Modus zurückgesetzt hat und somit keine Disketten sehen kann. Um dies zu beheben, fahren Sie mit fort ,Schritt 17 Bis ,Schritt 22 Oder weiter mit Abschnitt <a href="verify_node4_installation.html">"Überprüfen Sie die installation von node4"</a>.</p>
+<p>Wenn das System in eine Reboot-Schleife mit der Meldung geht <code>no disks found</code>, Es zeigt an, dass das System die FC- oder UTA/UTA2-Ports wieder in den Ziel-Modus zurückgesetzt hat und somit keine Disketten sehen kann. Um dies zu beheben, fahren Sie mit fort <a href="#auto_check_4_step17">Schritt 17</a> Bis <a href="#auto_check_4_step22">Schritt 22</a> Oder weiter mit Abschnitt <a href="verify_node4_installation.html">"Überprüfen Sie die installation von node4"</a>.</p>
 </li>
 <li>
 <p><a id="Auto_Check_4_steep17"></a>Drücken Sie <code>Ctrl-C</code> Während des automatischen Bootens, um den Node auf dem zu beenden <code>LOADER&gt;</code> Eingabeaufforderung:</p>
@@ -5235,10 +5240,10 @@ Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Na
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu ,Schritt 22.</p>
+<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu <a href="#auto_check_4_step22">Schritt 22</a>.</p>
 </div>
 <div class="paragraph">
-<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten verwendet, zu einem System, das sowohl interne als auch externe Festplatten unterstützt, z. B. ein AFF A800 System, finden Sie unter ,Schritt 23.</p>
+<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten verwendet, zu einem System, das sowohl interne als auch externe Festplatten unterstützt, z. B. ein AFF A800 System, finden Sie unter <a href="#auto_check_4_step23">Schritt 23</a>.</p>
 </div>
 </td>
 </tr>

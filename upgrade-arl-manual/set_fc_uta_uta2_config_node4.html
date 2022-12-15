@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4553,7 +4553,8 @@
 <p>Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.</p>
 </div>
 <div class="paragraph">
-<p>Möglicherweise müssen Sie den Abschluss abschließen  FC ports on node4, Das  and configure UTA/UTA2 ports on node4, Oder beide Abschnitte.</p>
+<div class="title">Über diese Aufgabe</div>
+<p>Möglicherweise müssen Sie den Abschluss abschließen <a href="#konfigurieren-sie-fc-ports-auf-node4">Konfigurieren Sie FC-Ports auf node4</a>, Das <a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a>, Oder beide Abschnitte.</p>
 </div>
 <div class="paragraph">
 <p>Wenn node4 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat und Sie ein System mit Storage-Festplatten aktualisieren, können Sie weiter gehen <a href="map_ports_node2_node4.html">"Weisen Sie Ports von node2 nach node4 zu"</a>.</p>
@@ -4565,10 +4566,10 @@
 <div class="title">Wahlmöglichkeiten</div>
 <ul>
 <li>
-<p>FC ports on node4</p>
+<p><a href="#konfigurieren-sie-fc-ports-auf-node4">Konfigurieren Sie FC-Ports auf node4</a></p>
 </li>
 <li>
-<p>and configure UTA/UTA2 ports on node4</p>
+<p><a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a></p>
 </li>
 </ul>
 </div>
@@ -4581,10 +4582,12 @@
 <p>Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben <a href="prepare_nodes_for_upgrade.html">"Bereiten Sie die Knoten für ein Upgrade vor"</a>.</p>
 </div>
 <div class="paragraph">
-<p>Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node4.</p>
+<div class="title">Über diese Aufgabe</div>
+<p>Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Wichtig</strong>: Wenn Ihr System über Speicherfestplatten verfügt, müssen Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.</p>
@@ -4608,11 +4611,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Festplatten sind vorhanden</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_config_4_Step5">Schritt 5</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_config_4_Step2">Schritt 2</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4748,11 +4751,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Das gleiche wie diejenigen, die Sie auf den ursprünglichen Knoten erfasst</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 11.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_config_4_Step11">Schritt 11</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Anders als jene, die Sie auf den ursprünglichen Knoten erfasst haben</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 8.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_config_4_Step8">Schritt 8</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4812,7 +4815,7 @@
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Gehen Sie zu  and configure UTA/UTA2 ports on node4 Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:</p>
+<p>Gehen Sie zu <a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:</p>
 </li>
 <li>
 <p>Überspringen Sie den Abschnitt und gehen Sie zu <a href="map_ports_node2_node4.html">"Weisen Sie Ports von node2 nach node4 zu"</a> Wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat.</p>
@@ -4825,7 +4828,7 @@
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Gehen Sie zu  and configure UTA/UTA2 ports on node4 Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:</p>
+<p>Gehen Sie zu <a href="#utauta2-ports-auf-node4-prüfen-und-konfigurieren">UTA/UTA2-Ports auf node4 prüfen und konfigurieren</a> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:</p>
 </li>
 <li>
 <p>Überspringen Sie den Abschnitt <em>UTA/UTA2-Ports auf node4</em> überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, kehren Sie zum Abschnitt <em>Installieren und Booten von node4</em> zurück, und setzen Sie den Abschnitt unter fort <a href="install_boot_node4.html#Step9">"Schritt 9"</a>.</p>
@@ -4847,9 +4850,11 @@
 <p>Wenn node4 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie je nach Nutzung des aktualisierten Systems konfigurieren.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen die richtigen SFP+ Module für die UTA/UTA2-Ports besitzen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>DIE UTA2-Ports können im nativen FC-Modus oder im UTA/UTA2-Modus konfiguriert werden. Der FC-Modus unterstützt FC Initiator und FC Target. Der UTA-/UTA2-Modus ermöglicht es, gleichzeitig NIC- und FCoE-Datenverkehr auf die gleiche 10-GbE-SFP+-Schnittstelle zu übertragen und das FC-Ziel zu unterstützen.</p>
 </div>
 <div class="admonitionblock note">
@@ -4959,11 +4964,11 @@ f-a    0h       cna      target     -          -        online
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Haben Sie nicht die Persönlichkeit, die Sie wollen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_check_4_Step5">Schritt 5</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Haben Sie die Persönlichkeit, die Sie wollen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort ,Schritt 13.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <a href="#man_check_4_Step13">Schritt 13</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4989,7 +4994,7 @@ f-a    0h       cna      target     -          -        online
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 6. Sie sollten sich bereits im Wartungsmodus befinden.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_check_4_Step6">Schritt 6</a>. Sie sollten sich bereits im Wartungsmodus befinden.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5010,11 +5015,11 @@ f-a    0h       cna      target     -          -        online
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ports auf einer UTA/UTA2-Karte</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 7.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_check_4_Step7">Schritt 7</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Onboard UTA/UTA2-Ports</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7, und fahren Sie mit fort ,Schritt 8.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7, und fahren Sie mit fort <a href="#man_check_4_Step8">Schritt 8</a>.</p></td>
 </tr>
 </tbody>
 </table>

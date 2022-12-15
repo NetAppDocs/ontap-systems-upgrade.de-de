@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4553,6 +4553,7 @@
 <p>Sie müssen die node2-Installation mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen überprüfen. Da keine Änderung an physischen Ports erfolgt, sind Sie nicht erforderlich, die physischen Ports von der alten node2 auf den Ersatz-Knoten2 zuzuordnen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Nachdem Sie node1 mit dem AFF A900 oder FAS9500 Controller-Modul gebootet haben, müssen Sie überprüfen, ob es korrekt installiert ist. Sie müssen warten, bis node2 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.</p>
 </div>
 <div class="paragraph">
@@ -4633,7 +4634,7 @@ In diesem Verfahren wurde der Abschnitt <em>Neuerstellen von VLANs, ifgrps und B
 </div>
 </li>
 <li>
-<p>Wenn sich der Controller-Austausch im Status „Pause“ befindet, fahren Sie mit fort  network configuration on node2.</p>
+<p>Wenn sich der Controller-Austausch im Status „Pause“ befindet, fahren Sie mit fort <a href="#stellen-sie-die-netzwerkkonfiguration-auf-node2-wieder-her">Stellen Sie die Netzwerkkonfiguration auf node2 wieder her</a>.</p>
 </li>
 </ol>
 </div>
@@ -4646,6 +4647,7 @@ In diesem Verfahren wurde der Abschnitt <em>Neuerstellen von VLANs, ifgrps und B
 <p>Nachdem Sie bestätigt haben, dass node2 sich im Quorum befindet und mit node1 kommunizieren kann, überprüfen Sie, dass node1 VLANs, Interface Groups und Broadcast-Domains auf node2 gesehen werden. Überprüfen Sie außerdem, ob alle node2-Netzwerk-Ports in ihren richtigen Broadcast-Domänen konfiguriert sind.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter <a href="other_references.html">"Quellen"</a> Zum Verknüpfen mit dem Inhalt <em>Network Management</em>.</p>
 </div>
 <div class="olist arabic">
@@ -4751,7 +4753,7 @@ Node2
 <p><code>network port reachability show</code></p>
 </div>
 <div class="paragraph">
-<p>Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt <code>network port reachability show</code> Der Befehl sollte den Status der Erreichbarkeit als melden <code>ok</code> Für alle verbundenen Ports und den Status als <code>no-reachability</code> Für Ports ohne physische Konnektivität. Wenn ein Port einen anderen Status als diese beiden meldet, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in ,Schritt 4.</p>
+<p>Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt <code>network port reachability show</code> Der Befehl sollte den Status der Erreichbarkeit als melden <code>ok</code> Für alle verbundenen Ports und den Status als <code>no-reachability</code> Für Ports ohne physische Konnektivität. Wenn ein Port einen anderen Status als diese beiden meldet, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in <a href="#restore_node2_step4">Schritt 4</a>.</p>
 </div>
 </li>
 <li>

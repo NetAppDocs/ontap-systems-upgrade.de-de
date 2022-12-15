@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,6 +4551,7 @@
 <p>Nachdem Sie die Aggregate von node2 auf node3 verschoben haben, müssen Sie die NAS-Daten-LIFs von node2 auf node3 verschieben.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie müssen überprüfen, ob die LIFs sich in den entsprechenden Ports befinden, nachdem Sie die LIFs von node3 nach node4 verschoben und node4 in den Online-Modus versetzt haben.</p>
 </div>
 <div class="olist arabic">
@@ -4597,11 +4598,11 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Schnittstellengruppen oder VLANs sind konfiguriert</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 3.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_move_lif_2_3_step3">Schritt 3</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Schnittstellengruppen oder VLANs sind nicht konfiguriert</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 3, und fahren Sie mit fort ,Schritt 4.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 3, und fahren Sie mit fort <a href="#man_move_lif_2_3_step4">Schritt 4</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4617,7 +4618,7 @@
 </div>
 </li>
 <li>
-<p>Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt A Um den Port und Node, der derzeit die LIFs hostet, geben Sie einmal für jeden Node den folgenden Befehl ein:</p>
+<p>Ändern Sie den Home-Port und den Home-Node der LIFs in <a href="#man_move_lif_2_3_substepa">Unterschritt A</a> Um den Port und Node, der derzeit die LIFs hostet, geben Sie einmal für jeden Node den folgenden Befehl ein:</p>
 <div class="paragraph">
 <p><code>network interface modify -vserver <em>Vserver_name</em> -lif <em>LIF_name</em> -home-node <em>node3</em> -homeport <em>netport|ifgrp</em></code></p>
 </div>
@@ -4629,7 +4630,7 @@
 </div>
 </li>
 <li>
-<p>Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt C Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:</p>
+<p>Ändern Sie den Home-Port und den Home-Node der LIFs in <a href="#man_move_lif_2_3_substepc">Unterschritt C</a> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:</p>
 <div class="paragraph">
 <p><code>network interface modify -vserver <em>Vserver_name</em> -lif <em>LIF_name</em> -home-node <em>node3</em> -homeport <em>netport|ifgrp</em></code></p>
 </div>
@@ -4653,15 +4654,15 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NAS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig ,Schritt 5 Bis ,Schritt 8.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig <a href="#man_move_lif_2_3_step5">Schritt 5</a> Bis <a href="#man_move_lif_2_3_step8">Schritt 8</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">San</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 8 und schließen Sie dann ab ,Schritt 9.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 8 und schließen Sie dann ab <a href="#man_move_lif_2_3_step9">Schritt 9</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sowohl NAS als auch SAN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig ,Schritt 5 Bis ,Schritt 9.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig <a href="#man_move_lif_2_3_step5">Schritt 5</a> Bis <a href="#man_move_lif_2_3_step9">Schritt 9</a>.</p></td>
 </tr>
 </tbody>
 </table>

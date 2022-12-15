@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-01 08:14:19 +0000">12/01/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4553,7 +4553,8 @@
 <p>Wenn node3 integrierte FC-Ports, Onboard Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.</p>
 </div>
 <div class="paragraph">
-<p>Möglicherweise müssen Sie den Abschnitt ausfüllen  FC ports on node3, Der Abschnitt  and configure UTA/UTA2 ports on node3, Oder beide Abschnitte.</p>
+<div class="title">Über diese Aufgabe</div>
+<p>Möglicherweise müssen Sie den Abschnitt ausfüllen <a href="#konfigurieren-sie-fc-ports-auf-node3">Konfigurieren Sie FC-Ports auf node3</a>, Der Abschnitt <a href="#utauta2-ports-in-node3-prüfen-und-konfigurieren">UTA/UTA2-Ports in node3 prüfen und konfigurieren</a>, Oder beide Abschnitte.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4581,10 +4582,10 @@ Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begrif
 <div class="title">Wahlmöglichkeiten</div>
 <ul>
 <li>
-<p>FC ports on node3</p>
+<p><a href="#konfigurieren-sie-fc-ports-auf-node3">Konfigurieren Sie FC-Ports auf node3</a></p>
 </li>
 <li>
-<p>and configure UTA/UTA2 ports on node3</p>
+<p><a href="#utauta2-ports-in-node3-prüfen-und-konfigurieren">UTA/UTA2-Ports in node3 prüfen und konfigurieren</a></p>
 </li>
 </ul>
 </div>
@@ -4597,10 +4598,12 @@ Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begrif
 <p>Wenn node3 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in Betrieb nehmen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen die Werte der FC-Port-Einstellungen von node1 haben, die Sie im Abschnitt gespeichert haben <a href="prepare_nodes_for_upgrade.html">"Bereiten Sie die Knoten für ein Upgrade vor"</a>.</p>
 </div>
 <div class="paragraph">
-<p>Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, konfigurieren Sie sie in  and configure UTA/UTA2 ports on node3.</p>
+<div class="title">Über diese Aufgabe</div>
+<p>Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, konfigurieren Sie sie in <a href="#utauta2-ports-in-node3-prüfen-und-konfigurieren">UTA/UTA2-Ports in node3 prüfen und konfigurieren</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Wichtig</strong>: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein. Wenn Sie über ein „V-Series System“ oder über FlexArray-Virtualisierungssoftware verfügen und mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus die entsprechenden Befehle ein.</p>
@@ -4727,10 +4730,10 @@ Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begrif
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, fahren Sie mit dem Abschnitt fort  and configure UTA/UTA2 ports on node3.</p>
+<p>Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, fahren Sie mit dem Abschnitt fort <a href="#utauta2-ports-in-node3-prüfen-und-konfigurieren">UTA/UTA2-Ports in node3 prüfen und konfigurieren</a>.</p>
 </li>
 <li>
-<p>Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt  and configure UTA/UTA2 ports on node3 Und gehen Sie zum Abschnitt <a href="verify_node3_installation.html">"Überprüfen Sie die Installation von node3"</a>.</p>
+<p>Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt <a href="#utauta2-ports-in-node3-prüfen-und-konfigurieren">UTA/UTA2-Ports in node3 prüfen und konfigurieren</a> Und gehen Sie zum Abschnitt <a href="verify_node3_installation.html">"Überprüfen Sie die Installation von node3"</a>.</p>
 </li>
 </ul>
 </div></div></td>
@@ -4740,10 +4743,10 @@ Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begrif
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, fahren Sie mit dem Abschnitt fort  and configure UTA/UTA2 ports on node3.</p>
+<p>Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, fahren Sie mit dem Abschnitt fort <a href="#utauta2-ports-in-node3-prüfen-und-konfigurieren">UTA/UTA2-Ports in node3 prüfen und konfigurieren</a>.</p>
 </li>
 <li>
-<p>Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt  and configure UTA/UTA2 ports on node3 Und kehren Sie zum Abschnitt <em>Installieren und Booten node3</em> zurück und fahren Sie bei fort <a href="install_boot_node3.html#step23">"Schritt 23"</a>.</p>
+<p>Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt <a href="#utauta2-ports-in-node3-prüfen-und-konfigurieren">UTA/UTA2-Ports in node3 prüfen und konfigurieren</a> Und kehren Sie zum Abschnitt <em>Installieren und Booten node3</em> zurück und fahren Sie bei fort <a href="install_boot_node3.html#step23">"Schritt 23"</a>.</p>
 </li>
 </ul>
 </div></div></td>
@@ -4762,9 +4765,11 @@ Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begrif
 <p>Wenn node3 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie möglicherweise neu konfigurieren, je nachdem, wie Sie das aktualisierte System verwenden möchten.</p>
 </div>
 <div class="paragraph">
+<div class="title">Bevor Sie beginnen</div>
 <p>Sie müssen die richtigen SFP+ Module für die UTA/UTA2-Ports besitzen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Wenn Sie einen Unified Target Adapter (UTA/UTA2)-Port für FC verwenden möchten, müssen Sie zuerst überprüfen, wie der Port konfiguriert ist.</p>
 </div>
 <div class="admonitionblock note">
@@ -4901,11 +4906,11 @@ Adapter  Mode     Type        Mode      Type       Status
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Haben Sie nicht die Persönlichkeit, die Sie wollen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#auto_check3_step5">Schritt 5</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Haben Sie die Persönlichkeit, die Sie wollen</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort ,Schritt 13.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <a href="#auto_check3_step13">Schritt 13</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4926,11 +4931,11 @@ Adapter  Mode     Type        Mode      Type       Status
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ports auf einer UTA/UTA2-Karte</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#auto_check3_step7">Schritt 7</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Onboard UTA/UTA2-Ports</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7, und fahren Sie mit fort ,Schritt 8.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 7, und fahren Sie mit fort <a href="#auto_check3_step8">Schritt 8</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5079,7 +5084,7 @@ Adapter  Mode       Type        Mode     Type        Status
 </div>
 </li>
 <li>
-<p><a id="Schritt14"></a>Boot-Knoten in Boot-Menü durch Ausführen <code>boot_ontap menu</code>. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu ,Schritt 23.</p>
+<p><a id="Schritt14"></a>Boot-Knoten in Boot-Menü durch Ausführen <code>boot_ontap menu</code>. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu <a href="#auto_check3_step23">Schritt 23</a>.</p>
 </li>
 <li>
 <p><a id="auto9597_Check_node3_step15"></a>in node3 gehen Sie zum Startmenü und wählen Sie die verborgene Option mit 22/7 aus <code>boot_after_controller_replacement</code>. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 zu node3 wie im folgenden Beispiel neu zuzuweisen.</p>
@@ -5199,7 +5204,7 @@ Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Na
 </div>
 </li>
 <li>
-<p>Wenn das System in eine Reboot-Schleife mit der Meldung geht <code>no disks found</code>, Es zeigt an, dass das System die FC- oder UTA/UTA2-Ports wieder in den Ziel-Modus zurückgesetzt hat und somit keine Disketten sehen kann. Um dies zu beheben, fahren Sie mit fort ,Schritt 17 Bis ,Schritt 22Oder gehen Sie zu Abschnitt <a href="verify_node3_installation.html">"Überprüfen Sie die Installation von node3"</a>.</p>
+<p>Wenn das System in eine Reboot-Schleife mit der Meldung geht <code>no disks found</code>, Es zeigt an, dass das System die FC- oder UTA/UTA2-Ports wieder in den Ziel-Modus zurückgesetzt hat und somit keine Disketten sehen kann. Um dies zu beheben, fahren Sie mit fort <a href="#auto_check3_step17">Schritt 17</a> Bis <a href="#auto_check3_step22">Schritt 22</a>Oder gehen Sie zu Abschnitt <a href="verify_node3_installation.html">"Überprüfen Sie die Installation von node3"</a>.</p>
 </li>
 <li>
 <p><a id="Auto_check3_step17"></a>Drücken Sie <code>Ctrl-C</code> Während des automatischen Bootens, um den Node auf dem zu beenden <code>LOADER&gt;</code> Eingabeaufforderung:</p>
@@ -5241,10 +5246,10 @@ Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Na
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu ,Schritt 22.</p>
+<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu <a href="#auto_check3_step22">Schritt 22</a>.</p>
 </div>
 <div class="paragraph">
-<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das sowohl interne als auch externe Festplatten, wie z. B. ein AFF A800 System, unterstützt, finden Sie unter ,Schritt 23.</p>
+<p>Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das sowohl interne als auch externe Festplatten, wie z. B. ein AFF A800 System, unterstützt, finden Sie unter <a href="#auto_check3_step23">Schritt 23</a>.</p>
 </div>
 </td>
 </tr>

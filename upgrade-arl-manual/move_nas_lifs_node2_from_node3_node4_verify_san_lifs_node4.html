@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
     
   
 
@@ -4551,6 +4551,7 @@
 <p>Nachdem Sie die node4-Installation überprüft haben und bevor Sie node2-Aggregate von node3 auf node4 verschieben, müssen Sie die NAS-Daten-LIFs, die sich im Besitz von node2 befinden, in node3 von node3 auf node4 verschieben. Sie müssen auch die SAN LIFs auf node4 überprüfen.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs ordnungsgemäß sind und sich in den entsprechenden Ports befinden, nachdem Sie node4 in den Online-Modus versetzt haben.</p>
 </div>
 <div class="olist arabic">
@@ -4651,11 +4652,11 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Schnittstellengruppen oder VLANs wurden konfiguriert</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu ,Schritt 4.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gehen Sie zu <a href="#man_lif_verify_4_Step3">Schritt 4</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Schnittstellengruppen oder VLANs waren nicht konfiguriert</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 4, und fahren Sie mit fort ,Schritt 5.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 4, und fahren Sie mit fort <a href="#man_lif_verify_4_Step4">Schritt 5</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4671,7 +4672,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 </div>
 </li>
 <li>
-<p>Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt A Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:</p>
+<p>Ändern Sie den Home-Port und den Home-Node der LIFs in <a href="#man_lif_verify_4_substepa">Unterschritt A</a> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:</p>
 <div class="paragraph">
 <p><code>network interface modify -vserver <em>vserver_name</em> -lif <em>datalif_name</em> -home-node node4 home-port <em>netport|ifgrp</em></code></p>
 </div>
@@ -4683,7 +4684,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 </div>
 </li>
 <li>
-<p>Ändern Sie den Home-Port und den Home-Node der LIFs in ,Unterschritt C Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:</p>
+<p>Ändern Sie den Home-Port und den Home-Node der LIFs in <a href="#man_lif_verify_4_substepc">Unterschritt C</a> Geben Sie zum Port und Node, der derzeit die LIFs hostet, den folgenden Befehl ein, einmal für jede LIF:</p>
 <div class="paragraph">
 <p><code>network interface modify -vserver <em>vserver_name</em> -lif <em>datalif_name</em> -home-node <em>node4</em> home-port <em>netport|ifgrp</em></code></p>
 </div>
@@ -4707,15 +4708,15 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NAS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig ,Schritt 6 Bis ,Schritt 9, überspringen Sie Schritt 10, und abgeschlossen ,Schritt 11 Bis ,Schritt 14.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig <a href="#man_lif_verify_4_Step5">Schritt 6</a> Bis <a href="#man_lif_verify_4_Step8">Schritt 9</a>, überspringen Sie Schritt 10, und abgeschlossen <a href="#man_lif_verify_4_Step10">Schritt 11</a> Bis <a href="#man_lif_verify_4_Step13">Schritt 14</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">San</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 6 bis Schritt 9, und schließen Sie sie ab ,Schritt 10 Bis ,Schritt 14.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Überspringen Sie Schritt 6 bis Schritt 9, und schließen Sie sie ab <a href="#man_lif_verify_4_Step9">Schritt 10</a> Bis <a href="#man_lif_verify_4_Step13">Schritt 14</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sowohl NAS als auch SAN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig ,Schritt 6 Bis ,Schritt 14.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vollständig <a href="#man_lif_verify_4_Step5">Schritt 6</a> Bis <a href="#man_lif_verify_4_Step13">Schritt 14</a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4833,7 +4834,7 @@ vs1
 </div>
 </li>
 <li>
-<p>Überprüfen Sie, ob die neue <code>adapter</code> Und <code>switch-port</code> Die Konfigurationen sind korrekt, indem die Ausgabe von dem verglichen wird <code>fcp adapter show</code> Befehl mit den neuen Konfigurationsinformationen, die Sie im Arbeitsblatt in aufgezeichnet haben ,Schritt 2.</p>
+<p>Überprüfen Sie, ob die neue <code>adapter</code> Und <code>switch-port</code> Die Konfigurationen sind korrekt, indem die Ausgabe von dem verglichen wird <code>fcp adapter show</code> Befehl mit den neuen Konfigurationsinformationen, die Sie im Arbeitsblatt in aufgezeichnet haben <a href="#worksheet_step2_node2">Schritt 2</a>.</p>
 <div class="paragraph">
 <p>Liste der neuen SAN LIF-Konfigurationen auf node4:</p>
 </div>
