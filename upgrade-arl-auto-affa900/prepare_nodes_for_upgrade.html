@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 11:06:14 +0000">11/15/2022</time>
+    <time datetime="2022-12-16 09:49:03 +0000">12/16/2022</time>
     
   
 
@@ -4726,9 +4726,6 @@ Controller replacement operation has been paused for user intervention.</pre>
 </li>
 </ul>
 </div>
-</li>
-</ol>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -4740,6 +4737,50 @@ Wenn NetApp Volume Encryption mit Onboard Key Manager verwendet wird, halten Sie
 </td>
 </tr>
 </table>
+</div>
+</li>
+<li>
+<p>Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed" target="_blank" rel="noopener">"Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"</a> Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FIPS-zertifizierte NetApp Storage Encryption (NSE) SAS- oder NVMe-Laufwerke</p>
+</li>
+<li>
+<p>Self-Encrypting-NVMe-Laufwerke (SED) ohne FIPS</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Anmerkung">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.</p>
+</li>
+<li>
+<p>SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types" target="_blank" rel="noopener">"Weitere Informationen zu unterstützten Self-Encrypting Drives"</a>.</p>
+</div>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

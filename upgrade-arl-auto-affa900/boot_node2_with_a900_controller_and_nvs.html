@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
+    <time datetime="2022-12-16 09:49:03 +0000">12/16/2022</time>
     
   
 
@@ -4554,12 +4554,76 @@
 <div class="title">Schritte</div>
 <ol class="arabic">
 <li>
-<p><a id="A900_Boot_node2"></a> Wenn NetApp Storage Encryption (NSE) für diese Konfiguration verwendet wird, wird der aktiviert <code>setenv bootarg.storageencryption.support</code> Der Befehl muss auf festgelegt sein <code>true</code>, Und das <code>kmip.init.maxwait</code> Variable muss auf festgelegt sein <code>off</code> So vermeiden Sie eine Boot-Schleife nach dem Laden der node2-Konfiguration:</p>
+<p><a id="Boot_node2_stea1"></a>legt den fest <code>bootarg.storageencryption.support</code> Und <code>kmip.init.maxwait</code> Variablen zur Vermeidung einer Boot-Schleife nach dem Laden der node2-Konfiguration.</p>
 <div class="paragraph">
-<p><code>setenv bootarg.storageencryption.support true</code></p>
+<p>Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed" target="_blank" rel="noopener">"Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"</a> Ermitteln der Art der verwendeten Self-Encrypting Drives.</p>
 </div>
-<div class="paragraph">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Wenn die folgenden Laufwerke verwendet werden…</th>
+<th class="tableblock halign-left valign-top">Dann…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>setenv bootarg.storageencryption.support <strong>true</strong></code></p>
+</li>
+<li>
 <p><code>setenv kmip.init.maxwait off</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp ohne FIPS SEDs</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>setenv bootarg.storageencryption.support <strong>false</strong></code></p>
+</li>
+<li>
+<p><code>setenv kmip.init.maxwait off</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Anmerkung">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.</p>
+</li>
+<li>
+<p>SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.</p>
+</li>
+<li>
+<p>Wenn ein Stromausfall auftritt, nachdem Sie den festgelegt haben <code>kmip.init.maxwait</code> Variabel auf `off`Wenden Sie sich an den technischen Support, um Hilfe zu erhalten, um möglichen Datenverlust zu vermeiden.</p>
+</li>
+<li>
+<p>Sobald das Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie den festlegen <code>kmip.init.maxwait</code> Variabel. Siehe <a href="ensure_new_controllers_are_set_up_correctly.html">"Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind"</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>

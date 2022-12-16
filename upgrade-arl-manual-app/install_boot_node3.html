@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-14 18:28:38 +0000">12/14/2022</time>
+    <time datetime="2022-12-16 09:49:03 +0000">12/16/2022</time>
     
   
 
@@ -4830,12 +4830,76 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 </div>
 </li>
 <li>
-<p><a id="man_install3_step16"></a> Wenn für diese Konfiguration NetApp Storage Encryption (NSE) verwendet wird, wird das verwendet <code>setenv bootarg.storageencryption.support</code> Der Befehl muss auf festgelegt sein <code>true</code>, Und das <code>kmip.init.maxwait</code> Variable muss auf festgelegt werden <code>off</code> So vermeiden Sie eine Boot-Schleife nach dem Laden der node1-Konfiguration:</p>
+<p><a id="man_install3_steep16"></a>Festlegen des <code>bootarg.storageencryption.support</code> Und <code>kmip.init.maxwait</code> Variablen, um eine Boot-Schleife zu vermeiden, nachdem die node1-Konfiguration geladen wurde.</p>
 <div class="paragraph">
-<p><code>setenv bootarg.storageencryption.support true</code></p>
+<p>Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed" target="_blank" rel="noopener">"Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"</a> Ermitteln der Art der verwendeten Self-Encrypting Drives.</p>
 </div>
-<div class="paragraph">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 35%;">
+<col style="width: 65%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Wenn die folgenden Laufwerke verwendet werden…</th>
+<th class="tableblock halign-left valign-top">Dann…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>setenv bootarg.storageencryption.support <strong>true</strong></code></p>
+</li>
+<li>
 <p><code>setenv kmip.init.maxwait off</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NetApp ohne FIPS SEDs</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>setenv bootarg.storageencryption.support <strong>false</strong></code></p>
+</li>
+<li>
+<p><code>setenv kmip.init.maxwait off</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Anmerkung">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.</p>
+</li>
+<li>
+<p>SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.</p>
+</li>
+<li>
+<p>Wenn ein Stromausfall auftritt, nachdem Sie den festgelegt haben <code>kmip.init.maxwait</code> Variabel auf `off`Wenden Sie sich an den technischen Support, um Hilfe zu erhalten, um möglichen Datenverlust zu vermeiden.</p>
+</li>
+<li>
+<p>Sobald das Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie den festlegen <code>kmip.init.maxwait</code> Variabel. Siehe <a href="ensure_controllers_set_up_correctly.html">"Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind"</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
@@ -4850,7 +4914,7 @@ To override this delay, press 'c' followed by 'Enter'</pre>
 <img src="/us-en/ontap-systems-upgrade/images/warning.svg" alt="Warnung">
 </td>
 <td class="content">
-<strong>Warnung</strong>: Wenn dieser neue Knoten jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausführen <code>wipeconfig</code> Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
+Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausgeführt werden <code>wipeconfig</code> Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
 </td>
 </tr>
 </table>
@@ -5088,6 +5152,18 @@ Möglicherweise wird die Meldung angezeigt <code>disk show: No disks match optio
 <p><a id="man_install3_step28"></a>Spares des Rasign node1, alle Festplatten, die zum Root gehören, und alle nicht-Root-Aggregate, die früher in node2 verschoben wurden <a href="relocate_non_root_aggr_node1_node2.html">"Verschiebung von nicht-Root-Aggregaten von node1 auf node2"</a>.</p>
 <div class="paragraph">
 <p>Geben Sie das entsprechende Formular des ein <code>disk reassign</code> Befehl basierend auf der Frage, ob Ihr System freigegebene Festplatten hat:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="Anmerkung">
+</td>
+<td class="content">
+Wenn Sie auf Ihrem System freigegebene Festplatten, Hybrid-Aggregate oder beides haben, müssen Sie die korrekte verwenden <code>disk reassign</code> Befehl aus der folgenden Tabelle.
+</td>
+</tr>
+</table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
