@@ -148,20 +148,46 @@ Die Stromversorgung sollte bereits eingeschaltet sein, wenn sich beide Controlle
 +
 `set-defaults`
 
-. [[man_install3_step16]] Wenn für diese Konfiguration NetApp Storage Encryption (NSE) verwendet wird, wird das verwendet `setenv bootarg.storageencryption.support` Der Befehl muss auf festgelegt sein `true`, Und das `kmip.init.maxwait` Variable muss auf festgelegt werden `off` So vermeiden Sie eine Boot-Schleife nach dem Laden der node1-Konfiguration:
+. [[man_install3_steep16]]Festlegen des `bootarg.storageencryption.support` Und `kmip.init.maxwait` Variablen, um eine Boot-Schleife zu vermeiden, nachdem die node1-Konfiguration geladen wurde.
 +
-`setenv bootarg.storageencryption.support true`
+Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
 
 +
-`setenv kmip.init.maxwait off`
+[cols="35,65"]
+|===
+| Wenn die folgenden Laufwerke verwendet werden… | Dann… 
 
+
+| NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen  a| 
+** `setenv bootarg.storageencryption.support *true*`
+** `setenv kmip.init.maxwait off`
+
+
+
+
+| NetApp ohne FIPS SEDs  a| 
+** `setenv bootarg.storageencryption.support *false*`
+** `setenv kmip.init.maxwait off`
+
+
+|===
++
+[NOTE]
+====
+** FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
+** SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
+** Wenn ein Stromausfall auftritt, nachdem Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off`Wenden Sie sich an den technischen Support, um Hilfe zu erhalten, um möglichen Datenverlust zu vermeiden.
+** Sobald das Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie den festlegen `kmip.init.maxwait` Variabel. Siehe link:ensure_controllers_set_up_correctly.html["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind"].
+
+
+====
 . [[man_install3_step17] Wenn die auf node3 installierte ONTAP-Version dieselbe oder höher als die auf node1 installierte Version von ONTAP 9 ist, führen Sie die Liste auf und weisen Sie Festplatten der neuen node3 neu zu:
 +
 `boot_ontap`
 
 +
 
-WARNING: *Warnung*: Wenn dieser neue Knoten jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausführen `wipeconfig` Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
+WARNING: Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausgeführt werden `wipeconfig` Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
 
 . [[man_install3_step18]]Drücken Sie STRG-C, um das Startmenü anzuzeigen.
 . [[man_install3_step19]]Nehmen Sie eine der folgenden Aktionen:
@@ -296,6 +322,10 @@ NOTE: Möglicherweise wird die Meldung angezeigt `disk show: No disks match opti
 . [[man_install3_step28]]Spares des Rasign node1, alle Festplatten, die zum Root gehören, und alle nicht-Root-Aggregate, die früher in node2 verschoben wurden link:relocate_non_root_aggr_node1_node2.html["Verschiebung von nicht-Root-Aggregaten von node1 auf node2"].
 +
 Geben Sie das entsprechende Formular des ein `disk reassign` Befehl basierend auf der Frage, ob Ihr System freigegebene Festplatten hat:
+
++
+
+NOTE: Wenn Sie auf Ihrem System freigegebene Festplatten, Hybrid-Aggregate oder beides haben, müssen Sie die korrekte verwenden `disk reassign` Befehl aus der folgenden Tabelle.
 
 +
 [cols="35,65"]

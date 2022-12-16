@@ -86,8 +86,10 @@ Wenn Node3 oder node4 im Besitz von Daten-LIFs sind, die sich im Besitz anderer 
 +
 Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschlüsseln für Großbuchstaben. Sie können jeweils eine Lizenz hinzufügen, oder Sie können mehrere Lizenzen gleichzeitig hinzufügen, jeden Lizenzschlüssel durch ein Komma getrennt.
 
-. Wenn NetApp Storage Encryption (NSE) in der Konfiguration verwendet wurde und Sie die einstellen `setenv bootarg.storageencryption.support` Befehl „true“ mit dem `kmip.init.maxwait` Variable „aus“ (in link:install_boot_node3.html#step16["Schritt 16"] Von _Install and Boot node3_) müssen Sie die Variable zurücksetzen:
+. Falls in der Konfiguration Self-Encrypting Drives verwendet werden und die festgelegt sind `kmip.init.maxwait` Variabel auf `off` (Beispiel in link:install_boot_node3.html#step16["Schritt 16"] Von _Install and Boot node3_) müssen Sie die Variable aufheben:
++
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
+
 . Geben Sie einen der folgenden Befehle ein, um alle alten Lizenzen von den ursprünglichen Nodes zu entfernen:
 +
 `system license clean-up -unused -expired`

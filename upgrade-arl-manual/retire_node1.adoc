@@ -57,6 +57,10 @@ node2                 true    true
 | Ein Cluster mit mehr als zwei Nodes | Deaktivier Speicher-Failover:
 `storage failover modify -node _node1_ -enabled false` 
 |===
++
+
+WARNING: Wenn Sie Storage-Failover nicht deaktivieren, kann es zu einem Ausfall des Controller-Upgrades kommen, der den Datenzugriff unterbrechen und zu Datenverlusten führen kann.
+
 . Überprüfen Sie, ob der Storage-Failover deaktiviert wurde:
 +
 `storage failover show`
