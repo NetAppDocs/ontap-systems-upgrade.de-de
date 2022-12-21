@@ -335,11 +335,12 @@ Ausführliche Informationen zum `network interface revert` Befehl, siehe link:ot
 Wenn eine der Festplatten ausgefallen ist, entfernen Sie sie gemäß den Anweisungen in _Disk und Aggregat-Management mit der CLI_. (Siehe link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregatmanagement mit CLI_.)
 
 . Sammeln Sie Informationen über node1 und node2, indem Sie die folgenden Unterschritte ausführen und die Ausgabe jedes Befehls aufzeichnen:
++
 
+NOTE: Diese Informationen werden Sie später im Verfahren verwenden.
 
-+ HINWEIS: Sie werden diese Informationen später im Verfahren verwenden.
-
-. Notieren Sie das Modell, die System-ID und die Seriennummer beider Nodes:
++
+.. Notieren Sie das Modell, die System-ID und die Seriennummer beider Nodes:
 +
 `system node show -node _node1,node2_ -instance`
 
@@ -347,7 +348,7 @@ Wenn eine der Festplatten ausgefallen ist, entfernen Sie sie gemäß den Anweisu
 
 NOTE: Sie verwenden die Informationen, um Festplatten neu zuzuweisen und die ursprünglichen Nodes außer Betrieb zu nehmen.
 
-. Geben Sie in node1 und node2 den folgenden Befehl ein und notieren Sie Informationen über die Shelfs, die Anzahl der Festplatten in jedem Shelf, die Flash Storage-Details, den Arbeitsspeicher, NVRAM und die Netzwerkkarten aus der Ausgabe:
+.. Geben Sie in node1 und node2 den folgenden Befehl ein und notieren Sie Informationen über die Shelfs, die Anzahl der Festplatten in jedem Shelf, die Flash Storage-Details, den Arbeitsspeicher, NVRAM und die Netzwerkkarten aus der Ausgabe:
 +
 `run -node _node_name_ sysconfig`
 
@@ -355,7 +356,7 @@ NOTE: Sie verwenden die Informationen, um Festplatten neu zuzuweisen und die urs
 
 NOTE: Sie können die Informationen verwenden, um Teile oder Zubehör zu identifizieren, die Sie auf node3 oder node4 übertragen möchten. Wenn Sie nicht wissen, ob die Nodes V-Series Systeme sind oder über FlexArray-Virtualisierungssoftware verfügen, können Sie das auch aus der Ausgabe lernen.
 
-. Geben Sie sowohl bei node1 als auch bei node2 den folgenden Befehl ein und notieren Sie die Aggregate, die auf beiden Nodes online sind:
+.. Geben Sie sowohl bei node1 als auch bei node2 den folgenden Befehl ein und notieren Sie die Aggregate, die auf beiden Nodes online sind:
 +
 `storage aggregate show -node _node_name_ -state online`
 
@@ -363,7 +364,7 @@ NOTE: Sie können die Informationen verwenden, um Teile oder Zubehör zu identif
 
 NOTE: Mithilfe dieser Informationen und der Informationen im folgenden Unterschritt können Sie überprüfen, ob die Aggregate und Volumes während des gesamten Verfahrens online bleiben, mit Ausnahme des kurzen Zeitraums, in dem sie während der Verschiebung offline sind.
 
-. [[man_prepare_nodes_step19]]Geben Sie sowohl für node1 als auch für node2 den folgenden Befehl ein und notieren Sie die Volumes, die auf beiden Knoten offline sind:
+.. [[man_prepare_nodes_step19]]Geben Sie sowohl für node1 als auch für node2 den folgenden Befehl ein und notieren Sie die Volumes, die auf beiden Knoten offline sind:
 +
 `volume show -node _node_name_ -state offline`
 
@@ -371,8 +372,9 @@ NOTE: Mithilfe dieser Informationen und der Informationen im folgenden Unterschr
 
 NOTE: Nach dem Upgrade führen Sie den Befehl erneut aus und vergleichen die Ausgabe mit der Ausgabe in diesem Schritt, um zu sehen, ob andere Volumes offline gegangen sind.
 
-+
-.. Geben Sie die folgenden Befehle ein, um zu ermitteln, ob Schnittstellengruppen oder VLANs auf node1 oder node2 konfiguriert sind:
+
+
+. Geben Sie die folgenden Befehle ein, um zu ermitteln, ob Schnittstellengruppen oder VLANs auf node1 oder node2 konfiguriert sind:
 +
 `network port ifgrp show`
 
@@ -382,10 +384,9 @@ NOTE: Nach dem Upgrade führen Sie den Befehl erneut aus und vergleichen die Aus
 +
 Beachten Sie, ob Schnittstellengruppen oder VLANs auf node1 oder node2 konfiguriert sind. Diese Informationen benötigen Sie im nächsten Schritt und später im Verfahren.
 
-.. Führen Sie die folgenden Teilschritte sowohl bei node1 als auch bei node2 durch, um zu bestätigen, dass die physischen Ports im weiteren Verlauf des Verfahrens korrekt zugeordnet werden können:
-
-
-. Geben Sie den folgenden Befehl ein, um zu ermitteln, ob außer den Failover-Gruppen auf dem Node Failover-Gruppen vorhanden sind `clusterwide`:
+. Führen Sie die folgenden Teilschritte sowohl bei node1 als auch bei node2 durch, um zu bestätigen, dass die physischen Ports im weiteren Verlauf des Verfahrens korrekt zugeordnet werden können:
++
+.. Geben Sie den folgenden Befehl ein, um zu ermitteln, ob außer den Failover-Gruppen auf dem Node Failover-Gruppen vorhanden sind `clusterwide`:
 +
 `network interface failover-groups show`
 
@@ -410,8 +411,8 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 
 2 entries were displayed.
 ....
-. Wenn es andere Failover-Gruppen als gibt `clusterwide`Notieren Sie die Namen der Failover-Gruppen und die Ports, die zu den Failover-Gruppen gehören.
-. Geben Sie den folgenden Befehl ein, um zu ermitteln, ob auf dem Node konfigurierte VLANs vorhanden sind:
+.. Wenn es andere Failover-Gruppen als gibt `clusterwide`Notieren Sie die Namen der Failover-Gruppen und die Ports, die zu den Failover-Gruppen gehören.
+.. Geben Sie den folgenden Befehl ein, um zu ermitteln, ob auf dem Node konfigurierte VLANs vorhanden sind:
 +
 `network port vlan show -node _node_name_`
 
@@ -430,9 +431,10 @@ Node    VLAN Name Port    VLAN ID MAC Address
 ------  --------- ------- ------- ------------------
 node1   e1b-70    e1b     70      00:15:17:76:7b:69
 ....
-. Wenn auf dem Node VLANs konfiguriert sind, notieren Sie sich jeden Netzwerkport und die Verbindung zwischen VLAN-ID.
-+
-.. Führen Sie eine der folgenden Aktionen durch:
+.. Wenn auf dem Node VLANs konfiguriert sind, notieren Sie sich jeden Netzwerkport und die Verbindung zwischen VLAN-ID.
+
+
+. Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="35,65"]
 |===
@@ -444,7 +446,7 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 
 | Nicht auf node1 oder node2 | Gehen Sie zu <<man_prepare_nodes_step24,Schritt 24>>. 
 |===
-.. [[man_prepare_Nodes_step23] Wenn Sie nicht wissen, ob sich node1 und node2 in einer SAN- oder nicht-SAN-Umgebung befinden, geben Sie den folgenden Befehl ein und überprüfen die Ausgabe:
+. [[man_prepare_Nodes_step23] Wenn Sie nicht wissen, ob sich node1 und node2 in einer SAN- oder nicht-SAN-Umgebung befinden, geben Sie den folgenden Befehl ein und überprüfen die Ausgabe:
 +
 `network interface show -vserver _vserver_name_ -data-protocol iscsi|fcp`
 
@@ -471,10 +473,9 @@ Vserver  Interface  Admin/Oper Address/Mask       Node     Port    Home
 -------- ---------- ---------- ------------------ -------- ------- ----
 vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true
 ....
-.. [[man_prepare_Nodes_step24]]Stellen Sie sicher, dass alle Knoten im Cluster Quorum sind, indem Sie die folgenden Teilschritte ausführen:
-
-
-. Geben Sie die erweiterte Berechtigungsebene ein:
+. [[man_prepare_Nodes_step24]]Stellen Sie sicher, dass alle Knoten im Cluster Quorum sind, indem Sie die folgenden Teilschritte ausführen:
++
+.. Geben Sie die erweiterte Berechtigungsebene ein:
 +
 `set -privilege advanced`
 
@@ -486,8 +487,8 @@ Vom System wird die folgende Meldung angezeigt:
 Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
 Do you wish to continue? (y or n):
 ....
-. Eingabe `y`.
-. Überprüfen Sie einmal für jeden Node den Cluster-Service-Status im Kernel:
+.. Eingabe `y`.
+.. Überprüfen Sie einmal für jeden Node den Cluster-Service-Status im Kernel:
 +
 `cluster kernel-service show`
 
@@ -509,12 +510,13 @@ node1         node1         in-quorum     true          operational
 +
 Nodes in einem Cluster sind Quorum, wenn eine einfache Mehrheit der Nodes in einem ordnungsgemäßen Zustand ist und miteinander kommunizieren kann. Weitere Informationen finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
 
-. Zurück zur Administratorberechtigungsebene:
+.. Zurück zur Administratorberechtigungsebene:
 +
 `set -privilege admin`
 
-+
-.. Führen Sie eine der folgenden Aktionen durch:
+
+
+. Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="35,65"]
 |===
@@ -526,7 +528,7 @@ Nodes in einem Cluster sind Quorum, wenn eine einfache Mehrheit der Nodes in ein
 
 | Hat kein SAN konfiguriert | Gehen Sie zu <<man_prepare_nodes_step29,Schritt 29>>. 
 |===
-.. [[man_prepare_Nodes_step26]]Stellen Sie sicher, dass SAN LIFs auf node1 und node2 für jede SVM sind, bei der entweder SAN iSCSI oder FC Service aktiviert ist, indem Sie den folgenden Befehl eingeben und seine Ausgabe prüfen:
+. [[man_prepare_Nodes_step26]]Stellen Sie sicher, dass SAN LIFs auf node1 und node2 für jede SVM sind, bei der entweder SAN iSCSI oder FC Service aktiviert ist, indem Sie den folgenden Befehl eingeben und seine Ausgabe prüfen:
 +
 `network interface show -data-protocol iscsi|fcp -home-node _node_name_`
 
@@ -556,7 +558,7 @@ Alternativ können Sie ausführlichere LIF-Informationen anzeigen, indem Sie den
 +
 `network interface show -instance -data-protocol iscsi|fcp`
 
-.. Erfassen Sie die Standardkonfiguration aller FC-Ports an den ursprünglichen Nodes, indem Sie den folgenden Befehl eingeben und die Ausgabe für Ihre Systeme aufzeichnen:
+. Erfassen Sie die Standardkonfiguration aller FC-Ports an den ursprünglichen Nodes, indem Sie den folgenden Befehl eingeben und die Ausgabe für Ihre Systeme aufzeichnen:
 +
 `ucadmin show`
 
@@ -583,7 +585,7 @@ node2   0d      fc      initiator -       -         online
 +
 Sie können die Informationen nach dem Upgrade verwenden, um die Konfiguration von FC-Ports auf den neuen Nodes einzustellen.
 
-.. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware aktualisieren, erfassen Sie Informationen über die Topologie der Original-Nodes, indem Sie den folgenden Befehl eingeben und die Ausgabe aufzeichnen:
+. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware aktualisieren, erfassen Sie Informationen über die Topologie der Original-Nodes, indem Sie den folgenden Befehl eingeben und die Ausgabe aufzeichnen:
 +
 `storage array config show -switch`
 
@@ -608,24 +610,24 @@ node2 0   50  I_1818FAStT_1
                             208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
 7 entries were displayed.
 ....
-.. [[man_prepare_Nodes_steep29]]die folgenden Teilschritte ausführen:
-
-
-. Geben Sie an einem der Original-Nodes den folgenden Befehl ein und notieren Sie die Ausgabe:
+. [[man_prepare_Nodes_steep29]]die folgenden Teilschritte ausführen:
++
+.. Geben Sie an einem der Original-Nodes den folgenden Befehl ein und notieren Sie die Ausgabe:
 +
 `service-processor show -node * -instance`
 
 +
 Das System zeigt auf beiden Nodes detaillierte Informationen zum SP an.
 
-. Vergewissern Sie sich, dass der SP-Status lautet `online`.
-. Vergewissern Sie sich, dass das SP-Netzwerk konfiguriert ist.
-. Notieren Sie die IP-Adresse und andere Informationen zum SP.
+.. Vergewissern Sie sich, dass der SP-Status lautet `online`.
+.. Vergewissern Sie sich, dass das SP-Netzwerk konfiguriert ist.
+.. Notieren Sie die IP-Adresse und andere Informationen zum SP.
 +
 Möglicherweise möchten Sie die Netzwerkparameter der Remote-Verwaltungsgeräte, in diesem Fall die SPs, vom ursprünglichen System für die SPs auf den neuen Knoten wieder verwenden. Ausführliche Informationen zum SP finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _Systemadministration Reference_ und _ONTAP 9: Manual Page Reference_.
 
-+
-.. [[man_prepare_Nodes_step30]]Wenn die neuen Nodes dieselben lizenzierten Funktionen wie die ursprünglichen Knoten haben sollen, geben Sie den folgenden Befehl ein, um die Clusterlizenzen auf dem ursprünglichen System anzuzeigen:
+
+
+. [[man_prepare_Nodes_step30]]Wenn die neuen Nodes dieselben lizenzierten Funktionen wie die ursprünglichen Knoten haben sollen, geben Sie den folgenden Befehl ein, um die Clusterlizenzen auf dem ursprünglichen System anzuzeigen:
 +
 `system license show -owner *`
 
@@ -648,11 +650,11 @@ FlexClone         site    FlexClone License     -
 SnapVault         site    SnapVault License     -
 6 entries were displayed.
 ....
-.. Beschaffung neuer Lizenzschlüssel für die neuen Nodes auf der _NetApp Support Site_. Siehe link:other_references.html["Quellen"] Zum Link zu _NetApp Support Site_.
+. Beschaffung neuer Lizenzschlüssel für die neuen Nodes auf der _NetApp Support Site_. Siehe link:other_references.html["Quellen"] Zum Link zu _NetApp Support Site_.
 +
 Falls auf der Website keine Lizenzschlüssel vorhanden ist, wenden Sie sich an Ihren NetApp Ansprechpartner.
 
-.. Überprüfen Sie, ob im Original-System AutoSupport aktiviert ist, indem Sie auf jedem Node den folgenden Befehl eingeben und seine Ausgabe überprüfen:
+. Überprüfen Sie, ob im Original-System AutoSupport aktiviert ist, indem Sie auf jedem Node den folgenden Befehl eingeben und seine Ausgabe überprüfen:
 +
 `system node autosupport show -node _node1,node2_`
 
@@ -670,7 +672,7 @@ node1            enable    Postmaster    admin@netapp.com  mailhost
 node2            enable    Postmaster    -                 mailhost
 2 entries were displayed.
 ....
-.. Führen Sie eine der folgenden Aktionen durch:
+. Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="35,65"]
 |===
@@ -678,29 +680,29 @@ node2            enable    Postmaster    -                 mailhost
 
 
 | Hat AutoSupport aktiviert...  a| 
-... Gehen Sie zu <<man_prepare_nodes_step34,Schritt 34>>.
-... Wechseln Sie zum Abschnitt link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption"].
+.. Gehen Sie zu <<man_prepare_nodes_step34,Schritt 34>>.
+.. Wechseln Sie zum Abschnitt link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption"].
 
 
 
 
 | AutoSupport ist nicht aktiviert...  a| 
-... Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsreferenz_ folgen. (Siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der Referenz _Systemadministration_.)
+.. Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsreferenz_ folgen. (Siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der Referenz _Systemadministration_.)
 +
 *Hinweis:* AutoSupport ist standardmäßig aktiviert, wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren. Sie können AutoSupport zwar jederzeit deaktivieren, jedoch sollten Sie sie aktiviert lassen. Wenn Sie AutoSupport aktivieren, können Sie erheblich dabei helfen, Probleme und Lösungen zu identifizieren, sollten bei Ihrem Storage-System Probleme auftreten.
 
-... Wechseln Sie zum link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption"] Abschnitt.
+.. Wechseln Sie zum link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption"] Abschnitt.
 
 
 |===
-.. [[man_prepare_nodes_step34]]Überprüfen Sie, ob AutoSupport mit den korrekten E-Mail-IDs für den Mailhost konfiguriert ist, indem Sie auf beiden Originalknoten den folgenden Befehl eingeben und die Ausgabe prüfen:
+. [[man_prepare_nodes_step34]]Überprüfen Sie, ob AutoSupport mit den korrekten E-Mail-IDs für den Mailhost konfiguriert ist, indem Sie auf beiden Originalknoten den folgenden Befehl eingeben und die Ausgabe prüfen:
 +
 `system node autosupport show -node node_name -instance`
 
 +
 Ausführliche Informationen zu AutoSupport finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _Systemadministration Reference_ und _ONTAP 9: Manual Page Reference_.
 
-.. [[man_prepare_Nodes_step35,Schritt 35]] Senden Sie eine AutoSupport-Nachricht für node1 an NetApp, indem Sie den folgenden Befehl eingeben:
+. [[man_prepare_Nodes_step35,Schritt 35]] Senden Sie eine AutoSupport-Nachricht für node1 an NetApp, indem Sie den folgenden Befehl eingeben:
 +
 `system node autosupport invoke -node node1 -type all -message "Upgrading node1 from platform_old to platform_new"`
 
@@ -708,30 +710,28 @@ Ausführliche Informationen zu AutoSupport finden Sie unter link:other_reference
 
 NOTE: Senden Sie jetzt keine AutoSupport Nachricht für node2 an NetApp. Sie gehen das später im Verfahren vor.
 
-.. [[man_prepare_nodes_ste36, Schritt 36]] Überprüfen Sie, ob die AutoSupport-Meldung gesendet wurde, indem Sie den folgenden Befehl eingeben und die Ausgabe prüfen:
+. [[man_prepare_nodes_ste36, Schritt 36]] Überprüfen Sie, ob die AutoSupport-Meldung gesendet wurde, indem Sie den folgenden Befehl eingeben und die Ausgabe prüfen:
 +
 `system node autosupport show -node _node1_ -instance`
 
 +
 Felder `Last Subject Sent:` Und `Last Time Sent:` Enthält den Nachrichtentitel der letzten gesendeten Nachricht und den Zeitpunkt, zu dem die Nachricht gesendet wurde.
 
-.. Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"^] Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:
+. Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"^] Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:
 +
 --
-*** FIPS-zertifizierte NetApp Storage Encryption (NSE) SAS- oder NVMe-Laufwerke
-*** Self-Encrypting-NVMe-Laufwerke (SED) ohne FIPS
+** FIPS-zertifizierte NetApp Storage Encryption (NSE) SAS- oder NVMe-Laufwerke
+** Self-Encrypting-NVMe-Laufwerke (SED) ohne FIPS
 
 
 [NOTE]
 ====
-*** FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
-*** SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
+** FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
+** SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
 
 
 ====
 https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["Weitere Informationen zu unterstützten Self-Encrypting Drives"^].
 
 --
-
-
 
