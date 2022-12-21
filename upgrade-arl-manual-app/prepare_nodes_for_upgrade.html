@@ -4537,7 +4537,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-16 09:49:03 +0000">12/16/2022</time>
+    <time datetime="2022-12-21 09:05:45 +0000">12/21/2022</time>
     
   
 
@@ -4970,9 +4970,6 @@ vs0
 </li>
 <li>
 <p>Sammeln Sie Informationen über node1 und node2, indem Sie die folgenden Unterschritte ausführen und die Ausgabe jedes Befehls aufzeichnen:</p>
-</li>
-</ol>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -4994,8 +4991,8 @@ vs0
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Notieren Sie das Modell, die System-ID und die Seriennummer beider Nodes:</p>
 <div class="paragraph">
@@ -5055,6 +5052,9 @@ Mithilfe dieser Informationen und der Informationen im folgenden Unterschritt k�
 <div class="paragraph">
 <p><code>volume show -node <em>node_name</em> -state offline</code></p>
 </div>
+</li>
+</ol>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5067,8 +5067,7 @@ Nach dem Upgrade führen Sie den Befehl erneut aus und vergleichen die Ausgabe m
 </tr>
 </table>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>Geben Sie die folgenden Befehle ein, um zu ermitteln, ob Schnittstellengruppen oder VLANs auf node1 oder node2 konfiguriert sind:</p>
 <div class="paragraph">
@@ -5077,20 +5076,14 @@ Nach dem Upgrade führen Sie den Befehl erneut aus und vergleichen die Ausgabe m
 <div class="paragraph">
 <p><code>network port vlan show</code></p>
 </div>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>Beachten Sie, ob Schnittstellengruppen oder VLANs auf node1 oder node2 konfiguriert sind. Diese Informationen benötigen Sie im nächsten Schritt und später im Verfahren.</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>Führen Sie die folgenden Teilschritte sowohl bei node1 als auch bei node2 durch, um zu bestätigen, dass die physischen Ports im weiteren Verlauf des Verfahrens korrekt zugeordnet werden können:</p>
-</li>
-</ol>
-</div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Geben Sie den folgenden Befehl ein, um zu ermitteln, ob außer den Failover-Gruppen auf dem Node Failover-Gruppen vorhanden sind <code>clusterwide</code>:</p>
 <div class="paragraph">
@@ -5133,6 +5126,9 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 <div class="paragraph">
 <p>Das System zeigt VLANs an, die auf dem Knoten konfiguriert sind, wie im folgenden Beispiel dargestellt:</p>
 </div>
+</li>
+</ol>
+</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::&gt; network port vlan show
@@ -5143,11 +5139,14 @@ Node    VLAN Name Port    VLAN ID MAC Address
 node1   e1b-70    e1b     70      00:15:17:76:7b:69</pre>
 </div>
 </div>
-</li>
-<li>
-<p>Wenn auf dem Node VLANs konfiguriert sind, notieren Sie sich jeden Netzwerkport und die Verbindung zwischen VLAN-ID.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>Wenn auf dem Node VLANs konfiguriert sind, notieren Sie sich jeden Netzwerkport und die Verbindung zwischen VLAN-ID.</p>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>Führen Sie eine der folgenden Aktionen durch:</p>
 <table class="tableblock frame-all grid-all stretch">
@@ -5193,9 +5192,6 @@ There are no entries matching your query.</pre>
 <div class="paragraph">
 <p>Wenn iSCSI oder FC für die SVM konfiguriert ist, wird mit dem Befehl eine Meldung wie das folgende Beispiel angezeigt:</p>
 </div>
-</li>
-</ol>
-</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::&gt; network interface show -vserver vs1 -data-protocol iscsi|fcp
@@ -5206,14 +5202,11 @@ Vserver  Interface  Admin/Oper Address/Mask       Node     Port    Home
 vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true</pre>
 </div>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p><a id="man_prepare_Nodes_step24"></a>Stellen Sie sicher, dass alle Knoten im Cluster Quorum sind, indem Sie die folgenden Teilschritte ausführen:</p>
-</li>
-</ol>
-</div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Geben Sie die erweiterte Berechtigungsebene ein:</p>
 <div class="paragraph">
@@ -5240,6 +5233,9 @@ Do you wish to continue? (y or n):</pre>
 <div class="paragraph">
 <p>Vom System wird eine Meldung wie das folgende Beispiel angezeigt:</p>
 </div>
+</li>
+</ol>
+</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::*&gt; cluster kernel-service show
@@ -5254,16 +5250,20 @@ node1         node1         in-quorum     true          operational
 </div>
 </div>
 <div class="paragraph">
-<p>Nodes in einem Cluster sind Quorum, wenn eine einfache Mehrheit der Nodes in einem ordnungsgemäßen Zustand ist und miteinander kommunizieren kann. Weitere Informationen finden Sie unter <a href="other_references.html">"Quellen"</a> Verknüpfen mit der Referenz <em>Systemadministration</em>.</p>
+<p>+<br>
+Nodes in einem Cluster sind Quorum, wenn eine einfache Mehrheit der Nodes in einem ordnungsgemäßen Zustand ist und miteinander kommunizieren kann. Weitere Informationen finden Sie unter <a href="other_references.html">"Quellen"</a> Verknüpfen mit der Referenz <em>Systemadministration</em>.</p>
 </div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Zurück zur Administratorberechtigungsebene:</p>
 <div class="paragraph">
 <p><code>set -privilege admin</code></p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>Führen Sie eine der folgenden Aktionen durch:</p>
 <table class="tableblock frame-all grid-all stretch">
@@ -5360,9 +5360,6 @@ node2   0d      fc      initiator -       -         online
 <div class="paragraph">
 <p>Das System zeigt Topologieinformationen wie im folgenden Beispiel dargestellt an:</p>
 </div>
-</li>
-</ol>
-</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::&gt; storage array config show -switch
@@ -5382,23 +5379,24 @@ node2 0   50  I_1818FAStT_1
 7 entries were displayed.</pre>
 </div>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p><a id="man_prepare_Nodes_steep29"></a>die folgenden Teilschritte ausführen:</p>
-</li>
-</ol>
-</div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Geben Sie an einem der Original-Nodes den folgenden Befehl ein und notieren Sie die Ausgabe:</p>
 <div class="paragraph">
 <p><code>service-processor show -node * -instance</code></p>
 </div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>Das System zeigt auf beiden Nodes detaillierte Informationen zum SP an.</p>
 </div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Vergewissern Sie sich, dass der SP-Status lautet <code>online</code>.</p>
 </li>
@@ -5410,8 +5408,10 @@ node2 0   50  I_1818FAStT_1
 <div class="paragraph">
 <p>Möglicherweise möchten Sie die Netzwerkparameter der Remote-Verwaltungsgeräte, in diesem Fall die SPs, vom ursprünglichen System für die SPs auf den neuen Knoten wieder verwenden. Ausführliche Informationen zum SP finden Sie unter <a href="other_references.html">"Quellen"</a> Link zu den Befehlen <em>Systemadministration Reference</em> und <em>ONTAP 9: Manual Page Reference</em>.</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p><a id="man_prepare_Nodes_step30"></a>Wenn die neuen Nodes dieselben lizenzierten Funktionen wie die ursprünglichen Knoten haben sollen, geben Sie den folgenden Befehl ein, um die Clusterlizenzen auf dem ursprünglichen System anzuzeigen:</p>
 <div class="paragraph">
@@ -5481,8 +5481,8 @@ node2            enable    Postmaster    -                 mailhost
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Hat AutoSupport aktiviert&#8230;&#8203;</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowerroman">
-<ol class="lowerroman" type="i">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Gehen Sie zu <a href="#man_prepare_nodes_step34">Schritt 34</a>.</p>
 </li>
@@ -5494,8 +5494,8 @@ node2            enable    Postmaster    -                 mailhost
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AutoSupport ist nicht aktiviert&#8230;&#8203;</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowerroman">
-<ol class="lowerroman" type="i">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsreferenz_ folgen. (Siehe <a href="other_references.html">"Quellen"</a> Zum Verknüpfen mit der Referenz <em>Systemadministration</em>.)</p>
 <div class="paragraph">
@@ -5543,14 +5543,10 @@ Senden Sie jetzt keine AutoSupport Nachricht für node2 an NetApp. Sie gehen das
 <div class="paragraph">
 <p><code>system node autosupport show -node <em>node1</em> -instance</code></p>
 </div>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>Felder <code>Last Subject Sent:</code> Und <code>Last Time Sent:</code> Enthält den Nachrichtentitel der letzten gesendeten Nachricht und den Zeitpunkt, zu dem die Nachricht gesendet wurde.</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base <a href="https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed" target="_blank" rel="noopener">"Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"</a> Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:</p>
 <div class="openblock">
@@ -5590,9 +5586,6 @@ Senden Sie jetzt keine AutoSupport Nachricht für node2 an NetApp. Sie gehen das
 <p><a href="https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types" target="_blank" rel="noopener">"Weitere Informationen zu unterstützten Self-Encrypting Drives"</a>.</p>
 </div>
 </div>
-</div>
-</li>
-</ol>
 </div>
 </li>
 </ol>
