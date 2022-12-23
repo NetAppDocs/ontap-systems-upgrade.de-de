@@ -1091,7 +1091,6 @@
   <block id="638610cc5c3557800c38be4545f5cf40" category="paragraph"><block ref="82702d4f2de9a9473e069c5df3b3dca4" prefix="" category="inline-code"></block></block>
   <block id="26284a568c7e38bb6355694c41ff5f8d" category="paragraph">Wenn eine der Festplatten ausgefallen ist, entfernen Sie sie gemäß den Anweisungen in _Disk und Aggregat-Management mit der CLI_. (Siehe <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Verbinden mit _Disk und Aggregatmanagement mit CLI_.)</block>
   <block id="897a592bf71f640f9c341f736bc9ee4e" category="list-text">Sammeln Sie Informationen über node1 und node2, indem Sie die folgenden Unterschritte ausführen und die Ausgabe jedes Befehls aufzeichnen:</block>
-  <block id="930e54e1be27588126529911ee1a66bb" category="paragraph">+ HINWEIS: Sie werden diese Informationen später im Verfahren verwenden.</block>
   <block id="86bd7b7efad49e1892e19e0073d55fb5" category="list-text">Notieren Sie das Modell, die System-ID und die Seriennummer beider Nodes:</block>
   <block id="32f6df046e4deff82e2d7aa91a76c76e" category="paragraph"><block ref="6bc782222fc7bc038f7fa69c982334fb" prefix="" category="inline-code"></block></block>
   <block id="dfb5c700fcc3e30efac3db32160fbcf2" category="admonition">Sie verwenden die Informationen, um Festplatten neu zuzuweisen und die ursprünglichen Nodes außer Betrieb zu nehmen.</block>
@@ -3240,7 +3239,6 @@
   <block id="5d0e6c628fa55718654de0f71041a32a" category="summary">Sie können Controller Hardware bei einer AFF A700 auf einen AFF A900 upgraden, indem Sie das Controller-Modul und NVS ersetzen.</block>
   <block id="1c962f08f92ca556b5f958f512421f7b" category="cell">AFF A700 AUF AFF A900</block>
   <block id="a8785e7ad1cb0d71507bbcb99df9c1f7" category="cell">Konvertiert ein AFF A700 System in ein AFF A900 System, das für das A700 Chassis sorgt</block>
-  <block id="e1b003e7f655a9b7177c226f66898500" category="cell">9.10.1 P3 oder höher</block>
   <block id="3029eeb5ee6e861b02eb2a1ffd3d3b8e" category="cell">FAS9000 auf FAS9500 Systeme</block>
   <block id="92edbfe3ededa1bb85b931ec295f360d" category="cell">Konvertiert ein FAS9000 System in ein FAS9500 System, wobei das FAS9000 Chassis erhalten bleibt.</block>
   <block id="a5ce3ab443f38c92fc244c3533db25fd" category="paragraph">Sie können bei der Controller Hardware auf einem HA-Paar unterbrechungsfrei Upgrades durchführen, indem Sie den Controller und die NVRAM-Module austauschen. Zum einen migrieren Sie die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes zu den Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden.</block>
@@ -4497,4 +4495,6 @@
   <block id="9d5ce6c4c82bf9a0ff455a50cadc1ab6" category="list-text">Falls in der Konfiguration Self-Encrypting Drives verwendet werden und die festgelegt sind<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> Variabel auf<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (Beispielsweise in _Boot node2 mit AFF A900 oder FAS9500 Controller und NVRAM-Module_, <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>), Sie müssen die Einstellung der Variable aufheben:</block>
   <block id="21b9417932c23289b6932c3a0ac2517f" category="list-text">[[Boot_node2_stea1]]legt den fest<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> Und<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> Variablen zur Vermeidung einer Boot-Schleife nach dem Laden der node2-Konfiguration.</block>
   <block id="083a0c049526537d6b95a268054814fb" category="list-text">Sie nutzen Hybrid-Aggregate auf Ihrem System.</block>
+  <block id="5c8ce8c10b94248d147cb23bb490fd9d" category="cell">Wird Verwendet<block ref="0cdc21b7c964923f382c6248332e0a1d" prefix=" " category="inline-code"></block> Befehle</block>
+  <block id="6e1f6dfb0fcbfac6c4067f6818568970" category="cell">9.11.1P6 oder 9.10.1P10 (bis Februar 2023 geplant)</block>
 </blocks>
