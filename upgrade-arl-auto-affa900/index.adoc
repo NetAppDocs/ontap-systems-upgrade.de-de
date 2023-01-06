@@ -21,7 +21,7 @@ Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Agg
 | Methode | ONTAP-Version | Unterstützte Systeme | Beschreibung 
 
 
-| Wird Verwendet `system contlroller replace` Befehle | 9.11.1P6 oder 9.10.1P10 (bis Februar 2023 geplant) | AFF A700 AUF AFF A900 | Konvertiert ein AFF A700 System in ein AFF A900 System, das für das A700 Chassis sorgt 
+| Wird Verwendet `system controller replace` Befehle | 9.11.1P6 oder 9.10.1P10 (bis Februar 2023 geplant) | AFF A700 AUF AFF A900 | Konvertiert ein AFF A700 System in ein AFF A900 System, das für das A700 Chassis sorgt 
 
 
 | Wird Verwendet `system controller replace` Befehle | 9.11.1P6 oder 9.10.1P10 (bis Februar 2023 geplant) | FAS9000 auf FAS9500 Systeme | Konvertiert ein FAS9000 System in ein FAS9500 System, wobei das FAS9000 Chassis erhalten bleibt. 
