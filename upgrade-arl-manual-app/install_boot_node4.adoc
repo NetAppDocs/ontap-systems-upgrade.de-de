@@ -121,7 +121,8 @@ WARNING: *Warnung: Die Verzögerung nicht außer Kraft setzen. Wenn der Akku nic
 .. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<man_install4_Step9,Schritt 9>>.
 
 
-*Wichtig*: Sie müssen FC Onboard-Ports, UTA/UTA2 Onboard-Ports und UTA/UTA2-Karten neu konfigurieren, bevor Sie Data ONTAP auf dem V-Series System booten.
+
+IMPORTANT: Sie müssen FC Onboard-Ports, UTA/UTA2 Onboard-Ports und UTA/UTA2-Karten neu konfigurieren, bevor Sie Data ONTAP auf dem V-Series System booten.
 
 |===
 . [[man_install4_Step9]]Fügen Sie die FC-Initiator-Ports des neuen Node zu den Switch-Zonen hinzu.
@@ -211,23 +212,30 @@ Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Art
 NOTE: Sie müssen den Management-Port und die IP-Adresse als Netzboot-Verbindung verwenden. Verwenden Sie keine LIF-IP-Adresse von Daten, oder es kann während des Upgrades ein Datenausfall auftreten.
 
 +
-[cols="30,70"]
+[cols="35,75"]
 |===
 | Wenn DHCP (Dynamic Host Configuration Protocol) lautet... | Dann... 
 
 
-| Wird Ausgeführt | Konfigurieren Sie die Verbindung automatisch, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
-`ifconfig e0M -auto` 
+| Wird Ausgeführt  a| 
+Konfigurieren Sie die Verbindung automatisch, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
+`ifconfig e0M -auto`
 
 
-| Nicht ausgeführt | Konfigurieren Sie die Verbindung manuell, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
+
+| Nicht ausgeführt  a| 
+Konfigurieren Sie die Verbindung manuell, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
 `ifconfig e0M -addr=_filer_addr_ mask=_netmask_ -gw=_gateway_ dns=_dns_addr_ domain=_dns_domain_`
 
-`_filer_addr_` Ist die IP-Adresse des Storage-Systems.
-`_netmask_` Ist die Netzwerkmaske des Storage-Systems.
-`_gateway_` Ist das Gateway für das Storage-System.
-`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk.
-`_dns_domain_` Der Domain Name (DNS) ist der Domain-Name. Wenn Sie diesen optionalen Parameter verwenden, benötigen Sie in der Netzboot-Server-URL keinen vollqualifizierten Domänennamen. Sie benötigen nur den Host-Namen des Servers. *Hinweis*: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung. 
+`_filer_addr_` Ist die IP-Adresse des Speichersystems (obligatorisch).
+`_netmask_` Ist die Netzwerkmaske des Storage-Systems (erforderlich).
+`_gateway_` Ist das Gateway für das Speichersystem (erforderlich).
+`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk (optional).
+`_dns_domain_` Der Domain Name (DNS) ist der Domain-Name. Wenn Sie diesen optionalen Parameter verwenden, benötigen Sie in der Netzboot-Server-URL keinen vollqualifizierten Domänennamen. Sie benötigen nur den Host-Namen des Servers.
+
+
+NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung.
+
 |===
 . Ausführen eines Netzboots auf node4:
 +
@@ -257,10 +265,14 @@ Mit dieser Menüoption wird das neue Data ONTAP-Image auf das Startgerät herunt
 Ignorieren Sie die folgende Meldung:
 
 +
-`"This procedure is not supported for NonDisruptive Upgrade on an HA pair"`
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
 
 +
 Der Hinweis gilt für unterbrechungsfreie Upgrades der Data ONTAP und keine Upgrades von Controllern.
+
++
+
+NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle Versionen von ONTAP. Das Netzboot wird mit der Option kombiniert `(7) Install new software` Entfernt das Boot-Medium und platziert dieselbe ONTAP-Version auf beiden Image-Partitionen.
 
 . [[man_install4_steep23] Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie y ein. Geben Sie dann die URL ein, wenn Sie nach dem Paket gefragt werden:
 +

@@ -14,7 +14,7 @@ summary: Phase 3 Prozessreihenfolge für ein manuelles ARL Upgrade bei Controlle
 
 
 [role="lead"]
-In Phase 3 installieren und booten Sie Node3, ordnen Sie die Cluster- und Node-Management-Ports von node1 zu node3 zu, überprüfen die Installation und verschieben Daten-LIFs und SAN-LIFs, die zu node1 gehören, von node2 auf node3. Außerdem werden alle Aggregate von node2 auf node3 verschoben und die Daten-LIFs und SAN-LIFs von node2 auf node3 verschoben.
+In Phase 3 installieren und booten Sie Knoten3, ordnen Sie die Cluster- und Node-Management-Ports von node1 zu node3 zu und verschieben Daten-LIFs und SAN-LIFs, die zu node1 gehören, von node2 auf node3. Außerdem werden alle Aggregate von node2 auf node3 verschoben und die Daten-LIFs und SAN-LIFs von node2 auf node3 verschoben.
 
 .Schritte
 . link:install_boot_node3.html["Installieren und booten Sie node3"]

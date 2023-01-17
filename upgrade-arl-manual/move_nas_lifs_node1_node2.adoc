@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/move_nas_lifs_node1_node2.html 
 keywords: node1, node3, nas, lifs, cluster, san 
-summary: Verschieben Sie die NAS-Daten-LIFs von node1 auf node2, wenn Sie ein Cluster mit zwei Nodes haben, oder auf einen dritten Node, wenn Ihr Cluster über mehr als zwei Nodes verfügt, während eines manuellen ARL-Upgrades auf Controllern mit ONTAP 9.7 oder einer älteren Version. 
+summary: Verschieben Sie die node1-NAS-Daten-LIFs auf node2, wenn Sie ein Cluster mit zwei Nodes haben, oder auf einen dritten Node, wenn Ihr Cluster über mehr als zwei Nodes verfügt, während eines manuellen ARL-Upgrades auf Controllern mit ONTAP 9.7 oder einer älteren Version. 
 ---
 = Verschieben Sie NAS-Daten-LIFs von node1 auf node2
 :hardbreaks:

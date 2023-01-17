@@ -52,11 +52,12 @@ NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwend
 | Nicht ausgeführt  a| 
 Konfigurieren Sie die Verbindung manuell mit dem folgenden Befehl an der Eingabeaufforderung der Boot-Umgebung:
 `ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
-`_filer_addr_` Ist die IP-Adresse des Storage-Systems.
-`_netmask_` Ist die Netzwerkmaske des Storage-Systems.
-`_gateway_` Ist das Gateway für das Storage-System.
-`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk. Dieser Parameter ist optional.
-`_dns_domain_` Der Domain Name (DNS) ist der Domain-Name. Dieser Parameter ist optional.
+
+`_filer_addr_` Ist die IP-Adresse des Speichersystems (obligatorisch).
+`_netmask_` Ist die Netzwerkmaske des Storage-Systems (erforderlich).
+`_gateway_` Ist das Gateway für das Speichersystem (erforderlich).
+`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk (optional).
+`_dns_domain_` Ist der Domain-Name (DNS) (optional).
 
 
 NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung.
@@ -94,13 +95,18 @@ Selection (1-11)?
 Mit dieser Menüoption wird das neue ONTAP-Image auf das Startgerät heruntergeladen und installiert.
 
 +
-[NOTE]
-====
-Ignorieren Sie die folgende Meldung: `This procedure is not supported for Non-Disruptive Upgrade on an HA pair`. Dieser Hinweis gilt für unterbrechungsfreie ONTAP Software-Upgrades und nicht für Controller-Upgrades.
+Ignorieren Sie die folgende Meldung:
 
-Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle ONTAP Versionen.
++
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
 
-====
++
+Dieser Hinweis gilt für unterbrechungsfreie ONTAP Software-Upgrades und nicht für Controller-Upgrades.
+
++
+
+NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle ONTAP Versionen. Das Netzboot wird mit der Option kombiniert `(7) Install new software` Entfernt das Boot-Medium und platziert dieselbe ONTAP-Version auf beiden Image-Partitionen.
+
 . Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie ein `y`, Und wenn Sie zur Eingabe des Pakets aufgefordert werden, geben Sie die URL ein:
 `\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
 +
@@ -209,7 +215,7 @@ NOTE: Legen Sie die entsprechende UTC-Zeit auf node1 fest.
 `setenv partner-sysid _node2_sysid_`
 
 +
-Sie können die System-ID node2 vom beziehen `node show -node _node2_` Befehlsausgabe auf node2.
+Für node1, die `partner-sysid` Muss der von node2 sein. Sie können die System-ID node2 vom beziehen `node show -node _node2_` Befehlsausgabe auf node2.
 
 +
 .. Einstellungen speichern:
@@ -221,8 +227,5 @@ Sie können die System-ID node2 vom beziehen `node show -node _node2_` Befehlsau
 . Überprüfen Sie bei node1 an der LOADER-Eingabeaufforderung den `partner-sysid` Für Knoten 1:
 +
 `printenv partner-sysid`
-
-+
-Für node1, die `partner-sysid` Muss der von node2 sein.
 
 

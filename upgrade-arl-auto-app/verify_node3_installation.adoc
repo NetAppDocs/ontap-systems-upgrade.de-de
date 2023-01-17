@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/verify_node3_installation.html 
 keywords: verifying, verify, node, install, installation 
-summary: 'Überprüfen Sie, ob die physischen Ports node1 Node3 korrekt zugeordnet sind und stellen Sie die Netzwerkkonfiguration auf node3 wieder her, wenn Sie Controller mit ONTAP 9.8 oder höher mit aktualisieren `system controller replace` Befehle.' 
+summary: 'Überprüfen Sie, ob die node1 physischen Ports Node3 korrekt zugeordnet sind und stellen Sie die Netzwerkkonfiguration auf node3 wieder her, wenn Sie Controller mit ONTAP 9.8 oder höher mit aktualisieren `system controller replace` Befehle.' 
 ---
 = Überprüfen Sie die Installation von node3
 :hardbreaks:
@@ -138,7 +138,7 @@ Alle physischen Netzwerk-Ports, VLAN-Ports und Schnittstellen-Gruppen-Ports auf 
 
 . [[step2]]Liste der Broadcast-Domänen auf dem Cluster:
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 . [[Schritt3]]Liste der Netzwerkanschlussfähigkeit aller Ports auf node3:
 +
@@ -310,7 +310,7 @@ Warten Sie etwa eine Minute, bis neu wiederhergestellte VLANs in ihren entsprech
 
 . [[step9]]Löschen Sie alle leeren Broadcast-Domänen, nachdem alle Port-Reparaturen abgeschlossen wurden:
 +
-`broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
+`network port broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
 
 . [[Schritt10]]Überprüfung der Anschlussfähigkeit:
 +

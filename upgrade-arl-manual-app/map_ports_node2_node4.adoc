@@ -135,7 +135,7 @@ Warning: Repairing port "node_name:port" may cause it to move into a different b
 .. Um ONTAP zum Abschließen der Reparatur zu aktivieren, warten Sie etwa eine Minute nach Ausführung des `reachability repair` Befehl am letzten Port.
 .. Alle Broadcast-Domänen auf dem Cluster auflisten:
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 .. Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn jedoch die Erreichbarkeit eines Ports nicht ermittelt werden kann und keiner der vorhandenen Broadcast-Domänen entspricht, erstellt ONTAP neue Broadcast-Domains für diese Ports. Bei Bedarf können Sie die neu erstellten Broadcast-Domänen löschen, wenn alle deren Mitgliedsports zu Mitgliedsports der Interface Groups werden. Broadcast-Domänen löschen:
 +

@@ -25,6 +25,6 @@ Der Abbruch schl√§gt fehl, wenn sich die SnapMirror-Beziehung nicht im Zustand ‚
 
 . Alle Beziehungen zwischen dem Cluster stilllegen:
 +
-`snapmirror quiesce -destination-vserver _vserver_name_`
+`snapmirror quiesce -destination-vserver *`
 
 

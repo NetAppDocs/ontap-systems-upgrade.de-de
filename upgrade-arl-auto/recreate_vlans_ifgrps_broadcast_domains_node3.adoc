@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node3.html 
 keywords: node3, interface group, VLANs, broadcast domains, re-create 
-summary: 'Erstellen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen auf Knoten 3 neu, wenn Sie Controller mit ONTAP 9.5 auf 9.7 aktualisieren `system controller replace` Befehle.' 
+summary: 'Erstellen Sie die Knoten1-VLANs, Interface-Gruppen und Broadcast-Domänen auf Knoten3, wenn Sie Controller aktualisieren, die ONTAP 9.5 auf 9.7 verwenden `system controller replace` Befehle.' 
 ---
 = Erneutes Erstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen auf Knoten3
 :hardbreaks:

@@ -21,9 +21,13 @@ Sie müssen als Netzboot node3 wechseln, wenn nicht die gleiche Version von ONTA
 
 Sie müssen jedoch nicht als Netzboot auf Node3 setzen, wenn es die gleiche oder eine höhere Version von ONTAP 9 hat, die auf node1 installiert ist.
 
+[IMPORTANT]
+====
+Wenn Sie ein mit Storage Arrays verbundenes V-Series System oder ein System über FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Upgrades erforderlich <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>.
 
-NOTE: *Wichtig*: Führen Sie ein Upgrade eines mit Storage-Arrays verbundenen V-Series Systems oder eines Systems mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist, durch <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>. Wenn Sie jedoch ein System mit Storage-Festplatten aktualisieren, müssen Sie den gesamten Abschnitt abschließen und anschließend mit fortfahren link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
+Wenn Sie jedoch ein System mit Storage-Festplatten aktualisieren, müssen Sie den gesamten Abschnitt abschließen und anschließend mit fortfahren link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
 
+====
 .Schritte
 . [[man_install3_step1]] stellen Sie sicher, dass Sie Platz im Rack für node3 haben.
 +
@@ -100,7 +104,8 @@ NOTE: *Achtung*: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht
 .. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<man_install3_step7,Schritt 7>>.
 
 
-*Wichtig*: Sie müssen FC Onboard-Ports, CNA Onboard Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Serie oder dem System mit FlexArray Virtualisierungssoftware booten.
+
+IMPORTANT: Sie müssen die integrierten FC-Ports, die integrierten CNA-Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Series oder dem System mit FlexArray Virtualisierungssoftware booten.
 
 |===
 . [[man_install3_step7]]Fügen Sie die FC-Initiator-Ports des neuen Knotens zu den Switch-Zonen hinzu.
@@ -148,7 +153,8 @@ Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 Die Stromversorgung sollte bereits eingeschaltet sein, wenn sich beide Controller im gleichen Chassis befinden.
 
 +
-*Hinweis*: node4 bei der Startumgebungaufforderung verlassen; Sie kehren nach node4 in zurück link:install_boot_node4.html["installieren und booten sie node4"].
+
+NOTE: verlassen sie node4 an der Boot-Umgebung Eingabeaufforderung; Sie kehren nach node4 in zurück link:install_boot_node4.html["installieren und booten sie node4"].
 
 .. Wenn die Warnmeldung in angezeigt wird <<man_install3_step4,Schritt 4>>, Folgen Sie den Anweisungen in <<man_install3_step5,Schritt 5>>
 .. Schalten Sie das Konsolenkabel von node4 nach node3 zurück.
@@ -229,14 +235,19 @@ NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwend
 `ifconfig e0M -auto` 
 
 
-| Nicht ausgeführt | Konfigurieren Sie die Verbindung manuell, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
+| Nicht ausgeführt  a| 
+Konfigurieren Sie die Verbindung manuell, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
 `ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
 
-`_filer_addr_` Ist die IP-Adresse des Storage-Systems.
-`_netmask_` Ist die Netzwerkmaske des Storage-Systems.
-`_gateway_` Ist das Gateway für das Storage-System.
-`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk.
-`_dns_domain_` Der Domain Name (DNS) ist der Domain-Name. Wenn Sie diesen optionalen Parameter verwenden, benötigen Sie in der Netzboot-Server-URL keinen vollqualifizierten Domänennamen. Sie benötigen nur den Host-Namen des Servers. *Hinweis*: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung. 
+`_filer_addr_` Ist die IP-Adresse des Speichersystems (obligatorisch).
+`_netmask_` Ist die Netzwerkmaske des Storage-Systems (erforderlich).
+`_gateway_` Ist das Gateway für das Speichersystem (erforderlich).
+`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk (optional).
+`_dns_domain_` Der Domain Name (DNS) ist der Domain-Name. Wenn Sie diesen optionalen Parameter verwenden, benötigen Sie in der Netzboot-Server-URL keinen vollqualifizierten Domänennamen. Sie benötigen nur den Host-Namen des Servers.
+
+
+NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung.
+
 |===
 . [[man_install3_step21]]Netzboot auf node3 ausführen:
 +
@@ -262,20 +273,17 @@ NOTE: Unterbrechen Sie den Startvorgang nicht.
 Mit dieser Menüoption wird das neue ONTAP-Image auf das Startgerät heruntergeladen und installiert.
 
 +
-
-NOTE: Ignorieren Sie die folgende Meldung:
+Ignorieren Sie die folgende Meldung:
 
 +
-[listing]
-----
-This procedure is not supported for Non-Disruptive Upgrade on an HA pair.
-----
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+
 +
 Der Hinweis gilt für unterbrechungsfreie Upgrades der ONTAP und keine Upgrades von Controllern.
 
 +
 
-NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle Versionen von ONTAP.
+NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle Versionen von ONTAP. Das Netzboot wird mit der Option kombiniert `(7) Install new software` Entfernt die Startmedien und platziert dieselbe ONTAP-Version-ONTAP auf beiden Bildpartitionen.
 
 . [[man_install3_steep23]] Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie ein `y`, Und wenn Sie dazu aufgefordert werden, das Paket einzugeben, geben Sie die folgende URL ein:
 +

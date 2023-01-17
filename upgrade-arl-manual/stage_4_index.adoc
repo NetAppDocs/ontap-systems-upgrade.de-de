@@ -14,7 +14,7 @@ summary: Phase 4-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controlle
 
 
 [role="lead"]
-Während Phase 4 notieren Sie node2 Informationen und setzen dann node2 in den Ruhestand.
+Während der Phase 4 notieren Sie node2 Informationen, die später im Verfahren verwendet werden sollen, und setzen dann node2 aus.
 
 .Schritte
 . link:record_node2_information.html["Node2-Informationen aufzeichnen"]

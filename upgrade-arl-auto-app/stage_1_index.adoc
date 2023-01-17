@@ -14,9 +14,9 @@ summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller
 
 
 [role="lead"]
-In Phase 1 müssen Sie die Nodes auf das Upgrade vorbereiten und eine Reihe von Vorabprüfungen durchführen. Möglicherweise müssen Sie Festplatten für die Speicherverschlüsselung neu verschlüsseln. Sie müssen sich auch auf den Netzboot der neuen Controller vorbereiten.
+In Phase 1 führen Sie Vorabprüfungen durch und korrigieren, falls erforderlich, die Eigentümerschaft für die Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie die Storage-Verschlüsselung mithilfe von OKM verwalten und Sie die SnapMirror Beziehungen stilllegen können.
 
 .Schritte
 . link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"]
-. link:get_ip_address_of_external_kms_for_storage_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagementservers für die Speicherverschlüsselung"]
+. link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit Onboard Key Manager"]
 

@@ -144,7 +144,7 @@ Alle physischen Netzwerk-Ports, VLAN-Ports und Schnittstellen-Gruppen-Ports auf 
 
 . Liste der Broadcast-Domänen auf dem Cluster:
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 . Die Erreichbarkeit des Netzwerkports aller Ports auf node4 auflisten:
 +
@@ -312,7 +312,7 @@ Warten Sie etwa eine Minute, bis neu wiederhergestellte VLANs in ihren entsprech
 
 . Löschen Sie alle leeren Broadcast-Domänen, nachdem alle Port-Reparaturen abgeschlossen wurden:
 +
-`broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
+`network port broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
 
 . Überprüfen der Port-Erreichbarkeit:
 +

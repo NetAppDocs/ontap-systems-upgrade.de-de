@@ -25,7 +25,7 @@ Verwenden Sie diese Inhalte unter folgenden Umständen:
 
 
 
-NOTE: Dabei können Sie NetApp Storage Encryption (NSE) und NetApp Volume Encryption (NVE) verwenden.
+NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 
 Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 

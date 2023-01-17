@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html 
 sidebar: sidebar 
 keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, physical, port, configure, setting, intend, data, map, map network ports using ontap 9.7 or earlier 
-summary: Damit node3 und node4 aktiviert werden können, um nach dem Upgrade miteinander im Cluster und mit dem Netzwerk zu kommunizieren, müssen Sie sicherstellen, dass die physischen Ports ordnungsgemäß mit den Einstellungen für den vorgesehenen Verwendungszweck konfiguriert sind, z. B. Cluster, Daten usw. 
+summary: Damit node3 und node4 aktiviert werden können, um nach dem Upgrade miteinander im Cluster und mit dem Netzwerk zu kommunizieren, müssen Sie bestätigen, dass die physischen Ports ordnungsgemäß mit den Einstellungen für den vorgesehenen Verwendungszweck konfiguriert sind, z. B. Cluster, Daten usw. 
 ---
 = Netzwerkports mit ONTAP 9.7 oder einer älteren Version zuordnen
 :allow-uri-read: 

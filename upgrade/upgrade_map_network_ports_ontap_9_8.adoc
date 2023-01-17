@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-map-network-ports-ontap-9-8.html 
 sidebar: sidebar 
 keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, physical, port, correct, configure, setting, data, map network ports using ontap 9.8 
-summary: Damit node3 und node4 im Cluster und nach dem Upgrade mit dem Netzwerk kommunizieren können, müssen Sie sicherstellen, dass die physischen Ports ordnungsgemäß mit den Einstellungen für den vorgesehenen Verwendungszweck konfiguriert sind, z. B. Cluster, Daten usw. 
+summary: Damit node3 und node4 aktiviert werden können, um nach dem Upgrade miteinander im Cluster und mit dem Netzwerk zu kommunizieren, müssen Sie bestätigen, dass die physischen Ports ordnungsgemäß mit den Einstellungen für den vorgesehenen Verwendungszweck konfiguriert sind, z. B. Cluster, Daten usw. 
 ---
 = Netzwerkports mit ONTAP 9.8 oder höher zuordnen
 :allow-uri-read: 
@@ -114,7 +114,7 @@ from the port. Are you sure you want to continue? {y|n}:
 .. Um ONTAP zum Abschließen der Reparatur zu aktivieren, warten Sie etwa eine Minute nach Ausführung des `reachability repair` Befehl am letzten Port.
 .. Alle Broadcast-Domänen auf dem Cluster auflisten:
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 .. Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn die Erreichbarkeit eines Ports jedoch nicht ermittelt werden kann und keiner der vorhandenen Broadcast-Domänen entspricht, erstellt ONTAP neue Broadcast-Domänen für diese Ports. Bei Bedarf können Sie die neu erstellten Broadcast-Domänen löschen, wenn alle deren Mitgliedsports zu Mitgliedsports der Interface Groups werden. Broadcast-Domänen löschen:
 +

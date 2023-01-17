@@ -2,10 +2,28 @@
 :allow-uri-read: 
 
 
-Wenn der ersetzte Controller oder der HA-Partner (High Availability, Hochverfügbarkeit) des neuen Controllers NetApp Volume Encryption (NVE) verwendet, müssen Sie das neue Controller-Modul für NVE konfigurieren.
+Wenn der ersetzte Controller oder der HA-Partner (High Availability, Hochverfügbarkeit) des neuen Controllers NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) verwendet, muss das neue Controller-Modul für NVE oder NAE konfiguriert werden.
 
 .Über diese Aufgabe
 Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführt werden. Sie müssen den Befehl auf dem richtigen Node eingeben.
+
+[role="tabbed-block"]
+====
+.Onboard Key Manager
+--
+*Konfigurieren Sie NVE oder NAE mit Onboard Key Manager*
+
+.Schritte
+. Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her:
++
+`security key-manager onboard sync`
+
+
+
+--
+.Externes Verschlüsselungsmanagement
+--
+*Konfigurieren Sie NVE oder NAE mit externem Verschlüsselungsmanagement*
 
 .Schritte
 . Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server weiterhin verfügbar sind, deren Status und ihre Authentifizierungsdaten folgendermaßen sind:
@@ -39,17 +57,14 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 
 . Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her:
 +
-[cols="30,70"]
-|===
-| Für... | Befehl 
+`security key-manager external restore`
+
++
+Für diesen Befehl ist die OKM-Passphrase erforderlich
 
 
-| Externes Verschlüsselungsmanagement (EKM) | `security key-manager external restore`Für diesen Befehl ist die OKM-Passphrase erforderlich 
 
-
-| Onboard Key Manager | `security key-manager onboard sync` 
-|===
-
-
+--
+====
 .Nachdem Sie fertig sind
 Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder EKM-Server nicht erreicht werden konnten. Stellen Sie diese Volumes mithilfe der wieder online `volume online` Befehl.

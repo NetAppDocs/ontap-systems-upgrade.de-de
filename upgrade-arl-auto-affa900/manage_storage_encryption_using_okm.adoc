@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/manage_storage_encryption_using_okm.html 
+keywords: storage, encryption, authentication, key, manager, external 
+summary: Konfiguration und Management von Storage-Verschlüsselung, Management von Authentifizierungsschlüsseln und Stilllegung der SnapMirror Beziehungen während eines Upgrades von AFF A700 auf AFF A900 
+---
+= Management der Storage-Verschlüsselung mit Onboard Key Manager
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können den OKM verwenden, um die Verschlüsselung zu verwalten. Wenn Sie OKM verwenden möchten, müssen Sie vor dem Upgrade die Passphrase und das Sicherungsmaterial aufzeichnen.
+
+.Schritte
+. Speichern Sie die Passphrase an einem sicheren Ort.
+. Backup für Recovery-Zwecke erstellen. Führen Sie den folgenden Befehl aus und speichern Sie die Ausgabe:
++
+`security key-manager onboard show-backup`
+
+
+
+
+
+== Stilllegen der SnapMirror Beziehungen (optional)
+
+Bevor Sie mit dem Verfahren fortfahren, müssen Sie bestätigen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.
+
+.Schritte
+. Überprüfen Sie den SnapMirror Beziehungsstatus auf dem Ziel-Cluster:
++
+`snapmirror show`
+
++
+[NOTE]
+====
+Wenn der Status „Übertragen“ lautet, müssen Sie diese Transfers abbrechen:
+`snapmirror abort -destination-vserver _vserver_name_`
+
+====
++
+Der Abbruch schlägt fehl, wenn sich die SnapMirror-Beziehung nicht im Zustand „Übertragen“ befindet.
+
+. Alle Beziehungen zwischen dem Cluster stilllegen:
++
+`snapmirror quiesce -destination-vserver *`
+
+

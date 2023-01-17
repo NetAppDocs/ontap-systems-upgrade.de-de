@@ -168,7 +168,7 @@ Dieser Befehl entfernt Port „e0d“ auf node4:
 
 
 
-. [[man_map_2_step5]]passen Sie die Broadcast-Domänen an, die Ihre Cluster-LIFs hosten, und LIFs für Node-Management/Cluster-Management. Stellen Sie sicher, dass jede Broadcast-Domäne die richtigen Ports enthält. Ein Port kann nicht zwischen Broadcast-Domänen verschoben werden, wenn er als Host oder Home für eine LIF ist, sodass Sie möglicherweise die LIFs migrieren und ändern müssen, wie in den folgenden Schritten dargestellt:
+. [[man_map_2_step5]]passen Sie die Broadcast-Domänen an, die Ihre Cluster-LIFs hosten, und LIFs für Node-Management/Cluster-Management. Vergewissern Sie sich, dass jede Broadcast-Domäne die richtigen Ports enthält. Ein Port kann nicht zwischen Broadcast-Domänen verschoben werden, wenn er als Host oder Home für eine LIF ist, sodass Sie möglicherweise die LIFs migrieren und ändern müssen, wie in den folgenden Schritten dargestellt:
 +
 .. Zeigen Sie den Startport einer logischen Schnittstelle an:
 +

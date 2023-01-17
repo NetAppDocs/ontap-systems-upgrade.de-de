@@ -22,7 +22,7 @@ link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Upgrade von ONTAP"^
 
 * Sie müssen die maximale Cluster-Größe beobachten.
 +
-Beim Upgrade durch Verschieben von Volumes werden neue Nodes dem Cluster hinzugefügt, bevor die ursprünglichen Nodes entfernt werden. Stellen Sie sicher, dass die Anzahl der Controller im Cluster während des Verfahrens nicht die unterstützte maximale Cluster-Größe überschreitet.
+Beim Upgrade durch Verschieben von Volumes werden neue Nodes dem Cluster hinzugefügt, bevor die ursprünglichen Nodes entfernt werden. Vergewissern Sie sich, dass die Anzahl der Controller im Cluster während des Verfahrens nicht die unterstützte maximale Cluster-Größe überschreitet.
 
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]

@@ -14,7 +14,8 @@ Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Absc
 .Über diese Aufgabe
 Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
-*Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, müssen Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
+
+IMPORTANT: Wenn im System Storage-Festplatten vorhanden sind, müssen Sie an der Cluster-Eingabeaufforderung in diesem Abschnitt die Befehle eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
 
 .Schritte
 . Führen Sie eine der folgenden Aktionen durch:
@@ -73,10 +74,16 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Ändern Sie die FC-Ports auf node4 nach Bedarf:
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
+Ändern Sie die FC-Ports auf node4 nach Bedarf:
+
 `ucadmin modify -m fc -t initiator -f _adapter_port_name_`
 
-`-t` Ist der FC4-Typ, das Ziel oder der Initiator. *Hinweis*: Die FC-Ports müssen als Initiatoren programmiert werden. 
+`-t` Ist der FC4-Typ, das Ziel oder der Initiator.
+
+
+NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
+
 |===
 . Führen Sie eine der folgenden Aktionen durch:
 +

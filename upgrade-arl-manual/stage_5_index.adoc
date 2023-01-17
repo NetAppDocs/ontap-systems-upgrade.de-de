@@ -14,7 +14,7 @@ summary: Phase 5-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controlle
 
 
 [role="lead"]
-In Phase 5 installieren und booten Sie node4, ordnen das Cluster und die Node-Management-Ports von node2 nach node4 zu und überprüfen die Installation von node4. Außerdem verschieben Sie die Daten-LIFs und SAN-LIFs, die sich im Besitz von node2 befinden, von Knoten 3 auf node4 und verschieben die Aggregate von Knoten 2 von Knoten 3 auf node4.
+In Phase 5 installieren und booten Sie node4, ordnen das Cluster und die Node-Management-Ports von node2 nach node4 zu, überprüfen die installation von node4 und verschieben Daten-LIFs und SAN-LIFs, die zu node2 gehören, von node3 auf node4. Außerdem werden node2-Aggregate von Node3 nach node4 verschoben.
 
 .Schritte
 . link:install_boot_node4.html["installieren und booten sie node4"]
@@ -22,5 +22,5 @@ In Phase 5 installieren und booten Sie node4, ordnen das Cluster und die Node-Ma
 . link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"]
 . link:verify_node4_installation.html["Überprüfen Sie die installation von node4"]
 . link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["Verschieben Sie die NAS-Daten-LIFs von node2 von node3 auf node4 und überprüfen Sie SAN LIFs auf node4"]
-. link:relocate_node2_non_root_aggr_node3_node4.html["Verschiebung von nicht-Root-Aggregaten node2 von Node3 auf node4"]
+. link:relocate_node2_non_root_aggr_node3_node4.html["Verschiebung von nicht-Root-Aggregaten node2 von Node3 in node4"]
 

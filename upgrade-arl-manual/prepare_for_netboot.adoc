@@ -36,12 +36,21 @@ Sie müssen die Controller jedoch nicht per Netzboot fahren, wenn auf den Origin
 | Für... | Dann... 
 
 
-| Systeme der FAS/AFF8000 Serie | Extrahieren Sie den Inhalt des `<ontap_version>_image.tgz` Datei zum Zielverzeichnis:
-`tar -zxvf <ontap_version>_image.tgz`*Hinweis*: Wenn Sie die Inhalte unter Windows extrahieren, verwenden Sie 7-Zip oder WinRAR, um das Netzboot-Bild zu extrahieren. Ihre Verzeichnisliste sollte einen Netzboot-Ordner mit einer Kernel-Datei enthalten:
-`netboot/kernel` 
+| Systeme der FAS/AFF8000 Serie  a| 
+Extrahieren Sie den Inhalt des `<ontap_version>_image.tgz` Datei zum Zielverzeichnis:
+
+`tar -zxvf <ontap_version>_image.tgz`
 
 
-| Alle anderen Systeme | Ihre Verzeichnisliste sollte die folgende Datei enthalten: `<ontap_version>_image.tgz`*Hinweis*: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` Datei: 
+NOTE: Wenn Sie die Inhalte unter Windows extrahieren, verwenden Sie 7-Zip oder WinRAR, um das Netzboot-Bild zu extrahieren.
+
+Ihre Verzeichnisliste sollte einen Netzboot-Ordner mit einer Kernel-Datei enthalten:
+
+`netboot/kernel`
+
+
+
+| Alle anderen Systeme | Ihre Verzeichnisliste sollte die folgende Datei enthalten: `<ontap_version>_image.tgz`HINWEIS: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` Datei: 
 |===
 +
 Sie verwenden Informationen in den Verzeichnissen in link:stage_3_install_boot_node3.html["Phase 3"].

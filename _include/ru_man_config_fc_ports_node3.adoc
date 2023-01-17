@@ -15,7 +15,7 @@ Sie müssen die Werte der FC-Port-Einstellungen von node1 haben, die Sie in gesp
 Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
 
 
-NOTE: *Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein. Wenn Sie über ein V-Series System oder über FlexArray-Virtualisierungssoftware verfügen und mit Storage-Arrays verbunden sind, geben Sie im Wartungsmodus in diesem Abschnitt Befehle ein.
+IMPORTANT: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie an der Cluster-Eingabeaufforderung in diesem Abschnitt die Befehle ein. Wenn Sie über ein V-Series System oder über FlexArray-Virtualisierungssoftware verfügen und mit Storage-Arrays verbunden sind, geben Sie im Wartungsmodus in diesem Abschnitt Befehle ein.
 
 .Schritte
 . Führen Sie eine der folgenden Aktionen durch:
@@ -84,10 +84,16 @@ Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im
 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Ändern Sie die FC-Ports auf node3 nach Bedarf, indem Sie den folgenden Befehl eingeben:
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
+Ändern Sie die FC-Ports auf node3 nach Bedarf, indem Sie den folgenden Befehl eingeben:
+
 `ucadmin modify -m fc -t initiator -f _adapter_port_name_`
 
-`-t` Ist der FC4-Typ, das Ziel oder der Initiator. *Hinweis*: Die FC-Ports müssen als Initiatoren programmiert werden. 
+`-t` Ist der FC4-Typ, das Ziel oder der Initiator.
+
+
+NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
+
 |===
 . [[step7]]Nehmen Sie eine der folgenden Aktionen:
 +

@@ -14,7 +14,7 @@ summary: 'installieren und booten sie node4 und installieren Sie ONTAP Software 
 
 
 [role="lead"]
-Sie müssen node4 im Rack installieren, Verbindungen von node2 zu node4 übertragen, node4 booten und ONTAP installieren. Sie müssen dann eine der node2 Ersatzfestplatten, alle Festplatten, die zum Root-Volume gehören, und alle nicht-Root-Aggregate, die nicht zu node3 früher in diesem Prozess verschoben wurden, neu zuweisen, wie in diesem Abschnitt beschrieben.
+Sie müssen node4 im Rack installieren, die node2-Verbindungen nach node4 übertragen, node4 booten und ONTAP installieren. Sie müssen dann freie Festplatten in node2 neu zuweisen, sämtliche Festplatten, die zum Root-Volume gehören, und alle nicht-Root-Aggregate, die zuvor nicht in node3 verschoben wurden, wie in diesem Abschnitt beschrieben.
 
 .Über diese Aufgabe
 Der Umzugsvorgang wird zu Beginn dieser Phase angehalten. Dieser Vorgang wird größtenteils automatisch durchgeführt. Der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Außerdem müssen Sie überprüfen, ob die NAS-Daten-LIFs erfolgreich in node4 verschoben wurden.
@@ -99,11 +99,12 @@ NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwend
 
 | Nicht ausgeführt | Konfigurieren Sie die Verbindung manuell, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
 `ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
-`_filer_addr_` Ist die IP-Adresse des Storage-Systems.
-`_netmask_` Ist die Netzwerkmaske des Storage-Systems.
-`_gateway_` Ist das Gateway für das Storage-System.
-`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk.
-`_dns_domain_` Der Domain Name (DNS) ist der Domain-Name. Wenn Sie diesen optionalen Parameter verwenden, benötigen Sie in der Netzboot-Server-URL keinen vollqualifizierten Domänennamen. Sie benötigen nur den Host-Namen des Servers. *Hinweis:* andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung. 
+
+`_filer_addr_` Ist die IP-Adresse des Speichersystems (obligatorisch).
+`_netmask_` Ist die Netzwerkmaske des Storage-Systems (erforderlich).
+`_gateway_` Ist das Gateway für das Speichersystem (erforderlich).
+`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk (optional).
+`_dns_domain_` Der Domain Name (DNS) ist der Domain-Name. Wenn Sie diesen optionalen Parameter verwenden, benötigen Sie in der Netzboot-Server-URL keinen vollqualifizierten Domänennamen. Sie benötigen nur den Host-Namen des Servers. HINWEIS: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung. 
 |===
 . Ausführen eines Netzboots auf node4:
 +
@@ -129,8 +130,17 @@ NOTE: Unterbrechen Sie den Startvorgang nicht.
 Mit dieser Menüoption wird das neue ONTAP-Image auf das Startgerät heruntergeladen und installiert.
 
 +
+Ignorieren Sie die folgende Meldung:
 
-NOTE: Ignorieren Sie die folgende Meldung: `This procedure is not supported for Non-Disruptive Upgrade on an HA pair`Der Hinweis gilt für unterbrechungsfreie Upgrades der ONTAP und keine Upgrades von Controllern. Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle ONTAP Versionen.
++
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+
++
+Der Hinweis gilt für unterbrechungsfreie Upgrades der ONTAP und keine Upgrades von Controllern.
+
++
+
+NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle ONTAP Versionen. Das Netzboot wird mit der Option kombiniert `(7) Install new software` Entfernt das Boot-Medium und platziert dieselbe ONTAP-Version auf beiden Image-Partitionen.
 
 . Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie ein `y`, Und wenn Sie zur Eingabe des Pakets aufgefordert werden, geben Sie die URL ein:
 +
@@ -213,18 +223,20 @@ Unterbrechen Sie die Autoboot-Ausführung, indem Sie an der Eingabeaufforderung 
 +
 `set time _hh:mm:ss_`
 
-. Legen Sie bei Bedarf die Partner System-ID auf node4 fest:
+. Legen Sie im Boot-Loader die Partner-System-ID auf node4 fest:
 +
-`setenv partner-sysid _node2_sysid_`
+`setenv partner-sysid _node3_sysid_`
 
 +
-.. Einstellungen speichern:
+Für node4, `partner-sysid` Muss das der Node3 sein.
+
++
+Einstellungen speichern:
+
 +
 `saveenv`
 
-
-
-. [[Auto_install4_step21]]auf dem neuen Knoten, in Boot-Loader, das `partner-sysid` Parameter muss festgelegt werden. Für node4, `partner-sysid` Muss das der Node3 sein. Überprüfen Sie die `partner-sysid` Für Knoten 3:
+. [[Auto_install4_step21] Verify the `partner-sysid` für node4:
 +
 `printenv partner-sysid`
 
@@ -243,7 +255,8 @@ Unterbrechen Sie die Autoboot-Ausführung, indem Sie an der Eingabeaufforderung 
 .. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<auto_install4_step23,Schritt 23>>.
 
 
-*Wichtig*: Sie müssen FC Onboard-Ports, CNA Onboard Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Serie oder dem System mit FlexArray Virtualisierungssoftware booten.
+
+IMPORTANT: Sie müssen die integrierten FC-Ports, die integrierten CNA-Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Series oder dem System mit FlexArray Virtualisierungssoftware booten.
 
 |===
 

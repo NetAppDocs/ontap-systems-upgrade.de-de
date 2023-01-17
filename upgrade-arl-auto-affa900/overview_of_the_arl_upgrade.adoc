@@ -37,16 +37,8 @@ Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einze
 | Stufe | Schritte 
 
 
-| link:verify_upgrade_hardware.html["Phase 1: Upgrade vorbereiten"]  a| 
-. Überprüfen Sie die Upgrade-Hardware
-. Führen Sie Vorabprüfungen durch, um zu überprüfen, ob Sie den Vorgang durchführen können
-. Korrigieren Sie das Aggregat-Eigentum, wenn eine Vorabprüfung fehlschlägt
-. Geben Sie die Lizenzschlüssel für die Cluster-Basis ein
-. Holen Sie sich eine IP-Adresse für Speicherverschlüsselung
-. Authentifizierungsmanagement durch einen KMIP-Server (Key Management Operabilität Protocol
-. Management der Storage-Verschlüsselung mithilfe eines Onboard-Verschlüsselungsmanagement (OKM)
-. Stilllegen der SnapMirror Beziehungen (optional)
-
+| link:stage_1_index.html["Phase 1: Upgrade vorbereiten"]  a| 
+Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschoben. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie müssen die erforderlichen Node1-Informationen zur Verwendung später im Verfahren aufzeichnen und anschließend die entsprechenden node1-Controller und NVRAM-Module austauschen, node1 ausmustern und den aktualisierten node1-Netzboot ausführen.
 
 Gesamteigentum am Ende von Phase 1:
 
@@ -56,14 +48,8 @@ Gesamteigentum am Ende von Phase 1:
 
 
 
-| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Phase 2: Verschieben von Ressourcen von Knoten1 und Ausmustern von AFF A700 oder FAS9000 Node1"]  a| 
-. Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2
-. Verschiebung ausgefallener oder Vetos von Aggregaten
-. Node1 ausmustern
-. Entfernen Sie den AFF A700 oder den FAS9000 Controller und die NVRAM-Module
-. Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node1
-. Netzboot Nr. 1
-
+| link:stage_2_index.html["Phase 2: Verschieben von Ressourcen von Knoten1 und Ausmustern von AFF A700 oder FAS9000 Node1"]  a| 
+Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschoben. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie erfassen Node1-Informationen für die spätere Verwendung im Verfahren vor dem Ausscheiden von node1. Sie können sich auch später beim Verfahren auf den Netzboot node1 vorbereiten.
 
 Gesamteigentum am Ende von Phase 2:
 
@@ -73,13 +59,8 @@ Gesamteigentum am Ende von Phase 2:
 
 
 
-| link:boot_node1_with_a900_controller_and_nvs.html["Phase 3: Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
-. Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
-. Vergewissern Sie sich, dass node1 erfolgreich installiert wurde
-. Stellen Sie die Netzwerkkonfiguration für node1 wieder her
-. Stellen Sie die Key-Manager-Konfiguration auf dem aktualisierten Node1 wieder her
-. Verschieben Sie Aggregate und NAS-Daten-LIFs, die sich im Besitz von Knoten1 befinden, von Knoten 2 auf die aktualisierte Knoten 1
-
+| link:stage_3_index.html["Phase 3: Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
+In Phase 3 booten Sie Node1 mit aktualisierten Controller- und NVRAM-Modulen und überprüfen die aktualisierte Node1-Installation. Wenn Sie NetApp Volume Encryption (NVE) verwenden, stellen Sie die Konfiguration des Schlüsselmanagers wieder her. Außerdem werden node1 Aggregate und NAS-Daten-LIFs von node2 auf die aktualisierte Node1 verschoben und Sie überprüfen, ob die SAN-LIFs auf node1 vorhanden sind.
 
 Gesamteigentum am Ende von Stufe 3:
 
@@ -89,10 +70,8 @@ Gesamteigentum am Ende von Stufe 3:
 
 
 
-| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["Phase 4: Verlagerung von Ressourcen von node2 und Ausmustern node2"]  a| 
-. Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs von Knoten 2 auf Knoten 1
-. Node2 ausmustern
-
+| link:stage_4_index.html["Phase 4: Verlagerung von Ressourcen von node2 und Ausmustern node2"]  a| 
+Während Phase 4 verschieben Sie Aggregate und NAS-Daten-LIFs von Knoten 2 auf die aktualisierte Knoten 1 und Mustern Knoten 2 aus.
 
 Gesamteigentum am Ende von Stufe 4:
 
@@ -102,10 +81,8 @@ Gesamteigentum am Ende von Stufe 4:
 
 
 
-| link:install_a900_nvs_and_controller_on_node2.html["Phase 5: Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2"]  a| 
-. Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2
-. Netzboot Nr. 2
-
+| link:stage_5_index.html["Phase 5: Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2"]  a| 
+In Phase 5 installieren Sie die neuen NVRAM- und Controller-Module, die Sie für den aktualisierten Node2 erhalten haben, und anschließend als Netzboot node2.
 
 Gesamteigentum am Ende von Stufe 5:
 
@@ -115,21 +92,12 @@ Gesamteigentum am Ende von Stufe 5:
 
 
 
-| link:boot_node2_with_a900_controller_and_nvs.html["Phase 6: Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
-. Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
-. Überprüfen Sie, ob node2 korrekt installiert ist
-. Stellen Sie die Netzwerkkonfiguration für node2 wieder her
-. Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2
+| link:stage_6_index.html["Phase 6: Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
+In Phase 6 booten Sie Node2 mit aktualisierten Controller- und NVRAM-Modulen und überprüfen die Upgrade-Installation node2. Wenn Sie NVE verwenden, stellen Sie die Konfiguration für Schlüsselmanager wieder her. Außerdem werden node1-Aggregate und NAS-Daten-LIFs von node1 auf die aktualisierte Node2 verschoben und Sie überprüfen, ob die SAN-LIFs auf node2 vorhanden sind.
 
 
 
-
-| link:ensure_new_controllers_are_set_up_correctly.html["Phase 7: Das Upgrade abschließen"]  a| 
-. Überprüfen Sie, ob die neuen Controller ordnungsgemäß eingerichtet sind
-. Richten Sie Storage Encryption auf dem neuen Controller-Modul ein
-. Richten Sie NetApp Volume Encryption auf dem neuen Controller-Modul ein.
-. Ausmustern des alten Systems
-. Setzen Sie den NetApp SnapMirror Betrieb wieder ein
-
+| link:stage_7_index.html["Phase 7: Das Upgrade abschließen"]  a| 
+In Phase 7 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden. Und wenn die neuen Nodes verschlüsselt sind, konfigurieren und einrichten Sie Storage Encryption oder NVE. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
 |===

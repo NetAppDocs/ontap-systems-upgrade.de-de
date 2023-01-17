@@ -25,7 +25,7 @@ Verwenden Sie diese Inhalte unter folgenden Umständen:
 
 
 
-NOTE: Dabei können Sie NetApp Storage Encryption (NSE) und NetApp Volume Encryption (NVE) verwenden.
+NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 
 [[sys_befiehlt_95_97_supported_Systems]] die folgenden Tabellen zeigen die unterstützte Modellmatrix für das Controller-Upgrade.
 

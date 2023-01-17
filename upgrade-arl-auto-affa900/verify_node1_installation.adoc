@@ -95,7 +95,7 @@ Alle physischen Netzwerk-Ports, VLAN-Ports und Schnittstellen-Gruppen-Ports auf 
 
 . Liste der Broadcast-Domänen auf dem Cluster:
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 . Die Erreichbarkeit des Netzwerkports aller Ports auf node1 auflisten:
 +

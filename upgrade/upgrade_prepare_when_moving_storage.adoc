@@ -129,7 +129,7 @@ image::../upgrade/media/reassign_lifs.PNG[Neuzuordnen von LIFs zu Netzwerk-Ports
 --
 . [[Prepare_move_Store_5]]Laden Sie die für das Netzboot verwendeten Dateien herunter und bereiten Sie sie vor.
 +
-Nachdem Sie die neuen Nodes installiert haben, müssen Sie möglicherweise als Netzboot fahren, um sicherzustellen, dass die neuen Nodes dieselbe Version von ONTAP wie die ursprünglichen Nodes ausführen. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einem Webserver ablegen, auf den das System zugreifen kann.
+Nach der Installation der neuen Nodes müssen Sie möglicherweise als Netzboot überprüft werden, ob die neuen Nodes dieselbe Version von ONTAP wie die ursprünglichen Nodes ausführen. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einem Webserver ablegen, auf den das System zugreifen kann.
 
 +
 .. Auf das zugreifen https://mysupport.netapp.com/site/["NetApp Support Website"^] Zum Herunterladen der Dateien zum Ausführen des Netzboots des Systems.

@@ -135,10 +135,20 @@ Basierend auf der Ausgabe in <<man_aggr_step4,Schritt 4>> Schritt 6 verwendet ag
 | Enthalten keine Aggregate auf internen Festplatten | Fahren Sie mit diesem Verfahren fort. 
 
 
-| Enthalten Aggregate, aber keine Volumes auf den internen Festplattenlaufwerken | Fahren Sie mit diesem Verfahren fort. *Hinweis*: Bevor Sie fortfahren, müssen Sie die Aggregate offline stellen und dann die Aggregate auf den internen Festplatten zerstören. Siehe link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregatmanagement mit CLI_ Inhalt für Informationen über das Managen von Aggregaten. 
+| Enthalten Aggregate, aber keine Volumes auf den internen Festplattenlaufwerken  a| 
+Fahren Sie mit diesem Verfahren fort.
 
 
-| Enthalten nicht-Root-Volumes auf den internen Laufwerken | Fahren Sie mit diesem Verfahren fort. *Hinweis*: Bevor Sie fortfahren, müssen Sie die Volumes in ein externes Festplatten-Shelf verschieben, die Aggregate offline stellen und dann die Aggregate auf den internen Festplatten zerstören. Siehe link:other_references.html["Quellen"] Informationen über das Verschieben von Volumes erhalten Sie unter Verweis auf das Management von _Festplatte und Aggregaten mit dem CLI_ Inhalt. 
+NOTE: Bevor Sie fortfahren, müssen Sie die Aggregate offline setzen und dann die Aggregate auf den internen Festplattenlaufwerken zerstören. Siehe link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregatmanagement mit CLI_ Inhalt für Informationen über das Managen von Aggregaten.
+
+
+
+| Enthalten nicht-Root-Volumes auf den internen Laufwerken  a| 
+Fahren Sie mit diesem Verfahren fort.
+
+
+NOTE: Bevor Sie fortfahren, müssen Sie die Volumes zu einem externen Festplatten-Shelf verschieben, die Aggregate offline platzieren und dann die Aggregate auf den internen Festplattenlaufwerken zerstören. Siehe link:other_references.html["Quellen"] Informationen über das Verschieben von Volumes erhalten Sie unter Verweis auf das Management von _Festplatte und Aggregaten mit dem CLI_ Inhalt.
+
 
 
 | Enthalten Root-Volumes auf den internen Laufwerken | Fahren Sie mit diesem Verfahren nicht fort. Sie können ein Upgrade der Controller durchführen, indem Sie auf verweisen link:other_references.html["Quellen"] Zum Verlinken auf die _NetApp Support Site_ und das Verfahren _Aktualisieren der Controller Hardware auf einem Node-Paar, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird. 

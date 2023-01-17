@@ -25,11 +25,13 @@ Siehe link:other_references.html["Quellen"] Um zu _High Availability Management_
 +
 .. Stellen Sie sicher, dass das Benutzerkonto für den Diagnosebenutzer entsperrt ist.
 +
-*Wichtig*: Das diagnostische Benutzerkonto ist nur für diagnostische Zwecke auf niedriger Ebene gedacht und sollte nur mit Anleitung durch den technischen Support verwendet werden.
+[IMPORTANT]
+====
+Das diagnostische Benutzerkonto ist nur für diagnostische Zwecke auf niedriger Ebene gedacht und sollte nur unter Anleitung durch den technischen Support verwendet werden.
 
-+
-*Wichtig*: Informationen zum Entsperren der Benutzerkonten finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+Informationen zum Entsperren der Benutzerkonten finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
 
+====
 .. Siehe link:other_references.html["Quellen"] Wenn Sie einen Link zur NetApp Support-Website_ erhalten möchten, können Sie den Performance and Statistics Collector (Perfstat Converged) herunterladen.
 +
 Mit dem konvergenten Perfstat Tool können Sie eine Performance-Baseline für den Vergleich nach dem Upgrade erstellen.

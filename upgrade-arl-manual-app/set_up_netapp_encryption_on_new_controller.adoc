@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/set_up_netapp_encryption_on_new_controller.html 
 keywords: set up, netapp volume encryption, encryption, controller, module 
-summary: Konfigurieren Sie, falls erforderlich, das neue Controller-Modul für NVE bei einem manuellen ARL Upgrade auf Controllern mit ONTAP 9.8 oder höher. 
+summary: Konfigurieren Sie, falls erforderlich, das neue Controller-Modul für NVE oder NAE während eines manuellen ARL Upgrades bei Controllern mit ONTAP 9.8 oder höher. 
 ---
-= Richten Sie NetApp Volume Encryption auf dem neuen Controller-Modul ein
+= Einrichten von NetApp Volume oder Aggregte Verschlüsselung auf dem neuen Controller-Modul
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Konfigurieren Sie, falls erforderlich, das neue Controller-Modul für N
 
 
 [role="lead"]
-Wenn der ersetzte Controller oder der HA-Partner des neuen Controllers NetApp Volume Encryption (NVE) verwendet, müssen Sie das neue Controller-Modul für NVE konfigurieren.
+Wenn der ersetzte Controller oder der HA-Partner (High Availability, Hochverfügbarkeit) des neuen Controllers NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) verwendet, muss das neue Controller-Modul für NVE oder NAE konfiguriert werden.
 
 .Über diese Aufgabe
 Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführt werden. Sie müssen den Befehl auf dem richtigen Node eingeben.

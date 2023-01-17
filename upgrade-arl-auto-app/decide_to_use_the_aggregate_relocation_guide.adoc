@@ -28,7 +28,7 @@ Informationen zum Aktualisieren von MetroCluster IP-Konfigurationen finden Sie u
 
 
 
-NOTE: Dabei können Sie NetApp Storage Encryption (NSE) und NetApp Volume Encryption (NVE) verwenden.
+NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 
 [[sys_beditors_98_supported_Systems]]die folgende Tabelle zeigt die unterstützte Modellmatrix für das Controller-Upgrade.
 

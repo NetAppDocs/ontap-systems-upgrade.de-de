@@ -14,11 +14,13 @@ summary: Phase 6 Prozessreihenfolge für ein manuelles ARL Upgrade bei Controlle
 
 
 [role="lead"]
-In Phase 6 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet sind. Wenn einer der neuen Nodes über einen Unified Target Adapter verfügt, müssen Sie alle Portkonfigurationen wiederherstellen und müssen möglicherweise die Persönlichkeit des Adapters ändern. Sie müssen auch Storage Encryption einrichten, wenn die neuen Nodes verschlüsselt sind. Zudem müssen die alten Nodes außer Betrieb gesetzt werden.
+In Phase 6 bestätigen Sie, dass die neuen Nodes ordnungsgemäß eingerichtet wurden. Bei aktivierter Verschlüsselung konfigurieren und einrichten Sie Storage Encryption bzw. NetApp Volume Encryption. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
-. link:ensure_controllers_set_up_correctly.html["Stellen Sie sicher, dass die neuen Controller ordnungsgemäß eingerichtet sind"]
+. link:get_address_key_management_server_encryption.html["Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagementservers für die Speicherverschlüsselung"]
+. link:manage_authentication_kmip.html["Authentifizierungsmanagement mit KMIP-Servern"]
+. link:ensure_controllers_set_up_correctly.html["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind"]
 . link:set_up_storage_encryption_new_controller.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]
-. link:set_up_netapp_encryption_on_new_controller.html["Richten Sie NetApp Verschlüsselung auf dem neuen Controller-Modul ein"]
+. link:set_up_netapp_encryption_on_new_controller.html["Einrichtung von NetApp Volume oder Aggregate Encryption auf dem neuen Controller-Modul"]
 . link:decommission_old_system.html["Ausmustern des alten Systems"]
 . link:resume_snapmirror_ops.html["Setzen Sie den SnapMirror Betrieb fort"]
 

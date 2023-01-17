@@ -118,31 +118,32 @@ NOTE: Wenn Sie ein System mit mehr als zwei Cluster-Ports pro Node, wie z. B. ei
 
 . Führen Sie den folgenden Befehlssatz aus, wie durch das Verfahren zum Austausch des Controllers auf der Systemkonsole gesteuert.
 +
-Sie müssen die Ausgabe der folgenden Befehle einzeln ausführen und speichern:
+Führen Sie von dem seriellen Port aus, der mit jedem Node verbunden ist, und speichern Sie die Ausgabe der folgenden Befehle einzeln:
 
 +
 ** `vserver services name-service dns show`
-** `network interface show -curr-node _nodename_ -role _cluster,intercluster,node-mgmt,cluster-mgmt,data_`
-** `network port show -node _node_name_ -type physical`
-** `service-processor show -node * -instance`
-** `network fcp adapter show -node _node_name_`
+** `network interface show -curr-node _local_ -role _cluster,intercluster,node-mgmt,cluster-mgmt,data_`
+** `network port show -node _local_ -type physical`
+** `service-processor show -local -instance`
+** `network fcp adapter show -node _local_`
 ** `network port ifgrp show`
-** `system node show -instance -node _node_name_`
-** `run -node _node_name_ sysconfig`
-** `storage aggregate show -node _node_name_`
-** `volume show -node _node_name_`
+** `system node show -instance -node _local_`
+** `run -node _local_ sysconfig`
+** `storage aggregate show -node _local_`
+** `volume show -node _local_`
 ** `storage array config show -switch _switch_name_`
-** `system license show -owner _node_name_`
+** `system license show -owner _local_`
 ** `storage encryption disk show`
 ** `security key-manager onboard show-backup`
 ** `security key-manager external show`
 ** `security key-manager external show-status`
-** `reachability show -detail`
+** `network port reachability show -detail`
 
 
-+
 
-NOTE: Wenn NetApp Volume Encryption mit Onboard Key Manager (OKM) verwendet wird, halten Sie die Schlüsselmanager-Passphrase bereit, um die Resynchronisierung des Schlüsselmanagers später im Verfahren abzuschließen.
+
+
+NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) mit Onboard Key Manager (OKM) verwendet wird, halten Sie die Schlüsselmanager-Passphrase bereit, um die Resynchronisierung des Schlüsselmanagers später im Verfahren abzuschließen.
 
 . Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"^] Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:
 +

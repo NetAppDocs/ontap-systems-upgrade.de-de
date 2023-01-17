@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_2_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: 'Phase 2-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
+---
+= Stufe 2: Verschieben Sie Ressourcen von Knoten1 und Mustern Sie die AFF A700 oder FAS9000 Node1 aus
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschoben. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie müssen node1-Informationen zur Verwendung später beim Verfahren aufzeichnen und dann die entsprechenden node1-Controller und NVRAM-Module austauschen, node1 ausmustern und den aktualisierten node1-Netzboot ausführen.
+
+.Schritte
+. link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2"]
+. link:relocate_failed_or_vetoed_aggr.html["Verschiebung ausgefallener oder Vetos von Aggregaten"]
+. link:retire_node1.html["Node1 ausmustern"]
+. link:netboot_node1.html["Netzboot"]
+

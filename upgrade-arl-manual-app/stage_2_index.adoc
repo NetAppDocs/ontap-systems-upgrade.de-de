@@ -14,7 +14,7 @@ summary: Phase 2-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controlle
 
 
 [role="lead"]
-Während Phase 2 verschieben Sie die node1-Aggregate und LIFs auf Knoten2, erfassen Node1-Informationen und Mustern die Knoten1 aus. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen.
+Während Phase 2 verschieben Sie Aggregate ohne Root-Root-Fehler von Knoten1 auf Knoten2 und verschieben Daten-LIFs, die nicht-SAN-Daten-LIFs gehören, die sich im Besitz von node1 befinden, auf Knoten 2, einschließlich fehlgeschlagener oder Vetos. Sie notieren auch die notwendigen Node1-Informationen, die Sie später im Verfahren verwenden können, und setzen dann node1 aus.
 
 .Schritte
 . link:relocate_non_root_aggr_node1_node2.html["Verlagerung von Aggregaten außerhalb der Root-Ebene und NAS-Daten-LIFs, die sich im Besitz von node1 auf node2 befinden"]

@@ -43,7 +43,8 @@ Sie müssen die Werte der FC-Port-Einstellungen von node1 haben, die Sie im Absc
 .Über diese Aufgabe
 Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
 
-*Wichtig*: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein. Wenn Sie über ein „V-Series System“ oder über FlexArray-Virtualisierungssoftware verfügen und mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus die entsprechenden Befehle ein.
+
+IMPORTANT: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie an der Cluster-Eingabeaufforderung in diesem Abschnitt die Befehle ein. Wenn Sie über ein „V-Series System“ oder über FlexArray-Virtualisierungssoftware verfügen und mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus die entsprechenden Befehle ein.
 
 . [[Schritt1]]Vergleichen Sie die FC-Einstellungen auf node3 mit den Einstellungen, die Sie zuvor aus node1 erfasst haben.
 . [[Schritt2]]Nehmen Sie eine der folgenden Aktionen:
@@ -70,10 +71,16 @@ Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfi
 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Ändern Sie im Wartungsmodus (Option 5 im Startmenü) die FC-Ports auf node3 nach Bedarf:
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
+Ändern Sie im Wartungsmodus (Option 5 im Startmenü) die FC-Ports auf node3 nach Bedarf:
+
 `ucadmin modify -m fc -t initiator -f _adapter_port_name_`
 
-`-t` Ist der FC4-Typ, das Ziel oder der Initiator. *Hinweis*: Die FC-Ports müssen als Initiatoren programmiert werden. 
+`-t` Ist der FC4-Typ, das Ziel oder der Initiator.
+
+
+NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
+
 |===
 . [[Schritt3]]Nehmen Sie eine der folgenden Aktionen:
 +
@@ -310,7 +317,7 @@ Adapter  Mode       Type        Mode     Type        Status
 . [[Schritt14]]Boot-Knoten in Boot-Menü durch Ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu <<auto_check3_step23,Schritt 23>>.
 
 
-. [[auto9597_Check_node3_step15]]in node3 gehen Sie zum Startmenü und wählen Sie die verborgene Option mit 22/7 aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 zu node3 wie im folgenden Beispiel neu zuzuweisen.
+. [[auto9597_Check_node3_step15]]in node3 wechseln Sie zum Startmenü und wählen Sie mit 22/7 die verborgene Option aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 zu node3 wie im folgenden Beispiel neu zuzuweisen.
 +
 .Erweitern Sie das Ausgabebeispiel der Konsole
 [%collapsible]

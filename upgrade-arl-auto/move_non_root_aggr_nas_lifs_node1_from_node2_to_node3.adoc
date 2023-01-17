@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html 
 keywords: aggregate relocation, lifs, node3, node1, node2, NAS 
-summary: 'Verschieben Sie die NAS-Daten-LIFs für Node1 von Knoten 2 auf Knoten 3, wenn Sie Controller mit ONTAP 9.5 auf 9.7 aktualisieren `system controller replace` Befehle.' 
+summary: 'Verschieben Sie die node1 NAS-Daten-LIFs auf node2 von node2 auf Knoten 3, wenn Sie Controller mit ONTAP 9.5 auf 9.7 aktualisieren `system controller replace` Befehle.' 
 ---
 = Verschieben Sie Aggregate ohne Root-Root-Fehler und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, von node2 auf node3
 :hardbreaks:

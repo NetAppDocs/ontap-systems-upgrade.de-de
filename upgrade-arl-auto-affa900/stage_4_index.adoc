@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_4_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
+---
+= Phase 4: Verschieben von Ressourcen von node2 und Ausmustern von Knoten 2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Während Phase 4 verschieben Sie Aggregate und NAS-Daten-LIFs von Knoten 2 auf die aktualisierte Knoten 1 und Mustern Knoten 2 aus.
+
+.Schritte
+. link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs von Knoten 2 auf Knoten 1"]
+. link:retire_node2.html["Node2 ausmustern"]
+
