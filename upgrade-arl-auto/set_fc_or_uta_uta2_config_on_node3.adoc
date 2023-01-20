@@ -436,10 +436,52 @@ Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unte
 ====
 . [[Auto_check3_step22]]an der Loader-Eingabeaufforderung booten:
 +
-`boot_ontap`
+`boot_ontap menu`
 
 +
 Beim Booten erkennt der Node jetzt alle Festplatten, die zuvor ihm zugewiesen waren, und kann wie erwartet gebootet werden.
+
++
+Wenn die Cluster-Knoten, die Sie ersetzen, die Root-Volume-Verschlüsselung verwenden, kann die ONTAP-Software die Volume-Informationen nicht von den Festplatten lesen. Stellen Sie die Schlüssel für das Root-Volume wieder her:
+
++
+.. Zurück zum speziellen Startmenü:
+`LOADER> boot_ontap menu`
++
+[listing]
+----
+Please choose one of the following:
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+
+Selection (1-11)? 10
+----
+.. Wählen Sie *(10) Set Onboard Key Manager Recovery Secrets*
+.. Eingabe `y` An der folgenden Eingabeaufforderung:
++
+`This option must be used only in disaster recovery procedures. Are you sure? (y or n): y`
+
+.. Geben Sie an der Eingabeaufforderung die Passphrase für das Schlüsselmanagement ein.
+.. Geben Sie bei Aufforderung die Backup-Daten ein.
++
+
+NOTE: Sie müssen die Passphrase und Sicherungsdaten im erhalten haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt dieses Verfahrens.
+
+.. Nachdem das System wieder zum speziellen Startmenü gestartet wurde, führen Sie die Option *(1) Normal Boot* aus
++
+
+NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehler auftritt, wiederholen Sie die Teilschritte in <<auto_check3_step22,Schritt 22>> Bis das System ordnungsgemäß gebootet wird.
+
+
 
 . [[Auto_check3_step23]]Wenn Sie ein Upgrade von einem System mit externen Festplatten auf ein System durchführen, das interne und externe Festplatten unterstützt (z. B. AFF A800 Systeme), setzen Sie das node1-Aggregat als Root-Aggregat ein, um zu bestätigen, dass node3 aus dem Root-Aggregat von node1 bootet. Zum Festlegen des Root-Aggregats rufen Sie das Boot-Menü auf und wählen dann Option `5` Um in den Wartungsmodus zu wechseln.
 +
