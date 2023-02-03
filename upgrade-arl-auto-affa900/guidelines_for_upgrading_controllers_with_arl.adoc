@@ -14,7 +14,7 @@ summary: Stellen Sie sich vor, ob Sie mit ARL ein Upgrade einer AFF A700 auf ein
 
 
 [role="lead"]
-Mithilfe von ARL können Sie ein Controller-Paar mit ONTAP 9.11.1P6 oder 9.10.1P10 (geplant bis Februar 2023) in den folgenden Systemkonfigurationen aktualisieren:
+Verwenden von ARL, um ein Controller-Paar mit ONTAP 9.10.1P10, 9.11.1P6 oder eine neuere Version in den folgenden Systemkonfigurationen zu aktualisieren:
 
 * AFF A700 Controller zu einem AFF A900 System
 * FAS9000 Controller zu einem FAS9500 System
@@ -27,7 +27,7 @@ Mithilfe von ARL können Sie ein Controller-Paar mit ONTAP 9.11.1P6 oder 9.10.1P
 Controller Upgrade von einer AFF A700 auf einen AFF A900 oder von einer FAS9000 mithilfe von ARL auf ein FAS9500 System. Dabei wird das NVRAM-Modul von einer unterstützten Kombination unterstützt. Wenn Sie ein neues AFF A900 oder FAS9500 System als komplettes System mit neuem Gehäuse erhalten haben, finden Sie unter link:other_references.html["Quellen"] Um eine Verbindung zu den Befehlen „System Controller Replace“ zu herstellen, um die Controller Hardware mit ONTAP 9.8 oder höher zu aktualisieren_.
 
 
-WARNING: Dieses Verfahren gilt ausschließlich für eine AFF A700 auf AFF A900 oder für ein FAS9000 auf FAS9500 Upgrade mit ONTAP 9.11.1P6 oder 9.10.1P10 (geplant bis Februar 2023). Verwenden Sie dieses Verfahren NICHT, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen.
+WARNING: Dieses Verfahren gilt ausschließlich für eine AFF A700 auf AFF A900 oder für ein FAS9000 auf FAS9500 Upgrade mit ONTAP 9.10.1P10, 9.11.1P6 oder einer neueren Version. Verwenden Sie dieses Verfahren NICHT, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen.
 
 Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock Enterprise und SnapLock Compliance Volumes konfiguriert sind.
 

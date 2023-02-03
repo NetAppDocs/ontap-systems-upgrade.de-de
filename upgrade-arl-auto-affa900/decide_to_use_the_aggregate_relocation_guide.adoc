@@ -19,7 +19,7 @@ In diesem Inhalt wird beschrieben, wie Storage Controller in einem AFF A700 HA-P
 Verwenden Sie dieses Verfahren unter den folgenden Umständen:
 
 * Sie haben gemeinsam mit Ihrem NetApp Ansprechpartner überprüft, ob Sie den AFF A900 oder FAS9500 Controller, NVRAM-Module sowie die für das Upgrade erforderlichen Teile erhalten haben.
-* Sie führen derzeit ONTAP 9.11.1P6 oder 9.10.1P10 aus (für Februar 2023 geplant).
+* Sie verwenden ONTAP 9.10.1P10, 9.11.1P6 oder eine neuere Version.
 * Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
 * Sie sind erfahren in der Verwaltung von ONTAP und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.
 
