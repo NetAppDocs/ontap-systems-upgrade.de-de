@@ -190,13 +190,15 @@ Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Art
 
 |===
 +
+
+WARNING: *Sobald der Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie die Einstellung aufheben `kmip.init.maxwait` Variabel. Siehe link:ensure_controllers_set_up_correctly.html#unset_maxwait_manual["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind, Schritt 11"]. Andernfalls kann es zu Datenverlusten kommen, wenn ein Stromausfall auftritt.*
+
++
 [NOTE]
 ====
-** FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
-** SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
-** Wenn ein Stromausfall auftritt, nachdem Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off`Wenden Sie sich an den technischen Support, um Hilfe zu erhalten, um möglichen Datenverlust zu vermeiden.
-** Sobald das Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie den festlegen `kmip.init.maxwait` Variabel. Siehe link:ensure_controllers_set_up_correctly.html["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind"].
+FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
 
+SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
 
 ====
 . [[man_install3_step17] Wenn die auf node3 installierte ONTAP-Version dieselbe oder höher als die auf node1 installierte Version von ONTAP 9 ist, führen Sie die Liste auf und weisen Sie Festplatten der neuen node3 neu zu:

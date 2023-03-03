@@ -121,8 +121,7 @@ Führen Sie von dem seriellen Port aus, der mit jedem Node verbunden ist, und sp
 ** `network port reachability show -detail`
 
 
-
-
++
 
 NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) mit Onboard Key Manager verwendet wird, halten Sie die Schlüsselmanager-Passphrase bereit, um die Resynchronisierung des Schlüsselmanagers später im Verfahren durchzuführen.
 
@@ -135,9 +134,9 @@ NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE)
 
 [NOTE]
 ====
-** FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
-** SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
+FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
 
+SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
 
 ====
 https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["Weitere Informationen zu unterstützten Self-Encrypting Drives"^].

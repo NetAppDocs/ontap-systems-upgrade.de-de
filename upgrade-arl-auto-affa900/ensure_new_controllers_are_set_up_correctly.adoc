@@ -123,7 +123,7 @@ Eingabe `y` Um alle Pakete zu entfernen.
 +
 Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie im erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt.
 
-. Falls in der Konfiguration Self-Encrypting Drives verwendet werden und die festgelegt sind `kmip.init.maxwait` Variabel auf `off` (Beispielsweise in _Boot node2 mit AFF A900 oder FAS9500 Controller und NVRAM-Module_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Schritt 1"]), Sie müssen die Einstellung der Variable aufheben:
+. [[unset_maxwait]] Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off` (Beispielsweise in _Boot node2 mit AFF A900 oder FAS9500 Controller und NVRAM-Module_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Schritt 1"]), Sie müssen die Einstellung der Variable aufheben:
 +
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
 
