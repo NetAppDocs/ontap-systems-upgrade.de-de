@@ -68,4 +68,12 @@ WARNING: Um Schäden an den Anschlüssen zu vermeiden, sollten Sie beim Einschie
 
 . Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
 . Nachdem Sie DIE AUTOBOOT-Funktion unterbrochen haben, wird node2 an der LOADER-Eingabeaufforderung angehalten. Wenn SIE DIE AUTOBOOT-Zeit nicht unterbrechen und node2 den Startvorgang startet, warten Sie auf die Eingabeaufforderung und drücken Sie *Strg-C*, um in das Startmenü zu gelangen. Nachdem der Knoten im Startmenü angehalten wurde, verwenden Sie die Option `8` Um den Node neu zu booten und den AUTOBOOT während des Neubootens zu unterbrechen.
+. Legen Sie an der Eingabeaufforderung LOADER> von node2 die Standardumgebungsvariablen fest:
++
+`set-defaults`
+
+. Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
++
+`saveenv`
+
 
