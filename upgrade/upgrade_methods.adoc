@@ -16,7 +16,7 @@ Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von
 image::../upgrade/media/methods_for_upgrading_controller_hardware.png[Methoden für das Upgrade der Controller-Hardware]
 
 
-NOTE: Modelle mit internen Laufwerken sind: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700S, AFF A800, AFF A250.
+NOTE: Modelle mit internen Laufwerken: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s AFF A800, AFF A250 und AFF C250.
 
 Wenn Ihr System nicht oben aufgeführt ist, lesen Sie den https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
 

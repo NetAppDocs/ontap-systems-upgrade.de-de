@@ -24,7 +24,7 @@ Nachdem Sie später noch Node3 und node4 physisch gerast haben, müssen Sie sie 
 .Über diese Aufgabe
 Sie müssen die neuen Controller als Netzboot ansehen, wenn sie nicht die gleiche Version von ONTAP 9 auf ihnen installiert sind, die auf den ursprünglichen Controllern installiert ist. Nachdem Sie jeden neuen Controller installiert haben, starten Sie das System über das auf dem Webserver gespeicherte ONTAP 9-Image. Anschließend können Sie die richtigen Dateien auf das Boot-Medium herunterladen, um später das System zu booten.
 
-Sie müssen die Controller jedoch nicht per Netzboot fahren, wenn auf den Original-Controllern die gleiche Version von ONTAP 9 installiert ist. Wenn ja, können Sie diesen Abschnitt überspringen und mit fortfahren link:stage_3_install_boot_node3_overview.html["Stufe 3 Installieren und Booten von Knoten3"]
+Sie müssen die Controller jedoch nicht per Netzboot fahren, wenn auf den Original-Controllern die gleiche Version von ONTAP 9 installiert ist. Wenn ja, können Sie diesen Abschnitt überspringen und mit fortfahren link:install_boot_node3.html["Stufe 3 Installieren und Booten von Knoten3"]
 
 .Schritte
 . Rufen Sie die NetApp Support Site auf, um die Dateien zum Netzboot des Systems herunterzuladen.
@@ -57,6 +57,6 @@ NOTE: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` D
 
 |===
 +
-Sie verwenden die Informationen in den Verzeichnissen in link:stage_3_install_boot_node3_overview.html["Phase 3"].
+Sie verwenden die Informationen in den Verzeichnissen in link:install_boot_node3.html["Phase 3"].
 
 

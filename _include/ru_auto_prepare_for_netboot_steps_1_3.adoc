@@ -33,6 +33,6 @@ NOTE: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` D
 
 |===
 +
-Sie verwenden die Informationen in den Verzeichnissen in link:stage_3_install_boot_node3_overview.html["Phase 3"].
+Sie verwenden die Informationen in den Verzeichnissen in link:install_boot_node3.html["Phase 3"].
 
 

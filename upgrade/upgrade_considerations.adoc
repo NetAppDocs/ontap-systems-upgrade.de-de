@@ -49,7 +49,7 @@ Informationen zu den Größenanforderungen für das Root-Aggregat finden Sie im 
 Systeme mit internem Storage
 
 
-NOTE: Die folgenden Systeme verfügen über internen Storage: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700S, AFF A800, AFF A250 UND AFF C190.
+NOTE: Die folgenden Systeme verfügen über internen Storage: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s AFF A800, AFF A250, AFF C250 und AFF C190.
 
 * Wenn Ihr System nicht oben aufgeführt ist, lesen Sie den https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
 * Wenn Sie über ein System mit internem Storage verfügen, wird die empfohlene Upgrade-Methode durch Verschieben von Volumes empfohlen.
@@ -79,7 +79,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_wi
 
 * Wenn Ihr System Out-of-Band-ACP verwendet, müssen Sie möglicherweise von Out-of-Band-ACP zu bandinternen ACP migrieren.
 +
-https://kb.netapp.com/app/answers/answer_view/a_id/1029778["NetApp KB-Artikel 1029778: Einrichtung und Support in-Band ACP"^]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["NetApp KB-Artikel: In-Band ACP Einrichtung und Support"^]
 
 
 
