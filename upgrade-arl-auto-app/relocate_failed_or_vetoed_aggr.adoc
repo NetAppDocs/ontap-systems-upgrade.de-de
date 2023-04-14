@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-app/relocate_failed_vetoed_aggr.html 
+permalink: upgrade-arl-auto-app/relocate_failed_or_vetoed_aggr.html 
 keywords: relocating, failed, vetoed, aggregates, relocation, operation 
 summary: 'Fehlerhafte oder Vetos müssen bei einem Upgrade von Controllern mit ONTAP 9.8 oder höher manuell verschoben werden `system controller replace` Befehle.' 
 ---
