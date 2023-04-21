@@ -66,6 +66,9 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 +
 Für diesen Befehl ist die OKM-Passphrase (Onboard Key Manager) erforderlich
 
++
+Weitere Informationen finden Sie im Knowledge Base-Artikel https://kb.netapp.com/onprem/ontap/dm/Encryption/How_to_restore_external_key_manager_server_configuration_from_the_ONTAP_boot_menu["So stellen Sie die Konfiguration des externen Schlüsselmanager-Servers aus dem ONTAP-Startmenü wieder her"^].
+
 ** Restore-Authentifizierung für OKM:
 +
 [cols="35,65"]
@@ -83,6 +86,4 @@ Für diesen Befehl ist die OKM-Passphrase (Onboard Key Manager) erforderlich
 
 
 .Nachdem Sie fertig sind
-Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder externe Verschlüsselungsmanagementserver nicht erreicht werden konnten. Stellen Sie diese Volumes mit dem folgenden Befehl wieder online:
-
-`volume online`
+Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder externe Verschlüsselungsmanagementserver nicht erreicht werden konnten. Stellen Sie diese Volumes mithilfe der wieder online `volume online` Befehl.

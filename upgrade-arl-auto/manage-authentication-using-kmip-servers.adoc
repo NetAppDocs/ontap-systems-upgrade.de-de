@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-manual/manage_authentication_kmip.html 
-keywords: kmip, authentication, keys, fips 
-summary: Nutzen Sie KMIP-Server, um Authentifizierungsschlüssel während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.7 oder einer älteren Version zu managen. 
+permalink: upgrade-arl-auto/manage-authentication-using-kmip-servers.html 
+keywords: IP address, external, key management, server, storage encryption, kmip, onboard key management 
+summary: 'Konfiguration und Management der Storage-Verschlüsselung, Management der Authentifizierungsschlüssel und Stilllegung der SnapMirror Beziehungen, wenn Sie ein Upgrade von Controllern mit ONTAP 9.5 zu 9.7 durchführen `system controller replace` Befehle.' 
 ---
 = Authentifizierungsmanagement mit KMIP-Servern
 :hardbreaks:
@@ -14,9 +14,10 @@ summary: Nutzen Sie KMIP-Server, um Authentifizierungsschlüssel während eines 
 
 
 [role="lead"]
-Mit ONTAP 9.5 und höher können KMIP-Server (Key Management Interoperability Protocol) Authentifizierungsschlüssel managen.
+Von ONTAP 9.5 bis 9.7 können KMIP-Server (Key Management Interoperability Protocol) Authentifizierungsschlüssel managen.
 
-.Schritte
+Schritte
+
 . Hinzufügen eines neuen Controllers:
 +
 `security key-manager setup -node _new_controller_name_`

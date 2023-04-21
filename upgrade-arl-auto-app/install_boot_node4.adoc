@@ -279,49 +279,42 @@ Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
 Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geändert, die den einzelnen integrierten FC-Ports zugeordnet sind.
 
 . Wenn die Konfiguration das Switch-basierte Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
-. [[steep27]]] stellen Sie die ein `bootarg.storageencryption.support` Und `kmip.init.maxwait` Variablen zur Vermeidung einer Boot-Schleife nach dem Laden der node2-Konfiguration.
+
+
+. Wenn Sie NetApp Storage Encryption (NSE) Laufwerke installiert haben, legen Sie fest `bootarg.storageencryption.support` Bis `true` Oder `false`.
 +
-Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
+
+NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
 
 +
 [cols="35,65"]
 |===
+
+
 | Wenn die folgenden Laufwerke verwendet werden… | Dann… 
 
 
-| NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen  a| 
-** `setenv bootarg.storageencryption.support *true*`
-** `setenv kmip.init.maxwait off`
+| NSE-Laufwerke, die den Self-Encryption-Anforderungen von FIPS 140-2 Level 2 entsprechen | `setenv bootarg.storageencryption.support *true*` 
 
 
-
-
-| NetApp ohne FIPS SEDs  a| 
-** `setenv bootarg.storageencryption.support *false*`
-** `setenv kmip.init.maxwait off`
-
-
+| NetApp ohne FIPS SEDs | `setenv bootarg.storageencryption.support *false*` 
 |===
-+
-
-WARNING: *Sobald der Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie die Einstellung aufheben `kmip.init.maxwait` Variabel. Siehe link:ensure_new_controllers_are_set_up_correctly.html#unset_maxwait_system_commands["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind, Schritt 12"]. Andernfalls kann es zu Datenverlusten kommen, wenn ein Stromausfall auftritt.*
-
 +
 [NOTE]
 ====
-FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
-
-SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
+FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden. SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
 
 ====
+. Gehen Sie zum speziellen Startmenü und wählen Sie Option `(10) Set Onboard Key Manager recovery secrets`.
++
+Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgezeichnet haben. Siehe link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"]
+
 . Boot-Node im Startmenü:
 +
 `boot_ontap menu`
 
 +
 Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, führen Sie sie aus link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["UTA/UTA2-Ports in node4, Schritt 15, prüfen und konfigurieren"] Damit node4 die Festplatten von node2 erkennen kann.
-
-
 
 . [[Schritt29]]für die MetroCluster Konfiguration, V-Series Systeme und Systeme mit FlexArray-Virtualisierungssoftware, die an Storage-Arrays angeschlossen ist, müssen Sie die FC- oder UTA/UTA2-Ports auf node4 einrichten und konfigurieren, um die mit dem Node verbundenen Festplatten zu erkennen. Um diese Aufgabe abzuschließen, gehen Sie zu Abschnitt link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UT2-Konfiguration auf node4 fest"].
 

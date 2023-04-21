@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/manage_storage_encryption_using_okm.html
 keywords: storage, encryption, authentication, key, manager, external 
 summary: Konfiguration und Management von Storage-Verschlüsselung, Management von Authentifizierungsschlüsseln und Stilllegung der SnapMirror Beziehungen während eines Upgrades von AFF A700 auf AFF A900 
 ---
-= Management der Storage-Verschlüsselung mit Onboard Key Manager
+= Management der Storage-Verschlüsselung mit dem Onboard Key Manager
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,14 +14,14 @@ summary: Konfiguration und Management von Storage-Verschlüsselung, Management v
 
 
 [role="lead"]
-Sie können den OKM verwenden, um die Verschlüsselung zu verwalten. Wenn Sie OKM verwenden möchten, müssen Sie vor dem Upgrade die Passphrase und das Sicherungsmaterial aufzeichnen.
+Sie können den Onboard Key Manager (OKM) zur Verwaltung der Schlüssel verwenden. Wenn Sie das OKM eingerichtet haben, müssen Sie die Passphrase und das Sicherungsmaterial aufzeichnen, bevor Sie mit dem Upgrade beginnen.
 
 .Schritte
-. Speichern Sie die Passphrase an einem sicheren Ort.
-. Backup für Recovery-Zwecke erstellen. Führen Sie den folgenden Befehl aus und speichern Sie die Ausgabe:
+. Notieren Sie die Cluster-weite Passphrase.
 +
-`security key-manager onboard show-backup`
+Dies ist die Passphrase, die eingegeben wurde, als das OKM mit der CLI oder REST-API konfiguriert oder aktualisiert wurde.
 
+. Sichern Sie die Key-Manager-Informationen, indem Sie den ausführen `security key-manager onboard show-backup` Befehl.
 
 
 

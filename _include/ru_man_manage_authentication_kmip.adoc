@@ -21,12 +21,4 @@ Mit ONTAP 9.5 und höher können KMIP-Server (Key Management Interoperability Pr
 +
 `security key-manager restore -node _new_controller_name_`
 
-. Rekeyfür alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel:
-+
-`storage encryption disk modify -disk * [-data-key-id nonMSID AK]`
-
-. Wenn Sie den Federal Information Processing Standard (FIPS) verwenden, müssen Sie alle selbstverschlüsselnden Festplatten mit dem neuen Authentifizierungsschlüssel neu verschlüsseln:
-+
-`storage encryption disk* modify -disk * [-fips-key-id nonMSID AK]`
-
 

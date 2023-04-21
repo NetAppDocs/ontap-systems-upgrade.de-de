@@ -1,0 +1,96 @@
+---
+permalink: upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node1, node2, migrate, aggregates, lifs 
+summary: 'Migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf Node 2 zu Node 1.' 
+---
+= Migrieren Sie LIFs und Datenaggregate auf Knoten2 zu Knoten1
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vor der Konvertierung von AFF A250 node2 in ein Festplatten-Shelf migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf Node 2 zu Node 1.
+
+.Bevor Sie beginnen
+Vergewissern Sie sich, dass Sie die folgenden Anforderungen erfüllen:
+
+* Auf den Controllern AFF A250 und AFF A400 ist dieselbe ONTAP-Version und dieselbe Patch-Version installiert.
+* Beide AFF A400 Controller befinden sich im Standby-Modus am `Maintenance Mode` Eingabeaufforderung:
+* Sie haben alle entsprechenden Kabel zur Hand.
+
+
+.Über diese Aufgabe
+Die folgenden Schritte werden auf AFF A250 node1 durchgeführt.
+
+.Schritte
+. Deaktivieren Sie das automatische Giveback für Cluster Failover:
++
+`storage failover modify -node _node_name_ -auto-giveback false`
+
+. Deaktivieren Sie die automatische Zurücksetzung der LIFs über beide Nodes des HA-Paars hinweg:
++
+`network interface modify -lif * -auto-revert false`
+
+. Status aller Datennetzwerk-LIFs anzeigen:
++
+`network interface show -role data`
+
+. Status der Cluster-Management-LIFs anzeigen:
++
+`network interface show cluster_mgmt`
+
+. Migrieren Sie alle Daten-LIFs von den Storage Virtual Machines, die auf Knoten2 gehostet werden:
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+
++
+
+NOTE: Mit diesem Befehl werden nur nicht-SAN-LIFs migriert. Sie können sie nicht zum Migrieren von iSCSI- und FCP-LIFs verwenden.
+
+. Status aller Daten-LIFs im Cluster anzeigen:
++
+`network interface show -role data`
+
+. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+
+. Status aller Datenaggregate im Cluster anzeigen:
++
+`storage aggregate show`
+
+. Failover-Berechtigung anzeigen:
++
+`storage failover show`
+
+. Migrieren Sie die Datenaggregate auf Knoten2 zu Knoten1:
++
+`storage aggregate relocation start -aggregate _aggregate_name_ -node _node2_ -destination _node1_`
+
+. Status aller Datenaggregate im Cluster anzeigen:
++
+`storage aggregate show`
+
+. Status aller Daten-Volumes im Cluster anzeigen:
++
+`volume show`
+
+. Zeigen Sie das an `ha` Status und Eigentum von epsilon:
++
+`cluster show`
+
+. Deaktivieren `cluster ha`:
++
+`cluster ha modify -configured false`
+
+. Zeigen Sie das an `ha` Status und Eigentum von epsilon:
++
+`cluster show`
+
+. Stopp-Nr. 2:
++
+`halt -node _node2_ -inhibit-takeover true -ignore-quorum-warnings true`
+
+

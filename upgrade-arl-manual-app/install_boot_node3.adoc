@@ -23,15 +23,15 @@ Sie müssen jedoch nicht als Netzboot auf Node3 setzen, wenn es die gleiche oder
 
 [IMPORTANT]
 ====
-Wenn Sie ein mit Storage Arrays verbundenes V-Series System oder ein System über FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Upgrades erforderlich <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>.
+Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>.
 
-Wenn Sie jedoch ein System mit Storage-Festplatten aktualisieren, müssen Sie den gesamten Abschnitt abschließen und anschließend mit fortfahren link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
+Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt abschließen und anschließend mit fortfahren link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
 
 ====
 .Schritte
 . [[man_install3_step1]] stellen Sie sicher, dass Sie Platz im Rack für node3 haben.
 +
-Wenn sich Node1 und Node2 in einem separaten Chassis befanden, können Sie Node3 in denselben Rack-Standort wie node1 platzieren. Wenn sich Node1 jedoch im selben Chassis mit node2 befand, müssen Sie den Node3 in seinen eigenen Regalbereich legen, vorzugsweise in der Nähe der Position von node1.
+Wenn sich Node1 und Node2 in einem separaten Chassis befanden, können Sie Node3 in denselben Rack-Standort wie node1 platzieren. Wenn sich jedoch node1 mit node2 im selben Chassis befand, müssen Sie node3 in seinen eigenen Rack-Platz legen, vorzugsweise in der Nähe der Position von node1.
 
 . [[Schritt2]]Installieren Sie Node3 im Rack gemäß der _Installations- und Setup-Anleitung_ für Ihr Node-Modell.
 +
@@ -60,7 +60,7 @@ Folgende Anschlüsse verkabeln:
 ** SAN-Konfigurationen: ISCSI Ethernet und FC Switch Ports
 +
 
-NOTE: Möglicherweise müssen Sie die Interconnect-Karte oder die Cluster Interconnect-Kabelverbindung von node1 zu node3 nicht verschieben, da die meisten Plattform-Modelle über ein einzigartiges Interconnect-Kartenmodell verfügen. Für die MetroCluster Konfiguration müssen Sie die FC-VI-Kabelverbindungen von node1 auf node3 verschieben. Wenn der neue Host keine FC-VI-Karte besitzt, müssen Sie möglicherweise die FC-VI-Karte verschieben.
+NOTE: Möglicherweise müssen Sie die Interconnect-Karte oder die Cluster Interconnect-Kabelverbindung von node1 zu node3 nicht verschieben, da die meisten Plattform-Modelle über ein einzigartiges Interconnect-Kartenmodell verfügen. Für die MetroCluster-Konfiguration müssen Sie die FC-VI-Kabelverbindungen von node1 zu node3 verschieben. Wenn der neue Host keine FC-VI-Karte besitzt, müssen Sie möglicherweise die FC-VI-Karte verschieben.
 
 
 
@@ -166,33 +166,26 @@ NOTE: verlassen sie node4 an der Boot-Umgebung Eingabeaufforderung; Sie kehren n
 +
 `set-defaults`
 
-. [[man_install3_steep16]]Festlegen des `bootarg.storageencryption.support` Und `kmip.init.maxwait` Variablen, um eine Boot-Schleife zu vermeiden, nachdem die node1-Konfiguration geladen wurde.
+. [[man_install3_step16]]Wenn Sie NetApp Storage Encryption (NSE)-Laufwerke installiert haben, führen Sie die folgenden Schritte aus.
 +
-Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
 
+NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
+
++
+.. Einstellen `bootarg.storageencryption.support` Bis `true` Oder `false`:
 +
 [cols="35,65"]
 |===
+
+
 | Wenn die folgenden Laufwerke verwendet werden… | Dann… 
 
 
-| NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen  a| 
-** `setenv bootarg.storageencryption.support *true*`
-** `setenv kmip.init.maxwait off`
+| NSE-Laufwerke, die den Self-Encryption-Anforderungen von FIPS 140-2 Level 2 entsprechen | `setenv bootarg.storageencryption.support *true*` 
 
 
-
-
-| NetApp ohne FIPS SEDs  a| 
-** `setenv bootarg.storageencryption.support *false*`
-** `setenv kmip.init.maxwait off`
-
-
+| NetApp ohne FIPS SEDs | `setenv bootarg.storageencryption.support *false*` 
 |===
-+
-
-WARNING: *Sobald der Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie die Einstellung aufheben `kmip.init.maxwait` Variabel. Siehe link:ensure_controllers_set_up_correctly.html#unset_maxwait_manual["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind, Schritt 11"]. Andernfalls kann es zu Datenverlusten kommen, wenn ein Stromausfall auftritt.*
-
 +
 [NOTE]
 ====
@@ -201,6 +194,12 @@ FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder 
 SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
 
 ====
+.. Gehen Sie zum speziellen Startmenü und wählen Sie Option `(10) Set Onboard Key Manager recovery secrets`.
++
+Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgezeichnet haben. Siehe link:manage_authentication_okm.html["Verwaltung von Authentifizierungsschlüssel mit dem Onboard Key Manager"].
+
+
+
 . [[man_install3_step17] Wenn die auf node3 installierte ONTAP-Version dieselbe oder höher als die auf node1 installierte Version von ONTAP 9 ist, führen Sie die Liste auf und weisen Sie Festplatten der neuen node3 neu zu:
 +
 `boot_ontap`

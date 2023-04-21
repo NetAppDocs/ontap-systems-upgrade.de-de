@@ -1,0 +1,134 @@
+---
+permalink: upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node3, node4, migrate, aggregates, lif 
+summary: Bereiten Sie Node 3 vor, verbinden Sie Node Node 3 mit node 4 und migrieren Sie dann die Daten-LIFs und Datenaggregate auf node 4 auf Node 3. 
+---
+= Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Zum Abschluss des Upgrades verbinden Sie Node 3 mit node 4 und migrieren dann die Data Logical Interfaces (LIFs) und die Datenaggregate von node 4 auf Node 3.
+
+.Schritte
+. Booten Sie den Node an der LOADER-Eingabeaufforderung des Node im Boot-Menü:
++
+`boot_ontap menu`
+
+. Wählen Sie die Option `6 Update flash from backup config` Um das /var-Dateisystem auf node3 wiederherzustellen.
++
+Dadurch wird die gesamte Flash-basierte Konfiguration durch das letzte Backup auf Festplatten ersetzt.
+
+. Eingabe `y` Um fortzufahren.
+. Lassen Sie den Node wie gewohnt booten.
++
+[NOTE]
+====
+Wie erwartet startet der Knoten automatisch neu, um die neue Kopie des Dateisystems /var zu laden.
+
+Der Knoten gibt eine Warnung aus, dass eine nicht übereinstimmende System-ID vorliegt. Eingabe `y` Um die System-ID zu überschreiben.
+
+====
+. Knoten 3 mit knoten 4 verbinden:
++
+.. Schließen Sie Multipath-Kabel mit hoher Verfügbarkeit (MPHA) an das NS224-Shelf an, um Redundanz zu gewährleisten.
+.. Verbinden Sie die HA-Paar-Kabel (bei getrennten Schnittstellen) zwischen den Nodes.
+.. Schließen Sie Cluster-Kabel (bei getrennten Schnittstellen) zwischen den Nodes an.
+
+
+. Migration der Cluster-LIFs:
++
+`set -privilege advanced`
+
++
+`network port show`
+
+. Ändern Sie die Cluster-Broadcast-Domäne, um die gewünschten Cluster-Ports aufzunehmen:
++
+`network port broadcast-domain remove-ports -broadcast-domain _broadcast_domain_name_ -ports _port_names_`
+
++
+`network port broadcast-domain add-ports -broadcast-domain Cluster -ports _port_names_`
+
++
+
+NOTE: Ab ONTAP 9.8 können neue IPspaces und eine oder mehrere Broadcast-Domänen den vorhandenen physischen Ports zugewiesen werden, die für die Cluster-Konnektivität vorgesehen sind.
+
+. Ändern Sie den Cluster-IPspace, um die gewünschten Cluster-Ports aufzunehmen, und setzen Sie die maximale Übertragungseinheit auf 9000, falls nicht bereits festgelegt:
++
+`network port modify -node _node_name_ -port _port_name_ -mtu 9000 -ipspace Cluster`
+
+. Alle Cluster-Netzwerk-LIFs anzeigen:
++
+`network interface show -role cluster`
+
+. Migrieren Sie alle Cluster-Netzwerk-LIFs auf Home Ports:
++
+`network interface show -role cluster`
+
+. Alle Datennetzwerk-LIFs anzeigen:
++
+`network interface show -role data`
+
+. Migrieren Sie alle Daten-LIFs auf Knoten3:
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+
+. Alle Datennetzwerk-LIFs anzeigen:
++
+`network interface show -role data`
+
++
+Cluster- und Management-LIFs können nicht zwischen Nodes migriert werden. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
+
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+
+. Migration der Cluster-Management-LIF:
++
+`network interface migrate -vserver _vserver_name_ -lif cluster_mgmt -destination-node _node3_ -destination-port _port_name_`
+
+. Status der Cluster-Management-LIF anzeigen:
++
+`network interface show cluster_mgmt`
+
+. Status aller Datenaggregate im Cluster anzeigen:
++
+`storage aggregate show`
+
+. HA-Paar, Storage Failover und Auto-Giveback:
++
+`cluster ha modify -configured true`
+
+. Migrieren Sie Datenaggregate von node4 zu Node3:
++
+`storage aggregate relocation start -aggregate _aggregate_name_ -node _node4_ -destination _node3_`
+
+. Status aller Datenaggregate im Cluster anzeigen:
++
+`storage aggregate show`
+
+. Aktivieren Sie die automatische Zurücksetzung der Netzwerk-LIFs über die Nodes hinweg:
++
+`network interface modify -lif * -auto-revert true`
+
+. Anzeigen des Cluster-Status:
++
+`cluster show`
+
+. Failover-Berechtigung anzeigen:
++
+`storage failover show`
+
++
+
+NOTE: In der Cluster-Berichtsausgabe besitzt ein Node möglicherweise fälschlicherweise Aggregate, die zu einem anderen Node gehören. In diesem Fall normalisieren Sie sich durch eine Übernahme und Rückgabe von beiden Seiten des Clusters.
+
+. Status aller Datenaggregate im Cluster anzeigen:
++
+`storage aggregate show`
+
+

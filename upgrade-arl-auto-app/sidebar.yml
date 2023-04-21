@@ -30,7 +30,7 @@ entries:
     url: "/upgrade-arl-auto-app/stage_1_index.html"
   - title: Bereiten Sie die Knoten für ein Upgrade vor
     url: "/upgrade-arl-auto-app/prepare_nodes_for_upgrade.html"
-  - title: Management der Storage-Verschlüsselung mit Onboard Key Manager
+  - title: Management der Storage-Verschlüsselung mit dem Onboard Key Manager
     url: "/upgrade-arl-auto-app/manage_storage_encryption_using_okm.html"
 - title: 'Stufe 2: Knoten1 verschieben und ausmustern'
   pdf-filename: 'Stufe 2: Node1 verlagern und ausmustern (Upgrade mit ‘s„System Controller
@@ -98,9 +98,8 @@ entries:
   entries:
   - title: Überblick
     url: "/upgrade-arl-auto-app/stage_6_index.html"
-  - title: Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagementservers
-      für die Speicherverschlüsselung
-    url: "/upgrade-arl-auto-app/get_ip_address_of_external_kms_for_storage_encryption.html"
+  - title: Authentifizierungsmanagement mit KMIP-Servern
+    url: "/upgrade-arl-auto-app/manage-authentication-using-kmip-servers.html"
   - title: Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet
       sind
     url: "/upgrade-arl-auto-app/ensure_new_controllers_are_set_up_correctly.html"

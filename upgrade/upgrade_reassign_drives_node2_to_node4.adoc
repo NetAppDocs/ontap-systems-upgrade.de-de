@@ -1,0 +1,85 @@
+---
+permalink: upgrade/upgrade_reassign_drives_node2_to_node4.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: Verbinden Sie Knoten 2 physisch mit knoten 4, bevor Sie Laufwerke von Knoten 2 zu knoten 4 neu zuweisen. 
+---
+= Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach dem Konvertieren von AFF A250 Knoten 2 in ein NS224 Laufwerk-Shelf und Anschluss an AFF A400 knoten 4, müssen Sie die Laufwerke, die zuvor gehörte zu Knoten 2 zu Knoten 4 neu zuweisen.
+
+.Bevor Sie beginnen
+Stellen Sie sicher, dass sich an der LOADER-Eingabeaufforderung sowohl node2 als auch node4 im Standby-Modus befinden.
+
+.Über diese Aufgabe
+Sie führen die folgenden Schritte auf knoten 4 aus.
+
+.Schritte
+. Booten sie node 4 an der LOADER-Eingabeaufforderung im Wartungsmodus:
++
+`boot_ontap maint`
+
+. Zeigen Sie den Status der 100-GbE-Schnittstellen an:
++
+`storage port show`
+
+. Legen Sie 100-GbE-Schnittstellen auf Storage-Ports fest:
++
+`storage port modify -p e0c -m storage`
+
++
+`storage port modify -p e0d -m storage`
+
+. Überprüfen Sie die Modusänderungen an den 100-GbE-Schnittstellen:
++
+`storage port show`
+
++
+Die Ausgabe sollte wie folgt angezeigt werden:
+
++
+[listing]
+----
+*> storage port modify -p e0c -m storage
+Nov 10 16:27:23 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0c to storage mode.
+
+Nov 10 16:27:29 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8885.
+
+*> storage port modify -p e0d -m storage
+Nov 10 16:27:34 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0d to storage mode.
+
+Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8886.
+
+*> storage port show
+Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
+---- ---- ------- ----------- -------- ------- -------
+e0c  ENET storage 100 Gb/s    enabled  online  30
+e0d  ENET storage 100 Gb/s    enabled  online  30
+----
+. Alle angeschlossenen Laufwerke anzeigen:
++
+`disk show -v`
+
+. Notieren Sie die lokale System-ID.
+. Weisen Sie alle Laufwerke von Knoten 2 zu knoten 4 neu zu:
++
+`disk reassign -s _node2_ -d _node4_ -p _node1_`
+
+. Überprüfen Sie, ob alle neu zugewiesenen Laufwerke der neuen System-ID angezeigt werden:
++
+`disk show -s _node4_System_ID_`
+
++
+
+NOTE: Wenn Laufwerke nicht sichtbar sind, *STOP* und wenden Sie sich an den technischen Support, um Hilfe zu erhalten.
+
+. Beenden des Wartungsmodus:
++
+`halt`
+
+

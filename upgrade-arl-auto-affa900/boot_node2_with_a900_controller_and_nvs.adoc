@@ -17,41 +17,38 @@ summary: Boot-Node2 mit dem AFF A900 Controller-Modul und NVRAM-Modul.
 Knoten 2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen ist nun bereit für ein Upgrade. Ein Upgrade von AFF A700 auf AFF A900 oder FAS9000 auf FAS9500, indem Controller und NVRAM-Module ausgetauscht werden, müssen nur die Konsole und Management-Verbindungen verschoben werden. Dieser Abschnitt enthält die Schritte, die zum Booten von node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen erforderlich sind.
 
 .Schritte
-. [[Boot_node2_stea1]]legt den fest `bootarg.storageencryption.support` Und `kmip.init.maxwait` Variablen zur Vermeidung einer Boot-Schleife nach dem Laden der node2-Konfiguration.
+. [[Boot_node2_step1]]Wenn Sie NetApp Storage Encryption (NSE) Laufwerke installiert haben, führen Sie die folgenden Schritte aus.
 +
-Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["Wie zu sagen ist, dass ich FIPS-Laufwerke installiert habe"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
 
+NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
+
++
+.. Einstellen `bootarg.storageencryption.support` Bis `true` Oder `false`:
 +
 [cols="35,65"]
 |===
+
+
 | Wenn die folgenden Laufwerke verwendet werden… | Dann… 
 
 
-| NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen  a| 
-** `setenv bootarg.storageencryption.support *true*`
-** `setenv kmip.init.maxwait off`
+| NSE-Laufwerke, die den Self-Encryption-Anforderungen von FIPS 140-2 Level 2 entsprechen | `setenv bootarg.storageencryption.support *true*` 
 
 
-
-
-| NetApp ohne FIPS SEDs  a| 
-** `setenv bootarg.storageencryption.support *false*`
-** `setenv kmip.init.maxwait off`
-
-
+| NetApp ohne FIPS SEDs | `setenv bootarg.storageencryption.support *false*` 
 |===
-+
-
-WARNING: *Sobald der Controller-Upgrade auf dem HA-Paar abgeschlossen ist, müssen Sie die Einstellung aufheben `kmip.init.maxwait` Variabel. Siehe link:ensure_new_controllers_are_set_up_correctly.html#unset_maxwait["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind, Schritt 12"]. Andernfalls kann es zu Datenverlusten kommen, wenn ein Stromausfall auftritt.*
-
 +
 [NOTE]
 ====
-FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden.
-
-SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
+FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden. SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.
 
 ====
+.. Gehen Sie zum speziellen Startmenü und wählen Sie Option `(10) Set Onboard Key Manager recovery secrets`.
++
+Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgezeichnet haben. Siehe link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"].
+
+
+
 . Starten Sie den Knoten im Startmenü:
 +
 `boot_ontap menu`

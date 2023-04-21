@@ -25,7 +25,7 @@ entries:
     url: "/upgrade-arl-auto-affa900/verify_upgrade_hardware.html"
   - title: Bereiten Sie die Knoten für ein Upgrade vor
     url: "/upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html"
-  - title: Management der Storage-Verschlüsselung mit Onboard Key Manager
+  - title: Management der Storage-Verschlüsselung mit dem Onboard Key Manager
     url: "/upgrade-arl-auto-affa900/manage_storage_encryption_using_okm.html"
 - title: 'Stufe 2: Verschieben Sie Ressourcen und Mustern Sie das AFF A700 oder FAS9000
     Node1 aus'
@@ -91,9 +91,8 @@ entries:
   entries:
   - title: Überblick
     url: "/upgrade-arl-auto-affa900/stage_7_index.html"
-  - title: Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagementservers
-      für die Speicherverschlüsselung
-    url: "/upgrade-arl-auto-affa900/get_ip_address_of_external_kms_for_storage_encryption.html"
+  - title: Authentifizierungsmanagement mit KMIP-Servern
+    url: "/upgrade-arl-auto-affa900/manage-authentication-using-kmip-servers.html"
   - title: Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet
       sind
     url: "/upgrade-arl-auto-affa900/ensure_new_controllers_are_set_up_correctly.html"

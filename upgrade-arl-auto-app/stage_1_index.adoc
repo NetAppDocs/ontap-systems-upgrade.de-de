@@ -18,5 +18,5 @@ In Phase 1 führen Sie Vorabprüfungen durch und korrigieren, falls erforderlich
 
 .Schritte
 . link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"]
-. link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit Onboard Key Manager"]
+. link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"]
 

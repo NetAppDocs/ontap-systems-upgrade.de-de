@@ -19,7 +19,7 @@ In Phase 1 bestätigen Sie, dass interne Festplatten keine Root-Aggregate oder D
 .Schritte
 . link:determine_aggregates_on_internal_drives.html["Ermitteln Sie, ob der Controller über Aggregate auf internen Festplatten verfügt"]
 . link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"]
-. link:manage_authentication_okm.html["Verwalten Sie die Authentifizierung über einen integrierten Schlüsselmanager"]
+. link:manage_authentication_okm.html["Verwaltung von Authentifizierungsschlüssel mit dem Onboard Key Manager"]
 . link:quiesce_snapmirror_relationships.html["SnapMirror Beziehungen stilllegen"]
 . link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"]
 

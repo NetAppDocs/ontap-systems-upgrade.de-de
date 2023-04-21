@@ -67,6 +67,9 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 +
 Für diesen Befehl ist die OKM-Passphrase (Onboard Key Manager) erforderlich.
 
++
+Weitere Informationen finden Sie im Knowledge Base-Artikel https://kb.netapp.com/onprem/ontap/dm/Encryption/How_to_restore_external_key_manager_server_configuration_from_the_ONTAP_boot_menu["So stellen Sie die Konfiguration des externen Schlüsselmanager-Servers aus dem ONTAP-Startmenü wieder her"^].
+
 ** Restore-Authentifizierung für OKM:
 +
 `security key-manager onboard sync`
@@ -121,6 +124,9 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 
 +
 Für diesen Befehl ist die OKM-Passphrase (Onboard Key Manager) erforderlich.
+
++
+Weitere Informationen finden Sie im Knowledge Base-Artikel https://kb.netapp.com/onprem/ontap/dm/Encryption/How_to_restore_external_key_manager_server_configuration_from_the_ONTAP_boot_menu["So stellen Sie die Konfiguration des externen Schlüsselmanager-Servers aus dem ONTAP-Startmenü wieder her"^].
 
 ** Restore-Authentifizierung für OKM:
 +

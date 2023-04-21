@@ -82,3 +82,23 @@ entries:
     url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
   - title: Upgrade abgeschlossen
     url: "/upgrade/upgrade-complete-move-volumes.html"
+- title: Upgrade von AFF A250 auf AFF A400 durch Konvertierung in ein Festplatten-Shelf
+  entries:
+  - title: Workflow
+    url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
+  - title: Migrieren Sie LIFs und Datenaggregate auf Knoten2 zu Knoten1
+    url: "/upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html"
+  - title: Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit
+      node 4
+    url: "/upgrade/upgrade_convert_node2_drive_shelf_connect_node4.html"
+  - title: Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu
+    url: "/upgrade/upgrade_reassign_drives_node2_to_node4.html"
+  - title: Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4
+    url: "/upgrade/upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html"
+  - title: Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit
+      Knoten 3
+    url: "/upgrade/upgrade_convert_node1_drive_shelf_connect_node3.html"
+  - title: Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3
+    url: "/upgrade/upgrade_reassign_drives_node1_to_node3.html"
+  - title: Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3
+    url: "/upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html"

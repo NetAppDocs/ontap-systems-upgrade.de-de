@@ -19,5 +19,5 @@ In Phase 1 überprüfen Sie, ob Sie über die richtige Hardware für eine AFF A7
 .Schritte
 . link:verify_upgrade_hardware.html["Überprüfen Sie die Upgrade-Hardware"]
 . link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"]
-. link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit Onboard Key Manager"]
+. link:manage_storage_encryption_using_okm.html["Managen Sie die Storage-Verschlüsselung mit dem Onboard Key Manager"]
 

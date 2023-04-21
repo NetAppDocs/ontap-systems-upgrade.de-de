@@ -1,0 +1,57 @@
+---
+permalink: upgrade/upgrade_reassign_drives_node1_to_node3.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: Verbinden Sie Knoten 1 physisch mit Knoten 3, bevor Sie Laufwerke von Knoten 1 zu Knoten 3 neu zuweisen 
+---
+= Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach der Konvertierung von AFF A250 node1 in ein NS224 Laufwerk-Shelf und der Verbindung zu AFF A400 node3 müssen Sie die Laufwerke, die zuvor zu node1 gehörte, zu node3 neu zuweisen.
+
+.Schritte
+. Booten Sie an der EINGABEAUFFORDERUNG DES LOADERS Node 3 im Wartungsmodus:
++
+`boot_ontap maint`
+
+. Zeigen Sie den Status der 100-GbE-Schnittstellen an:
++
+`storage port show`
+
+. Legen Sie 100-GbE-Schnittstellen auf Storage-Ports fest:
++
+`storage port modify -p e0c -m storage`
+
++
+`storage port modify -p e0d -m storage`
+
+. Überprüfen Sie die Modusänderungen an den 100-GbE-Schnittstellen:
++
+`storage port show`
+
+. Alle angeschlossenen Laufwerke anzeigen:
++
+`disk show -v`
+
+. Notieren Sie die lokale System-ID.
+. Neuzuweisung aller Laufwerke von Knoten 1 zu Knoten 3:
++
+`disk reassign -s _node1_ -d _node3_ -p _node2_`
+
+. Überprüfen Sie, ob alle neu zugewiesenen Laufwerke der neuen System-ID angezeigt werden:
++
+`disk show -s _node3 system ID_`
+
++
+
+NOTE: Wenn Laufwerke nicht sichtbar sind, *STOP* und wenden Sie sich an den technischen Support, um Hilfe zu erhalten.
+
+. Wartungsmodus Beenden:
++
+`halt`
+
+

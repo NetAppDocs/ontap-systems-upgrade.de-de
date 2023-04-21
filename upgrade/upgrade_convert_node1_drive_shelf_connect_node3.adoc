@@ -1,0 +1,29 @@
+---
+permalink: upgrade/upgrade_convert_node1_drive_shelf_connect_node3.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: Verbinden Sie Knoten 1 physisch mit Knoten 3, bevor Sie Laufwerke von Knoten 1 zu Knoten 3 neu zuweisen 
+---
+= Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Konvertieren Sie AFF A250 Knoten 1 in ein NS224 Laufwerk-Shelf und stellen Sie dann eine Verbindung zu AFF A400 Knoten 3 her, bevor Sie Laufwerke von Knoten 1 zu Knoten 3 neu zuweisen.
+
+.Schritte
+. Trennen Sie alle Netzwerkkabel von Knoten 1.
+. Entfernen Sie Knoten 1 aus dem AFF A250-Gehäuse.
+. Stecken Sie das NVMe-Shelf-Modul (NSM) in den Schacht von Knoten 1.
+. Verbinden Sie den NSM mit Knoten 3, indem Sie den Knoten 3 100-GbE-Port e0c mit dem NSM A-Port e0a verkabeln.
++
+image::../upgrade/media/a400_with_ns224_shelf.PNG[AFF A400 mit einem NS224 Shelf]
+
+. Verbinden Sie die 25-GbE-Verkabelung von den Knoten1-Ports e0c und e0d mit zwei beliebigen integrierten 25-GbE-Ports (e0e, e0f, e0g oder e0h) auf Knoten3.
++
+
+NOTE: Wenn auf Knoten3 keine 25-GbE-Onboard-Ports vorhanden sind, können Sie für die Verbindung einen 25-GbE-PCIe-Adapter verwenden.
+
+

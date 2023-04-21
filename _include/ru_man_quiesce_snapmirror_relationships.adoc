@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-Bevor Sie das System zum Netzboot ausführen, müssen Sie bestätigen, dass alle SnapMirror-Beziehungen stillgelegt sind. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.
+Bevor Sie das System mit dem Netzboot booten, müssen Sie sicherstellen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.
 
 .Schritte
 . Überprüfen Sie den SnapMirror Beziehungsstatus auf dem Ziel-Cluster:

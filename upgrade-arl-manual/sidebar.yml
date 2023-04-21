@@ -47,8 +47,6 @@ entries:
       verfügt
     url: "/upgrade-arl-manual/determine_aggregates_on_internal_drives.html"
   - title: Bereiten Sie die Knoten für ein Upgrade vor
-    url: "/upgrade-arl-manual/prepare_nodes_for_upgrade.html"
-  - title: Verwalten Sie die Authentifizierung über einen integrierten Schlüsselmanager
     url: "/upgrade-arl-manual/manage_authentication_okm.html"
   - title: SnapMirror Beziehungen stilllegen
     url: "/upgrade-arl-manual/quiesce_snapmirror_relationships.html"
@@ -130,9 +128,6 @@ entries:
   entries:
   - title: Überblick
     url: "/upgrade-arl-manual/stage_6_index.html"
-  - title: Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers
-      für Storage Encryption
-    url: "/upgrade-arl-manual/get_address_key_management_server_encryption.html"
   - title: Authentifizierungsmanagement mit KMIP-Servern
     url: "/upgrade-arl-manual/manage_authentication_kmip.html"
   - title: Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet
