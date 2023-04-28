@@ -176,8 +176,6 @@ NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie d
 +
 [cols="35,65"]
 |===
-
-
 | Wenn die folgenden Laufwerke verwendet werden… | Dann… 
 
 

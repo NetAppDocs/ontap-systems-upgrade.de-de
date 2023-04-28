@@ -17,7 +17,7 @@ summary: Boot-Node1 mit dem AFF A900 Controller-Modul und NVRAM-Modul.
 Knoten 1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen ist nun zum Booten bereit. Bei einer AFF A700 auf AFF A900 oder einem Upgrade der FAS9000 auf FAS9500 Systeme durch Austausch des Controllers und der NVRAM-Module müssen nur die Konsole und Management-Verbindungen verschoben werden. Dieser Abschnitt enthält die Schritte, die zum Booten von Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen erforderlich sind.
 
 .Schritte
-. Wenn NetApp Storage Encryption Drives installiert sind, führen Sie die folgenden Schritte durch.
+. Wenn NetApp Storage Encryption (NSE) Laufwerke installiert sind, führen Sie die folgenden Schritte durch.
 +
 
 NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
@@ -27,8 +27,6 @@ NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie d
 +
 [cols="35,65"]
 |===
-
-
 | Wenn die folgenden Laufwerke verwendet werden… | Dann… 
 
 

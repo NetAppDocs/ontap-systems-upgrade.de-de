@@ -59,7 +59,7 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 
 . Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her.
 +
-** Authentifizierung für External Key Manager (EKD) wiederherstellen:
+** Authentifizierung für externen Schlüsselmanager wiederherstellen:
 +
 `security key-manager external restore`
 

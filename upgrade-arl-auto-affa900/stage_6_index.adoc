@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_6_index.html
 keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
 summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
 ---
-= Phase 6: Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
+= Überblick
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

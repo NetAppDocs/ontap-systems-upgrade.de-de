@@ -56,7 +56,7 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 | Für... | Befehl 
 
 
-| Externer Schlüsselmanager (EKM) | `security key-manager external restore`Für diesen Befehl ist die OKM-Passphrase erforderlich 
+| Externer Schlüsselmanager | `security key-manager external restore`Für diesen Befehl ist die OKM-Passphrase erforderlich 
 
 
 | Onboard Key Manager (OKM) | `security key-manager onboard sync` 

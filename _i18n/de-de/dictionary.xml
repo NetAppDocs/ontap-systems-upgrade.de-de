@@ -805,7 +805,6 @@
   <block id="b2aee17ce5d9304ab1d7b938a9523e20" category="paragraph"><block ref="2b1556b8f6c5b7893260b881b8d97e7a" prefix="" category="inline-code"></block></block>
   <block id="5560b948b9e6ef0348c58a90d5656939" category="list-text">Führen Sie die Schritte im Assistenten zum Konfigurieren von Verschlüsselungsmanagementservern durch.</block>
   <block id="db109f602a3b7cebd1a7f99683224535" category="list-text">Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her.</block>
-  <block id="ce647643e8b085a9425f156173190659" category="list-text">Authentifizierung für External Key Manager (EKD) wiederherstellen:</block>
   <block id="74c90316d25b4cdc5c8e524af066a5a0" category="paragraph"><block ref="24b420efa276a683b4bd02f14a2d6f59" prefix="" category="inline-code"></block></block>
   <block id="a5e463e5138622ba8c2355b41f67a0ff" category="paragraph">Für diesen Befehl ist die OKM-Passphrase (Onboard Key Manager) erforderlich</block>
   <block id="57bd5edad2e4a85125aa9528f6fa4cea" category="list-text">Restore-Authentifizierung für OKM:</block>
@@ -1129,7 +1128,6 @@
   <block id="82afadce5c137568366e29a810db005a" category="cell">Hat AutoSupport aktiviert...</block>
   <block id="c732f1d7a89abd68a48f92313a9b4364" category="inline-xref">Schritt 34</block>
   <block id="1ab718a04314b36269d3b2b096aac75a" category="list-text">Gehen Sie zu <block ref="395265ffe56efe9e97ae9cc3752b2f60" category="inline-xref-macro-rx"></block>.</block>
-  <block id="e5358fe562a4d74ac4231d8e23d0b088" category="inline-link-macro">Holen Sie sich eine IP-Adresse eines externen Verschlüsselungsmanagement-Servers für Storage Encryption</block>
   <block id="9c13f9e2316ce6eb31c97c43c9f42070" category="cell">AutoSupport ist nicht aktiviert...</block>
   <block id="6fcae9afe7013bc84597d8c4231312ba" category="list-text">Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsreferenz_ folgen. (Siehe <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Zum Verknüpfen mit der Referenz _Systemadministration_.)</block>
   <block id="4179c1d88c83e870ed525f69e82e0369" category="list-text">[[man_prepare_nodes_step34]]Überprüfen Sie, ob AutoSupport mit den korrekten E-Mail-IDs für den Mailhost konfiguriert ist, indem Sie auf beiden Originalknoten den folgenden Befehl eingeben und die Ausgabe prüfen:</block>
@@ -1540,7 +1538,6 @@
   <block id="3d39e72120bdfa8b32eb4183896ece25" category="paragraph">Gehen Sie zu <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Link zur _Systemverwaltungsreferenz_ für Informationen über die SPs und die Befehle _ONTAP 9: Manual Page Reference_ für detaillierte Informationen zum<block ref="9d457aa716e00c2363b4c380e23a3068" prefix=" " category="inline-code"></block> Befehl.</block>
   <block id="52eb8cb5708af7396828abc72517413d" category="list-text">Wenn Sie ein Cluster ohne Switches auf den neuen Nodes einrichten möchten, fahren Sie mit fort <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Um eine Verbindung zur _Network Support Site_ herzustellen, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.</block>
   <block id="a98b8d21a1cabe96a7d765976c724ace" category="paragraph">Wenn die Speicherverschlüsselung auf Node3 und node4 aktiviert ist, führen Sie die Schritte in aus <block ref="94c0a6a874300fcf012d00a23a1b673f" category="inline-link-macro-rx"></block>. Führen Sie andernfalls die Schritte unter aus <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>.</block>
-  <block id="c9db4eeeb7068245ea24e65d2b3044b1" category="summary">Konfigurieren Sie die Storage-Verschlüsselung bei einem manuellen ARL Upgrade auf Controllern mit ONTAP 9.7 oder einer älteren Version.</block>
   <block id="45e4301bce74949fdb13b7b2b487a728" category="summary">Installieren Sie RCF-Dateien, um Cisco und Brocade Switches während eines manuellen ARL Upgrades bei Controllern mit ONTAP 9.7 oder einer älteren Version neu zu konfigurieren.</block>
   <block id="d666aabcb0474ed724f0c2bbfd2378fc" category="paragraph">Sie müssen die entsprechenden Referenzkonfigurationsdateien (RCfs) anwenden, um Ihre Switches neu zu konfigurieren, damit sie die neuen Nodes aufnehmen können. Nachdem Sie die RCFs angewendet haben, können Sie die Schalter umschalten.</block>
   <block id="b146e8621e721a92c4b9d852f016cd74" category="paragraph">Die Verwendung des FC-Switch-Ports muss mit der in der Installation and Configuration_-Inhaltsanweisung _Fabric-Attached MetroCluster beschriebenen Nutzung übereinstimmen, damit die RCFs verwendet werden können. Gehen Sie zu <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Zum Verlinken auf den Content _Fabric-Attached MetroCluster Installation and Configuration_.</block>
@@ -1710,7 +1707,6 @@
   <block id="c3a51f505b0a44650db3707558ddeefc" category="list-text">Bestätigen Sie die Diskrepanz. Der Node kann vor dem normalen Booten eine Runde des Neubootens abschließen.</block>
   <block id="cc7dd78f409b3f942015e8a65f2c11e8" category="list-text">Melden Sie sich bei node4 an.</block>
   <block id="19b4277aa4310fa75687e1f55755a62c" category="summary">Phase 4-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controllern mit ONTAP 9.7 oder einer älteren Version</block>
-  <block id="511701430e4fbf5079759a7c3b7c28ff" category="doc">Phase 4: Notieren Sie node2-Informationen und entfernen Sie node2</block>
   <block id="bf281b48b35a7cc176890f2be65ca906" category="list-text"><block ref="bf281b48b35a7cc176890f2be65ca906" category="inline-link-macro-rx"></block></block>
   <block id="610cb2d6e87c5e838ceef8f48f57b082" category="list-text"><block ref="610cb2d6e87c5e838ceef8f48f57b082" category="inline-link-macro-rx"></block></block>
   <block id="b4828d73e6a54a557f1d9c688f9afada" category="summary">Beheben Sie Fehler bei der Aggregatverschiebung, die während eines manuellen ARL Upgrades bei Controllern mit ONTAP 9.7 oder einer älteren Version auftreten können.</block>
@@ -3983,10 +3979,8 @@
   <block id="92f11749596b34888281bb0c579c2d25" category="summary">Konfiguration von node4 integrierten FC-Ports, UTA/UTA2-Ports oder UTA/UTA2-Karte während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.8 oder höher</block>
   <block id="118f7a6ae9a5d6b5cd8f73c4762b1730" category="summary">Installieren und booten Sie node3 und installieren Sie die ONTAP Software während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.8 oder höher.</block>
   <block id="7311cf26cf7087361501590894ddf505" category="summary">Phase 5 Prozessreihenfolge für ein manuelles ARL Upgrade bei Controllern mit ONTAP 9.8 oder höher.</block>
-  <block id="d21a0858f74e1b40b984bb621122ad41" category="doc">Stage5. installieren und booten sie node4</block>
   <block id="c6834152ce1c2fbdaa43b11fcc10df66" category="summary">Vergewissern Sie sich, dass interne Festplattenlaufwerke während eines manuellen ARL-Upgrades bei Controllern mit ONTAP 9.8 oder höher keine Root- oder Datenaggregate enthalten.</block>
   <block id="0623848243436b0f8821316dbca47636" category="summary">Lassen Sie NetApp wissen, dass das alte System nach Abschluss eines manuellen ARL Upgrades bei Controllern mit ONTAP 9.8 oder höher nicht mehr funktioniert.</block>
-  <block id="08ac1a2fb254b60e9c511fe04b6536d0" category="cell">Externer Schlüsselmanager (EKM)</block>
   <block id="a9849e92b148965a7bbb6c14d0afbcd0" category="cell">Onboard Key Manager (OKM)</block>
   <block id="ec4374c74901037b92a2e0de7e3fe4a2" category="summary">Überprüfen Sie, ob die physischen Ports auf node2 während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.8 oder höher node4 korrekt zugeordnet sind.</block>
   <block id="4839549656731e0245736bfa32bc3606" category="list-text">Führen Sie die folgenden Schritte durch, um zu überprüfen, ob es sich bei dem Setup um ein Cluster mit zwei Nodes ohne Switches handelt:</block>
@@ -4190,7 +4184,6 @@
   <block id="3468b73fe010ca505a63fcddaa4f3601" category="paragraph-title">In diesen Informationen verwendete Terminologie</block>
   <block id="5d022d26a75a4e30fae6648d5bcdd9e5" category="paragraph-title">Für die Konfiguration von MetroCluster FC</block>
   <block id="e05e5b3ebbe0e2f7ee773e008e2cd7bd" category="cell">Wenn die folgenden Laufwerke verwendet werden…</block>
-  <block id="cbfa089efcac1a28956de515cdcbcecc" category="cell">NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen</block>
   <block id="9a7a5052834bdcd10b9395aaeaf8d876" category="list-text"><block ref="62a739993e7d046df94dbc6dc7c3f174" prefix="" category="inline-code"></block></block>
   <block id="102a08eb3220b17bfbecbc277298074d" category="cell">NetApp ohne FIPS SEDs</block>
   <block id="ad55a196e6d3053365555c02e73f7628" category="list-text"><block ref="20ac903c04b877a6840785a4ed61d182" prefix="" category="inline-code"></block></block>
@@ -4350,7 +4343,6 @@
   <block id="2c524a09a41084103cfccb89e1e2dd49" category="paragraph">In Phase 6 booten Sie Node2 mit aktualisierten Controller- und NVRAM-Modulen und überprüfen die Upgrade-Installation node2. Wenn Sie NVE verwenden, stellen Sie die Konfiguration für Schlüsselmanager wieder her. Außerdem werden node1-Aggregate und NAS-Daten-LIFs von node1 auf die aktualisierte Node2 verschoben und Sie überprüfen, ob die SAN-LIFs auf node2 vorhanden sind.</block>
   <block id="2201f8be38de620c7e36cb511d56aa13" category="cell"><block ref="2201f8be38de620c7e36cb511d56aa13" category="inline-link-macro-rx"></block></block>
   <block id="fb13f8b167e25a81b898b43d42165d58" category="paragraph">In Phase 7 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden. Und wenn die neuen Nodes verschlüsselt sind, konfigurieren und einrichten Sie Storage Encryption oder NVE. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.</block>
-  <block id="3c71d8aea4515e5bab3212b7c7635c9b" category="doc">Stufe 2: Verschieben Sie Ressourcen von Knoten1 und Mustern Sie die AFF A700 oder FAS9000 Node1 aus</block>
   <block id="98d03c0eb9112cc9024f712528415cd8" category="paragraph">Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschoben. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie müssen node1-Informationen zur Verwendung später beim Verfahren aufzeichnen und dann die entsprechenden node1-Controller und NVRAM-Module austauschen, node1 ausmustern und den aktualisierten node1-Netzboot ausführen.</block>
   <block id="ba3ed006f5a9fb6f965da2e3e183b4ad" category="inline-link-macro">Netzboot</block>
   <block id="d7c7c51e5bb760e2570a29b82d44f1bf" category="list-text"><block ref="d7c7c51e5bb760e2570a29b82d44f1bf" category="inline-link-macro-rx"></block></block>
@@ -4422,7 +4414,6 @@
   <block id="85e374a47bd77502ca7ecd58923ec819" category="paragraph">Sie müssen die Controller jedoch nicht per Netzboot fahren, wenn auf den Original-Controllern die gleiche Version von ONTAP 9 installiert ist. Wenn ja, können Sie diesen Abschnitt überspringen und mit fortfahren <block ref="c6531ef0bbbd2a28b8b9b75b1dc2026b" category="inline-link-macro-rx"></block></block>
   <block id="ec8f42afc125efe6d556f20ecc052848" category="inline-link-macro">Verwaltung von Authentifizierungsschlüssel mit dem Onboard Key Manager</block>
   <block id="67f80d13cf548292184bc05f4b74227a" category="list-text"><block ref="67f80d13cf548292184bc05f4b74227a" category="inline-link-macro-rx"></block></block>
-  <block id="f4672cbaffd9e421a79615ec725fc37c" category="paragraph">+ *Hinweis:* AutoSupport ist standardmäßig aktiviert, wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren. Sie können AutoSupport zwar jederzeit deaktivieren, jedoch sollten Sie sie aktiviert lassen. Wenn Sie AutoSupport aktivieren, können Sie erheblich dabei helfen, Probleme und Lösungen zu identifizieren, sollten bei Ihrem Storage-System Probleme auftreten.</block>
   <block id="905e3cdcc0a66a5627f194c9bef68b48" category="inline-link">Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist</block>
   <block id="9a939769a0a1b5b6c994c5ee6a8c23b2" category="list-text">Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base<block ref="99bc6507ac71bae6bc6755b2bf68f73a" category="inline-link-rx"></block> Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:</block>
   <block id="93cbc4495a566db3a58548f326fa221c" category="paragraph">Bevor Sie das System mit dem Netzboot booten, müssen Sie sicherstellen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.</block>
@@ -4452,11 +4443,8 @@
   <block id="28556bd95def05fed56f5833d7b0b25b" category="inline-link-macro">Management der Storage-Verschlüsselung mit dem Onboard Key Manager</block>
   <block id="2b0f9b46416ed6835a9cf4374bf56295" category="list-text"><block ref="2b0f9b46416ed6835a9cf4374bf56295" category="inline-link-macro-rx"></block></block>
   <block id="2f3067e385c13bed8c91d99a529e1f6c" category="paragraph">Sie können den Onboard Key Manager (OKM) zur Verwaltung der Schlüssel verwenden. Wenn Sie das OKM eingerichtet haben, müssen Sie die Passphrase und das Sicherungsmaterial aufzeichnen, bevor Sie mit dem Upgrade beginnen.</block>
-  <block id="56848c85d01c97e89fd91301765bc221" category="list-text">Wenn NetApp Storage Encryption Drives installiert sind, führen Sie die folgenden Schritte durch.</block>
   <block id="03b784c13f464c141a29ed9b7adc0b70" category="paragraph">FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder HA-Paar kombiniert werden. SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paar kombiniert werden.</block>
   <block id="bbe12f0052143b9b4fa08d13234931ab" category="paragraph">Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgezeichnet haben. Siehe <block ref="2b0f9b46416ed6835a9cf4374bf56295" category="inline-link-macro-rx"></block>.</block>
-  <block id="08054d649addde697b85edb4a8ffb183" category="list-text">Wenn Sie NetApp Storage Encryption (NSE) Laufwerke installiert haben, legen Sie fest<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> Bis<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> Oder<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>.</block>
-  <block id="f5da7c2e2634ff80aa6ca2b591dbeb0c" category="paragraph">Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgezeichnet haben. Siehe <block ref="2b0f9b46416ed6835a9cf4374bf56295" category="inline-link-macro-rx"></block></block>
   <block id="1b2c9b4403be6eaaf7fa2209a153c703" category="list-text"><block ref="1b2c9b4403be6eaaf7fa2209a153c703" category="inline-link-macro-rx"></block></block>
   <block id="eaf73ead47320ec21942b56fd3660eea" category="list-text">Wenden Sie sich an den NetApp Support, um Hilfe beim Wiederherstellen der integrierten Schlüsselmanagementinformationen zu erhalten.</block>
   <block id="c5915780f057e573017a845938fc8511" category="summary">Bereiten Sie Node 3 vor, verbinden Sie Node Node 3 mit node 4 und migrieren Sie dann die Daten-LIFs und Datenaggregate auf node 4 auf Node 3.</block>
@@ -4608,10 +4596,11 @@
   <block id="493f827b1132078fbdd11bc0ceceed47" category="list-text">Weisen Sie alle Laufwerke von Knoten 2 zu knoten 4 neu zu:</block>
   <block id="c6de9e9749bb1b9764c879c3f4e55899" category="paragraph"><block ref="d3a7175de7ab1d1112d49ac67a531b10" prefix="" category="inline-code"></block></block>
   <block id="eedfdc7d9365a1f9e29964c35c82e348" category="paragraph"><block ref="8cf81755f02bee986a80060b929f2335" prefix="" category="inline-code"></block></block>
-  <block id="c9c88276ee2c2102cc859c79f38df03f" category="paragraph">Nicht aufgelöste Direktive in &lt;stdin&gt; - include:../_include/ru_man_get_ip_address_external_km_Server.adoc[]</block>
   <block id="c8e281db9c8a31e8da74e7ff6bc12115" category="summary">Verwenden Sie den OKM zum Managen von Authentifizierungsschlüssel bei einem manuellen ARL-Upgrade auf Controllern, die ONTAP 9.7 oder eine frühere Version ausführen.</block>
-  <block id="e9e0a1f4688f13dee423ee10d2c9cf11" category="list-text">[[man_install3_step16]]Wenn Laufwerke mit NetApp-Speicherverschlüsselung installiert sind, führen Sie die folgenden Schritte aus.</block>
   <block id="20c4be209ec6c65b4221fa6f09f2df42" category="inline-link-macro">Managen Sie die Storage-Verschlüsselung mit dem Onboard Key Manager</block>
   <block id="bd001ad1a159ea8195f2f6877d4e5047" category="list-text"><block ref="bd001ad1a159ea8195f2f6877d4e5047" category="inline-link-macro-rx"></block></block>
   <block id="73d106cd4da3fdbd0b8a8317db146c37" category="list-text">[[Boot_node2_step1]]Wenn Sie NetApp Storage Encryption (NSE) Laufwerke installiert haben, führen Sie die folgenden Schritte aus.</block>
+  <block id="04f24e11b658105f38ef40a82c24839e" category="paragraph">*Hinweis:* AutoSupport ist standardmäßig aktiviert, wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren. Sie können AutoSupport zwar jederzeit deaktivieren, jedoch sollten Sie sie aktiviert lassen. Wenn Sie AutoSupport aktivieren, können Sie erheblich dabei helfen, Probleme und Lösungen zu identifizieren, sollten bei Ihrem Storage-System Probleme auftreten.</block>
+  <block id="cb6bc72e3e387b19e4fbc2f28ecc2940" category="list-text">Einstellen<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> Bis<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> Oder<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>.</block>
+  <block id="e147253c0010bdd5968cb9b4b9ddf7dc" category="cell">Externer Schlüsselmanager</block>
 </blocks>

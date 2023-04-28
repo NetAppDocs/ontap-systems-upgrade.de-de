@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/stage_1_index.html
 keywords: Prepare nodes for upgrade, storage encryption, KMS, key management server, stage 1 
 summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.5 zu 9.7.' 
 ---
-= Stufe 1: Upgrade vorbereiten
+= Überblick
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

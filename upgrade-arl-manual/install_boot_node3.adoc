@@ -166,7 +166,7 @@ NOTE: verlassen sie node4 an der Boot-Umgebung Eingabeaufforderung; Sie kehren n
 +
 `set-defaults`
 
-. [[man_install3_step16]]Wenn Laufwerke mit NetApp-Speicherverschlüsselung installiert sind, führen Sie die folgenden Schritte aus.
+. [[man_install3_step16]]Wenn Sie NetApp Storage Encryption (NSE)-Laufwerke installiert haben, führen Sie die folgenden Schritte aus.
 +
 
 NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
@@ -179,7 +179,7 @@ NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie d
 | Wenn die folgenden Laufwerke verwendet werden… | Dann… 
 
 
-| NetApp Storage Encryption (NSE) Laufwerke, die der Self-Encryption-Anforderung von FIPS 140-2 Level 2 entsprechen | `setenv bootarg.storageencryption.support *true*` 
+| NSE-Laufwerke, die den Self-Encryption-Anforderungen von FIPS 140-2 Level 2 entsprechen | `setenv bootarg.storageencryption.support *true*` 
 
 
 | NetApp ohne FIPS SEDs | `setenv bootarg.storageencryption.support *false*` 

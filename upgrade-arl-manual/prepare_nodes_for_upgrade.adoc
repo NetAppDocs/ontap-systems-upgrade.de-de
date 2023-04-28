@@ -689,7 +689,7 @@ Gehen Sie zu <<man_prepare_nodes_step34,Schritt 34>>.
 | AutoSupport ist nicht aktiviert...  a| 
 Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsreferenz_ folgen. (Siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der Referenz _Systemadministration_.)
 
-+ *Hinweis:* AutoSupport ist standardmäßig aktiviert, wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren. Sie können AutoSupport zwar jederzeit deaktivieren, jedoch sollten Sie sie aktiviert lassen. Wenn Sie AutoSupport aktivieren, können Sie erheblich dabei helfen, Probleme und Lösungen zu identifizieren, sollten bei Ihrem Storage-System Probleme auftreten.
+*Hinweis:* AutoSupport ist standardmäßig aktiviert, wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren. Sie können AutoSupport zwar jederzeit deaktivieren, jedoch sollten Sie sie aktiviert lassen. Wenn Sie AutoSupport aktivieren, können Sie erheblich dabei helfen, Probleme und Lösungen zu identifizieren, sollten bei Ihrem Storage-System Probleme auftreten.
 
 |===
 . [[man_prepare_nodes_step34]]Überprüfen Sie, ob AutoSupport mit den korrekten E-Mail-IDs für den Mailhost konfiguriert ist, indem Sie auf beiden Originalknoten den folgenden Befehl eingeben und die Ausgabe prüfen:

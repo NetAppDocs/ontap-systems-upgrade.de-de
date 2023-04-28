@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_4_index.html
 keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
 summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
 ---
-= Phase 4: Verschieben von Ressourcen von node2 und Ausmustern von Knoten 2
+= Überblick
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

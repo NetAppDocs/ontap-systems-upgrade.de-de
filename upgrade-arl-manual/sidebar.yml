@@ -47,6 +47,8 @@ entries:
       verfügt
     url: "/upgrade-arl-manual/determine_aggregates_on_internal_drives.html"
   - title: Bereiten Sie die Knoten für ein Upgrade vor
+    url: "/upgrade-arl-manual/prepare_nodes_for_upgrade.html"
+  - title: Verwaltung von Authentifizierungsschlüssel mit dem Onboard Key Manager
     url: "/upgrade-arl-manual/manage_authentication_okm.html"
   - title: SnapMirror Beziehungen stilllegen
     url: "/upgrade-arl-manual/quiesce_snapmirror_relationships.html"

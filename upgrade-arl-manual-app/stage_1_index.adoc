@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual-app/stage_1_index.html
 keywords: stage 1, prepare, upgrade, steps 
 summary: Phase 1-Prozessreihenfolge für ein manuelles ARL Upgrade bei Controllern mit ONTAP 9.8 oder höher. 
 ---
-= Stufe 1: Bereiten Sie sich auf das Upgrade vor
+= Überblick
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
