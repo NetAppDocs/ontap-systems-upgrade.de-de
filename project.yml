@@ -23,6 +23,8 @@ homepage:
     links:
     - title: Upgrade von Controller Hardware
       url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+    - title: Upgrade von AFF A250 auf AFF A400 durch Konvertierung in ein Festplatten-Shelf
+      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
   - title: Upgrade durch Verschiebung von Aggregaten auf Systemen mit ONTAP 9.8 und
       höher
     links:

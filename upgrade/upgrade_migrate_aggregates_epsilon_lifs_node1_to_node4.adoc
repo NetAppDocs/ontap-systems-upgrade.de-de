@@ -14,7 +14,7 @@ summary: Migrieren Sie die Datenaggregate, Epsilon und LIFs auf Node 1 nach node
 Vor der Konvertierung von AFF A250 node1 in ein Festplatten-Shelf migrieren Sie die Datenaggregate, epsilon und logischen Schnittstellen (LIFs) auf Node 1 zu AFF A400 node4.
 
 .Schritte
-. Booten Sie den Node an der LOADER-Eingabeaufforderung für den Node im Boot-Menü:
+. Booten Sie den Node an der LOADER-Eingabeaufforderung für node 4 im Boot-Menü:
 +
 `boot_ontap menu`
 
@@ -26,7 +26,7 @@ Dadurch wird die gesamte Flash-basierte Konfiguration durch das letzte Backup au
 +
 [NOTE]
 ====
-Wie erwartet startet der Knoten automatisch neu, um die neue Kopie des Dateisystems /var zu laden.
+Der Knoten startet automatisch neu, um die neue Kopie des Dateisystems /var zu laden.
 
 Der Knoten meldet eine Warnung bei Nichtübereinstimmung der System-ID. Eingabe `y` Um die System-ID zu überschreiben.
 
@@ -43,11 +43,31 @@ Der Knoten meldet eine Warnung bei Nichtübereinstimmung der System-ID. Eingabe 
 ====
 Wenn die System-Cluster-Ports beim Upgrade eines AFF A250 auf eine AFF A400 nicht ähnlich sind, müssen Sie möglicherweise vorübergehend die Schnittstellen auf node 4 in Cluster-Ports ändern:
 
-.. `network port modify -node _node4_ -port _port_name_ -mtu 9000 -ipspace Cluster`
-.. `network interface migrate -vserver Cluster -lif _cluster_LIF_  -destination-node _node4_ -destination-port _port_name_`
-
+`network port modify -node _node4_ -port _port_name_ -mtu 9000 -ipspace Cluster`
 
 ====
++
+`network interface migrate -vserver Cluster -lif _cluster_LIF_  -destination-node _node4_ -destination-port _port_name_`
+
+. Warten Sie, bis das Cluster in das Quorum gelangen kann, und überprüfen Sie dann, ob die Clusterknoten ordnungsgemäß sind:
++
+`– cluster show`
+
++
+
+NOTE: Das HA-Paar und der Storage Failover bleiben im aktuellen Zustand deaktiviert.
+
+. Verschieben Sie die Cluster-LIFs auf die temporären 25-Gbit-Cluster-Ports auf node 4:
++
+`network interface modify`
+
+. Führen Sie diesen Schritt durch, wenn Schnittstellengruppen und Daten-VLANs auf dem AFF A250-Cluster verwendet werden, die Sie aktualisieren. Falls nicht, fahren Sie mit fort <<migrate_node1_nod4,Schritt 8>>.
++
+Die Namen der physischen Netzwerk-Ports unterscheiden sich zwischen AFF A250 und AFF A400 Systemen. Daher kann es auf node4 zu falsch konfigurierten Schnittstellengruppen und zu verschobene VLANs kommen. Überprüfen Sie alle falsch konfigurierten Schnittstellengruppen und verdrängten VLANs, und beheben Sie sie gegebenenfalls.
+
+
+
+[[migrate_node1_nod4]]
 . Migrieren Sie die Datenaggregate auf Node 1 zu node 4:
 +
 `storage aggregate relocation start -aggregate-list _aggregate_list_name_ -node _node1_ -destination _node4_ -ndo-controller-upgrade true -override-destination-checks true`
@@ -60,11 +80,11 @@ Wenn die System-Cluster-Ports beim Upgrade eines AFF A250 auf eine AFF A400 nich
 +
 .. Epsilon aus Knoten 1 entfernen:
 +
-`cluster modify -epsilon false -node _local_node_name_`
+`cluster modify -epsilon false -node _node1_`
 
 .. Epsilon auf node4 verschieben:
 +
-`cluster modify -epsilon true -node _partner_node_name_`
+`cluster modify -epsilon true -node _node4_`
 
 
 
@@ -78,7 +98,7 @@ Wenn die System-Cluster-Ports beim Upgrade eines AFF A250 auf eine AFF A400 nich
 
 . Migrieren Sie alle Daten-LIFs auf node4:
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node4_ -destination-port _port_name_`
 
 . Status aller Daten-LIFs im Cluster anzeigen:
 +
@@ -86,7 +106,7 @@ Wenn die System-Cluster-Ports beim Upgrade eines AFF A250 auf eine AFF A400 nich
 
 . Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
 +
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 
 . Migration der Cluster-Management-LIF:
 +
@@ -101,3 +121,6 @@ Wenn die System-Cluster-Ports beim Upgrade eines AFF A250 auf eine AFF A400 nich
 `halt -node _node1_ -inhibit-takeover true -ignore-quorum-warnings true`
 
 
+
+.Was kommt als Nächstes?
+link:upgrade_convert_node1_drive_shelf_connect_node3.html["Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3"]

@@ -16,8 +16,17 @@ Vor der Konvertierung von AFF A250 node2 in ein Festplatten-Shelf migrieren Sie 
 .Bevor Sie beginnen
 Vergewissern Sie sich, dass Sie die folgenden Anforderungen erfüllen:
 
-* Auf den Controllern AFF A250 und AFF A400 ist dieselbe ONTAP-Version und dieselbe Patch-Version installiert.
-* Beide AFF A400 Controller befinden sich im Standby-Modus am `Maintenance Mode` Eingabeaufforderung:
+* Auf den Controllern AFF A250 und AFF A400 wird dieselbe ONTAP-Version und dieselbe Patch-Version ausgeführt.
++
+[NOTE]
+====
+** Sie müssen die ONTAP-Version auf jeder AFF A400, die identisch mit der Version ist, die auf dem AFF A250 ausgeführt wird, Netboot und installieren.
+** Sowohl das primäre als auch das Backup Boot Image jeder AFF A400 müssen dieselbe ONTAP-Version aufweisen.
+** Wenn die AFF A400-Cluster zuvor konfiguriert wurden, müssen Sie die verbleibende Clusterkonfiguration löschen, indem Sie einen ausführen `wipeconfig` Aus dem Startmenü.
+
+
+====
+* Beide AFF A400 Controller befinden sich an der LOADER-Eingabeaufforderung im Standby-Modus.
 * Sie haben alle entsprechenden Kabel zur Hand.
 
 
@@ -25,9 +34,13 @@ Vergewissern Sie sich, dass Sie die folgenden Anforderungen erfüllen:
 Die folgenden Schritte werden auf AFF A250 node1 durchgeführt.
 
 .Schritte
-. Deaktivieren Sie das automatische Giveback für Cluster Failover:
+. Zugriff auf die erweiterte Berechtigungsebene:
 +
-`storage failover modify -node _node_name_ -auto-giveback false`
+`set -privilege advanced`
+
+. Automatisches Giveback für Storage Failover deaktiviert:
++
+`storage failover modify -node _node1_ -auto-giveback false`
 
 . Deaktivieren Sie die automatische Zurücksetzung der LIFs über beide Nodes des HA-Paars hinweg:
 +
@@ -39,11 +52,11 @@ Die folgenden Schritte werden auf AFF A250 node1 durchgeführt.
 
 . Status der Cluster-Management-LIFs anzeigen:
 +
-`network interface show cluster_mgmt`
+`network interface show -role cluster_mgmt`
 
 . Migrieren Sie alle Daten-LIFs von den Storage Virtual Machines, die auf Knoten2 gehostet werden:
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node1_ -destination-port _port_name_`
 
 +
 
@@ -55,7 +68,7 @@ NOTE: Mit diesem Befehl werden nur nicht-SAN-LIFs migriert. Sie können sie nich
 
 . Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
 +
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 
 . Status aller Datenaggregate im Cluster anzeigen:
 +
@@ -94,3 +107,6 @@ NOTE: Mit diesem Befehl werden nur nicht-SAN-LIFs migriert. Sie können sie nich
 `halt -node _node2_ -inhibit-takeover true -ignore-quorum-warnings true`
 
 
+
+.Was kommt als Nächstes?
+link:upgrade_convert_node2_drive_shelf_connect_node4.html["Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit node 4"]

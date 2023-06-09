@@ -65,7 +65,7 @@ Der Transfer des internen Speichers ist eine optionale Aufgabe im Workflow für 
 
 Situationen, in denen weitere Schritte erforderlich sein könnten
 
-* Informationen zum Upgrade von einem AFF A250 auf eine AFF A400 finden Sie unter xref:upgrade-aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[Upgrade von AFF A250 auf AFF A400 durch Konvertierung in ein Festplatten-Shelf].
+* Informationen zum Upgrade von einem AFF A250 auf eine AFF A400 finden Sie unter xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[Upgrade von AFF A250 auf AFF A400 durch Konvertierung in ein Festplatten-Shelf].
 * Wenn das neue System weniger Steckplätze als das ursprüngliche System hat oder weniger oder unterschiedliche Porttypen vorhanden sind, müssen Sie dem neuen System möglicherweise einen Adapter hinzufügen.
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]

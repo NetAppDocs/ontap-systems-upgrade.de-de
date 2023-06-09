@@ -21,9 +21,12 @@ Konvertieren Sie AFF A250 Knoten 1 in ein NS224 Laufwerk-Shelf und stellen Sie d
 +
 image::../upgrade/media/a400_with_ns224_shelf.PNG[AFF A400 mit einem NS224 Shelf]
 
-. Verbinden Sie die 25-GbE-Verkabelung von den Knoten1-Ports e0c und e0d mit zwei beliebigen integrierten 25-GbE-Ports (e0e, e0f, e0g oder e0h) auf Knoten3.
+. Verschieben Sie die temporären Cluster-Verbindungen auf Knoten 3, indem Sie die 25-GbE-Verkabelung von den Knoten 1-Ports e0c und e0d zu zwei integrierten 25-GbE-Ports (e0e, e0f, e0g oder e0h) auf Knoten 3 verschieben.
 +
 
-NOTE: Wenn auf Knoten3 keine 25-GbE-Onboard-Ports vorhanden sind, können Sie für die Verbindung einen 25-GbE-PCIe-Adapter verwenden.
+NOTE: Wenn das AFF A400 System FC-Ports als integrierte Ports verwendet, installieren Sie einen 25-GB-Ethernet-Adapter in jedem Node für die Cluster-Konnektivität während der Migration.
 
 
+
+.Was kommt als Nächstes?
+link:upgrade_reassign_drives_node1_to_node3.html["Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3"]

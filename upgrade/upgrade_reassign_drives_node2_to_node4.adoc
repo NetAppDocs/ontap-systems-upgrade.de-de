@@ -14,7 +14,7 @@ summary: Verbinden Sie Knoten 2 physisch mit knoten 4, bevor Sie Laufwerke von K
 Nach dem Konvertieren von AFF A250 Knoten 2 in ein NS224 Laufwerk-Shelf und Anschluss an AFF A400 knoten 4, müssen Sie die Laufwerke, die zuvor gehörte zu Knoten 2 zu Knoten 4 neu zuweisen.
 
 .Bevor Sie beginnen
-Stellen Sie sicher, dass sich an der LOADER-Eingabeaufforderung sowohl node2 als auch node4 im Standby-Modus befinden.
+Vergewissern Sie sich, dass sich an der LOADER-Eingabeaufforderung sowohl Knoten 3 als auch knoten 4 im Standby-Modus befinden.
 
 .Über diese Aufgabe
 Sie führen die folgenden Schritte auf knoten 4 aus.
@@ -40,7 +40,7 @@ Sie führen die folgenden Schritte auf knoten 4 aus.
 `storage port show`
 
 +
-Die Ausgabe sollte wie folgt angezeigt werden:
+Die Ausgabe wie im folgenden Beispiel sollte angezeigt werden:
 
 +
 [listing]
@@ -59,16 +59,16 @@ Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added
 Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
 ---- ---- ------- ----------- -------- ------- -------
 e0c  ENET storage 100 Gb/s    enabled  online  30
-e0d  ENET storage 100 Gb/s    enabled  online  30
+e0d  ENET storage 100 Gb/s    enabled  offline 30
 ----
 . Alle angeschlossenen Laufwerke anzeigen:
 +
 `disk show -v`
 
-. Notieren Sie die lokale System-ID.
+. Notieren Sie den lokalen System-ID-Wert; dies ist die System-ID von node4. Notieren Sie auch die System-IDs von node1 und node2 aus der Spalte „EIGENTÜMER“.
 . Weisen Sie alle Laufwerke von Knoten 2 zu knoten 4 neu zu:
 +
-`disk reassign -s _node2_ -d _node4_ -p _node1_`
+`disk reassign -s _node2_system_ID_ -d _node4_system_ID_ -p _node1_system_ID_`
 
 . Überprüfen Sie, ob alle neu zugewiesenen Laufwerke der neuen System-ID angezeigt werden:
 +
@@ -78,8 +78,15 @@ e0d  ENET storage 100 Gb/s    enabled  online  30
 
 NOTE: Wenn Laufwerke nicht sichtbar sind, *STOP* und wenden Sie sich an den technischen Support, um Hilfe zu erhalten.
 
+. Überprüfen Sie, ob das Root-Aggregat von node2 in der Ausgabe gemeldet wird und das Aggregat online ist:
++
+`aggr status`
+
 . Beenden des Wartungsmodus:
 +
 `halt`
 
 
+
+.Was kommt als Nächstes?
+link:upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html["Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4"]
