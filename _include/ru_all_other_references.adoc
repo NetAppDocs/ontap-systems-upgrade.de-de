@@ -94,7 +94,7 @@ Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufge
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Upgrade von ONTAP"^] | Die Anleitungen zum Herunterladen und Aktualisieren von ONTAP. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Verwenden Sie Befehle zum Ersetzen des System-Controllers, um ein Upgrade von AFF A700 auf AFF A900 oder FAS9000 auf FAS9500 mit ONTAP 9.10.1 oder höher durchzuführen"^] | Beschreibt die Verfahren für Aggregatverschiebung, die erforderlich sind, um ein unterbrechungsfreies Upgrade einer AFF A700 auf ein AFF A900 System oder eine FAS9000 auf ein FAS9500 System mit ONTAP 9.10.1 oder höher mithilfe von Befehlen zum Austausch des System-Controllers durchzuführen. 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"^] | Beschreibt die Verfahren zur Aggregatverschiebung, die für ein unterbrechungsfreies Upgrade eines Systems unter Beibehaltung des alten System-Chassis und der alten Festplatten erforderlich sind. 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Verwenden Sie „System Controller Replace“-Befehle, um das Upgrade der Controller Hardware mit ONTAP 9.8 oder höher durchzuführen"^] | Beschreibt die Verfahren für Aggregatverschiebung, die nötig sind, um Controller, die ONTAP 9.8 ausführen, durch den „System-Controller-Austausch“-Befehl unterbrechungsfrei zu aktualisieren. 

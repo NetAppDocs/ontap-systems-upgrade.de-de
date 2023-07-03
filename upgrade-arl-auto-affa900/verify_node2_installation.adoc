@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/verify_node2_installation.html 
-keywords: verifying, verify, node, install, installation, aff, a900, NVRAM, controller 
-summary: Überprüfen Sie die Installation node2 mit dem AFF A900-Controller-Modul und dem NVRAM-Modul. 
+keywords: verifying, verify, node, install, installation, NVRAM, controller, module, modules 
+summary: Überprüfen Sie die Node-2-Installation durch Ersatzmodule, wenn Sie mit ARL Controller-Modelle im gleichen Chassis aktualisieren. 
 ---
 = Überprüfen Sie die Installation node2
 :hardbreaks:
@@ -14,10 +14,10 @@ summary: Überprüfen Sie die Installation node2 mit dem AFF A900-Controller-Mod
 
 
 [role="lead"]
-Sie müssen die node2-Installation mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen überprüfen. Da keine Änderung an physischen Ports erfolgt, sind Sie nicht erforderlich, die physischen Ports von der alten node2 auf den Ersatz-Knoten2 zuzuordnen.
+Sie müssen die Installation von node2 mit den Ersatz-Systemmodulen überprüfen. Da keine Änderung an physischen Ports erfolgt, sind Sie nicht erforderlich, die physischen Ports von der alten node2 auf den Ersatz-Knoten2 zuzuordnen.
 
 .Über diese Aufgabe
-Nachdem Sie node1 mit dem AFF A900 oder FAS9500 Controller-Modul gebootet haben, müssen Sie überprüfen, ob es korrekt installiert ist. Sie müssen warten, bis node2 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
+Nachdem Sie node1 mit dem Ersatz-Systemmodul gestartet haben, müssen Sie überprüfen, ob es richtig installiert ist. Sie müssen warten, bis Node2 dem Quorum Beitritt und dann den Vorgang zum Austausch des Controllers fortsetzen.
 
 An diesem Punkt des Verfahrens wird die Operation angehalten, während node2 dem Quorum beitritt.
 

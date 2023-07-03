@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html 
-keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2, aff, a900, NVRAM, controller 
-summary: Verschieben Sie die Aggregate und NAS-Daten-LIFs zwischen Knoten 1 und Knoten 2 und stellen Sie die Ressourcen anderer 1 während einer AFF A700 auf ein AFF A900 Upgrade wieder her. 
+keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2, NVRAM, controller, module, modules 
+summary: Verschieben Sie die nicht-Root-Aggregate und NAS-Daten-LIFs von Node 1 nach Node 2 und stellen Sie die Ressourcen von Node 1 wieder her, wenn Sie Controller-Modelle im gleichen Chassis mit ARL aktualisieren. 
 ---
 = Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2
 :hardbreaks:
@@ -14,13 +14,13 @@ summary: Verschieben Sie die Aggregate und NAS-Daten-LIFs zwischen Knoten 1 und 
 
 
 [role="lead"]
-Bevor Sie Node1 durch den AFF A900 oder FAS9500 Controller und NVRAM-Module ersetzen können, müssen Sie die nicht-Root-Aggregate und NAS-Daten-LIFs von node1 auf node2 verschieben, bevor Sie die Ressourcen von node1 auf dem AFF A900 oder FAS9500 System schließlich wieder auf node1 zurücksetzen. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können.
+Bevor Sie Node1 durch die Ersatzmodule für Ihr System-Upgrade ersetzen können, müssen Sie die nicht-Root-Aggregate und NAS-Daten-LIFs von Node1 zu Node2 verschieben, bevor Sie die node1-Ressourcen auf Node1, der auf dem Ersatzsystem ausgeführt wird, wieder wiederherstellen können. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können.
 
 .Bevor Sie beginnen
 Der Vorgang sollte bereits angehalten werden, wenn Sie mit der Aufgabe beginnen. Sie müssen den Vorgang manuell fortsetzen.
 
 .Über diese Aufgabe
-Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Sie müssen während des Upgrades keine SAN-LIFs für den Cluster- oder Systemzustand verschieben. Sie müssen überprüfen, ob sich die LIFs auf den entsprechenden Ports befinden, nachdem Sie als AFF A900 oder FAS9500 System Knoten 1 online gestellt haben.
+Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Sie müssen während des Upgrades keine SAN-LIFs für den Cluster- oder Systemzustand verschieben. Sie müssen überprüfen, ob die LIFs in gutem Zustand und an den entsprechenden Ports angeschlossen sind, nachdem Sie node1 als Ersatzsystem online geschaltet haben.
 
 
 NOTE: Der Home-Inhaber für die Aggregate und LIFs wird nicht geändert, nur der aktuelle Besitzer wird geändert.

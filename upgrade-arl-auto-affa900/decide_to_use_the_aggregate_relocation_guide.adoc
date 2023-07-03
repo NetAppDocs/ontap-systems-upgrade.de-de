@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html 
-keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability, aff, a700, a900 
-summary: Entscheiden Sie, ob Sie das ARL-Verfahren verwenden, um eine AFF A700 auf einen AFF A900 zu aktualisieren. 
+keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
+summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Modellen im selben Chassis anwenden. 
 ---
 = Entscheiden Sie, ob Sie das Verfahren zur Aggregatverschiebung verwenden
 :hardbreaks:
@@ -14,12 +14,36 @@ summary: Entscheiden Sie, ob Sie das ARL-Verfahren verwenden, um eine AFF A700 a
 
 
 [role="lead"]
-In diesem Inhalt wird beschrieben, wie Storage Controller in einem AFF A700 HA-Paar mit den neuen AFF A900 Controllern in einem FAS9000 HA-Paar mit den neuen FAS9500 Controllern aktualisiert werden. Dabei werden alle Daten und Festplatten gespeichert. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
+Dieser Inhalt beschreibt, wie Sie ein Upgrade von Storage Controllern in einem HA-Paar durchführen, ohne dabei alle vorhandenen Daten und Festplatten zu beeinträchtigen. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
 
 Verwenden Sie dieses Verfahren unter den folgenden Umständen:
 
-* Sie haben gemeinsam mit Ihrem NetApp Ansprechpartner überprüft, ob Sie den AFF A900 oder FAS9500 Controller, NVRAM-Module sowie die für das Upgrade erforderlichen Teile erhalten haben.
-* Sie verwenden ONTAP 9.10.1P10, 9.11.1P6 oder eine neuere Version.
+* Sie führen eines der folgenden Controller-Upgrades aus:
++
+[cols="50,50"]
+|===
+| Alter Controller | Ersatz-Controller 
+
+
+| AFF A220, AFF A200 oder AFF C190 | AFF A150 
+
+
+| FAS2720 oder FAS2720 | FAS2820 
+
+
+| AFF A700 | AFF A900 
+
+
+| FAS9000 | FAS9500 
+|===
+* Sie haben mit Ihrem NetApp Vertriebsmitarbeiter verifiziert, dass Sie die Hardware für das Controller-Upgrade erhalten haben:
++
+** AFF A150-Controller
+** FAS2820 Controller
+** AFF Controller- und NVRAM-Module A900 oder FAS9500 sowie die für das Upgrade erforderlichen Teile.
+
+
+* Sie verwenden die minimale ONTAP-Version für Ihr Upgrade. Weitere Informationen finden Sie unter link:index.html["Überblick"].
 * Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
 * Sie sind erfahren in der Verwaltung von ONTAP und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.
 
@@ -30,7 +54,7 @@ Verwenden Sie dieses Verfahren unter folgenden Umständen:
 * Sie verwenden einen gemeinsamen Switch für Cluster-Interconnect und Ethernet Attached Storage.
 
 
-Informationen zum Aktualisieren von Fabric-MetroCluster- oder MetroCluster IP-Konfigurationen finden Sie unter link:other_references.html["Quellen"] Zum Verlinken auf den Inhalt _MetroCluster Upgrade und Expansion_.
+Informationen zum Upgrade von Fabric MetroCluster- oder MetroCluster IP-Konfigurationen auf AFF A700 oder FAS9000 Systemen finden Sie unter link:other_references.html["Quellen"] Zum Verlinken auf den Inhalt _MetroCluster Upgrade und Expansion_.
 
 
 NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.

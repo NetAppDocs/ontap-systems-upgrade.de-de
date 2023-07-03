@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html 
-keywords: boot, NVRAM, controller, module, node2, aff, a700, a900 
-summary: Boot-Node2 mit dem AFF A900 Controller-Modul und NVRAM-Modul. 
+keywords: boot, NVRAM, controller, module, node2, replacement 
+summary: Starten Sie Node 2 mit den Ersatz-Controller-Modulen, wenn Sie Controller-Modelle im gleichen Chassis mit ARL aktualisieren. 
 ---
-= Boot-Node2 mit AFF A900 oder FAS9500 Controller und NVRAM-Modulen
+= Starten Sie Knoten2 mit den Ersatz-Systemmodulen
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,8 +14,27 @@ summary: Boot-Node2 mit dem AFF A900 Controller-Modul und NVRAM-Modul.
 
 
 [role="lead"]
-Knoten 2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen ist nun bereit für ein Upgrade. Ein Upgrade von AFF A700 auf AFF A900 oder FAS9000 auf FAS9500, indem Controller und NVRAM-Module ausgetauscht werden, müssen nur die Konsole und Management-Verbindungen verschoben werden. Dieser Abschnitt enthält die Schritte, die zum Booten von node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen erforderlich sind.
+Node2 mit den Ersatzmodulen ist jetzt bereit zum Hochfahren. Bei der Aktualisierung durch Austausch der Systemmodule werden nur die Konsolen- und Managementverbindungen verschoben. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten2 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
 
+[cols="35,65"]
+|===
+| Alter Knoten 2-Controller | Ersatz-Knoten2-Systemmodule 
+
+
+| AFF A220
+AFF A200
+AFF C 190 | Controller-Modul AFF A150 
+
+
+| FAS2620
+FAS2720 | FAS2820 Controller-Modul 
+
+
+| AFF A700 | AFF A900-Controller und NVRAM-Module 
+
+
+| FAS9000 | FAS9500 Controller- und NVRAM-Module 
+|===
 .Schritte
 . [[Boot_node2_step1]]Wenn Sie NetApp Storage Encryption (NSE) Laufwerke installiert haben, führen Sie die folgenden Schritte aus.
 +
@@ -51,7 +70,7 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 +
 `boot_ontap menu`
 
-. Weisen Sie die AFF A700 Knoten2-Festplatten zu AFF A900 node2 zu, indem Sie „22/7“ eingeben und die verborgene Option auswählen `boot_after_controller_replacement` Wenn der Node im Boot-Menü angehalten wird.
+. Weisen Sie die alten Node2-Festplatten dem Ersatznode2 zu, indem Sie „22/7“ eingeben und die versteckte Option auswählen `boot_after_controller_replacement` Wenn der Node im Boot-Menü angehalten wird.
 +
 Nach einer kurzen Verzögerung werden Sie aufgefordert, den Namen des Node einzugeben, der ersetzt wird. Wenn gemeinsam genutzte Festplatten vorhanden sind (auch Advanced Disk Partitioning (ADP) oder partitionierte Festplatten), werden Sie aufgefordert, den Node-Namen des HA-Partners einzugeben.
 

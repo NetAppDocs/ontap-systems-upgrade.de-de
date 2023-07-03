@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/netboot_node2.html 
-keywords: preparing, netboot, ontap, aff, a900, node2 
-summary: Nach dem Austausch des entsprechenden AFF A900 Node2 Controller-Moduls und des NVRAM-Moduls müssen Sie sie möglicherweise als Netzboot einsetzen. 
+keywords: preparing, prepare, netboot, ontap, node2 
+summary: Nachdem Sie die entsprechenden Node2-Ersatzsystemmodule ausgetauscht haben, wenn Sie mit ARL Controller-Modelle im gleichen Gehäuse aktualisieren, müssen Sie sie möglicherweise mit dem Netzboot booten. 
 ---
 = Netzboot Nr. 2
 :hardbreaks:
@@ -14,12 +14,11 @@ summary: Nach dem Austausch des entsprechenden AFF A900 Node2 Controller-Moduls 
 
 
 [role="lead"]
-Nach dem Austausch des entsprechenden AFF A900 oder FAS9500 Node2 Controller-Moduls und NVRAM müssen Sie diese eventuell als Netzboot einsetzen. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einem Webserver ablegen, auf den das System zugreifen kann.
+Nachdem Sie die entsprechenden Node2-Ersatzsystemmodule ausgetauscht haben, müssen Sie sie möglicherweise mit dem Netzboot starten. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einem Webserver ablegen, auf den das System zugreifen kann.
 
-Es ist nicht möglich, die auf den Boot-Medien eines AFF A900 oder eines FAS9500 Controller-Moduls installierte Version von ONTAP zu prüfen, es sei denn, sie ist in einem Chassis installiert und eingeschaltet. Die ONTAP Version auf dem AFF A900 oder dem FAS9500 Boot-Medium muss mit der ONTAP Version übereinstimmen, die auf der AFF A700 oder dem FAS9000 System ausgeführt wird, das ein Upgrade durchgeführt wird. Sowohl die Primär- als auch die Backup Boot Images müssen mit denen übereinstimmen. Sie können die Images konfigurieren, indem Sie einen Netzboot gefolgt vom ausführen `wipeconfig` Befehl aus dem Startmenü. Wenn das Controller-Modul zuvor in einem anderen Cluster verwendet wurde, führt das aus `wipeconfig` Mit dem Befehl wird die Restkonfiguration auf dem Boot-Medium gelöscht.
+Es ist nicht möglich, die auf dem Boot-Medium des Ersatz-Controller-Moduls installierte ONTAP-Version zu überprüfen, es sei denn, sie ist in einem Gehäuse installiert und eingeschaltet. Die ONTAP-Version auf dem Ersatz-System-Boot-Medium muss mit der ONTAP-Version auf dem alten System identisch sein, das Sie aktualisieren, und sowohl das primäre als auch das Backup-Boot-Image müssen übereinstimmen. Sie können die Images konfigurieren, indem Sie einen Netzboot gefolgt vom ausführen `wipeconfig` Befehl aus dem Startmenü. Wenn das Controller-Modul zuvor in einem anderen Cluster verwendet wurde, führt das aus `wipeconfig` Mit dem Befehl wird die Restkonfiguration auf dem Boot-Medium gelöscht.
 
-
-NOTE: Sie können den Netzboot auch über die USB-Boot-Option ausführen. Weitere Informationen finden Sie im Knowledge Base-Artikel link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["So verwenden Sie den Boot_Recovery-LOADER-Befehl zum Installieren von ONTAP für die Ersteinrichtung eines Systems"^].
+Sie können den Netzboot auch über die USB-Boot-Option ausführen. Weitere Informationen finden Sie im Knowledge Base-Artikel link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["So verwenden Sie den Boot_Recovery-LOADER-Befehl zum Installieren von ONTAP für die Ersteinrichtung eines Systems"^].
 
 .Bevor Sie beginnen
 * Vergewissern Sie sich, dass Sie mit dem System auf einen HTTP-Server zugreifen können.
@@ -71,7 +70,7 @@ NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingab
 
 NOTE: Unterbrechen Sie den Startvorgang nicht.
 
-. Warten Sie, bis der node2, der jetzt auf dem AFF A900 oder FAS9500 Controller-Modul ausgeführt wird, gestartet wird, und zeigen Sie die Startmenüoptionen an, wie in der folgenden Ausgabe dargestellt:
+. Warten Sie, bis node2 jetzt auf dem Ersatz-Controller-Modul ausgeführt wird, um zu starten und die Boot-Menüoptionen anzuzeigen, wie in der folgenden Ausgabe gezeigt:
 +
 [listing]
 ----
@@ -172,7 +171,7 @@ Controller HA configuration: ha
 +
 Node2 sollte an DER Loader>-Eingabeaufforderung angehalten werden.
 
-. Überprüfen Sie in node2 das Systemdatum, die Uhrzeit und die Zeitzone:
+. Überprüfen Sie auf Knoten 1 das Systemdatum, die Uhrzeit und die Zeitzone:
 +
 `date`
 
@@ -205,7 +204,7 @@ NOTE: Legen Sie die entsprechende UTC-Zeit auf node2 fest.
 `setenv partner-sysid _node1_sysid_`
 
 +
-Für node2, die `partner-sysid` Der Node1 muss angegeben werden, dass Sie ein Upgrade auf ein AFF A900 oder FAS9500 durchführen.
+Für node2, die `partner-sysid` Muss der Knoten 1 sein, den Sie aktualisieren.
 
 +
 .. Einstellungen speichern:

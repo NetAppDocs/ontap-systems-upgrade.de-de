@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/stage_1_index.html 
 keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
-summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
+summary: 'Phase 1 Prozesssequenz für ein ARL-Upgrade mit `system controller replace` Um ein Upgrade von Controller-Modellen in demselben Chassis durchzuführen.' 
 ---
 = Überblick
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller
 
 
 [role="lead"]
-In Phase 1 überprüfen Sie, ob Sie über die richtige Hardware für eine AFF A700 auf AFF A900 oder eine FAS9000 zu einem FAS9500 Upgrade verfügen, Vorabprüfungen durchführen und, falls erforderlich, die Eigentümerschaft für die Aggregate korrigieren. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie Storage Encryption mit OKM verwalten und Sie die SnapMirror Beziehungen stilllegen können.
+In Phase 1 überprüfen Sie, ob Sie über die richtige Hardware für Ihr Upgrade verfügen, führen Vorabprüfungen durch und korrigieren bei Bedarf die Eigentümerschaft für Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie Storage Encryption mit dem Onboard Key Manager managen und die SnapMirror Beziehungen stilllegen möchten.
 
 .Schritte
 . link:verify_upgrade_hardware.html["Überprüfen Sie die Upgrade-Hardware"]

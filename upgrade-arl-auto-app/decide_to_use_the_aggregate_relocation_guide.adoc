@@ -14,7 +14,7 @@ summary: 'Entscheiden Sie, ob Sie ARL verwenden, um Controller mit ONTAP 9.8 ode
 
 
 [role="lead"]
-In diesem Inhalt wird beschrieben, wie Sie die Storage Controller in einem HA-Paar mit neuen Controllern aktualisieren und dabei alle vorhandenen Daten und Festplatten beibehalten. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
+Dieser Inhalt beschreibt, wie Sie die Storage Controller in einem HA-Paar mit neuen Controllern upgraden, ohne die vorhandenen Daten und Festplatten zu verwenden. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
 
 Sie können diese Inhalte unter folgenden Umständen verwenden:
 

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html 
-keywords: preparing, nodes, upgrade, stage 1, prechecks 
-summary: Bereiten Sie die Nodes vor und führen Sie eine Reihe von Vorabprüfungen bei einem AFF A700 auf AFF A900 Upgrade durch. 
+keywords: preparing, prepare, nodes, upgrade, stage 1, prechecks, old, system, chassis, disk, disks 
+summary: Wenn Sie mit ARL Controller-Modelle im selben Chassis aktualisieren, bereiten Sie die Nodes vor und führen eine Reihe von Vorabprüfungen durch. 
 ---
 = Bereiten Sie die Knoten für ein Upgrade vor
 :hardbreaks:
@@ -14,9 +14,36 @@ summary: Bereiten Sie die Nodes vor und führen Sie eine Reihe von Vorabprüfung
 
 
 [role="lead"]
-In Phase 1 müssen Sie die Nodes auf das Upgrade vorbereiten und eine Reihe von Vorabprüfungen durchführen. Sie müssen sich auch auf den Netzboot der neuen Controller vorbereiten.
+Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfungen. Sie sammeln auch Informationen über die ursprünglichen Nodes, die Sie später verwenden können. Falls erforderlich, ermitteln Sie den Typ der verwendeten Self-Encrypting Drives.
 
 .Schritte
+. Listen Sie die Firmware-Version des Service-Prozessors (SP) oder des Baseboard Management Controller (BMC) auf, die auf dem alten Controller ausgeführt wird:
++
+`service-processor show` Befehl:
+
++
+Vergewissern Sie sich, dass Sie über eine unterstützte SP- oder BMC-Firmware-Version verfügen:
+
++
+[cols="30,35,35"]
+|===
+| Alter Controller | SP oder BMC | Mindestversion der Firmware 
+
+
+| AFF A220 | BMC | 11,9P1 
+
+
+| AFF A200 | SP | 5.11P1 
+
+
+| AFF C 190 | BMC | 11,9P1 
+
+
+| FAS2620 | SP | 5.11P1 
+
+
+| FAS2720 | BMC | 11,9P1 
+|===
 . Starten Sie den Controller-Ersatzprozess, indem Sie den folgenden Befehl im erweiterten Berechtigungsmodus der ONTAP-Befehlszeile eingeben:
 +
 `set -privilege advanced`
@@ -189,10 +216,10 @@ Sie müssen den Controller-Ersatzprozess neu starten:
 
 == Lizenz
 
-Wenn Sie ein Cluster einrichten, werden Sie vom Setup-Assistenten aufgefordert, den Lizenzschlüssel für die Cluster-Basis einzugeben. Einige Funktionen erfordern jedoch zusätzliche Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
+Jeder Knoten im Cluster muss über eine eigene NetApp-Lizenzdatei (NLF) verfügen.
 
-Wenn Sie keine neuen Lizenzschlüssel haben, stehen dem neuen Controller derzeit lizenzierte Funktionen im Cluster zur Verfügung. Durch die Verwendung nicht lizenzierter Funktionen auf dem Controller können Sie jedoch möglicherweise die Einhaltung Ihrer Lizenzvereinbarung verschließen. Sie sollten daher nach Abschluss des Upgrades den neuen Lizenzschlüssel oder die neuen Schlüssel für den neuen Controller installieren.
+Wenn Sie nicht über eine Lizenzdatei verfügen, stehen dem neuen Controller derzeit lizenzierte Funktionen im Cluster zur Verfügung. Wenn Sie jedoch nicht lizenzierte Funktionen auf dem Controller verwenden, unterläuft dies möglicherweise die Einhaltung Ihrer Lizenzvereinbarung. Daher sollten Sie nach Abschluss des Upgrades die Lizenzdatei für den neuen Controller installieren.
 
-Siehe link:other_references.html["Quellen"] Um auf die _NetApp Support Site_ zu verlinken, erhalten Sie neue 2-stellige Lizenzschlüssel für 9.10.1 oder höher. Die Schlüssel sind im Abschnitt „_My Support_“ unter „_Software licenses_“ verfügbar. Falls auf der Website keine Lizenzschlüssel vorhanden ist, wenden Sie sich an Ihren NetApp Ansprechpartner.
+Siehe link:other_references.html["Quellen"] Um eine Verknüpfung zur _NetApp Support-Website_ zu erstellen, auf der Sie Ihre Lizenzdatei erhalten können. Die NLFs sind im Abschnitt _My Support_ unter _Softwarelizenzen_ verfügbar. Wenn der Standort nicht über die benötigten NLFs verfügt, wenden Sie sich an Ihren NetApp Ansprechpartner.
 
 Ausführliche Informationen zur Lizenzierung finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.

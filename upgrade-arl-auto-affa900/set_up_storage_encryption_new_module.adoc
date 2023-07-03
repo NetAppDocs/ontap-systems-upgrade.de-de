@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/set_up_storage_encryption_new_module.html 
 keywords: set up storage, encryption, controller, module, node 
-summary: Konfigurieren Sie bei Bedarf Storage Encryption, installieren Sie SSL-Zertifikate und richten Sie wichtige Management-Server während eines Upgrades von AFF A700 auf AFF A900 ein. 
+summary: Konfigurieren Sie bei Bedarf Storage Encryption, installieren Sie SSL-Zertifikate und richten Sie Schlüsselverwaltungsserver ein, wenn Sie mit ARL Controller-Modelle im gleichen Gehäuse aktualisieren. 
 ---
 = Richten Sie Storage Encryption auf dem neuen Controller-Modul ein
 :hardbreaks:

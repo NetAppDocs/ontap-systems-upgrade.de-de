@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/ensure_new_controllers_are_set_up_correctly.html 
 keywords: ensure, controllers, new, setup, ha, pair, node1, node2, lif, cluster, high, availability 
-summary: Überprüfen Sie, ob das HA-Paar aktiviert ist, überprüfen Sie den Storage-Zugriff auf Node1 und node2 sowie die LIF und bestätigen Sie die Eigentümerschaft des Aggregats, nachdem Sie eine AFF A700 auf einen AFF A900 aktualisiert haben. 
+summary: Überprüfen Sie, ob das HA-Paar aktiviert ist, überprüfen Sie Node1- und Node2-Storage-Zugriff und LIF, und bestätigen Sie nach dem Upgrade der Controller-Modelle im selben Chassis die Eigentümerschaft für Aggregate. 
 ---
 = Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind
 :hardbreaks:
@@ -29,11 +29,11 @@ Im folgenden Beispiel wird die Ausgabe des Befehls angezeigt, wenn ein Storage F
 [listing]
 ----
 cluster::> storage failover show
-                                Takeover
-Node	         Partner	        Possible	      State Description
--------------  --------------   --------------  ------------------
-node1	         node2            true	           Connected to node2
-node2	         node1            true	           Connected to node1
+                          Takeover
+Node	    Partner       Possible      State Description
+----------  -----------   ------------  ------------------
+node1	    node2         true	        Connected to node2
+node2	    node1         true	        Connected to node1
 ----
 . Vergewissern Sie sich, dass node1 und node2 zum gleichen Cluster gehören, indem Sie den folgenden Befehl verwenden und die Ausgabe überprüfen:
 +
@@ -123,7 +123,7 @@ Eingabe `y` Um alle Pakete zu entfernen.
 +
 Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie im erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt.
 
-. [[unset_maxwait]] Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off` (Beispielsweise in _Boot node2 mit AFF A900 oder FAS9500 Controller und NVRAM-Module_, link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Schritt 1"]), Sie müssen die Einstellung der Variable aufheben:
+. [[unset_maxwait]] Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off` (Beispiel: In _Boot node2 mit den Ersatz-Systemmodulen_ link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Schritt 1"]), Sie müssen die Einstellung der Variable aufheben:
 +
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
 

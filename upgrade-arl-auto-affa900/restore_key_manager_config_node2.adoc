@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/restore_key_manager_config_node2.html 
 keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption 
-summary: Falls erforderlich, stellen Sie die Key-Manager-Konfiguration auf node2 während eines AFF A700 auf ein AFF A900-Upgrade wieder her. 
+summary: Stellen Sie bei Bedarf die Key-Manager-Konfiguration auf Node 2 wieder her, wenn Sie mithilfe von ARL Controller-Modelle im gleichen Chassis aktualisieren. 
 ---
 = Wiederherstellen der Key-Manager-Konfiguration auf node2
 :hardbreaks:

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/resume_snapmirror_operations.html 
 keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete 
-summary: Setzen Sie die SnapMirror Transfers und Beziehungen während eines Upgrades von AFF A700 auf AFF A900 wieder ein. 
+summary: Setzen Sie die SnapMirror Übertragungen und -Beziehungen bei Verwendung von ARL fort, um Controller-Modelle im selben Chassis zu aktualisieren. 
 ---
 = Setzen Sie den SnapMirror Betrieb fort
 :hardbreaks:

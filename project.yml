@@ -28,7 +28,8 @@ homepage:
   - title: Upgrade durch Verschiebung von Aggregaten auf Systemen mit ONTAP 9.8 und
       höher
     links:
-    - title: Verwenden von „System Controller Replace“-Befehlen (AFF A700 to AFF A900)
+    - title: Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller
+        ersetzen“
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
     - title: Verwenden von „System Controller Replace“-Befehlen (die meisten Systeme)
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html 
-keywords: boot, NVRAM, controller, module, node1, aff, a700, a900 
-summary: Boot-Node1 mit dem AFF A900 Controller-Modul und NVRAM-Modul. 
+keywords: boot, NVRAM, controller, module, node1, replacement 
+summary: Starten Sie Node 1 mit den Ersatz-Controller-Modulen, wenn Sie Controller-Modelle im gleichen Chassis mit ARL aktualisieren. 
 ---
-= Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen
+= Starten Sie Knoten 1 mit den Ersatz-Systemmodulen
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,29 @@ summary: Boot-Node1 mit dem AFF A900 Controller-Modul und NVRAM-Modul.
 
 
 [role="lead"]
-Knoten 1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen ist nun zum Booten bereit. Bei einer AFF A700 auf AFF A900 oder einem Upgrade der FAS9000 auf FAS9500 Systeme durch Austausch des Controllers und der NVRAM-Module müssen nur die Konsole und Management-Verbindungen verschoben werden. Dieser Abschnitt enthält die Schritte, die zum Booten von Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen erforderlich sind.
+Node1 mit den Ersatzmodulen ist jetzt bereit zum Hochfahren. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten 1 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
+
+[cols="35,65"]
+|===
+| Alter Knoten 1-Controller | Ersatz-Knoten 1-Systemmodule 
+
+
+| AFF A220
+AFF A200
+AFF C 190 | AFF A150-Controller-Modul ^1^ 
+
+
+| FAS2620
+FAS2720 | FAS2820 Controller-Modul ^1^ 
+
+
+| AFF A700 | AFF A900-Controller und NVRAM-Module ^2^ 
+
+
+| FAS9000 | FAS9500 Controller- und NVRAM-Module ^2^ 
+|===
+^1^ durch Austausch des Controller-Moduls werden alle Verbindungen vom alten zum Ersatz-Controller-Modul verschoben.
+^2^ bei der Aktualisierung durch Austausch des Controllers und der NVRAM-Module werden nur die Konsole und Managementverbindungen verschoben.
 
 .Schritte
 . Wenn NetApp Storage Encryption (NSE) Laufwerke installiert sind, führen Sie die folgenden Schritte durch.
@@ -51,7 +73,7 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 +
 `boot_ontap menu`
 
-. Weisen Sie die AFF A700 Knoten1-Festplatten zu AFF A900 node1 zu. Geben Sie dazu „22/7“ ein und wählen Sie die verborgene Option aus `boot_after_controller_replacement` Wenn der Node im Boot-Menü angehalten wird.
+. Weisen Sie die alten node1-Festplatten dem Ersatznode1 neu zu, indem Sie „22/7“ eingeben und die versteckte Option auswählen `boot_after_controller_replacement` Wenn der Node im Boot-Menü angehalten wird.
 +
 Nach einer kurzen Verzögerung werden Sie aufgefordert, den Namen des Node einzugeben, der ersetzt wird. Wenn gemeinsam genutzte Festplatten vorhanden sind (auch Advanced Disk Partitioning (ADP) oder partitionierte Festplatten), werden Sie aufgefordert, den Node-Namen des HA-Partners einzugeben.
 

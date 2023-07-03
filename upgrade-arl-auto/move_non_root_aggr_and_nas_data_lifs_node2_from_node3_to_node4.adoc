@@ -131,7 +131,7 @@ NOTE: Sie müssen bestätigen, dass Sie SAN LIFs zu einem Port mit der gleichen 
 +
 `network interface show -home-node <node4> -role data`
 
-.. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administrationsstatus der LIFs auf „up“, indem Sie den folgenden Befehl eingeben, einmal für jede LIF:
+.. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
 +
 `network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 

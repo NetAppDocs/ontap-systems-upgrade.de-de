@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/required_tools_and_documentation.html 
 keywords: required, tools, documentation, install, worksheet, ontap 
-summary: Sie benötigen bestimmte Tools und Dokumentationen, um ein Upgrade von AFF A700 auf AFF A900 durchzuführen. 
+summary: Um ein Upgrade der Controller-Modelle im selben Chassis mit ARL durchzuführen, müssen Sie bestimmte Tools und Dokumentation bereitstellen. 
 ---
 = Die erforderlichen Tools und Dokumentationen
 :hardbreaks:

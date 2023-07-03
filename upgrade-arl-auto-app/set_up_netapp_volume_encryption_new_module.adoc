@@ -23,7 +23,7 @@ Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführ
 ====
 .Onboard Key Manager
 --
-*Konfigurieren Sie NVE oder NAE mit Onboard Key Manager*
+Konfigurieren Sie NVE oder NAE mit dem Onboard Key Manager.
 
 .Schritte
 . Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her:
@@ -35,7 +35,7 @@ Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführ
 --
 .Externes Verschlüsselungsmanagement
 --
-*Konfigurieren Sie NVE oder NAE mit externem Verschlüsselungsmanagement*
+Konfigurieren Sie NVE oder NAE mit externem Verschlüsselungsmanagement.
 
 .Schritte
 . Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server weiterhin verfügbar sind, deren Status und ihre Authentifizierungsdaten folgendermaßen sind:

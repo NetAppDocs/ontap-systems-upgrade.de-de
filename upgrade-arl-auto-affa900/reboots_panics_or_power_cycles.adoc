@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/reboots_panics_or_power_cycles.html 
 keywords: reboots, panics, power, cycles, node, crash 
-summary: Das System kann während verschiedener Phasen beim Upgrade einer AFF A700 auf einen AFF A900 abstürzt – Neustart, Panik oder aus- und Wiedereinschalten. 
+summary: Wenn das System mit ARL ein Upgrade von Controller-Modellen im selben Chassis verwendet wird, stürzt es möglicherweise ab – Sie starten neu, Panik oder Sie durchlaufen einen aus- und Wiedereinschalten. 
 ---
 = Neustarts, Panikspiele oder Energiezyklen
 :hardbreaks:

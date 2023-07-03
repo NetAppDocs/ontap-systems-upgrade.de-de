@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/stage_6_index.html 
-keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
-summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
+keywords: upgrade, boot, node2, verify, restore, overview, stage 1 
+summary: 'Phase 1 Prozesssequenz für ein ARL-Upgrade mit `system controller replace` Befehle zum Upgrade von Controller-Modellen in demselben Chassis.' 
 ---
 = Überblick
 :hardbreaks:
@@ -14,9 +14,9 @@ summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller
 
 
 [role="lead"]
-In Phase 6 booten Sie Node2 mit aktualisierten Controller- und NVRAM-Modulen und überprüfen die Upgrade-Installation node2. Wenn Sie NetApp Volume Encryption (NVE) verwenden, stellen Sie die Konfiguration des Schlüsselmanagers wieder her. Außerdem werden node1-Aggregate und NAS-Daten-LIFs von node1 auf die aktualisierte Node2 verschoben und Sie überprüfen, ob die SAN-LIFs auf node2 vorhanden sind.
+In Phase 6 starten Sie Knoten 2 mit aktualisierten Systemmodulen und überprüfen die aktualisierte Installation von Knoten 2. Wenn Sie NetApp Volume Encryption (NVE) verwenden, stellen Sie die Konfiguration des Schlüsselmanagers wieder her. Außerdem werden node1-Aggregate und NAS-Daten-LIFs von node1 auf die aktualisierte Node2 verschoben und Sie überprüfen, ob die SAN-LIFs auf node2 vorhanden sind.
 
-. link:boot_node2_with_a900_controller_and_nvs.html["Boot-Node2 mit AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]
+. link:boot_node2_with_a900_controller_and_nvs.html["Starten Sie Knoten2 mit den Ersatz-Systemmodulen"]
 . link:verify_node2_installation.html["Überprüfen Sie die Installation node2"]
 . link:restore_key_manager_config_node2.html["Wiederherstellen der Key-Manager-Konfiguration auf node2"]
 . link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"]

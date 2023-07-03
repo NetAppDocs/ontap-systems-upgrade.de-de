@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/verify_node1_installation.html 
-keywords: verifying, verify, node1, install, installation, aff, a900, NVRAM, controller 
-summary: Überprüfen Sie die Installation node1 mit dem AFF A900-Controller-Modul und dem NVRAM-Modul. 
+keywords: verifying, verify, node1, install, installation, NVRAM, controller, module, modules 
+summary: Überprüfen Sie die Node-1-Installation zusammen mit den Ersatzmodulen, wenn Sie mit ARL Controller-Modelle im gleichen Chassis aktualisieren. 
 ---
 = Überprüfen Sie die Installation node1
 :hardbreaks:
@@ -14,10 +14,10 @@ summary: Überprüfen Sie die Installation node1 mit dem AFF A900-Controller-Mod
 
 
 [role="lead"]
-Sie müssen die Node1-Installation mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen überprüfen. Da keine Änderung an physischen Ports vorgenommen wird, sind Sie nicht verpflichtet, die physischen Ports von der alten Knoten1 auf den Ersatz-Knoten1 zuzuordnen.
+Sie müssen die Installation von node1 mit den Ersatz-Systemmodulen überprüfen. Da keine Änderung an physischen Ports vorgenommen wird, sind Sie nicht verpflichtet, die physischen Ports von der alten Knoten1 auf den Ersatz-Knoten1 zuzuordnen.
 
 .Über diese Aufgabe
-Nachdem Sie node1 mit dem AFF A900 oder FAS9500 Controller-Modul gebootet haben, müssen Sie überprüfen, ob es korrekt installiert ist. Sie müssen warten, bis node1 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
+Nachdem Sie node1 mit dem Ersatz-Controller-Modul gestartet haben, müssen Sie überprüfen, ob es korrekt installiert ist. Sie müssen warten, bis node1 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
 
 An diesem Punkt in der Prozedur sollte der Upgrade-Vorgang des Controllers angehalten sein, da node1 versucht hat, Quorum automatisch beizutreten.
 
@@ -141,7 +141,7 @@ Im vorherigen Beispiel wurde node1 nach dem Austausch des Controllers gebootet. 
 
 +
 
-NOTE: Während eines Upgrades von AFF A700 zu AFF A900 oder eines FAS9000 zu FAS9500 Controllers sollten sich die Netzwerk-Ports und ihre Konnektivität nicht ändern. Alle Ports sollten sich in den richtigen Broadcast-Domänen befinden, und die Erreichbarkeit des Netzwerkports sollte sich nicht ändern. Bevor Sie jedoch LIFs von node2 zurück auf node1 verschieben, müssen Sie die Erreichbarkeit und den Integritätsstatus der Netzwerk-Ports überprüfen.
+NOTE: Während des Upgrades sollten sich die Netzwerkports und ihre Konnektivität nicht ändern. Alle Ports sollten sich in den richtigen Broadcast-Domänen befinden, und die Erreichbarkeit des Netzwerkports sollte sich nicht ändern. Bevor Sie jedoch LIFs von node2 zurück auf node1 verschieben, müssen Sie die Erreichbarkeit und den Integritätsstatus der Netzwerk-Ports überprüfen.
 
 . [[restore_node1_stee4]]Reparieren Sie die Erreichbarkeit für jeden Port auf node1 mit einem anderen Status als der Erreichbarkeit `ok` Mit dem folgenden Befehl in der folgenden Reihenfolge:
 +

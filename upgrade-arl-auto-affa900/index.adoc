@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/index.html 
-keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology, aff, a700, a900 
-summary: Sie können Controller Hardware bei einer AFF A700 auf einen AFF A900 upgraden, indem Sie das Controller-Modul und NVS ersetzen. 
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology, old, system, chassis, disk, disks 
+summary: Sie können Controller-Hardware aufrüsten, indem Sie ein altes System in ein Ersatzsystem konvertieren und dabei das alte Systemgehäuse und die alten Festplatten beibehalten. 
 ---
 = Überblick
 :hardbreaks:
@@ -14,22 +14,64 @@ summary: Sie können Controller Hardware bei einer AFF A700 auf einen AFF A900 u
 
 
 [role="lead"]
-Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Aggregate Relocation (ARL) für die folgenden Systemkonfigurationen:
+Dieses Verfahren beschreibt das unterbrechungsfreie Upgrade der Controller-Hardware auf einem HA-Paar mit Aggregatverschiebung (Aggregate Relocation, ARL) für die folgenden Systemkonfigurationen. Dabei wird das alte System in das Ersatzsystem konvertiert, wobei das alte Systemgehäuse und die alten Festplatten erhalten bleiben.
 
-[cols="30,20,20,30"]
+
+WARNING: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: *NOT* Verwenden Sie dieses Verfahren, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen.
+
+[cols="20,20,40"]
 |===
-| Methode | ONTAP-Version | Unterstützte Systeme | Beschreibung 
+| Altes System | Austauschsystem | Unterstützte ONTAP-Versionen 
 
 
-| Wird Verwendet `system controller replace` Befehle | 9.10.1P10, 9.11.1P6 oder eine spätere Version | AFF A700 AUF AFF A900 | Konvertiert ein AFF A700 System in ein AFF A900 System, das für das A700 Chassis sorgt 
+| AFF A220 | AFF A150 | 9.10.1P15, 9.11.1P11, 9.12.1P5 und höher 
 
 
-| Wird Verwendet `system controller replace` Befehle | 9.10.1P10, 9.11.1P6 oder eine spätere Version | FAS9000 auf FAS9500 Systeme | Konvertiert ein FAS9000 System in ein FAS9500 System, wobei das FAS9000 Chassis erhalten bleibt. 
+| AFF A200 | AFF A150  a| 
+9.10.1P15, 9.11.1P11 und höher (AFF A200 und AFF A150)
+
+
+NOTE: AFF A200 unterstützt ONTAP Versionen ab 9.11.1 nicht.
+
+
+
+| AFF C 190 | AFF A150 | 9.10.1P15, 9.11.1P11, 9.12.1P5 und höher 
+
+
+| FAS2620 | FAS2820  a| 
+9.11.1P7 und höher (FAS2620)
+
+
+NOTE: Die FAS2620 unterstützt ONTAP Versionen ab 9.11.1 nicht.
+
+9.13.1 und höher (FAS2820)
+
+
+
+| FAS2720 | FAS2820 | 9.13.1 und höher 
+
+
+| AFF A700 | AFF A900 | 9.10.1P10, 9.11.1P6 und höher 
+
+
+| FAS9000 | FAS9500 | 9.10.1P10, 9.11.1P6 und höher 
 |===
-Sie können bei der Controller Hardware auf einem HA-Paar unterbrechungsfrei Upgrades durchführen, indem Sie den Controller und die NVRAM-Module austauschen. Zum einen migrieren Sie die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes zu den Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden.
+[NOTE]
+====
+NetApp empfiehlt, wenn möglich, auf dem alten und dem Ersatzsystem dieselbe ONTAP-Version zu verwenden.
+
+Die ONTAP-Mindestversionen in der vorstehenden Tabelle sind obligatorisch. Diese ONTAP-Versionen verfügen über die Firmware-Version des Service-Prozessors oder des Baseboard Management Controller (BMC), die erforderlich ist, um während eines Upgrades gemischte Controller-Typen innerhalb eines Chassis zu unterstützen.
+
+====
+Während des Verfahrens migrieren Sie die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes zu den Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden.
 
 .Über diese Aufgabe
-Während dieses Controller-Upgrades ersetzen Sie nur die beiden vor Ort austauschbaren Einheiten (FRUs) auf jedem Node der AFF A700 oder FAS9000 System durch die neuen FRUs.
+Während dieses Controller-Upgrades führen Sie einen der folgenden Schritte aus:
+
+* Tauschen Sie das Controller-Modul auf jedem Node des AFF A220, AFF A200 oder AFF C190 Systems durch das neue AFF A150 Modul aus.
+* Tauschen Sie das Controller-Modul auf jedem Node des FAS2720 oder FAS2720 Systems durch das neue FAS2720 Modul aus.
+* Tauschen Sie die zwei Controller- und NVRAM-Module auf jedem Node des AFF A700 oder FAS9000 Systems durch die neuen AFF A900- oder FAS9500-Module aus.
+
 
 
 NOTE: Sie müssen die I/O-Karten, Datenkabel, Platten-Shelfs und Festplatten nicht verschieben, trennen oder erneut anschließen.
@@ -45,7 +87,14 @@ NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in
 * Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie sollten auch lesen und verstehen, die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien für Controller Upgrades"] Und das link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"] Abschnitte vor Beginn der Aktualisierung.
 * Bei diesem Verfahren wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht in einem anderen System verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor als Teil eines anderen ONTAP Clusters oder als Standalone-System mit einem einzelnen Node verwendet wurde.
 * Sie können dieses Verfahren zum Upgrade der Controller Hardware in Clustern mit mehr als zwei Nodes verwenden. Sie müssen jedoch die Verfahren für jedes HA-Paar im Cluster separat durchführen.
-* Dieses Verfahren gilt nur für AFF A700 und FAS9000 Systeme. Weitere Controller-Modelle, für die ein Upgrade auf ein AFF A900 oder FAS9500 System erforderlich ist, finden Sie unter link:other_references.html["Quellen"] Verbinden mit den Befehlen „System Controller Replace“ („System Controller Replace“) zum Aktualisieren der Controller-Hardware mit ONTAP 9.8 oder höher_ und zum manuellen Upgrade der Controller Hardware mit ONTAP 9.8 oder höher_-Inhalten.
+* Wenn Sie über einen Switch verfügen, der von der ONTAP-Version und dem Ersatzsystem, auf das Sie aktualisieren, nicht unterstützt wird, finden Sie weitere Informationen unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+* Dieses Verfahren gilt nur für AFF A200, AFF A220, AFF C190, FAS2720, FAS2720, AFF A700 und FAS9000 Systeme. Informationen zu allen anderen Controller-Modellen, die ein Upgrade auf ein AFF A150-, FAS2820-, AFF A900- oder FAS9500-System erfordern, finden Sie unter link:other_references.html["Quellen"] Verwenden Sie zum Verlinken die Befehle „System Controller Replace“, um die Controller-Hardware mit ONTAP 9.8 oder höher und die Aggregatverschiebung _verwenden, um die Controller-Hardware mit ONTAP 9.8 oder neuer manuell zu aktualisieren.
 * Die AFF Systeme A900 und FAS9500 unterstützen nur High-Line-Strom (200 V bis 240 V). Wenn Ihr AFF A700 oder FAS9000 System mit niedriger Netzspannung (100 V bis 120 V) ausgeführt wird, müssen Sie vor diesem Verfahren die Eingangsspannung der AFF A700 oder FAS9000 konvertieren.
-* Falls Sie ein Upgrade von einem AFF A700 oder FAS9000 System mit Ausfallzeit durchführen, können Sie bei einem Controller-Hardware-Upgrade entweder den Storage verlagern oder den technischen Support kontaktieren. Siehe link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+* Wenn Sie ein Upgrade von einer AFF A200, AFF A220, AFF C190, FAS2720, FAS2720, AFF A700 oder FAS9000 System mit Ausfallzeiten können Sie die Controller-Hardware durch Verschieben von Storage aufrüsten oder sich an den technischen Support wenden. Siehe link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
+
+
+
+== Automatisierung des Controller-Upgrades
+
+Dieses Verfahren unterstützt die folgenden Controller-Upgrades und enthält die Schritte für das automatisierte Verfahren. Es umfasst automatische Festplattenzuordnung und Überprüfung der Verfügbarkeit von Netzwerkports, um das Upgrade für den Controller zu vereinfachen.

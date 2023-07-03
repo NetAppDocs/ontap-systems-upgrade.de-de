@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/retire_node2.html 
-keywords: retire, node2 
-summary: Fahren Sie node2 herunter, und entfernen Sie es während eines Upgrades von AFF A700 auf AFF A900 aus dem Rack oder Chassis. 
+keywords: retire, node2, retiring, node 
+summary: Fahren Sie node2 herunter und entfernen Sie es aus dem Rack oder Chassis, wenn Sie mit ARL ein Upgrade der Controller-Modelle im selben Chassis durchführen. 
 ---
 = Node2 ausmustern
 :hardbreaks:

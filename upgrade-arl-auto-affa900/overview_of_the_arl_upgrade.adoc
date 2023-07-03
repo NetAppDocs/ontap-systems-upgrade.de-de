@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html 
-keywords: overview, arl, upgrade, owner, controller, hardware 
-summary: Erfahren Sie, wie das Upgrade-Verfahren für den ARL-Controller von AFF A700 auf AFF A900 funktioniert. 
+keywords: overview, arl, upgrade, owner, controller, hardware, old, system, chassis, disk, disks 
+summary: Informieren Sie sich, wie das Upgrade von Controller-Modellen im selben Chassis durch ARL erfolgt. 
 ---
 = Überblick über das ARL Upgrade
 :hardbreaks:
@@ -38,7 +38,7 @@ Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einze
 
 
 | link:stage_1_index.html["Phase 1: Upgrade vorbereiten"]  a| 
-Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschoben. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie müssen die erforderlichen Node1-Informationen zur Verwendung später im Verfahren aufzeichnen und anschließend die entsprechenden node1-Controller und NVRAM-Module austauschen, node1 ausmustern und den aktualisierten node1-Netzboot ausführen.
+In Phase 1 überprüfen Sie, ob Sie über die richtige Hardware für Ihr Upgrade verfügen, führen Vorabprüfungen durch und korrigieren bei Bedarf die Eigentümerschaft für Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie Storage Encryption mit dem Onboard Key Manager managen und die SnapMirror Beziehungen stilllegen möchten.
 
 Gesamteigentum am Ende von Phase 1:
 
@@ -48,8 +48,8 @@ Gesamteigentum am Ende von Phase 1:
 
 
 
-| link:stage_2_index.html["Phase 2: Verschieben von Ressourcen von Knoten1 und Ausmustern von AFF A700 oder FAS9000 Node1"]  a| 
-Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschoben. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie erfassen Node1-Informationen für die spätere Verwendung im Verfahren vor dem Ausscheiden von node1. Sie können sich auch später beim Verfahren auf den Netzboot node1 vorbereiten.
+| link:stage_2_index.html["Phase 2: Ressourcen verlagern und Knoten in den Ruhestand zurücknehmen 1"]  a| 
+In Phase 2 verschieben Sie Node1-nicht-Root-Aggregate und NAS-Daten-LIFs von Node1 zu Node2. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie erfassen Node1-Informationen für die spätere Verwendung im Verfahren vor dem Ausscheiden von node1. Sie können sich auch später beim Verfahren auf den Netzboot node1 vorbereiten.
 
 Gesamteigentum am Ende von Phase 2:
 
@@ -59,18 +59,18 @@ Gesamteigentum am Ende von Phase 2:
 
 
 
-| link:stage_3_index.html["Phase 3: Boot-Node1 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
-In Phase 3 booten Sie Node1 mit aktualisierten Controller- und NVRAM-Modulen und überprüfen die aktualisierte Node1-Installation. Wenn Sie NetApp Volume Encryption (NVE) verwenden, stellen Sie die Konfiguration des Schlüsselmanagers wieder her. Außerdem werden node1 Aggregate und NAS-Daten-LIFs von node2 auf die aktualisierte Node1 verschoben und Sie überprüfen, ob die SAN-LIFs auf node1 vorhanden sind.
+| link:stage_3_index.html["Stufe 3: Starten Sie Node1 mit den Ersatz-Systemmodulen"]  a| 
+In Phase 3 starten Sie node1 mit aktualisierten Systemmodulen und überprüfen die aktualisierte node1-Installation. Wenn Sie NetApp Volume Encryption (NVE) verwenden, stellen Sie die Konfiguration des Schlüsselmanagers wieder her. Außerdem werden node1 Aggregate und NAS-Daten-LIFs von node2 auf die aktualisierte Node1 verschoben und Sie überprüfen, ob die SAN-LIFs auf node1 vorhanden sind.
 
 Gesamteigentum am Ende von Stufe 3:
 
-* Aktualisiertes AFF A900 oder FAS9500 Node1 ist der Eigentümer und aktueller Besitzer von Node1 Aggregaten
+* Aktualisierter node1 ist der Haupteigentümer und aktueller Besitzer von node1-Aggregaten
 * Node2 ist der Hausbesitzer und der aktuelle Besitzer von node2 Aggregaten
 
 
 
 
-| link:stage_4_index.html["Phase 4: Verlagerung von Ressourcen von node2 und Ausmustern node2"]  a| 
+| link:stage_4_index.html["Phase 4: Ressourcen verlagern und Knoten zurücknehmen 2"]  a| 
 Während Phase 4 verschieben Sie Aggregate und NAS-Daten-LIFs von Knoten 2 auf die aktualisierte Knoten 1 und Mustern Knoten 2 aus.
 
 Gesamteigentum am Ende von Stufe 4:
@@ -81,8 +81,8 @@ Gesamteigentum am Ende von Stufe 4:
 
 
 
-| link:stage_5_index.html["Phase 5: Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2"]  a| 
-In Phase 5 installieren Sie die neuen NVRAM- und Controller-Module, die Sie für den aktualisierten Node2 erhalten haben, und anschließend als Netzboot node2.
+| link:stage_5_index.html["Stufe 5: Installieren Sie die Ersatz-Systemmodule auf Knoten 2"]  a| 
+In Phase 5 installieren Sie die neuen Systemmodule, die Sie für den aktualisierten Knoten 2 erhalten haben, und dann Netboot Knoten 2.
 
 Gesamteigentum am Ende von Stufe 5:
 
@@ -92,8 +92,8 @@ Gesamteigentum am Ende von Stufe 5:
 
 
 
-| link:stage_6_index.html["Phase 6: Boot-Node2 mit dem AFF A900 oder FAS9500 Controller und NVRAM-Modulen"]  a| 
-In Phase 6 booten Sie Node2 mit aktualisierten Controller- und NVRAM-Modulen und überprüfen die Upgrade-Installation node2. Wenn Sie NVE verwenden, stellen Sie die Konfiguration für Schlüsselmanager wieder her. Außerdem werden node1-Aggregate und NAS-Daten-LIFs von node1 auf die aktualisierte Node2 verschoben und Sie überprüfen, ob die SAN-LIFs auf node2 vorhanden sind.
+| link:stage_6_index.html["Stufe 6: Starten Sie Node2 mit den Ersatz-Systemmodulen"]  a| 
+In Phase 6 starten Sie Knoten 2 mit aktualisierten Systemmodulen und überprüfen die aktualisierte Installation von Knoten 2. Wenn Sie NVE verwenden, stellen Sie die Konfiguration für Schlüsselmanager wieder her. Außerdem werden node1-Aggregate und NAS-Daten-LIFs von node1 auf die aktualisierte Node2 verschoben und Sie überprüfen, ob die SAN-LIFs auf node2 vorhanden sind.
 
 
 

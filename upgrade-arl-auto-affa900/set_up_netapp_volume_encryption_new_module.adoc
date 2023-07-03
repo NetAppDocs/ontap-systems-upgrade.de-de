@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/set_up_netapp_volume_encryption_new_module.html 
 keywords: set up, netapp volume encryption, controller, module, nve, node 
-summary: Konfigurieren Sie, falls erforderlich, das neue Controller-Modul für NVE oder NAE während eines Upgrades von AFF A700 auf AFF A900.“ 
+summary: Konfigurieren Sie bei Bedarf das neue Controller-Modul für NVE oder NAE bei einem Upgrade von Controller-Modellen im selben Chassis durch ARL.“ 
 ---
 = Einrichtung von NetApp Volume oder Aggregate Encryption auf dem neuen Controller-Modul
 :hardbreaks:
@@ -23,7 +23,7 @@ Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführ
 ====
 .Onboard Key Manager
 --
-*Konfigurieren Sie NVE oder NAE mit Onboard Key Manager*
+Konfigurieren Sie NVE oder NAE mit dem Onboard Key Manager.
 
 .Schritte
 . Stellen Sie Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern mit dem neuen Knoten wieder her:
@@ -35,7 +35,7 @@ Dieses Verfahren umfasst Schritte, die auf dem neuen Controller-Modul ausgeführ
 --
 .Externes Verschlüsselungsmanagement
 --
-*Konfigurieren Sie NVE oder NAE mit externem Verschlüsselungsmanagement*
+Konfigurieren Sie NVE oder NAE mit externem Verschlüsselungsmanagement.
 
 .Schritte
 . Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server weiterhin verfügbar sind, deren Status und ihre Authentifizierungsdaten folgendermaßen sind:

@@ -38,7 +38,7 @@ Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einze
 
 
 | link:stage_1_index.html["Stufe 1: Bereiten Sie sich auf das Upgrade vor"]  a| 
-In Phase 1 führen Sie Vorabprüfungen durch und korrigieren, falls erforderlich, die Eigentümerschaft für die Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie die Storage-Verschlüsselung mithilfe von OKM verwalten und Sie können wählen, die SnapMirror Beziehungen stillzulegen.
+In Phase 1 führen Sie Vorabprüfungen durch und korrigieren, falls erforderlich, die Eigentümerschaft für die Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie Storage-Verschlüsselung mit dem Onboard Key Manager managen und die SnapMirror Beziehungen stilllegen möchten.
 
 Gesamteigentum am Ende von Phase 1:
 

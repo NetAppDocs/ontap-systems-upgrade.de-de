@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html 
-keywords: relocate, non-root, aggregates, nas, lif, node2, node1. aff, a900, NVRAM, controller 
-summary: Verschiebung von nicht-Root-Aggregaten node2 während eines AFF A700 auf AFF A900. 
+keywords: relocate, non-root, aggregates, nas, lif, node2, node1, NVRAM, controller, module, modules 
+summary: Verschieben Sie die nicht-Root-Aggregate von Node 2 in Node 1, wenn Sie Controller-Modelle im selben Chassis mit ARL aktualisieren. 
 ---
 = Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs von Knoten 2 auf Knoten 1
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Verschiebung von nicht-Root-Aggregaten node2 während eines AFF A700 au
 
 
 [role="lead"]
-Bevor Sie node2 durch das AFF A900 oder das FAS9500 Controller-Modul und das NVRAM-Modul ersetzen können, müssen Sie zuerst die nicht-Root-Aggregate, die sich im Besitz von node2 befinden, in node1 verschieben.
+Bevor Sie Knoten 2 durch das Ersatz-Systemmodul ersetzen können, müssen Sie zunächst die nicht-Root-Aggregate, die im Besitz von Knoten 2 sind, in Knoten 1 verschieben.
 
 .Bevor Sie beginnen
 Nach den Nachprüfungen aus der vorherigen Phase wird automatisch die Ressourcenfreigabe für node2 gestartet. Die Aggregate außerhalb des Root-Bereichs und LIFs für nicht-SAN-Daten werden von node2 in die neue Knoten1 migriert.
@@ -37,10 +37,10 @@ Das folgende Beispiel zeigt, dass die nicht-Root-Aggregate auf node1 online sind
 ----
 cluster::> storage aggregate show -node node1 state online -root false
 
-Aggregate     Size        Available   Used%   State	 #Vols	 Nodes	  RAID	   Status
+Aggregate     Size        Available   Used%   State	  #Vols	 Nodes	 RAID	  Status
 ----------    ---------   ---------   ------  -----   -----  ------  -------  ------
-aggr_1	      744.9GB      744.8GB	 0%	 online	  5	 node1	  raid_dp  normal
-aggr_2	      825.0GB	    825.0GB	 0%	 online	  1	 node1	  raid_dp  normal
+aggr_1	      744.9GB     744.8GB	  0%	  online	  5	 node1   raid_dp  normal
+aggr_2	      825.0GB	  825.0GB	  0%	  online	  1	 node1   raid_dp  normal
 2 entries were displayed.
 ----
 +
@@ -62,7 +62,7 @@ Wenn ein Volume auf node1 offline ist, stellen Sie sie mit dem folgenden Befehl 
 +
 Der `_vserver-name_` Die Verwendung mit diesem Befehl ist in der Ausgabe des vorherigen gefunden `volume show` Befehl.
 
-. Überprüfen Sie, ob die LIFs zu den richtigen Ports verschoben wurden und über den Status von verfügen `up`. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administrationsstatus der LIFs auf „up“, indem Sie den folgenden Befehl eingeben, einmal für jede LIF:
+. Überprüfen Sie, ob die LIFs zu den richtigen Ports verschoben wurden und über den Status von verfügen `up`. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
 +
 `network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _nodename_ - status-admin up`
 
