@@ -64,7 +64,7 @@ entries:
     url: "/upgrade/upgrade-prepare-when-moving-volumes.html"
   - title: Installieren und Join neuer Nodes
     url: "/upgrade/upgrade-install-and-join-new-nodes-move-vols.html"
-  - title: Erstellung von Aggregaten und Verschieben von Volumes
+  - title: Erstellen Sie ein Aggregat und verschieben Sie Volumes
     url: "/upgrade/upgrade-create-aggregate-move-volumes.html"
   - title: Verschieben Sie LIFs für nicht-SAN-Daten und LIFs für das Cluster-Management
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"

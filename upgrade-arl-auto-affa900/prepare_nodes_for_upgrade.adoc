@@ -19,7 +19,7 @@ Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfunge
 .Schritte
 . Listen Sie die Firmware-Version des Service-Prozessors (SP) oder des Baseboard Management Controller (BMC) auf, die auf dem alten Controller ausgeführt wird:
 +
-`service-processor show` Befehl:
+`service-processor show`
 
 +
 Vergewissern Sie sich, dass Sie über eine unterstützte SP- oder BMC-Firmware-Version verfügen:
@@ -150,7 +150,7 @@ Führen Sie von dem seriellen Port aus, der mit jedem Node verbunden ist, und sp
 
 +
 
-NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) mit Onboard Key Manager verwendet wird, halten Sie die Schlüsselmanager-Passphrase bereit, um die Resynchronisierung des Schlüsselmanagers später im Verfahren durchzuführen.
+NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) den Onboard Key Manager verwendet, halten Sie die Schlüsselmanager-Passphrase bereit, um später im Verfahren die Neusynchronisierung des Schlüsselmanagers abzuschließen.
 
 . Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:
 +

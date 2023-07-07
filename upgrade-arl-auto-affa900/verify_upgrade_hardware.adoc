@@ -14,7 +14,7 @@ summary: Vergewissern Sie sich vor Beginn des Upgrades, dass Sie über die richt
 
 
 [role="lead"]
-Bevor Sie mit dem Upgrade beginnen, müssen Sie überprüfen, ob Sie die richtige Hardware für Ihr Upgrade haben. Je nach Upgrade müssen Sie für jedes hochaufrüstige HA-Paar zwei Controller-Module oder zwei Controller-Module und zwei NVRAM-Module besitzen. Sollten Teile fehlen, wenden Sie sich an den technischen Support oder Ihren NetApp Ansprechpartner.
+Vergewissern Sie sich vor dem Upgrade, dass Sie die richtige Hardware für das Upgrade haben. Je nach Upgrade müssen Sie für jedes hochaufrüstige HA-Paar zwei Controller-Module oder zwei Controller-Module und zwei NVRAM-Module besitzen. Sollten Teile fehlen, wenden Sie sich an den technischen Support oder an Ihren NetApp Ansprechpartner.
 
 [cols="50,50"]
 |===

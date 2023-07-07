@@ -14,7 +14,7 @@ summary: Aktivieren Sie das HA-Paar, überprüfen Sie den Node3- und node4-Stora
 
 
 [role="lead"]
-Um das korrekte Setup zu bestätigen, müssen Sie das HA-Paar aktivieren. Sie müssen außerdem überprüfen, dass Node3 und node4 auf den Storage der jeweils anderen Person zugreifen können und dass keine der logischen Datenschnittstellen zu anderen Nodes im Cluster vorhanden sind. Darüber hinaus müssen Sie bestätigen, dass Node3 zu Aggregaten node1 gehört und dass node4 die Aggregate von node2 besitzt und dass die Volumes für beide Nodes online sind.
+Um die korrekte Einrichtung zu bestätigen, aktivieren Sie das HA-Paar. Außerdem überprüfen Sie, ob Node 3 und node 4 auf den Storage zugreifen können und ob keine der Daten-LIFs gehören, die zu anderen Nodes im Cluster gehören. Außerdem bestätigen Sie, dass Node 3 Eigentümer der Aggregate von Node 1 ist und node4 Eigentümer der Aggregate von Node 2 ist und die Volumes für beide Nodes online sind.
 
 .Schritte
 . Aktivieren Sie Storage Failover, indem Sie auf einem der Nodes den folgenden Befehl eingeben:

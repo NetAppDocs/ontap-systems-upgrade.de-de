@@ -14,7 +14,7 @@ summary: Deaktivieren Sie das HA-Paar mit Node 2 und beenden Sie Node 1, wenn Si
 
 
 [role="lead"]
-Um Knoten1 auszumustern, setzen Sie den automatischen Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 korrekt herunterzufahren. Sie müssen später die alten Systemmodule aus dem Gehäuse von Knoten1 entfernen und dann die Ersatzmodule auf Knoten1 installieren.
+Um node1 auszumustern, setzen Sie den automatisierten Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 ordnungsgemäß herunterzufahren.
 
 .Schritte
 . Vorgang fortsetzen:

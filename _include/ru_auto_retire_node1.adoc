@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-Um „node1“ außer Betrieb zu nehmen, setzen Sie den automatischen Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 ordnungsgemäß herunterzufahren. Später müssen Sie den Knoten1 aus dem Rack oder Gehäuse entfernen.
+Um „node1“ außer Betrieb zu nehmen, setzen Sie den automatischen Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 ordnungsgemäß herunterzufahren. Später im Verfahren entfernen Sie Knoten 1 aus dem Rack oder Gehäuse.
 
 .Schritte
 . Vorgang fortsetzen:

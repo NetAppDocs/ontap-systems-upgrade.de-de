@@ -14,7 +14,7 @@ summary: Nachdem Sie die entsprechenden Node2-Ersatzsystemmodule ausgetauscht ha
 
 
 [role="lead"]
-Nachdem Sie die entsprechenden Node2-Ersatzsystemmodule ausgetauscht haben, müssen Sie sie möglicherweise mit dem Netzboot starten. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einem Webserver ablegen, auf den das System zugreifen kann.
+Nachdem Sie die entsprechenden Node2-Ersatzsystemmodule ausgetauscht haben, müssen Sie sie möglicherweise mit dem Netzboot starten. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Bei der Vorbereitung auf den Netzboot legen Sie eine Kopie des ONTAP 9-Startabbilds auf einen Webserver, auf den das System zugreifen kann.
 
 Es ist nicht möglich, die auf dem Boot-Medium des Ersatz-Controller-Moduls installierte ONTAP-Version zu überprüfen, es sei denn, sie ist in einem Gehäuse installiert und eingeschaltet. Die ONTAP-Version auf dem Ersatz-System-Boot-Medium muss mit der ONTAP-Version auf dem alten System identisch sein, das Sie aktualisieren, und sowohl das primäre als auch das Backup-Boot-Image müssen übereinstimmen. Sie können die Images konfigurieren, indem Sie einen Netzboot gefolgt vom ausführen `wipeconfig` Befehl aus dem Startmenü. Wenn das Controller-Modul zuvor in einem anderen Cluster verwendet wurde, führt das aus `wipeconfig` Mit dem Befehl wird die Restkonfiguration auf dem Boot-Medium gelöscht.
 

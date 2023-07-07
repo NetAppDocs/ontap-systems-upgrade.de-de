@@ -14,7 +14,7 @@ summary: Überprüfen Sie, ob das HA-Paar aktiviert ist, überprüfen Sie Node1-
 
 
 [role="lead"]
-Um das richtige Setup zu bestätigen, müssen Sie überprüfen, ob das HA-Paar aktiviert ist. Sie müssen außerdem überprüfen, ob node1 und node2 auf den Storage der jeweils anderen Person zugreifen können und dass keine der logischen Datenschnittstellen zu anderen Nodes im Cluster vorhanden sind. Zudem müssen Sie überprüfen, ob sich alle Datenaggregate auf den richtigen Home Nodes befinden und dass die Volumes für beide Nodes online sind. Wenn einer der neuen Nodes über einen Unified Target Adapter verfügt, müssen Sie alle Port-Konfigurationen wiederherstellen. Darüber hinaus muss die Verwendung des Adapters geändert werden.
+Um die korrekte Einrichtung zu überprüfen, überprüfen Sie, ob das HA-Paar aktiviert ist. Außerdem überprüfen Sie, ob Node 1 und Node 2 auf den Storage zugreifen können und ob keine der Daten-LIFs gehören, die zu anderen Nodes im Cluster gehören. Außerdem überprüfen Sie, ob alle Datenaggregate auf den richtigen Home Nodes vorhanden sind und ob die Volumes für beide Nodes online sind. Wenn einer der neuen Nodes über einen Unified Target Adapter verfügt, müssen Sie alle Port-Konfigurationen wiederherstellen. Darüber hinaus muss die Verwendung des Adapters geändert werden.
 
 .Schritte
 . Nach den Tests nach der Prüfung von „node2“ werden das Storage Failover und das Cluster HA-Paar für den node2 Cluster aktiviert. Nach Abschluss des Vorgangs werden beide Nodes als abgeschlossen angezeigt, und das System führt einige Bereinigungsvorgänge aus.

@@ -14,7 +14,7 @@ summary: 'Phase 1 Prozesssequenz für ein ARL-Upgrade mit `system controller rep
 
 
 [role="lead"]
-In Phase 1 überprüfen Sie, ob Sie über die richtige Hardware für Ihr Upgrade verfügen, führen Vorabprüfungen durch und korrigieren bei Bedarf die Eigentümerschaft für Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie Storage Encryption mit dem Onboard Key Manager managen und die SnapMirror Beziehungen stilllegen möchten.
+In Phase 1 überprüfen Sie, ob Sie über die richtige Hardware für Ihr Upgrade verfügen, führen Vorabprüfungen durch und korrigieren bei Bedarf die Eigentümerschaft für Aggregate. Wenn Sie Storage Encryption mit dem Onboard Key Manager managen, erfassen Sie bestimmte Informationen auch und können die SnapMirror Beziehungen stilllegen.
 
 .Schritte
 . link:verify_upgrade_hardware.html["Überprüfen Sie die Upgrade-Hardware"]

@@ -14,7 +14,7 @@ summary: Starten Sie Node 2 mit den Ersatz-Controller-Modulen, wenn Sie Controll
 
 
 [role="lead"]
-Node2 mit den Ersatzmodulen ist jetzt bereit zum Hochfahren. Bei der Aktualisierung durch Austausch der Systemmodule werden nur die Konsolen- und Managementverbindungen verschoben. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten2 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
+Node2 mit den Ersatzmodulen ist nun startbereit. Bei der Aktualisierung durch Austausch der Systemmodule werden nur die Konsolen- und Managementverbindungen verschoben. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten2 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
 
 [cols="35,65"]
 |===

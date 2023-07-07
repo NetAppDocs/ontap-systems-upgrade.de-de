@@ -14,7 +14,7 @@ summary: Starten Sie Node 1 mit den Ersatz-Controller-Modulen, wenn Sie Controll
 
 
 [role="lead"]
-Node1 mit den Ersatzmodulen ist jetzt bereit zum Hochfahren. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten 1 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
+Node1 mit den Ersatzmodulen ist nun startbereit. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten 1 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
 
 [cols="35,65"]
 |===
@@ -35,8 +35,8 @@ FAS2720 | FAS2820 Controller-Modul ^1^
 
 | FAS9000 | FAS9500 Controller- und NVRAM-Module ^2^ 
 |===
-^1^ durch Austausch des Controller-Moduls werden alle Verbindungen vom alten zum Ersatz-Controller-Modul verschoben.
-^2^ bei der Aktualisierung durch Austausch des Controllers und der NVRAM-Module werden nur die Konsole und Managementverbindungen verschoben.
+^1^ beim Austausch von Controller-Modulen verschieben Sie alle Verbindungen vom alten zum Ersatz-Controller-Modul.
+^2^ beim Austauschen des Controllers und der NVRAM-Module verschieben Sie nur die Konsole und die Managementverbindungen.
 
 .Schritte
 . Wenn NetApp Storage Encryption (NSE) Laufwerke installiert sind, führen Sie die folgenden Schritte durch.

@@ -14,7 +14,7 @@ summary: Wenn Sie mit ARL Controller-Modelle im gleichen Gehäuse aktualisieren,
 
 
 [role="lead"]
-Nach dem Austausch der entsprechenden Ersatz-Systemmodule müssen Sie netboot node1. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Wenn Sie das Netzboot vorbereiten, müssen Sie eine Kopie des ONTAP 9 Boot Images auf einen Webserver hinzufügen, auf den das System zugreifen kann.
+Nach dem Austausch der entsprechenden Ersatz-Systemmodule müssen Sie netboot node1. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Bei der Vorbereitung auf Netzboot fügen Sie eine Kopie des ONTAP 9-Startabbilds auf einen Webserver hinzu, auf den das System zugreifen kann.
 
 Es ist nicht möglich, die auf dem Boot-Medium des Ersatz-Controller-Moduls installierte ONTAP-Version zu überprüfen, es sei denn, sie ist in einem Gehäuse installiert und eingeschaltet. Die ONTAP-Version auf dem Ersatz-System-Startmedium muss mit der ONTAP-Version auf dem alten System übereinstimmen, das Sie aktualisieren, und sowohl das primäre als auch das Backup-Startabbild müssen übereinstimmen. Informationen zur Überprüfung der unterstützten ONTAP-Mindestversion für Ihr Upgrade finden Sie unter link:index.html["Überblick"].
 

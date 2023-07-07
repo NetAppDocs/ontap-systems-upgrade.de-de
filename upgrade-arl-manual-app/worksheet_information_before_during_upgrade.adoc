@@ -14,9 +14,9 @@ summary: Sammeln Sie bei einem manuellen ARL Upgrade auf Controllern mit ONTAP 9
 
 
 [role="lead"]
-Sie müssen bestimmte Informationen erfassen, um die ursprünglichen Nodes erfolgreich aktualisieren zu können. Die Informationen umfassen Node-IDs, Port- und LIF-Details, Lizenzschlüssel und IP-Adressen.
+Sie sollten bestimmte Informationen sammeln, um das Upgrade der ursprünglichen Nodes zu unterstützen. Diese Informationen umfassen Node-IDs, Port- und LIF-Details, Lizenzschlüssel und IP-Adressen.
 
-Sie können das folgende Arbeitsblatt verwenden, um Informationen zur Verwendung zu einem späteren Zeitpunkt bei dem Verfahren aufzuzeichnen:
+Sie können das folgende Arbeitsblatt verwenden, um die Informationen für eine spätere Verwendung im Verfahren aufzuzeichnen:
 
 |===
 | Erforderliche Informationen | Wenn erfasst | Wenn verwendet | Erfassten Informationen Fertigzustellen 

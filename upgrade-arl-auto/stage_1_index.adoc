@@ -14,7 +14,7 @@ summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller
 
 
 [role="lead"]
-In Phase 1 führen Sie Vorabprüfungen durch und korrigieren, falls erforderlich, die Eigentümerschaft für die Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie Storage-Verschlüsselung mit dem Onboard Key Manager managen und die SnapMirror Beziehungen stilllegen möchten.
+In Phase 1 führen Sie Vorabprüfungen durch und korrigieren, falls erforderlich, die Eigentümerschaft für die Aggregate. Außerdem zeichnen Sie bestimmte Informationen auf, wenn Sie Storage-Verschlüsselung mit dem Onboard Key Manager managen und die SnapMirror Beziehungen stilllegen möchten.
 
 .Schritte
 . link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"]

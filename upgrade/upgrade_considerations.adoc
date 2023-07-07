@@ -13,12 +13,15 @@ summary: Bei der Planung des Upgrades sollten Sie sich mit den allgemeinen Über
 [role="lead"]
 Zur Planung des Upgrades müssen Sie sich mit den allgemeinen Upgrade-Überlegungen vertraut machen. Wenden Sie sich bei Bedarf an den technischen Support, um Empfehlungen und Hinweise zu erhalten, die der Konfiguration Ihres Clusters spezifisch sind.
 
-Anforderungen und Einschränkungen zu erfüllen
-
+.Anforderungen und Einschränkungen zu erfüllen
 * Das Upgrade durch Verschiebung von Storage ist mit Unterbrechungen verbunden. Das Upgrade durch Verschieben von Volumes erfolgt unterbrechungsfrei.
-* Die neuen Nodes müssen dieselbe Softwareversion wie die ursprünglichen Nodes unterstützen.
+* Die ursprünglichen Nodes müssen die gleiche Softwareversion wie die neuen Nodes unterstützen.
 +
 link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Upgrade von ONTAP"^]
+
++
+
+NOTE: Weitere Informationen zu Cluster-Upgrades mit gemischten Softwareversionen finden Sie unter https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["ONTAP Cluster mit gemischten Versionen"^].
 
 * Sie müssen die maximale Cluster-Größe beobachten.
 +

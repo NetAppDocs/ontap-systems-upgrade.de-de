@@ -14,7 +14,7 @@ summary: Vergewissern Sie sich, dass die node1 NAS-Daten-LIFs auf Node 2 von Nod
 
 
 [role="lead"]
-Nachdem Sie die Netzwerkkonfiguration auf node1 und bevor Sie Aggregate von node2 nach node1 verschieben, müssen Sie überprüfen, ob die NAS-Daten-LIFs, die zu node1 gehören und sich derzeit auf node2 befinden, von node2 in node1 verschoben werden. Sie müssen außerdem überprüfen, ob die SAN-LIFs auf node1 vorhanden sind.
+Nachdem Sie die Netzwerkkonfiguration auf Knoten 1 überprüft und bevor Sie Aggregate von Knoten 2 zu Knoten 1 verschieben, überprüfen Sie, ob die NAS-Daten-LIFs, die zu Knoten 1 gehören, die sich derzeit auf Knoten 2 befinden, von Knoten 2 zu Knoten 1 verschoben werden. Sie müssen außerdem überprüfen, ob die SAN LIFs auf Knoten1 vorhanden sind.
 
 .Über diese Aufgabe
 Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Nachdem Sie node1 in den Online-Modus versetzt haben, müssen Sie überprüfen, ob sich die LIFs in einem ordnungsgemäßen Zustand und auf den entsprechenden Ports befinden.

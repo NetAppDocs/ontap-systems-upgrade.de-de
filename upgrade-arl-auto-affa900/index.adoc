@@ -66,7 +66,7 @@ Die ONTAP-Mindestversionen in der vorstehenden Tabelle sind obligatorisch. Diese
 Während des Verfahrens migrieren Sie die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes zu den Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden.
 
 .Über diese Aufgabe
-Während dieses Controller-Upgrades führen Sie einen der folgenden Schritte aus:
+Während dieses Controller-Upgrades führen Sie eines der folgenden Upgrades durch:
 
 * Tauschen Sie das Controller-Modul auf jedem Node des AFF A220, AFF A200 oder AFF C190 Systems durch das neue AFF A150 Modul aus.
 * Tauschen Sie das Controller-Modul auf jedem Node des FAS2720 oder FAS2720 Systems durch das neue FAS2720 Modul aus.
@@ -97,4 +97,4 @@ NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in
 
 == Automatisierung des Controller-Upgrades
 
-Dieses Verfahren unterstützt die folgenden Controller-Upgrades und enthält die Schritte für das automatisierte Verfahren. Es umfasst automatische Festplattenzuordnung und Überprüfung der Verfügbarkeit von Netzwerkports, um das Upgrade für den Controller zu vereinfachen.
+Dieses Verfahren enthält die Schritte für das automatisierte Verfahren. Hierbei werden die automatische Festplattenzuordnung und die Überprüfung der Erreichbarkeit von Netzwerk-Ports verwendet, um das Upgrade des Controllers zu vereinfachen.

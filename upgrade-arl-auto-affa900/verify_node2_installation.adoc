@@ -17,7 +17,7 @@ summary: Überprüfen Sie die Node-2-Installation durch Ersatzmodule, wenn Sie m
 Sie müssen die Installation von node2 mit den Ersatz-Systemmodulen überprüfen. Da keine Änderung an physischen Ports erfolgt, sind Sie nicht erforderlich, die physischen Ports von der alten node2 auf den Ersatz-Knoten2 zuzuordnen.
 
 .Über diese Aufgabe
-Nachdem Sie node1 mit dem Ersatz-Systemmodul gestartet haben, müssen Sie überprüfen, ob es richtig installiert ist. Sie müssen warten, bis Node2 dem Quorum Beitritt und dann den Vorgang zum Austausch des Controllers fortsetzen.
+Nachdem Sie node1 mit dem Ersatz-Systemmodul gestartet haben, überprüfen Sie, ob es richtig installiert ist. Sie müssen warten, bis Node2 dem Quorum Beitritt und dann den Vorgang zum Austausch des Controllers fortsetzen.
 
 An diesem Punkt des Verfahrens wird die Operation angehalten, während node2 dem Quorum beitritt.
 

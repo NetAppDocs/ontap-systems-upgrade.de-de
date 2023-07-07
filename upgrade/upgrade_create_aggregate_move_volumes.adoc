@@ -4,13 +4,25 @@ sidebar: sidebar
 keywords: create, aggregate, node, store, volume, original, node, identify, aggregate, individually, create an aggregate and moving volumes to the new nodes 
 summary: Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die Volumes zu speichern, die Sie von den ursprünglichen Nodes verschieben möchten. Sie müssen ein Aggregat für jedes Volume identifizieren und jedes Volume einzeln verschieben. 
 ---
-= Erstellung eines Aggregats und Verschiebung von Volumes zu den neuen Nodes
+= Erstellen Sie ein Aggregat und verschieben Sie Volumes
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Während eines ONTAP Software-Upgrades migrieren Sie Ihre Daten, indem Sie auf den neuen Nodes ein Aggregat erstellen und dann die Volumes verschieben.
+
+Wenn Ihre Speicherkonfiguration SAN-Volumes oder verschlüsselte Volumes umfasst, müssen Sie auch diese Volumes verschieben:
+
+* <<move_san_vols,Verschieben Sie SAN-Volumes>>
+* <<Verschieben Sie Volumes mit aktivierter Verschlüsselung>>
+
+
+
+
+== Erstellung eines Aggregats und Verschiebung von Volumes zu den neuen Nodes
+
 Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die Volumes zu speichern, die Sie von den ursprünglichen Nodes verschieben möchten. Sie müssen ein Aggregat für jedes Volume identifizieren und jedes Volume einzeln verschieben.
 
 .Bevor Sie beginnen
@@ -18,12 +30,15 @@ Beziehungen zur Datensicherungsspiegelung müssen initialisiert werden, bevor Si
 
 https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html["Hier finden Sie das erforderliche Datenschutzverfahren"^].
 
+
+NOTE: NetApp empfiehlt für jede SVM (Storage Virtual Machine), alle nicht-Root-Volumes im Cluster zu verschieben, bevor das Root-Volume verschoben wird. Anschließend wird das Verfahren für jede SVM einzeln durchgeführt.
+
 .Schritte
 . Erstellen Sie auf jedem neuen Node mindestens ein Aggregat:
 +
-`storage aggregate create -aggregate aggr_name -node new_node_name -diskcount integer`
+`storage aggregate create -aggregate _aggr_name_ -node _new_node_name_ -diskcount integer`
 
-. Fügen Sie das neue Aggregat derselben SVM auf dem ursprünglichen Node hinzu, von dem Sie die Volumes verschieben möchten:
+. Fügen Sie das neue Aggregat zur gleichen Storage Virtual Machine (SVM) wie das Aggregat auf dem ursprünglichen Node hinzu, von dem Sie die Volumes verschieben möchten:
 +
 `vserver add-aggregates`
 
@@ -36,7 +51,7 @@ Sowohl das neue Aggregat als auch das alte Aggregat, aus dem das Volume verschob
 
 . Informationen zu den Volumes anzeigen, die von den ursprünglichen Nodes zu den neuen Nodes verschoben werden sollen:
 +
-`volume show -vserver svm_name -node original_node_name`
+`volume show -vserver _svm_name_ -node _original_node_name_`
 
 +
 Sie sollten die Befehlsausgabe für einen späteren Verweis behalten.
@@ -57,7 +72,7 @@ vs1       vs1root      aggr1        online     RW         20MB    18.88MB    5%
 ----
 . Bestimmen Sie ein Aggregat, zu dem Sie ein bestimmtes Volume verschieben können:
 +
-`volume move target-aggr show -vserver svm_name -volume vol_name`
+`volume move target-aggr show -vserver _svm_name_ -volume _vol_name_`
 
 +
 Das folgende Beispiel zeigt, dass das „user_max“ Volume auf der SVM „vs2“ in beliebige Aggregate verschoben werden kann:
@@ -77,28 +92,40 @@ node12a_aggr4    10.36GB         FCAL
 ----
 . Führen Sie für jedes Volume, das Sie verschieben möchten, eine Validierungsprüfung durch, um sicherzustellen, dass es in das angegebene Aggregat verschoben werden kann:
 +
-`volume move start -vserver svm_name -volume volume_name -destination-aggregate destination_aggregate_name -perform-validation-only true`
+`volume move start -vserver _svm_name_ -volume _volume_name_ -destination-aggregate _destination_aggregate_name_ -perform-validation-only true`
 
 . Verschieben Sie die Volumes nacheinander (Erweiterte Berechtigungsebene):
 +
-`volume move start -vserver svm_name -volume vol_name -destination-aggregate destination_aggr_name -cutover-window integer`
+`volume move start -vserver _svm_name_ -volume _vol_name_ -destination-aggregate _destination_aggr_name_ -cutover-window integer`
 
 +
 Sie können das Node-Root-Volume (vol0) nicht verschieben. Andere Volumes, einschließlich SVM-Root-Volumes, können verschoben werden.
 
 . Zeigen Sie das Ergebnis des an `volume move` Vorgang zur Überprüfung der erfolgreichen Verschiebung der Volumes:
 +
-`volume move show -vserver svm_name -volume vol_name`
+`volume move show -vserver _svm_name_ -volume _vol_name_`
 
 . Wenn der `volume move` Der Vorgang schließt die letzte Phase nach mehreren Versuchen nicht ab. Erzwingen Sie die Verschiebung zum Abschluss:
 +
-`volume move trigger-cutover -vserver svm_name -volume vol_name -force true`
+`volume move trigger-cutover -vserver _svm_name_ -volume _vol_name_ -force true`
 
 +
 Wenn der Vorgang zum Verschieben eines Volumes beendet wird, kann der Client-Zugriff auf das zu verschiebende Volume unterbrochen werden.
 
 . Überprüfen Sie, ob die Volumes erfolgreich zu der angegebenen SVM verschoben wurden und sich im korrekten Aggregat befinden:
 +
-`volume show -vserver svm_name`
+`volume show -vserver _svm_name_`
 
 
+
+
+
+== Verschieben Sie SAN-Volumes
+
+Um SAN-Volumes zu verschieben, führen Sie die Schritte in aus https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html["Verschieben von Linux iSCSI-Hosts von MetroCluster-FC- zu MetroCluster-IP-Knoten"^]. Dies gilt für das Verschieben von SAN Volumes in MetroCluster Konfigurationen und Konfigurationen ohne MetroCluster.
+
+
+
+== Verschieben Sie Volumes mit aktivierter Verschlüsselung
+
+Um Volumes mit aktivierter Aggregatverschlüsselung zu verschieben, gehen Sie wie unter beschrieben vor https://docs.netapp.com/us-en/ontap/encryption-at-rest/encrypt-existing-volume-task.html["Aktivieren Sie die Verschlüsselung auf einem vorhandenen Volume mit dem Befehl Volume move Start"^].

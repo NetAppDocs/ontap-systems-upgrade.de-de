@@ -17,7 +17,7 @@ summary: Überprüfen Sie die Node-1-Installation zusammen mit den Ersatzmodulen
 Sie müssen die Installation von node1 mit den Ersatz-Systemmodulen überprüfen. Da keine Änderung an physischen Ports vorgenommen wird, sind Sie nicht verpflichtet, die physischen Ports von der alten Knoten1 auf den Ersatz-Knoten1 zuzuordnen.
 
 .Über diese Aufgabe
-Nachdem Sie node1 mit dem Ersatz-Controller-Modul gestartet haben, müssen Sie überprüfen, ob es korrekt installiert ist. Sie müssen warten, bis node1 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
+Nachdem Sie node1 mit dem Ersatz-Controller-Modul gestartet haben, überprüfen Sie, ob es richtig installiert ist. Sie müssen warten, bis node1 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
 
 An diesem Punkt in der Prozedur sollte der Upgrade-Vorgang des Controllers angehalten sein, da node1 versucht hat, Quorum automatisch beizutreten.
 

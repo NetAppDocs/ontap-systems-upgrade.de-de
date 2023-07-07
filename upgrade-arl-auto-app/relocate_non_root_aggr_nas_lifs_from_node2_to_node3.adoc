@@ -14,7 +14,7 @@ summary: 'Bei einem Upgrade von Controllern mit ONTAP 9.8 oder höher werden die
 
 
 [role="lead"]
-Bevor Sie node2 durch node4 ersetzen können, müssen Sie die nicht-Root-Aggregate und NAS-Daten-LIFs verschieben, die im Besitz von node2 sind, auf node3.
+Bevor Sie node2 durch node4 ersetzen, verschieben Sie die nicht-Root-Aggregate und NAS-Daten-LIFs, die im Besitz von node2 sind, auf node3.
 
 .Bevor Sie beginnen
 Nach den Nachprüfungen aus der vorherigen Phase wird automatisch die Ressourcenfreigabe für node2 gestartet. Die Aggregate außerhalb des Root-Bereichs und LIFs für nicht-SAN-Daten werden von node2 auf node3 migriert.
