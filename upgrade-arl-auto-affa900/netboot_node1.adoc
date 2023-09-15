@@ -72,7 +72,7 @@ NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingab
 
 NOTE: Unterbrechen Sie den Startvorgang nicht.
 
-. Warten Sie, bis der node1, der jetzt auf dem AFF A900 oder FAS9500 Controller-Modul ausgeführt wird, gestartet wird und die Startmenüoptionen angezeigt werden, wie unten gezeigt:
+. Warten Sie, bis node1 jetzt auf dem Controller-Modul ASA A900, AFF A900 oder FAS9500 ausgeführt wird, um die Boot-Menüoptionen wie unten gezeigt zu starten und anzuzeigen:
 +
 [listing]
 ----

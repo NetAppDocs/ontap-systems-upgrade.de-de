@@ -31,7 +31,9 @@ Wenn Sie ein Upgrade mithilfe von Systembefehlen durchführen, finden Sie in der
 | Wenn Sie diese ONTAP-Version laufen… | Verwenden Sie…, um ein Upgrade mit Systembefehlen durchzuführen 
 
 
-| 9.10.1 oder höher | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"^] 
+| 9.10.1 oder höher | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"^]
+
+Mit diesem Verfahren können Sie einen AFF-Controller, der als All-SAN-Array (ASA) konfiguriert ist, für bestimmte Modelle und ONTAP-Softwareversionen auf einen ASA-Controller aktualisieren. link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Weitere Informationen ."]. 
 
 
 | 9.8 oder höher | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Verwenden Sie „System Controller Replace“-Befehle, um das Upgrade der Controller Hardware mit ONTAP 9.8 oder höher durchzuführen"] 

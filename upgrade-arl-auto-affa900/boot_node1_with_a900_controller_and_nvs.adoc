@@ -21,6 +21,9 @@ Node1 mit den Ersatzmodulen ist nun startbereit. In diesem Abschnitt werden die 
 | Alter Knoten 1-Controller | Ersatz-Knoten 1-Systemmodule 
 
 
+| AFF A220 als ASA konfiguriert | AFF A150-Controller-Modul ^1^ 
+
+
 | AFF A220
 AFF A200
 AFF C 190 | AFF A150-Controller-Modul ^1^ 
@@ -28,6 +31,9 @@ AFF C 190 | AFF A150-Controller-Modul ^1^
 
 | FAS2620
 FAS2720 | FAS2820 Controller-Modul ^1^ 
+
+
+| AFF A700 – als ASA konfiguriert | ASA A900-Controller und NVRAM-Module ^2^ 
 
 
 | AFF A700 | AFF A900-Controller und NVRAM-Module ^2^ 

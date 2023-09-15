@@ -21,12 +21,16 @@ Vergewissern Sie sich vor dem Upgrade, dass Sie die richtige Hardware für das U
 | Wenn Sie ein Upgrade ... | Sie müssen haben ... 
 
 
-| AFF A220 bis AFF A150
-AFF A200 auf AFF A150
-AFF C190 auf AFF A150 | Zwei Controller-Module 
+| AFF A220 als ASA auf ASA A150 konfiguriert | Zwei Controller-Module 
+
+
+| AFF A220, AFF A200 oder AFF C190 auf AFF A150 | Zwei Controller-Module 
 
 
 | FAS2720 oder FAS2720 zu FAS2720 | Zwei Controller-Module 
+
+
+| AFF A700 als ASA zu ASA A900 konfiguriert | Zwei Controller und zwei NVRAM-Module 
 
 
 | AFF A700 AUF AFF A900 | Zwei Controller und zwei NVRAM-Module 

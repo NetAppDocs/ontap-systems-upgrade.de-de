@@ -24,11 +24,14 @@ WARNING: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfig
 | Altes System | Austauschsystem | Unterstützte ONTAP-Versionen 
 
 
+| AFF A220 als All-SAN-Array (ASA) konfiguriert | ASA A150 | 9.13.1P1 und höher 
+
+
 | AFF A220 | AFF A150 | 9.10.1P15, 9.11.1P11, 9.12.1P5 und höher 
 
 
 | AFF A200 | AFF A150  a| 
-9.10.1P15, 9.11.1P11 und höher (AFF A200 und AFF A150)
+9.10.1P15, 9.11.1P11 und höher
 
 
 NOTE: AFF A200 unterstützt ONTAP Versionen ab 9.11.1 nicht.
@@ -39,7 +42,7 @@ NOTE: AFF A200 unterstützt ONTAP Versionen ab 9.11.1 nicht.
 
 
 | FAS2620 | FAS2820  a| 
-9.11.1P7 und höher (FAS2620)
+9.11,1 P7 (FAS2620)
 
 
 NOTE: Die FAS2620 unterstützt ONTAP Versionen ab 9.11.1 nicht.
@@ -49,6 +52,9 @@ NOTE: Die FAS2620 unterstützt ONTAP Versionen ab 9.11.1 nicht.
 
 
 | FAS2720 | FAS2820 | 9.13.1 und höher 
+
+
+| AFF A700 – als ASA konfiguriert | ASA A900 | 9.13.1P1 und höher 
 
 
 | AFF A700 | AFF A900 | 9.10.1P10, 9.11.1P6 und höher 
@@ -68,9 +74,8 @@ Während des Verfahrens migrieren Sie die nicht-Root-Aggregate zwischen den alte
 .Über diese Aufgabe
 Während dieses Controller-Upgrades führen Sie eines der folgenden Upgrades durch:
 
-* Tauschen Sie das Controller-Modul auf jedem Node des AFF A220, AFF A200 oder AFF C190 Systems durch das neue AFF A150 Modul aus.
-* Tauschen Sie das Controller-Modul auf jedem Node des FAS2720 oder FAS2720 Systems durch das neue FAS2720 Modul aus.
-* Tauschen Sie die zwei Controller- und NVRAM-Module auf jedem Node des AFF A700 oder FAS9000 Systems durch die neuen AFF A900- oder FAS9500-Module aus.
+* Tauschen Sie das Controller-Modul an jedem Knoten des alten Controllers gegen das neue Modul aus. Dies gilt für ein System-Upgrade auf AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720.
+* Tauschen Sie den Controller und die NVRAM-Module auf jedem Node des alten Controllers gegen die neuen Module aus. Dies gilt für ein Upgrade des AFF A700 oder FAS9000 Systems.
 
 
 
@@ -89,7 +94,7 @@ NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in
 * Sie können dieses Verfahren zum Upgrade der Controller Hardware in Clustern mit mehr als zwei Nodes verwenden. Sie müssen jedoch die Verfahren für jedes HA-Paar im Cluster separat durchführen.
 * Wenn Sie über einen Switch verfügen, der von der ONTAP-Version und dem Ersatzsystem, auf das Sie aktualisieren, nicht unterstützt wird, finden Sie weitere Informationen unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
 * Dieses Verfahren gilt nur für AFF A200, AFF A220, AFF C190, FAS2720, FAS2720, AFF A700 und FAS9000 Systeme. Informationen zu allen anderen Controller-Modellen, die ein Upgrade auf ein AFF A150-, FAS2820-, AFF A900- oder FAS9500-System erfordern, finden Sie unter link:other_references.html["Quellen"] Verwenden Sie zum Verlinken die Befehle „System Controller Replace“, um die Controller-Hardware mit ONTAP 9.8 oder höher und die Aggregatverschiebung _verwenden, um die Controller-Hardware mit ONTAP 9.8 oder neuer manuell zu aktualisieren.
-* Die AFF Systeme A900 und FAS9500 unterstützen nur High-Line-Strom (200 V bis 240 V). Wenn Ihr AFF A700 oder FAS9000 System mit niedriger Netzspannung (100 V bis 120 V) ausgeführt wird, müssen Sie vor diesem Verfahren die Eingangsspannung der AFF A700 oder FAS9000 konvertieren.
+* Die ASA Systeme A900, AFF A900 und FAS9500 unterstützen nur eine hohe Netzspannung (200 V bis 240 V). Wenn Ihr AFF A700 oder FAS9000 System mit niedriger Netzspannung (100 V bis 120 V) ausgeführt wird, müssen Sie vor diesem Verfahren die Eingangsspannung der AFF A700 oder FAS9000 konvertieren.
 * Wenn Sie ein Upgrade von einer AFF A200, AFF A220, AFF C190, FAS2720, FAS2720, AFF A700 oder FAS9000 System mit Ausfallzeiten können Sie die Controller-Hardware durch Verschieben von Storage aufrüsten oder sich an den technischen Support wenden. Siehe link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
 

@@ -21,6 +21,9 @@ Node2 mit den Ersatzmodulen ist nun startbereit. Bei der Aktualisierung durch Au
 | Alter Knoten 2-Controller | Ersatz-Knoten2-Systemmodule 
 
 
+| AFF A220 als ASA konfiguriert | Controller-Modul ASA A150 
+
+
 | AFF A220
 AFF A200
 AFF C 190 | Controller-Modul AFF A150 
@@ -28,6 +31,9 @@ AFF C 190 | Controller-Modul AFF A150
 
 | FAS2620
 FAS2720 | FAS2820 Controller-Modul 
+
+
+| AFF A700 – als ASA konfiguriert | ASA A900-Controller und NVRAM-Module 
 
 
 | AFF A700 | AFF A900-Controller und NVRAM-Module 

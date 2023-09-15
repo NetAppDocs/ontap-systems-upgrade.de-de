@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html 
-keywords: install, NVRAM, node2, controller, module, modules, replacement 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
 summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-Upgrades von Controller-Modellen im selben Chassis. 
 ---
 = Installieren Sie die Ersatz-Systemmodule auf Knoten 2
@@ -16,15 +16,15 @@ summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-
 [role="lead"]
 Installieren Sie die Ersatz-Systemmodule, die Sie für das Upgrade auf Knoten 2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
 
-* <<Installieren Sie das AFF A150- oder FAS2820-Controller-Modul auf Knoten2>>
-* <<Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2>>
+* <<install_modules_a,Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controller-Modul auf Knoten2>>
+* <<install_modules_b,Installieren Sie ASA A900, AFF A900 oder FAS9500 NVRAM und Controller-Module auf Knoten2>>
 
 
 
 
-== Installieren Sie das AFF A150- oder FAS2820-Controller-Modul auf Knoten2
+== Installieren Sie das Controller-Modul ASA A150, AFF A150 oder FAS2820 auf der Knoten2
 
-Installieren Sie das AFF A150- oder FAS2820-Controller-Modul, das Sie für das Upgrade auf Knoten2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
+Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controller-Modul, das Sie für das Upgrade auf Knoten2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
 
 .Bevor Sie beginnen
 * Wenn du nicht bereits geerdet bist, beground dich richtig.
@@ -60,14 +60,14 @@ NOTE: Um Schäden an den Anschlüssen zu vermeiden, sollten Sie beim Einschieben
 
 
 
-== Installieren Sie die NVRAM- und Controller-Module AFF A900 oder FAS9500 auf node2
+== Installieren Sie ASA A900, AFF A900 oder FAS9500 NVRAM und Controller-Module auf Knoten2
 
-Installieren Sie AFF A900 oder FAS9500 NVRAM- und Controller-Module, die Sie für das Upgrade auf node2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
+Installieren Sie die ASA A900, AFF A900 oder FAS9500 NVRAM- und Controller-Module, die Sie für das Upgrade auf Node2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
 
 Bei der Installation müssen Sie Folgendes beachten:
 
 * Verschieben Sie alle Leereinfüllmodule in den Steckplätzen 6-1 und 6-2 vom alten NVRAM-Modul in das neue NVRAM-Modul.
-* Bewegen Sie das coredump-Gerät NICHT vom AFF A700 NVRAM-Modul in das AFF A900 NVRAM-Modul.
+* Verschieben Sie das coredump-Gerät NICHT aus dem AFF A700 NVRAM-Modul in das ASA A900- oder AFF A900 NVRAM-Modul.
 * Verschieben Sie alle Flash Cache Module, die im FAS9000 NVRAM-Modul installiert sind, auf das FAS9500 NVRAM-Modul.
 
 
@@ -76,9 +76,9 @@ Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
 
-=== Installieren Sie das AFF A900 oder FAS9500 NVRAM-Modul
+=== Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500
 
-Gehen Sie wie folgt vor, um das AFF A900 oder FAS9500 NVRAM-Modul in Steckplatz 6 der Node2 zu installieren.
+Gehen Sie wie folgt vor, um das NVRAM-Modul ASA A900, AFF A900 oder FAS9500 in Steckplatz 6 von Knoten2 zu installieren.
 
 .Schritte
 . Richten Sie das NVRAM-Modul an den Kanten der Gehäuseöffnung in Steckplatz 6 aus.
@@ -87,9 +87,9 @@ Gehen Sie wie folgt vor, um das AFF A900 oder FAS9500 NVRAM-Modul in Steckplatz 
 
 
 
-=== Installieren Sie das AFF A900 oder FAS9500 Controller-Modul in node2
+=== Installieren Sie das Controller-Modul ASA A900, AFF A900 oder FAS9500 in Knoten2
 
-Gehen Sie wie folgt vor, um das AFF A900 oder FAS9500 Controller-Modul in node2 zu installieren.
+Gehen Sie wie folgt vor, um das Controller-Modul ASA A900, AFF A900 oder FAS9500 in Knoten2 zu installieren.
 
 .Schritte
 . Richten Sie das Ende des Controller-Moduls an Schacht B im Chassis aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
