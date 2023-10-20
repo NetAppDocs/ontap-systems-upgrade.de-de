@@ -11,8 +11,10 @@ sidebar:
   entries:
   - title: AFF und FAS System-Upgrade-Dokumentation
     url: "/index.html"
-  - section: upgrade
+  - title: Wählen Sie das Upgrade Ihrer Controller-Hardware aus
+    url: "/choose_controller_upgrade_procedure.html"
   - section: upgrade-arl
+  - section: upgrade
   - title: Rechtliche Hinweise
     url: "/legal-notices.html"
 homepage:
@@ -21,14 +23,10 @@ homepage:
     links:
     - title: Versionshinweise zu ONTAP
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
-  - title: Upgrade durch Verschieben von Storage oder Volumes (die meisten Systeme)
-    links:
-    - title: Upgrade von Controller Hardware
-      url: "/upgrade/upgrade-decide-to-use-this-guide.html"
-    - title: Upgrade von AFF A250 auf AFF A400 durch Konvertierung in ein Festplatten-Shelf
-      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
-  - title: Upgrade durch Verschiebung von Aggregaten auf Systemen mit ONTAP 9.8 und
-      höher
+    - title: Wählen Sie das Upgrade Ihrer Controller-Hardware aus
+      url: "/choose_controller_upgrade_procedure.html"
+  - title: Führen Sie ein Upgrade durch, indem Sie Aggregate auf Systemen mit ONTAP
+      9.8 und höher verschieben
     links:
     - title: Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller
         ersetzen“
@@ -37,13 +35,19 @@ homepage:
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
     - title: Verwenden Sie manuelle Befehle
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/
-  - title: Upgrade durch Verschiebung von Aggregaten auf Systemen mit ONTAP 9.7 und
-      früher
+  - title: Aktualisieren Sie das Upgrade, indem Sie Aggregate auf Systemen mit ONTAP
+      9.7 und älteren Versionen verschieben
     links:
     - title: Verwenden Sie Befehle „System Controller replace“ (die meisten Systeme)
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
     - title: Verwenden Sie manuelle Befehle
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/
+  - title: Upgrade durch Verschieben von Storage oder Volumes
+    links:
+    - title: Upgrade von Controller Hardware
+      url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+    - title: Upgrade von AFF A250 auf AFF A400 durch Konvertierung in ein Festplatten-Shelf
+      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
   - title: Führen Sie Upgrades der Systeme in einer MetroCluster Konfiguration durch
     links:
     - title: Wählen Sie das Upgrade-Verfahren für Ihre MetroCluster-Konfiguration

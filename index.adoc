@@ -4,7 +4,7 @@ sidebar: sidebar
 permalink: index.html 
 lead: This site provides the upgrade procedures for AFF and FAS storage systems. Select the appropriate upgrade procedure for your storage system. 
 keywords: aggregate, relocation, moving, manual, upgrade, relocate 
-summary: Nutzen Sie Aggregatverschiebung, um ein Upgrade der Controller-Hardware durchzuführen 
+summary: Upgrade der Controller-Hardware durch Verlagerung von Aggregaten, Verschiebung von Volumes oder Storage-Verschiebung 
 ---
 = AFF und FAS System-Upgrade-Dokumentation
 :hardbreaks:

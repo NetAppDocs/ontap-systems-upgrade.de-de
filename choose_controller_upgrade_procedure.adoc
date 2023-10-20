@@ -1,0 +1,70 @@
+---
+permalink: choose_controller_upgrade_procedure.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von den Plattformmodellen der ursprünglichen Nodes ab. Sie aktualisieren entweder durch Verschieben von Aggregaten oder Volumes Storage (unterbrechungsfreie Verfahren) oder durch Verschieben von Storage (eine Unterbrechung des Betriebs).' 
+---
+= Wählen Sie das Upgrade Ihrer Controller-Hardware aus
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von den Plattformmodellen der ursprünglichen Nodes ab. Sie aktualisieren entweder durch Verschieben von Aggregaten oder Volumes (unterbrechungsfreie Verfahren) oder durch Verschieben des Storage (mit Unterbrechungen). Falls auf den ursprünglichen und den neuen Nodes unterschiedliche ONTAP-Versionen ausgeführt werden, müssen Sie vor dem Start des Hardware-Upgrades möglicherweise ein Software-Upgrade durchführen.
+
+[role="tabbed-block"]
+====
+.Systeme mit internen Laufwerken
+--
+Wählen Sie ein Upgrade-Verfahren für ein System mit internen Laufwerken aus, die unten aufgeführt sind:
+
+* FAS2720, FAS2750, FAS2720 UND FAS2750
+* AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s und AFF A800
+* AFF C190, AFF C250 und AFF C800
+* ASA A150, ASA A250, ASA A800 und ASA AFF A220
+
+
+Wenn Ihr System nicht aufgeführt ist, lesen Sie die https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
+
+image:workflow_internal_drives.png["Entscheidungsworkflow für die Auswahl eines Upgrade-Verfahrens"]
+
+--
+.Systeme mit nur externen Laufwerken
+--
+Wählen Sie ein Upgrade-Verfahren für ein System mit nur externen Laufwerken aus, die unten aufgeführt sind:
+
+* FAS8200, FAS8300, FAS8700, FAS9000 UND FAS9500
+* AFF A300, AFF A320, AFF A400, AFF A700 und AFF A900
+* AFF C400
+* ASA A400, ASA A900 und ASA AFF A700
+
+
+Wenn Ihr System nicht aufgeführt ist, lesen Sie die https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es nur externe Laufwerke hat.
+
+image:workflow_external_drives.png["Entscheidungsworkflow für die Auswahl eines Upgrade-Verfahrens"]
+
+--
+====
+Erfahren Sie mehr über die Upgrade-Verfahren für die Controller-Hardware:
+
+* link:upgrade-arl/index.html["Upgrade durch Aggregatverschiebung"]
++
+Aggregatverschiebung ist ein Ersatzverfahren. Sie müssen den Cluster nicht mit den neuen Nodes erweitern und verkleinern, was sich vorteilhaft für zwei-Node-Cluster ohne Switches eignet. Das Verschieben von Daten durch Verschieben von Aggregaten ist schneller als das Kopieren von Daten zwischen Aggregaten beim Verschieben von Volumes.
+
+* link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes"]
+* link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrades durch Storage-Verschiebung"]
+
+
+[NOTE]
+====
+*Hinweis1*: Die auf den ursprünglichen Knoten laufende ONTAP-Version muss von den neuen Knoten unterstützt werden. Bei Bedarf link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aktualisieren Sie die ONTAP-Version"^] Auf den ursprünglichen Knoten auf die maximal unterstützte Version. Der Versionsunterschied zwischen dem ursprünglichen und dem neuen Knoten darf nicht größer als vier sein. Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt, ONTAP 9.8 und 9.13.1 jedoch nicht unterstützt. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^].
+
+*Hinweis2*: Für ein unterbrechungsfreies Upgrade ist ein neues System mit eigenem Speicher und Regalen erforderlich, um die Daten vom Originalsystem zu speichern.
+
+*Hinweis3*: Beim Upgrade durch Verschieben von Volumes verbinden Sie die neuen Nodes, verschieben die Volumes und LIFs zu den neuen Nodes und heben dann die Verknüpfung der Nodes auf, die Sie aus dem Cluster entfernen möchten. Wenn Sie ein Cluster mit zwei Nodes ohne Switches aktualisieren, konvertieren Sie es mithilfe eines Cluster-Switch-Paars in einen Switch-Attached-Cluster, bevor Sie neue Nodes hinzufügen.
+
+====
+Informationen zum Aktualisieren einer MetroCluster-Konfiguration finden Sie unter https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^].
+
+Wenn Sie eine einzelne Komponente ersetzen, lesen Sie die Informationen im https://docs.netapp.com/us-en/ontap-systems/index.html["AFF und FAS Systemdokumentation"^] Und suchen Sie den Flyer für die Field-Replaceable Unit (FRU) für diese Komponente.

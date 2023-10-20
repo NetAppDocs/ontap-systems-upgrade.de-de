@@ -18,6 +18,7 @@ image::../upgrade/media/workflow_for_upgrading_by_moving_volumes.gif[Workflow f�
 .Schritte
 . xref:upgrade-prepare-when-moving-volumes.adoc[Vorbereitung auf das Upgrade beim Verschieben von Volumes]
 . xref:upgrade-install-and-join-new-nodes-move-vols.adoc[Installieren Sie die neuen Nodes und fügen Sie sie dem Cluster hinzu]
+. xref:upgrade_move_linux_iscsi_hosts_to_new_nodes.html[Verschieben Sie Linux-iSCSI-Hosts auf die neuen Knoten]
 . xref:upgrade-create-aggregate-move-volumes.adoc[Erstellung eines Aggregats und Verschiebung von Volumes zu den neuen Nodes]
 . xref:upgrade-move-lifs-to-new-nodes.adoc[Verschieben Sie LIFs für nicht-SAN-Daten und Clustermanagement-LIFs auf die neuen Nodes]
 . xref:upgrade_move_delete_recreate_san_lifs.adoc[Verschieben, löschen oder erstellen Sie SAN-LIFS]

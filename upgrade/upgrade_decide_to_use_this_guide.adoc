@@ -11,7 +11,7 @@ summary: Dieser Inhalt beschreibt, wie Sie Controller Hardware eines AFF Systems
 
 
 [role="lead"]
-Dieser Inhalt beschreibt, wie Sie Controller Hardware eines AFF Systems oder ein FAS System in einem Cluster durch das Verschieben von Storage oder Volumes aktualisieren.
+Dieser Inhalt beschreibt, wie die Controller-Hardware eines AFF, FAS oder ASA Systems in einem Cluster durch das Verschieben von Storage oder Volumes aktualisiert wird.
 
 Gehen Sie folgendermaßen vor, wenn Sie die Controller-Hardware in den folgenden Situationen aktualisieren möchten:
 
@@ -19,7 +19,10 @@ Gehen Sie folgendermaßen vor, wenn Sie die Controller-Hardware in den folgenden
 NOTE: Die Hardware-Upgrade-Verfahren wurden in ONTAP 9.8 mit der Einführung der automatischen Port-Platzierung vereinfacht.
 
 * Ihre ursprünglichen und neuen Nodes sind kompatibel und werden unterstützt.
-* Sie aktualisieren ein Node-Paar mit ONTAP 9.0 oder höher auf ein neues Node-Paar mit derselben Version.
+* Auf den ursprünglichen und den neuen Nodes wird ONTAP 9.0 oder höher ausgeführt. NetApp empfiehlt, wenn möglich, auf den ursprünglichen und neuen Nodes dieselbe ONTAP-Version zu verwenden.
++
+Wenn Ihr Controller-Upgrade gemischte ONTAP-Versionen umfasst, finden Sie weitere Informationen unter https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["ONTAP Cluster mit gemischten Versionen"^] Finden Sie weitere Informationen.
+
 * Auf den neuen Nodes werden die IP-Adressen, Netzwerkmasken und Gateways der ursprünglichen Nodes erneut verwendet.
 * Sie planen ein Upgrade der Controller Hardware durch Verschieben von Storage oder Volumes.
 * Bei einem Upgrade des Storage werden Sie darauf vorbereitet, einen störenden Vorgang durchzuführen.
@@ -29,27 +32,11 @@ Ein Upgrade durch Verschiebung von Volumes ist unterbrechungsfrei.
 * Ein Node eines unterstützten Modells soll in ein Festplatten-Shelf konvertiert und anschließend mit den neuen Nodes hinzugefügt werden.
 
 
-Wenn Sie eine MetroCluster Konfiguration mit zwei Nodes aktualisieren, müssen Sie das Verfahren im verwenden https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster® Upgrade und Erweiterung"^] Inhalt:
+Informationen zum Aktualisieren einer MetroCluster-Konfiguration finden Sie unter https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^].
 
-In diesem Inhalt wird nicht beschrieben, wie mit Hilfe von Aggregate Relocation (ARL) ein Upgrade der Controller-Hardware durchgeführt wird. Ein solches Upgrade wird im beschrieben link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl/index.html["Hardware-Upgrade mit ARL-Controller"^] Inhalt:
+.Verwandte Informationen
+* xref:upgrade-considerations.adoc[Überlegungen für ein Upgrade der Controller-Hardware]
+* xref:choose_controller_upgrade_procedure.adoc[Wählen Sie Methoden zum Upgrade der Controller-Hardware]
+* https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Hier finden Sie Verfahren für MetroCluster-Wartungsarbeiten"^]
+* https://hwu.netapp.com["NetApp Hardware Universe"^]
 
-Wenn Sie eine einzelne Komponente ersetzen, finden Sie im FRU-Flyer (Field-Replaceable Unit) für diese Komponente.
-
-[NOTE]
-====
-In den Schritten zum Upgrade der Controller-Hardware durch Verschiebung von Storage werden die ursprünglichen Nodes node1 und node2 genannt und die neuen Nodes werden node3 und node4 genannt. Während des beschriebenen Verfahrens wird node1 durch node3 ersetzt und node2 durch node4 ersetzt.
-
-image::../upgrade/media/original_to_new_nodes.png[Original zu neuen Knoten]
-
-====
-Die Begriffe node1, node2, node3 und node4 werden nur verwendet, um zwischen den ursprünglichen und den neuen Knoten zu unterscheiden. Wenn Sie das Verfahren befolgen, müssen Sie die richtigen Namen Ihrer ursprünglichen und neuen Knoten ersetzen. In der Realität ändern sich jedoch die Namen der Nodes nicht: node3 hat den Namen node1 und node4 hat nach dem Upgrade der Controller-Hardware den Namen node2.
-
-*Verwandte Informationen*
-
-xref:upgrade-considerations.adoc[Überlegungen für ein Upgrade der Controller-Hardware]
-
-xref:upgrade-methods.adoc[Wählen Sie Methoden zum Upgrade der Controller-Hardware]
-
-https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Hier finden Sie Verfahren für MetroCluster-Wartungsarbeiten"^]
-
-https://hwu.netapp.com["NetApp Hardware Universe"^]

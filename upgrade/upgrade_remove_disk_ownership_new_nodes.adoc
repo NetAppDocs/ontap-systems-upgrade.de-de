@@ -22,13 +22,13 @@ Diese Schritte werden auf den Knoten 3 und node4 nacheinander durchgeführt. Die
 * Sie müssen sich nur noch für Festplatten und Shelfs, die mit neuen Controllern geliefert wurden, eignen, entfernen.
 * Sie müssen keine Eigentümer von Festplatten entfernen, wenn Sie die Hardware aktualisieren, indem Sie einen alten Controller durch einen neuen Controller auf einer internen Laufwerksplattform austauschen und gleichzeitig das Gehäuse und die Festplatten des alten Controllers behalten.
 +
-Wenn Sie beispielsweise ein Upgrade Ihres Systems von A200 auf A220 durchführen, indem Sie das alte A200 Controller-Modul nur durch das neue A220 Controller-Modul ersetzen und gleichzeitig das Gehäuse und die Festplatten der alten A200 beibehalten, Sie würden die Eigentumsrechte an Festplatten für das neue A220-Controller-Modul nicht wie in diesem Abschnitt beschrieben entfernen _Eigentum von Festplatten entfernen, die an den neuen Nodes_ angeschlossen sind.
+Wenn Sie beispielsweise Ihr System von einer AFF A200 auf ein AFF A220 aufrüsten, indem Sie das alte AFF A200 Controller-Modul nur gegen das neue AFF A220 Controller-Modul austauschen, ohne dabei das Chassis und die Festplatten der alten AFF A200 zu ersetzen, Sie würden die Eigentumsrechte an Festplatten für das neue AFF A220-Controller-Modul nicht entfernen, wie in diesem Abschnitt „ Entfernen der Eigentumsrechte an den neuen Nodes “ beschrieben.
 
 +
 Wenden Sie sich an den technischen Support von NetApp, wenn Sie Fragen zum Entfernen des Festplattenbesitzes während eines Controller-Upgrades haben.
 
 +
-Die folgende Liste umfasst Systeme mit internem Storage: FAS2520, FAS2552, FAS2554, FAS2620, FAS2650, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700S, AFF A800, AFF A250.
+Die folgende Liste enthält Systeme mit internem Storage: FAS2720, FAS2750, FAS2720, FAS2750, AFF A200, AFF A220, AFF A700s, AFF A800, AFF A250.
 
 +
 Wenn Ihr System nicht oben aufgeführt ist, lesen Sie den https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
