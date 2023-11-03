@@ -38,7 +38,7 @@ homepage:
   - title: Aktualisieren Sie das Upgrade, indem Sie Aggregate auf Systemen mit ONTAP
       9.7 und älteren Versionen verschieben
     links:
-    - title: Verwenden Sie Befehle „System Controller replace“ (die meisten Systeme)
+    - title: Verwenden Sie die Befehle „System Controller Replace“
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
     - title: Verwenden Sie manuelle Befehle
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/

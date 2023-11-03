@@ -17,7 +17,7 @@ Wenn Sie iSCSI-SAN-Volumes beim Upgrade durch Verschieben von Volumes nicht vers
 
 .Über diese Aufgabe
 * IPv4-Schnittstellen werden beim Einrichten der neuen iSCSI-Verbindungen erstellt.
-* Die Host-Befehle und Beispiele sind spezifisch für LINUX-Betriebssysteme.
+* Die Host-Befehle und Beispiele sind spezifisch für Linux-Betriebssysteme.
 
 
 

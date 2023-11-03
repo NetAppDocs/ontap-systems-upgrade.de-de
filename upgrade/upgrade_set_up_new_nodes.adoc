@@ -16,6 +16,8 @@ Während des Upgrades durch Verschiebung des Storage schalten Sie node3 und node
 .Bevor Sie beginnen
 Wenn sich die Version der auf den neuen Nodes ausgeführten ONTAP von der Version auf den ursprünglichen Nodes unterscheidet, müssen Sie die richtige Version heruntergeladen haben `<ontap_version>_image.tgz` Datei von der NetApp Support Site in ein Web-zugängliches Verzeichnis (siehe _Vorbereitung auf das Upgrade beim Verschieben von Storage_, link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["Schritt 5"]). Sie benötigen den `<ontap_version>_image.tgz` Datei zum Ausführen eines Netzboots des Systems
 
+Sie können auch die USB-Boot-Option verwenden, um einen Netzboot durchzuführen. Weitere Informationen finden Sie im Knowledge Base-Artikel link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["So verwenden Sie den Boot_Recovery-LOADER-Befehl zum Installieren von ONTAP für die Ersteinrichtung eines Systems"^].
+
 .Schritte
 . Schalten Sie den Netzschalter auf node3 ein, und drücken Sie dann sofort Strg-C an der Konsole, um auf die LOADER-Eingabeaufforderung zuzugreifen.
 +

@@ -36,7 +36,7 @@ Informationen zum Aktualisieren einer MetroCluster-Konfiguration finden Sie unte
 
 .Verwandte Informationen
 * xref:upgrade-considerations.adoc[Überlegungen für ein Upgrade der Controller-Hardware]
-* xref:choose_controller_upgrade_procedure.adoc[Wählen Sie Methoden zum Upgrade der Controller-Hardware]
+* link:../choose_controller_upgrade_procedure.html["Wählen Sie Methoden zum Upgrade der Controller-Hardware"]
 * https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Hier finden Sie Verfahren für MetroCluster-Wartungsarbeiten"^]
 * https://hwu.netapp.com["NetApp Hardware Universe"^]
 
