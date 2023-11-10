@@ -61,10 +61,20 @@ Wenn alle Cluster-LIFs migriert und die Cluster-Kommunikation eingerichtet ist, 
 +
 `cluster show -node _node1_ -fields health`
 
-.. Jedes Cluster-LIF muss an Port 7700 zuhören. Vergewissern Sie sich, dass die Cluster-LIFs an Port 7700 zuhören:
+.. Führen Sie abhängig von der ONTAP-Version auf dem zu aktualisierenden HA-Paar eine der folgenden Aktionen durch:
 +
-`::> network connections listening show -vserver Cluster`
+[cols="30,70"]
+|===
+| Lautet Ihre ONTAP Version... | Dann... 
 
+
+| 9.8 bis 9.11.1 | Vergewissern Sie sich, dass die Cluster-LIFs an Port 7700 zuhören:
+
+`::> network connections listening show -vserver Cluster` 
+
+
+| 9.12.1 oder höher | Überspringen Sie diesen Schritt und gehen Sie zu <<map_9.8_5,Schritt 5>>. 
+|===
 +
 Port 7700, der auf Cluster-Ports hört, ist das erwartete Ergebnis, wie im folgenden Beispiel für ein Cluster mit zwei Nodes dargestellt:
 
@@ -82,7 +92,7 @@ Cluster          NodeB_clus1:7700               TCP/ctlopcp
 Cluster          NodeB_clus2:7700               TCP/ctlopcp
 4 entries were displayed.
 ----
-.. Setzen Sie bei Bedarf für jede Cluster-LIF, die nicht auf Port 7700 angehört, den Administratorstatus der logischen Schnittstelle auf `down` Und dann `up`:
+.. Legen Sie für jede Cluster-LIF, die nicht an Port 7700 angehört, den Administrationsstatus der LIF auf fest `down` Und dann `up`:
 +
 `::> net int modify -vserver Cluster -lif _cluster-lif_ -status-admin down; net int modify -vserver Cluster -lif _cluster-lif_ -status-admin up`
 

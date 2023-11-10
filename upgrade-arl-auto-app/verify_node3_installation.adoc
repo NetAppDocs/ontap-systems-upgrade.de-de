@@ -39,10 +39,20 @@ Die Ausgabe des `health` Feld muss sein `true`.
 +
 `cluster show`
 
-. Jedes Cluster-LIF muss an Port 7700 zuhören. Vergewissern Sie sich, dass die Cluster-LIFs an Port 7700 zuhören:
+. Führen Sie abhängig von der ONTAP-Version auf dem zu aktualisierenden HA-Paar eine der folgenden Aktionen durch:
 +
-`::> network connections listening show -vserver Cluster`
+[cols="30,70"]
+|===
+| Lautet Ihre ONTAP Version... | Dann... 
 
+
+| 9.8 bis 9.11.1 | Vergewissern Sie sich, dass die Cluster-LIFs an Port 7700 zuhören:
+
+`::> network connections listening show -vserver Cluster` 
+
+
+| 9.12.1 oder höher | Überspringen Sie diesen Schritt und gehen Sie zu <<verify_node3_step_5,Schritt 5>>. 
+|===
 +
 Port 7700, der auf Cluster-Ports hört, ist das erwartete Ergebnis, wie im folgenden Beispiel für ein Cluster mit zwei Nodes dargestellt:
 
@@ -60,14 +70,14 @@ Cluster          NodeB_clus1:7700               TCP/ctlopcp
 Cluster          NodeB_clus2:7700               TCP/ctlopcp
 4 entries were displayed.
 ----
-. Setzen Sie bei Bedarf für jede Cluster-LIF, die nicht auf Port 7700 angehört, den Administratorstatus der logischen Schnittstelle auf `down` Und dann `up`:
+. Legen Sie für jede Cluster-LIF, die nicht an Port 7700 angehört, den Administrationsstatus der LIF auf fest `down` Und dann `up`:
 +
 `::> net int modify -vserver Cluster -lif _cluster-lif_ -status-admin down; net int modify -vserver Cluster -lif _cluster-lif_ -status-admin up`
 
 +
 Wiederholen Sie Schritt 3, um zu überprüfen, ob die Cluster-LIF jetzt auf Port 7700 angehört.
 
-. Wechseln in den erweiterten Berechtigungsmodus:
+. [[verify_node3_Step_5]]Wechseln Sie in den erweiterten Berechtigungsmodus:
 +
 `set advanced`
 
@@ -127,6 +137,9 @@ Nachdem Sie bestätigt haben, dass node3 sich im Quorum befindet und mit node2 k
 
 .Über diese Aufgabe
 Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit _Network Management_.
+
+
+NOTE: Wenn Sie die Portgeschwindigkeit der e0a- und e1a-Cluster-Ports auf AFF A800- oder AFF C800-Systemen ändern, können Sie beobachten, wie fehlerhafte Pakete nach der Geschwindigkeitskonvertierung empfangen werden. Siehe https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp Bugs Online Fehler-ID 1570339"^] Und den Knowledge Base Artikel https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["CRC-Fehler auf T6-Ports nach der Konvertierung von 40GbE zu 100GbE"^] Für eine Anleitung.
 
 .Schritte
 . [[Schritt1]]Listen Sie alle physischen Ports auf, die auf einem aktualisierten Node1 (als node3 bezeichnet) stehen:

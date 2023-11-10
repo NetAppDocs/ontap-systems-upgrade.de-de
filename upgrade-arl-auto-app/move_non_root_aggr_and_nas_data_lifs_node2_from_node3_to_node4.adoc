@@ -19,6 +19,9 @@ Nachdem Sie die Netzwerkkonfiguration auf node4 überprüft und bevor Sie Aggreg
 .Über diese Aufgabe
 Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs ordnungsgemäß sind und sich in den entsprechenden Ports befinden, nachdem Sie node4 in den Online-Modus versetzt haben.
 
+
+NOTE: Wenn Sie die Portgeschwindigkeit der T6-basierten Ethernet-Netzwerkkarten oder Motherboard-Ports ändern, können Sie nach der Geschwindigkeitskonvertierung fehlerhafte Pakete beobachten. Siehe https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp Bugs Online Fehler-ID 1570339"^] Und den Knowledge Base Artikel https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["CRC-Fehler auf T6-Ports nach der Konvertierung von 40GbE zu 100GbE"^] Für eine Anleitung.
+
 .Schritte
 . Wiederaufnahme des Betriebs der Versetzung:
 +
