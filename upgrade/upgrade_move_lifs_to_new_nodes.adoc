@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: move, volume, original, node, migrate, non-san, lif, cluster-management, move non-san data lifs and cluster management lifs to the new nodeas 
 summary: Nachdem Sie die Volumes von den ursprünglichen Nodes verschoben haben, müssen Sie die logischen Datenschnittstellen und Cluster-Management-LIFs von den ursprünglichen Nodes auf die neuen Nodes migrieren. 
 ---
-= Verschieben Sie LIFs für nicht-SAN-Daten und Clustermanagement-LIFs auf die neuen Nodes
+= Verschieben Sie nicht-SAN-Daten-LIFs und Cluster-Management-LIFs auf die neuen Nodes
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,10 +17,18 @@ Nachdem Sie die Volumes von den ursprünglichen Nodes verschoben haben, müssen 
 Sie können keine LIF migrieren, die für Copy-Offload-Vorgänge verwendet wird – mit VMware vStorage APIs for Array Integration (VAAI).
 
 .Schritte
-. Ändern Sie vom Node, auf dem die Cluster-LIF gehostet wird, die Home-Ports für die LIFs mit nicht-SAN-Daten von den ursprünglichen Nodes zu den neuen Nodes:
+. Melden Sie sich mit der Cluster-Management-LIF an, und führen Sie alle LIFs auf den ursprünglichen Nodes auf (kommagetrennte Liste):
 +
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _new_node_name_ -home-port {<netport|ifgrp>}`
-
+[source, cli]
+----
+network interface show -curr-node <list_of_original_node_names>
+----
+. Ändern Sie die Home-Ports für die nicht-SAN-Daten-LIFs von den ursprünglichen Nodes in die neuen Nodes:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -home-node <new_node_name> -home-port {<netport|ifgrp>}
+----
 . Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="1,2"]
@@ -31,21 +39,25 @@ Sie können keine LIF migrieren, die für Copy-Offload-Vorgänge verwendet wird 
  a| 
 Ein spezifisches LIF
  a| 
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _dest_node_name_ -destination-port _dest_port_name_`
-
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif <lif_name> -destination-node <dest_node_name> -destination-port <dest_port_name>
+----
 
 
  a| 
 Alle LIFs für Daten-LIFs und Cluster-Management, die nicht im SAN sind
  a| 
-`network interface migrate-all -node _node_name_`
-
+[source, cli]
+----
+network interface migrate-all -node <node_name>
+----
 |===
 +
 Mit dem folgenden Befehl wird ein LIF namens „Datenditalif1“ auf der SVM „vs0“ zum Port „e0d“ auf „node0b“ migriert:
 
 +
-[listing]
+[source, cli]
 ----
 cluster::> network interface migrate -vserver vs0 -lif datalif1 -destination-node node0b -destination-port e0d
 ----
@@ -53,21 +65,30 @@ cluster::> network interface migrate -vserver vs0 -lif datalif1 -destination-nod
 Mit dem folgenden Befehl werden alle Daten- und Cluster-Management-LIFs vom aktuellen (lokalen) Node migriert:
 
 +
-[listing]
+[source, cli]
 ----
 cluster::> network interface migrate-all -node local
 ----
-. Überprüfen Sie, ob der Home-Node der Cluster-Management-LIF sich auf einem der ursprünglichen Nodes befindet: `network interface show -lif cluster_mgmt -fields home-node`
+. Überprüfen Sie, ob der Home-Node der Cluster-Management-LIF sich auf einem der ursprünglichen Nodes befindet:
++
+[source, cli]
+----
+network interface show -lif cluster_mgmt -fields home-node
+----
 . Wenn sich der Home-Node der Cluster-Management-LIF auf einem der ursprünglichen Nodes befindet, führen Sie die folgenden Schritte aus:
 +
 .. Wechseln Sie den Home-Node der Cluster-Management-LIF auf einen der neuen Nodes:
 +
-`network interface modify -vserver _cluster_name_ -lif cluster_mgmt -home-node _new_node_name_ -home-port {<netport|ifgrp>}`
-
+[source, cli]
+----
+network interface modify -vserver <cluster_name> -lif cluster_mgmt -home-node <new_node_name> -home-port {<netport|ifgrp>}
+----
 .. Migrieren Sie die Cluster-Management-LIF auf einen der neuen Nodes:
 +
-`network interface migrate -vserver _vserver_name_ -lif cluster-mgmt -destination-node _new_node_name_ -destination-port {<netport|ifgrp>}`
-
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif cluster-mgmt -destination-node <new_node_name> -destination-port {<netport|ifgrp>}
+----
 
 
 

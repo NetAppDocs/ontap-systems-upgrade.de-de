@@ -58,7 +58,7 @@ Aggregatverschiebung ist ein Ersatzverfahren. Sie müssen den Cluster nicht mit 
 
 [NOTE]
 ====
-*Hinweis1*: Die auf den ursprünglichen Knoten laufende ONTAP-Version muss von den neuen Knoten unterstützt werden. Bei Bedarf link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aktualisieren Sie die ONTAP-Version"^] Auf den ursprünglichen Knoten auf die maximal unterstützte Version. Der Versionsunterschied zwischen dem ursprünglichen und dem neuen Knoten darf nicht größer als vier sein. Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt, ONTAP 9.8 und 9.13.1 jedoch nicht unterstützt. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^].
+*Hinweis1*: Die auf den ursprünglichen Knoten laufende ONTAP-Version muss von den neuen Knoten unterstützt werden. Bei Bedarf link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aktualisieren Sie die ONTAP-Version"^] Auf den ursprünglichen Knoten auf die maximal unterstützte Version. Der Versionsunterschied zwischen dem ursprünglichen und dem neuen Knoten darf nicht größer als vier sein. Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt, ONTAP 9.8 und 9.13.1 jedoch nicht unterstützt. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^].
 
 *Hinweis2*: Für ein unterbrechungsfreies Upgrade ist ein neues System mit eigenem Speicher und Regalen erforderlich, um die Daten vom Originalsystem zu speichern.
 

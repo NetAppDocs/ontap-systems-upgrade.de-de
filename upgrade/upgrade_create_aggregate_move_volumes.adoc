@@ -14,9 +14,12 @@ summary: Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die
 Sie erstellen auf jedem der neuen Nodes mindestens ein Aggregat, um die Volumes zu speichern, die Sie von den ursprünglichen Nodes verschieben möchten. Sie müssen ein Aggregat für jedes Volume identifizieren und jedes Volume einzeln verschieben.
 
 .Bevor Sie beginnen
-Beziehungen zur Datensicherungsspiegelung müssen initialisiert werden, bevor Sie ein Volume verschieben können.
-
+* Beziehungen zur Datensicherungsspiegelung müssen initialisiert werden, bevor Sie ein Volume verschieben können.
++
 https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html["Hier finden Sie das erforderliche Datenschutzverfahren"^].
+
+* Wenn Sie iSCSI-SAN-Volumes verschieben, stellen Sie sicher, dass diese vorhanden sind link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["Neue iSCSI-Verbindungen erstellt"].
+
 
 
 NOTE: NetApp empfiehlt für jede SVM (Storage Virtual Machine), alle nicht-Root-Volumes im Cluster zu verschieben, bevor das Root-Volume verschoben wird. Anschließend wird das Verfahren für jede SVM einzeln durchgeführt.

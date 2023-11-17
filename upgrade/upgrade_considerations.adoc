@@ -36,7 +36,7 @@ Bei den Controllern in einem HA-Paar muss es sich um zwei AFF-, FAS- oder ASA-Mo
 
 | Laufen verschiedene ONTAP Versionen auf den ursprünglichen und neuen Nodes?  a| 
 . https://hwu.netapp.com["Überprüfen Sie die vom Original und den neuen Knoten unterstützten ONTAP-Versionen und Patch-Level"^].
-. NetApp empfiehlt, wenn möglich, auf den ursprünglichen und neuen Nodes dieselbe ONTAP-Version zu verwenden. Wenn dies nicht möglich ist, link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Aktualisieren Sie die ONTAP-Version"^] Auf den ursprünglichen Knoten auf die maximal unterstützte Version, so dass der Versionsunterschied zwischen ursprünglichen und neuen Knoten NICHT größer als vier ist. Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt, ONTAP 9.8 und 9.13.1 jedoch nicht unterstützt.
+. NetApp empfiehlt, wenn möglich, auf den ursprünglichen und neuen Nodes dieselbe ONTAP-Version zu verwenden. Wenn dies nicht möglich ist, link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aktualisieren Sie die ONTAP-Version"^] Auf den ursprünglichen Knoten auf die maximal unterstützte Version, so dass der Versionsunterschied zwischen ursprünglichen und neuen Knoten NICHT größer als vier ist. Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt, ONTAP 9.8 und 9.13.1 jedoch nicht unterstützt.
 +
 https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^].
 
