@@ -14,7 +14,7 @@ summary: Sie müssen Konfigurationsinformationen vom Root-Volume auf die Boot-Ge
 Sie müssen Konfigurationsinformationen vom Root-Volume auf die Boot-Geräte wiederherstellen.
 
 
-NOTE: Wenn Sie ein Upgrade auf ein System durchführen, das Ports „e0a“ und „e0b“ als Hochverfügbarkeits-Interconnect-Ports (HA) verwendet, z. B. eine FAS8300, eine AFF A400 oder eine FAS8700, Überprüfen Sie, ob Sie vorhanden sind xref:upgrade-prepare-when-moving-storage.html#assign_lifs[Neu zugewiesen Management- oder Intercluster-LIFs] Konfiguriert auf den Ports „e0a“ und „e0b“ auf dem ursprünglichen System, bevor das Upgrade-Verfahren gestartet wird
+NOTE: Wenn Sie ein Upgrade auf ein System durchführen, das Ports „e0a“ und „e0b“ als Hochverfügbarkeits-Interconnect-Ports (HA) verwendet, z. B. eine FAS8300, eine AFF A400 oder eine FAS8700, Überprüfen Sie, ob Sie vorhanden sind link:upgrade-prepare-when-moving-storage.html#assign_lifs["Neu zugewiesen Management- oder Intercluster-LIFs"] Konfiguriert auf den Ports „e0a“ und „e0b“ auf dem ursprünglichen System, bevor das Upgrade-Verfahren gestartet wird
 
 .Über diese Aufgabe
 Sie müssen diese Schritte auf Node3 und node4 durchführen, jeden Schritt auf einem Knoten und dann den anderen ausführen, bevor Sie zum nächsten Schritt fortfahren.

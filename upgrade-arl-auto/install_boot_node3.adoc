@@ -314,7 +314,7 @@ FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder 
 `boot_ontap menu`
 
 +
-Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, führen Sie sie aus link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["UTA/UTA2-Ports in node4, Schritt 15, prüfen und konfigurieren"] Damit node4 die Festplatten von node2 erkennen kann.
+Wenn Sie nicht über eine FC- oder UTA/UTA2-Konfiguration verfügen, führen Sie die entsprechenden Aufgaben aus link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["UTA/UTA2-Ports in node4, Schritt 15, prüfen und konfigurieren"] Damit node4 die Festplatten von node2 erkennen kann.
 
 . [[auto9597_istall3_step29]]] für eine MetroCluster-Konfiguration finden Sie V-Series Systeme und Systeme mit FlexArray-Virtualisierungssoftware, die mit Storage-Arrays verbunden ist, unter link:set_fc_or_uta_uta2_config_on_node3.html#auto9597_check_node3_step15["UTA/UTA2-Ports in node3, Schritt 15, prüfen und konfigurieren"].
 

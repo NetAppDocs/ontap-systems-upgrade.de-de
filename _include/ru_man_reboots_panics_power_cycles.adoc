@@ -48,7 +48,7 @@ Node2 wird nicht übernehmen, aber es stellt immer noch Daten aus allen nicht-Ro
 . Knoten 1 aufbring.
 . Fahren Sie mit dem Upgrade des Node-Paars fort.
 +
-Möglicherweise sehen Sie einige Änderungen in der Ausgabe von `storage failover show` Befehl, aber das ist typisch und hat keine Auswirkung auf das Verfahren. Siehe Abschnitt Fehlerbehebung link:issues_multiple_stages_of_procedure.html#Unexpected-storage-failover-show-command-output["Unerwarteter Storage-Failover zeigt die Befehlsausgabe an"].
+Möglicherweise sehen Sie einige Änderungen in der Ausgabe von `storage failover show` Befehl, aber das ist typisch und hat keine Auswirkung auf das Verfahren. Siehe Abschnitt Fehlerbehebung link:issues_multiple_stages_of_procedure.html#storage-failover-command["Unerwarteter Storage-Failover zeigt die Befehlsausgabe an"].
 
 
 
@@ -193,7 +193,7 @@ Es gibt einen Ausfall für den Rest der Aggregate, bis node3 wieder hochfährt.
 
 .Schritte
 . Knoten 3 aufbring.
-. Verschiebung der verbleibenden Aggregate, die zu Knoten 2 gehörten, durch Wiederholung link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Schritt 1"] Bis link:relocate_node2_non_root_aggr_node3_node4.html#step3["Schritt 3"] Im Abschnitt _Verschiebung der nicht-Root-Aggregate von node2 nach node3_.
+. Verschiebung der verbleibenden Aggregate, die zu Knoten 2 gehörten, durch Wiederholung link:relocate_node2_non_root_aggr_node3_node4.html#man_relocate_3_4_Step1["Schritt 1"] Bis link:relocate_node2_non_root_aggr_node3_node4.html#step3["Schritt 3"] Im Abschnitt _Verschiebung der nicht-Root-Aggregate von node2 nach node3_.
 . Fahren Sie mit dem Upgrade des Node-Paars fort.
 
 

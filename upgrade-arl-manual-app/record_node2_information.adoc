@@ -41,7 +41,7 @@ node2
 ----
 +
 
-NOTE: Das System verfügt möglicherweise über keine Intercluster-LIFs. Sie erhalten eine Cluster-Management-LIF nur auf einem Node eines Node-Paars. In der Beispielausgabe von wurde ein Cluster-Management-LIF angezeigt link:record_node1_information.html#step["Schritt 1"] In _Port-Informationen für Node1 aufzeichnen_.
+NOTE: Das System verfügt möglicherweise über keine Intercluster-LIFs. Sie erhalten eine Cluster-Management-LIF nur auf einem Node eines Node-Paars. Eine LIF zum Cluster-Management wird in der Beispielausgabe von angezeigt link:record_node1_information.html#step1["Schritt 1"] In _Port-Informationen für Node1 aufzeichnen_.
 
 . Erfassen Sie die Informationen in der Ausgabe, die im Abschnitt verwendet werden sollen link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
 +

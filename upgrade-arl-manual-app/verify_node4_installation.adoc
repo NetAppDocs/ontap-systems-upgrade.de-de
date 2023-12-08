@@ -44,7 +44,7 @@ Verbinden Sie den HA Interconnect zwischen den Nodes, indem Sie die folgenden Sc
 
 | Im selben Chassis wie Node3 | Gehen Sie zu <<step5,Schritt 5>>. Sie müssen den HA Interconnect nicht manuell zwischen den Nodes verbinden. In derselben Chassis-Konfiguration wird der HA Interconnect automatisch über die Backplane verbunden. 
 |===
-. [[Schritt5]]Nehmen Sie eine der folgenden Aktionen:
+. [[schritt5]]Ergreifen Sie eine der folgenden Aktionen:
 +
 |===
 | Falls das Cluster... | Dann... 

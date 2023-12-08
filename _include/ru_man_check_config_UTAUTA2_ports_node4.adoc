@@ -219,6 +219,6 @@ f-a    2b      fc      target    cna      -          online
 | Festplatten sind vorhanden | Gehen Sie zu link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"]. 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zum Abschnitt _Installieren und Starten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#Step9["Schritt 9"]. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zum Abschnitt _Installieren und Starten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#man_install4_Step9["Schritt 9"]. 
 |===
 

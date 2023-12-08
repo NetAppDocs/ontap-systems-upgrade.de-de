@@ -121,7 +121,7 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
 ** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
-** Überspringen Sie den Abschnitt _UTA/UTA2-Ports auf node4_ überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, zurück zum Abschnitt _Installation und Boot node4_, und wieder bei aufnehmen link:install_boot_node4.html#step23["Schritt 23"].
+** Überspringen Sie den Abschnitt _UTA/UTA2-Ports auf node4_ überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, zurück zum Abschnitt _Installation und Boot node4_, und wieder bei aufnehmen link:install_boot_node4.html#auto_install4_step23["Schritt 23"].
 
 
 |===
@@ -291,7 +291,7 @@ f-a   2b       fc             target       cna           -             online
 | Festplatten sind vorhanden | Gehen Sie zu link:verify_node4_installation.html["Überprüfen Sie die installation von node4"]. 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zum Abschnitt _Installieren und Starten von node4_ zurück, und fahren Sie bei fort link:install_boot_node4.html#step23["Schritt 23"]. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zum Abschnitt _Installieren und Starten von node4_ zurück, und fahren Sie bei fort link:install_boot_node4.html#auto_install4_step23["Schritt 23"]. 
 |===
 . [[Auto_Check_4_steep13]]Wartungsmodus beenden:
 +

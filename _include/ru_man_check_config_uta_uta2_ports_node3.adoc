@@ -255,6 +255,6 @@ Adapter  Mode     Type       Mode     Type       Status
 | Festplatten sind vorhanden | Gehen Sie zu link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"]. 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zu _Install and Boot node3_ zurück und fahren Sie bei fort link:install_boot_node3.html#step7["Schritt 7"]. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zu _Install and Boot node3_ zurück und fahren Sie bei fort link:install_boot_node3.html#man_install3_step7["Schritt 7"]. 
 |===
 

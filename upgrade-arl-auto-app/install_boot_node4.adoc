@@ -281,7 +281,7 @@ Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geän
 . Wenn die Konfiguration das Switch-basierte Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
 
 
-. Wenn NetApp Storage Encryption (NSE) Laufwerke installiert sind, führen Sie die folgenden Schritte durch.
+. [[Auto_install4_step27]]Wenn Sie NSE-Laufwerke (NetApp Storage Encryption) installiert haben, führen Sie die folgenden Schritte aus.
 +
 
 NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
@@ -316,7 +316,7 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 `boot_ontap menu`
 
 +
-Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, führen Sie sie aus link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["UTA/UTA2-Ports in node4, Schritt 15, prüfen und konfigurieren"] Damit node4 die Festplatten von node2 erkennen kann.
+Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, führen Sie sie aus link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["UTA/UTA2-Ports in node4, Schritt 15, prüfen und konfigurieren"] Damit node4 die Platten von node2 erkennen kann.
 
 . [[Schritt29]]für die MetroCluster Konfiguration, V-Series Systeme und Systeme mit FlexArray-Virtualisierungssoftware, die an Storage-Arrays angeschlossen ist, müssen Sie die FC- oder UTA/UTA2-Ports auf node4 einrichten und konfigurieren, um die mit dem Node verbundenen Festplatten zu erkennen. Um diese Aufgabe abzuschließen, gehen Sie zu Abschnitt link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UT2-Konfiguration auf node4 fest"].
 

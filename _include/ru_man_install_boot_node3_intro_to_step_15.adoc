@@ -11,9 +11,9 @@ Sie müssen jedoch nicht als Netzboot auf Node3 setzen, wenn es die gleiche oder
 
 [IMPORTANT]
 ====
-Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>.
+Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>.
 
-Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt abschließen und anschließend mit fortfahren link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
+Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt abschließen und anschließend mit fortfahren link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
 
 ====
 .Schritte
@@ -88,7 +88,7 @@ NOTE: *Achtung*: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht
 
 
 | Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
-.. Gehen Sie zu link:set_fc_uta_uta2_config_node3.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest"] Und vervollständigen Sie die Unterabschnitte link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Je nach Ihrem System.
+.. Gehen Sie zu link:set_fc_uta_uta2_config_node3.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest"] Und vervollständigen Sie die Unterabschnitte link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Je nach Ihrem System.
 .. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<man_install3_step7,Schritt 7>>.
 
 

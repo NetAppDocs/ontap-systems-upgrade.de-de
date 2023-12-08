@@ -23,7 +23,7 @@ Möglicherweise müssen Sie den Abschnitt ausfüllen <<Konfigurieren Sie FC-Port
 NOTE: Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begriff UTA2 auf Adapter und Ports des konvergierten Netzwerkadapters (CNA). Allerdings verwendet die CLI den Begriff CNA.
 
 * Wenn node3 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat und Sie ein System mit Storage-Festplatten aktualisieren, können Sie zur springen link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"] Abschnitt.
-* Wenn Sie jedoch ein V-Series System oder ein System mit FlexArray-Virtualisierungssoftware mit Storage-Arrays haben und node3 keine integrierten FC-Ports, Onboard UTA/UTA-Ports oder eine UTA/UTA2-Karte hat, kehren Sie zum Abschnitt _Installation und Boot-node3_ zurück und fahren Sie fort link:install_boot_node3.html#step23["Schritt 23"].
+* Wenn Sie jedoch ein V-Series System oder ein System mit FlexArray-Virtualisierungssoftware mit Storage-Arrays haben und node3 keine integrierten FC-Ports, Onboard UTA/UTA-Ports oder eine UTA/UTA2-Karte hat, kehren Sie zum Abschnitt _Installation und Boot-node3_ zurück und fahren Sie fort link:install_boot_node3.html#auto_install3_step23["Schritt 23"].
 
 
 .Wahlmöglichkeiten
@@ -123,7 +123,7 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
 ** Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, fahren Sie mit dem Abschnitt fort <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
-** Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>> Und zurück zum Abschnitt _Installieren und Starten von node3_ beim Wiederaufnehmen bei link:install_boot_node3.html#step23["Schritt 23"].
+** Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>> Und zurück zum Abschnitt _Installieren und Starten von node3_ beim Wiederaufnehmen bei link:install_boot_node3.html#auto_install3_step23["Schritt 23"].
 
 
 |===
@@ -310,7 +310,7 @@ Adapter  Mode       Type        Mode     Type        Status
 | Festplatten sind vorhanden | Gehen Sie zu link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"] 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zu _Install and Boot node3_ zurück und setzen Sie den Abschnitt unter fort link:install_boot_node3.html#step23["Schritt 23"]. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zu _Install and Boot node3_ zurück und setzen Sie den Abschnitt unter fort link:install_boot_node3.html#auto_install3_step23["Schritt 23"]. 
 |===
 . [[Auto_check3_steep13]]Wartungsmodus beenden:
 +

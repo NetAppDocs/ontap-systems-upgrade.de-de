@@ -63,7 +63,7 @@ Wenn Node3 oder node4 im Besitz von Daten-LIFs sind, die sich im Besitz anderer 
 `volume show -node _node3_ -state offline`
 `volume show -node _node4_ -state offline`
 
-. Wenn Volumes offline sind, vergleichen Sie sie mit der Liste der Offline-Volumes, die Sie in erfasst haben link:prepare_nodes_for_upgrade.html#step19d["Schritt 19 (d)"] In _die Nodes für Upgrade_ vorbereiten und jedes der Offline-Volumes nach Bedarf durch Eingabe des folgenden Befehls ein Mal für jedes Volume den Online-Modus versetzen:
+. Wenn Volumes offline sind, vergleichen Sie sie mit der Liste der Offline-Volumes, die Sie in erfasst haben  link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step19["Schritt 19 (d)"] In _die Nodes für Upgrade_ vorbereiten und jedes der Offline-Volumes nach Bedarf durch Eingabe des folgenden Befehls ein Mal für jedes Volume den Online-Modus versetzen:
 +
 `volume online -vserver _vserver_name_ -volume _volume_name_`
 
@@ -74,7 +74,7 @@ Wenn Node3 oder node4 im Besitz von Daten-LIFs sind, die sich im Besitz anderer 
 +
 Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschlüsseln für Großbuchstaben. Sie können jeweils eine Lizenz hinzufügen, oder Sie können mehrere Lizenzen gleichzeitig hinzufügen, jeden Lizenzschlüssel durch ein Komma getrennt.
 
-. [[unset_maxwait_manual]]Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den eingestellt haben `kmip.init.maxwait` Variabel auf `off` (Beispiel in link:install_boot_node3.html#step16["Schritt 16"] Von _Install and Boot node3_) müssen Sie die Variable aufheben:
+. [[unset_maxwait_manual]]Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den eingestellt haben `kmip.init.maxwait` Variabel auf `off` (Beispiel in link:install_boot_node3.html#man_install3_step16["Schritt 16"] Von _Install and Boot node3_) müssen Sie die Variable aufheben:
 +
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
 
@@ -117,7 +117,7 @@ Eingabe `y` Um alle Pakete zu entfernen.
 `system license show`
 
 +
-Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie in erfasst haben link:prepare_nodes_for_upgrade.html#step30["Schritt 30"] Von _die Nodes für Upgrade vorbereiten_.
+Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie in erfasst haben link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step30["Schritt 30"] Von _die Nodes für Upgrade vorbereiten_.
 
 . Konfigurieren Sie die SPs, indem Sie auf beiden Knoten den folgenden Befehl ausführen:
 +

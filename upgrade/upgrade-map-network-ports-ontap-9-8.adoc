@@ -14,7 +14,7 @@ summary: Damit node3 und node4 aktiviert werden können, um nach dem Upgrade mit
 Damit node3 und node4 aktiviert werden können, um nach dem Upgrade miteinander im Cluster und mit dem Netzwerk zu kommunizieren, müssen Sie bestätigen, dass die physischen Ports ordnungsgemäß mit den Einstellungen für den vorgesehenen Verwendungszweck konfiguriert sind, z. B. Cluster, Daten usw.
 
 .Bevor Sie beginnen
-Diese Schritte gelten für Systeme mit ONTAP 9.8 oder höher. Wenn Sie ONTAP 9.7 oder eine frühere Version verwenden, müssen Sie das Verfahren unter verwenden xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[Netzwerkports mit ONTAP 9.7 oder einer älteren Version zuordnen].
+Diese Schritte gelten für Systeme mit ONTAP 9.8 oder höher. Wenn Sie ONTAP 9.7 oder eine frühere Version verwenden, müssen Sie das Verfahren unter verwenden link:upgrade-map-network-ports-ontap-9-7-or-earlier.html["Netzwerkports mit ONTAP 9.7 oder einer älteren Version zuordnen"].
 
 .Über diese Aufgabe
 Sie müssen diese Schritte auf node3 und node4 ausführen.
@@ -23,7 +23,7 @@ Sie müssen diese Schritte auf node3 und node4 ausführen.
 NOTE: Die folgenden Befehlsbeispiele beziehen sich auf "node1", da in dieser Phase in der Prozedur die Ersatzknoten "node3" und "node4" eigentlich "node1" und "node2" genannt werden.
 
 .Schritte
-. Wenn auf Ihrem System ONTAP 9.7 oder früher ausgeführt wird, *STOP*. Sie müssen das Verfahren in verwenden xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[Netzwerkports mit ONTAP 9.7 oder einer älteren Version zuordnen].
+. Wenn auf Ihrem System ONTAP 9.7 oder früher ausgeführt wird, *STOP*. Sie müssen das Verfahren in verwenden link:upgrade-map-network-ports-ontap-9-7-or-earlier.html["Netzwerkports mit ONTAP 9.7 oder einer älteren Version zuordnen"].
 . Suchen Sie die Port- und LIF-Konfigurationsinformationen für node1 und node2, die Sie in _zum Upgrade beim Verschieben von Storage_, registriert haben. link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Schritt 3"].
 . Suchen Sie nach den in _zum Upgrade beim Verschieben von Storage_ aufgezeichneten Ports, Broadcast-Domänen und IPspaces. link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["Schritt 3"].
 +
@@ -73,7 +73,7 @@ Wenn alle Cluster-LIFs migriert und die Cluster-Kommunikation eingerichtet ist, 
 `::> network connections listening show -vserver Cluster` 
 
 
-| 9.12.1 oder höher | Überspringen Sie diesen Schritt und gehen Sie zu <<map_9.8_5,Schritt 5>>. 
+| 9.12.1 oder höher | Überspringen Sie diesen Schritt und gehen Sie zu <<map_98_5,Schritt 5>>. 
 |===
 +
 Port 7700, der auf Cluster-Ports hört, ist das erwartete Ergebnis, wie im folgenden Beispiel für ein Cluster mit zwei Nodes dargestellt:
@@ -101,7 +101,7 @@ Wiederholen Sie den Unterschritt (g), um zu überprüfen, ob die Cluster-LIF jet
 
 
 
-. [[map_9.8_5]]Ändern Sie die Broadcast-Domänenmitgliedschaften von physischen Ports, die Daten-LIFs hosten. Sie können dies manuell ausführen, wie in gezeigt link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_9.7_7["Netzwerkports mit ONTAP 9.7 oder früher, Schritt 7 zuordnen"]. Der empfohlene Ansatz ist die Verwendung des erweiterten Scan- und Reparaturverfahrens für die Netzwerkreachability, das in ONTAP 9.8 eingeführt wurde, wie im folgenden Schritt 5, Unterschritte (A) bis (g), dargestellt.
+. [[map_98_5]]Ändern der Broadcast-Domänenmitgliedschaften physischer Ports, die Daten-LIFs hosten. Sie können dies manuell ausführen, wie in gezeigt link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_97_7["Netzwerkports mit ONTAP 9.7 oder früher, Schritt 7 zuordnen"]. NetApp empfiehlt die Verwendung des in ONTAP 9.8 eingeführten Verfahrens zur verbesserten Überprüfung und Reparatur der Netzwerkfähigkeit, wie in den folgenden Schritten (a) bis (g), Schritt 5, dargestellt.
 +
 .. Listen Sie den Status der Erreichbarkeit aller Ports auf:
 +
@@ -218,4 +218,4 @@ NOTE: Für iSCSI LIFs muss die Modifikation des Home Ports die LIF administrativ
 
 
 
-Sie haben die Zuordnung der physischen Ports abgeschlossen. Um das Upgrade abzuschließen, gehen Sie zu xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[Führen Sie die letzten Upgrade-Schritte in ONTAP 9.8 oder höher durch].
+Sie haben die Zuordnung der physischen Ports abgeschlossen. Um das Upgrade abzuschließen, gehen Sie zu link:upgrade-final-upgrade-steps-in-ontap-9-8.html["Führen Sie die letzten Upgrade-Schritte in ONTAP 9.8 oder höher durch"].

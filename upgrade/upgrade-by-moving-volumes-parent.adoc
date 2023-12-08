@@ -1,0 +1,46 @@
+---
+permalink: upgrade/upgrade-by-moving-volumes-parent.html 
+sidebar: sidebar 
+keywords: upgrade by moving volumes 
+summary: Bei einem Upgrade durch Verschieben von Volumes bereiten Sie die ursprünglichen Nodes vor und fügen die neuen Nodes dem Cluster hinzu. Sie verschieben Volumes zu den neuen Nodes, konfigurieren LIFs und heben die Join der Original-Nodes vom Cluster ab. Das Upgrade durch Verschieben von Volumes erfolgt unterbrechungsfrei. 
+---
+= Workflow
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bei einem Upgrade der Controller Hardware durch Verschieben von Volumes bereiten Sie die ursprünglichen Nodes vor und fügen die neuen Nodes dem Cluster hinzu. Sie verschieben Volumes zu den neuen Nodes, konfigurieren LIFs und heben die Join der Original-Nodes vom Cluster ab. Das Upgrade durch Verschieben von Volumes erfolgt unterbrechungsfrei.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]link:upgrade-prepare-when-moving-volumes.html["Vorbereitung auf das Upgrade beim Verschieben von Volumes"]
+[role="quick-margin-para"]
+Sie führen ein paar Vorbereitungsschritte durch, bevor Sie die Controller-Hardware aktualisieren, indem Sie Volumes verschieben.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]link:upgrade-install-and-join-new-nodes-move-vols.html["Installieren Sie die neuen Nodes und fügen Sie sie dem Cluster hinzu"]
+[role="quick-margin-para"]
+Die neuen Nodes werden installiert und werden dem Cluster hinzugefügt, damit Sie Volumes von den ursprünglichen Nodes verschieben können.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"]link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["Verschieben Sie Linux-iSCSI-Hosts auf die neuen Knoten"]
+[role="quick-margin-para"]
+Bevor Sie iSCSI-SAN-Volumes auf neue Nodes verschieben, erstellen Sie neue iSCSI-Verbindungen und scannen die iSCSI-Pfade erneut zu den neuen Nodes.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"]link:upgrade-create-aggregate-move-volumes.html["Erstellung eines Aggregats und Verschiebung von Volumes zu den neuen Nodes"]
+[role="quick-margin-para"]
+Für jeden neuen Node erstellen Sie mindestens ein Aggregat, um die Volumes zu speichern, die Sie von den ursprünglichen Nodes verschieben möchten. Sie müssen für jedes Volume ein Aggregat identifizieren und jedes Volume einzeln verschieben
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"]link:upgrade-move-lifs-to-new-nodes.html["Verschieben Sie LIFs für nicht-SAN-Daten und Clustermanagement-LIFs auf die neuen Nodes"]
+[role="quick-margin-para"]
+Nachdem Sie die Volumes von den ursprünglichen Nodes verschoben haben, migrieren Sie die nicht-SAN-Daten-LIFs und Cluster-Management-LIFs von den ursprünglichen Nodes auf die neuen Nodes.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"]link:upgrade_move_delete_recreate_san_lifs.html["Verschieben, löschen oder erstellen Sie SAN-LIFS"]
+[role="quick-margin-para"]
+Abhängig von Ihren Cluster-Inhalten und der Cluster-Umgebung können Sie SAN-LIFs verschieben, löschen oder erstellen oder gelöschte SAN-LIFs neu erstellen.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]link:upgrade-unjoin-original-nodes-move-volumes.html["Heben Sie die Verbindung der ursprünglichen Nodes vom Cluster auf"]
+[role="quick-margin-para"]
+Nachdem die Volumes zu den neuen Nodes verschoben wurden, werden die ursprünglichen Nodes aus dem Cluster entfernt. Wenn Sie einem Node nicht beitreten, wird die Konfiguration des Node gelöscht und alle Festplatten werden initialisiert.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Acht"]link:upgrade-complete-move-volumes.html["Schließen Sie das Upgrade ab"]
+[role="quick-margin-para"]
+Um das Upgrade durch Verschieben von Volumes abzuschließen, konfigurieren Sie den Serviceprozessor (SP), installieren neue Lizenzen und richten AutoSupport ein. Möglicherweise müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder NCA-Ports konfigurieren.

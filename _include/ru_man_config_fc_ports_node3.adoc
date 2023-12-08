@@ -144,7 +144,7 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
 ** Wenn kein Knoten 3 über eine Karte oder Onboard-Ports verfügt, gehen Sie zu <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
-** Wenn kein Karten- oder Onboard-Port für node3 vorhanden ist, überspringen Sie <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>, Und zurück zu _Install und Boot node3_ und wieder bei link:install_boot_node3.html#step7["Schritt 7"].
+** Wenn kein Karten- oder Onboard-Port für node3 vorhanden ist, überspringen Sie <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>, Und zurück zu _Install und Boot node3_ und wieder bei link:install_boot_node3.html#man_install3_step7["Schritt 7"].
 
 
 |===

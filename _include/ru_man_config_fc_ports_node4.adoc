@@ -146,7 +146,7 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
 ** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
-** Überspringen Sie den Abschnitt _UTA/UTA2-Ports auf node4_ überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, kehren Sie zum Abschnitt _Installieren und Booten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#Step9["Schritt 9"].
+** Überspringen Sie den Abschnitt _UTA/UTA2-Ports auf node4_ überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, kehren Sie zum Abschnitt _Installieren und Booten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#man_install4_Step9["Schritt 9"].
 
 
 |===

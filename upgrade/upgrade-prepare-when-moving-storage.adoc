@@ -169,4 +169,4 @@ NOTE: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` D
 |===
 
 
-Sie werden die Informationen im Verzeichnis verwenden, um xref:upgrade-set-up-new-nodes.adoc[Richten Sie die neuen Nodes ein].
+Sie werden die Informationen im Verzeichnis verwenden, um link:upgrade-set-up-new-nodes.html["Richten Sie die neuen Nodes ein"].

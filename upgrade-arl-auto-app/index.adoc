@@ -8,7 +8,7 @@ summary: 'Sie können ein Controller-Hardware mit ONTAP 9.8 oder höher mithilfe
 :allow-uri-read: 
 
 
-[role="lead lead"]
+[role="lead"]
 Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Aggregate Relocation (ARL) für die folgenden Systemkonfigurationen:
 
 [cols="40,20,40"]

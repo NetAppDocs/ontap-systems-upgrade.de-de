@@ -11,18 +11,35 @@ summary: Führen Sie ein NDU auf NetApp AFF und FAS Systeme der Einstiegsklasse 
 
 
 [role="lead"]
-Ein unterbrechungsfreies Upgrade von einem NetApp AFF A250 System auf ein AFF A400 System kann durchgeführt werden. Dazu werden alle AFF A250 Nodes in ein NS224 Laufwerk-Shelf konvertiert und dann eine Verbindung zu den AFF A400 Ersatz-Nodes hergestellt.
+Ein unterbrechungsfreies Upgrade von einem NetApp AFF A250 System auf ein NetApp AFF A400 System kann durchgeführt werden, indem jeder AFF A250 Node in ein NS224 Laufwerk-Shelf konvertiert und dann eine Verbindung zu den Ersatz-Nodes der AFF A400 hergestellt wird.
 
+.Über diese Aufgabe
 Bei dieser Prozedur werden die AFF A250 HA-Paar-Controller Node 1 und Node 2 genannt, und die AFF A400 HA-Paar-Ersatz-Controller werden Node 3 und node 4 genannt.
 
-image::../upgrade/media/ndu_upgrade_entry_level_systems.PNG[Workflow für ein Upgrade von AFF A250 auf AFF A400 durch Konvertierung in ein Festplatten-Shelf]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]link:upgrade_migrate_lifs_aggregates_node2_to_node1.html["Migrieren Sie LIFs und Datenaggregate auf Knoten2 zu Knoten1"]
+[role="quick-margin-para"]
+Vor der Konvertierung von AFF A250 node2 in ein Festplatten-Shelf migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf Node 2 zu Node 1.
 
-.Schritte.
-. xref:upgrade_migrate_lifs_aggregates_node2_to_node1.adoc[Migrieren Sie LIFs und Datenaggregate auf Knoten2 zu Knoten1]
-. xref:upgrade_convert_node2_drive_shelf_connect_node4.adoc[Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit node 4]
-. xref:upgrade_reassign_drives_node2_to_node4.adoc[Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu]
-. xref:upgrade_migrate_aggregates_epsilon_lifs_node1_node4.adoc[Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4]
-. xref:upgrade_convert_node1_drive_shelf_connect_node3.html[Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3]
-. xref:upgrade_reassign_drives_node1_to_node3.adoc[Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3]
-. xref:upgrade_migrate_lIFs_aggregates_node4_node3.adoc[Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]link:upgrade_convert_node2_drive_shelf_connect_node4.html["Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit node 4"]
+[role="quick-margin-para"]
+Sie konvertieren AFF A250 Knoten 2 in ein NS224 Laufwerk-Shelf und stellen dann eine Verbindung zu AFF A400 knoten 4 her, bevor Sie Laufwerke von Knoten 2 zu knoten 4 neu zuweisen.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"]link:upgrade_reassign_drives_node2_to_node4.html["Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu"]
+[role="quick-margin-para"]
+Nach dem Konvertieren von AFF A250 Knoten 2 in ein NS224 Laufwerk-Shelf und Anschluss an AFF A400 knoten 4, weisen Sie die Laufwerke, die zuvor gehörte zu knoten 2 zu knoten 4
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"]link:upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html["Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4"]
+[role="quick-margin-para"]
+Bevor Sie AFF A250 node1 in ein Laufwerk-Shelf konvertieren, migrieren Sie die Datenaggregate, Epsilon und LIFs auf Node 1 zu AFF A400 node4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"]link:upgrade_convert_node1_drive_shelf_connect_node3.html["Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3"]
+[role="quick-margin-para"]
+Konvertieren Sie AFF A250 Knoten 1 in ein NS224 Laufwerk-Shelf und stellen Sie dann eine Verbindung zu AFF A400 Knoten 3 her, bevor Sie Laufwerke von Knoten 1 zu Knoten 3 neu zuweisen.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"]link:upgrade_reassign_drives_node1_to_node3.html["Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3"]
+[role="quick-margin-para"]
+Nach der Konvertierung von AFF A250 node1 in ein NS224 Laufwerk-Shelf und der Verbindung zu AFF A400 node3 weisen Sie die Laufwerke, die zuvor zu node1 gehörten, zu node3 neu zu.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]link:upgrade_migrate_lIFs_aggregates_node4_node3.html["Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3"]
+[role="quick-margin-para"]
+Zum Abschluss des Upgrades verbinden Sie Node 3 mit Node 4 und migrieren dann die Daten-LIFs und Datenaggregate von node 4 auf Node 3.
