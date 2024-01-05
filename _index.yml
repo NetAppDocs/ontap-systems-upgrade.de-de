@@ -1,6 +1,6 @@
 ---
 indexpage:
-  lead: Auf dieser Website werden die Upgrade-Verfahren für AFF und FAS Storage-Systeme
+  lead: Auf dieser Website werden die Upgrade-Verfahren für AFF, FAS und ASA Storage-Systeme
     beschrieben. Wählen Sie das entsprechende Upgrade-Verfahren für Ihr Speichersystem
     aus.
   tiles:
@@ -40,7 +40,7 @@ indexpage:
       url: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html
   - title: Mehr Ressourcen
     links:
-    - title: Dokumentation der ONTAP Systeme
+    - title: Dokumentation zu ONTAP Hardwaresystemen
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Dokumentation der ONTAP-Switches
       url: https://docs.netapp.com/us-en/ontap-systems-switches/index.html

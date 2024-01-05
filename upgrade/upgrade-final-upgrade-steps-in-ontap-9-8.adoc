@@ -100,6 +100,22 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["Migration zu einem
 +
 https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migration zu einem 2-Node-Cluster mit NetApp CN1610 Cluster-Switches"^]
 
+. Erstellen Sie bei Bedarf die nicht standardmäßigen Benutzerkonten, die Sie für den Baseboard Management Controller (BMC) auf dem alten System hatten, erneut:
++
+.. Ändern oder Zurücksetzen des Kennworts für das BMC-Administratorkonto.
++
+Das Kennwort für das BMC-Administratorkonto ist entweder leer (kein Kennwort) oder identisch mit dem Kennwort für das Systemadministrator-Benutzerkonto.
+
+.. Erstellen Sie die nicht standardmäßigen BMC-Benutzerkonten mithilfe der neu `security login create` Befehl mit `application` Setzen Sie den Wert auf „Service-Processor“, wie im folgenden Beispiel gezeigt:
++
+`security login create -user-or-group-name bmcuser -application service-processor -authentication-method password -role admin`
+
++
+
+NOTE: Zum Erstellen eines Benutzerkontos im BMC sind Administratorrechte erforderlich.
+
+
+
 . Mustern Sie die Originalsysteme bei Bedarf über die NetApp Support Site aus. So informieren Sie NetApp, dass die Systeme nicht mehr in Betrieb sind und aus Support-Datenbanken entfernt werden können:
 +
 .. Melden Sie sich bei an https://mysupport.netapp.com/site/global/dashboard["NetApp Support"^] Standort.

@@ -67,4 +67,4 @@ Aggregatverschiebung ist ein Ersatzverfahren. Sie müssen den Cluster nicht mit 
 ====
 Informationen zum Aktualisieren einer MetroCluster-Konfiguration finden Sie unter https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^].
 
-Wenn Sie eine einzelne Komponente ersetzen, lesen Sie die Informationen im https://docs.netapp.com/us-en/ontap-systems/index.html["AFF und FAS Systemdokumentation"^] Und suchen Sie den Flyer für die Field-Replaceable Unit (FRU) für diese Komponente.
+Wenn Sie eine einzelne Komponente ersetzen, lesen Sie die Informationen im https://docs.netapp.com/us-en/ontap-systems/index.html["Dokumentation zu ONTAP Hardwaresystemen"^] Und suchen Sie den Flyer für die Field-Replaceable Unit (FRU) für diese Komponente.

@@ -1969,7 +1969,6 @@
   <block id="74553544aa9c0c94d16a5a5ed85d6720" category="list-text">Vergewissern Sie sich, dass es keine Systemzustandsmeldungen gibt:</block>
   <block id="838f9a3aa0c54c620c1dab5cccc98ca5" category="paragraph"><block ref="79c86ac639c7742d6046026cf6726bce" prefix="" category="inline-code"></block></block>
   <block id="8fb4b518ce39a0704f920c9d4f2f7b77" category="summary">Nutzen Sie Aggregatverschiebung, um ein Upgrade der Controller-Hardware durchzuführen</block>
-  <block id="6af6b76d592516d40ca101051c678be3" category="doc">AFF und FAS System-Upgrade-Dokumentation</block>
   <block id="0bc12c090040b2c995d1f511a738331b" category="summary">Sie können ein Controller-Hardware mit ONTAP 9.8 oder höher mithilfe von aktualisieren<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> Befehle, Verlagerung des Besitzes von nicht-Root-Aggregaten.</block>
   <block id="b9e53a247da3982cb706e33287d2a8fd" category="cell">Wird Verwendet<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> Befehle</block>
   <block id="041dd7a51404fc5dc5a87c2a0bc90b15" category="cell">9.8 oder höher</block>
@@ -3849,7 +3848,6 @@
   <block id="7d94daad2b6e9d77a6320a64c21fbc4a" category="sidebar">Führen Sie Upgrades der Systeme in einer MetroCluster Konfiguration durch</block>
   <block id="c6bb96cc8b84319277f00b15adc71d75" category="sidebar">Wählen Sie das Upgrade-Verfahren für Ihre MetroCluster-Konfiguration aus</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Mehr Ressourcen</block>
-  <block id="aaf23d643347b5921ba9716fa4c13f83" category="sidebar">Dokumentation der ONTAP Systeme</block>
   <block id="743b2bde29eae11996923323c6b89672" category="sidebar">Dokumentation der ONTAP-Switches</block>
   <block id="dd032435fa83549d8bf3928550409a3e" category="sidebar">ONTAP Softwaredokumentation</block>
   <block id="519131237f79eadb2dc6a1e003a087bc" category="sidebar">NetApp Active IQ Config Advisor</block>
@@ -4750,8 +4748,6 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="8b9b2634fd898f04166a765851aba8f2" category="list-text"><block ref="8b9b2634fd898f04166a765851aba8f2" category="inline-link-macro-rx"></block></block>
   <block id="441e5e19c045de8820e45a5b22e45056" category="paragraph">*Hinweis2*: Für ein unterbrechungsfreies Upgrade ist ein neues System mit eigenem Speicher und Regalen erforderlich, um die Daten vom Originalsystem zu speichern.</block>
   <block id="272d55e2adea123757d8811eaaaebd88" category="paragraph">*Hinweis3*: Beim Upgrade durch Verschieben von Volumes verbinden Sie die neuen Nodes, verschieben die Volumes und LIFs zu den neuen Nodes und heben dann die Verknüpfung der Nodes auf, die Sie aus dem Cluster entfernen möchten. Wenn Sie ein Cluster mit zwei Nodes ohne Switches aktualisieren, konvertieren Sie es mithilfe eines Cluster-Switch-Paars in einen Switch-Attached-Cluster, bevor Sie neue Nodes hinzufügen.</block>
-  <block id="16319414c65274d365d86327a61ef5dc" category="inline-link">AFF und FAS Systemdokumentation</block>
-  <block id="c2238e72fe75968b1d2d41e7beba323b" category="paragraph">Wenn Sie eine einzelne Komponente ersetzen, lesen Sie die Informationen im<block ref="9e966fb68ec771eec4870f18e1909b4f" category="inline-link-rx"></block> Und suchen Sie den Flyer für die Field-Replaceable Unit (FRU) für diese Komponente.</block>
   <block id="c024cf342a69d8b35b142333f2608aa5" category="sidebar">Führen Sie ein Upgrade durch, indem Sie Aggregate auf Systemen mit ONTAP 9.8 und höher verschieben</block>
   <block id="5d3c4b59db4a991b7c6450c61662dc60" category="sidebar">Aktualisieren Sie das Upgrade, indem Sie Aggregate auf Systemen mit ONTAP 9.7 und älteren Versionen verschieben</block>
   <block id="d58d42ec84ab0189beb36da55893f387" category="sidebar">Upgrade durch Verschieben von Storage oder Volumes</block>
@@ -4900,5 +4896,15 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="ac5c825456c3417b5a4af98c4f3e915f" category="paragraph">^1^die zusätzlichen Schritte, die für AFF A800 Systeme erforderlich sind, finden Sie im Schritt mit der Referenz A800 in Abschnitt <block ref="d7767766539bb5c2349ec33972e353b3" category="inline-link-macro-rx"></block>, Oder <block ref="1ac9d612a445bb1be7d33490e7f7168c" category="inline-link-macro-rx"></block>.</block>
   <block id="e517f479718742d7735088b63cb4b0a6" category="list-text">[[schritt5]]Ergreifen Sie eine der folgenden Aktionen:</block>
   <block id="1f6c36e4c21adc6fcbbeb1628f0ce398" category="paragraph">Weitere Methoden zum Upgrade Ihrer Controller-Hardware finden Sie unter <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Link zu _Upgrade durch Verschieben von Volumes oder Storage_.</block>
-  <block id="a8337c93c769b636588431825fedbc33" category="sidebar">Auf dieser Website werden die Upgrade-Verfahren für AFF und FAS Storage-Systeme beschrieben. Wählen Sie das entsprechende Upgrade-Verfahren für Ihr Speichersystem aus.</block>
+  <block id="ce334042acf5cdb00aa6b0cacc91188d" category="list-text">Erstellen Sie bei Bedarf die nicht standardmäßigen Benutzerkonten, die Sie für den Baseboard Management Controller (BMC) auf dem alten System hatten, erneut:</block>
+  <block id="7cd124c3569d4b8de1ffd3a55e5a0f72" category="list-text">Ändern oder Zurücksetzen des Kennworts für das BMC-Administratorkonto.</block>
+  <block id="f9c20a87fa881cd6931b55ff9caab40b" category="paragraph">Das Kennwort für das BMC-Administratorkonto ist entweder leer (kein Kennwort) oder identisch mit dem Kennwort für das Systemadministrator-Benutzerkonto.</block>
+  <block id="98295c6ad28170a1a290ca42442cdb79" category="list-text">Erstellen Sie die nicht standardmäßigen BMC-Benutzerkonten mithilfe der neu<block ref="5d6b067bb8a979d6b47c787077dfae6f" prefix=" " category="inline-code"></block> Befehl mit<block ref="3676d55f84497cbeadfc614c1b1b62fc" prefix=" " category="inline-code"></block> Setzen Sie den Wert auf „Service-Processor“, wie im folgenden Beispiel gezeigt:</block>
+  <block id="715d318a746fe248ce78ec5e2626f09e" category="paragraph"><block ref="95c8ee682558c9e9a0683d5d70ee2be7" prefix="" category="inline-code"></block></block>
+  <block id="b6025c8f8309b4b8106567e8e60f52ac" category="admonition">Zum Erstellen eines Benutzerkontos im BMC sind Administratorrechte erforderlich.</block>
+  <block id="a64a5798382cc068c2d777ff826bccb5" category="doc">Dokumentation zu ONTAP-Hardware-Upgrades</block>
+  <block id="646d7d5f93b4a6d7bbbc65acf5ac1077" category="inline-link">Dokumentation zu ONTAP Hardwaresystemen</block>
+  <block id="c2bb4d5f8818bc80f7aa15d94d57c6e3" category="paragraph">Wenn Sie eine einzelne Komponente ersetzen, lesen Sie die Informationen im<block ref="e18a2433f1085adba8dc86307fee18d1" category="inline-link-rx"></block> Und suchen Sie den Flyer für die Field-Replaceable Unit (FRU) für diese Komponente.</block>
+  <block id="dec452d8e293e5516524ae8a86713211" category="sidebar">Auf dieser Website werden die Upgrade-Verfahren für AFF, FAS und ASA Storage-Systeme beschrieben. Wählen Sie das entsprechende Upgrade-Verfahren für Ihr Speichersystem aus.</block>
+  <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">Dokumentation zu ONTAP Hardwaresystemen</block>
 </blocks>
