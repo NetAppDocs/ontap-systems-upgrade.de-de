@@ -218,4 +218,5 @@ NOTE: Für iSCSI LIFs muss die Modifikation des Home Ports die LIF administrativ
 
 
 
+.Nachdem Sie fertig sind
 Sie haben die Zuordnung der physischen Ports abgeschlossen. Um das Upgrade abzuschließen, gehen Sie zu link:upgrade-final-upgrade-steps-in-ontap-9-8.html["Führen Sie die letzten Upgrade-Schritte in ONTAP 9.8 oder höher durch"].

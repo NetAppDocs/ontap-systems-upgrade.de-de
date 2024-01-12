@@ -16,7 +16,7 @@ summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Mo
 [role="lead"]
 Dieser Inhalt beschreibt, wie Sie ein Upgrade von Storage Controllern in einem HA-Paar durchführen, ohne dabei alle vorhandenen Daten und Festplatten zu beeinträchtigen. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
 
-Verwenden Sie dieses Verfahren unter den folgenden Umständen:
+Sie können dieses Verfahren unter folgenden Umständen verwenden:
 
 * Sie führen eines der folgenden Controller-Upgrades aus:
 +
@@ -53,7 +53,7 @@ Verwenden Sie dieses Verfahren unter den folgenden Umständen:
 * Sie sind erfahren in der Verwaltung von ONTAP und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.
 
 
-Verwenden Sie dieses Verfahren unter folgenden Umständen:
+Sie können dieses Verfahren unter folgenden Umständen nicht verwenden:
 
 * Sie verwenden die FlexArray Virtualisierungssoftware auf den AFF A700 oder FAS9000 Systemen.
 * Sie verwenden einen gemeinsamen Switch für Cluster-Interconnect und Ethernet Attached Storage.

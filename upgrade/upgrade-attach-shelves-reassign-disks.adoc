@@ -17,7 +17,12 @@ Sie müssen die Festplatten, die zu node1 bzw. node2 gehörten, Node3 bzw. node4
 Sie führen die Schritte in diesem Abschnitt auf Node3 und node4 durch, führen jeden Schritt auf node3 und dann node4 aus, bevor Sie zum nächsten Schritt weitergehen.
 
 .Schritte
-. Verbinden Sie die Speicherregalkabel von Node1/Node2 mit Node3/node4. Stellen Sie die Stromversorgung und die physische Konnektivität der Shelfs sicher.
+. Verbinden Sie die Storage-Shelf-Kabel von den Shelfs, die zuvor mit Knoten 1/Knoten 2 und knoten 3/knoten 4 verbunden waren.
++
+
+CAUTION: Während dieses Aktualisierungsvorgangs dürfen keine neuen Shelfs an Knoten 3/knoten 4 angeschlossen werden. Nach Abschluss des Controller-Upgrades können neue Shelfs unterbrechungsfrei mit dem System verbunden werden.
+
+. Stellen Sie die Stromversorgung und die physische Konnektivität der Shelfs sicher.
 . Von der Eingabeaufforderung node3-LOADER, Booten in Wartungsmodus:
 +
 `boot_ontap maint`

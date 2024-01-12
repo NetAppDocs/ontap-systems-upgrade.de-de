@@ -2938,7 +2938,6 @@
   <block id="4c41f3a2ec168af1924a7c5a884bdc37" category="cell">9.0 bis 9.7</block>
   <block id="9732e7498adc911676ddbf1eb96c90f1" category="inline-link-macro">Manuelles Upgrade der Controller-Hardware mit ONTAP 9.7 oder einer älteren Version</block>
   <block id="c96cad4c802036afa3176e87bcda336b" category="cell"><block ref="c96cad4c802036afa3176e87bcda336b" category="inline-link-macro-rx"></block></block>
-  <block id="c83b4e572cf3ae5eb7bac42baed0ac9e" category="summary">Sie können zu anderen Referenzinhalten und Websites in diesem Thema verlinken.</block>
   <block id="8ccdb707cd31c1e478505a54dfa90f7a" category="paragraph">Dieser Inhalt beschreibt, wie die Controller-Hardware dank Aggregatverschiebung unterbrechungsfrei aktualisiert werden kann.</block>
   <block id="fd6616fb43f706cbccb578942fa320ab" category="paragraph">Sie können die Controller-Hardware auf einem Node-Paar, auf dem ONTAP 9 ausgeführt wird, unterbrechungsfrei aktualisieren, indem Sie Aggregate anderer Anbieter von den ursprünglichen Nodes auf die neuen Nodes im selben Cluster migrieren. Auf die Daten, die auf den Nodes gehostet werden, die während des Upgrades zugegriffen werden kann.</block>
   <block id="60b36970c08352c3c476769f29561cf4" category="paragraph">Bei diesem Verfahren wird eine Methode namens Aggregate Relocation (ARL) verwendet. Diese Methode nutzt die HA-Konfiguration. So können Sie die Eigentümerschaft von nicht-Root-Aggregaten von einem Node auf einen anderen verschieben, wenn sie Storage innerhalb desselben Clusters gemeinsam nutzen.</block>
@@ -2968,10 +2967,8 @@
   <block id="4ed758f1326f5379f7dc30fe674ce726" category="inline-link-macro">Richtlinien für Controller Upgrades</block>
   <block id="61bb0e064fd915427168b2e72e080eff" category="list-text">Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie sollten auch lesen und verstehen, die <block ref="937d04c1dac5501bcacf105e8700fe45" category="inline-link-macro-rx"></block> Und das <block ref="57e14e08755134bb6fef9ad899bb58ee" category="inline-link-macro-rx"></block> Abschnitte vor Beginn der Aktualisierung.</block>
   <block id="51108f40a613018fdc6b3ad89f42122e" category="list-text">Bei diesem Verfahren wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht in einem anderen System verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> Befehl ist in dieser Prozedur nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor als Teil eines anderen ONTAP Clusters oder als Standalone-System mit einem einzelnen Node verwendet wurde.</block>
-  <block id="c08f0b6d71108219929095cbd90d111d" category="paragraph">Verwenden Sie dieses Verfahren unter den folgenden Umständen:</block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">Sie sind erfahren in der Verwaltung von ONTAP und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.</block>
-  <block id="9cc6fc2f026195efe30da793b04e5bd0" category="paragraph">Verwenden Sie dieses Verfahren unter folgenden Umständen:</block>
   <block id="b0ce3e25b9ec3a13c13ca9a6fa5323b7" category="list-text">Sie verwenden die FlexArray Virtualisierungssoftware auf den AFF A700 oder FAS9000 Systemen.</block>
   <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">Sie verwenden einen gemeinsamen Switch für Cluster-Interconnect und Ethernet Attached Storage.</block>
   <block id="2ed045fa4ee3544c7e5a632a26d55b9f" category="paragraph">Ab ONTAP 9.10.1 können Sie KMIP-Server (Key Management Interoperability Protocol) verwenden, um Authentifizierungsschlüssel zu managen.</block>
@@ -3466,7 +3463,6 @@
   <block id="8093d580d9cc0468991044c64c97b174" category="inline-xref-macro">Verschieben, löschen oder erstellen Sie SAN-LIFS</block>
   <block id="e062efd67a70d34c188657c2ffafc80e" category="summary">Sie müssen die Festplatten, die zu node1 bzw. node2 gehörten, Node3 bzw. node4 neu zuweisen.</block>
   <block id="507efb4e488acd48724d3f1c3d4b184d" category="paragraph">Sie führen die Schritte in diesem Abschnitt auf Node3 und node4 durch, führen jeden Schritt auf node3 und dann node4 aus, bevor Sie zum nächsten Schritt weitergehen.</block>
-  <block id="3a1ea4eb792e23021a7c1dcb702a9545" category="list-text">Verbinden Sie die Speicherregalkabel von Node1/Node2 mit Node3/node4. Stellen Sie die Stromversorgung und die physische Konnektivität der Shelfs sicher.</block>
   <block id="6617e295325d64b4136755492970fe4c" category="list-text">Von der Eingabeaufforderung node3-LOADER, Booten in Wartungsmodus:</block>
   <block id="533823574e82f810ad592fb31173b543" category="list-text">System-ID von node3 anzeigen:</block>
   <block id="9d0e35f7d62f6d238b5cb5794b6d495c" category="paragraph"><block ref="0f27807a5721c642901147ef5c9a87ea" prefix="" category="inline-code"></block></block>
@@ -4895,7 +4891,6 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="756e1a7c05678e697a7ba0945d87ed6c" category="paragraph">Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, führen Sie sie aus <block ref="cd67767b7b87c1efe6325584571ce48d" category="inline-link-macro-rx"></block> Damit node4 die Platten von node2 erkennen kann.</block>
   <block id="ac5c825456c3417b5a4af98c4f3e915f" category="paragraph">^1^die zusätzlichen Schritte, die für AFF A800 Systeme erforderlich sind, finden Sie im Schritt mit der Referenz A800 in Abschnitt <block ref="d7767766539bb5c2349ec33972e353b3" category="inline-link-macro-rx"></block>, Oder <block ref="1ac9d612a445bb1be7d33490e7f7168c" category="inline-link-macro-rx"></block>.</block>
   <block id="e517f479718742d7735088b63cb4b0a6" category="list-text">[[schritt5]]Ergreifen Sie eine der folgenden Aktionen:</block>
-  <block id="1f6c36e4c21adc6fcbbeb1628f0ce398" category="paragraph">Weitere Methoden zum Upgrade Ihrer Controller-Hardware finden Sie unter <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> Link zu _Upgrade durch Verschieben von Volumes oder Storage_.</block>
   <block id="ce334042acf5cdb00aa6b0cacc91188d" category="list-text">Erstellen Sie bei Bedarf die nicht standardmäßigen Benutzerkonten, die Sie für den Baseboard Management Controller (BMC) auf dem alten System hatten, erneut:</block>
   <block id="7cd124c3569d4b8de1ffd3a55e5a0f72" category="list-text">Ändern oder Zurücksetzen des Kennworts für das BMC-Administratorkonto.</block>
   <block id="f9c20a87fa881cd6931b55ff9caab40b" category="paragraph">Das Kennwort für das BMC-Administratorkonto ist entweder leer (kein Kennwort) oder identisch mit dem Kennwort für das Systemadministrator-Benutzerkonto.</block>
@@ -4907,4 +4902,10 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="c2bb4d5f8818bc80f7aa15d94d57c6e3" category="paragraph">Wenn Sie eine einzelne Komponente ersetzen, lesen Sie die Informationen im<block ref="e18a2433f1085adba8dc86307fee18d1" category="inline-link-rx"></block> Und suchen Sie den Flyer für die Field-Replaceable Unit (FRU) für diese Komponente.</block>
   <block id="dec452d8e293e5516524ae8a86713211" category="sidebar">Auf dieser Website werden die Upgrade-Verfahren für AFF, FAS und ASA Storage-Systeme beschrieben. Wählen Sie das entsprechende Upgrade-Verfahren für Ihr Speichersystem aus.</block>
   <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">Dokumentation zu ONTAP Hardwaresystemen</block>
+  <block id="1320db1e300a995e122ea5d434b23e9b" category="list-text">Verbinden Sie die Storage-Shelf-Kabel von den Shelfs, die zuvor mit Knoten 1/Knoten 2 und knoten 3/knoten 4 verbunden waren.</block>
+  <block id="4e14960b0c5923b866b1398172c14f69" category="admonition">Während dieses Aktualisierungsvorgangs dürfen keine neuen Shelfs an Knoten 3/knoten 4 angeschlossen werden. Nach Abschluss des Controller-Upgrades können neue Shelfs unterbrechungsfrei mit dem System verbunden werden.</block>
+  <block id="c1f694580637b3e597cbb094a01e4f0b" category="list-text">Stellen Sie die Stromversorgung und die physische Konnektivität der Shelfs sicher.</block>
+  <block id="ed55776ebd74bfbd9eb16e468efd309c" category="paragraph">Sie können dieses Verfahren unter folgenden Umständen verwenden:</block>
+  <block id="3767c7624c68d0c29496b5a31369dec4" category="paragraph">Sie können dieses Verfahren unter folgenden Umständen nicht verwenden:</block>
+  <block id="30fe187542d0301b8cde168dff779374" category="paragraph">Weitere Methoden zum Upgrade der Controller-Hardware finden Sie unter <block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>.</block>
 </blocks>

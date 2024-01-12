@@ -16,7 +16,7 @@ summary: Nutzen Sie Aggregatverschiebung, um ein Upgrade der Controller-Hardware
 [role="lead"]
 In diesem Inhalt wird beschrieben, wie Sie mithilfe von Aggregate Relocation (ARL) ein unterbrechungsfreies Upgrade der Controller-Hardware durchführen.
 
-Weitere Methoden zum Upgrade Ihrer Controller-Hardware finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+Weitere Methoden zum Upgrade der Controller-Hardware finden Sie unter link:../upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes oder Storage"].
 
 Sie können die Controller-Hardware auf einem Node-Paar mit ONTAP unterbrechungsfrei aktualisieren, indem Sie Aggregate anderer Anbieter von den ursprünglichen Nodes auf die neuen Nodes im selben Cluster migrieren. Auf die Daten, die auf den Nodes gehostet werden, die während des Upgrades zugegriffen werden kann.
 
