@@ -60,7 +60,8 @@ NOTE: Wenn Sie ein Cluster mit acht Nodes aktualisieren, das Blockprotokolle wie
 
 
 | Verschiebe ich den internen Speicher oder konvertiere ich das System in ein Laufwerk-Shelf?  a| 
-. https://hwu.netapp.com/["Stellen Sie sicher, dass die Root-Aggregat-Größe und die Anzahl der vom neuen System unterstützten Festplatten gleich oder größer sind als die vom ursprünglichen System unterstützten"^].
+. https://hwu.netapp.com/["Überprüfen Sie, ob die aktuelle Root-Aggregat-Größe und die Anzahl der Festplatten im Root-Aggregat die Spezifikationen des neuen Systems erfüllen oder überschreiten"^].
+. https://hwu.netapp.com/["Überprüfen Sie, ob die Anzahl der vom neuen System unterstützten Speicherlaufwerke gleich oder größer ist als die Anzahl der vom ursprünglichen System unterstützten Speicherlaufwerke"^].
 . link:upgrade-by-moving-storage-parent.html["Upgrades durch Storage-Verschiebung"] (Ein störendes Verfahren).
 
 
