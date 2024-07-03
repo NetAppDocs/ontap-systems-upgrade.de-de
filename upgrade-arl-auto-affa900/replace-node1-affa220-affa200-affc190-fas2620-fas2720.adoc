@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/replace-node1-affa220-affa200-affc190-fas2620-fas2720.html 
+keywords: aff, asa, fas, replace, node1, system, modules 
+summary: Ersetzen Sie die Node-1-Module AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720, wenn Sie Controller-Modelle mithilfe von ARL im selben Chassis aktualisieren. 
+---
+= Austausch des Controller-Moduls AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Da sich Node1 und Node2 im gleichen Chassis befinden und durch denselben Satz an Netzteilen mit Strom versorgt werden, schalten Sie das Chassis NICHT aus. Sie müssen darauf achten, nur das Knoten 1-Controller-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
+
+.Bevor Sie beginnen
+Wenn du nicht bereits geerdet bist, beground dich richtig.
+
+
+
+== Entfernen Sie das Controller-Modul AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
+
+Um auf Komponenten im Controller zuzugreifen, entfernen Sie das Controller-Modul aus dem System und entfernen Sie dann die Abdeckung am Controller-Modul.
+
+.Schritte
+. Lösen Sie den Haken- und Schlaufenriemen, mit dem die Kabel am Kabelführungsgerät befestigt sind, und ziehen Sie dann die Systemkabel und SFPs (falls erforderlich) vom Controller-Modul ab, um zu verfolgen, wo die Kabel angeschlossen waren.
++
+Lassen Sie die Kabel im Kabelverwaltungs-Gerät so, dass bei der Neuinstallation des Kabelverwaltungsgeräts die Kabel organisiert sind.
+
+. Entfernen Sie die Kabelführungsgeräte von der linken und rechten Seite des Controller-Moduls und stellen Sie sie zur Seite.
++
+image::../media/drw_25xx_cable_management_arm.png[Entfernen der Kabelverwaltungs-ARM]
+
+. Drücken Sie die Verriegelung am Nockengriff, bis sie loslässt, öffnen Sie den Nockengriff vollständig, um das Controller-Modul aus der Mittelplatine zu lösen, und ziehen Sie das Controller-Modul anschließend mit zwei Händen aus dem Gehäuse heraus.
++
+image::../media/drw_2240_x_opening_cam_latch.png[Öffnen des Nockengriffs]
+
+. Drehen Sie das Controller-Modul um und legen Sie es auf eine flache, stabile Oberfläche.
+
+
+
+
+== Installieren Sie das Controller-Modul ASA A150, AFF A150 oder FAS2820
+
+Installieren, verkabeln und verbinden Sie das ASA A150-, AFF A150- oder FAS2820-Controller-Modul in Knoten1.
+
+.Schritte
+. Richten Sie das Ende des Controller-Moduls an der Öffnung im Gehäuse aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
++
+
+NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Chassis ein, wenn Sie dazu aufgefordert werden.
+
+. Verkabeln Sie die Management- und Konsolen-Ports mit dem Node1-Controller-Modul.
++
+
+NOTE: Da das Gehäuse bereits EINGESCHALTET ist, startet node1 die BIOS-Initialisierung, gefolgt von AUTOBOOT, sobald es vollständig eingesetzt ist. Um den node1-Boot zu unterbrechen, bevor das Controller-Modul vollständig in den Steckplatz eingesetzt wird, wird empfohlen, die serielle Konsole und die Verwaltungskabel mit dem node1-Controller-Modul zu verbinden.
+
+. Schieben Sie das Steuermodul bei geöffnetem Nockengriff fest hinein, bis es auf die Mittelplatine trifft und vollständig eingesetzt ist. Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist. Schließen Sie den Nockengriff in die verriegelte Position.
++
+
+NOTE: Um Schäden an den Anschlüssen zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft verwenden.
+
+. Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
+. Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
+. Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
++
+`set-defaults`
+
+. Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
++
+`saveenv`
+
+

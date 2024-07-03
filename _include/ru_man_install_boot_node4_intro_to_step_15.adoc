@@ -68,7 +68,7 @@ NOTE: Sie müssen die Interconnect-Karte/FC_VI-Karte oder den Interconnect/FC_VI
 
 | Ein von Knoten 3 getrenntes Chassis | Gehen Sie zu <<man_install4_Step6,Schritt 6>>. 
 |===
-. [[man_install4_Step6]]schalten Sie die Stromversorgung auf node4 ein, und unterbrechen Sie dann den Startvorgang, indem Sie auf drücken `Ctrl-C` Um auf die Eingabeaufforderung für die Boot-Umgebung zuzugreifen.
+. [[man_install4_Step6]]Schalten Sie die Stromversorgung zu node4 ein, und unterbrechen Sie dann den Start, indem Sie Strg-C drücken, um auf die Eingabeaufforderung der Startumgebung zuzugreifen.
 +
 
 NOTE: Wenn Sie node4 booten, wird möglicherweise die folgende Meldung angezeigt:
@@ -133,7 +133,7 @@ Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geän
 +
 Das System zeigt alle Array-LUNs an, die für jeden FC-Initiator-Port sichtbar sind. Wenn die Array-LUNs nicht sichtbar sind, können Sie Festplatten von node2 nicht später in diesem Abschnitt neu zuweisen.
 
-. Drücken Sie `Ctrl-C` Um das Startmenü anzuzeigen und den Wartungsmodus zu wählen.
+. Drücken Sie Strg-C, um das Startmenü anzuzeigen, und wählen Sie Wartungsmodus aus.
 . [[man_install4_Step15]]Geben Sie in der Eingabeaufforderung für den Wartungsmodus den folgenden Befehl ein:
 +
 `halt`

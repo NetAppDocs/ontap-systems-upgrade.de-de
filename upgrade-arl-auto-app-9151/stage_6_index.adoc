@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/stage_6_index.html 
+keywords: complete upgrade, node, unified, target, storage, encryption, stage 6 
+summary: 'Phase 6-Prozesssequenz für ein ARL-Upgrade mithilfe von `system controller replace` Befehlen auf Controllern, die ONTAP 9.15.1 oder höher ausführen.' 
+---
+= Phase-6-Übersicht
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+In Phase 6 bestätigen Sie, dass die neuen Nodes ordnungsgemäß eingerichtet wurden. Bei aktivierter Verschlüsselung konfigurieren und einrichten Sie Storage Encryption bzw. NetApp Volume Encryption. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
+
+.Schritte
+. link:manage-authentication-using-kmip-servers.html["Authentifizierungsmanagement mit KMIP-Servern"]
+. link:ensure_new_controllers_are_set_up_correctly.html["Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind"]
+. link:set_up_storage_encryption_new_module.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]
+. link:set_up_netapp_volume_encryption_new_module.html["Einrichtung von NetApp Volume oder Aggregate Encryption auf dem neuen Controller-Modul"]
+. link:decommission_old_system.html["Ausmustern des alten Systems"]
+. link:resume_snapmirror_operations.html["Setzen Sie den SnapMirror Betrieb fort"]
+

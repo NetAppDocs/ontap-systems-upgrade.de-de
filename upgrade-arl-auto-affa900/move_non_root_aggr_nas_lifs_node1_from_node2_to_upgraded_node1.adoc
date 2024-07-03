@@ -47,7 +47,37 @@ Der Vorgang unterbricht in dieser Phase in der Überprüfung der Netzwerknachpr�
 +
 Vergewissern Sie sich, dass alle verbundenen Ports, einschließlich der Schnittstellengruppe und VLAN-Ports, ihren Status als anzeigen `OK`.
 
-. Wiederaufnahme des Betriebs der Versetzung:
+. Wenn Sie ein AFF A800 Upgrade auf ein AFF A70 oder AFF A90 durchführen möchten, müssen Sie die FCP SAN LIFs neu zuweisen. Bei allen anderen System-Upgrades fahren Sie fort mit <<resume_relocation_step4,Schritt 4>>:
++
+.. Neuzuweisung von FCP-SAN-LIFs für FCP- oder FC-NVMe-Datenzugriff an die korrekten Home Ports:
++
+`network interface show -vserver <vserver_hosting_fcp_lifs>`
+
+.. Bei LIFs, deren aktueller Node als aktualisierter node1 angegeben wird und der aktuelle Port den Status „oper“ als „-“ meldet (da der Port auf dem AFF A800 Node vorhanden war, jedoch nicht auf dem AFF A90 Node vorhanden ist), ändern Sie den aktuellen Port, bevor er online geschaltet werden kann.
++
+Überprüfen Sie, ob die physische Konnektivität zum FC-Zielport hergestellt ist, an den die FC-LIF verschoben werden muss:
+
++
+... Legen Sie den LIF-Status auf „down“ fest:
++
+`network interface modify -vserver <vserver_name> -lif <lif_name>  -status-admin down`
+
+... Ändern Sie den Home Port des LIF:
++
+`network interface modify -vserver <vserver_name> -lif <lif_name> - home-node <node1> -home-port <FC_target_port>`
+
+... Legen Sie den LIF-Status auf „up“ fest:
++
+`network interface modify -vserver <vserver> -lif <lif_name>  -status-admin up`
+
+
+
+
+
++
+Wiederholen Sie die Teilschritte a und b für jede FC-SAN-LIF, die sich als Home in Knoten 1 befindet.
+
+. [[resume_Relocation_step4]]Umzugsvorgang fortsetzen:
 +
 `system controller replace resume`
 

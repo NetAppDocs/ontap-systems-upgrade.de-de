@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/index.html 
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
+summary: 'Sie können Controller-Hardware, auf der ONTAP 9.15.1 oder höher ausgeführt wird, mit Befehlen aktualisieren `system controller replace` und dabei die Eigentumsrechte an nicht-Root-Aggregaten verschieben.' 
+---
+= Überblick
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Aggregate Relocation (ARL) für die folgenden Systemkonfigurationen:
+
+[cols="40,20,40"]
+|===
+| Methode | ONTAP-Version | Unterstützte Systeme 
+
+
+| Wird Verwendet `system controller replace` Befehle | 9.15.1 oder höher | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_9151_supported_systems["Link zur unterstützten Systemmatrix"] 
+|===
+
+NOTE: Sie können dieses Verfahren nicht zum Upgrade einer MetroCluster FC- oder IP-Konfiguration verwenden. Informationen zum Upgrade einer MetroCluster-Konfiguration finden Sie unter, um eine link:other_references.html["Quellen"] Verknüpfung zur _MetroCluster-Upgrade- und Erweiterungsdokumentation_ zu erhalten.
+
+Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren Aggregate mehrmals von Node zu Node, um zu bestätigen, dass mindestens ein Node während des Upgrades Daten von den Aggregaten bereitstellt. Außerdem migrieren Sie Daten-logische Schnittstellen (LIFs) und weisen Sie die Netzwerk-Ports auf dem neuen Controller den Schnittstellengruppen zu, während Sie fortfahren.
+
+.In diesen Informationen verwendete Terminologie
+In dieser Information werden die ursprünglichen Knoten „node1“ und „node2“ genannt und die neuen Knoten „node3“ und „node4“ genannt. Während des beschriebenen Verfahrens wird node1 durch node3 ersetzt und node2 durch node4 ersetzt.
+
+Die Begriffe "node1", "node2", "node3" und "node4" werden nur verwendet, um zwischen den ursprünglichen und den neuen Knoten zu unterscheiden. Wenn Sie das Verfahren befolgen, müssen Sie die richtigen Namen Ihrer ursprünglichen und neuen Knoten ersetzen. In der Realität ändern sich jedoch die Namen der Nodes nicht: node3 hat den Namen node1 und node4 hat nach dem Upgrade der Controller-Hardware den Namen node2.
+
+.Wichtige Informationen:
+* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen auch lesen und verstehen, die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien für das Controller-Upgrade mit ARL"] Und das link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"] Abschnitte vor Beginn der Aktualisierung.
+* Bei dieser Vorgehensweise wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht verwendet wurde. Die erforderlichen Schritte zum Vorbereiten gebrauchter Controller mit dem `wipeconfig` Befehl sind in diesem Verfahren nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor verwendet wurde.
+* Mit diesem Verfahren können Sie die Controller-Hardware in Clustern mit mehr als zwei Nodes aktualisieren. Sie müssen jedoch für jedes Hochverfügbarkeitspaar (HA) im Cluster separat vorgehen.
+* Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 eingeführtes AFF A70, AFF A90 oder AFF A1K System durchführen, konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese die Storage-Effizienz nicht nutzen, und wendet die neuen Funktionen zur Storage-Effizienz an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Weitere Informationen ."^]
+

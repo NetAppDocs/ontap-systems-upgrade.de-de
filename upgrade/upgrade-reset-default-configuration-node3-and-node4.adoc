@@ -52,5 +52,5 @@ Rebooting to finish wipeconfig request.
 +
 Das System initiiert den `wipeconfig` Verfahren und starten Sie neu. Nach Abschluss des Vorgangs kehrt das System zum Startmenü zurück.
 
-. Geben Sie im Boot-Menü 8 ein, um den Node neu zu booten, und drücken Sie während des Autobootens *Strg-C*, um den Node an der LOADER-Eingabeaufforderung zu stoppen.
+. Geben Sie im Boot-Menü den Befehl 8 ein, um den Node neu zu booten, und drücken Sie während des AUTOBOOTS Strg-C, um den Node an der LOADER-Eingabeaufforderung zu beenden.
 

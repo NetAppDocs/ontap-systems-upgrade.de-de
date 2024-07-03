@@ -52,7 +52,7 @@ NOTE: Möglicherweise müssen Sie die Interconnect-Karte/FC-VI-Karte oder die In
 
 
 
-. Schalten Sie node4 ein, und unterbrechen Sie den Bootvorgang, indem Sie auf drücken `Ctrl-C` An der Konsole, um auf die Eingabeaufforderung für die Boot-Umgebung zuzugreifen.
+. Schalten Sie node4 ein, und unterbrechen Sie den Bootvorgang, indem Sie am Konsolenterminal Strg-C drücken, um auf die Eingabeaufforderung der Boot-Umgebung zuzugreifen.
 +
 
 NOTE: Wenn Sie node4 booten, wird möglicherweise die folgende Warnmeldung angezeigt:
@@ -206,7 +206,7 @@ Wenn Sie eine MetroCluster-Konfiguration haben, verwenden Sie die folgenden Befe
 `halt`
 
 +
-Unterbrechen Sie die Autoboot-Ausführung, indem Sie an der Eingabeaufforderung der Boot-Umgebung Strg-C drücken.
+Unterbrechen Sie DAS AUTOBOOT, indem Sie an der Eingabeaufforderung der Boot-Umgebung Strg-C drücken.
 
 . [[Auto_install4_step15]] auf node3 überprüfen Sie Datum, Uhrzeit und Zeitzone des Systems:
 +

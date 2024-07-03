@@ -30,6 +30,9 @@ Vergewissern Sie sich, dass Sie über eine unterstützte SP- oder BMC-Firmware-V
 | Alter Controller | SP oder BMC | Mindestversion der Firmware 
 
 
+| AFF A800 | BMC | 10.9 
+
+
 | AFF A220 | BMC | 11,9P1 
 
 
@@ -52,18 +55,20 @@ Vergewissern Sie sich, dass Sie über eine unterstützte SP- oder BMC-Firmware-V
 `system controller replace start -nodes _node_names_`
 
 +
-Sie werden eine Ausgabe wie die folgende sehen:
+Es wird eine Ausgabe wie im folgenden Beispiel angezeigt. In der Ausgabe wird die auf dem Cluster ausgeführte ONTAP-Version angezeigt:
 
 +
 ....
 Warning:
-1. Current ONTAP version is 9.x
+1. Current ONTAP version is 9.15.1
 
 2. Verify that NVMEM or NVRAM batteries of the new nodes are charged, and charge them if they are not. You need to physically check the new nodes to see if the NVMEM or NVRAM  batteries are charged. You can check the battery status either by connecting to a serial console or using SSH, logging into the Service Processor (SP) or Baseboard Management Controller (BMC) for your system, and use the system sensors to see if the battery has a sufficient charge.
 
 Attention: Do not try to clear the NVRAM contents. If there is a need to clear the contents of NVRAM, contact NetApp technical support.
 
 3. If a controller was previously part of a different cluster, run wipeconfig before using it as the replacement controller.
+
+4. Note: This is not a MetroCluster configuration. Controller replacement supports only ARL based procedures.
 
 Do you want to continue? {y|n}: y
 ....
@@ -126,7 +131,7 @@ In der Vorabprüfungen-Phase führt das System die folgende Liste der Überprüf
 . Wenn der Controller-Ersatzvorgang gestartet und die Vorabprüfungen abgeschlossen sind, wird der Vorgang angehalten. In diesem Fall können Sie die Ausgabedaten sammeln, die Sie zu einem späteren Zeitpunkt im Controller-Upgrade-Prozess benötigen könnten.
 . Führen Sie den folgenden Befehlssatz aus, wie durch das Verfahren zum Austausch des Controllers auf der Systemkonsole gesteuert.
 +
-Führen Sie von dem seriellen Port aus, der mit jedem Node verbunden ist, und speichern Sie die Ausgabe der folgenden Befehle einzeln:
+Führen Sie die Befehle an dem seriellen Port aus, der mit den einzelnen Nodes verbunden ist, und speichern Sie die Ausgabe der Befehle einzeln:
 
 +
 ** `vserver services name-service dns show`
@@ -137,6 +142,11 @@ Führen Sie von dem seriellen Port aus, der mit jedem Node verbunden ist, und sp
 ** `network port ifgrp show -node _local_`
 ** `system node show -instance -node _local_`
 ** `run -node _local_ sysconfig`
+** `run -node local sysconfig -ac`
+** `run -node local aggr status -r`
+** `vol show -fields type`
+** `run local aggr options _data_aggregate_name_`
+** `vol show -fields type , space-guarantee`
 ** `storage aggregate show -node _local_`
 ** `volume show -node _local_`
 ** `storage array config show -switch _switch_name_`
@@ -146,11 +156,11 @@ Führen Sie von dem seriellen Port aus, der mit jedem Node verbunden ist, und sp
 ** `security key-manager external show`
 ** `security key-manager external show-status`
 ** `network port reachability show -detail -node _local_`
-
-
 +
 
 NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) den Onboard Key Manager verwendet, halten Sie die Schlüsselmanager-Passphrase bereit, um später im Verfahren die Neusynchronisierung des Schlüsselmanagers abzuschließen.
+
+
 
 . Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:
 +

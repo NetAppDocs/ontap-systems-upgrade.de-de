@@ -4,7 +4,7 @@
 
 Sie müssen über spezielle Tools verfügen, um die neue Hardware zu installieren, und Sie müssen während des Upgrade-Prozesses andere Dokumente referenzieren.
 
-Zur Durchführung der up-Bewertung benötigen Sie die folgenden Tools:
+Für die Durchführung des Upgrades benötigen Sie die folgenden Tools:
 
 * Erdungsband
 * #2 Kreuzschlitzschraubendreher

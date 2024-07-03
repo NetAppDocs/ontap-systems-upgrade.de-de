@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/retire_node2.html 
+keywords: retire, node2 
+summary: 'Fahren Sie node2 herunter, und entfernen Sie es aus dem Rack oder Chassis, wenn Sie Controller mit ONTAP 9.15.1 oder höher mithilfe von Befehlen aktualisieren `system controller replace` .' 
+---
+= Node2 ausmustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Um node2 außer Betrieb zu nehmen, schalten Sie node2 zunächst ordnungsgemäß aus und entfernen Sie es aus dem Rack oder Gehäuse.
+
+.Schritte
+. Vorgang fortsetzen:
++
+`system controller replace resume`
+
++
+Der Knoten wird automatisch angehalten.
+
+
+
+.Nachdem Sie fertig sind
+Sie können nach Abschluss des Upgrades die Decommission node2 deaktivieren. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].

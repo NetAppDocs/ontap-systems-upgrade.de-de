@@ -18,7 +18,10 @@ Node1 mit den Ersatzmodulen ist nun startbereit. In diesem Abschnitt werden die 
 
 [cols="35,65"]
 |===
-| Alter Knoten 1-Controller | Ersatz-Knoten 1-Systemmodule 
+| Vorhandener Knoten 1-Controller | Ersatz-Knoten 1-Systemmodule 
+
+
+| AFF A800 | AFF A90 oder AFF A70 ^1^ 
 
 
 | AFF A220 als ASA konfiguriert | AFF A150-Controller-Modul ^1^ 
@@ -42,9 +45,40 @@ FAS2720 | FAS2820 Controller-Modul ^1^
 | FAS9000 | FAS9500 Controller- und NVRAM-Module ^2^ 
 |===
 ^1^ beim Austausch von Controller-Modulen verschieben Sie alle Verbindungen vom alten zum Ersatz-Controller-Modul.
+
 ^2^ beim Austauschen des Controllers und der NVRAM-Module verschieben Sie nur die Konsole und die Managementverbindungen.
 
 .Schritte
+. (Nur AFF A800 Upgrade) wechseln Sie an der Eingabeaufforderung des LOADERS in den Wartungsmodus:
++
+`boot_ontap maint`
+
++
+.. Beantworten Sie `yes` die Bestätigungsaufforderung.
+.. Zeigen Sie den Status der 100-GbE-Schnittstellen an:
++
+`storage port show`.
+
++
+Alle mit NS224-Shelfs oder Storage-Switches verbundenen 100-GbE-Ports sollten als Ports gemeldet werden `storage` , wie im Beispiel-Output unten dargestellt.
+
++
+[listing]
+----
+*> storage port show
+Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
+---- ---- ------- ----------- -------- ------- -------
+e8a  ENET storage 100 Gb/s    enabled  online  30
+e8b  ENET storage 100 Gb/s    enabled  online  30
+e11a ENET storage 100 Gb/s    enabled  online  30
+e11b ENET storage 100 Gb/s    enabled  online  30
+----
+.. Beenden des Wartungsmodus:
++
+`halt`
+
+
+
 . [[A900_Boot_node1]]Wenn Sie NSE-Laufwerke (NetApp Storage Encryption) installiert haben, führen Sie die folgenden Schritte durch.
 +
 
@@ -92,8 +126,8 @@ Diese Eingabeaufforderungen sind möglicherweise in den Konsolenmeldungen verbor
 Wenn `[localhost:disk.encryptNoSupport:ALERT]: Detected FIPS-certified encrypting drive` Und oder `[localhost:diskown.errorDuringIO:error]: error 3 (disk failed) on disk` Fehler auftreten, führen Sie die folgenden Schritte aus:
 
 .. Halten Sie den Node an der LOADER-Eingabeaufforderung an.
-.. Prüfen und setzen Sie die Storage Encryption Boot-Optionen zurück, die in erwähnt sind <<A900_boot_node1,Schritt 1>>.
-.. An der Loader-Eingabeaufforderung booten Sie:
+.. Überprüfen und setzen Sie die Speicherverschlüsselung Bootargs in erwähnt <<A900_boot_node1,Schritt 2>>.
+.. Starten Sie an der LOADER-Eingabeaufforderung:
 +
 `boot_ontap`
 

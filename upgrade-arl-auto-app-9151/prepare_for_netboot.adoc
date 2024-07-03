@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/prepare_for_netboot.html 
+keywords: preparing, netboot, ndac, ontap 
+summary: 'Bereiten Sie sich beim Upgrade von Controllern mit ONTAP 9.8 oder höher auf den Netzboot Node3 und node4 vor `system controller replace` Befehle.' 
+---
+= Vorbereitungen für den Netzboot
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nachdem Sie später noch Node3 und node4 physisch gerast haben, müssen Sie sie eventuell als Netzboot Netboot eingesetzt werden. Der Begriff „Netzboot“ bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Bei der Vorbereitung auf den Netzboot legen Sie eine Kopie des ONTAP 9-Startabbilds auf einen Webserver, auf den das System zugreifen kann.
+
+Sie können auch die USB-Boot-Option verwenden, um einen Netzboot durchzuführen. Weitere Informationen finden Sie im Knowledge Base-Artikel link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["So verwenden Sie den Boot_Recovery-LOADER-Befehl zum Installieren von ONTAP für die Ersteinrichtung eines Systems"^].
+
+.Bevor Sie beginnen
+* Vergewissern Sie sich, dass Sie mit dem System auf einen HTTP-Server zugreifen können.
+* Siehe link:other_references.html["Quellen"] Um eine Verknüpfung zur NetApp Support-Website zu erhalten und die erforderlichen Systemdateien für Ihre Plattform und die richtige Version von ONTAP herunterzuladen.
+
+
+.Über diese Aufgabe
+Sie müssen die neuen Controller als Netzboot ansehen, wenn sie nicht die gleiche Version von ONTAP 9 auf ihnen installiert sind, die auf den ursprünglichen Controllern installiert ist. Nachdem Sie jeden neuen Controller installiert haben, starten Sie das System über das auf dem Webserver gespeicherte ONTAP 9-Image. Anschließend können Sie die richtigen Dateien auf das Boot-Medium herunterladen, um später das System zu booten.
+
+.Schritte
+. Rufen Sie die NetApp Support Site auf, um die Dateien zum Netzboot des Systems herunterzuladen.
+. Laden Sie die entsprechende ONTAP Software im Bereich Software Downloads auf der NetApp Support Website herunter und speichern Sie die `<ontap_version>_image.tgz` Datei in einem webbasierten Verzeichnis.
+. Wechseln Sie in das Verzeichnis für den Zugriff über das Internet, und stellen Sie sicher, dass die benötigten Dateien verfügbar sind.
++
+Ihre Verzeichnisliste sollte die folgende Datei enthalten:
+`<ontap_version>_image.tgz`
+
++
+
+NOTE: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` Datei:
+
++
+Sie verwenden die Informationen in den Verzeichnissen in link:install_boot_node3.html["Phase 3"].
+
+

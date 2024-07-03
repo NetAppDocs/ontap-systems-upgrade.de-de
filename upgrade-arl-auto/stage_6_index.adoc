@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/stage_6_index.html
 keywords: complete upgrade, node, unified, target, storage, encryption, MetroCluster, stage 6 
 summary: 'Phase 6-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.5 zu 9.7.' 
 ---
-= Überblick
+= Phase-6-Übersicht
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -25,5 +25,5 @@ In Phase 6 bestätigen Sie, dass die neuen Nodes ordnungsgemäß eingerichtet wu
 . link:resume_snapmirror_operations.html["Setzen Sie den SnapMirror Betrieb fort"]
 
 
-.Für die Konfiguration von MetroCluster FC
-Bei der MetroCluster FC-Konfiguration müssen die Nodes des Disaster Recovery-/Failover-Standorts so schnell wie möglich ersetzt werden. Nicht übereinstimmende Controller-Modelle in einem MetroCluster wird nicht unterstützt, weil eine falsche Übereinstimmung des Controller-Modells dazu führen kann, dass Disaster Recovery-Spiegelung offline geht. Verwenden Sie den Befehl -`skip-metrocluster-check true` Option zum Umgehen der MetroCluster-Prüfungen, wenn Sie Nodes am zweiten Standort ersetzen.
+.MetroCluster FC-Konfiguration
+In einer MetroCluster FC-Konfiguration müssen die Knoten für Disaster Recovery/Failover-Standort so schnell wie möglich ersetzt werden. Nicht übereinstimmende Controller-Modelle in einem MetroCluster wird nicht unterstützt, weil eine falsche Übereinstimmung des Controller-Modells dazu führen kann, dass Disaster Recovery-Spiegelung offline geht. Umgehen Sie MetroCluster-Überprüfungen mit dem `-skip-metrocluster-check true` Befehl, wenn Sie Nodes am zweiten Standort ersetzen.

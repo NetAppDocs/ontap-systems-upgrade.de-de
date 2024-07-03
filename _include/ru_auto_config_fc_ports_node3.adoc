@@ -71,7 +71,7 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 +
 `halt`
 
-. Booten des Systems von der Loader-Eingabeaufforderung:
+. Booten Sie das System über die LOADER-Eingabeaufforderung:
 +
 `boot_ontap menu`
 

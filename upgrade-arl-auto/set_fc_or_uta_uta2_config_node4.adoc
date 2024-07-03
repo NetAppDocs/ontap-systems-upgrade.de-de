@@ -17,7 +17,7 @@ summary: 'Konfigurieren sie node4 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/
 Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
 .Über diese Aufgabe
-Möglicherweise müssen Sie die abschließen <<Konfigurieren Sie FC-Ports auf node4>> Abschnitt, der <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>, Oder beide Abschnitte.
+Möglicherweise müssen Sie den Abschnitt oder oder beide Abschnitte ausfüllen <<Konfigurieren Sie FC-Ports auf node4>> <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> .
 
 
 NOTE: Wenn node4 keine integrierten FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat und Sie ein System mit Storage-Festplatten aktualisieren, können Sie zur springen link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] Abschnitt. Wenn Sie jedoch ein V-Series System oder FlexArray-Virtualisierungssoftware haben und mit Storage-Arrays verbunden sind und node4 keine integrierten FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie zurück in den Abschnitt _Installation und Boot-node4_ und wieder aufnehmen link:install_boot_node4.html#step22["Schritt 22"]. stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt. Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4 an der gleichen Stelle wie node3 platzieren. Wenn sich Node2 und node4 im selben Chassis befinden, befindet sich node4 bereits in der entsprechenden Rack-Position.
@@ -98,7 +98,7 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 +
 `halt`
 
-. Booten des Systems von der Loader-Eingabeaufforderung:
+. Booten Sie das System über die LOADER-Eingabeaufforderung:
 +
 `boot_ontap menu`
 
@@ -386,8 +386,8 @@ Login: ...
 ----
 ====
 . Wenn das System in eine Reboot-Schleife mit der Meldung geht `no disks found`, Das liegt daran, dass es die Ports wieder in den Zielmodus zurückgesetzt hat und somit keine Disketten sehen kann. Weiter mit <<auto_check_4_step17,Schritt 17>> Bis <<auto_check_4_step22,Schritt 22>> Um dies zu beheben.
-. [[Auto_Check_4_steep17]]Drücken Sie `Ctrl-C` Während des automatischen Bootens, um den Node auf dem zu beenden `LOADER>` Eingabeaufforderung:
-. Wechseln Sie an der Loader-Eingabeaufforderung in den Wartungsmodus:
+. [[Auto_Check_4_step17]]Drücken Sie während des AUTOBOOTS Strg-C, um den Knoten an der Eingabeaufforderung LOADER> anzuhalten.
+. Wechseln Sie an der LOADER-Eingabeaufforderung in den Wartungsmodus:
 +
 `boot_ontap maint`
 
@@ -417,7 +417,7 @@ Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unte
 Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten verwendet, zu einem System, das sowohl interne als auch externe Festplatten unterstützt, z. B. ein AFF A800 System, finden Sie unter <<auto_check_4_step23,Schritt 23>>.
 
 ====
-. [[Auto_Check_4_step 22]]Booten Sie an der Loader-Eingabeaufforderung:
+. [[Auto_Check_4_step22]]Starten Sie an der LOADER-Eingabeaufforderung:
 +
 `boot_ontap menu`
 
@@ -425,11 +425,13 @@ Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten verw
 Beim Booten erkennt der Node jetzt alle Festplatten, die zuvor ihm zugewiesen waren, und kann wie erwartet gebootet werden.
 
 +
-Wenn die Cluster-Knoten, die Sie ersetzen, die Root-Volume-Verschlüsselung verwenden, kann die ONTAP-Software die Volume-Informationen nicht von den Festplatten lesen. Stellen Sie die Schlüssel für das Root-Volume wieder her:
+Wenn die Clusterknoten, die Sie ersetzen, die Root-Volume-Verschlüsselung verwenden, kann ONTAP die Volume-Informationen von den Festplatten nicht lesen. Stellen Sie die Schlüssel für das Root-Volume wieder her:
 
 +
 .. Zurück zum speziellen Startmenü:
++
 `LOADER> boot_ontap menu`
+
 +
 [listing]
 ----
@@ -463,8 +465,6 @@ NOTE: Sie müssen die Passphrase und Sicherungsdaten im erhalten haben link:prep
 +
 
 NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehler auftritt, wiederholen Sie die Teilschritte in <<auto_check_4_step22,Schritt 22>> Bis das System ordnungsgemäß gebootet wird.
-
-
 
 
 

@@ -15,9 +15,13 @@ Dieser Inhalt beschreibt, wie die Controller-Hardware eines AFF, FAS oder ASA Sy
 
 Gehen Sie folgendermaßen vor, wenn Sie die Controller-Hardware in den folgenden Situationen aktualisieren möchten:
 
+[NOTE]
+====
+Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 eingeführtes AFF A70, AFF A90 oder AFF A1K System durchführen, konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese die Storage-Effizienz nicht nutzen, und wendet die neuen Funktionen zur Storage-Effizienz an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Weitere Informationen ."^]
 
-NOTE: Die Hardware-Upgrade-Verfahren wurden in ONTAP 9.8 mit der Einführung der automatischen Port-Platzierung vereinfacht.
+Die Hardware-Upgrade-Verfahren wurden in ONTAP 9.8 mit der Einführung der automatischen Port-Platzierung vereinfacht.
 
+====
 * Ihre ursprünglichen und neuen Nodes sind kompatibel und werden unterstützt.
 * Auf den ursprünglichen und den neuen Nodes wird ONTAP 9.0 oder höher ausgeführt. NetApp empfiehlt, wenn möglich, auf den ursprünglichen und neuen Nodes dieselbe ONTAP-Version zu verwenden.
 +

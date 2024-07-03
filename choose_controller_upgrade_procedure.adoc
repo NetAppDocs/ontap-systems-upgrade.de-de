@@ -21,6 +21,10 @@ Wählen Sie ein Upgrade-Verfahren für ein System mit internen Laufwerken aus, d
 
 * FAS2720, FAS2750, FAS2720 UND FAS2750
 * AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s und AFF A800
++
+
+NOTE: Sie können auch ein Upgrade einer AFF A800 auf eine AFF A70 oder AFF A90 mithilfe der Aggregatverschiebung durchführen. link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["Weitere Informationen ."].
+
 * AFF C190, AFF C250 und AFF C800
 * ASA A150, ASA A250, ASA A800 und ASA AFF A220
 
@@ -50,10 +54,9 @@ Erfahren Sie mehr über die Upgrade-Verfahren für die Controller-Hardware:
 
 * link:upgrade-arl/index.html["Upgrade durch Aggregatverschiebung"]
 +
-Aggregatverschiebung ist ein Ersatzverfahren. Sie müssen den Cluster nicht mit den neuen Nodes erweitern und verkleinern, was sich vorteilhaft für zwei-Node-Cluster ohne Switches eignet. Das Verschieben von Daten durch Verschieben von Aggregaten ist schneller als das Kopieren von Daten zwischen Aggregaten beim Verschieben von Volumes.
+Aggregatverschiebung ist ein Ersatzverfahren. Sie müssen den Cluster nicht mit den neuen Nodes erweitern und verkleinern. Davon profitieren zwei-Node-Cluster ohne Switches. Das Verschieben von Daten durch Verschieben von Aggregaten ist schneller als das Kopieren von Daten zwischen Aggregaten beim Verschieben von Volumes.
 
-* link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes"]
-* link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrades durch Storage-Verschiebung"]
+* link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes oder Storage"]
 
 
 [NOTE]

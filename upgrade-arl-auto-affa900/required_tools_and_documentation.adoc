@@ -16,4 +16,6 @@ summary: Um ein Upgrade der Controller-Modelle im selben Chassis mit ARL durchzu
 [role="lead"]
 Sie müssen über ein Erdungsband verfügen, um das Upgrade durchführen zu können, und Sie müssen während des Upgrade-Prozesses andere Dokumente referenzieren.
 
+Bei einem AFF A800 Upgrade auf eine AFF A90 oder AFF A70 stellen Sie sicher, dass die 100-GbE-Kabel eine Länge von mindestens einem Meter haben.
+
 Siehe link:other_references.html["Quellen"] Um auf die Liste der Referenzdokumente und Referenzsites zuzugreifen, die für dieses Upgrade erforderlich sind.

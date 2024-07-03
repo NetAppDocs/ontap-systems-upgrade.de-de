@@ -1,0 +1,306 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/verify_node3_installation.html 
+keywords: verifying, verify, node, install, installation 
+summary: 'Überprüfen Sie mithilfe von Befehlen, ob die physischen node1-Ports Knoten3 richtig zugeordnet sind, und stellen Sie die Netzwerkkonfiguration auf Knoten3 wieder her, wenn Sie Controller mit ONTAP 9.15.1 oder höher aktualisieren `system controller replace` .' 
+---
+= Überprüfen Sie die Installation von node3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie müssen überprüfen, ob die physischen Ports von node1 den physischen Ports auf node3 korrekt zugeordnet sind. Dadurch kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
+
+.Über diese Aufgabe
+Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
+
+Abhängig vom Modell der Nodes kann das physische Port-Layout variieren. Wenn der neue Node gestartet wird, versucht ONTAP, zu ermitteln, welche Ports die Cluster LIFs hosten sollten, damit es automatisch zu Quorum kommt.
+
+Wenn die physischen Ports auf node1 nicht direkt den physischen Ports auf node3 zugeordnet werden, wird der folgende Abschnitt angezeigt <<Stellen Sie die Netzwerkkonfiguration auf node3 wieder her>> Muss zur Reparatur der Netzwerkverbindung verwendet werden.
+
+Nach der Installation und dem Booten von node3 müssen Sie überprüfen, ob die Installation korrekt ist. Sie müssen warten, bis Knoten 3 dem Quorum beitreten und dann den Umzugsvorgang fortsetzen.
+
+An diesem Punkt des Verfahrens wird der Vorgang angehalten, da node3 dem Quorum beitritt.
+
+.Schritte
+. Vergewissern Sie sich, dass node3 dem Quorum beigetreten ist:
++
+`cluster show -node node3 -fields health`
+
++
+Die Ausgabe des `health` Feld muss sein `true`.
+
+. Vergewissern Sie sich, dass node3 Teil desselben Clusters wie node2 ist und dass er sich in einem ordnungsgemäßen Zustand befindet:
++
+`cluster show`
+
+. [[verify_node3_Step_5]]Wechseln Sie in den erweiterten Berechtigungsmodus:
++
+`set advanced`
+
+. Überprüfen Sie den Status des Controller-Austauschvorgangs und vergewissern Sie sich, dass er sich in einem Pause-Zustand befindet und sich im gleichen Zustand wie zuvor in node1 befand, um die physischen Aufgaben beim Installieren neuer Controller und Verschieben von Kabeln auszuführen:
++
+`system controller replace show`
+
++
+`system controller replace show-details`
+
+. Setzen Sie den Austausch des Controllers wieder ein:
++
+`system controller replace resume`
+
+. Der Austausch des Controllers wird anhand der folgenden Meldung unterbrochen:
++
+....
+Cluster::*> system controller replace show
+Node             Status                       Error-Action
+---------------- ------------------------     ------------------------------------
+Node1(now node3) Paused-for-intervention      Follow the instructions given in
+                                              Step Details
+Node2                      None
+
+Step Details:
+--------------------------------------------
+To complete the Network Reachability task, the ONTAP network configuration must be manually adjusted to match the new physical network configuration of the hardware. This includes:
+
+1. Re-create the interface group, if needed, before restoring VLANs. For detailed commands and instructions, refer to the "Re-creating VLANs, ifgrps, and broadcast domains" section of the upgrade controller hardware guide for the ONTAP version running on the new controllers.
+2. Run the command "cluster controller-replacement network displaced-vlans show" to check if any VLAN is displaced.
+3. If any VLAN is displaced, run the command "cluster controller-replacement network displaced-vlans restore" to restore the VLAN on the desired port.
+
+2 entries were displayed.
+....
++
+
+NOTE: In diesem Verfahren wurde der Abschnitt _Neuerstellen von VLANs, ifgrps und Broadcast-Domänen_ unter node3_ umbenannt.
+
+. Wenn der Controller-Austausch im Status „Pause“ steht, fahren Sie mit dem nächsten Abschnitt dieses Dokuments fort, um die Netzwerkkonfiguration auf dem Node wiederherzustellen.
+
+
+
+
+== Stellen Sie die Netzwerkkonfiguration auf node3 wieder her
+
+Nachdem Sie bestätigt haben, dass node3 sich im Quorum befindet und mit node2 kommunizieren kann, überprüfen Sie, ob node1 VLANs, Interface Groups und Broadcast-Domains auf node3 zu sehen sind. Überprüfen Sie außerdem, ob alle node3-Netzwerk-Ports in ihren richtigen Broadcast-Domänen konfiguriert sind.
+
+.Über diese Aufgabe
+Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit _Network Management_.
+
+.Schritte
+. Listen Sie alle physischen Ports auf, die auf dem aktualisierten Knoten 1 (als Knoten 3 bezeichnet) sind:
++
+`network port show -node node3`
+
++
+Alle physischen Netzwerk-Ports, VLAN-Ports und Schnittstellen-Gruppen-Ports auf dem Node werden angezeigt. In dieser Ausgabe sehen Sie alle physischen Ports, die in verschoben wurden `Cluster` Broadcast-Domäne von ONTAP Sie können diese Ausgabe verwenden, um zu entscheiden, welche Ports als Ports für Schnittstellengruppen, VLAN-Basis-Ports oder eigenständige physische Ports zum Hosten von LIFs verwendet werden müssen.
+
+. Liste der Broadcast-Domänen auf dem Cluster:
++
+`network port broadcast-domain show`
+
+. Die Erreichbarkeit des Netzwerkports aller Ports auf node3 auflisten:
++
+`network port reachability show`
+
++
+Die Ausgabe sollte wie im folgenden Beispiel angezeigt werden:
+
++
+[listing]
+----
+ClusterA::*> network port reachability show
+Node      Port     Expected Reachability                Reachability Status
+--------- -------- ------------------------------------ ---------------------
+node1_node3
+          e0M      Default:Mgmt                         ok
+          e10a     Default:Default                      ok
+          e10b     -                                    no-reachability
+          e10c     Default:Default                      ok
+          e10d     -                                    no-reachability
+          e1a      Cluster:Cluster                      ok
+          e1b      -                                    no-reachability
+          e7a      Cluster:Cluster                      ok
+          e7b      -                                    no-reachability
+node2_node4
+          e0M      Default:Mgmt                         ok
+          e4a      Default:Default                      ok
+          e4b      -                                    no-reachability
+          e4c      Default:Default                      ok
+          e4d      -                                    no-reachability
+          e3a      Cluster:Cluster                      ok
+          e3b      Cluster:Cluster                      ok
+18 entries were displayed.
+----
++
+Im vorherigen Beispiel wird node1_node3 kurz nach dem Austausch des Controllers gestartet. Einige Ports verfügen nicht über die Fähigkeit, ihre zu erwartenden Broadcast-Domänen zu erreichen und müssen repariert werden.
+
+. [[Auto_verify_3_stee4]]Reparieren Sie die Erreichbarkeit für jeden Port auf node3 mit einem anderen Status als der Erreichbarkeit `ok`. Führen Sie den folgenden Befehl aus, zuerst auf beliebigen physischen Ports, dann auf beliebigen VLAN-Ports, nacheinander:
++
+`network port reachability repair -node <node_name>  -port <port_name>`
+
++
+Die Ausgabe sollte wie im folgenden Beispiel angezeigt werden:
+
++
+[listing]
+----
+Cluster ::> reachability repair -node node1_node3 -port e4a
+----
++
+[listing]
+----
+Warning: Repairing port "node1_node3: e4a" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
+----
++
+Wie oben dargestellt, wird eine Warnmeldung für Ports mit einem Wiederanmeldungs-Status erwartet, die sich vom Status der Wiederachbarkeit der Broadcast-Domain unterscheiden können, wo sie sich derzeit befindet. Überprüfen Sie die Verbindung des Ports und die Antwort `y` Oder `n` Je nach Bedarf.
+
++
+Überprüfen Sie, ob alle physischen Ports die erwartete Erreichbarkeit haben:
+
++
+`network port reachability show`
+
++
+Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn jedoch die Erreichbarkeit eines Ports nicht ermittelt werden kann und keiner der bestehenden Broadcast-Domänen angehört, wird ONTAP neue Broadcast-Domains für diese Ports erstellen.
+
+. Wenn die Konfiguration der Schnittstellengruppe nicht mit dem physischen Portlayout des neuen Controllers übereinstimmt, ändern Sie diese mit den folgenden Schritten.
++
+.. Sie müssen zunächst physische Ports entfernen, die als Ports für Schnittstellengruppen von ihrer Broadcast-Domain-Mitgliedschaft verwendet werden sollen. Dazu verwenden Sie den folgenden Befehl:
++
+`network port broadcast-domain remove-ports -broadcast-domain <broadcast-domain_name> -ports <node_name:port_name>`
+
+.. Hinzufügen eines Mitgliedports zu einer Schnittstellengruppe:
++
+`network port ifgrp add-port -node <node_name> -ifgrp <ifgrp> -port <port_name>`
+
+.. Die Schnittstellengruppe wird der Broadcast-Domäne automatisch ca. eine Minute nach dem Hinzufügen des ersten Mitgliedports hinzugefügt.
+.. Vergewissern Sie sich, dass die Schnittstellengruppe der entsprechenden Broadcast-Domäne hinzugefügt wurde:
++
+`network port reachability show -node <node_name> -port <ifgrp>`
+
++
+Wenn der Status der Erreichbarkeit der Schnittstellengruppe nicht lautet `ok`, Weisen Sie es der entsprechenden Broadcast-Domain zu:
+
++
+`network port broadcast-domain add-ports -broadcast-domain <broadcast_domain_name> -ports <node:port>`
+
+
+
+. Weisen Sie der Broadcast-Domäne geeignete physische Ports zu `Cluster` , indem Sie die folgenden Schritte ausführen:
++
+.. Ermitteln Sie, welche Ports eine Reachability zum haben `Cluster` Broadcast-Domäne:
++
+`network port reachability show -reachable-broadcast-domains Cluster:Cluster`
+
+.. Reparieren Sie jeden Port mit Erreichbarkeit zum `Cluster` Broadcast-Domäne, wenn ihr Status der Erreichbarkeit nicht lautet `ok`:
++
+`network port reachability repair -node <node_name> -port <port_name>`
+
+
+
+. Verschieben Sie die verbleibenden physischen Ports in ihre richtigen Broadcast-Domänen mithilfe eines der folgenden Befehle:
++
+`network port reachability repair -node <node_name> -port <port_name>`
+
++
+`network port broadcast-domain remove-port`
+
++
+`network port broadcast-domain add-port`
+
++
+Vergewissern Sie sich, dass keine unerreichbaren oder unerwarteten Ports vorhanden sind. Überprüfen Sie den Status der Erreichbarkeit aller physischen Ports mithilfe des folgenden Befehls und überprüfen Sie die Ausgabe, um sicherzustellen, dass der Status lautet `ok`:
+
++
+`network port reachability show -detail`
+
+. Stellen Sie alle VLANs wieder her, die möglicherweise verschoben wurden, indem Sie die folgenden Schritte ausführen:
++
+.. Versetzte VLANs auflisten:
++
+`cluster controller-replacement network displaced-vlans show`
+
++
+Die Ausgabe sollte wie folgt angezeigt werden:
+
++
+[listing]
+----
+Cluster::*> displaced-vlans show
+(cluster controller-replacement network displaced-vlans show)
+          Original
+Node      Base Port   VLANs
+--------  ----------  -----------------------------------------
+Node1       a0a       822, 823
+            e4a       822, 823
+2 entries were displayed.
+----
+.. Stellen Sie VLANs wieder her, die von ihren früheren Basis-Ports verdrängt wurden:
++
+`cluster controller-replacement network displaced-vlans restore`
+
++
+Das folgende Beispiel zeigt die Wiederherstellung von VLANs, die aus der Schnittstellengruppe „a0a“ wieder in dieselbe Schnittstellengruppe verschoben wurden:
+
++
+[listing]
+----
+Cluster::*> displaced-vlans restore -node node1_node3 -port a0a -destination-port a0a
+----
++
+Das folgende Beispiel zeigt die Wiederherstellung von verlagerten VLANs am Port „e9a“ an' e9d:
+
++
+[listing]
+----
+Cluster::*> displaced-vlans restore -node node1_node3 -port e9a -destination-port e9d
+----
++
+Wenn eine VLAN-Wiederherstellung erfolgreich ist, werden die verschobenen VLANs auf dem angegebenen Zielport erstellt. Die VLAN-Wiederherstellung schlägt fehl, wenn der Zielport Mitglied einer Schnittstellengruppe ist oder der Zielport nicht verfügbar ist.
+
++
+Warten Sie etwa eine Minute, bis neu wiederhergestellte VLANs in ihren entsprechenden Broadcast-Domänen platziert werden.
+
+.. Erstellen Sie bei Bedarf neue VLAN-Ports für VLAN-Ports, die nicht im enthalten sind `cluster controller-replacement network displaced-vlans show` Ausgabe sollte aber auf anderen physischen Ports konfiguriert werden.
+
+
+. Löschen Sie alle leeren Broadcast-Domänen, nachdem alle Port-Reparaturen abgeschlossen wurden:
++
+`network port broadcast-domain delete -broadcast-domain <broadcast_domain_name>`
+
+. [[Schritt10]]Überprüfung der Anschlussfähigkeit:
++
+`network port reachability show`
+
++
+Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzugefügt wurden, wird das angezeigt `network port reachability show` Der Befehl sollte den Status der Erreichbarkeit als melden `ok` Für alle verbundenen Ports und den Status als `no-reachability` Für Ports ohne physische Konnektivität. Wenn ein Port einen anderen Status als diese beiden meldet, führen Sie die Reparatur der Nachweisbarkeit durch und fügen Sie Ports aus ihren Broadcast-Domänen hinzu oder entfernen Sie sie gemäß Anweisungen in <<auto_verify_3_step4,Schritt 4>>.
+
+. Vergewissern Sie sich, dass alle Ports in Broadcast-Domänen platziert wurden:
++
+`network port show`
+
+. Vergewissern Sie sich, dass alle Ports in den Broadcast-Domänen die richtige MTU (Maximum Transmission Unit) konfiguriert haben:
++
+`network port broadcast-domain show`
+
+. Stellen Sie die LIF-Start-Ports wieder her und geben Sie ggf. den Vserver(s) und die Home Ports von LIFs an, die über folgende Schritte wiederhergestellt werden müssen:
++
+.. Führen Sie alle vertriebenen LIFs auf:
++
+`displaced-interface show`
+
+.. LIF-Home-Knoten und Home-Ports wiederherstellen:
++
+`cluster controller-replacement network displaced-interface restore-home-node -node <node_name> -vserver <vserver_name> -lif-name <LIF_name>`
+
+
+
+. Überprüfen Sie, ob alle LIFs einen Home Port haben und administrativ höher sind:
++
+`network interface show -fields home-port, status-admin`
+
+

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/manage-authentication-using-kmip-servers.html 
+keywords: ip, address, external, key, management, server, storage, encryption, upgrading, authentication 
+summary: 'Storage-Verschlüsselung konfigurieren und managen, Authentifizierungsschlüssel managen und die SnapMirror Beziehungen beim Upgrade von Controllern, auf denen ONTAP 9.15.1 oder höher ausgeführt wird, stilllegen. `system controller replace`' 
+---
+= Authentifizierungsmanagement mit KMIP-Servern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Sie können KMIP-Server (Key Management Interoperability Protocol) für das Management von Authentifizierungsschlüssel verwenden.
+
+.Schritte
+. Hinzufügen eines neuen Controllers:
++
+`security key-manager external enable`
+
+. Fügen Sie den Schlüsselmanager hinzu:
++
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
+
+. Vergewissern Sie sich, dass die Verschlüsselungsmanagement-Server konfiguriert und für alle Nodes im Cluster verfügbar sind:
++
+`security key-manager external show-status`
+
+. Stellen Sie die Authentifizierungsschlüssel von allen verknüpften Verschlüsselungsmanagementservern auf den neuen Knoten wieder her:
++
+`security key-manager external restore -node _new_controller_name_`
+
+

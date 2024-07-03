@@ -37,13 +37,21 @@ entries:
   - title: Node1 ausmustern
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
   - title: Ersetzen Sie die node1-Systemmodule
-    url: "/upgrade-arl-auto-affa900/replace_node1_system_modules.html"
+    entries:
+    - title: AFF A800 austauschen
+      url: "/upgrade-arl-auto-affa900/replace-node1-affa800.html"
+    - title: Ersetzen Sie AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
+      url: "/upgrade-arl-auto-affa900/replace-node1-affa220-affa200-affc190-fas2620-fas2720.html"
+    - title: AFF A700 oder FAS9000 ersetzen
+      url: "/upgrade-arl-auto-affa900/replace-node1-aff700-fas900.html"
   - title: Netzboot Nr. 1
     url: "/upgrade-arl-auto-affa900/netboot_node1.html"
 - title: 'Phase 3: Starten Sie Knoten 1 mit den Ersatz-Systemmodulen'
   entries:
   - title: Überblick
     url: "/upgrade-arl-auto-affa900/stage_3_index.html"
+  - title: Kabelnode1 für Shared Cluster-HA-Storage (nur AFF A800 Upgrade)
+    url: "/upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html"
   - title: Starten Sie Knoten 1 mit den Ersatz-Systemmodulen
     url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
   - title: Überprüfen Sie die Installation node1
@@ -68,7 +76,13 @@ entries:
   - title: Überblick
     url: "/upgrade-arl-auto-affa900/stage_5_index.html"
   - title: Installieren Sie die Ersatz-Systemmodule auf Knoten 2
-    url: "/upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html"
+    entries:
+    - title: Installieren Sie AFF A90 oder AFF A70
+      url: "/upgrade-arl-auto-affa900/install-affa90-affa70-on-node2.html"
+    - title: Installation von ASA A150, AFF A150 oder FAS2820
+      url: "/upgrade-arl-auto-affa900/install-asaa150-affa150-fas2820-on-node2.html"
+    - title: Installation von ASA A900, AFF A900 oder FAS9500
+      url: "/upgrade-arl-auto-affa900/install-asaa900-affa900-fas9500-on-node2.html"
   - title: Netzboot Nr. 2
     url: "/upgrade-arl-auto-affa900/netboot_node2.html"
 - title: Phase 6. Starten Sie Knoten2 mit den Ersatz-Systemmodulen

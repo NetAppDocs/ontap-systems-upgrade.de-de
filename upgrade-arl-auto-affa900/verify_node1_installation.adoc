@@ -14,10 +14,14 @@ summary: Überprüfen Sie die Node-1-Installation zusammen mit den Ersatzmodulen
 
 
 [role="lead"]
-Sie müssen die Installation von node1 mit den Ersatz-Systemmodulen überprüfen. Da keine Änderung an physischen Ports vorgenommen wird, sind Sie nicht verpflichtet, die physischen Ports von der alten Knoten1 auf den Ersatz-Knoten1 zuzuordnen.
+Nachdem Sie node1 mit dem Ersatz-Controller-Modul gestartet haben, überprüfen Sie, ob es richtig installiert ist.
+
+Nur bei AFF A800-Upgrades weisen Sie die physischen Ports des vorhandenen Knoten1 dem Ersatznode1 zu, da sich die physischen Ports zwischen der AFF A800 und dem AFF A90- oder AFF A70-Controller ändern.
+
+Bei allen anderen Upgrades werden die physischen Ports nicht geändert, sodass Sie die physischen Ports des alten Knoten1 nicht dem Ersatznode1 zuordnen müssen.
 
 .Über diese Aufgabe
-Nachdem Sie node1 mit dem Ersatz-Controller-Modul gestartet haben, überprüfen Sie, ob es richtig installiert ist. Sie müssen warten, bis node1 dem Quorum beitreten und dann den Controller-Ersatzvorgang fortsetzen.
+Sie müssen warten, bis Knoten 1 dem Quorum beitreten und dann den Controller-Austauschvorgang fortsetzen.
 
 An diesem Punkt in der Prozedur sollte der Upgrade-Vorgang des Controllers angehalten sein, da node1 versucht hat, Quorum automatisch beizutreten.
 
@@ -33,6 +37,14 @@ Die Ausgabe des `health` Feld muss sein `true`.
 +
 `cluster show`
 
++
+[NOTE]
+====
+Wenn node1 nach dem Booten noch nicht dem Quorum beigetreten ist, warten Sie fünf Minuten, und überprüfen Sie es erneut. Je nach Cluster-Verbindung kann es einige Zeit dauern, bis der Scan der Erreichbarkeit von Ports abgeschlossen und LIFs an die jeweiligen Home Ports verschoben werden.
+
+Wenn node1 nach fünf Minuten immer noch nicht im Quorum ist, können Sie den Cluster-Port des neuen Knotens ändern, indem Sie ihn mit dem Diagnoseberechtigungsbefehl in „Cluster ipspace“ platzieren `network port modify <port_name> -ipspace Cluster`.
+
+====
 . Wechseln in den erweiterten Berechtigungsmodus:
 +
 `set advanced`
@@ -116,16 +128,14 @@ Node1
           a0a-822  Default:822                          ok
           a0a-823  Default:823                          ok
           e0M      Default:Mgmt                         ok
-          e11a     -                                    no-reachability
-          e11b     -                                    no-reachability
-          e11c     -                                    no-reachability
-          e11d     -                                    no-reachability
+          e1a      Cluster:Cluster                      ok
+          e1b      -                                    no-reachability
+          e2a      -                                    no-reachability
+          e2b      -                                    no-reachability
           e3a      -                                    no-reachability
           e3b      -                                    no-reachability
-          e4a      Cluster:Cluster                      ok
-          e4e      Cluster:Cluster                      ok
-          e5a      -                                    no-reachability
-          e7a      -                                    no-reachability
+          e7a      Cluster:Cluster                      ok
+          e7b      -                                    no-reachability
           e9a      Default:Default                      ok
           e9a-822  Default:822                          ok
           e9a-823  Default:823                          ok
@@ -134,10 +144,10 @@ Node1
           e9b-823  Default:823                          ok
           e9c      Default:Default                      ok
           e9d      Default:Default                      ok
-22 entries were displayed.
+20 entries were displayed.
 ----
 +
-Im vorherigen Beispiel wurde node1 nach dem Austausch des Controllers gebootet. Einige Ports verfügen nicht über Reachability, da es keine physische Verbindung gibt. Sie müssen alle Ports mit einem anderen Status als für die Erreichbarkeit reparieren `ok`.
+In den vorhergehenden Beispielen wurde node1 nach dem Austausch des Controllers gestartet. Die Ports, die „nicht-Erreichbarkeit“ anzeigen, verfügen über keine physische Verbindung. Sie müssen alle Ports mit einem anderen Status als reparieren `ok`.
 
 +
 
@@ -160,12 +170,12 @@ Die Ausgabe sollte wie im folgenden Beispiel angezeigt werden:
 +
 [listing]
 ----
-Cluster ::> reachability repair -node node1 -port e11b
+Cluster ::> reachability repair -node node1 -port e1b
 ----
 +
 [listing]
 ----
-Warning: Repairing port "node1:e11b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
+Warning: Repairing port "node1:e1b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
 ----
 +
 Eine Warnmeldung, wie im vorhergehenden Beispiel dargestellt, wird für Ports mit einem Wiederanmeldungs-Status erwartet, die sich vom Status der Erreichbarkeit der Broadcast-Domäne unterscheiden können, in der sie sich derzeit befindet. Überprüfen Sie die Verbindung des Ports und die Antwort `y` Oder `n` Je nach Bedarf.

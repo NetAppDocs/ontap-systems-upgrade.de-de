@@ -14,11 +14,14 @@ summary: Vergewissern Sie sich vor Beginn des Upgrades, dass Sie über die richt
 
 
 [role="lead"]
-Vergewissern Sie sich vor dem Upgrade, dass Sie die richtige Hardware für das Upgrade haben. Je nach Upgrade müssen Sie für jedes hochaufrüstige HA-Paar zwei Controller-Module oder zwei Controller-Module und zwei NVRAM-Module besitzen. Sollten Teile fehlen, wenden Sie sich an den technischen Support oder an Ihren NetApp Ansprechpartner.
+Vergewissern Sie sich vor dem Upgrade, dass Sie die richtige Hardware für das Upgrade haben. Je nach Upgrade müssen Sie für jedes upgradeende HA-Paar zwei Controller-Module oder zwei Controller-Module und zwei NVRAM-Module für das Ersatzsystem besitzen. Sollten Teile fehlen, wenden Sie sich an den technischen Support oder an Ihren NetApp Ansprechpartner.
 
 [cols="50,50"]
 |===
-| Wenn Sie ein Upgrade ... | Sie müssen haben ... 
+| Wenn Sie ein Upgrade ... | Ersatzsystem muss ... 
+
+
+| AFF A800 | Zwei Controller-Module, zwei NVRAMs und neue I/O-Module 
 
 
 | AFF A220 als ASA auf ASA A150 konfiguriert | Zwei Controller-Module 

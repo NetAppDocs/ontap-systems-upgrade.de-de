@@ -208,7 +208,7 @@ Wenn Sie eine MetroCluster-Konfiguration haben, verwenden Sie die folgenden Befe
 `halt`
 
 +
-Unterbrechen Sie den Autoboot, indem Sie auf drücken `Ctrl-C` An der Eingabeaufforderung für die Boot-Umgebung.
+Unterbrechen Sie DAS AUTOBOOT, indem Sie an der Eingabeaufforderung der Boot-Umgebung Strg-C drücken.
 
 . [[ste15]] auf node2 überprüfen Sie Datum, Uhrzeit und Zeitzone des Systems:
 +

@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app/stage_3_index.html
 keywords: installing, booting, node3, install, cluster, stage 3 
 summary: 'Phase 3-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.8 oder höher.' 
 ---
-= Überblick
+= Phase-3-Übersicht
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

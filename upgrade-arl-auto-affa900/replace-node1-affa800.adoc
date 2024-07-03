@@ -1,0 +1,109 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/replace-node1-affa800.html 
+keywords: aff, asa, fas, replace, node1, system, modules 
+summary: Ersetzen Sie die AFF A800 Node-1-Systemmodule, wenn Sie zum Upgrade von Controller-Modellen im selben Chassis ARL verwenden. 
+---
+= Ersetzen Sie die AFF A800 Controller-Module
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Da sich Node1 und Node2 im gleichen Chassis befinden und durch denselben Satz an Netzteilen mit Strom versorgt werden, schalten Sie das Chassis NICHT aus. Sie müssen darauf achten, nur das Knoten 1-Controller-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
+
+.Bevor Sie beginnen
+Wenn du nicht bereits geerdet bist, beground dich richtig.
+
+
+
+== Bereiten Sie vor, das AFF A800 Controller-Modul zu entfernen
+
+.Schritte
+. Drücken Sie auf der Vorderseite des Gehäuses die Daumen, um jedes Laufwerk fest einzuschieben, bis Sie einen positiven Stopp spüren. Dadurch wird sichergestellt, dass die Laufwerke fest an der Mittelplatine des Gehäuses sitzen.
++
+image::../media/drw_a800_drive_seated_IEOPS-960.png[Schieben Sie den Antrieb fest an die Mittelplatine des Chassis]
+
+. Gehen Sie zur Rückseite des Gehäuses.
+
+
+
+
+== Entfernen Sie das AFF A800 Controller-Modul
+
+Entfernen Sie das Kabelverwaltungsgerät vom AFF A800 Controller-Modul, und bewegen Sie den Controller leicht aus dem Gehäuse.
+
+.Schritte
+. Trennen Sie die Netzteile des node1-Controller-Moduls von der Quelle.
+. Lösen Sie die Netzkabelhalter, und ziehen Sie anschließend die Kabel von den Netzteilen ab.
+. Lösen Sie den Haken- und Schlaufenriemen, mit dem die Kabel an das Kabelmanagement-Gerät gebunden sind, und ziehen Sie dann die Systemkabel und SFP- und QSFP-Module (falls erforderlich) vom Controller-Modul ab, um zu verfolgen, wo die Kabel angeschlossen waren.
++
+Lassen Sie die Kabel im Kabelverwaltungs-Gerät so, dass bei der Neuinstallation des Kabelverwaltungsgeräts die Kabel organisiert sind.
+
+. Entfernen Sie das Kabelführungs-Gerät aus dem Controller-Modul und legen Sie es beiseite.
+. Drücken Sie beide Verriegelungsriegel nach unten, und drehen Sie dann beide Verriegelungen gleichzeitig nach unten.
++
+Das Controller-Modul wird leicht aus dem Chassis entfernt.
+
++
+image::../media/a800_cable_management.png[Entfernen der Kabelverwaltungs-ARM]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image::../media/black_circle_one.png[Nummer eins]
+| Verriegelungsverschluss 
+
+
+ a| 
+image::../media/black_circle_two.png[Nummer zwei]
+| Sicherungsstift 
+|===
+
+
+
+
+== Installieren Sie das Controller-Modul AFF A90 oder AFF A70
+
+Installieren, verkabeln und verbinden Sie das AFF A90- oder AFF A70-Controller-Modul in Knoten 1.
+
+.Schritte
+. Richten Sie das Ende des Controller-Moduls an der Öffnung im Gehäuse aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
++
+
+NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Chassis ein, wenn Sie dazu aufgefordert werden.
+
++
+image::../media/drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG[Installieren Sie einen AFF A90 oder AFF A70]
+
+. Verkabeln Sie die Management- und Konsolen-Ports mit dem Node1-Controller-Modul.
++
+
+NOTE: Da das Chassis bereits EINGESCHALTET ist, startet Node 1 die BIOS-Initialisierung, gefolgt von AUTOBOOT, sobald Sie das neue Controller-Modul einsetzen. Um diesen AUTOBOOT ZU vermeiden, empfiehlt NetApp, die seriellen und die Konsolenkabel anzuschließen, bevor Sie das Controller-Modul einsetzen.
+
+. Schieben Sie das Steuermodul bei geöffnetem Nockengriff fest hinein, bis es auf die Mittelplatine trifft und vollständig eingesetzt ist. Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist. Schließen Sie den Nockengriff in die verriegelte Position.
++
+
+NOTE: Um Schäden an den Anschlüssen zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft verwenden.
+
+. Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
+. Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten.
++
+Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
+
+. Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
++
+`set-defaults`
+
+. Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
++
+`saveenv`
+
+

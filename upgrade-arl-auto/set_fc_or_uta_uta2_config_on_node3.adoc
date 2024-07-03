@@ -100,7 +100,7 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 +
 `halt`
 
-. Booten des Systems von der Loader-Eingabeaufforderung:
+. Booten Sie das System über die LOADER-Eingabeaufforderung:
 +
 `boot_ontap menu`
 
@@ -403,8 +403,8 @@ Login:
 ----
 ====
 . Wenn das System in eine Reboot-Schleife mit der Meldung geht `no disks found`, Das liegt daran, dass es die Ports wieder in den Zielmodus zurückgesetzt hat und somit keine Disketten sehen kann. Weiter mit <<auto_check3_step17,Schritt 17>> Bis <<auto_check3_step22,Schritt 22>> Um dies zu beheben.
-. [[Auto_check3_step17]]Drücken Sie `Ctrl-C` Während des automatischen Bootens, um den Node auf dem zu beenden `LOADER>` Eingabeaufforderung:
-. [[Schritt18]]wechseln Sie an der Loader-Eingabeaufforderung in den Wartungsmodus:
+. [[Auto_check3_step17]]Drücken Sie während des AUTOBOOTS Strg-C, um den Knoten an der Eingabeaufforderung LOADER> anzuhalten.
+. [[step18]]wechseln Sie an der LOADER-Eingabeaufforderung in den Wartungsmodus:
 +
 `boot_ontap maint`
 
@@ -434,7 +434,7 @@ Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unte
 Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das sowohl interne als auch externe Festplatten, wie z. B. ein AFF A800 System, unterstützt, finden Sie unter <<auto_check3_step23,Schritt 23>>.
 
 ====
-. [[Auto_check3_step22]]an der Loader-Eingabeaufforderung booten:
+. [[Auto_check3_step22]]Starten Sie an der LOADER-Eingabeaufforderung:
 +
 `boot_ontap menu`
 
@@ -442,11 +442,13 @@ Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unte
 Beim Booten erkennt der Node jetzt alle Festplatten, die zuvor ihm zugewiesen waren, und kann wie erwartet gebootet werden.
 
 +
-Wenn die Cluster-Knoten, die Sie ersetzen, die Root-Volume-Verschlüsselung verwenden, kann die ONTAP-Software die Volume-Informationen nicht von den Festplatten lesen. Stellen Sie die Schlüssel für das Root-Volume wieder her:
+Wenn die Clusterknoten, die Sie ersetzen, die Root-Volume-Verschlüsselung verwenden, kann ONTAP die Volume-Informationen von den Festplatten nicht lesen. Stellen Sie die Schlüssel für das Root-Volume wieder her:
 
 +
 .. Zurück zum speziellen Startmenü:
++
 `LOADER> boot_ontap menu`
+
 +
 [listing]
 ----

@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_2_index.html
 keywords: upgrade, relocate, retire, replace, netboot, overview, stage 2 
 summary: 'Phase 2 Prozessablauf für ein ARL-Upgrade mit `system controller replace` Befehle zum Upgrade von Controller-Modellen in demselben Chassis.' 
 ---
-= Überblick
+= Phase-2-Übersicht
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -20,6 +20,6 @@ Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschobe
 . link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, auf Knoten 2"]
 . link:relocate_failed_or_vetoed_aggr.html["Verschiebung ausgefallener oder Vetos von Aggregaten"]
 . link:retire_node1.html["Node1 ausmustern"]
-. link:replace_node1_system_modules.html["Ersetzen Sie die node1-Systemmodule"]
+. link:replace-node1-affa800.html["Ersetzen Sie die node1-Systemmodule"]
 . link:netboot_node1.html["Netzboot Nr. 1"]
 

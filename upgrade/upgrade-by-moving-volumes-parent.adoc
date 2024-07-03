@@ -11,7 +11,13 @@ summary: Bei einem Upgrade durch Verschieben von Volumes bereiten Sie die urspr�
 
 
 [role="lead"]
-Bei einem Upgrade der Controller Hardware durch Verschieben von Volumes bereiten Sie die ursprünglichen Nodes vor und fügen die neuen Nodes dem Cluster hinzu. Sie verschieben Volumes zu den neuen Nodes, konfigurieren LIFs und heben die Join der Original-Nodes vom Cluster ab. Das Upgrade durch Verschieben von Volumes erfolgt unterbrechungsfrei.
+Das Upgrade der Controller-Hardware durch Verschieben von Volumes ist unterbrechungsfrei. Bevor Sie mit dem Upgrade beginnen, sollten Sie sich die allgemeinen Upgrade-Szenarien und Upgrade-Überlegungen ansehen:
+
+* link:upgrade-decide-to-use-this-guide.html["Entscheiden Sie, ob Sie ein Upgrade durch Verschieben von Volumes oder Storage durchführen"]
+* link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]
+
+
+Zum Upgrade durch Verschieben von Volumes bereiten Sie die ursprünglichen Nodes vor und verbinden die neuen Nodes mit dem Cluster. Sie verschieben Volumes zu den neuen Nodes, konfigurieren LIFs und heben die Join der Original-Nodes vom Cluster ab.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]link:upgrade-prepare-when-moving-volumes.html["Vorbereitung auf das Upgrade beim Verschieben von Volumes"]
 [role="quick-margin-para"]

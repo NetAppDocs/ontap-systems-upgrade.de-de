@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: guidelines, upgrading, controllers, ARL 
+summary: 'Mithilfe von Befehlen können Sie Controller, auf denen ONTAP 9.15.1 oder höher ausgeführt wird, aktualisieren `system controller replace` .' 
+---
+= Richtlinien für das Controller-Upgrade mit ARL
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ob Sie mit ARL ein Controller-Paar mit ONTAP 9.15.1 oder höher aktualisieren können, hängt von der Plattform und der Konfiguration des ursprünglichen Controllers und der Ersatz-Controller ab.
+
+
+
+== Unterstützte Upgrades für ARL
+
+Bevor Sie ein Node-Paar mit diesem ARL-Verfahren aktualisieren, überprüfen Sie die folgenden Anforderungen, um sicherzustellen, dass Ihre Konfiguration unterstützt wird:
+
+* Vergewissern Sie sich, dass ARL auf den Original- und Ersatz-Controllern ausgeführt werden kann.
+* Prüfen Sie die Größe aller definierten Aggregate und die Anzahl der vom Originalsystem unterstützten Festplatten. Vergleichen Sie dann die Aggregatgröße und die Anzahl der unterstützten Festplatten mit der Aggregatgröße und der Anzahl der vom neuen System unterstützten Festplatten. Unter link:other_references.html["Quellen"] finden Sie einen Link zum _Hardware Universe_, wo diese Informationen verfügbar sind. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen gleich oder größer sein als die Aggregatgröße und Anzahl der vom ursprünglichen System unterstützten Festplatten.
+* In den Cluster-Mischungsregeln validieren, ob neue Nodes nach Austausch des ursprünglichen Controllers mit den vorhandenen Nodes Teil des Clusters werden können. Weitere Informationen zu den Mischregeln für Cluster finden Sie unter link:other_references.html["Quellen"] , um mit dem _Hardware Universe_ zu verlinken.
+* Migrieren Sie die Cluster-LIFs und wechseln Sie zu zwei Cluster-Ports pro Node, wenn Sie über ein System wie z. B. AFF 700 mit der folgenden Konfiguration verfügen:
+* Mehr als zwei Cluster-Ports pro Node
+* Eine Cluster-Interconnect-Karte in Steckplatz 4 im Breakout-Modus zur Erstellung der Ports e4a, e4b, e4c und e4d sowie der Ports e4e, e4f, e4g und e4h
++
+
+NOTE: Ein Controller-Upgrade mit mehr als zwei Cluster-Ports pro Node kann nach dem Upgrade zu fehlenden Cluster-LIFs auf dem neuen Controller führen.
+
++
+Weitere Informationen finden Sie im Knowledge Base-Artikel link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_delete_unwanted_or_unnecessary_cluster_LIFs["So löschen Sie unerwünschte oder unnötige Cluster-LIFs"^].
+
+
+
+Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock Enterprise und SnapLock Compliance Volumes konfiguriert sind.
+
+
+
+== 2-Node-Cluster ohne Switches
+
+Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren.
+
+
+
+== Upgrades werden für ARL nicht unterstützt
+
+Sie können keine Ersatz-Controller aufrüsten, die die mit den ursprünglichen Controllern verbundenen Festplatten-Shelfs nicht unterstützen.
+
+Siehe link:other_references.html["Quellen"] Um Informationen zur Hardware Universe Festplattenunterstützung zu erhalten.
+
+Wenn Sie Controller der Einstiegsklasse mit internen Laufwerken aktualisieren möchten, finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade by moving Volumes or Storage_ und gehen Sie zum Verfahren _Upgrade eines Node-Paares, auf dem Clustered Data ONTAP ausgeführt wird, indem Sie Volumes verschieben_.
+
+
+
+== Fehlerbehebung
+
+Wenn beim Aktualisieren der Controller Probleme auftreten, finden Sie weitere Informationen und mögliche Lösungen unter link:troubleshoot_index.html["Fehlerbehebung"] .
+
+Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.

@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: Dokumentation zu ONTAP-Hardware-Upgrades
+  summary: Upgrade der Controller-Hardware durch Verlagerung von Aggregaten, Verschiebung
+    von Volumes oder Storage-Verschiebung
+  keywords: aggregate, relocation, moving, manual, upgrade, relocate
   lead: Auf dieser Website werden die Upgrade-Verfahren für AFF, FAS und ASA Storage-Systeme
     beschrieben. Wählen Sie das entsprechende Upgrade-Verfahren für Ihr Speichersystem
     aus.
@@ -13,20 +17,23 @@ indexpage:
   - title: Führen Sie ein Upgrade durch, indem Sie Aggregate auf Systemen mit ONTAP
       9.8 und höher verschieben
     links:
+    - title: Verwenden Sie Befehle zum Ersetzen des System-Controllers, um die mit
+        ONTAP 9.15.1 eingeführte Controller-Hardware zu aktualisieren
+      url: "/upgrade-arl-auto-app-9151/index.html"
     - title: Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller
         ersetzen“
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
+      url: "/upgrade-arl-auto-affa900/index.html"
     - title: Verwenden von „System Controller Replace“-Befehlen (die meisten Systeme)
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
+      url: "/upgrade-arl-auto-app/index.html"
     - title: Verwenden Sie manuelle Befehle
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/
+      url: "/upgrade-arl-manual-app/index.html"
   - title: Aktualisieren Sie das Upgrade, indem Sie Aggregate auf Systemen mit ONTAP
       9.7 und älteren Versionen verschieben
     links:
     - title: Verwenden Sie die Befehle „System Controller Replace“
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
+      url: "/upgrade-arl-auto/index.html"
     - title: Verwenden Sie manuelle Befehle
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/
+      url: "/upgrade-arl-manual/index.html"
   - title: Upgrade durch Verschieben von Storage oder Volumes
     links:
     - title: Upgrade von Controller Hardware
@@ -42,7 +49,7 @@ indexpage:
     links:
     - title: Dokumentation zu ONTAP Hardwaresystemen
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
-    - title: Dokumentation der ONTAP-Switches
+    - title: Switch-Dokumentation für ONTAP Hardwaresysteme
       url: https://docs.netapp.com/us-en/ontap-systems-switches/index.html
     - title: ONTAP Softwaredokumentation
       url: https://docs.netapp.com/us-en/ontap/index.html

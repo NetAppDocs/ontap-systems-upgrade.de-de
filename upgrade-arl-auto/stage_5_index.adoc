@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/stage_5_index.html
 keywords: install, boot, node4, node2, node-management,  stage 5 
 summary: 'Phase 5-Prozessreihenfolge für ein ARL-Upgrade mit `system controller replace` Befehle auf Controllern mit ONTAP 9.5 zu 9.7.' 
 ---
-= Überblick
+= Phase-5-Übersicht
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

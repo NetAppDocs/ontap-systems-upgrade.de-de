@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html 
+keywords: move, non-root, aggregates, nas, lif, node2, node3, node4 
+summary: 'Überprüfen Sie mithilfe von Befehlen, ob die NAS-Daten-LIFs von node2 auf node3 von node3 auf node4 verschoben werden, wenn Sie Controller mit ONTAP 9.15.1 oder höher aktualisieren `system controller replace` .' 
+---
+= Verschieben Sie Aggregate ohne Root-Root-Fehler und NAS-Daten-LIFs, die sich im Besitz von node2 befinden, von node3 auf node4
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Nachdem Sie die Netzwerkkonfiguration auf node4 überprüft und bevor Sie Aggregate von node3 auf node4 verschieben, müssen Sie überprüfen, ob die NAS-Daten-LIFs, die zu node2 gehören und sich derzeit auf node3 befinden, von node3 nach node4 verschoben werden. Sie müssen außerdem überprüfen, ob die SAN-LIFs auf node4 vorhanden sind.
+
+.Über diese Aufgabe
+Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs ordnungsgemäß sind und sich in den entsprechenden Ports befinden, nachdem Sie node4 in den Online-Modus versetzt haben.
+
+.Schritte
+. Die iSCSI LIFs finden automatisch die richtigen Home Ports mithilfe der Erreichbarkeit. Die FC- und NVMe/FC-SAN-LIFs werden nicht automatisch verschoben. Sie zeigen weiterhin den Home-Port an, an dem sie vor dem Upgrade waren.
++
+Prüfen Sie die SAN-LIFs auf node4:
+
++
+.. Ändern Sie alle iSCSI SAN LIFs, die über einen „down“-Status für die neuen Daten-Ports verfügen:
++
+`network interface modify -vserver <vserver> -lif <iscsi_san_lif> admin down`
+
++
+`network interface modify -vserver <vserver> -lif <iscsi_san_lif> port <new_port> node <node>`
+
++
+`network interface modify -vserver <vserver> -lif <iscsi_san_lif>`
+
+.. Ändern Sie alle FC- und NVMe/FC-SAN-LIFs, die den neuen Controller Zuhause haben, und melden Sie den Betriebsstatus der FCP-Ports am neuen Controller an:
++
+`network interface modify -vserver <vserver> -lif <fc_san_lif> admin down`
+
++
+`network interface modify -vserver <vserver> -lif <fc_san_lif> port <new_port> node <node>`
+
++
+`network interface modify -vserver <vserver> -lif <fc_san_lif>`
+
+
+
+. Wiederaufnahme des Betriebs der Versetzung:
++
+`system controller replace resume`
+
++
+Das System führt die folgenden Aufgaben aus:
+
++
+** Cluster-Quorum-Prüfung
+** System-ID-Prüfung
+** Prüfung der Bildversion
+** Überprüfung der Zielplattform
+** Prüfung der Netzwerkanachabilität
+
+
++
+Der Vorgang unterbricht in dieser Phase in der Überprüfung der Netzwerknachprüfbarkeit.
+
+. Wiederaufnahme des Betriebs der Versetzung:
++
+`system controller replace resume`
+
++
+Das System führt folgende Prüfungen durch:
+
++
+** Cluster-Zustandsprüfung
+** LIF-Statusüberprüfung für Cluster
+
+
++
+Nach Durchführung dieser Prüfungen werden die nicht-Root-Aggregate und NAS-Daten-LIFs, die sich im Besitz von node2 befinden, an den neuen Controller node4 verschoben. Der Controller-Ersatzvorgang hält nach Abschluss der Ressourcenverschiebung die Pause ein.
+
+. Überprüfen Sie den Status der Aggregatverschiebung und der LIF-Verschiebung von NAS-Daten:
++
+`system controller replace show-details`
+
++
+Wenn der Austausch des Controllers unterbrochen wird, prüfen und korrigieren Sie den Fehler, falls zutreffend, und führen Sie das Problem anschließend aus `resume` Um den Vorgang fortzusetzen.
+
+. Falls erforderlich, stellen Sie alle vertriebenen LIFs wieder her. Liste aller vertriebenen LIFs:
++
+`cluster controller-replacement network displaced-interface show`
+
++
+Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in node4 wieder her:
+
++
+`cluster controller-replacement network displaced-interface restore-home-node`
+
+. Setzen Sie den Vorgang fort, um das System zur Durchführung der erforderlichen Nachprüfungen zu auffordern:
++
+`system controller replace resume`
+
++
+Das System führt die folgenden Nachprüfungen durch:
+
++
+** Cluster-Quorum-Prüfung
+** Cluster-Zustandsprüfung
+** Aggregatrekonstruktion
+** Aggregatstatus-Prüfung
+** Überprüfung des Festplattenstatus
+** LIF-Statusüberprüfung für Cluster
+** Lautstärkerprüfung
+
+
+

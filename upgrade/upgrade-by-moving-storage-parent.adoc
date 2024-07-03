@@ -11,7 +11,13 @@ summary: Bei einem Upgrade durch Verschieben des Storage bereiten Sie die Origin
 
 
 [role="lead"]
-Bei einem Upgrade der Controller Hardware durch Verschiebung des Storage bereiten Sie die Original-Nodes vor und richten die neuen Nodes ein. Einige Plattformmodelle unterstützen den Transfer von internem Storage zu den neuen Nodes. Sie weisen Festplatten neu zu und stellen die Root-Volume-Konfiguration den neuen Nodes wieder her und konfigurieren Netzwerkports. Das Upgrade durch Verschiebung von Storage führt zu Unterbrechungen.
+Das Upgrade der Controller-Hardware durch das Verschieben von Storage stellt eine Unterbrechung dar. Bevor Sie mit dem Upgrade beginnen, sollten Sie sich die allgemeinen Upgrade-Szenarien und Upgrade-Überlegungen ansehen:
+
+* link:upgrade-decide-to-use-this-guide.html["Entscheiden Sie, ob Sie ein Upgrade durch Verschieben von Volumes oder Storage durchführen"]
+* link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]
+
+
+Zum Upgrade durch Verschieben von Speicher bereiten Sie die ursprünglichen Nodes vor und richten die neuen Nodes ein. Einige Plattformmodelle unterstützen den Transfer von internem Storage zu den neuen Nodes. Sie weisen Festplatten neu zu und stellen die Root-Volume-Konfiguration den neuen Nodes wieder her und konfigurieren Netzwerkports.
 
 [NOTE]
 ====

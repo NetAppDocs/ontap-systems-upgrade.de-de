@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/restore_key-manager_configuration_node3.html 
+keywords: restoring, key-manager, configuration, node3, nve, arl, encryption, netapp, volume 
+summary: 'Stellen Sie bei Bedarf die Key-Manager-Konfiguration auf Knoten3 mithilfe von Befehlen wieder her, wenn Sie Controller mit ONTAP 9.15.1 oder höher aktualisieren `system controller replace` .' 
+---
+= Wiederherstellung der Key-Manager-Konfiguration auf Knoten 3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Wenn Sie mithilfe von NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) Volumes auf dem System verschlüsseln, muss die Verschlüsselungskonfiguration mit den neuen Nodes synchronisiert werden. Wenn Sie den Schlüsselmanager nicht synchronisieren, können beim Verschieben der Node1-Aggregate mit ARL von node2 auf node3 Ausfälle auftreten, da node3 nicht über die erforderlichen Schlüssel zum Online-Zugriff verschlüsselter Volumes und Aggregate verfügt.
+
+.Über diese Aufgabe
+Die Verschlüsselungskonfiguration mit den neuen Nodes synchronisieren, indem Sie die folgenden Schritte durchführen:
+
+.Schritte
+. Führen Sie den folgenden Befehl von node3 aus:
++
+`security key-manager onboard sync`
+
+. Überprüfen Sie, ob der SVM-KEK-Schlüssel auf „true“ in node3 wiederhergestellt wird, bevor Sie die Datenaggregate verschieben:
++
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+----
++
+.Beispiel
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+
+node     vserver   key-server   key-id                                  restored
+-------- --------- -----------  --------------------------------------- --------
+node3    svm1      ""           00000000000000000200000000000a008a81976 true
+                                2190178f9350e071fbb90f00000000000000000
+----
+

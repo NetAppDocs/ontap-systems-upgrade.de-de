@@ -18,7 +18,10 @@ Node2 mit den Ersatzmodulen ist nun startbereit. Bei der Aktualisierung durch Au
 
 [cols="35,65"]
 |===
-| Alter Knoten 2-Controller | Ersatz-Knoten2-Systemmodule 
+| Vorhandener Knoten 2 Controller | Ersatz-Knoten2-Systemmodule 
+
+
+| AFF A800 | AFF A90 oder AFF A70 
 
 
 | AFF A220 als ASA konfiguriert | Controller-Modul ASA A150 
@@ -90,7 +93,7 @@ Wenn `[localhost:disk.encryptNoSupport:ALERT]: Detected FIPS-certified encryptin
 
 .. Halten Sie den Node an der LOADER-Eingabeaufforderung an.
 .. Prüfen und setzen Sie die Storage Encryption Boot-Optionen zurück, die in erwähnt sind <<boot_node2_step1,Schritt 1>>.
-.. An der Loader-Eingabeaufforderung booten Sie:
+.. Starten Sie an der LOADER-Eingabeaufforderung:
 +
 `boot_ontap`
 

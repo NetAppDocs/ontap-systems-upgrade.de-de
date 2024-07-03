@@ -16,7 +16,7 @@ summary: Wenn Sie mit ARL Controller-Modelle im gleichen Gehäuse aktualisieren,
 [role="lead"]
 Nach dem Austausch der entsprechenden Ersatz-Systemmodule müssen Sie netboot node1. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Bei der Vorbereitung auf Netzboot fügen Sie eine Kopie des ONTAP 9-Startabbilds auf einen Webserver hinzu, auf den das System zugreifen kann.
 
-Es ist nicht möglich, die auf dem Boot-Medium des Ersatz-Controller-Moduls installierte ONTAP-Version zu überprüfen, es sei denn, sie ist in einem Gehäuse installiert und eingeschaltet. Die ONTAP-Version auf dem Ersatz-System-Startmedium muss mit der ONTAP-Version auf dem alten System übereinstimmen, das Sie aktualisieren, und sowohl das primäre als auch das Backup-Startabbild müssen übereinstimmen. Informationen zur Überprüfung der unterstützten ONTAP-Mindestversion für Ihr Upgrade finden Sie unter link:index.html["Überblick"].
+Es ist nicht möglich, die auf dem Boot-Medium des Ersatz-Controller-Moduls installierte ONTAP-Version zu überprüfen, es sei denn, sie ist in einem Gehäuse installiert und eingeschaltet. Die ONTAP-Version auf dem Ersatz-System-Boot-Medium muss mit der ONTAP-Version auf dem alten System übereinstimmen, das Sie aktualisieren, und sowohl die primären als auch die Backup-Boot-Images auf dem Boot-Medium müssen übereinstimmen. Informationen zur Überprüfung der unterstützten ONTAP-Mindestversion für Ihr Upgrade finden Sie unter link:index.html["Überblick"].
 
 Sie können die Images konfigurieren, indem Sie einen Netzboot gefolgt vom ausführen `wipeconfig` Befehl aus dem Startmenü. Wenn das Controller-Modul zuvor in einem anderen Cluster verwendet wurde, führt das aus `wipeconfig` Mit dem Befehl wird die Restkonfiguration auf dem Boot-Medium gelöscht.
 
@@ -72,7 +72,7 @@ NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingab
 
 NOTE: Unterbrechen Sie den Startvorgang nicht.
 
-. Warten Sie, bis node1 jetzt auf dem Controller-Modul ASA A900, AFF A900 oder FAS9500 ausgeführt wird, um die Boot-Menüoptionen wie unten gezeigt zu starten und anzuzeigen:
+. Warten Sie, bis der Knoten 1 auf dem Ersatz-Controller-Modul gestartet wird und die Optionen des Startmenüs wie unten gezeigt angezeigt werden:
 +
 [listing]
 ----
