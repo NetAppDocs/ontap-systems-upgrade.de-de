@@ -4879,7 +4879,6 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="2e1458abf9be810e3c1b32482a2fb654" category="cell">Vorhandener Knoten 2 Controller</block>
   <block id="1a68d75a6401790bda4f04fcd5250d89" category="cell">AFF A90 oder AFF A70</block>
   <block id="5f9fde3ed8fab53307d0d33e0b21555f" category="doc">Kabelnode1 für Shared Cluster-HA und Storage (nur AFF A800 Upgrade)</block>
-  <block id="d7c50b232c0b6695dad67576c458f2b7" category="paragraph">Alle Cluster-, HA-, Storage- und Datenverbindungen, die zuvor mit dem AFF A800 Knoten 1 verbunden waren, sollten jetzt mit der neu installierten AFF A90 oder AFF A70 Knoten 1 verbunden werden.</block>
   <block id="3f96763067b8ef1bea6f3b7936e59b10" category="paragraph">Die folgende Tabelle zeigt die Auslastung der Switch-Ports für Cluster-Konfigurationen mit zwei Nodes ohne Switch.</block>
   <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">Port</block>
   <block id="ed062d9f9c55cc3a6f727877095b3f8a" category="cell">AFF A800 Node</block>
@@ -4897,7 +4896,6 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="c6d464573f83b68eae557ca5213c2dbe" category="cell">Jeder verfügbare Port</block>
   <block id="1106a2319bc9e3e60b2eb082fdf3e891" category="cell">Ethernet-Storage-Ports für NS224-Shelfs</block>
   <block id="bf88a79b7721bdcefd6f46ff3e6e823a" category="cell">Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher</block>
-  <block id="98c565adb9d07742bd39f0d8f62a6a4a" category="paragraph">Bei einem Switch Attached-Cluster sollten sich die identischen Cluster-Ports auf den AFF A90- oder AFF A70-Nodes auf demselben Switch befinden. Beispiel: Nach Abschluss des Upgrades sollte e1a auf node1 und e1a auf node2 mit einem Cluster-Switch verbunden werden. Gleichermaßen sollte der zweite Cluster-Port beider Nodes mit dem zweiten Cluster-Switch verbunden sein. Cross-Verbindung von gemeinsam genutzten Cluster-HA-Ports, wobei e1a von node1 mit SwitchA und e1a von node2 mit SwitchB verbunden ist, verhindert HA-Kommunikationsfehler.</block>
   <block id="b6c0f97a30874aed966651e5abc3c11d" category="cell">AFF A70 und AFF A90</block>
   <block id="11c23a28b09e8dab4fd29659b5d908e1" category="list-text">Zwei AFF A90 oder zwei AFF A70-Controller und alle für das Upgrade erforderlichen I/O-Module. Die erforderliche Länge von 100-GbE-Kabeln.</block>
   <block id="2c379faac9baae13e7fda4f15aafa273" category="list-text">Sie verwenden die FlexArray Virtualisierungssoftware auf den Systemen AFF A800, AFF A700 oder FAS9000.</block>
@@ -5196,4 +5194,18 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="fe9158ff831e80fc9361c4a06ba512f1" category="sidebar">Phase 6. Abschluss des Upgrades (Upgrade mit „System-Controller-Austausch“ in ONTAP 9.15.1 oder höher)</block>
   <block id="1d2cec084b14c2bb8b27b81dee7eff45" category="sidebar">Fehlerbehebung (Upgrade mit „System-Controller-Austausch“ in ONTAP 9.15.1 oder höher)</block>
   <block id="f6450b8785035cd4f0854992330d2734" category="admonition">Sie können auch ein Upgrade einer AFF A800 auf eine AFF A70 oder AFF A90 mithilfe der Aggregatverschiebung durchführen. <block ref="dd8a9320d133fc6bc4cebf159be26035" category="inline-link-macro-rx"></block>.</block>
+  <block id="d7548e4333d6055e4cfe02fb476e8bb3" category="summary">Cluster, HA, Storage und Datenverbindungen, die zuvor mit dem AFF A800 Knoten 1 verbunden waren, mit dem neu installierten AFF A90 oder AFF A70 Knoten 1 verbinden</block>
+  <block id="0640a7d79562f0e5755e3f5b4337aaf0" category="paragraph">Verbinden Sie den Cluster, HA, Storage, Daten und Managementverbindungen, die zuvor mit dem AFF A800 Knoten 1 verbunden waren, mit dem neu installierten AFF A90 oder AFF A70 Knoten 1.</block>
+  <block id="e41a57de6846f0486a2837efec0a7735" category="section-title">Verbinden Sie die Ports E0M und BMC</block>
+  <block id="83f9eada4a675baaeaa258974d454974" category="paragraph">Die AFF A800 verfügt über einen Management-Port (E0M) und einen BMC-Port. Auf der AFF A90 und AFF A70 werden die E0M und BMC-Ports kombiniert und über den „Schraubenschlüssel“-Port aufgerufen. Bevor Sie eine Verbindung zu AFF A90 oder AFF A70 herstellen, müssen Sie sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf der AFF A800 verbunden sind.</block>
+  <block id="71f7c95fc9a5b8a1a847fc0baf3f04a0" category="cell">Wenn der...</block>
+  <block id="31a1d0c3f4eee8e89c1e85f3c2f53402" category="cell">E0M und BMC IP-Adressen befinden sich auf demselben IP-Subnetz</block>
+  <block id="9fded7c0f0530a23a9a859ba516478e5" category="cell">Verbinden Sie den E0M oder BMC-Port der AFF A800 mit dem „Schraubenschlüssel“-Port der AFF A90 oder AFF A70.</block>
+  <block id="6d317071220219966d4e9dcc83f3c48f" category="cell">E0M und BMC IP-Adressen befinden sich in unterschiedlichen Subnetzen</block>
+  <block id="06ae0bb86db3eff96d5e95f8377d0658" category="list-text">Führen Sie die IP-Adressen E0M und BMC zu einem IP-Subnetz zusammen.</block>
+  <block id="444178cd590abb095281389d276396fb" category="section-title">Stellen Sie eine Verbindung zu einem 2-Node-Cluster ohne Switches her</block>
+  <block id="17ff48b429522b181dd38c99ad361c90" category="section-title">Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her</block>
+  <block id="642bccb8ea8bf1d5af20ff2b734c1972" category="paragraph">Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anforderungen erfüllen:</block>
+  <block id="0bc65976ff133ee82e86f9a6d1241bd3" category="list-text">Die identischen Cluster-Ports auf den AFF A90- oder AFF A70-Knoten befinden sich auf demselben Switch. Beispiel: Nach Abschluss des Upgrades sollte e1a auf node1 und e1a auf node2 mit einem Cluster-Switch verbunden werden. Gleichermaßen sollte der zweite Cluster-Port beider Nodes mit dem zweiten Cluster-Switch verbunden sein. Die Querverbindung von gemeinsam genutzten Cluster-HA-Ports, bei denen e1a von node1 mit SwitchA und e1a von node2 mit SwitchB verbunden ist, führt zu HA-Kommunikationsfehlern.</block>
+  <block id="a8ddcf9ff72eca8d08263b606043e793" category="list-text">Die Knoten AFF A90 und AFF A70 verwenden gemeinsame Cluster-HA-Ethernet-Ports. Stellen Sie sicher, dass die Cluster-Switches mit einer Referenzkonfigurationsdatei (RCF) installiert sind, die freigegebene Cluster-HA-Ports unterstützt.</block>
 </blocks>
