@@ -36,23 +36,27 @@ Sie können dieses Verfahren unter folgenden Umständen nicht verwenden:
 [[sys_Commands_9151_supported_Systems]]die folgende Tabelle zeigt die unterstützte Modellmatrix für das Controller-Upgrade.
 
 |===
-| Vorhandene Controller | Ersatz-Controller 
+| Vorhandene Controller | Ersatz-Controller | Unterstützt ab ONTAP... 
 
 
-| AFF A300 | AFF A70, AFF A90 und AFF A1K 
+| FAS8200, FAS8300, FAS8700, FAS9000 | FAS70, FAS90 | 9.15.1P3 
 
 
-| AFF A400 | AFF A70, AFF A90 und AFF A1K 
+| FAS9500 | FAS90 | 9.15.1P3 
 
 
-| AFF A700 | AFF A70, AFF A90 und AFF A1K 
+| AFF A300, AFF A400, AFF A700 | AFF A70, AFF A90, AFF A1K | 9.15.1 
 
 
-| AFF A900 | AFF A90 und AFF A1K 
+| AFF A900 | AFF A90, AFF A1K | 9.15.1 
 |===
 [NOTE]
 ====
-Die AFF A70 und AFF A90 sind integrierte Systeme mit Onboard-Festplatten. Die beiden Controller und Festplatten befinden sich in einem einzelnen Chassis. Sie können ein vorhandenes System nicht aktualisieren, wenn die neuen Controller über interne Laufwerke verfügen.
+AFF A70 und AFF A90 sind integrierte Systeme mit zwei integrierten Festplatten und zwei Controllern in einem einzelnen Gehäuse.
+
+* Wenn Sie ein Upgrade auf eine AFF A70 oder AFF A90 mit internen Laufwerken durchführen, müssen Sie vor dem Upgrade die Eigentumsrechte für diese Laufwerke entfernen. Nach Abschluss des Upgrades können Sie die internen Laufwerke den AFF A70- oder AFF A90-Nodes zuweisen und sie zur Erstellung von Datenaggregaten verwenden. Die Migration von Root- oder Datenaggregaten auf interne Laufwerke ist nicht zwingend erforderlich.
+* Wenn Sie ohne interne Laufwerke ein Upgrade auf eine AFF A70 oder AFF A90 durchführen, müssen Sie nach Abschluss des Upgrades keine internen Laufwerke zuweisen.
+
 
 Wenn die Kombination aus dem Controller-Upgrade-Modell nicht in der oben stehenden Tabelle aufgeführt ist, wenden Sie sich an den technischen Support.
 

@@ -17,9 +17,17 @@ Gehen Sie folgendermaßen vor, wenn Sie die Controller-Hardware in den folgenden
 
 [NOTE]
 ====
-Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 eingeführtes AFF A70, AFF A90 oder AFF A1K System durchführen, konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese die Storage-Effizienz nicht nutzen, und wendet die neuen Funktionen zur Storage-Effizienz an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Weitere Informationen ."^]
+* Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 eingeführtes System durchführen, konvertiert ONTAP die Storage-Effizienz vorhandener Volumes und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems.
++
+** Bei einem AFF A70, AFF A90 oder AFF A1K System konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese keine Storage-Effizienz verwenden.
+** Bei einem FAS70 und FAS90 System konvertiert ONTAP nur die Storage-Effizienz von vorhandenen Thin Provisioning Volumes, die bereits vor dem Upgrade auf die Storage-Effizienz aktiviert hatten.
++
+link:https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Erfahren Sie mehr über Storage-Effizienz"^].
 
-Die Hardware-Upgrade-Verfahren wurden in ONTAP 9.8 mit der Einführung der automatischen Port-Platzierung vereinfacht.
+
+
+* Die Hardware-Upgrade-Verfahren wurden in ONTAP 9.8 mit der Einführung der automatischen Port-Platzierung vereinfacht.
+
 
 ====
 * Ihre ursprünglichen und neuen Nodes sind kompatibel und werden unterstützt.
