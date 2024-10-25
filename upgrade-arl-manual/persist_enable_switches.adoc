@@ -10,7 +10,7 @@ summary: Aktivieren Sie Brocade und Cisco Switches dauerhaft in dem Fabric währ
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

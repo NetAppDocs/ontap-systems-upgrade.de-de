@@ -10,7 +10,7 @@ summary: 'Das System stürzt möglicherweise während verschiedener Phasen ab, w
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

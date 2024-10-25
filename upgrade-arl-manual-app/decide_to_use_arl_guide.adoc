@@ -10,7 +10,7 @@ summary: Entscheiden Sie, ob Sie mit dem manuellen ARL-Verfahren Storage-Control
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

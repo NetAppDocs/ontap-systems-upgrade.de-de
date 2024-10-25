@@ -10,7 +10,7 @@ summary: Mithilfe des manuellen ARL-Upgrade-Verfahrens für ein Upgrade der Cont
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

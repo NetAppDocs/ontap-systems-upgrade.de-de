@@ -10,7 +10,7 @@ summary: Lassen Sie NetApp wissen, dass das alte System nach Abschluss eines man
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

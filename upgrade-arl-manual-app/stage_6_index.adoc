@@ -10,7 +10,7 @@ summary: Phase 6 Prozessreihenfolge für ein manuelles ARL Upgrade bei Controlle
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

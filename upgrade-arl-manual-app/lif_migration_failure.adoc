@@ -10,7 +10,7 @@ summary: LIFs sind nach der Migration in Phase 2, Phase 3 oder Phase 5 während 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Phase 6-Prozesssequenz für ein ARL-Upgrade mithilfe von `system contr
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

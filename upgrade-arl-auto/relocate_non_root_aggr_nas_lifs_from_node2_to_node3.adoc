@@ -10,7 +10,7 @@ summary: 'Bei einem Upgrade von Controllern mit ONTAP 9.5 auf 9.7 werden die nic
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

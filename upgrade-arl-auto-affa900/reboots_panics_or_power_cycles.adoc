@@ -10,7 +10,7 @@ summary: Wenn das System mit ARL ein Upgrade von Controller-Modellen im selben C
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Konfigurieren Sie bei Bedarf die Speicherverschlüsselung, installieren
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

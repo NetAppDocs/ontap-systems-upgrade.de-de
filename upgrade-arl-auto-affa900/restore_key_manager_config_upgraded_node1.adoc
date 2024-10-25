@@ -10,7 +10,7 @@ summary: Stellen Sie bei Bedarf die Schlüsselmanager-Konfiguration auf dem aktu
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

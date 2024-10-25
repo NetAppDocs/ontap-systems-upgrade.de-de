@@ -10,7 +10,7 @@ summary: Stellen Sie bei Bedarf die Key-Manager-Konfiguration auf Node 2 wieder 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

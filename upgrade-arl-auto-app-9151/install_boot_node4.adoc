@@ -10,7 +10,7 @@ summary: 'Installieren und booten Sie node4 und installieren Sie die ONTAP Softw
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Referenzinhalte und Websites, die zur Unterstützung eines Controller-
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

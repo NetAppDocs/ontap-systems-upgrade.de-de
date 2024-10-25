@@ -10,7 +10,7 @@ summary: Synchronisieren Sie LIFs, die sich auf ungültigen Ports in einer Metro
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

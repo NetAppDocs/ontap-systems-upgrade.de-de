@@ -10,7 +10,7 @@ summary: 'Setzen Sie die SnapMirror Übertragungen und Beziehungen beim Upgrade 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

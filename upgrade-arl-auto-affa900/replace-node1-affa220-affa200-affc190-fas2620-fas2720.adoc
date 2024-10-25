@@ -10,7 +10,7 @@ summary: Ersetzen Sie die Node-1-Module AFF A220, AFF A200, AFF C190, FAS2720 od
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -32,11 +32,11 @@ Lassen Sie die Kabel im Kabelverwaltungs-Gerät so, dass bei der Neuinstallation
 
 . Entfernen Sie die Kabelführungsgeräte von der linken und rechten Seite des Controller-Moduls und stellen Sie sie zur Seite.
 +
-image::../media/drw_25xx_cable_management_arm.png[Entfernen der Kabelverwaltungs-ARM]
+image:drw_25xx_cable_management_arm.png["Entfernen der Kabelverwaltungs-ARM"]
 
 . Drücken Sie die Verriegelung am Nockengriff, bis sie loslässt, öffnen Sie den Nockengriff vollständig, um das Controller-Modul aus der Mittelplatine zu lösen, und ziehen Sie das Controller-Modul anschließend mit zwei Händen aus dem Gehäuse heraus.
 +
-image::../media/drw_2240_x_opening_cam_latch.png[Öffnen des Nockengriffs]
+image:drw_2240_x_opening_cam_latch.png["Öffnen des Nockengriffs"]
 
 . Drehen Sie das Controller-Modul um und legen Sie es auf eine flache, stabile Oberfläche.
 

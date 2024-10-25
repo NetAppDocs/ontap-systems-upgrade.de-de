@@ -10,7 +10,7 @@ summary: Ersetzen Sie die AFF A800 Node-1-Systemmodule, wenn Sie zum Upgrade von
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -26,7 +26,7 @@ Wenn du nicht bereits geerdet bist, beground dich richtig.
 .Schritte
 . Drücken Sie auf der Vorderseite des Gehäuses die Daumen, um jedes Laufwerk fest einzuschieben, bis Sie einen positiven Stopp spüren. Dadurch wird sichergestellt, dass die Laufwerke fest an der Mittelplatine des Gehäuses sitzen.
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.png[Schieben Sie den Antrieb fest an die Mittelplatine des Chassis]
+image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
 
 . Gehen Sie zur Rückseite des Gehäuses.
 
@@ -50,7 +50,7 @@ Lassen Sie die Kabel im Kabelverwaltungs-Gerät so, dass bei der Neuinstallation
 Das Controller-Modul wird leicht aus dem Chassis entfernt.
 
 +
-image::../media/a800_cable_management.png[Entfernen der Kabelverwaltungs-ARM]
+image:a800_cable_management.png["Entfernen der Kabelverwaltungs-ARM"]
 
 +
 [cols="20,80"]
@@ -58,12 +58,12 @@ image::../media/a800_cable_management.png[Entfernen der Kabelverwaltungs-ARM]
 
 
  a| 
-image::../media/black_circle_one.png[Nummer eins]
+image:black_circle_one.png["Nummer eins"]
 | Verriegelungsverschluss 
 
 
  a| 
-image::../media/black_circle_two.png[Nummer zwei]
+image:black_circle_two.png["Nummer zwei"]
 | Sicherungsstift 
 |===
 
@@ -81,7 +81,7 @@ Installieren, verkabeln und verbinden Sie das AFF A90- oder AFF A70-Controller-M
 NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Chassis ein, wenn Sie dazu aufgefordert werden.
 
 +
-image::../media/drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG[Installieren Sie einen AFF A90 oder AFF A70]
+image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["Installieren Sie einen AFF A90 oder AFF A70"]
 
 . Verkabeln Sie die Management- und Konsolen-Ports mit dem Node1-Controller-Modul.
 +

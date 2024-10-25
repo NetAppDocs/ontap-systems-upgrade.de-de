@@ -10,7 +10,7 @@ summary: 'Deaktivieren Sie das HA-Paar mit node2 und fahren Sie node1 herunter, 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

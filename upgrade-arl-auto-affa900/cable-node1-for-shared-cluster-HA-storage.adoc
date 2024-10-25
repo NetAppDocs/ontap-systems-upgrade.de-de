@@ -10,7 +10,7 @@ summary: Cluster, HA, Storage und Datenverbindungen, die zuvor mit dem AFF A800 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Deaktivieren Sie das HA-Paar mit node2 und schalten Sie node1 während 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

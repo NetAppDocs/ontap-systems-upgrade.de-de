@@ -10,7 +10,7 @@ summary: 'Bei einem Upgrade von Controllern mit ONTAP 9.8 oder höher werden die
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Bei einem manuellen ARL Upgrade auf Controllern mit ONTAP 9.7 oder eine
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Verschiebung ausgefallener oder Veto-Aggregate bei Nutzung von ARL für
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

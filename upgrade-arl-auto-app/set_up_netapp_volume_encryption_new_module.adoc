@@ -10,7 +10,7 @@ summary: 'Konfigurieren Sie, falls erforderlich, das neue Controller-Modul für 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Wenn Sie mit ARL Controller-Modelle im selben Chassis aktualisieren, be
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

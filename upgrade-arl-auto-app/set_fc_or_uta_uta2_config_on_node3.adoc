@@ -10,7 +10,7 @@ summary: 'Konfigurieren Sie node3 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

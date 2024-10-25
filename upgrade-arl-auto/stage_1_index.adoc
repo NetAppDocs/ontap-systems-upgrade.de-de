@@ -10,7 +10,7 @@ summary: 'Phase 1-Prozessreihenfolge für ein ARL-Upgrade mit `system controller
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

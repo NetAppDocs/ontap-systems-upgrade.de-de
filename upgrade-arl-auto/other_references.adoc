@@ -10,7 +10,7 @@ summary: 'Erforderliche Referenzinhalte und Websites zur Unterstützung eines Co
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

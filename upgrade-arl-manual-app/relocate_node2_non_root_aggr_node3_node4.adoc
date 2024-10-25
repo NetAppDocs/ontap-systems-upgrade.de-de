@@ -10,7 +10,7 @@ summary: Verschieben von nicht-Root-Aggregaten node2 während eines manuellen AR
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

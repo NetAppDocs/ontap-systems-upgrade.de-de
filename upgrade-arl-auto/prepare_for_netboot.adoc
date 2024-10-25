@@ -10,7 +10,7 @@ summary: 'Bereiten Sie sich auf den Netzboot Node3 und node4 vor, wenn Sie Contr
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

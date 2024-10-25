@@ -10,7 +10,7 @@ summary: 'Sie benötigen bestimmte Tools und Dokumentationen, um Controller mit 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

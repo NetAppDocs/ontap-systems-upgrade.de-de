@@ -10,7 +10,7 @@ summary: 'Aktivieren Sie das HA-Paar, überprüfen Sie den Node3- und node4-Stor
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

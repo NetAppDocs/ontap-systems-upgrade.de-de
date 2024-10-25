@@ -10,7 +10,7 @@ summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Mo
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

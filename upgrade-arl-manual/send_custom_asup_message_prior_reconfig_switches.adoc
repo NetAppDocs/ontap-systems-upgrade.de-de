@@ -10,7 +10,7 @@ summary: Benachrichtigen Sie den technischen Support von NetApp, dass Wartungsar
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

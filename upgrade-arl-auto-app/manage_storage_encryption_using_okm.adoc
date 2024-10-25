@@ -10,7 +10,7 @@ summary: 'Konfiguration und Management der Storage-Verschlüsselung, Management 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

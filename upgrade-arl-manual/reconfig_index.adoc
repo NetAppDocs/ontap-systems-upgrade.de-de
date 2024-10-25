@@ -10,7 +10,7 @@ summary: Konfigurieren Sie für ONTAP 9.1 oder höher das Portlayout neu, und we
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

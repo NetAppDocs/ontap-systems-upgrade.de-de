@@ -10,7 +10,7 @@ summary: Überprüfen Sie die installation und Kommunikation mit node4 bei einem
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Überprüfen Sie, ob die physischen Ports auf node2 korrekt mit node4 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

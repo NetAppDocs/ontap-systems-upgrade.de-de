@@ -10,7 +10,7 @@ summary: Überprüfen Sie die Node-2-Installation durch Ersatzmodule, wenn Sie m
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Deaktivieren Sie das HA-Paar mit Knoten 2 und fahren Sie Knoten 1 heru
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Überprüfen Sie den Systemzustand der MetroCluster Konfiguration und k
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

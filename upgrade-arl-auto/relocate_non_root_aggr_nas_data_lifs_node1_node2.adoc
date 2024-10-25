@@ -10,7 +10,7 @@ summary: Verschieben Sie Aggregate und NAS-Daten-LIFs von node1 auf node2 und ve
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

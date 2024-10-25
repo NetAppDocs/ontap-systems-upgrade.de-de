@@ -10,7 +10,7 @@ summary: Überprüfen Sie während eines manuellen ARL Upgrades bei Controllern 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Lassen Sie NetApp wissen, dass das alte System nach dem Aktualisieren 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

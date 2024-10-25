@@ -10,7 +10,7 @@ summary: 'Überprüfen Sie mithilfe von Befehlen, ob die NAS-Daten-LIFs von node
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

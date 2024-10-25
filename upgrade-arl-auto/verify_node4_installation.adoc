@@ -10,7 +10,7 @@ summary: 'Vergewissern Sie sich, dass node4 dem Quorum beitreten, VLANs, Schnitt
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

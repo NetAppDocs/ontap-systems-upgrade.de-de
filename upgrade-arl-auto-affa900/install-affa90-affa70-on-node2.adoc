@@ -10,7 +10,7 @@ summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -23,7 +23,7 @@ Installieren Sie das AFF A90- oder AFF A70-Controller-Modul, das Sie für das Up
 NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Chassis ein, wenn Sie dazu aufgefordert werden.
 
 +
-image::../media/drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG[Installieren Sie einen AFF A90 oder AFF A70]
+image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["Installieren Sie einen AFF A90 oder AFF A70"]
 
 . Verkabeln Sie die Management- und Konsolen-Ports mit dem Node1-Controller-Modul.
 +

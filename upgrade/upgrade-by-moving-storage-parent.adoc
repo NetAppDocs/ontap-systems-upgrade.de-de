@@ -23,7 +23,7 @@ Zum Upgrade durch Verschieben von Speicher bereiten Sie die ursprünglichen Node
 ====
 In den Schritten zum Upgrade der Controller-Hardware durch Verschiebung von Storage werden die ursprünglichen Nodes node1 und node2 genannt und die neuen Nodes werden node3 und node4 genannt. Während des beschriebenen Verfahrens wird node1 durch node3 ersetzt und node2 durch node4 ersetzt.
 
-image::../upgrade/media/original_to_new_nodes.png[Ersetzen von Knoten 3 und knoten 4 durch Knoten 1 und Knoten 2]
+image:original_to_new_nodes.png["Ersetzen von Knoten 1 und Knoten 2 durch Knoten 3 und knoten 4"]
 
 Die Begriffe node1, node2, node3 und node4 werden nur verwendet, um zwischen den ursprünglichen und den neuen Knoten zu unterscheiden. Wenn Sie das Verfahren befolgen, müssen Sie diese durch die echten Namen Ihrer ursprünglichen und neuen Knoten ersetzen. In der Realität ändern sich jedoch die Namen der Nodes nicht: node3 hat den Namen node1 und node4 hat nach dem Upgrade der Controller-Hardware den Namen node2.
 

@@ -10,7 +10,7 @@ summary: Informationen zu Problemen, die bei einem manuellen ARL Upgrade auf Con
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

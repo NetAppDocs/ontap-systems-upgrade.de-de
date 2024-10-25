@@ -10,7 +10,7 @@ summary: 'Aktivieren Sie das HA-Paar, überprüfen Sie den Storage-Zugriff von n
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

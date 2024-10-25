@@ -10,7 +10,7 @@ summary: 'Informieren Sie sich, ob Sie Controller mit ONTAP 9.8 oder höher mit 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

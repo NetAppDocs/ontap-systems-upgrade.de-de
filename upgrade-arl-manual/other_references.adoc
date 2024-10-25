@@ -10,7 +10,7 @@ summary: Referenzinhalte und Websites, die erforderlich sind, um ein manuelles A
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

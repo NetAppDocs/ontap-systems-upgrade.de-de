@@ -10,7 +10,7 @@ summary: 'Beheben Sie Fehler bei der Aggregatverschiebung, die auftreten können
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

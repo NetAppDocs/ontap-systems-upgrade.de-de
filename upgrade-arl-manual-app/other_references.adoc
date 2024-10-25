@@ -10,7 +10,7 @@ summary: Zur Unterstützung eines manuellen ARL Upgrades bei Controllern mit ONT
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

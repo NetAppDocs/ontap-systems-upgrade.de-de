@@ -10,7 +10,7 @@ summary: Notieren Sie während eines manuellen ARL Upgrades auf Controllern mit 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

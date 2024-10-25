@@ -10,7 +10,7 @@ summary: 'Verschieben Sie Aggregate und NAS-Daten-LIFs von Knoten 1 auf Knoten 2
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

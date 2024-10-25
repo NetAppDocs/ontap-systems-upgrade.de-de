@@ -10,7 +10,7 @@ summary: 'In Phase 3 müssen Sie bestätigen, dass der neue Node dem Quorum Beit
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

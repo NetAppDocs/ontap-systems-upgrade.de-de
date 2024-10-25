@@ -10,7 +10,7 @@ summary: 'Überprüfen Sie mithilfe von Befehlen, ob die physischen node1-Ports 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

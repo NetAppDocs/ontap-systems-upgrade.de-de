@@ -10,7 +10,7 @@ summary: Vergewissern Sie sich vor Beginn des Upgrades, dass Sie über die richt
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

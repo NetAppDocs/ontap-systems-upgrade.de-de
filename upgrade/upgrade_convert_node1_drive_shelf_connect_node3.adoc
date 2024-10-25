@@ -19,7 +19,7 @@ Konvertieren Sie AFF A250 Knoten 1 in ein NS224 Laufwerk-Shelf und stellen Sie d
 . Stecken Sie das NVMe-Shelf-Modul (NSM) in den Schacht von Knoten 1.
 . Verbinden Sie den NSM mit Knoten 3, indem Sie den Knoten 3 100-GbE-Port e0c mit dem NSM A-Port e0a verkabeln.
 +
-image::../upgrade/media/a400_with_ns224_shelf.PNG[AFF A400 mit einem NS224 Shelf]
+image:a400_with_ns224_shelf.PNG["AFF A400 mit einem NS224 Shelf"]
 
 . Verschieben Sie die temporären Cluster-Verbindungen auf Knoten 3, indem Sie die 25-GbE-Verkabelung von den Knoten 1-Ports e0c und e0d zu zwei integrierten 25-GbE-Ports (e0e, e0f, e0g oder e0h) auf Knoten 3 verschieben.
 +

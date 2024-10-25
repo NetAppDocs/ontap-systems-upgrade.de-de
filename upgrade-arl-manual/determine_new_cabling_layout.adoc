@@ -10,7 +10,7 @@ summary: Bestimmen Sie das Verkabelungslayout für neue Controller-Module und Fe
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

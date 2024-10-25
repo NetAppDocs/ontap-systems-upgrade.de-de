@@ -10,7 +10,7 @@ summary: Verwenden Sie das Config Advisor-Tool, um häufige Konfigurationsfehler
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

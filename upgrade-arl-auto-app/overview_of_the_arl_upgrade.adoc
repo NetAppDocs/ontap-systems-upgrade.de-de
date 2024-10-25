@@ -10,7 +10,7 @@ summary: 'Informieren Sie sich, wie Sie mit das Upgrade von Controllern mit ONTA
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Fahren Sie node2 herunter und entfernen Sie es aus dem Rack oder Chassi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

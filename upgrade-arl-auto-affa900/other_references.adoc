@@ -10,7 +10,7 @@ summary: Referenzinhalte und Websites, die für die Unterstützung von ARL zur A
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

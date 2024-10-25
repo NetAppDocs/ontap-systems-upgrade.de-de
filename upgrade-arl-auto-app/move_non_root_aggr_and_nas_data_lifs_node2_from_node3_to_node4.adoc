@@ -10,7 +10,7 @@ summary: 'Überprüfen Sie, ob die NAS-Daten-LIFs von node2, die sich auf node3 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

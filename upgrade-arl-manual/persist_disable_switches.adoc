@@ -10,7 +10,7 @@ summary: Deaktivieren Sie Brocade- und Cisco-Switches in der Fabric, und ändern
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

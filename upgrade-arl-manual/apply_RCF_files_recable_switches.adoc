@@ -10,7 +10,7 @@ summary: Installieren Sie RCF-Dateien, um Cisco und Brocade Switches während ei
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

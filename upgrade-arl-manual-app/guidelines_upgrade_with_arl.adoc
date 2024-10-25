@@ -10,7 +10,7 @@ summary: Verstehen Sie, ob Sie bei einem Controller-Paar mit ONTAP 9.8 oder höh
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

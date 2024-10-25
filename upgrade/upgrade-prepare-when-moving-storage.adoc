@@ -122,7 +122,7 @@ WARNING: Wenn die Ports „e0a“ und „e0b“ als HA Interconnect Ports auf de
 Im folgenden Beispiel werden die Management- und Intercluster-LIFs auf den Netzwerk-Ports „e0a“ und „e0b“ den Netzwerk-Ports „e1a“ und „e1b“ neu zugewiesen. Ihre Nodes verwenden möglicherweise unterschiedliche Netzwerk-Ports, da diese je nach System variieren.
 
 +
-image::../upgrade/media/reassign_lifs.PNG[Neuzuordnen von LIFs zu Netzwerk-Ports im Ersatzsystem]
+image:reassign_lifs.PNG["Neuzuordnen von LIFs zu Netzwerk-Ports im Ersatzsystem"]
 
 
 

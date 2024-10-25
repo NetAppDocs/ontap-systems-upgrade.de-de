@@ -10,7 +10,7 @@ summary: 'Bereiten Sie die Nodes vor und führen Sie mithilfe von Befehlen eine 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

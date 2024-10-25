@@ -10,7 +10,7 @@ summary: 'Setzen Sie die SnapMirror Transfers und Beziehungen fort, wenn Sie Con
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

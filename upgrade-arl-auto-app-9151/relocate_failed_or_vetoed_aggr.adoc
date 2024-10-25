@@ -10,7 +10,7 @@ summary: 'Verschieben Sie fehlerhafte oder Veto-Aggregate manuell, wenn Sie Cont
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

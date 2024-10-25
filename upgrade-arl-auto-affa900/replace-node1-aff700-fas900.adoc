@@ -10,7 +10,7 @@ summary: Ersetzen Sie die AFF A700- oder FAS9000 node1-Systemmodule, wenn Sie mi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -35,7 +35,7 @@ WARNING: Wenn Sie an node1 arbeiten, entfernen Sie nur die Konsole und E0M-Kabel
 +
 .. Schieben Sie die orangefarbene Taste am Nockengriff nach unten, bis sie entsperrt ist.
 +
-image::../media/drw_9500_remove_PCM.png[Entfernen Sie das Controller-Modul]
+image:drw_9500_remove_PCM.png["Entfernen Sie das Controller-Modul"]
 
 +
 [cols="20,80"]
@@ -43,12 +43,12 @@ image::../media/drw_9500_remove_PCM.png[Entfernen Sie das Controller-Modul]
 
 
  a| 
-image::../media/black_circle_one.png[Nummer eins]
+image:black_circle_one.png["Nummer eins"]
 | Freigabetaste für den CAM-Griff 
 
 
  a| 
-image::../media/black_circle_two.png[Nummer zwei]
+image:black_circle_two.png["Nummer zwei"]
 | CAM-Griff 
 |===
 .. Drehen Sie den Nockengriff so, dass er das Controller-Modul vollständig aus dem Gehäuse herausrückt, und schieben Sie dann das Controller-Modul aus dem Gehäuse.
@@ -81,7 +81,7 @@ Das NVRAM-Modul geht aus dem Chassis aus und verschiebt ein paar Zentimeter.
 
 .. Entfernen Sie das NVRAM-Modul aus dem Gehäuse, indem Sie an den Zuglaschen an den Seiten der Modulfläche ziehen.
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[Entfernen Sie das NVRAM-Modul]
+image:drw_a900_move-remove_NVRAM_module.png["Entfernen Sie das NVRAM-Modul"]
 
 +
 [cols="20,80"]
@@ -89,12 +89,12 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[Entfernen Sie das NVRAM-Mo
 
 
  a| 
-image::../media/black_circle_one.png[Nummer eins]
+image:black_circle_one.png["Nummer eins"]
 | Gerettete und nummerierte E/A-Nockenverriegelung 
 
 
  a| 
-image::../media/black_circle_two.png[Nummer zwei]
+image:black_circle_two.png["Nummer zwei"]
 | E/A-Riegel vollständig entriegelt 
 |===
 
@@ -127,7 +127,7 @@ Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500 in Steckplatz 6
 . Richten Sie das NVRAM-Modul an den Kanten der Gehäuseöffnung in Steckplatz 6 aus.
 . Schieben Sie das NVRAM-Modul vorsichtig in den Steckplatz, bis der vorletzte und nummerierte E/A-Nockenriegel mit dem E/A-Nockenstift einrastet. Drücken Sie dann den E/A-Nockenverschluss bis zum Verriegeln des NVRAM-Moduls.
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[Installieren Sie das NVRAM-Modul]
+image:drw_a900_move-remove_NVRAM_module.png["Installieren Sie das NVRAM-Modul"]
 
 +
 [cols="20,80"]
@@ -135,12 +135,12 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[Installieren Sie das NVRAM
 
 
  a| 
-image::../media/black_circle_one.png[Nummer eins]
+image:black_circle_one.png["Nummer eins"]
 | Gerettete und nummerierte E/A-Nockenverriegelung 
 
 
  a| 
-image::../media/black_circle_two.png[Nummer zwei]
+image:black_circle_two.png["Nummer zwei"]
 | E/A-Riegel vollständig entriegelt 
 |===
 
@@ -171,7 +171,7 @@ Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist.
 WARNING: Um Schäden an den Anschlüssen zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft verwenden.
 
 +
-image::../media/drw_9500_remove_PCM.png[Installieren Sie das Controller-Modul]
+image:drw_9500_remove_PCM.png["Installieren Sie das Controller-Modul"]
 
 +
 [cols="20,80"]
@@ -179,12 +179,12 @@ image::../media/drw_9500_remove_PCM.png[Installieren Sie das Controller-Modul]
 
 
  a| 
-image::../media/black_circle_one.png[Nummer eins]
+image:black_circle_one.png["Nummer eins"]
 | Verriegelungsverschluss am CAM-Griff 
 
 
  a| 
-image::../media/black_circle_two.png[Nummer zwei]
+image:black_circle_two.png["Nummer zwei"]
 | Nockengriff in der nicht entriegeln Position 
 |===
 . Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.

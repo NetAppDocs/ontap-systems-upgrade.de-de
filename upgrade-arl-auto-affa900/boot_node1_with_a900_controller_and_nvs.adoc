@@ -10,7 +10,7 @@ summary: Starten Sie Node 1 mit den Ersatz-Controller-Modulen, wenn Sie Controll
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

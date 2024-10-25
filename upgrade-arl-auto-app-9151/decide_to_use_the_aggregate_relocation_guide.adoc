@@ -10,7 +10,7 @@ summary: 'Entscheiden Sie mithilfe von Befehlen, ob Sie Controller, die ONTAP 9.
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

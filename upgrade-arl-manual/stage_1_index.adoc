@@ -10,7 +10,7 @@ summary: Phase 1-Prozesssequenz für ein manuelles ARL Upgrade auf Controllern m
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

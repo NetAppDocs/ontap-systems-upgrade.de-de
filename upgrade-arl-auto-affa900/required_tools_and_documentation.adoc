@@ -10,7 +10,7 @@ summary: Um ein Upgrade der Controller-Modelle im selben Chassis mit ARL durchzu
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

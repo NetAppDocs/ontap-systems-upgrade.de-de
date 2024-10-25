@@ -10,7 +10,7 @@ summary: 'Sie müssen über bestimmte Tools und Dokumentation verfügen, um die 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

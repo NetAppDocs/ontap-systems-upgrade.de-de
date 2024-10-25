@@ -10,7 +10,7 @@ summary: Informieren Sie sich, wie das Upgrade von Controller-Modellen im selben
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

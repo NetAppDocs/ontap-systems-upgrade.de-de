@@ -10,7 +10,7 @@ summary: Verschieben Sie die nicht-Root-Aggregate von Node 2 in Node 1, wenn Sie
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

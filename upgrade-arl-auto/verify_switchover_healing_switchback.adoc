@@ -10,7 +10,7 @@ summary: 'Überprüfen Sie beim Upgrade von Controllern mit ONTAP 9.5 auf 9.7, o
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

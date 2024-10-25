@@ -10,7 +10,7 @@ summary: 'Phase 7 Prozessablauf für ein ARL-Upgrade mit `system controller repl
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Erstellen Sie die Knoten1-VLANs, Interface-Gruppen und Broadcast-Domä
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Installieren und booten Sie node3 und installieren Sie die ONTAP Softwa
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

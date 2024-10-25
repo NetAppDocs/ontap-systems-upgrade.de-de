@@ -10,7 +10,7 @@ summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

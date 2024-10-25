@@ -10,7 +10,7 @@ summary: 'Bereiten Sie die Nodes vor und führen Sie eine Reihe von Vorabprüfun
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

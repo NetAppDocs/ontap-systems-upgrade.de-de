@@ -10,7 +10,7 @@ summary: Verschieben Sie die node1-Daten-LIFs auf node2, wenn Sie ein Cluster mi
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Ermitteln Sie, ob Sie ARL verwenden können, um das alte System-Chassis
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Node2 wird ordnungsgemäß heruntergefahren und während eines manuelle
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

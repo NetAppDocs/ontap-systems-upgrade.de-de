@@ -10,7 +10,7 @@ summary: Nachdem Sie die entsprechenden Node2-Ersatzsystemmodule ausgetauscht ha
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

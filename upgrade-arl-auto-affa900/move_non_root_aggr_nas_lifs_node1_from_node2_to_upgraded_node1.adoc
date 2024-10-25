@@ -10,7 +10,7 @@ summary: Vergewissern Sie sich, dass die node1 NAS-Daten-LIFs auf Node 2 von Nod
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

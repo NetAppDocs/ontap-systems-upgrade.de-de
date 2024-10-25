@@ -10,7 +10,7 @@ summary: Bereiten Sie den ursprünglichen Knoten auf ein Upgrade vor, indem Sie 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

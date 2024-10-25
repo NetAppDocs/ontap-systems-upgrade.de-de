@@ -10,7 +10,7 @@ summary: 'Informationen zu Problemen, die beim Upgrade von Controllern auftreten
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

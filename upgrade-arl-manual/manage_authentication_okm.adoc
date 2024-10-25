@@ -10,7 +10,7 @@ summary: Verwenden Sie den OKM zum Managen von Authentifizierungsschlüssel bei 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

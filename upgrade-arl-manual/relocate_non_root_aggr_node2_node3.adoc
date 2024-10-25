@@ -10,7 +10,7 @@ summary: Senden Sie eine AutoSupport-Meldung für Knoten2, und verschieben Sie d
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

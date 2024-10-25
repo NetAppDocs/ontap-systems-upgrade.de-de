@@ -10,7 +10,7 @@ summary: Verschieben Sie die Aggregate ohne Root-Root-Fehler von node1 auf node2
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Das System kann während der verschiedenen Phasen eines manuellen ARL U
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: Sie können Controller-Hardware aufrüsten, indem Sie ein altes System 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Stellen Sie sicher, dass node3 dem Quorum beitreten, VLANs, Schnittste
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

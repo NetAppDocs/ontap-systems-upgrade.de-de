@@ -10,7 +10,7 @@ summary: Wissen Sie, ob Sie das manuelle ARL-Verfahren für ein Controller-Paar 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

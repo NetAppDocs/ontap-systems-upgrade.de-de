@@ -10,7 +10,7 @@ summary: Bevor Sie das System zum Netzboot fahren, müssen alle SnapMirror Bezie
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

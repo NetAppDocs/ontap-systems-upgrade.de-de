@@ -10,7 +10,7 @@ summary: 'Entscheiden Sie, ob Sie ARL verwenden, um Controller mit ONTAP 9.8 ode
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

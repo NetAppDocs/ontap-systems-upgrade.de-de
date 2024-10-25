@@ -10,7 +10,7 @@ summary: 'Verschieben Sie die node2 NAS-Daten-LIFs auf Knoten 3 von Knoten 3 auf
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

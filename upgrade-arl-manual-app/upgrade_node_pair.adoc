@@ -10,7 +10,7 @@ summary: Sie können den ursprünglichen Node manuell für ein Upgrade vorbereit
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

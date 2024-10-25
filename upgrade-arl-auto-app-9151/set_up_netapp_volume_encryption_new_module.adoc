@@ -10,7 +10,7 @@ summary: 'Konfigurieren Sie bei Bedarf das neue Controller-Modul für NVE oder N
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

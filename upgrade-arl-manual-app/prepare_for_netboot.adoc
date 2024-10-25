@@ -10,7 +10,7 @@ summary: Bereiten Sie sich beim manuellen ARL Upgrade auf Controllern mit ONTAP 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

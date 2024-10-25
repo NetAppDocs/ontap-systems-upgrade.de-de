@@ -10,7 +10,7 @@ summary: Führen Sie das teilweise automatisierte ARL-Verfahren durch, um Contro
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 'Fehlerbehebung bei Ausfällen der Aggregatverschiebung, die bei der Ve
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

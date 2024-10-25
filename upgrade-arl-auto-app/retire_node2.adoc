@@ -10,7 +10,7 @@ summary: 'Fahren Sie node2 herunter und entfernen Sie ihn beim Upgrade von Contr
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

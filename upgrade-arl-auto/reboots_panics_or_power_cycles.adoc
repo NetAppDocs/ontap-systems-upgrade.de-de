@@ -10,7 +10,7 @@ summary: 'Das System kann während verschiedener Phasen abstürzt, wenn Controll
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

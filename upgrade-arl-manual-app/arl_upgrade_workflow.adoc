@@ -10,7 +10,7 @@ summary: Erfahren Sie, wie das manuelle ARL-Upgrade für ein Controller-Paar mit
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

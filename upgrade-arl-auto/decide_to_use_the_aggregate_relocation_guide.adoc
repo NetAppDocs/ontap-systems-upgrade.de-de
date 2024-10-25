@@ -10,7 +10,7 @@ summary: 'Entscheiden Sie, ob Sie mithilfe von ARL ein Upgrade von Controllern m
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

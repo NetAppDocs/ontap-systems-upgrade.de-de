@@ -10,7 +10,7 @@ summary: Beheben Sie Fehler, die bei einem Upgrade von Controller-Modellen in de
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

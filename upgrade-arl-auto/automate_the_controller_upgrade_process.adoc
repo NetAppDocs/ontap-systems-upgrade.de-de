@@ -10,7 +10,7 @@ summary: Verwenden Sie das teilweise automatische ARL-Verfahren, um Controller m
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

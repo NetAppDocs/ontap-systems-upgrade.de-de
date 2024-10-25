@@ -10,7 +10,7 @@ summary: Vergewissern Sie sich, dass die NAS-Daten-LIFs auf Node 1 von Node 1 au
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

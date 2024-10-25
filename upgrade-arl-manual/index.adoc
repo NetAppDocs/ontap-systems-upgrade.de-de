@@ -10,7 +10,7 @@ summary: Verwenden Sie das manuelle ARL-Upgrade-Verfahren, um mit ONTAP 9.7 oder
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

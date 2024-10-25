@@ -10,7 +10,7 @@ summary: 'Fehlerhafte oder Vetos müssen bei einem Upgrade von Controllern mit O
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

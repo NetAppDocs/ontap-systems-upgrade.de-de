@@ -10,7 +10,7 @@ summary: Überprüfen Sie, ob das HA-Paar aktiviert ist, überprüfen Sie Node1-
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

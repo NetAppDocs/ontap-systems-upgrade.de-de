@@ -10,7 +10,7 @@ summary: 'Storage-Verschlüsselung konfigurieren und managen, Authentifizierungs
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

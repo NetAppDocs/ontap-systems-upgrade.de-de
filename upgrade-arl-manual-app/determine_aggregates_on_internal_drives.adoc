@@ -10,7 +10,7 @@ summary: Vergewissern Sie sich, dass interne Festplattenlaufwerke während eines
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

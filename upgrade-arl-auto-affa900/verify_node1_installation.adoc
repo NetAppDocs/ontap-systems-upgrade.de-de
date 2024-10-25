@@ -10,7 +10,7 @@ summary: Überprüfen Sie die Node-1-Installation zusammen mit den Ersatzmodulen
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

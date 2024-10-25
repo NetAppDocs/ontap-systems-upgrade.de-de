@@ -10,7 +10,7 @@ summary: 'Erstellen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

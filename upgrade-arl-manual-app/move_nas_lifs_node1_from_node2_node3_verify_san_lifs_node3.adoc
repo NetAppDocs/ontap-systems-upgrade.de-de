@@ -10,7 +10,7 @@ summary: Verschieben Sie während eines manuellen ARL Upgrades auf Controllern m
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

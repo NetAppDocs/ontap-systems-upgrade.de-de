@@ -10,7 +10,7 @@ summary: 'Mithilfe von Befehlen können Sie Controller, auf denen ONTAP 9.15.1 o
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

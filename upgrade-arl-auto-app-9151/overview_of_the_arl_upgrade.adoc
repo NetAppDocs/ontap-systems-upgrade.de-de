@@ -10,7 +10,7 @@ summary: 'Informieren Sie sich über die Funktionsweise des Upgrades von Control
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

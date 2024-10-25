@@ -10,7 +10,7 @@ summary: 'Verschieben Sie die nicht-Root-Aggregate von node2 mithilfe von Befehl
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

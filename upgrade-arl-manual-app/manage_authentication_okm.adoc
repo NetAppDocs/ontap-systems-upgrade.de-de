@@ -10,7 +10,7 @@ summary: Managen Sie Authentifizierungsschlüssel mit dem integrierten Schlüsse
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

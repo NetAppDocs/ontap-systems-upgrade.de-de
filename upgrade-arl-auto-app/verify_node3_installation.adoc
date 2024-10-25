@@ -10,7 +10,7 @@ summary: 'Überprüfen Sie, ob die node1 physischen Ports Node3 korrekt zugeordn
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
