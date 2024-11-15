@@ -52,7 +52,7 @@ Sie können dieses Verfahren unter folgenden Umständen nicht verwenden:
 |===
 [NOTE]
 ====
-AFF A70 und AFF A90 sind integrierte Systeme mit zwei integrierten Festplatten und zwei Controllern in einem einzelnen Gehäuse.
+AFF A70 und AFF A90 sind integrierte Systeme mit zwei Controllern in einer HA-Konfiguration und integrierten Festplatten in einem einzigen Chassis.
 
 * Wenn Sie ein Upgrade auf eine AFF A70 oder AFF A90 mit internen Laufwerken durchführen, müssen Sie vor dem Upgrade die Eigentumsrechte für diese Laufwerke entfernen. Nach Abschluss des Upgrades können Sie die internen Laufwerke den AFF A70- oder AFF A90-Nodes zuweisen und sie zur Erstellung von Datenaggregaten verwenden. Die Migration von Root- oder Datenaggregaten auf interne Laufwerke ist nicht zwingend erforderlich.
 * Wenn Sie ohne interne Laufwerke ein Upgrade auf eine AFF A70 oder AFF A90 durchführen, müssen Sie nach Abschluss des Upgrades keine internen Laufwerke zuweisen.
