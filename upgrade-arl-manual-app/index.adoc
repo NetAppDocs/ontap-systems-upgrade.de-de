@@ -25,6 +25,26 @@ Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Agg
 * FAS System zu FAS System
 * FAS System auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System
 * AFF System zu AFF System
++
+Sie können nur ein Upgrade auf ein Ersatzsystem derselben Serie durchführen:
+
++
+** System der AFF A-Series auf einem System der AFF A-Series
+** System der AFF C-Serie auf ein System der AFF C-Serie übertragen
+
+
+* ASA System zu ASA System
++
+ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von ASA auf ASA r2 finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
+
++
+Sie können nur ein Upgrade auf ein Ersatzsystem derselben Serie durchführen:
+
++
+** System der ASA A-Series auf einem System der ASA A-Series
+** System der ASA C-Serie auf ein System der ASA C-Serie übertragen
+
+
 * System mit FlexArray Virtualisierungssoftware oder einem V-Series System auf einem FAS System, vorausgesetzt, dass das System mit FlexArray Virtualisierungssoftware oder V-Series System keine Array-LUNs besitzt.
 * V-Series Systeme auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System
 

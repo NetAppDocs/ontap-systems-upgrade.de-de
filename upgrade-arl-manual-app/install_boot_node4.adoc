@@ -52,7 +52,7 @@ Die folgenden Referenzen helfen Ihnen dabei, geeignete Kabelverbindungen zu mach
 +
 ** _Installations- und Setup-Anleitung_ oder _Installationsanforderungen für die FlexArray-Virtualisierung und Referenz_ für die node4-Plattform
 ** Das entsprechende Verfahren für das Festplatten-Shelf
-** Die Dokumentation _High Availability Management_
+** Die _HA-Paar-Management_ Dokumentation
 +
 Folgende Anschlüsse verkabeln:
 

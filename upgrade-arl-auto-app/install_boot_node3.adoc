@@ -38,10 +38,10 @@ NOTE: Wenn Sie ein Upgrade auf ein System mit beiden Nodes im selben Chassis dur
 
 . [[Auto_install3_step3]]Kabelnode3, Verschieben der Verbindungen von node1 nach node3.
 +
-Verkabeln Sie die folgenden Verbindungen mithilfe des _Installations- und Setup-Leitfadens_ oder der _Installationsanforderungen für die FlexArray-Virtualisierung und Referenz_ für die node3-Plattform, des entsprechenden Festplatten-Shelf-Dokuments und „ High Availability Management_“.
+Verkabeln Sie die folgenden Verbindungen unter Verwendung der „_Installations- und Setup-Anleitung_“ oder „_FlexArray Installationsvoraussetzungen und Referenz_ für die node3-Plattform, des entsprechenden Festplatten-Shelf-Dokuments und „_HA Pair Management_“.
 
 +
-Siehe link:other_references.html["Quellen"] Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und „ Reference_“ und „ High Availability Management_“.
+Unter link:other_references.html["Quellen"] finden Sie einen Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und zu Referenz_ und _HA-Paar-Management_.
 
 +
 ** Konsole (Remote-Management-Port)

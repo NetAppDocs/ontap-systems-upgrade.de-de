@@ -7,7 +7,7 @@ Bevor Sie die ursprünglichen Nodes ersetzen können, müssen Sie bestätigen, d
 .Schritte
 . Vergewissern Sie sich, dass jeder der ursprünglichen Nodes über ausreichende Ressourcen verfügt, um den Workload beider Nodes im Übernahmemodus angemessen zu unterstützen.
 +
-Siehe link:other_references.html["Quellen"] Um zu _High Availability Management_ zu verlinken und im Abschnitt „ Best Practices für HA-Paare_“ zu folgen. Keine der ursprünglichen Nodes sollte mit einer Auslastung von über 50 % laufen. Wenn ein Node eine Auslastung von unter 50 % aufweist, kann er die Lasten für beide Nodes während des Controller-Upgrades verarbeiten.
+Unter link:other_references.html["Quellen"] finden Sie einen Link zum _HA-Paar-Management_ und befolgen Sie die _Best Practices für HA-Paare_ Abschnitt. Keine der ursprünglichen Nodes sollte mit einer Auslastung von über 50 % laufen. Wenn ein Node eine Auslastung von unter 50 % aufweist, kann er die Lasten für beide Nodes während des Controller-Upgrades verarbeiten.
 
 . Führen Sie die folgenden Teilschritte durch, um eine Performance-Baseline für die ursprünglichen Nodes zu erstellen:
 +
@@ -150,7 +150,7 @@ node1          node2          true     Connected to node2, Partial giveback
 node2          node1          true     Connected to node1
 ....
 +
-Wenn einer der beiden Nodes sich als Teil des Giveback befindet, verwenden Sie den `storage failover giveback` Führen Sie den Befehl zum Giveback durch, und verwenden Sie dann den `storage failover show-giveback` Befehl um sicherzustellen, dass noch keine Aggregate zurückgegeben werden müssen. Ausführliche Informationen zu den Befehlen finden Sie unter link:other_references.html["Quellen"] Link zu _High Availability Management_.
+Wenn sich einer der Knoten im Teilrückgeben befindet, verwenden Sie `storage failover giveback` den Befehl zum Durchführen des Giveback und verwenden Sie dann den `storage failover show-giveback` Befehl, um sicherzustellen, dass noch keine Aggregate zurückgeben müssen. Ausführliche Informationen zu den Befehlen finden Sie unter link:other_references.html["Quellen"]Link zum _HA-Paar-Management_.
 
 . [[man_prepare_nodes_step9]]Bestätigen Sie, dass weder node1 noch node2 die Aggregate besitzen, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
 +
@@ -239,7 +239,7 @@ node1    None                None
 node2    None                None
 ....
 +
-Wenn Festplatten fehlen, lesen Sie link:other_references.html["Quellen"] Verbinden mit _Disk- und Aggregatmanagement mit CLI_, _logischem Storage-Management mit CLI_ und _High Availability Management_, um Storage für das HA-Paar zu konfigurieren.
+Falls Festplatten fehlen, lesen Sie link:other_references.html["Quellen"]den Link zu _Festplatten- und Aggregatmanagement mit der CLI_, _logisches Storage Management mit der CLI_ und _HA-Paar-Management_, um den Storage für das HA-Paar zu konfigurieren.
 
 . Vergewissern Sie sich, dass node1 und node2 gesund sind und am Cluster teilnehmen können:
 +

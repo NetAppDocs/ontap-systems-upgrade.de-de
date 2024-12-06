@@ -17,10 +17,10 @@ Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4
 . installieren sie node4 im Rack gemäß den Anweisungen in der Anleitung _Installation and Setup Instructions_ für das Node-Modell.
 . Kabel node4, ziehen Sie die Verbindungen von node2 nach node4.
 +
-Verkabeln Sie die folgenden Verbindungen mithilfe der Anleitung im _Installation and Setup Instructions_ oder beim _FlexArray Installation Requirements and Reference_ für die node4-Plattform, dem entsprechenden Platten-Shelf-Dokument und _High Availability Management_.
+Verkabeln Sie die folgenden Verbindungen gemäß der Anleitung in den Installationsanweisungen_ oder den Installationsanforderungen und Referenz_ für die FlexArray-Plattform, dem entsprechenden Festplatten-Shelf-Dokument und „_HA-Paar-Management_“.
 
 +
-Siehe link:other_references.html["Quellen"] Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und „ Reference_“ und „ High Availability Management_“.
+Unter link:other_references.html["Quellen"] finden Sie einen Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und zu Referenz_ und _HA-Paar-Management_.
 
 +
 ** Konsole (Remote-Management-Port)

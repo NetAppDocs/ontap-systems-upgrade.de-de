@@ -81,7 +81,7 @@ Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgef�
 
 
 | FAS2620 | FAS2820  a| 
-9.11,1 P7 (FAS2620)
+9.11.1P7 oder höher Patch Releases (FAS2620)
 
 *Hinweis*: FAS2620 unterstützt keine ONTAP-Versionen nach 9.11.1.
 

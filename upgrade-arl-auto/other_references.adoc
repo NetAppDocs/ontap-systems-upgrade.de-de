@@ -46,7 +46,7 @@ Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufge
 | link:https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["Installationsanforderungen für die FlexArray Virtualisierung und Referenz"^] | Enthält Verkabelungsanweisungen und andere Informationen für FlexArray-Virtualisierungssysteme. 
 
 
-| link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["Hochverfügbarkeits-Management"^] | Beschreibt die Installation und das Management von hochverfügbaren geclusterten Konfigurationen, einschließlich Storage Failover und Takeover/Giveback. 
+| link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA-Paar-Management"^] | Beschreibt die Installation und das Management von hochverfügbaren geclusterten Konfigurationen, einschließlich Storage Failover und Takeover/Giveback. 
 
 
 | link:https://docs.netapp.com/us-en/ontap/volumes/index.html["Logisches Storage-Management mit der CLI"^] | Beschreibt, wie Sie Ihre logischen Storage-Ressourcen mithilfe von Volumes, FlexClone Volumes, Dateien und LUNs effizient managen FlexCache Volumes, Deduplizierung, Komprimierung, qtrees und Quotas. 

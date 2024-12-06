@@ -42,7 +42,7 @@ WARNING: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfig
 
 
 | FAS2620 | FAS2820  a| 
-9.11,1 P7 (FAS2620) ^2^
+9.11.1P7 oder höher Patch Releases (FAS2620) ^2^
 
 9.13.1 und höher (FAS2820)
 

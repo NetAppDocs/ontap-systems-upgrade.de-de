@@ -108,7 +108,7 @@ In der Vorabprüfungen-Phase führt das System die folgende Liste der Überprüf
 | Aggregatstatus-Prüfung | Wenn die Nodes ersetzt werden, eigene Aggregate, für die sie nicht der Home-Inhaber sind, schlägt die Aufgabe fehl. Die Nodes sollten nicht im Besitz von nicht lokalen Aggregaten sein. 
 
 
-| Überprüfung Des Festplattenstatus | Wenn zu ersetzende Knoten keine oder fehlerhafte Festplatten haben, schlägt die Aufgabe fehl. Wenn Festplatten fehlen, lesen Sie link:other_references.html["Quellen"] Verbinden mit _Disk- und Aggregatmanagement mit CLI_, _logischem Storage-Management mit CLI_ und _High Availability Management_, um Storage für das HA-Paar zu konfigurieren. 
+| Überprüfung Des Festplattenstatus | Wenn zu ersetzende Knoten keine oder fehlerhafte Festplatten haben, schlägt die Aufgabe fehl. Falls Festplatten fehlen, lesen Sie link:other_references.html["Quellen"]den Link zu _Festplatten- und Aggregatmanagement mit der CLI_, _logisches Storage Management mit der CLI_ und _HA-Paar-Management_, um den Storage für das HA-Paar zu konfigurieren. 
 
 
 | LIF-Statusüberprüfung von Daten | Überprüft, ob für einen der zu ersetzenden Nodes keine lokalen Daten-LIFs vorhanden sind. Die Nodes sollten keine Daten-LIFs enthalten, für die sie nicht der Home-Inhaber sind. Wenn einer der Nodes nicht-lokale Daten-LIFs enthält, schlägt die Aufgabe fehl. 
