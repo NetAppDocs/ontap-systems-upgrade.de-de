@@ -55,12 +55,12 @@ Sie können dieses Verfahren unter folgenden Umständen verwenden:
 * Sie verwenden die minimale ONTAP-Version für Ihr Upgrade. Weitere Informationen finden Sie unter link:index.html["Überblick"].
 * Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
 * Sie sind erfahren in der Verwaltung von ONTAP und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.
+* Auf Ihren Systemen wird ONTAP 9.15.1 oder höher ausgeführt, und sie verwenden Ethernet-Switches für die Verbindung mit Ethernet-Attached Storage.
 
 
 Sie können dieses Verfahren unter folgenden Umständen nicht verwenden:
 
 * Sie verwenden die FlexArray Virtualisierungssoftware auf den Systemen AFF A800, AFF A700 oder FAS9000.
-* Sie verwenden einen gemeinsamen Switch für Cluster-Interconnect und Ethernet Attached Storage.
 
 
 Informationen zum Upgrade von MetroCluster IP-Konfigurationen auf AFF A800, AFF A700 oder FAS9000 Systemen finden Sie unter link:other_references.html["Quellen"] Link zum Inhalt _MetroCluster Upgrade and Expansion_.

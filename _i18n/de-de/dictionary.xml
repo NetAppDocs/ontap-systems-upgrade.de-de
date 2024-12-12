@@ -2929,7 +2929,6 @@
   <block id="51108f40a613018fdc6b3ad89f42122e" category="list-text">Bei diesem Verfahren wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht in einem anderen System verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> Befehl ist in dieser Prozedur nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor als Teil eines anderen ONTAP Clusters oder als Standalone-System mit einem einzelnen Node verwendet wurde.</block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">Sie sind erfahren in der Verwaltung von ONTAP und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.</block>
-  <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">Sie verwenden einen gemeinsamen Switch für Cluster-Interconnect und Ethernet Attached Storage.</block>
   <block id="2ed045fa4ee3544c7e5a632a26d55b9f" category="paragraph">Ab ONTAP 9.10.1 können Sie KMIP-Server (Key Management Interoperability Protocol) verwenden, um Authentifizierungsschlüssel zu managen.</block>
   <block id="5077f34346404c6e6b1972588ad2c047" category="list-text">Starten Sie den Controller-Ersatzprozess, indem Sie den folgenden Befehl im erweiterten Berechtigungsmodus der ONTAP-Befehlszeile eingeben:</block>
   <block id="8a4f2711fdfcfeea79b7fe0124a6d453" category="list-text">Wählen Sie<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>. Sie sehen die folgende Ausgabe:</block>
@@ -5258,4 +5257,5 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="04a7d3ed17290dfa8c947b7265180931" category="list-text">ASA System zu ASA System</block>
   <block id="6cc3f2b4a05b456b1f754eaf8cb03200" category="list-text">System der ASA A-Series auf einem System der ASA A-Series</block>
   <block id="af2a1a7e91ed894338bb4bd32c3e13d0" category="list-text">System der ASA C-Serie auf ein System der ASA C-Serie übertragen</block>
+  <block id="bd78dcbf9a0f6c9dff2586a02d89b664" category="list-text">Auf Ihren Systemen wird ONTAP 9.15.1 oder höher ausgeführt, und sie verwenden Ethernet-Switches für die Verbindung mit Ethernet-Attached Storage.</block>
 </blocks>
