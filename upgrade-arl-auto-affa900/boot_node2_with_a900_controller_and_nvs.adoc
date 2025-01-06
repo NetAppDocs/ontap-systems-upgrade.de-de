@@ -14,36 +14,11 @@ summary: Starten Sie Node 2 mit den Ersatz-Controller-Modulen, wenn Sie Controll
 
 
 [role="lead"]
-Node2 mit den Ersatzmodulen ist nun startbereit. Bei der Aktualisierung durch Austausch der Systemmodule werden nur die Konsolen- und Managementverbindungen verschoben. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten2 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
-
-[cols="35,65"]
-|===
-| Vorhandener Knoten 2 Controller | Ersatz-Knoten2-Systemmodule 
+Node2 mit den Ersatzmodulen ist nun startbereit. Die unterstützten Austauschmodule sind im aufgeführtlink:index.html#supported-systems,["Unterstützte Systeme Matrix"].
 
 
-| AFF A800 | AFF A90 oder AFF A70 
+NOTE: Sie verschieben die Konsolen- und Verwaltungsverbindungen nur, wenn Sie ein Upgrade durchführen, indem Sie die Systemmodule austauschen.
 
-
-| AFF A220 als ASA konfiguriert | Controller-Modul ASA A150 
-
-
-| AFF A220
-AFF A200
-AFF C 190 | Controller-Modul AFF A150 
-
-
-| FAS2620
-FAS2720 | FAS2820 Controller-Modul 
-
-
-| AFF A700 – als ASA konfiguriert | ASA A900-Controller und NVRAM-Module 
-
-
-| AFF A700 | AFF A900-Controller und NVRAM-Module 
-
-
-| FAS9000 | FAS9500 Controller- und NVRAM-Module 
-|===
 .Schritte
 . [[Boot_node2_step1]]Wenn Sie NetApp Storage Encryption (NSE) Laufwerke installiert haben, führen Sie die folgenden Schritte aus.
 +

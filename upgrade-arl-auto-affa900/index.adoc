@@ -16,12 +16,25 @@ summary: Sie können Controller-Hardware aufrüsten, indem Sie ein altes System 
 [role="lead"]
 Sie können die Controller-Hardware auf einem HA-Paar unterbrechungsfrei aufrüsten, indem Sie die Aggregatverschiebung (Aggregate Relocation, ARL) verwenden und das vorhandene System in das Ersatzsystem konvertieren. Dadurch bleiben das System-Chassis und die Festplatten erhalten.
 
+ARL nutzt die HA-Konfiguration und die Cluster Interconnect-Kommunikation. So können Sie Eigentum von nicht-Root-Aggregaten von einem Node zu einem anderen verschieben, wenn sie Storage innerhalb desselben Clusters gemeinsam nutzen.
 
-WARNING: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: *Not* Verwenden Sie dieses Verfahren, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen.
+In der folgenden Tabelle ist die unterstützte Systemmatrix für das Controller-Upgrade aufgeführt.
+
+
+CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle finden link:other_references.html["Quellen"] Sie einen Link zu den Befehlen _Verwenden Sie den Befehl „System Controller Replace“, um die Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und den Befehl „ Verwenden der Aggregatverschiebung zum manuellen Upgrade der Controller-Hardware mit Inhalten von ONTAP 9.8 oder höher “.
 
 [cols="20,20,40"]
 |===
 | Vorhandenes System | Austauschsystem | Unterstützte ONTAP-Versionen 
+
+
+| AFF C250 ^1^ | AFF C30, AFF C60 | 9.16.1 
+
+
+| AFF A250 ^1^ | AFF A30, AFF A50 | 9.16.1 
+
+
+| AFF C800 ^1^ | AFF C80 | 9.16.1 
 
 
 | AFF A800 ^1^ | AFF A90 oder AFF A70 | 9.15.1 
@@ -59,40 +72,38 @@ WARNING: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfig
 
 | FAS9000 | FAS9500 | 9.10.1P10, 9.11.1P6 und höher 
 |===
-^1^ Wenn Sie ein Upgrade auf ein mit ONTAP 9.15.1 eingeführtes System durchführen, konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, einschließlich solcher, die die Storage-Effizienz nicht nutzen, und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Weitere Informationen ."^]
+^1^ Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 oder höher eingeführtes System durchführen, konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, einschließlich solcher, die die Storage-Effizienz nicht nutzen, und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Weitere Informationen ."^]
 
 ^2^ die Systeme AFF A200 und FAS2620 unterstützen ONTAP Versionen nach 9.11.1 nicht.
 
 [NOTE]
 ====
-NetApp empfiehlt, wenn möglich, auf dem alten und dem Ersatzsystem dieselbe ONTAP-Version zu verwenden.
+NetApp empfiehlt Ihnen, wenn möglich, auf den alten und den Ersatzsystemen die gleiche ONTAP-Version zu verwenden.
 
 Die ONTAP-Mindestversionen in der vorstehenden Tabelle sind obligatorisch. Diese ONTAP-Versionen verfügen über die Firmware-Version des Service-Prozessors oder des Baseboard Management Controller (BMC), die erforderlich ist, um während eines Upgrades gemischte Controller-Typen innerhalb eines Chassis zu unterstützen.
 
 ====
-Während des Verfahrens migrieren Sie die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes zu den Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden.
+Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren die nicht-Root-Aggregate zwischen den alten Controller-Nodes. Nach der Installation der Ersatz-Nodes migrieren Sie die nicht-Root-Aggregate von den alten Controller-Nodes auf die Ersatz-Controller-Nodes. Auf die Daten, die auf den Nodes gehostet werden, die Sie aktualisieren, kann während des Upgrades zugegriffen werden. Sie migrieren beim Fortfahren Daten-LIFs zwischen Nodes im Cluster.
 
-.Über diese Aufgabe
-Während dieses Controller-Upgrades führen Sie eines der folgenden Upgrades durch:
+Die Controller-Hardware, die Sie ersetzen, hängt vom vorhandenen Systemmodelltyp ab:
 
 [cols="30,70"]
 |===
-| Auf dem bestehenden... | Führen Sie folgende Schritte durch... 
+| Wenn Ihr bestehendes System... | Dann... 
 
 
-| AFF A800 | Tauschen Sie die beiden AFF A800 Controller, NVRAM und alle I/O-Module durch die neuen Controller und I/O-Module aus. 
+| AFF A250, AFF C250 | Tauschen Sie die beiden AFF A250 oder AFF C250 Controller durch die neuen Controller und I/O-Module aus. 
 
 
-| AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720 | Tauschen Sie das Controller-Modul an jedem Knoten des alten Controllers gegen das neue Modul aus. ^1^ 
+| AFF A800, AFF C800 | Tauschen Sie die beiden AFF A800 oder AFF C800 Controller durch die neuen Controller und I/O-Module aus. 
+
+
+| AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720 | Tauschen Sie das Controller-Modul an jedem Knoten des alten Controllers gegen das neue Modul aus. 
 
 
 | AFF A700 ODER FAS9000 | Tauschen Sie den Controller und die NVRAM-Module auf jedem Node des alten Controllers gegen die neuen Module aus. ^1^ 
 |===
 ^1^ Sie müssen die I/O-Karten, Datenkabel, Festplatten-Shelfs und Festplatten nicht verschieben, trennen oder neu anschließen.
-
-Dieses Verfahren verwendet eine Methode namens Aggregate Relocation (ARL). ARL profitiert von der HA-Konfiguration und der Cluster Interconnect-Kommunikation, sodass Sie Eigentümerschaft von Aggregaten, die nicht-Root-Aggregate sind, von einem Node zu einem anderen verschieben können, wenn sie Storage innerhalb desselben Clusters gemeinsam nutzen.
-
-Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren Aggregate mehrmals von Node zu Node, um zu bestätigen, dass mindestens ein Node während des Upgrades Daten von den Aggregaten bereitstellt. Sie migrieren beim Fortfahren Daten-LIFs zwischen Nodes im Cluster.
 
 
 NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in diesem Dokument verwendet. Wenn Sie das Verfahren befolgen, müssen Sie die tatsächlichen Namen Ihrer Knoten ersetzen.
@@ -102,7 +113,7 @@ NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in
 * Bei diesem Verfahren wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht in einem anderen System verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor als Teil eines anderen ONTAP Clusters oder als Standalone-System mit einem einzelnen Node verwendet wurde.
 * Sie können dieses Verfahren zum Upgrade der Controller Hardware in Clustern mit mehr als zwei Nodes verwenden. Sie müssen jedoch die Verfahren für jedes HA-Paar im Cluster separat durchführen.
 * Wenn Sie über einen Switch verfügen, der von der ONTAP-Version und dem Ersatzsystem, auf das Sie aktualisieren, nicht unterstützt wird, finden Sie weitere Informationen unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
-* Die AFF Systeme A70 und AFF A90 verwenden 100-GbE-Netzwerk-Ports sowohl für Cluster- als auch für HA-Verbindungen. Diese Systeme können 10-GbE- oder 25-GbE-Clusterverbindungen zu älteren Cluster-Switches unterstützen. NetApp empfiehlt jedoch ein Upgrade auf eine Clustergeschwindigkeit von 100 GbE, wenn die 10-GbE- und 25-GbE-Switches nicht mehr benötigt werden. Weitere Informationen finden Sie in den folgenden Knowledge Base-Artikeln:
+* Die Systeme AFF A30, AFF A50, AFF A70, AFF A90, AFF A1K, AFF C30, AFF C60, AFF C80, FAS70 und FAS90 verwenden 100-GbE-Netzwerk-Ports sowohl für Cluster- als auch für HA-Verbindungen. Diese Systeme können 10-GbE- oder 25-GbE-Clusterverbindungen zu älteren Cluster-Switches unterstützen. NetApp empfiehlt jedoch ein Upgrade auf eine Clustergeschwindigkeit von 100 GbE, wenn die 10-GbE- und 25-GbE-Switches nicht mehr benötigt werden. Weitere Informationen finden Sie in den folgenden Knowledge Base-Artikeln:
 +
 --
 ** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Konfigurieren von 10G- oder 25G-Cluster-Ports bei neuen Cluster-Konfigurationen bei AFF/ASA A1K, A90, A70, FAS90, FAS70"^]
@@ -111,11 +122,15 @@ NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in
 
 --
 +
-Wenn Sie e0a oder e0b Cluster-Ports auf dem vorhandenen Node nicht mit den Cluster-Ports auf dem neuen Node verbinden können, finden Sie unter link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["NetApp Bugs Online Fehler-ID CONTAP-166978"^].
+Wenn Sie auf dem vorhandenen Node keine e0a oder e0b Cluster-Ports mit den Cluster-Ports auf dem neuen Node verknüpfen können, finden Sie weitere Informationen unter:
 
-* Dieses Verfahren gilt nur für AFF A800, AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, AFF A700 und FAS9000 Systeme. Für alle anderen Controller-Modelle, die ein Upgrade auf eine AFF A90, AFF A70, AFF A150, FAS2720, AFF A900 erfordern, oder FAS9500-System, siehe link:other_references.html["Quellen"] einen Link zu den Befehlen „ System Controller Replace“ verwenden, um Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und den Befehl „ Aggregate Relocation to manually Upgrade Controller Hardware mit ONTAP 9.8 oder höher “ Inhalt.
++
+** link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["NetApp Bugs Online Fehler-ID CONTAP-166978"^]
+** https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1127315["NetApp Bugs Online Fehler-ID 1127315"^]
+
+
 * Die ASA Systeme A900, AFF A900 und FAS9500 unterstützen nur eine hohe Netzspannung (200 V bis 240 V). Wenn Ihr AFF A700 oder FAS9000 System mit niedriger Netzspannung (100 V bis 120 V) ausgeführt wird, müssen Sie vor diesem Verfahren die Eingangsspannung der AFF A700 oder FAS9000 konvertieren.
-* Wenn Sie ein Upgrade von einer AFF A800, AFF A200, AFF A220, AFF C190, FAS2620, FAS2720, AFF A700 oder FAS9000 System mit Ausfallzeiten können Sie die Controller-Hardware durch Verschieben von Storage aktualisieren oder sich an den technischen Support wenden. Siehe link:other_references.html["Quellen"] Link zu _Upgrade by moving Volumes or Storage_.
+* Wenn Sie ein Upgrade eines vorhandenen Systems mit einer Ausfallzeit <<supported-systems-in-chassis,Unterstützte Systeme Matrix>>durchführen, die in enthalten ist, können Sie die Controller-Hardware durch Verschieben des Storage-Systems aktualisieren oder sich an den technischen Support wenden. Siehe link:other_references.html["Quellen"] Link zu _Upgrade by moving Volumes or Storage_.
 
 
 

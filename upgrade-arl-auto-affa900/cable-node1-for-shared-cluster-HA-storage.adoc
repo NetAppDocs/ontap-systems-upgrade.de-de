@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.ht
 keywords: cluster, ha, aff, a800, shared, storage, data, management 
 summary: Cluster, HA, Storage und Datenverbindungen, die zuvor mit dem AFF A800 Knoten 1 verbunden waren, mit dem neu installierten AFF A90 oder AFF A70 Knoten 1 verbinden 
 ---
-= Kabelnode1 für Shared Cluster-HA und Storage (nur AFF A800 Upgrade)
+= Kabelnode1 für Shared Cluster-HA und Storage
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,25 +14,41 @@ summary: Cluster, HA, Storage und Datenverbindungen, die zuvor mit dem AFF A800 
 
 
 [role="lead"]
-Verbinden Sie den Cluster, HA, Storage, Daten und Managementverbindungen, die zuvor mit dem AFF A800 Knoten 1 verbunden waren, mit dem neu installierten AFF A90 oder AFF A70 Knoten 1.
+Wenn Sie eines der folgenden Upgrades durchführen, müssen Sie die Cluster-, HA-, Storage-, Daten- und Managementverbindungen, die zuvor mit dem Knoten 1 des vorhandenen Systems verbunden waren, mit dem neu installierten Knoten 1 des Ersatzsystems verbinden.
 
+[cols="35,65"]
+|===
+| Vorhandenes System | Austauschsystem 
+
+
+| AFF A250 | AFF A30, AFF A50 
+
+
+| AFF C250 | AFF C30, AFF C60 
+
+
+| AFF A800 | AFF A70, AFF A90 
+
+
+| AFF C800 | C80 
+|===
 
 
 == Verbinden Sie die Ports E0M und BMC
 
-Die AFF A800 verfügt über einen Management-Port (E0M) und einen BMC-Port. Auf der AFF A90 und AFF A70 werden die E0M und BMC-Ports kombiniert und über den „Schraubenschlüssel“-Port aufgerufen. Bevor Sie eine Verbindung zu AFF A90 oder AFF A70 herstellen, müssen Sie sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf der AFF A800 verbunden sind.
+Wenn das vorhandene System über einen Management-Port (E0M) und einen BMC-Port verfügt. Auf dem Ersatzsystem werden die Ports E0M und BMC kombiniert und über den Port „Schraubenschlüssel“ zugegriffen. Sie müssen sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf dem vorhandenen System verbunden sind, bevor Sie eine Verbindung zum Ersatzsystem herstellen.
 
 [cols="35,65"]
 |===
 | Wenn der... | Dann... 
 
 
-| E0M und BMC IP-Adressen befinden sich auf demselben IP-Subnetz | Verbinden Sie den E0M oder BMC-Port der AFF A800 mit dem „Schraubenschlüssel“-Port der AFF A90 oder AFF A70. 
+| E0M und BMC IP-Adressen befinden sich auf demselben IP-Subnetz | Verbinden Sie entweder den E0M oder den BMC-Port des vorhandenen Systems mit dem „Schraubenschlüssel“-Port des Ersatzsystems. 
 
 
 | E0M und BMC IP-Adressen befinden sich in unterschiedlichen Subnetzen  a| 
 . Führen Sie die IP-Adressen E0M und BMC zu einem IP-Subnetz zusammen.
-. Verbinden Sie den E0M oder BMC-Port der AFF A800 mit dem „Schraubenschlüssel“-Port der AFF A90 oder AFF A70.
+. Verbinden Sie entweder den E0M oder den BMC-Port des vorhandenen Systems mit dem „Schraubenschlüssel“-Port des Ersatzsystems.
 
 
 |===
@@ -40,10 +56,10 @@ Die AFF A800 verfügt über einen Management-Port (E0M) und einen BMC-Port. Auf 
 
 == Stellen Sie eine Verbindung zu einem 2-Node-Cluster ohne Switches her
 
-Die folgende Tabelle zeigt die Auslastung der Switch-Ports für Cluster-Konfigurationen mit zwei Nodes ohne Switch.
+Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfigurationen ohne Switch mit zwei Nodes.
 
 |===
-| Port | AFF A800 Node | AFF A90-Knoten | AFF A70-Knoten 
+| Port | AFF A800, AFF C800 | AFF A90 | AFF A70, AFF C80 
 
 
 | Cluster | e0a | e1a | e1a 
@@ -63,12 +79,27 @@ Die folgende Tabelle zeigt die Auslastung der Switch-Ports für Cluster-Konfigur
 
 | Ethernet-Storage-Ports für NS224-Shelfs | Jeder verfügbare Port | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher 
 |===
+|===
+| Port | AFF A250, AFF C250 | AFF A30, AFF C30, AFF C60 | AFF A50 
+
+
+| Cluster und HA | e0c | e4a | e4a 
+
+
+| Cluster und HA | e0d | e2a (e4b verwenden, wenn kein e2a vorhanden ist) | e2a (e4b verwenden, wenn kein e2a vorhanden ist) 
+
+
+| Ethernet-Storage-Ports | Jeder verfügbare Port | e3a, e3b | e3a, e3b 
+
+
+| SAS-Storage-Ports | Jeder verfügbare Port | 3 a, 3 b | 3 a, 3 b 
+|===
 
 
 == Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her
 
-Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anforderungen erfüllen:
+Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anforderungen für den Knoten AFF A30, AFF A50, AFF A70, AFF A90, AFF C30, AFF C60 oder AFF C80 (Ersatz) erfüllen:
 
-* Die identischen Cluster-Ports auf den AFF A90- oder AFF A70-Knoten befinden sich auf demselben Switch. Beispiel: Nach Abschluss des Upgrades sollte e1a auf node1 und e1a auf node2 mit einem Cluster-Switch verbunden werden. Gleichermaßen sollte der zweite Cluster-Port beider Nodes mit dem zweiten Cluster-Switch verbunden sein. Die Querverbindung von gemeinsam genutzten Cluster-HA-Ports, bei denen e1a von node1 mit SwitchA und e1a von node2 mit SwitchB verbunden ist, führt zu HA-Kommunikationsfehlern.
-* Die Knoten AFF A90 und AFF A70 verwenden gemeinsame Cluster-HA-Ethernet-Ports. Stellen Sie sicher, dass die Cluster-Switches mit einer Referenzkonfigurationsdatei (RCF) installiert sind, die freigegebene Cluster-HA-Ports unterstützt.
+* Die identischen Cluster-Ports auf dem Ersatz-Node befinden sich auf demselben Switch. Beispiel: Nach Abschluss des Upgrades sollte e1a auf node1 und e1a auf node2 mit einem Cluster-Switch verbunden werden. Gleichermaßen sollte der zweite Cluster-Port beider Nodes mit dem zweiten Cluster-Switch verbunden sein. Die Querverbindung von gemeinsam genutzten Cluster-HA-Ports, bei denen e1a von node1 mit SwitchA und e1a von node2 mit SwitchB verbunden ist, führt zu HA-Kommunikationsfehlern.
+* Der Ersatz-Node verwendet freigegebene Cluster-HA-Ethernet-Ports. Überprüfen Sie, ob die Cluster-Switches mit einer Referenzkonfigurationsdatei (RCF) installiert sind, die freigegebene Cluster-HA-Ports unterstützt.
 

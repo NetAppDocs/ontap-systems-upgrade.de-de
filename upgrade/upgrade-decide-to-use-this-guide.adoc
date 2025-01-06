@@ -17,10 +17,10 @@ Gehen Sie folgendermaßen vor, wenn Sie die Controller-Hardware in den folgenden
 
 [NOTE]
 ====
-* ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von ASA auf ASA r2 finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
-* Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 eingeführtes System durchführen, konvertiert ONTAP die Storage-Effizienz vorhandener Volumes und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems.
+* ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von einem ASA auf ein ASA r2-System finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
+* Bei einem Upgrade auf ein in ONTAP 9.15.1 oder höher eingeführtes System konvertiert ONTAP die Storage-Effizienz vorhandener Volumes und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems.
 +
-** Bei einem AFF A70, AFF A90 oder AFF A1K System konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese keine Storage-Effizienz verwenden.
+** Für AFF A20, AFF A30, AFF A50, AFF A70, AFF A90, AFF A1K, AFF C30, AFF C60 und AFF C80 konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese keine Storage-Effizienz nutzen.
 ** Bei einem FAS70 und FAS90 System konvertiert ONTAP nur die Storage-Effizienz vorhandener Thin Provisioning Volumes, deren Storage-Effizienz vor dem Upgrade aktiviert wurde.
 +
 link:https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Erfahren Sie mehr über Storage-Effizienz"^].

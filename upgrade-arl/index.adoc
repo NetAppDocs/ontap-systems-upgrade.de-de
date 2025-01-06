@@ -26,13 +26,22 @@ Für Upgrades der Controller-Hardware gibt es verschiedene ARL-Methoden. Um das 
 
 == Verwenden Sie Befehle „System Controller Replace“ mit ONTAP 9.15.1 oder höher
 
-Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgeführt ist, starten Sie mit link:../upgrade-arl-auto-app-9151/index.html["Verwenden Sie Befehle zum Ersetzen des System-Controllers, um die mit ONTAP 9.15.1 eingeführte Controller-Hardware zu aktualisieren"]das Upgrade-Verfahren.
+Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgeführt ist, starten Sie mit link:../upgrade-arl-auto-app-9151/index.html["Verwenden Sie Befehle zum Austauschen von System-Controllern, um die mit ONTAP 9.15.1 und höher eingeführte Controller-Hardware zu aktualisieren"]das Upgrade-Verfahren.
 
 .Unterstützte Systeme anzeigen
 [%collapsible]
 ====
 |===
 | Vorhandene Controller | Ersatz-Controller | Unterstützt ab ONTAP... 
+
+
+| AFF A400 | AFF A50 | 9.16.1 
+
+
+| AFF A300 | AFF A50 | 9.16.1 
+
+
+| AFF A220, AFF A150 | AFF A20 | 9.16.1 
 
 
 | FAS8200, FAS8300, FAS8700, FAS9000 | FAS70, FAS90 | 9.15.1P3 
@@ -59,6 +68,15 @@ Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgef�
 [cols="20,20,40"]
 |===
 | Altes System | Austauschsystem | Unterstützte ONTAP-Versionen 
+
+
+| AFF C250 | AFF C30, AFF C60 | 9.16.1 und höher 
+
+
+| AFF A250 | AFF A50, AFF A30 | 9.16.1 und höher 
+
+
+| AFF C800 | AFF C80 | 9.16.1 und höher 
 
 
 | AFF A800 | AFF A70 oder AFF A90 | 9.15.1 und höher 

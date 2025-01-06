@@ -17,6 +17,6 @@ summary: 'Phase 5 Prozessablauf für ein ARL-Upgrade mit `system controller repl
 In Phase 5 installieren Sie die neuen Systemmodule, die Sie für den aktualisierten Knoten 2 erhalten haben, und dann Netboot Knoten 2.
 
 .Schritte
-. link:install-affa90-affa70-on-node2.html["Installieren Sie die Ersatz-Systemmodule auf Knoten 2"]
+. link:install-aff-a30-a50-c30-c50-node2.html["Installieren Sie die Ersatz-Systemmodule auf Knoten 2"]
 . link:netboot_node2.html["Netzboot Nr. 2"]
 

@@ -14,7 +14,10 @@ summary: Ersetzen Sie die AFF A700- oder FAS9000 node1-Systemmodule, wenn Sie mi
 
 
 [role="lead"]
-An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Da sich Node1 und Node2 im gleichen Chassis befinden und durch denselben Satz an Netzteilen mit Strom versorgt werden, schalten Sie das Chassis NICHT aus. Achten Sie darauf, nur das Node1-Controller-Modul und das node1-NVRAM-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
+An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Achten Sie darauf, nur das Node1-Controller-Modul und das node1-NVRAM-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
+
+
+CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und von denselben Netzteilen mit Strom versorgt werden.
 
 .Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
@@ -155,7 +158,7 @@ Gehen Sie wie folgt vor, um das Controller-Modul ASA A900, AFA A900 oder FAS9500
 . Richten Sie das Ende des Controller-Moduls an der Öffnung A im Gehäuse aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
 +
 
-NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Chassis ein, wenn Sie dazu aufgefordert werden.
+NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Gehäuse ein, wenn Sie dazu später im Verfahren aufgefordert werden.
 
 . Verkabeln Sie die Management- und Konsolen-Ports mit dem Node1-Controller-Modul.
 +
@@ -168,7 +171,7 @@ Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist.
 
 +
 
-WARNING: Um Schäden an den Anschlüssen zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft verwenden.
+WARNING: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft anwenden.
 
 +
 image:drw_9500_remove_PCM.png["Installieren Sie das Controller-Modul"]

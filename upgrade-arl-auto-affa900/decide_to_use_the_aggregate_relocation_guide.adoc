@@ -16,40 +16,19 @@ summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Mo
 [role="lead"]
 Dieser Inhalt beschreibt, wie Sie ein Upgrade von Storage Controllern in einem HA-Paar durchführen, ohne dabei alle vorhandenen Daten und Festplatten zu beeinträchtigen. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
 
+
+
+== Unterstützt für ARL-Upgrades
+
 Sie können dieses Verfahren unter folgenden Umständen verwenden:
 
-* Sie führen eines der folgenden Controller-Upgrades aus:
+* Die Aktualisierung Ihres Controllers wird in der Liste aufgeführtlink:index.html#supported-systems,["Unterstützte Systeme Matrix"].
+* Sie haben mit Ihrem NetApp Vertriebsmitarbeiter verifiziert, dass Sie die Hardware erhalten haben, die Sie für das Controller-Upgrade benötigen:
 +
-[cols="50,50"]
-|===
-| Alter Controller | Ersatz-Controller 
-
-
-| AFF A800 | AFF A70 und AFF A90 
-
-
-| AFF A220 als ASA konfiguriert | ASA A150 
-
-
-| AFF A220, AFF A200 oder AFF C190 | AFF A150 
-
-
-| FAS2720 oder FAS2720 | FAS2820 
-
-
-| AFF A700 – als ASA konfiguriert | ASA A900 
-
-
-| AFF A700 | AFF A900 
-
-
-| FAS9000 | FAS9500 
-|===
-* Sie haben mit Ihrem NetApp Vertriebsmitarbeiter verifiziert, dass Sie die Hardware für das Controller-Upgrade erhalten haben:
-+
-** Zwei AFF A90 oder zwei AFF A70-Controller und alle für das Upgrade erforderlichen I/O-Module. Die erforderliche Länge von 100-GbE-Kabeln.
+** Zwei AFF A90-, AFF A70- oder AFF C80-Controller und alle I/O-Module. Die erforderliche Länge von 100-GbE-Kabeln.
+** Zwei AFF A50-, AFF A30-, AFF C30- oder AFF C60-Controller und E/A-Module. Die erforderlichen Kabel.
 ** ASA Controller A150, AFF A150 oder FAS2820
-** ASA Controller- und NVRAM-Module A900, AFF A900 oder FAS9500 sowie die für das Upgrade erforderlichen Teile
+** ASA A900-, AFF A900- oder FAS9500-Controller und NVRAM-Module und die Teile
 
 
 * Sie verwenden die minimale ONTAP-Version für Ihr Upgrade. Weitere Informationen finden Sie unter link:index.html["Überblick"].
@@ -58,12 +37,18 @@ Sie können dieses Verfahren unter folgenden Umständen verwenden:
 * Auf Ihren Systemen wird ONTAP 9.15.1 oder höher ausgeführt, und sie verwenden Ethernet-Switches für die Verbindung mit Ethernet-Attached Storage.
 
 
+
+
+== Nicht unterstützt bei ARL-Upgrades
+
 Sie können dieses Verfahren unter folgenden Umständen nicht verwenden:
 
-* Sie verwenden die FlexArray Virtualisierungssoftware auf den Systemen AFF A800, AFF A700 oder FAS9000.
+* Sie verwenden die FlexArray Virtualisierungssoftware auf dem zu aktualisierenden System.
+* Sie aktualisieren eine MetroCluster IP-Konfiguration.
++
+Informationen zum Upgrade einer MetroCluster-IP-Konfiguration finden Sie unter link:other_references.html["Quellen"] zum Link zum _MetroCluster-Upgrade und -Erweiterung_-Inhalt.
 
 
-Informationen zum Upgrade von MetroCluster IP-Konfigurationen auf AFF A800, AFF A700 oder FAS9000 Systemen finden Sie unter link:other_references.html["Quellen"] Link zum Inhalt _MetroCluster Upgrade and Expansion_.
 
 
 NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.

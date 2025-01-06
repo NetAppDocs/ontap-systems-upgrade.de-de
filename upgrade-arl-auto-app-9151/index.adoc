@@ -37,16 +37,16 @@ Die Begriffe "node1", "node2", "node3" und "node4" werden nur verwendet, um zwis
 * Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen auch lesen und verstehen, die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien für das Controller-Upgrade mit ARL"] Und das link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"] Abschnitte vor Beginn der Aktualisierung.
 * Bei dieser Vorgehensweise wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht verwendet wurde. Die erforderlichen Schritte zum Vorbereiten gebrauchter Controller mit dem `wipeconfig` Befehl sind in diesem Verfahren nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor verwendet wurde.
 * Mit diesem Verfahren können Sie die Controller-Hardware in Clustern mit mehr als zwei Nodes aktualisieren. Sie müssen jedoch für jedes Hochverfügbarkeitspaar (HA) im Cluster separat vorgehen.
-* Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 eingeführtes System durchführen, konvertiert ONTAP die Storage-Effizienz vorhandener Volumes und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems.
+* Bei einem Upgrade auf ein in ONTAP 9.15.1 oder höher eingeführtes System konvertiert ONTAP die Storage-Effizienz vorhandener Volumes und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems.
 +
-** Bei einem AFF A70, AFF A90 oder AFF A1K System konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese keine Storage-Effizienz verwenden.
+** Für die Systeme AFF A20, AFF A30, AFF A50, AFF A70, AFF A90, AFF A1K, AFF C30, AFF C60 und AFF C80 konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, auch wenn diese keine Storage-Effizienz nutzen.
 ** Bei einem FAS70 und FAS90 System konvertiert ONTAP nur die Storage-Effizienz vorhandener Thin Provisioning Volumes, deren Storage-Effizienz vor dem Upgrade aktiviert wurde.
 
 
 +
 link:https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Erfahren Sie mehr über Storage-Effizienz"^].
 
-* Die Systeme AFF A70, AFF A90, AFF A1K, FAS70 und FAS90 verwenden 100-GbE-Netzwerk-Ports sowohl für Cluster- als auch für HA-Verbindungen. Diese Systeme können 10-GbE- oder 25-GbE-Clusterverbindungen zu älteren Cluster-Switches unterstützen. NetApp empfiehlt jedoch ein Upgrade auf eine Clustergeschwindigkeit von 100 GbE, wenn die 10-GbE- und 25-GbE-Switches nicht mehr benötigt werden. Weitere Informationen finden Sie in den folgenden Knowledge Base-Artikeln:
+* Die Systeme AFF A20, AFF A50, AFF A70, AFF A90, AFF A1K, FAS70 und FAS90 verwenden 100-GbE-Netzwerk-Ports sowohl für Cluster- als auch für HA-Verbindungen. Diese Systeme können 10-GbE- oder 25-GbE-Clusterverbindungen zu älteren Cluster-Switches unterstützen. NetApp empfiehlt jedoch ein Upgrade auf eine Clustergeschwindigkeit von 100 GbE, wenn die 10-GbE- und 25-GbE-Switches nicht mehr benötigt werden. Weitere Informationen finden Sie in den folgenden Knowledge Base-Artikeln:
 +
 --
 ** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Konfigurieren von 10G- oder 25G-Cluster-Ports bei neuen Cluster-Konfigurationen bei AFF/ASA A1K, A90, A70, FAS90, FAS70"^]
@@ -54,6 +54,9 @@ link:https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-con
 
 
 --
++
+Das AFF A20 System verwendet 10-GbE- und 25-GbE-Netzwerk-Ports sowohl für Cluster- als auch für HA-Verbindungen. Dies sind die einzigen Netzwerk-Port-Cluster-Verbindungen, die von einem AFF A20-System unterstützt werden.
+
 +
 Wenn Sie e0a oder e0b Cluster-Ports auf dem vorhandenen Node nicht mit den Cluster-Ports auf dem neuen Node verbinden können, finden Sie unter link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["NetApp Bugs Online Fehler-ID CONTAP-166978"^].
 

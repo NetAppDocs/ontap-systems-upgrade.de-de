@@ -14,30 +14,35 @@ summary: Vergewissern Sie sich vor Beginn des Upgrades, dass Sie über die richt
 
 
 [role="lead"]
-Vergewissern Sie sich vor dem Upgrade, dass Sie die richtige Hardware für das Upgrade haben. Je nach Upgrade müssen Sie für jedes upgradeende HA-Paar zwei Controller-Module oder zwei Controller-Module und zwei NVRAM-Module für das Ersatzsystem besitzen. Sollten Teile fehlen, wenden Sie sich an den technischen Support oder an Ihren NetApp Ansprechpartner.
+Vergewissern Sie sich vor dem Upgrade, dass Sie über die richtigen Module für das Ersatzsystem verfügen. Sollten Teile fehlen, wenden Sie sich an den technischen Support oder an Ihren NetApp Ansprechpartner.
 
 [cols="50,50"]
 |===
-| Wenn Sie ein Upgrade ... | Ersatzsystem muss ... 
+| Wenn Sie Upgrade von ... | Ersatzsystem muss ... 
 
 
-| AFF A800 | Zwei Controller-Module, zwei NVRAMs und neue I/O-Module 
+| AFF A250, AFF C250 | Zwei Controller-Module und neue I/O-Module 
 
 
-| AFF A220 als ASA auf ASA A150 konfiguriert | Zwei Controller-Module 
+| AFF A800, AFF C800 | Zwei Controller-Module, zwei NVRAMs und neue I/O-Module 
 
 
-| AFF A220, AFF A200 oder AFF C190 auf AFF A150 | Zwei Controller-Module 
+ a| 
+* AFF A220 als ASA konfiguriert
+* AFF A220, AFF A200, AFF C190
+* FAS2620, FAS2720
+
+ a| 
+Zwei Controller-Module
+
+Wenn Sie das vorhandene System in ein Storage-Shelf konvertieren, um es an ein anderes System anschließen zu können, muss das Ersatzsystem auch über zwei I/O-Module verfügen.
 
 
-| FAS2720 oder FAS2720 zu FAS2720 | Zwei Controller-Module 
 
+ a| 
+* AFF A700 – als ASA konfiguriert
+* AFF A700 AUF AFF A900
+* FAS9000 auf FAS9500 Systeme
 
-| AFF A700 als ASA zu ASA A900 konfiguriert | Zwei Controller und zwei NVRAM-Module 
-
-
-| AFF A700 AUF AFF A900 | Zwei Controller und zwei NVRAM-Module 
-
-
-| FAS9000 auf FAS9500 Systeme | Zwei Controller und zwei NVRAM-Module 
+| Zwei Controller und zwei NVRAM-Module 
 |===

@@ -72,6 +72,23 @@ NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingab
 
 NOTE: Unterbrechen Sie den Startvorgang nicht.
 
+. (Nur AFF A250- und AFF C250-Upgrades) Wenn Knoten 1 für das Ersatz-Controller-Modul startet, wird die folgende Warnung angezeigt:
++
+[listing]
+----
+*****************************************************
+* WARNING: Partner is not of the same family/model. *
+* Mixing is only allowed when upgrading the system. *
+* The system will shut down in 24 hours.            *
+*****************************************************
+Do you want to continue (y/n):
+----
++
+Antwort `y`.
+
++
+Diese Warnung wird angezeigt, da die Konfiguration Knoten 2 für den vorhandenen Controller enthält. Es wird für jeden Systemstart angezeigt, bis Sie node2 aktualisieren. Dies ist das erwartete Verhalten.
+
 . Warten Sie, bis der Knoten 1 auf dem Ersatz-Controller-Modul gestartet wird und die Optionen des Startmenüs wie unten gezeigt angezeigt werden:
 +
 [listing]

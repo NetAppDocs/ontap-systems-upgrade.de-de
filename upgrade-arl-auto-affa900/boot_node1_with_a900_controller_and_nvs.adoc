@@ -14,46 +14,22 @@ summary: Starten Sie Node 1 mit den Ersatz-Controller-Modulen, wenn Sie Controll
 
 
 [role="lead"]
-Node1 mit den Ersatzmodulen ist nun startbereit. In diesem Abschnitt werden die Schritte beschrieben, die zum Starten von Knoten 1 mit den Ersatzmodulen für die folgenden Upgrade-Konfigurationen erforderlich sind:
+Node1 mit den Ersatzmodulen ist nun startbereit. Die unterstützten Austauschmodule sind in der aufgeführtlink:index.html#supported-systems,["Unterstützte Systeme Matrix"].
 
-[cols="35,65"]
-|===
-| Vorhandener Knoten 1-Controller | Ersatz-Knoten 1-Systemmodule 
+[NOTE]
+====
+Wenn Sie Controller-Module austauschen, verschieben Sie alle Verbindungen vom alten zum Ersatz-Controller-Modul.
 
+Wenn Sie den Controller und die NVRAM-Module austauschen, verschieben Sie nur die Konsole und die Managementverbindungen.
 
-| AFF A800 | AFF A90 oder AFF A70 ^1^ 
-
-
-| AFF A220 als ASA konfiguriert | AFF A150-Controller-Modul ^1^ 
-
-
-| AFF A220
-AFF A200
-AFF C 190 | AFF A150-Controller-Modul ^1^ 
-
-
-| FAS2620
-FAS2720 | FAS2820 Controller-Modul ^1^ 
-
-
-| AFF A700 – als ASA konfiguriert | ASA A900-Controller und NVRAM-Module ^2^ 
-
-
-| AFF A700 | AFF A900-Controller und NVRAM-Module ^2^ 
-
-
-| FAS9000 | FAS9500 Controller- und NVRAM-Module ^2^ 
-|===
-^1^ beim Austausch von Controller-Modulen verschieben Sie alle Verbindungen vom alten zum Ersatz-Controller-Modul.
-
-^2^ beim Austauschen des Controllers und der NVRAM-Module verschieben Sie nur die Konsole und die Managementverbindungen.
-
+====
 .Schritte
-. (Nur AFF A800 Upgrade) wechseln Sie an der Eingabeaufforderung des LOADERS in den Wartungsmodus:
+. (Nur AFF A250, AFF C250, AFF A800 oder AFF C800 Upgrade) wechseln Sie an der Eingabeaufforderung von Loader in den Wartungsmodus:
 +
 `boot_ontap maint`
 
 +
+.. Anser `y` auf die Bestätigungsaufforderung für gemischte Plattformen.
 .. Beantworten Sie `yes` die Bestätigungsaufforderung.
 .. Zeigen Sie den Status der 100-GbE-Schnittstellen an:
 +

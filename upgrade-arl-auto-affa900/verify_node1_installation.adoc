@@ -16,9 +16,9 @@ summary: Überprüfen Sie die Node-1-Installation zusammen mit den Ersatzmodulen
 [role="lead"]
 Nachdem Sie node1 mit dem Ersatz-Controller-Modul gestartet haben, überprüfen Sie, ob es richtig installiert ist.
 
-Nur bei AFF A800-Upgrades weisen Sie die physischen Ports des vorhandenen Knoten1 dem Ersatznode1 zu, da sich die physischen Ports zwischen der AFF A800 und dem AFF A90- oder AFF A70-Controller ändern.
+Nur bei AFF A250-, AFF C250-, AFF A800- oder AFF C800-Upgrades ordnen Sie die physischen Ports des vorhandenen Knoten1 dem Ersatznode1 zu, da die physischen Ports zwischen den vorhandenen und den Ersatz-Controllern geändert werden.
 
-Bei allen anderen Upgrades werden die physischen Ports nicht geändert, sodass Sie die physischen Ports des alten Knoten1 nicht dem Ersatznode1 zuordnen müssen.
+Bei allen anderen Upgrades müssen Sie die physischen Ports des vorhandenen Knoten1 nicht dem Ersatznode1 zuordnen.
 
 .Über diese Aufgabe
 Sie müssen warten, bis Knoten 1 dem Quorum beitreten und dann den Controller-Austauschvorgang fortsetzen.

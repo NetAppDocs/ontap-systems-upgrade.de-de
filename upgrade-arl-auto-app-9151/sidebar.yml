@@ -1,7 +1,7 @@
 ---
 section: upgrade-arl-auto-app-9151
-title: Verwenden Sie Befehle zum Ersetzen des System-Controllers, um die mit ONTAP
-  9.15.1 eingeführte Controller-Hardware zu aktualisieren
+title: Verwenden Sie Befehle zum Austauschen von System-Controllern, um die mit ONTAP
+  9.15.1 und höher eingeführte Controller-Hardware zu aktualisieren
 entries:
 - title: Überblick
   url: "/upgrade-arl-auto-app-9151/index.html"

@@ -38,6 +38,8 @@ entries:
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
   - title: Ersetzen Sie die node1-Systemmodule
     entries:
+    - title: Ersetzen Sie AFF A250 oder AFF C250
+      url: "/upgrade-arl-auto-affa900/replace-node1-affa250-affc250.html"
     - title: AFF A800 austauschen
       url: "/upgrade-arl-auto-affa900/replace-node1-affa800.html"
     - title: Ersetzen Sie AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
@@ -50,7 +52,7 @@ entries:
   entries:
   - title: Überblick
     url: "/upgrade-arl-auto-affa900/stage_3_index.html"
-  - title: Kabelnode1 für Shared Cluster-HA-Storage (nur AFF A800 Upgrade)
+  - title: Kabelnode1 für Shared Cluster-HA Storage
     url: "/upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html"
   - title: Starten Sie Knoten 1 mit den Ersatz-Systemmodulen
     url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
@@ -77,6 +79,8 @@ entries:
     url: "/upgrade-arl-auto-affa900/stage_5_index.html"
   - title: Installieren Sie die Ersatz-Systemmodule auf Knoten 2
     entries:
+    - title: Installieren Sie AFF A30, AFF A50, AFF C30 oder AFF C60
+      url: "/upgrade-arl-auto-affa900/install-aff-a30-a50-c30-c50-node2.html"
     - title: Installieren Sie AFF A90 oder AFF A70
       url: "/upgrade-arl-auto-affa900/install-affa90-affa70-on-node2.html"
     - title: Installation von ASA A150, AFF A150 oder FAS2820
