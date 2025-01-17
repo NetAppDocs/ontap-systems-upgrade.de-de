@@ -21,7 +21,7 @@ ARL nutzt die HA-Konfiguration und die Cluster Interconnect-Kommunikation. So k�
 In der folgenden Tabelle ist die unterstützte Systemmatrix für das Controller-Upgrade aufgeführt.
 
 
-CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle finden link:other_references.html["Quellen"] Sie einen Link zu den Befehlen _Verwenden Sie den Befehl „System Controller Replace“, um die Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und den Befehl „ Verwenden der Aggregatverschiebung zum manuellen Upgrade der Controller-Hardware mit Inhalten von ONTAP 9.8 oder höher “.
+CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle finden link:other_references.html["Quellen"] Sie einen Link zu den Befehlen „ System Controller ersetzen“ verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und „ Aggregatverschiebung verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher manuell zu aktualisieren_.
 
 [cols="20,20,40"]
 |===
@@ -37,7 +37,7 @@ CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfig
 | AFF C800 ^1^ | AFF C80 | 9.16.1 
 
 
-| AFF A800 ^1^ | AFF A90 oder AFF A70 | 9.15.1 
+| AFF A800 ^1^ | AFF A90 oder AFF A70 | 9.15.1 und höher 
 
 
 | AFF A220 als All-SAN-Array (ASA) konfiguriert | ASA A150 | 9.13.1P1 und höher 
@@ -101,10 +101,8 @@ Die Controller-Hardware, die Sie ersetzen, hängt vom vorhandenen Systemmodellty
 | AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720 | Tauschen Sie das Controller-Modul an jedem Knoten des alten Controllers gegen das neue Modul aus. 
 
 
-| AFF A700 ODER FAS9000 | Tauschen Sie den Controller und die NVRAM-Module auf jedem Node des alten Controllers gegen die neuen Module aus. ^1^ 
+| AFF A700 ODER FAS9000 | Tauschen Sie den Controller und die NVRAM-Module auf jedem Node des alten Controllers gegen die neuen Module aus. *Hinweis*: Sie müssen die I/O-Karten, Datenkabel, Platten-Shelfs und Festplatten nicht verschieben, trennen oder wieder anschließen. 
 |===
-^1^ Sie müssen die I/O-Karten, Datenkabel, Festplatten-Shelfs und Festplatten nicht verschieben, trennen oder neu anschließen.
-
 
 NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in diesem Dokument verwendet. Wenn Sie das Verfahren befolgen, müssen Sie die tatsächlichen Namen Ihrer Knoten ersetzen.
 
@@ -116,8 +114,8 @@ NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in
 * Die Systeme AFF A30, AFF A50, AFF A70, AFF A90, AFF A1K, AFF C30, AFF C60, AFF C80, FAS70 und FAS90 verwenden 100-GbE-Netzwerk-Ports sowohl für Cluster- als auch für HA-Verbindungen. Diese Systeme können 10-GbE- oder 25-GbE-Clusterverbindungen zu älteren Cluster-Switches unterstützen. NetApp empfiehlt jedoch ein Upgrade auf eine Clustergeschwindigkeit von 100 GbE, wenn die 10-GbE- und 25-GbE-Switches nicht mehr benötigt werden. Weitere Informationen finden Sie in den folgenden Knowledge Base-Artikeln:
 +
 --
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Konfigurieren von 10G- oder 25G-Cluster-Ports bei neuen Cluster-Konfigurationen bei AFF/ASA A1K, A90, A70, FAS90, FAS70"^]
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_ASA_A1K_A90_A70_FAS90_FAS70["Wie konvertiert man einen vorhandenen Cluster von 10G- oder 25G-Cluster-Ports in 40G- oder 100G-Cluster-Ports auf einem AFF/ASA A1K, A90, A70, FAS90, FAS70"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup["Konfigurieren von 10G- oder 25G-Cluster-Ports bei einem neuen Cluster-Setup"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_existing_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports["Wie konvertiert man bestehende 10G- oder 25G-Cluster-Ports in 40G- oder 100G-Cluster-Ports"^]
 
 
 --

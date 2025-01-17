@@ -36,7 +36,7 @@ Wenn Sie eines der folgenden Upgrades durchführen, müssen Sie die Cluster-, HA
 
 == Verbinden Sie die Ports E0M und BMC
 
-Wenn das vorhandene System über einen Management-Port (E0M) und einen BMC-Port verfügt. Auf dem Ersatzsystem werden die Ports E0M und BMC kombiniert und über den Port „Schraubenschlüssel“ zugegriffen. Sie müssen sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf dem vorhandenen System verbunden sind, bevor Sie eine Verbindung zum Ersatzsystem herstellen.
+Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, werden die E0M und BMC-Ports kombiniert und über den „Schraubenschlüssel“-Port am Ersatzsystem aufgerufen. Sie müssen sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf dem vorhandenen System verbunden sind, bevor Sie eine Verbindung zum Ersatzsystem herstellen.
 
 [cols="35,65"]
 |===

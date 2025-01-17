@@ -18,7 +18,7 @@ Vergewissern Sie sich vor dem Upgrade, dass Sie über die richtigen Module für 
 
 [cols="50,50"]
 |===
-| Wenn Sie Upgrade von ... | Ersatzsystem muss ... 
+| Wenn Sie ein Upgrade von ... | Ersatzsystem muss ... 
 
 
 | AFF A250, AFF C250 | Zwei Controller-Module und neue I/O-Module 
@@ -35,14 +35,14 @@ Vergewissern Sie sich vor dem Upgrade, dass Sie über die richtigen Module für 
  a| 
 Zwei Controller-Module
 
-Wenn Sie das vorhandene System in ein Storage-Shelf konvertieren, um es an ein anderes System anschließen zu können, muss das Ersatzsystem auch über zwei I/O-Module verfügen.
+Wenn Sie das bestehende System in ein Storage Shelf konvertieren, sodass Sie es an ein anderes System anschließen können, muss das Ersatzsystem auch über zwei I/O-Module verfügen.
 
 
 
  a| 
 * AFF A700 – als ASA konfiguriert
-* AFF A700 AUF AFF A900
-* FAS9000 auf FAS9500 Systeme
+* AFF A700
+* FAS9000
 
 | Zwei Controller und zwei NVRAM-Module 
 |===

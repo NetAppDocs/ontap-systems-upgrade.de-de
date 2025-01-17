@@ -94,6 +94,9 @@ Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufge
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Upgrade von ONTAP"^] | Die Anleitungen zum Herunterladen und Aktualisieren von ONTAP. 
 
 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["Verwenden Sie Befehle zum Austauschen von System-Controllern, um die mit ONTAP 9.15.1 und höher eingeführte Controller-Hardware zu aktualisieren"^] | Beschreibt die Verfahren für die Aggregatverschiebung, die für die in ONTAP 9.15.1 und höher eingeführten unterbrechungsfreien Upgrades von Controllern mit Befehlen „System Controller Replace“ erforderlich sind. 
+
+
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"^] | Beschreibt die Verfahren zur Aggregatverschiebung, die für ein unterbrechungsfreies Upgrade eines Systems erforderlich sind, wobei das alte System-Chassis und die alten Festplatten erhalten bleiben. 
 
 

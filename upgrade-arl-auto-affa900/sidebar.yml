@@ -40,7 +40,7 @@ entries:
     entries:
     - title: Ersetzen Sie AFF A250 oder AFF C250
       url: "/upgrade-arl-auto-affa900/replace-node1-affa250-affc250.html"
-    - title: AFF A800 austauschen
+    - title: Ersetzen Sie AFF A800 oder AFF C800
       url: "/upgrade-arl-auto-affa900/replace-node1-affa800.html"
     - title: Ersetzen Sie AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
       url: "/upgrade-arl-auto-affa900/replace-node1-affa220-affa200-affc190-fas2620-fas2720.html"
@@ -61,8 +61,8 @@ entries:
   - title: Stellen Sie die Key-Manager-Konfiguration auf dem aktualisierten Node1
       wieder her
     url: "/upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html"
-  - title: Verschieben Sie Aggregate und NAS-Daten-LIFs, die sich im Besitz von Knoten1
-      befinden, von Knoten 2 auf die aktualisierte Knoten 1
+  - title: Verschieben Sie node1-Aggregate und NAS-Daten-LIFs nicht-Root von node2
+      auf den aktualisierten node1
     url: "/upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html"
 - title: Phase 4. Verschieben von Ressourcen und Ausmustern von Knoten2
   entries:

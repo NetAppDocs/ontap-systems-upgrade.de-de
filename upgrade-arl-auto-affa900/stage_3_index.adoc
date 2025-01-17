@@ -21,5 +21,5 @@ In Phase 3 verbinden Sie die gemeinsam genutzten Cluster-HA- und Speicherverbind
 . link:boot_node1_with_a900_controller_and_nvs.html["Starten Sie Knoten 1 mit den Ersatz-Systemmodulen"]
 . link:verify_node1_installation.html["Überprüfen Sie die Installation node1"]
 . link:restore_key_manager_config_upgraded_node1.html["Stellen Sie die Key-Manager-Konfiguration auf dem aktualisierten Node1 wieder her"]
-. link:move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html["Verschieben Sie Aggregate und NAS-Daten-LIFs, die sich im Besitz von Knoten1 befinden, von Knoten 2 auf die aktualisierte Knoten 1"]
+. link:move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html["Verschieben Sie node1-Aggregate und NAS-Daten-LIFs nicht-Root von node2 auf den aktualisierten node1"]
 

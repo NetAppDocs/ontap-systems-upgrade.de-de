@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2
 keywords: moving, non-root, aggregates, nas, lif, node1, node2 
 summary: Vergewissern Sie sich, dass die node1 NAS-Daten-LIFs auf Node 2 von Node 2 auf Node 1 verschoben werden, wenn Sie zum Upgrade von Controller-Modellen im selben Chassis ARL verwenden. 
 ---
-= Verschieben Sie Aggregate und NAS-Daten-LIFs, die sich im Besitz von Knoten1 befinden, von Knoten 2 auf die aktualisierte Knoten 1
+= Verschieben Sie node1-Aggregate und NAS-Daten-LIFs nicht-Root von node2 auf den aktualisierten node1
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

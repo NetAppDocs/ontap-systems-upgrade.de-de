@@ -17,22 +17,10 @@ summary: Ersetzen Sie die AFF A800 oder AFF C800 Node 1-Systemmodule, wenn Sie z
 An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Sie müssen darauf achten, nur das Knoten 1-Controller-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
 
 
-CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und von denselben Netzteilen mit Strom versorgt werden.
+CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und an dieselben Netzteile angeschlossen sind.
 
 .Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
-
-
-
-== Bereiten Sie vor, das AFF A800- oder AFF C800-Controller-Modul zu entfernen
-
-.Schritte
-. Drücken Sie auf der Vorderseite des Gehäuses die Daumen, um jedes Laufwerk fest einzuschieben, bis Sie einen positiven Stopp spüren. Dadurch wird sichergestellt, dass die Laufwerke fest an der Mittelplatine des Gehäuses sitzen.
-+
-image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
-
-. Gehen Sie zur Rückseite des Gehäuses.
-
 
 
 
@@ -41,6 +29,15 @@ image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die 
 Entfernen Sie das Kabelverwaltungsgerät aus dem vorhandenen Modul, und bewegen Sie den Controller leicht aus dem Gehäuse.
 
 .Schritte
+. Bereiten Sie vor, das Controller-Modul zu entfernen:
++
+.. Drücken Sie auf der Vorderseite des Gehäuses die Daumen, um jedes Laufwerk fest einzuschieben, bis Sie einen positiven Stopp spüren. Dadurch wird sichergestellt, dass die Laufwerke fest an der Mittelplatine des Gehäuses sitzen.
++
+image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
+
+.. Gehen Sie zur Rückseite des Gehäuses.
+
+
 . Trennen Sie die Netzteile des node1-Controller-Moduls von der Quelle.
 . Lösen Sie die Netzkabelhalter, und ziehen Sie anschließend die Kabel von den Netzteilen ab.
 . Lösen Sie den Haken- und Schlaufenriemen, mit dem die Kabel an das Kabelmanagement-Gerät gebunden sind, und ziehen Sie dann die Systemkabel und SFP- und QSFP-Module (falls erforderlich) vom Controller-Modul ab, um zu verfolgen, wo die Kabel angeschlossen waren.

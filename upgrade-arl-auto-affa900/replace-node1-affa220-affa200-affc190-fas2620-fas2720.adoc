@@ -17,7 +17,7 @@ summary: Ersetzen Sie die Node-1-Module AFF A220, AFF A200, AFF C190, FAS2720 od
 An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Sie müssen darauf achten, nur das Knoten 1-Controller-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
 
 
-CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und von denselben Netzteilen mit Strom versorgt werden.
+CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und an dieselben Netzteile angeschlossen sind.
 
 .Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.

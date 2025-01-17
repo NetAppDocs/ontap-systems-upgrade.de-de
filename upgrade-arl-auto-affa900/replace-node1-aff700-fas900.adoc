@@ -17,7 +17,7 @@ summary: Ersetzen Sie die AFF A700- oder FAS9000 node1-Systemmodule, wenn Sie mi
 An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Achten Sie darauf, nur das Node1-Controller-Modul und das node1-NVRAM-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
 
 
-CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und von denselben Netzteilen mit Strom versorgt werden.
+CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und an dieselben Netzteile angeschlossen sind.
 
 .Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
