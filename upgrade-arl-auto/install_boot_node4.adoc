@@ -247,7 +247,7 @@ Einstellungen speichern:
 | Wenn Ihr System... | Dann... 
 
 
-| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install4_step23,Schritt 23>>. 
+| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install4_step27,Schritt 27>>. 
 
 
 | Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
@@ -308,7 +308,7 @@ FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder 
 `boot_ontap menu`
 
 +
-Wenn Sie nicht über eine FC- oder UTA/UTA2-Konfiguration verfügen, führen Sie die entsprechenden Aufgaben aus link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["UTA/UTA2-Ports in node4, Schritt 15, prüfen und konfigurieren"] Damit node4 die Festplatten von node2 erkennen kann.
+Wenn Sie nicht über eine FC- oder UTA/UTA2-Konfiguration verfügen, führen Sie link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["Weisen Sie Node2-Festplatten node4, Schritt 1, neu zu"]diese so aus, dass node4 die Festplatten von Node 2 erkennen kann.
 
-. [[step29]] für MetroCluster Konfigurationen, V-Series Systeme und Systeme mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist, finden Sie den Link:set_fc_or_uta_uta2_config_node4.HTML# Auto_Check_4_step15[UTA/UTA2-Ports auf node4 prüfen und konfigurieren, Schritt 15].
+. [[step29]] für MetroCluster-Konfigurationen, V-Series-Systeme und Systeme mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist, besuchen Sie link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["Weisen Sie Node2-Festplatten node4, Schritt 1, neu zu"].
 

@@ -93,7 +93,7 @@ Im Beispiel im vorherigen Schritt verwendet „aggr2“ interne Laufwerke, wie d
 
 . Geben Sie bei beiden Controllern den folgenden Befehl ein:
 +
-`aggr status -y`
+`aggr status -v`
 
 +
 Das System zeigt Informationen zu den Volumes auf dem Aggregat an, wie in der teilweise Ausgabe im folgenden Beispiel dargestellt:

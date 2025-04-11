@@ -57,6 +57,8 @@ entries:
     url: "/upgrade-arl-auto/install_boot_node3.html"
   - title: Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest
     url: "/upgrade-arl-auto/set_fc_or_uta_uta2_config_on_node3.html"
+  - title: Weisen Sie node1-Festplatten Knoten 3 neu zu
+    url: "/upgrade-arl-auto/reassign-node1-disks-to-node3.html"
   - title: Ports von node1 nach node3 zuordnen
     url: "/upgrade-arl-auto/map_ports_node1_node3.html"
   - title: Fügen Sie dem Quorum bei, wenn ein Node über einen anderen Satz an Netzwerkports
@@ -88,6 +90,8 @@ entries:
     url: "/upgrade-arl-auto/install_boot_node4.html"
   - title: Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest
     url: "/upgrade-arl-auto/set_fc_or_uta_uta2_config_node4.html"
+  - title: Weisen Sie Node2-Festplatten node4 neu zu
+    url: "/upgrade-arl-auto/reassign-node2-disks-to-node4.html"
   - title: Weisen Sie Ports von node2 nach node4 zu
     url: "/upgrade-arl-auto/map_ports_node2_node4.html"
   - title: Fügen Sie dem Quorum bei, wenn ein Node über einen anderen Satz an Netzwerkports

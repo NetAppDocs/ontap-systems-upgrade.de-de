@@ -22,13 +22,8 @@ Möglicherweise müssen Sie den Abschnitt ausfüllen <<Konfigurieren Sie FC-Port
 
 NOTE: Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begriff UTA2 auf Adapter und Ports des konvergierten Netzwerkadapters (CNA). Allerdings verwendet die CLI den Begriff CNA.
 
-* Wenn node3 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat und Sie ein System mit Storage-Festplatten aktualisieren, können Sie zur springen link:verify_node3_installation.html["Überprüfen Sie die Installation von node3"] Abschnitt.
-* Wenn Sie jedoch ein V-Series System oder ein System mit FlexArray-Virtualisierungssoftware mit Storage-Arrays haben und node3 keine integrierten FC-Ports, Onboard UTA/UTA-Ports oder eine UTA/UTA2-Karte hat, kehren Sie zum Abschnitt _Installation und Boot-Knoten3_ zurück und setzen Sie den Abschnitt unter fort link:install_boot_node3.html#auto_install3_step23["Schritt 23"].
-
-
-.Wahlmöglichkeiten
-* <<Konfigurieren Sie FC-Ports auf node3>>
-* <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>
+* Wenn Node3 nicht über Onboard FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt und Sie ein System mit Storage-Festplatten aktualisieren, können Sie zu überspringenlink:reassign-node1-disks-to-node3.html["Weisen Sie node1-Festplatten Knoten 3 neu zu"].
+* Wenn Sie jedoch ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware mit Storage-Arrays haben und node3 keine integrierten FC-Ports, Onboard UTA/UTA-Ports oder eine UTA/UTA2-Karte hat, kehren Sie zu _Install und Boot node3_ zurück und fahren Sie unter fortlink:install_boot_node3.html#auto_install3_step23["Schritt 23"].
 
 
 
@@ -115,15 +110,15 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 
 
 | Festplatten sind vorhanden  a| 
-** Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, fahren Sie mit dem Abschnitt fort <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
-** Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>> Und gehen Sie zum Abschnitt link:verify_node3_installation.html["Überprüfen Sie die Installation von node3"].
+** Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, gehen Sie zu <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
+** Wenn node3 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports hat, überspringen sie _Check und konfigurieren Sie UTA/UTA2-Ports auf node3_ und gehen Sie zu link:reassign-node1-disks-to-node3.html["Weisen Sie node1-Festplatten Knoten 3 neu zu"].
 
 
 
 
 | Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-** Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, fahren Sie mit dem Abschnitt fort <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
-** Wenn node3 keine UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2 hat, überspringen Sie den Abschnitt <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>> Und kehren Sie zum Abschnitt _Installieren und Booten node3_ zurück und fahren Sie bei fort link:install_boot_node3.html#auto_install3_step23["Schritt 23"].
+** Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, gehen Sie zu <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
+** Wenn node3 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports hat, überspringen sie _Check und konfigurieren Sie UTA/UTA2-Ports auf node3_ und kehren Sie zu _Install und Boot node3_ zurück und fahren Sie mit link:install_boot_node3.html#auto_install3_step23["Schritt 23"]dem Verfahren unter fort.
 
 
 |===
@@ -305,269 +300,14 @@ Adapter  Mode       Type        Mode     Type        Status
 | Wenn das System... | Dann… 
 
 
-| Festplatten sind vorhanden | Gehen Sie zu link:verify_node3_installation.html["Überprüfen Sie die Installation von node3"]. 
+| Festplatten sind vorhanden | Gehen Sie zu link:reassign-node1-disks-to-node3.html["Weisen Sie node1-Festplatten Knoten 3 neu zu"]. 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zum Abschnitt _Installieren und Starten von node3_ zurück, und fahren Sie bei fort link:install_boot_node3.html#auto_install3_step23["Schritt 23"]. 
+| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zu _Install und Boot node3_ zurück, und setzen Sie den Vorgang fortlink:install_boot_node3.html#auto_install3_step23["Schritt 23"]. 
 |===
 . [[Auto_check3_steep13]]Wartungsmodus beenden:
 +
 `halt`
 
-. [[Schritt14]]Boot-Knoten in Boot-Menü durch Ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu <<auto_check3_step23,Schritt 23>>.
-
-
-. Gehen Sie auf node3 zum Boot-Menü und wählen Sie mit 22/7 die versteckte Option aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 node3 wie im folgenden Beispiel neu zuzuweisen.
-+
-.Erweitern Sie das Ausgabebeispiel der Konsole
-[%collapsible]
-====
-....
-LOADER-A> boot_ontap menu
-.
-<output truncated>
-.
-All rights reserved.
-*******************************
-*                             *
-* Press Ctrl-C for Boot Menu. *
-*                             *
-*******************************
-.
-<output truncated>
-.
-Please choose one of the following:
-(1)  Normal Boot.
-(2)  Boot without /etc/rc.
-(3)  Change password.
-(4)  Clean configuration and initialize all disks.
-(5)  Maintenance mode boot.
-(6)  Update flash from backup config.
-(7)  Install new software first.
-(8)  Reboot node.
-(9)  Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-Selection (1-11)? 22/7
-(22/7) Print this secret List
-(25/6) Force boot with multiple filesystem disks missing.
-(25/7) Boot w/ disk labels forced to clean.
-(29/7) Bypass media errors.
-(44/4a) Zero disks if needed and create new flexible root volume.
-(44/7) Assign all disks, Initialize all disks as SPARE, write DDR labels
-.
-<output truncated>
-.
-(wipeconfig)                        Clean all configuration on boot device
-(boot_after_controller_replacement) Boot after controller upgrade
-(boot_after_mcc_transition)         Boot after MCC transition
-(9a)                                Unpartition all disks and remove their ownership information.
-(9b)                                Clean configuration and initialize node with partitioned disks.
-(9c)                                Clean configuration and initialize node with whole disks.
-(9d)                                Reboot the node.
-(9e)                                Return to main boot menu.
-The boot device has changed. System configuration information could be lost. Use option (6) to restore the system configuration, or option (4) to initialize all disks and setup a new system.
-Normal Boot is prohibited.
-Please choose one of the following:
-(1)  Normal Boot.
-(2)  Boot without /etc/rc.
-(3)  Change password.
-(4)  Clean configuration and initialize all disks.
-(5)  Maintenance mode boot.
-(6)  Update flash from backup config.
-(7)  Install new software first.
-(8)  Reboot node.
-(9)  Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-Selection (1-11)? boot_after_controller_replacement
-This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: yes
-.
-<output truncated>
-.
-Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
-Changing sysid of node node1 disks.
-Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
-Partner sysid = 4294967295, owner sysid = 536940063
-.
-<output truncated>
-.
-varfs_backup_restore: restore using /mroot/etc/varfs.tgz
-varfs_backup_restore: attempting to restore /var/kmip to the boot device
-varfs_backup_restore: failed to restore /var/kmip to the boot device
-varfs_backup_restore: attempting to restore env file to the boot device
-varfs_backup_restore: successfully restored env file to the boot device wrote key file "/tmp/rndc.key"
-varfs_backup_restore: timeout waiting for login
-varfs_backup_restore: Rebooting to load the new varfs
-Terminated
-<node reboots>
-System rebooting...
-.
-Restoring env file from boot media...
-copy_env_file:scenario = head upgrade
-Successfully restored env file from boot media...
-Rebooting to load the restored env file...
-.
-System rebooting...
-.
-<output truncated>
-.
-WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
-Override system ID? {y|n} y
-.
-Login:
-....
-====
-+
-
-NOTE: Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Namen des Partner-Node anzugeben, wenn das System ADP-Festplatten (Advanced Disk Partitioning) verwendet.
-
-. Wenn das System in eine Reboot-Schleife mit der Meldung geht `no disks found`, Es zeigt an, dass das System die FC- oder UTA/UTA2-Ports wieder in den Ziel-Modus zurückgesetzt hat und somit keine Disketten sehen kann. Um dies zu beheben, fahren Sie mit fort <<auto_check3_step17,Schritt 17>> Bis <<auto_check3_step22,Schritt 22>>Oder gehen Sie zu Abschnitt link:verify_node3_installation.html["Überprüfen Sie die Installation von node3"].
-. [[Auto_check3_step17]]Drücken Sie während des AUTOBOOTS Strg-C, um den Knoten an der Eingabeaufforderung LOADER> anzuhalten.
-. [[step18]]wechseln Sie an der LOADER-Eingabeaufforderung in den Wartungsmodus:
-+
-`boot_ontap maint`
-
-. [[ste19]]] im Wartungsmodus werden alle zuvor festgelegten Initiator-Ports angezeigt, die sich jetzt im Zielmodus befinden:
-+
-`ucadmin show`
-
-+
-Ändern Sie die Ports zurück in den Initiatormodus:
-
-+
-`ucadmin modify -m fc -t initiator -f _adapter name_`
-
-. [[steep20]]Überprüfen Sie, ob die Ports in den Initiatormodus geändert wurden:
-+
-`ucadmin show`
-
-. [[step21]]Wartungsmodus beenden:
-+
-`halt`
-
-+
-[NOTE]
-====
-Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu <<auto_check3_step22,Schritt 22>>.
-
-Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das sowohl interne als auch externe Festplatten, wie z. B. ein AFF A800 System, unterstützt, finden Sie unter <<auto_check3_step23,Schritt 23>>.
-
-====
-. [[Auto_check3_step22]]Starten Sie an der LOADER-Eingabeaufforderung:
-+
-`boot_ontap menu`
-
-+
-Beim Booten erkennt der Node jetzt alle Festplatten, die zuvor ihm zugewiesen waren, und kann wie erwartet gebootet werden.
-
-+
-Wenn die Clusterknoten, die Sie ersetzen, die Root-Volume-Verschlüsselung verwenden, kann ONTAP die Volume-Informationen von den Festplatten nicht lesen. Stellen Sie die Schlüssel für das Root-Volume wieder her.
-
-+
-
-NOTE: Dies gilt nur, wenn das Root-Volume NetApp-Volume-Verschlüsselung verwendet.
-
-+
-.. Zurück zum speziellen Startmenü:
-+
-`LOADER> boot_ontap menu`
-
-+
-[listing]
-----
-Please choose one of the following:
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-
-Selection (1-11)? 10
-----
-.. Wählen Sie *(10) Set Onboard Key Manager Recovery Secrets*
-.. Eingabe `y` An der folgenden Eingabeaufforderung:
-+
-`This option must be used only in disaster recovery procedures. Are you sure? (y or n): y`
-
-.. Geben Sie an der Eingabeaufforderung die Passphrase für das Schlüsselmanagement ein.
-.. Geben Sie bei Aufforderung die Backup-Daten ein.
-+
-
-NOTE: Sie müssen die Passphrase und Sicherungsdaten im erhalten haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt dieses Verfahrens.
-
-.. Nachdem das System wieder zum speziellen Startmenü gestartet wurde, führen Sie die Option *(1) Normal Boot* aus
-+
-
-NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehler auftritt, wiederholen Sie die Teilschritte in <<auto_check3_step22,Schritt 22>> Bis das System ordnungsgemäß gebootet wird.
-
-
-
-. [[Auto_check3_step23]]Wenn Sie ein Upgrade von einem System mit externen Festplatten auf ein System durchführen, das interne und externe Festplatten unterstützt (z. B. AFF A800 Systeme), setzen Sie das node1-Aggregat als Root-Aggregat ein, um zu bestätigen, dass node3 aus dem Root-Aggregat von node1 bootet. Zum Festlegen des Root-Aggregats rufen Sie das Boot-Menü auf und wählen dann Option `5` Um in den Wartungsmodus zu wechseln.
-+
-
-CAUTION: *Die folgenden Teilschritte müssen in der angegebenen Reihenfolge ausgeführt werden; andernfalls kann es zu einem Ausfall oder sogar zu Datenverlust kommen.*
-
-+
-Im folgenden Verfahren wird node3 vom Root-Aggregat von node1 gestartet:
-
-+
-.. Wechseln in den Wartungsmodus:
-+
-`boot_ontap maint`
-
-.. Überprüfen Sie die RAID-, Plex- und Prüfsummeninformationen für das node1 Aggregat:
-+
-`aggr status -r`
-
-.. Überprüfen Sie den Status des node1-Aggregats:
-+
-`aggr status`
-
-.. Bei Bedarf das node1 Aggregat online bringen:
-+
-`aggr_online root_aggr_from___node1__`
-
-.. Verhindern Sie, dass das node3 vom ursprünglichen Root-Aggregat gebootet wird:
-+
-`aggr offline _root_aggr_on_node3_`
-
-.. Legen Sie das node1-Root-Aggregat als das neue Root-Aggregat für node3 fest:
-+
-`aggr options aggr_from___node1__ root`
-
-.. Überprüfen Sie, ob das Root-Aggregat von node3 offline ist und das Root-Aggregat für die von node1 hergebrachten Festplatten online ist und in den Root-Status eingestellt ist:
-+
-`aggr status`
-
-+
-
-NOTE: Wenn der vorherige Unterschritt nicht ausgeführt wird, kann node3 vom internen Root-Aggregat booten, oder es kann dazu führen, dass das System eine neue Cluster-Konfiguration übernimmt oder Sie aufgefordert werden, eine zu identifizieren.
-
-+
-Im Folgenden wird ein Beispiel für die Befehlsausgabe angezeigt:
-
-+
-[listing]
-----
- -----------------------------------------------------------------
- Aggr                 State    Status             Options
-
- aggr0_nst_fas8080_15 online   raid_dp, aggr      root, nosnap=on
-                               fast zeroed
-                               64-bit
-
- aggr0                offline  raid_dp, aggr      diskroot
-                               fast zeroed
-                               64-bit
- -----------------------------------------------------------------
-----
-
-
+. [[step14]]Starten Sie den Knoten in das Startmenü, indem Sie ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["Weisen Sie node1-Festplatten Knoten 3, Schritt 9, neu zu"].
 

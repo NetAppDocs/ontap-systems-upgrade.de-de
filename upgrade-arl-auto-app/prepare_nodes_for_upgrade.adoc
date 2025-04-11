@@ -28,7 +28,7 @@ Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfunge
 +
 `system controller replace start -nodes _node_names_ -nso false`
 
-** Der `system controller replace start` Befehl kann nur auf der erweiterten Berechtigungsebene ausgeführt werden:
+** Sie können den Befehl nur auf der erweiterten Berechtigungsebene ausführen `system controller replace start`:
 +
 `set -privilege advanced`
 

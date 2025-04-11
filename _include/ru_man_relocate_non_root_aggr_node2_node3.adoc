@@ -2,10 +2,37 @@
 :allow-uri-read: 
 
 
-Bevor Sie node2 durch node4 ersetzen können, müssen Sie eine AutoSupport-Nachricht für node2 senden und dann die nicht-Root-Aggregate verschieben, die im Besitz von node2 sind, in node3.
+Bevor Sie node2 durch node4 ersetzen können, müssen Sie eine AutoSupport Meldung für node2 senden und dann die nicht-Root-Aggregate, die im Besitz von node2 sind, zu node3 verschieben.
 
+[[sysconfig-a-command]]
 .Schritte
-. [[Schritt1]] Senden Sie eine AutoSupport-Nachricht an NetApp für node2:
+. Überprüfen Sie, ob die Partner-System-ID auf Knoten 2 und Knoten 3 richtig eingestellt ist:
++
+** `system node run -node _node2_ -command sysconfig -a`
+** `system node run -node _node3_ -command sysconfig -a`
++
+Das System zeigt eine Ausgabe wie im folgenden Beispiel an:
+
++
+[listing, subs="+quotes"]
+----
+NetApp Release 9.16.1: Mon Feb 10 07:55:45 EST 2025
+System ID: _system-ID_; *partner ID: _partner-system-ID_*
+System Serial Number: _system-serial-number_
+System Rev: A0
+System Storage Configuration: Mixed-Path HA
+----
++
+Wenn „Partner-ID“ für Knoten 2 oder Knoten 3 falsch ist:
+
++
+... Booten Sie den Node mit dem falschen Wert neu.
+... Führen Sie die Befehle in erneut aus<<sysconfig-a-command,Schritt 1>>, und bestätigen Sie, dass sich die „Partner-ID“ auf den richtigen Wert geändert hat.
+
+
+
+
+. Sende eine AutoSupport Nachricht an NetApp for node2:
 +
 `system node autosupport invoke -node _node2_ -type all -message "Upgrading _node2_ from _platform_old_ to _platform_new_"`
 
@@ -16,7 +43,7 @@ Bevor Sie node2 durch node4 ersetzen können, müssen Sie eine AutoSupport-Nachr
 +
 Die Felder „Letzter Betreff gesendet:“ und „Letzter Zeitpunkt gesendet:“ enthalten den Nachrichtentitel der letzten gesendeten Nachricht und den Zeitpunkt, zu dem die Nachricht gesendet wurde.
 
-. [[Schritt3]]Verschiebung der nicht-Root-Aggregate:
+. Verschieben Sie die nicht-Root-Aggregate:
 +
 .. Legen Sie die Berechtigungsebene auf erweitert fest:
 +
@@ -49,7 +76,7 @@ Umzüge finden im Hintergrund statt. Für die Verschiebung eines Aggregats kann 
 `storage aggregate relocation show -node _node2_`
 
 +
-Die Ausgabe zeigt „Fertig“ für ein Aggregat an, nachdem es verschoben wurde.
+Nach der Verlagerung wird für ein Aggregat „Fertig“ angezeigt.
 
 +
 
@@ -62,7 +89,7 @@ NOTE: Sie müssen warten, bis alle Aggregate, die sich im Besitz von node2 befin
 | Bei Umzug von... | Dann... 
 
 
-| Alle Aggregate waren erfolgreich | Gehen Sie zu <<man_relocate_2_3_step6,Schritt 6>>. 
+| Alle Aggregate waren erfolgreich | Gehen Sie zu <<man_relocate_2_3_step7,Schritt 7>>. 
 
 
 | Aggregate sind ausgefallen oder sie wurden Vetos  a| 
@@ -108,7 +135,7 @@ Bei Bedarf können Sie die Verschiebung mit einer der folgenden Methoden erzwing
 Weitere Informationen zu den Befehlen für die Verschiebung des Storage-Aggregats finden Sie unter link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregat-Management mit den Befehlen CLI_ und _ONTAP 9: Manual Page Reference_.
 
 |===
-. [[man_relocate_2_3_step6]]Stellen Sie sicher, dass alle nicht-Root-Aggregate online sind auf node3:
+. [[man_relocate_2_3_step7]]Stellen Sie sicher, dass alle nicht-Root-Aggregate online sind auf node3:
 +
 `storage aggregate show -node _node3_ -state offline -root false`
 
@@ -128,7 +155,7 @@ Wenn Volumes auf Knoten3 offline sind, müssen Sie sie einmal für jedes Volume 
 +
 `volume online -vserver _Vserver-name_ -volume _volume-name_`
 
-. Vergewissern Sie sich, dass node2 keine Online-Aggregate besitzt, die nicht im Root-Modus sind:
+. Überprüfen Sie, ob node2 keine Online-Aggregate ohne Root besitzt:
 +
 `storage aggregate show -owner-name _node2_ -ha-policy sfo -state online`
 

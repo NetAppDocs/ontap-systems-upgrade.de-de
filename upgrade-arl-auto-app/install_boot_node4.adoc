@@ -85,7 +85,7 @@ NOTE: Siehe link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"].
 . [[Schritt6]]Konfigurieren Sie die Netzboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
 +
 
-NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwenden. Verwenden Sie keine Daten-LIF-IP, oder es kann während des Upgrades ein Datenausfall auftreten.
+NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwenden. Verwenden Sie keine LIF-Daten-IP, da sonst während der Durchführung des Upgrades ein Datenausfall auftreten kann.
 
 +
 [cols="30,70"]
@@ -252,7 +252,7 @@ Einstellungen speichern:
 | Wenn Ihr System... | Dann... 
 
 
-| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install4_step23,Schritt 23>>. 
+| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install4_step27,Schritt 27>>. 
 
 
 | Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
@@ -316,7 +316,7 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 `boot_ontap menu`
 
 +
-Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, führen Sie sie aus link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["UTA/UTA2-Ports in node4, Schritt 15, prüfen und konfigurieren"] Damit node4 die Platten von node2 erkennen kann.
+Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, sollten Sie vorab  so konfigurierenlink:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["Weisen Sie Node2-Festplatten node4, Schritt 1, neu zu"], dass node4 die Festplatten von Node 2 erkennen kann.
 
 . [[Schritt29]]für die MetroCluster Konfiguration, V-Series Systeme und Systeme mit FlexArray-Virtualisierungssoftware, die an Storage-Arrays angeschlossen ist, müssen Sie die FC- oder UTA/UTA2-Ports auf node4 einrichten und konfigurieren, um die mit dem Node verbundenen Festplatten zu erkennen. Um diese Aufgabe abzuschließen, gehen Sie zu Abschnitt link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UT2-Konfiguration auf node4 fest"].
 

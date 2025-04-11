@@ -1,0 +1,222 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/reassign-node2-disks-to-node4.html 
+keywords: fc configuration, uta configuration, UTA2 configuration, configure FC ports, UTA/UTA2 card, node4, target, adapter, ports 
+summary: 'Konfigurieren sie node4 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/UTA2-Karte, wenn Sie Controller mit ONTAP 9.5 auf 9.7 aktualisieren `system controller replace` Befehle.' 
+---
+= Weisen Sie Node2-Festplatten node4 neu zu
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen die Festplatten, die zu node 2 gehörten, vor der Überprüfung der Installation von node 4 neu zuweisen.
+
+.Über diese Aufgabe
+Sie führen die Schritte in diesem Abschnitt auf knoten 4 aus.
+
+.Schritte
+. [[reassign-node2-node4-step1]]Gehen Sie zum Boot-Menü und wählen Sie mit 22/7 die versteckte Option aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node2 ein, um die Festplatten von node2 node4 wie im folgenden Beispiel neu zuzuweisen.
++
+.Erweitern Sie das Ausgabebeispiel der Konsole
+[%collapsible]
+====
+[listing]
+----
+LOADER-A> boot_ontap menu ...
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+.
+.
+Please choose one of the following:
+
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning.
+Selection (1-9)? 22/7
+.
+.
+(boot_after_controller_replacement) Boot after controller upgrade
+(9a)                                Unpartition all disks and remove their ownership information.
+(9b)                                Clean configuration and initialize node with partitioned disks.
+(9c)                                Clean configuration and initialize node with whole disks.
+(9d)                                Reboot the node.
+(9e)                                Return to main boot menu.
+
+Please choose one of the following:
+
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning.
+Selection (1-9)? boot_after_controller_replacement
+.
+This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: yes
+.
+.
+Controller Replacement: Provide name of the node you would like to replace: <name of the node being replaced>
+.
+.
+Changing sysid of node <node being replaced> disks.
+Fetched sanown old_owner_sysid = 536953334 and calculated old sys id = 536953334
+Partner sysid = 4294967295, owner sysid = 536953334
+.
+.
+.
+Terminated
+<node reboots>
+.
+.
+System rebooting...
+.
+Restoring env file from boot media...
+copy_env_file:scenario = head upgrade
+Successfully restored env file from boot media...
+.
+.
+System rebooting...
+.
+.
+.
+WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
+Override system ID? {y|n} y
+Login: ...
+----
+====
+. Wenn das System mit der Meldung in eine Reboot-Schleife geht `no disks found`, liegt dies daran, dass es die Ports wieder in den Zielmodus zurückgesetzt hat und daher keine Festplatten sehen kann. Fahren Sie mit <<auto_check_4_step3,Schritt 3>> bis fort<<auto_check_4_step8,Schritt 8>>, um dies zu beheben.
+. [[Auto_Check_4_step3]]Drücken Sie während des AUTOBOOTS Strg-C, um den Knoten an der Eingabeaufforderung Loader> anzuhalten.
+. Wechseln Sie an der LOADER-Eingabeaufforderung in den Wartungsmodus:
++
+`boot_ontap maint`
+
+. Zeigen Sie im Wartungsmodus alle zuvor festgelegten Initiator-Ports an, die sich jetzt im Ziel-Modus befinden:
++
+`ucadmin show`
+
++
+Ändern Sie die Ports zurück in den Initiatormodus:
+
++
+`ucadmin modify -m fc -t initiator -f _adapter name_`
+
+. Vergewissern Sie sich, dass die Ports in den Initiatormodus geändert wurden:
++
+`ucadmin show`
+
+. Beenden des Wartungsmodus:
++
+`halt`
+
++
+[NOTE]
+====
+Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten unterstützt, auf ein System, das auch externe Festplatten unterstützt, gehen Sie zu <<auto_check_4_step8,Schritt 8>>.
+
+Wenn Sie ein Upgrade von einem System durchführen, das externe Festplatten auf ein System verwendet, das sowohl interne als auch externe Festplatten unterstützt, <<auto_check_4_step9,Schritt 9>>z. B. ein AFF A800-System, gehen Sie zu .
+
+====
+. [[Auto_Check_4_step8]]Starten Sie an der Loader-Eingabeaufforderung:
++
+`boot_ontap menu`
+
++
+Beim Booten erkennt der Node jetzt alle Festplatten, die zuvor ihm zugewiesen waren, und kann wie erwartet gebootet werden.
+
++
+Wenn die Clusterknoten, die Sie ersetzen, die Root-Volume-Verschlüsselung verwenden, kann ONTAP die Volume-Informationen von den Festplatten nicht lesen. Stellen Sie die Schlüssel für das Root-Volume wieder her:
+
++
+.. Zurück zum speziellen Startmenü:
++
+`LOADER> boot_ontap menu`
+
++
+[listing]
+----
+Please choose one of the following:
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+
+Selection (1-11)? 10
+----
+.. Wählen Sie *(10) Set Onboard Key Manager Recovery Secrets*
+.. Eingabe `y` An der folgenden Eingabeaufforderung:
++
+`This option must be used only in disaster recovery procedures. Are you sure? (y or n): y`
+
+.. Geben Sie an der Eingabeaufforderung die Passphrase für das Schlüsselmanagement ein.
+.. Geben Sie bei Aufforderung die Backup-Daten ein.
++
+
+NOTE: Sie müssen die Passphrase und Sicherungsdaten im erhalten haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt dieses Verfahrens.
+
+.. Nachdem das System wieder zum speziellen Startmenü gestartet wurde, führen Sie die Option *(1) Normal Boot* aus
++
+
+NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehler auftritt, wiederholen Sie die Teilschritte in <<auto_check_4_step22,Schritt 22>> Bis das System ordnungsgemäß gebootet wird.
+
+
+
+. [[Auto_Check_4_step9]]Wenn Sie ein Upgrade von einem System mit externen Festplatten auf ein System durchführen, das interne und externe Festplatten unterstützt (z. B. AFF A800-Systeme), legen Sie das node2-Aggregat als Root-Aggregat fest, um zu bestätigen, dass node4 vom Root-Aggregat von node2 startet. Zum Festlegen des Root-Aggregats wechseln Sie im Boot-Menü und wählen Sie Option, um in den Wartungsmodus zu wechseln `5`.
++
+
+WARNING: *Die folgenden Teilschritte müssen in der angegebenen Reihenfolge ausgeführt werden; andernfalls kann es zu einem Ausfall oder sogar zu Datenverlust kommen.*
+
++
+Mit dem folgenden Verfahren wird node4 vom Root-Aggregat von node2 gestartet:
+
++
+.. Wechseln in den Wartungsmodus:
++
+`boot_ontap maint`
+
+.. Überprüfen Sie die RAID-, Plex- und Prüfsummeninformationen für das node2 Aggregat:
++
+`aggr status -r`
+
+.. Überprüfen Sie den Status des node2-Aggregats:
++
+`aggr status`
+
+.. Bei Bedarf das node2 Aggregat online bringen:
++
+`aggr_online root_aggr_from___node2__`
+
+.. Verhindern Sie, dass das node4 aus dem ursprünglichen Root-Aggregat gebootet wird:
++
+`aggr offline _root_aggr_on_node4_`
+
+.. Legen Sie das node2-Root-Aggregat als das neue Root-Aggregat für node4 fest:
++
+`aggr options aggr_from___node2__ root`
+
+
+
+

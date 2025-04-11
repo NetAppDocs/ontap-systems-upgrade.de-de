@@ -142,7 +142,7 @@ Für Knoten 3, `partner-sysid` Muss der von node2 sein.
 | Wenn Ihr System... | Beschreibung 
 
 
-| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install3_step23,Schritt 23>> 
+| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install3_step27,Schritt 27>> 
 
 
 | Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 

@@ -65,7 +65,7 @@ NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryptio
 
 NOTE: Wenn Ihre Kombination aus Controller-Upgrade-Modellen nicht in der obigen Tabelle aufgeführt ist, wenden Sie sich an den technischen Support.
 
-^1^die zusätzlichen Schritte, die für AFF A800 Systeme erforderlich sind, finden Sie im Schritt mit der Referenz A800 in Abschnitt link:set_fc_or_uta_uta2_config_on_node3.html#auto_check3_step23["UTA/UTA2-Ports in node3, Schritt 23, prüfen und konfigurieren"], Oder link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step23["UTA/UTA2-Ports in node4, Schritt 23, prüfen und konfigurieren"].
+^1^für die zusätzlichen Schritte, die für AFF A800-Systeme erforderlich sind, gehen Sie zu dem Schritt, der auf A800 in Abschnitt verweistlink:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["Weisen Sie Node2-Festplatten node4, Schritt 9, neu zu"],link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["Weisen Sie node1-Festplatten Knoten 3, Schritt 9, neu zu"] oder .
 
 ^2^Wenn Sie in einer Switch-losen 2-Node-Konfiguration von einem FAS8300 zu einem AFF A400 oder FAS8200 zu einem AFF A300 System aktualisieren, müssen Sie für das Controller-Upgrade temporäre Cluster-Ports auswählen. Die AFF A400- und FAS8300-Systeme sind in zwei Konfigurationen erhältlich – als Ethernet-Bundle, bei dem die Ports der Mezzanine-Karte Ethernet-Typ und als FC-Bundle enthalten sind. Dort befinden sich die Mezzanine-Ports vom FC-Typ.
 

@@ -6,5 +6,5 @@
 +
 `halt`
 
-. [[Schritt14]]Boot-Knoten in Boot-Menü durch Ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu <<auto_check3_step23,Schritt 23>>.
+. [[step14]]Starten Sie den Knoten in das Startmenü, indem Sie ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["Weisen Sie node1-Festplatten Knoten 3, Schritt 9, neu zu"].
 

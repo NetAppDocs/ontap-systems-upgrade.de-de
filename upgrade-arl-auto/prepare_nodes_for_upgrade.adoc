@@ -23,7 +23,7 @@ Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfunge
 
 +
 
-NOTE: Dieser Befehl kann nur auf der erweiterten Berechtigungsebene ausgeführt werden:
+NOTE: Sie können diesen Befehl nur auf der erweiterten Berechtigungsebene ausführen:
 `set -privilege advanced`
 
 +
