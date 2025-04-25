@@ -16,41 +16,76 @@ summary: Senden Sie eine AutoSupport-Meldung für Knoten2, und verschieben Sie d
 [role="lead"]
 Bevor Sie node2 durch node4 ersetzen können, müssen Sie eine AutoSupport Meldung für node2 senden und dann die nicht-Root-Aggregate, die im Besitz von node2 sind, zu node3 verschieben.
 
-[[sysconfig-a-command]]
+
+CAUTION: Verschieben Sie Aggregate während dieses Verfahrens nicht von Knoten 3 zu Knoten 2. So werden Aggregate offline geschaltet und es kommt zu einem Ausfall der Daten für die verschobenen Aggregate.
+
+[[verify-partner-sys-id]]
 .Schritte
-. Überprüfen Sie, ob die Partner-System-ID auf Knoten 2 und Knoten 3 richtig eingestellt ist:
+. Überprüfen Sie, ob die Partner-System-ID auf Knoten 3 korrekt eingestellt ist:
 +
-** `system node run -node _node2_ -command sysconfig -a`
-** `system node run -node _node3_ -command sysconfig -a`
+.. Geben Sie die erweiterte Berechtigungsebene ein:
++
+`set -privilege advanced`
+
+.. Zeigt die Partner-System-ID auf Knoten3 an:
++
+`ha interconnect config show -node <node3-node1>`
+
 +
 Das System zeigt eine Ausgabe wie im folgenden Beispiel an:
 
 +
-[listing, subs="+quotes"]
+.Beispiel anzeigen
+[%collapsible]
+====
+[listing]
 ----
-NetApp Release 9.16.1: Mon Feb 10 07:55:45 EST 2025
-System ID: _system-ID_; *partner ID: _partner-system-ID_*
-System Serial Number: _system-serial-number_
-System Rev: A0
-System Storage Configuration: Mixed-Path HA
+cluster::*> ha interconnect config show -node <node>
+  (system ha interconnect config show)
+
+                       Node: node3-node1
+          Interconnect Type: RoCE
+            Local System ID: <node3-system-id>
+          Partner System ID: <node2-system-id>
+       Connection Initiator: local
+                  Interface: external
+
+Port   IP Address
+----   -----------------
+e4a-17   0.0.0.0
+e4b-18   0.0.0.0
 ----
+====
+
+
+. Wenn „Partner System ID“ für Knoten 3 falsch ist:
 +
-Wenn „Partner-ID“ für Knoten 2 oder Knoten 3 falsch ist:
-
+.. Knoten 3 anhalten:
 +
-... Booten Sie den Node mit dem falschen Wert neu.
-... Führen Sie die Befehle in erneut aus<<sysconfig-a-command,Schritt 1>>, und bestätigen Sie, dass sich die „Partner-ID“ auf den richtigen Wert geändert hat.
+`halt`
 
+.. Legen Sie an der Loader-Eingabeaufforderung den korrekten Wert „Partner-sysid“ fest.
++
+Die node3 "Partner-sysid" ist die System ID von node2, die Sie in der Ausgabe in finden können `ha interconnect config show`<<verify-partner-sys-id,Schritt 1>>.
 
+.. Einstellungen speichern:
++
+`saveenv`
+
+.. Starten Sie an der Loader-Eingabeaufforderung node3 im Boot-Menü:
++
+`boot_ontap menu`
+
+.. Melden Sie sich bei node3 an.
 
 
 . Sende eine AutoSupport Nachricht an NetApp for node2:
 +
-`system node autosupport invoke -node _node2_ -type all -message "Upgrading _node2_ from _platform_old_ to _platform_new_"`
+`system node autosupport invoke -node <node2> -type all -message "Upgrading <node2> from <platform_old> to <platform_new>"`
 
 . Überprüfen Sie, ob die AutoSupport Meldung gesendet wurde:
 +
-`system node autosupport show -node _node2_ -instance`
+`system node autosupport show -node <node2> -instance`
 
 +
 Die Felder „Letzter Betreff gesendet:“ und „Letzter Zeitpunkt gesendet:“ enthalten den Nachrichtentitel der letzten gesendeten Nachricht und den Zeitpunkt, zu dem die Nachricht gesendet wurde.
@@ -63,11 +98,11 @@ Die Felder „Letzter Betreff gesendet:“ und „Letzter Zeitpunkt gesendet:“
 
 .. Listen Sie die Aggregate auf, die Eigentum von node2 sind:
 +
-`storage aggregate show -owner-name _node2_`
+`storage aggregate show -owner-name <node2>`
 
 .. Starten Sie die Aggregatverschiebung:
 +
-`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controller-upgrade true`
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controller-upgrade true`
 
 +
 
@@ -85,7 +120,7 @@ Umzüge finden im Hintergrund statt. Für die Verschiebung eines Aggregats kann 
 
 . Überprüfen Sie den Versetzungsstatus von node2:
 +
-`storage aggregate relocation show -node _node2_`
+`storage aggregate relocation show -node <node2>`
 
 +
 Nach der Verlagerung wird für ein Aggregat „Fertig“ angezeigt.
@@ -101,7 +136,7 @@ NOTE: Sie müssen warten, bis alle Aggregate, die sich im Besitz von node2 befin
 | Bei Umzug von... | Dann... 
 
 
-| Alle Aggregate waren erfolgreich | Gehen Sie zu <<man_relocate_2_3_step7,Schritt 7>>. 
+| Alle Aggregate waren erfolgreich | Gehen Sie zu <<man_relocate_2_3_step8,Schritt 8>>. 
 
 
 | Aggregate sind ausgefallen oder sie wurden Vetos  a| 
@@ -123,7 +158,7 @@ NOTE: Der `event log show` Befehl listet alle Fehler auf, die aufgetreten sind.
 
 .. Verschiebung ausgefallener oder Vetos von Aggregaten:
 +
-`storage aggregate relocation start -node _node2_ -destination _node3_ -aggregate-list * -ndo-controllerupgrade true`
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controllerupgrade true`
 
 .. Geben Sie bei der entsprechenden Aufforderung ein `y`.
 .. Zurück zur Administratorberechtigungsebene:
@@ -147,29 +182,29 @@ Bei Bedarf können Sie die Verschiebung mit einer der folgenden Methoden erzwing
 Weitere Informationen zu den Befehlen für die Verschiebung des Storage-Aggregats finden Sie unter link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregat-Management mit den Befehlen CLI_ und _ONTAP 9: Manual Page Reference_.
 
 |===
-. [[man_relocate_2_3_step7]]Stellen Sie sicher, dass alle nicht-Root-Aggregate online sind auf node3:
+. [[man_relocate_2_3_step8]]Stellen Sie sicher, dass alle nicht-Root-Aggregate online sind auf node3:
 +
-`storage aggregate show -node _node3_ -state offline -root false`
+`storage aggregate show -node <node3> -state offline -root false`
 
 +
 Wenn irgendwelche Aggregate offline gegangen sind oder fremd geworden sind, müssen Sie sie online bringen, einmal für jedes Aggregat:
 
 +
-`storage aggregate online -aggregate _aggr_name_`
+`storage aggregate online -aggregate <aggregate_name>`
 
 . Vergewissern Sie sich, dass alle Volumes auf node3 online sind:
 +
-`volume show -node _node3_ -state offline`
+`volume show -node <node3> -state offline`
 
 +
 Wenn Volumes auf Knoten3 offline sind, müssen Sie sie einmal für jedes Volume online bringen:
 
 +
-`volume online -vserver _Vserver-name_ -volume _volume-name_`
+`volume online -vserver <Vserver-name> -volume <volume-name>`
 
 . Überprüfen Sie, ob node2 keine Online-Aggregate ohne Root besitzt:
 +
-`storage aggregate show -owner-name _node2_ -ha-policy sfo -state online`
+`storage aggregate show -owner-name <node2> -ha-policy sfo -state online`
 
 +
 Die Befehlsausgabe sollte nicht online nicht-Root-Aggregate anzeigen, da alle nicht-Root-Online-Aggregate bereits in node3 verschoben wurden.

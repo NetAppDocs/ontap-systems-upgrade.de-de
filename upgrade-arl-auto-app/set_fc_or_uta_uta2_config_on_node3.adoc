@@ -309,5 +309,5 @@ Adapter  Mode       Type        Mode     Type        Status
 +
 `halt`
 
-. [[step14]]Starten Sie den Knoten in das Startmenü, indem Sie ausführen `boot_ontap menu`. Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["Weisen Sie node1-Festplatten Knoten 3, Schritt 9, neu zu"].
+. [[step14]]Starten Sie den Knoten im Startmenü, indem Sie `boot_ontap menu`. Wenn Sie ein Upgrade auf ein AFF A800-System durchführen, gehen Sie zu link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["Weisen Sie node1-Festplatten Knoten 3, Schritt 9, neu zu"].
 

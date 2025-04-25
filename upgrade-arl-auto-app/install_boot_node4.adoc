@@ -311,7 +311,7 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 
 
 
-. Boot-Node im Startmenü:
+. Starten Sie den Node im Boot-Menü:
 +
 `boot_ontap menu`
 

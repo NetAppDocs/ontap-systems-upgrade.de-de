@@ -298,11 +298,11 @@ f-a   2b       fc             target       cna           -             online
 +
 `halt`
 
-. [[Schritt14]]Boot-Knoten in Boot-Menü:
+. [[step14]]Starten Sie den Knoten im Startmenü:
 +
 `boot_ontap menu`.
 
 +
-Wenn Sie ein Upgrade auf eine A800 durchführen, gehen Sie zu link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["Weisen Sie Node 2-Festplatten Node 4, Schritt 9, neu zu"].
+Wenn Sie ein Upgrade auf ein AFF A800-System durchführen, gehen Sie zu link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["Weisen Sie Node 2-Festplatten Node 4, Schritt 9, neu zu"].
 
 

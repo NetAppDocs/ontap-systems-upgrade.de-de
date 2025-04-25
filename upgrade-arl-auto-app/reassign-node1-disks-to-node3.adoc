@@ -20,7 +20,7 @@ Sie müssen die Festplatten, die zu node1 gehörten, zu node3 neu zuweisen, bevo
 Sie führen die Schritte in diesem Abschnitt auf Knoten 3 aus.
 
 .Schritte
-. Gehen Sie zum Boot-Menü und wählen Sie mit 22/7 die versteckte Option `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 node3 wie im folgenden Beispiel neu zuzuweisen.
+. [[resuceif-node1-node3-App-step1]]Gehen Sie zum Startmenü und wählen Sie mit 22/7 die versteckte Option aus `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 node3 wie im folgenden Beispiel neu zuzuweisen.
 +
 .Erweitern Sie das Ausgabebeispiel der Konsole
 [%collapsible]

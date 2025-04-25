@@ -303,7 +303,7 @@ FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder 
 .. Wenden Sie sich an den NetApp Support, um Hilfe beim Wiederherstellen der integrierten Schlüsselmanagementinformationen zu erhalten.
 
 
-. Boot-Node im Startmenü:
+. Starten Sie den Node im Boot-Menü:
 +
 `boot_ontap menu`
 
