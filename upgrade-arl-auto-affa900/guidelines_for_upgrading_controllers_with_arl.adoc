@@ -30,13 +30,15 @@ Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock 
 
 == 2-Node-Cluster ohne Switches
 
-Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren.
+Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in einen Switch-Cluster konvertieren.
 
 
 
 == Switch Attached-Cluster
 
-Wenn Sie Nodes in einem Cluster aktualisieren, das mit einem Cluster-Switch verbunden ist, müssen Sie überprüfen, ob die auf dem Switch ausgeführte Version von Make, Model, Firmware, RCF und ONTAP mit denen identisch ist, die nach dem Upgrade auf dem Ersatz-Controller ausgeführt werden. Falls erforderlich, müssen Sie das Switch-Upgrade durchführen, bevor Sie die Controller mithilfe des in dieser Dokumentation beschriebenen ARL-Verfahrens aktualisieren.
+Wenn Sie Nodes in einem Cluster aktualisieren, das mit einem Cluster-Switch verbunden ist, müssen Sie überprüfen, ob die auf dem Switch ausgeführte Version von Make, Model, Firmware, RCF und ONTAP mit denen identisch ist, die nach dem Upgrade auf dem Ersatz-Controller ausgeführt werden. Falls erforderlich, müssen Sie das Switch-Upgrade vor dem Upgrade der Controller mithilfe von ARL durchführen.
+
+Weitere Informationen finden Sie unter link:upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her"].
 
 
 

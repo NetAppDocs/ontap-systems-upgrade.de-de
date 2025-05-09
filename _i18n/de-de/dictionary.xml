@@ -4219,7 +4219,6 @@
   <block id="95144cfdd742178c38add09e40185465" category="paragraph">Ob Sie die Aggregatverschiebung (ARL, Aggregate Relocation) und die alten System-Chassis- und -Festplatten beibehalten können, hängt von der System-Upgrade-Konfiguration und der ONTAP-Version ab.</block>
   <block id="af8278e543c162c1ee0f858b0715d01e" category="paragraph">Controller Upgrades werden für bestimmte Systemkonfigurationen unterstützt. Eine Liste der unterstützten Systeme und ONTAP-Mindestversionen finden Sie unter <block ref="8294b96e46ba28730c909aaac28da089" category="inline-link-macro-rx"></block>.</block>
   <block id="5b29cd0b8848fbfc7c43edd22b16cf04" category="section-title">Switch Attached-Cluster</block>
-  <block id="4f071a09d7910b1c963c0cf11fa85985" category="paragraph">Wenn Sie Nodes in einem Cluster aktualisieren, das mit einem Cluster-Switch verbunden ist, müssen Sie überprüfen, ob die auf dem Switch ausgeführte Version von Make, Model, Firmware, RCF und ONTAP mit denen identisch ist, die nach dem Upgrade auf dem Ersatz-Controller ausgeführt werden. Falls erforderlich, müssen Sie das Switch-Upgrade durchführen, bevor Sie die Controller mithilfe des in dieser Dokumentation beschriebenen ARL-Verfahrens aktualisieren.</block>
   <block id="38622c9aae2baa5dfb1bdeeb2c31c5a3" category="summary">Vergewissern Sie sich, dass die NAS-Daten-LIFs auf Node 1 von Node 1 auf Node 2 verschoben werden, wenn Sie zum Upgrade von Controller-Modellen im selben Chassis ARL verwenden.</block>
   <block id="25c0a64ebb3d4dec1d638d209b3b73a2" category="paragraph">Nach Durchführung dieser Überprüfungen verlagert das System die nicht-Root-Aggregate und NAS-Daten-LIFs zurück auf node2, das jetzt auf dem Ersatz-Controller ausgeführt wird.</block>
   <block id="038a1f98f287c3e58631ad2264c784b5" category="summary">Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-Upgrades von Controller-Modellen im selben Chassis.</block>
@@ -5109,7 +5108,6 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="cdce5e983821273e4c7e3414b8097d4e" category="cell">3 a, 3 b</block>
   <block id="a789c48b3b7fe1b603ce142ae362e5ae" category="paragraph">Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anforderungen für den Knoten AFF A30, AFF A50, AFF A70, AFF A90, AFF C30, AFF C60 oder AFF C80 (Ersatz) erfüllen:</block>
   <block id="403ccec6840b96b7b18ce39b52e40ae4" category="list-text">Die identischen Cluster-Ports auf dem Ersatz-Node befinden sich auf demselben Switch. Beispiel: Nach Abschluss des Upgrades sollte e1a auf node1 und e1a auf node2 mit einem Cluster-Switch verbunden werden. Gleichermaßen sollte der zweite Cluster-Port beider Nodes mit dem zweiten Cluster-Switch verbunden sein. Die Querverbindung von gemeinsam genutzten Cluster-HA-Ports, bei denen e1a von node1 mit SwitchA und e1a von node2 mit SwitchB verbunden ist, führt zu HA-Kommunikationsfehlern.</block>
-  <block id="b5bcf41de93d90fbeb1ad872fa73f5f9" category="list-text">Der Ersatz-Node verwendet freigegebene Cluster-HA-Ethernet-Ports. Überprüfen Sie, ob die Cluster-Switches mit einer Referenzkonfigurationsdatei (RCF) installiert sind, die freigegebene Cluster-HA-Ports unterstützt.</block>
   <block id="1cc3f304d5e589c069f5fc5ecdc865d1" category="section-title">Unterstützt für ARL-Upgrades</block>
   <block id="26c0488d57efd7721cdf50179d2776e0" category="list-text">Die Aktualisierung Ihres Controllers wird in der Liste aufgeführt<block ref="8badcb7c18eeb5ec98f79dc01581f13d" category="inline-link-macro-rx"></block>.</block>
   <block id="4e793111a4193c7c02d75b240754c4f7" category="list-text">Sie haben mit Ihrem NetApp Vertriebsmitarbeiter verifiziert, dass Sie die Hardware erhalten haben, die Sie für das Controller-Upgrade benötigen:</block>
@@ -5356,4 +5354,27 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="c8adb5c5421d34e18d5b9558706c9208" category="list-text">[[resuceif-node1-node3-App-step1]]Gehen Sie zum Startmenü und wählen Sie mit 22/7 die versteckte Option aus<block ref="b4ab52f7185d092e3aa56aaa9905e7e1" prefix=" " category="inline-code"></block>. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 node3 wie im folgenden Beispiel neu zuzuweisen.</block>
   <block id="4ac432efd1d6ca8f4e73f5783d4f90e6" category="paragraph">Wenn Sie ein Upgrade auf ein AFF A800-System durchführen, gehen Sie zu <block ref="4f039e99f80cf2a7b8236bb5590e739b" category="inline-link-macro-rx"></block>.</block>
   <block id="8f9ee542e52933f0e31b07c6ca5316b2" category="list-text">[[step14]]Starten Sie den Knoten im Startmenü, indem Sie<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>. Wenn Sie ein Upgrade auf ein AFF A800-System durchführen, gehen Sie zu <block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>.</block>
+  <block id="007afae70e6899ccd5a02bd1b8e30413" category="list-text">Der Ersatz-Node verwendet freigegebene Cluster-HA-Ethernet-Ports.</block>
+  <block id="96a4f5b30dbe8d55de9aa12c4b2e6602" category="list-text">Überprüfen Sie, ob die Cluster-Switches mit einer Referenzkonfigurationsdatei (RCF) installiert sind, die freigegebene Cluster-HA-Ports unterstützt:</block>
+  <block id="1ef8dca5df94c49347909211a3845f3f" category="list-text">Entfernen Sie die vorhandene Konfiguration auf dem Switch:</block>
+  <block id="ec959032169391b64e7918c7b1c9a04b" category="cell">Wenn Ihr Switch-Modell...</block>
+  <block id="ec434af0a2786fa23b468584c5622fe1" category="cell">Gehe zu...</block>
+  <block id="48def1be7a1b40b720ff1892a761e8c8" category="cell">Cisco Nexus</block>
+  <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link-macro">Löschen der Konfiguration auf einem Cisco Interconnect Switch bei Beibehaltung der Remote-Verbindung</block>
+  <block id="f79602808677d4d116b317e4c44a8ee5" category="cell">Den Knowledge Base Artikel <block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block></block>
+  <block id="4dd13a124f96d89e0fd6c36f6d82e131" category="cell">Broadcom BES-53248</block>
+  <block id="3a6a9877fc8c73a9267914b786517ca9" category="inline-link-macro">Löschen der Konfiguration auf einem Broadcom-Interconnect-Switch bei Beibehaltung der Remote-Konnektivität</block>
+  <block id="363e3bb9e22f2f2472a215233919dbf7" category="cell">Den Knowledge Base Artikel <block ref="4eb512d9e9a489effcea6ab616ebb791" category="inline-link-macro-rx"></block></block>
+  <block id="b0a38d8703521c30e6e97aed4cde98e8" category="list-text">Konfigurieren und überprüfen Sie die Switch-Einrichtung:</block>
+  <block id="5aec304982416461faa5bf9b3a0b2cf3" category="cell">Cisco Nexus 9336C-FX2</block>
+  <block id="b0411eb90c7d5ca211940fcb5d8f219a" category="inline-link-macro">Aktualisieren der Referenzkonfigurationsdatei (RCF)</block>
+  <block id="0b62f732d6ce50a66f369a7af44d4f34" category="cell"><block ref="0b62f732d6ce50a66f369a7af44d4f34" category="inline-link-macro-rx"></block></block>
+  <block id="f14d39745f2925af01d4497aa53d6677" category="inline-link-macro">Aktualisieren der Referenzkonfigurationsdatei (RCF)</block>
+  <block id="1223d69b197fdd4739792e2757e36426" category="cell"><block ref="1223d69b197fdd4739792e2757e36426" category="inline-link-macro-rx"></block></block>
+  <block id="94f92369bb57ec3cd50af356ac87615d" category="cell">NVIDIA SN2100</block>
+  <block id="ec65012ad6ac37ed9d5b425acfa4cdea" category="inline-link-macro">Installieren oder aktualisieren Sie das RCF-Skript (Reference Configuration File)</block>
+  <block id="c18748e2481d76fb9941a180443193c9" category="cell"><block ref="c18748e2481d76fb9941a180443193c9" category="inline-link-macro-rx"></block></block>
+  <block id="4cd0d55ba9459c2dab2de91b9c03814c" category="paragraph">Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in einen Switch-Cluster konvertieren.</block>
+  <block id="8582dce1fa70b49f5e69ba957a35fc82" category="paragraph">Wenn Sie Nodes in einem Cluster aktualisieren, das mit einem Cluster-Switch verbunden ist, müssen Sie überprüfen, ob die auf dem Switch ausgeführte Version von Make, Model, Firmware, RCF und ONTAP mit denen identisch ist, die nach dem Upgrade auf dem Ersatz-Controller ausgeführt werden. Falls erforderlich, müssen Sie das Switch-Upgrade vor dem Upgrade der Controller mithilfe von ARL durchführen.</block>
+  <block id="c508e07c7b7e3a7f9abffdab705049ba" category="paragraph">Weitere Informationen finden Sie unter <block ref="896b35cb78c99b0406f2809b80c7854f" category="inline-link-macro-rx"></block>.</block>
 </blocks>
