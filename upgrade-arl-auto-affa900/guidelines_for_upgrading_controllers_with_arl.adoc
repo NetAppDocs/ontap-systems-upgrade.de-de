@@ -38,7 +38,7 @@ Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie 
 
 Wenn Sie Nodes in einem Cluster aktualisieren, das mit einem Cluster-Switch verbunden ist, müssen Sie überprüfen, ob die auf dem Switch ausgeführte Version von Make, Model, Firmware, RCF und ONTAP mit denen identisch ist, die nach dem Upgrade auf dem Ersatz-Controller ausgeführt werden. Falls erforderlich, müssen Sie das Switch-Upgrade vor dem Upgrade der Controller mithilfe von ARL durchführen.
 
-Weitere Informationen finden Sie unter link:upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her"].
+Weitere Informationen finden Sie unter link:cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her"].
 
 
 

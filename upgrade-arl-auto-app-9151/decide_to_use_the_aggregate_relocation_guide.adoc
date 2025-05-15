@@ -63,8 +63,8 @@ NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryptio
 
 ^2^ die AFF A20, AFF A50, AFF A70 und AFF A90 sind integrierte Systeme mit zwei Controllern in einer HA-Konfiguration und integrierten Festplatten in einem einzelnen Gehäuse:
 
-* Wenn Sie ein Upgrade auf ein AFF A20, AFF A70 oder AFF A90 mit internen Laufwerken durchführen, müssen Sie die Eigentumsrechte für diese internen Laufwerke vor dem Upgrade entfernen. Nach Abschluss des Upgrades können Sie die internen Laufwerke den AFF Nodes A20, AFF A70 oder AFF A90 zuweisen und sie zur Erstellung von Datenaggregaten verwenden. Sie müssen keine Root- oder Datenaggregate auf interne Laufwerke migrieren.
-* Wenn Sie ohne interne Laufwerke auf ein AFF A20, AFF A70 oder AFF A90 aktualisieren, müssen Sie nach Abschluss des Upgrades keine internen Laufwerke zuweisen.
+* Wenn Sie ein Upgrade auf ein AFF A20, AFF A50, AFF A70 oder AFF A90 mit internen Laufwerken durchführen, müssen Sie vor dem Upgrade die Eigentumsrechte für diese internen Laufwerke entfernen. Nach Abschluss des Upgrades können Sie die internen Laufwerke den AFF Nodes A20, AFF A50, AFF A70 oder AFF A90 zuweisen und sie zur Erstellung von Datenaggregaten verwenden. Sie müssen keine Root- oder Datenaggregate auf interne Laufwerke migrieren.
+* Wenn Sie ohne interne Laufwerke auf ein AFF A20, AFF A50, AFF A70 oder AFF A90 aktualisieren, müssen Sie nach Abschluss des Upgrades keine internen Laufwerke zuweisen.
 
 
 Wenn die Kombination aus dem Controller-Upgrade-Modell nicht in der oben stehenden Tabelle aufgeführt ist, wenden Sie sich an den technischen Support.
