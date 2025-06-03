@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app-9151/decide_to_use_the_aggregate_relocation_guid
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
 summary: 'Entscheiden Sie mithilfe von Befehlen, ob Sie Controller, die ONTAP 9.15.1 oder höher ausführen, mit ARL aktualisieren `system controller replace` .' 
 ---
-= Entscheiden Sie, ob Sie das Verfahren zur Aggregatverschiebung verwenden
+= Entscheiden Sie, ob Sie dieses Verfahren zur Aggregatverlagerung verwenden möchten
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,23 +14,60 @@ summary: 'Entscheiden Sie mithilfe von Befehlen, ob Sie Controller, die ONTAP 9.
 
 
 [role="lead"]
-Dieses Verfahren beschreibt, wie Sie die Storage Controller in einem HA-Paar mit neuen Controllern aktualisieren, während die vorhandenen Daten und Festplatten erhalten bleiben. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
+Es gibt verschiedene Methoden zur Aggregate Relocation (ARL) für die Aktualisierung der Controller-Hardware. Dieses ARL-Verfahren beschreibt, wie Sie ein HA-Controller-Paar in AFF- und FAS-Speichersystemen, die in ONTAP 9.15.1 oder höher eingeführt wurden, mit neuen Controllern aktualisieren und dabei die vorhandenen Daten und Festplatten beibehalten. Dies ist ein komplexes Verfahren, das nur von erfahrenen ONTAP-Administratoren verwendet werden sollte.
+
+Um Ihnen bei der Entscheidung zu helfen, ob dieses ARL-Verfahren für Ihr Controller-Hardware-Upgrade geeignet ist, sollten Sie alle folgenden Umstände für unterstützte und nicht unterstützte Upgrades überprüfen.
 
 
 
-== Unterstützte Upgrades für ARL
+== Unterstützte Upgrades für dieses ARL-Verfahren
 
-Unter den folgenden Bedingungen können Sie ein Node-Paar aktualisieren:
+Sie können dieses ARL-Verfahren verwenden, um ein Knotenpaar unter den folgenden Umständen zu aktualisieren:
 
 * Sie verwenden ONTAP 9.15.1 oder höher.
 * Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe der Volume-Verschiebung migrieren.
 * Sie verfügen über viel Erfahrung in der Administration von ONTAP und sind mit den Risiken vertraut, die mit der Arbeit im Diagnosemodus verbunden sind.
+* Ihre Hardware-Upgrade-Kombination finden Sie in der <<sys_commands_9151_supported_systems,Unterstützte Modellmatrix>> .
 
 
 
 NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 
-[[sys_Commands_9151_supported_Systems]]die folgende Tabelle zeigt die unterstützte Modellmatrix für das Controller-Upgrade.
+
+
+== Upgrades werden für dieses ARL-Verfahren nicht unterstützt
+
+Unter den folgenden Umständen können Sie dieses ARL-Verfahren nicht zum Upgrade eines Knotenpaars verwenden:
+
+* Sie führen eines der folgenden Upgrades durch:
++
+|===
+| Vorhandene Controller | Ersatz-Controller 
+
+
+| AFF A250 | AFF A50, AFF A30 
+
+
+| AFF A800 | AFF A70, AFF A90 
+
+
+| AFF C250 | AFF C30, AFF C60 
+
+
+| AFF C800 | AFF C80 
+|===
++
+Um ein Upgrade durchzuführen, das in der obigen Tabelle aufgeführt ist, siehe link:other_references.html["Quellen"]Link zu den Befehlen „ System Controller ersetzen “ verwenden, um Controller-Modelle im gleichen Chassis zu aktualisieren_.
+
+* Sie aktualisieren ein V-Series System oder ein FlexArray Virtualisierungs-Storage-System mit einem externen Array als Back-End Storage. Wenden Sie sich an den technischen Support, wenn Sie Optionen zum Upgrade eines V-Series oder FlexArray Systems benötigen.
+* Sie führen ein Upgrade einer MetroCluster FC- oder IP-Konfiguration durch. Informationen zum Upgrade einer MetroCluster-Konfiguration finden Sie unter, um eine link:other_references.html["Quellen"] Verknüpfung zur _MetroCluster-Upgrade- und Erweiterungsdokumentation_ zu erhalten.
+
+
+
+
+== Unterstützte System-Upgrade-Kombinationen
+
+Die folgende Tabelle zeigt die unterstützten Controller-Upgrade-Kombinationen mit ARL für AFF- und FAS-Systeme ab ONTAP 9.15.1. Sollte Ihre Controller-Upgrade-Kombination nicht aufgeführt sein, wenden Sie sich an den technischen Support.
 
 |===
 | Vorhandene Controller | Ersatz-Controller | Unterstützt ab ONTAP... 
@@ -67,39 +104,13 @@ NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryptio
 * Wenn Sie ohne interne Laufwerke auf ein AFF A20, AFF A50, AFF A70 oder AFF A90 aktualisieren, müssen Sie nach Abschluss des Upgrades keine internen Laufwerke zuweisen.
 
 
-Wenn die Kombination aus dem Controller-Upgrade-Modell nicht in der oben stehenden Tabelle aufgeführt ist, wenden Sie sich an den technischen Support.
 
 
+== Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
-== Upgrades werden für ARL nicht unterstützt
+* link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].
+* Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
-Sie können Upgrades mithilfe von ARL unter folgenden Umständen nicht durchführen:
-
-* Sie führen eines der folgenden Upgrades durch:
-+
-|===
-| Vorhandene Controller | Ersatz-Controller 
-
-
-| AFF A250 | AFF A50, AFF A30 
-
-
-| AFF A800 | AFF A70, AFF A90 
-
-
-| AFF C250 | AFF C30, AFF C60 
-
-
-| AFF C800 | AFF C80 
-|===
-+
-Um ein Upgrade durchzuführen, das in der obigen Tabelle aufgeführt ist, siehe link:other_references.html["Quellen"]Link zu den Befehlen „ System Controller ersetzen “ verwenden, um Controller-Modelle im gleichen Chassis zu aktualisieren_.
-
-* Sie aktualisieren ein V-Series System oder ein FlexArray Virtualisierungs-Storage-System mit einem externen Array als Back-End Storage. Wenden Sie sich an den technischen Support, wenn Sie Optionen zum Upgrade eines V-Series oder FlexArray Systems benötigen.
-* Sie führen ein Upgrade einer MetroCluster FC- oder IP-Konfiguration durch. Informationen zum Upgrade einer MetroCluster-Konfiguration finden Sie unter, um eine link:other_references.html["Quellen"] Verknüpfung zur _MetroCluster-Upgrade- und Erweiterungsdokumentation_ zu erhalten.
-
-
-Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
 .Verwandte Informationen
-Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _ONTAP 9_, wo Sie auf die Produktdokumentation zu ONTAP 9 zugreifen können.
+Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade 
 summary: Bei einem Upgrade durch Verschieben des Storage bereiten Sie die Original-Nodes vor und richten die neuen Nodes ein. Einige Plattformmodelle unterstützen den Transfer von internem Storage zu den neuen Nodes. Sie weisen Festplatten neu zu und stellen die Root-Volume-Konfiguration den neuen Nodes wieder her und konfigurieren Netzwerkports. Das Upgrade durch Verschiebung von Storage führt zu Unterbrechungen. 
 ---
-= Workflow
+= Upgrade durch Verschieben des Speicherworkflows
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/index.html
 keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
 summary: 'Sie können ein Upgrade der Controller-Hardware mit ONTAP 9.5 auf 9.7 mit durchführen `system controller replace` Befehle, Verlagerung des Besitzes von nicht-Root-Aggregaten.' 
 ---
-= Überblick
+= Erfahren Sie mehr über dieses ARL-Upgradeverfahren
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,15 +14,8 @@ summary: 'Sie können ein Upgrade der Controller-Hardware mit ONTAP 9.5 auf 9.7 
 
 
 [role="lead"]
-Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Aggregate Relocation (ARL) für die folgenden Systemkonfigurationen:
+Es gibt verschiedene Methoden zur Aggregate Relocation (ARL) für die Aktualisierung der Controller-Hardware. Dieses Verfahren beschreibt die Aktualisierung der Controller-Hardware mithilfe von ARL und „System Controller Replace Commands“ auf Systemen mit ONTAP 9.7, 9.6 oder 9.5.
 
-[cols="40,20,40"]
-|===
-| Methode | ONTAP-Version | Unterstützte Systeme 
-
-
-| Wird Verwendet `system controller replace` Befehle | 9.5 bis 9.7 | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_95_97_supported_systems["Link zur unterstützten Systemmatrix"] 
-|===
 Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren Aggregate mehrmals von Node zu Node, um zu bestätigen, dass mindestens ein Node während des Upgrades Daten von den Aggregaten bereitstellt. Außerdem migrieren Sie Daten-logische Schnittstellen (LIFs) und weisen Sie die Netzwerk-Ports auf dem neuen Controller den Schnittstellengruppen zu, während Sie fortfahren.
 
 .In diesen Informationen verwendete Terminologie
@@ -33,7 +26,7 @@ Die Begriffe "node1", "node2", "node3" und "node4" werden nur verwendet, um zwis
 Während dieser Informationen bezieht sich der Begriff „Systeme mit FlexArray-Virtualisierungssoftware“ auf Systeme, die zu diesen neuen Plattformen gehören. Der Begriff „V-Series System“ bezieht sich auf getrennte Hardwaresysteme, die an Storage Arrays angeschlossen werden können.
 
 .Wichtige Informationen:
-* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen auch lesen und verstehen link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien für das Controller-Upgrade mit ARL"] Und das link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"] Vor Beginn des Upgrades.
+* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen außerdem die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien zum Upgraden von Controllern mit ARL"] und die link:overview_of_the_arl_upgrade.html["ARL-Upgradesequenz"] bevor Sie mit dem Upgrade beginnen.
 * Bei dieser Vorgehensweise wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Wenn bereits die Ersatz-Controller-Hardware verwendet wurde, müssen Sie sich an den technischen Support wenden, insbesondere wenn auf den Controllern Data ONTAP in 7-Mode ausgeführt wurde.
 * Sie können dieses Verfahren zum Upgrade der Controller Hardware in Clustern mit mehr als zwei Nodes verwenden. Sie müssen jedoch die Verfahren für jedes HA-Paar im Cluster separat durchführen.
 * Dieses Verfahren gilt für FAS Systeme, V-Series Systeme, AFF Systeme und Systeme mit FlexArray Virtualisierungssoftware. FAS Systeme, die nach ONTAP 9.5 freigegeben wurden, können an Speicher-Arrays angebunden werden, wenn die erforderliche Lizenz installiert ist. Die vorhandenen Systeme der V-Serie werden von ONTAP 9.5 unterstützt. Weitere Informationen zu den Modellen Storage Array und V-Series finden Sie unter link:other_references.html["Quellen"] Zu verlinken auf „Hardware Universe_“ und „V-Series Supportmatrix“.

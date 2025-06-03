@@ -16,7 +16,7 @@ summary: Wenn Sie mit ARL Controller-Modelle im gleichen Gehäuse aktualisieren,
 [role="lead"]
 Nach dem Austausch der entsprechenden Ersatz-Systemmodule müssen Sie netboot node1. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Bei der Vorbereitung auf Netzboot fügen Sie eine Kopie des ONTAP 9-Startabbilds auf einen Webserver hinzu, auf den das System zugreifen kann.
 
-Es ist nicht möglich, die auf dem Boot-Medium des Ersatz-Controller-Moduls installierte ONTAP-Version zu überprüfen, es sei denn, sie ist in einem Gehäuse installiert und eingeschaltet. Die ONTAP-Version auf dem Ersatz-System-Boot-Medium muss mit der ONTAP-Version auf dem alten System übereinstimmen, das Sie aktualisieren, und sowohl die primären als auch die Backup-Boot-Images auf dem Boot-Medium müssen übereinstimmen. Informationen zur Überprüfung der unterstützten ONTAP-Mindestversion für Ihr Upgrade finden Sie unter link:index.html["Überblick"].
+Die auf dem Bootmedium des Ersatz-Controllermoduls installierte ONTAP-Version kann nur überprüft werden, wenn das Modul in einem Chassis installiert und eingeschaltet ist. Informationen Die ONTAP-Version auf dem Ersatz-System-Boot-Medium muss mit der ONTAP-Version auf dem alten System übereinstimmen, das Sie aktualisieren, und sowohl die primären als auch die Backup-Boot-Images auf dem Boot-Medium müssen übereinstimmen. zur Überprüfung der mindestens unterstützten ONTAP-Version für Ihr Upgrade finden Sie im link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems,["unterstützte System-Upgrade-Kombinationen"] .
 
 Sie können die Images konfigurieren, indem Sie einen Netzboot gefolgt vom ausführen `wipeconfig` Befehl aus dem Startmenü. Wenn das Controller-Modul zuvor in einem anderen Cluster verwendet wurde, führt das aus `wipeconfig` Mit dem Befehl wird die Restkonfiguration auf dem Boot-Medium gelöscht.
 
@@ -149,8 +149,27 @@ Das Controller-Modul wird neu gestartet, stoppt aber im Startmenü, da das Boot-
 
 
 
-. Führen Sie an der Eingabeaufforderung den aus `wipeconfig` Befehl zum Löschen einer früheren Konfiguration auf dem Startmedium:
+. Löschen Sie alle vorherigen Konfigurationen auf dem Startmedium.
 +
+.. Führen Sie an der folgenden Eingabeaufforderung den  `wipeconfig` Befehl und drücken Sie die Eingabetaste:
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? wipeconfig
+----
 .. Wenn die folgende Meldung angezeigt wird, beantworten Sie die Antwort `yes`:
 +
 [listing]
@@ -160,6 +179,10 @@ Warning: do not run this option on a HA node that has been taken over.
 Are you sure you want to continue?:
 ----
 .. Der Node wird neu gebootet, um den abzuschließen `wipeconfig` Und hält dann am Startmenü an.
++
+
+NOTE: Warten Sie, bis der Knoten nach Abschluss des Vorgangs beim Bootmenü stoppt.  `wipeconfig` Betrieb.
+
 
 
 . Wählen Sie die Option `5` Wechseln Sie vom Boot-Menü zum Wartungsmodus. Antwort `yes` Zu den Aufforderungen, bis der Node im Wartungsmodus und mit der Eingabeaufforderung angehalten wird `*>`.

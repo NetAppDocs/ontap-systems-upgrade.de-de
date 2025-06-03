@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/decide_to_use_the_aggregate_relocation_guide.html
 keywords: aggregate relocation, decide to use, upgrade, model, matrix, replacement, controller 
 summary: 'Entscheiden Sie, ob Sie mithilfe von ARL ein Upgrade von Controllern mit ONTAP 9.5 bis 9.7 durchführen `system controller replace` Befehle.' 
 ---
-= Entscheiden Sie, ob Sie das Verfahren zur Aggregatverschiebung verwenden
+= Entscheiden Sie, ob Sie dieses Verfahren zur Aggregatverlagerung verwenden möchten
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,20 +14,32 @@ summary: 'Entscheiden Sie, ob Sie mithilfe von ARL ein Upgrade von Controllern m
 
 
 [role="lead"]
-In diesem Inhalt wird beschrieben, wie Sie die Storage Controller in einem HA-Paar mit neuen Controllern aktualisieren und dabei alle vorhandenen Daten und Festplatten beibehalten. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
+Es gibt verschiedene Methoden zur Aggregate Relocation (ARL) für die Aktualisierung der Controller-Hardware. Dieses Verfahren beschreibt die Aktualisierung der Controller-Hardware mittels ARL und „System Controller Replace Commands“ auf Systemen mit ONTAP 9.7, 9.6 oder 9.5. Sie sollten dieses komplexe Verfahren nur verwenden, wenn Sie ein erfahrener ONTAP-Administrator sind.
 
-Verwenden Sie diese Inhalte unter folgenden Umständen:
+Um zu entscheiden, ob dieses ARL-Verfahren für Ihr Controller-Hardware-Upgrade geeignet ist, sollten Sie alle folgenden Umstände für unterstützte Upgrades überprüfen:
 
 * Sie aktualisieren gerade NetApp Controller mit ONTAP 9.5, 9.6 oder 9.7. Dieses Dokument gilt nicht für ein Upgrade auf ONTAP 9.8.
 * Sie möchten die neuen Controller nicht als neues HA-Paar zum Cluster hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
 * Sie sind in der Verwaltung von ONTAP erfahren und sind mit den Risiken der Arbeit im Diagnose-Privilege-Modus vertraut.
+* Ihre Hardware-Upgrade-Kombination finden Sie in der <<sys_commands_95_97_supported_systems,Unterstützte Modellmatrix>> .
 * Wenn Sie eine MetroCluster Konfiguration aktualisieren, handelt es sich um eine FC-Konfiguration mit 4 oder mehr Nodes und auf allen Nodes wird ONTAP 9.6 oder 9.7 ausgeführt.
 
 
+[NOTE]
+====
+* . Dieses ARL-Verfahren umfasst die Schritte, die sicherstellen, dass die internen Festplatten sicher im Gehäuse bleiben, wenn Sie während des Upgrade-Vorgangs die Controller entfernen und installieren
++
+link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Erfahren Sie mehr über die unterstützten System-Upgrade-Kombinationen mit ARL, wobei das vorhandene Systemgehäuse und die Festplatten erhalten bleiben"].
 
-NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
+* Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 
-[[sys_befiehlt_95_97_supported_Systems]] die folgenden Tabellen zeigen die unterstützte Modellmatrix für das Controller-Upgrade.
+
+====
+
+
+== Unterstützte System-Upgrade-Kombinationen
+
+Die folgende Tabelle zeigt die unterstützte Modellmatrix für das Controller-Upgrade mit diesem ARL-Verfahren.
 
 [cols="50,50"]
 |===
@@ -63,7 +75,13 @@ Das automatisierte Upgrade ^4^ARL von einer AFF A300 auf eine AFF A400 und eine 
 * Nach Abschluss eines Controller-Upgrades mithilfe von temporären Cluster-Ports können Sie Cluster-LIFs unterbrechungsfrei zu e3a und e3b migrieren, 100-GbE-Ports auf einem AFF A400 System sowie e0c und e0d, 100-GbE-Ports auf einem FAS8300 System.
 
 
-Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+
+
+== Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
+
+* link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].
+* Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+
 
 .Verwandte Informationen
-Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _ONTAP 9_, wo Sie auf die Produktdokumentation zu ONTAP 9 zugreifen können.
+Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.

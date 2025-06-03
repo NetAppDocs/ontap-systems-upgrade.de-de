@@ -1,0 +1,14 @@
+= Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
+:allow-uri-read: 
+
+
+
+
+== Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
+
+* link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].
+* Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+
+
+.Verwandte Informationen
+Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.

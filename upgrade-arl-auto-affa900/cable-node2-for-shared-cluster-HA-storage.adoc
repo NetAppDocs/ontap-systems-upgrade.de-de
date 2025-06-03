@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html 
+permalink: upgrade-arl-auto-affa900/cable-node2-for-shared-cluster-HA-storage.html 
 keywords: cluster, ha, aff, a800, shared, storage, data, management 
-summary: Cluster, HA, Storage und Datenverbindungen, die zuvor mit dem AFF A800 Knoten 1 verbunden waren, mit dem neu installierten AFF A90 oder AFF A70 Knoten 1 verbinden 
+summary: Verbinden Sie die Cluster-, HA-, Speicher- und Datenverbindungen, die zuvor mit dem AFF A800-Knoten2 verbunden waren, mit dem neu installierten AFF A90- oder AFF A70-Knoten1 
 ---
-= Kabelnode1 für Shared Cluster-HA und Storage
+= Kabelknoten2 für gemeinsam genutztes Cluster-HA und Speicher
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Cluster, HA, Storage und Datenverbindungen, die zuvor mit dem AFF A800 
 
 
 [role="lead"]
-Wenn Sie eines der folgenden Upgrades durchführen, müssen Sie die Cluster-, HA-, Storage-, Daten- und Managementverbindungen, die zuvor mit dem Knoten 1 des vorhandenen Systems verbunden waren, mit dem neu installierten Knoten 1 des Ersatzsystems verbinden.
+Wenn Sie eines der folgenden Upgrades durchführen, müssen Sie die Cluster-, HA-, Speicher-, Daten- und Verwaltungsverbindungen, die zuvor mit dem Knoten2 auf dem vorhandenen System verbunden waren, mit dem neu installierten Knoten2 auf dem Ersatzsystem verbinden.
 
 [cols="35,65"]
 |===
@@ -80,7 +80,7 @@ Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfi
 | Ethernet-Storage-Ports für NS224-Shelfs | Jeder verfügbare Port | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher 
 |===
 |===
-| Port | AFF A250, AFF C250 | AFF A30, AFF C30, AFF C60 | AFF A50 
+| Porttyp | AFF A250, AFF C250 | AFF A30, AFF C60 | AFF A50 
 
 
 | Cluster | e0c | e1a (Verwenden Sie e1a für die temporäre Clusterverbindung) | e1a (Verwenden Sie e1a für die temporäre Clusterverbindung) 
@@ -89,13 +89,16 @@ Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfi
 | Cluster | e0d | e1b (Verwenden Sie e1b für die temporäre Clusterverbindung) | e1b (Verwenden Sie e1b für die temporäre Clusterverbindung) 
 
 
-| HA | Nicht erforderlich | HA-Ports sind für das Upgrade von Knoten 1 nicht erforderlich. | HA-Ports sind für das Upgrade von Knoten 1 nicht erforderlich. 
+| HA | Der e0c HA-Port wird mit dem Cluster-Port geteilt | e4a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e4a auf Knoten2 verbunden | e4a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e4a auf Knoten2 verbunden 
 
 
-| Ethernet-Storage-Ports | Jeder verfügbare Port | e3a, e3b | e3a, e3b 
+| HA | Der e0d HA-Port wird mit dem Cluster-Port geteilt | e2a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e2a auf Knoten2 verbunden. Wenn e2a nicht vorhanden ist oder 100 GbE nicht unterstützt, verbinden Sie e4b auf Knoten1 über ein 100-GbE-Kabel direkt mit e4b auf Knoten2. | e2a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e2a auf Knoten2 verbunden. Wenn e2a nicht vorhanden ist oder 100 GbE nicht unterstützt, verbinden Sie e4b auf Knoten1 über ein 100-GbE-Kabel direkt mit e4b auf Knoten2. 
 
 
-| SAS-Storage-Ports | Jeder verfügbare Port | 3 a, 3 b | 3 a, 3 b 
+| Ethernet-Speicheranschluss | Jeder verfügbare Port | e3a, e3b | e3a, e3b 
+
+
+| SAS-Speicheranschluss | Jeder verfügbare Port | 3 a, 3 b | 3 a, 3 b 
 |===
 
 

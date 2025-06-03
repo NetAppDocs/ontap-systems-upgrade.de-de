@@ -14,7 +14,7 @@ summary: Starten Sie Node 2 mit den Ersatz-Controller-Modulen, wenn Sie Controll
 
 
 [role="lead"]
-Node2 mit den Ersatzmodulen ist nun startbereit. Die unterstützten Austauschmodule sind im aufgeführtlink:index.html#supported-systems,["Unterstützte Systeme Matrix"].
+Node2 mit den Ersatzmodulen ist nun startbereit. Die unterstützten Austauschmodule sind in der aufgeführtlink:index.html#supported-systems,["Unterstützte Systeme Matrix"].
 
 
 NOTE: Sie verschieben die Konsolen- und Verwaltungsverbindungen nur, wenn Sie ein Upgrade durchführen, indem Sie die Systemmodule austauschen.

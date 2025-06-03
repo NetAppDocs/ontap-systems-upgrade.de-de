@@ -60,8 +60,18 @@ Informationen zum Upgrade von Controllern der Einstiegsklasse mit internen Laufw
 
 
 
+== MetroCluster FC-Konfiguration
+
+In einer MetroCluster FC-Konfiguration müssen die Knoten für Disaster Recovery/Failover-Standort so schnell wie möglich ersetzt werden. Nichtübereinstimmungen in Controller-Modellen innerhalb einer MetroCluster-Konfiguration werden nicht unterstützt, da dies dazu führen kann, dass die Disaster Recovery-Spiegelung offline geht. Verwenden Sie die  `-skip-metrocluster-check true` Befehl zum Umgehen von MetroCluster-Prüfungen, wenn Sie Knoten am zweiten Standort ersetzen.
+
+
+
 == Fehlerbehebung
 
-Falls beim Upgrade der Controller Probleme auftreten, finden Sie weitere Informationen im link:troubleshoot_index.html["Fehlerbehebung"] Abschnitt am Ende des Verfahrens für weitere Informationen und mögliche Lösungen.
+Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node kann abstürzen, Aggregate werden möglicherweise nicht verschoben oder LIFs werden nicht migriert. Die Ursache des Fehlers und seiner Lösung hängt davon ab, wann der Fehler während des Aktualisierungsvorgangs aufgetreten ist.
+
+Eine Beschreibung der verschiedenen Phasen des Verfahrens finden Sie in der Tabelle im Abschnitt „Übersicht über das ARL-Upgrade“. Informationen über mögliche Ausfälle werden in der Phase des Verfahrens aufgelistet.
+
+Sollten beim Upgrade der Controller Probleme auftreten, lesen Sie bitte die link:aggregate_relocation_failures.html["Fehlerbehebung"] Abschnitt. Die Informationen zu möglichen Fehlern sind nach Phase des Verfahrens im Abschnitt link:arl_upgrade_workflow.html["ARL-Upgradesequenz"] .
 
 Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.

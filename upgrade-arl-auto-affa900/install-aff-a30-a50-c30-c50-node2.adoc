@@ -14,7 +14,7 @@ summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-
 
 
 [role="lead"]
-Installieren Sie das Ersatz-Controller-Modul, das Sie für das Upgrade auf Knoten2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
+Installieren Sie das Ersatz-Controller-Modul, das Sie für das Upgrade auf Knoten2 erhalten haben. Knoten2 ist Controller B, der sich in der unteren Hälfte des Gehäuses befindet, wenn man von der Rückseite des Systems auf die Controller schaut.
 
 .Schritte
 . Positionieren Sie das Speichersystem auf den Schienen in der Mitte des Schranks oder des Telco-Racks, und stützen Sie das Speichersystem von unten ab, und schieben Sie es hinein.
@@ -42,4 +42,5 @@ NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einsc
 +
 `saveenv`
 
+. Stellen Sie bei Switchless-Konfigurationen mit zwei Knoten sicher, dass Sie eine X60132A-Karte (4-Port 10/25 GbE) in Steckplatz 1 auf Knoten 2 installiert haben. Die X60132A-Karte wird während des Upgrades für die Clusterverbindung benötigt.
 

@@ -3,25 +3,22 @@ section: upgrade-arl-auto-app-9151
 title: Verwenden Sie Befehle zum Austauschen von System-Controllern, um die mit ONTAP
   9.15.1 und höher eingeführte Controller-Hardware zu aktualisieren
 entries:
-- title: Überblick
+- title: Erfahren Sie mehr über dieses ARL-Verfahren
   url: "/upgrade-arl-auto-app-9151/index.html"
 - title: Automatisierung des Controller-Upgrades
   url: "/upgrade-arl-auto-app-9151/automate_the_controller_upgrade_process.html"
-- title: Entscheiden Sie, ob der Inhalt der Aggregatverschiebung verwendet werden
-    soll
+- title: Entscheiden Sie, ob Sie dieses ARL-Verfahren verwenden möchten
   url: "/upgrade-arl-auto-app-9151/decide_to_use_the_aggregate_relocation_guide.html"
 - title: Die erforderlichen Tools und Dokumentationen
   url: "/upgrade-arl-auto-app-9151/required_tools_and_documentation.html"
 - title: Richtlinien für das Controller-Upgrade mit ARL
   url: "/upgrade-arl-auto-app-9151/guidelines_for_upgrading_controllers_with_arl.html"
-- title: Überblick über das ARL Upgrade
+- title: Erfahren Sie mehr über die ARL-Upgradesequenz
   url: "/upgrade-arl-auto-app-9151/overview_of_the_arl_upgrade.html"
 - title: 'Stufe 1: Upgrade vorbereiten'
   pdf-filename: Phase 1. Vorbereitung auf das Upgrade (Upgrade mit „System-Controller-Austausch“
     in ONTAP 9.15.1 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto-app-9151/stage_1_index.html"
   - title: Bereiten Sie die Knoten für ein Upgrade vor
     url: "/upgrade-arl-auto-app-9151/prepare_nodes_for_upgrade.html"
   - title: Management der Storage-Verschlüsselung mit dem Onboard Key Manager
@@ -30,8 +27,6 @@ entries:
   pdf-filename: Phase 2. Verschieben und Ausmustern von Knoten1 (Upgrade mit „System-Controller-Austausch“
     in ONTAP 9.15.1 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto-app-9151/stage_2_index.html"
   - title: Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich
       im Besitz von node1 befinden, auf Knoten 2
     url: "/upgrade-arl-auto-app-9151/relocate_non_root_aggr_nas_data_lifs_node1_node2.html"
@@ -45,8 +40,6 @@ entries:
   pdf-filename: Phase 3. Installieren und Booten von Knoten3 (Upgrade mit „System-Controller-Austausch“
     in ONTAP 9.15.1 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto-app-9151/stage_3_index.html"
   - title: Installieren und booten Sie node3
     url: "/upgrade-arl-auto-app-9151/install_boot_node3.html"
   - title: Überprüfen Sie die Installation von node3
@@ -60,8 +53,6 @@ entries:
   pdf-filename: Phase 4. Verschieben und Ausmustern von Knoten2 (Upgrade mit „System-Controller-Austausch“
     in ONTAP 9.15.1 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto-app-9151/stage_4_index.html"
   - title: Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten
       2 auf Knoten 3
     url: "/upgrade-arl-auto-app-9151/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html"
@@ -71,8 +62,6 @@ entries:
   pdf-filename: Phase 5. Installation und Start von node 4 (Upgrade mit „System-Controller-Austausch“
     in ONTAP 9.15.1 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto-app-9151/stage_5_index.html"
   - title: installieren und booten sie node4
     url: "/upgrade-arl-auto-app-9151/install_boot_node4.html"
   - title: Überprüfen Sie die installation von node4
@@ -86,8 +75,6 @@ entries:
   pdf-filename: Phase 6. Abschluss des Upgrades (Upgrade mit „System-Controller-Austausch“
     in ONTAP 9.15.1 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto-app-9151/stage_6_index.html"
   - title: Authentifizierungsmanagement mit KMIP-Servern
     url: "/upgrade-arl-auto-app-9151/manage-authentication-using-kmip-servers.html"
   - title: Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet
@@ -105,8 +92,6 @@ entries:
   pdf-filename: Fehlerbehebung (Upgrade mit „System-Controller-Austausch“ in ONTAP
     9.15.1 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto-app-9151/troubleshoot_index.html"
   - title: Fehler bei der Aggregatverschiebung
     url: "/upgrade-arl-auto-app-9151/aggregate_relocation_failures.html"
   - title: Neustarts, Panikspiele oder Energiezyklen

@@ -13,6 +13,9 @@ summary: Wenn es sich bei dem ursprünglichen Node um eines der unterstützten M
 [role="lead"]
 Wenn es sich bei dem ursprünglichen Node um eines der unterstützten Modelle handelt, können während des Upgrades durch Verschieben von Storage die internen SATA-Laufwerke, SSDs oder SAS-Laufwerke des Nodes in ein Festplatten-Shelf verschoben werden, das mit dem neuen Node im selben Cluster verbunden ist.
 
+
+NOTE: link:upgrade-convert-node-to-shelf.html["Sie können das System auch in ein Laufwerksregal umwandeln und es an die neuen Knoten anschließen"].
+
 .Bevor Sie beginnen
 * Sie müssen geprüft haben link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"] Allgemeines zum Verschieben interner Laufwerke.
 +
@@ -22,6 +25,9 @@ Wenden Sie sich an den technischen Support, wenn Sie Anleitungen für Ihre Konfi
 * Ein kompatibles Festplatten-Shelf muss bereits mit dem neuen Node verbunden sein.
 * Das Festplatten-Shelf muss über genügend freie Schächte verfügen, um die SATA-, SSD- oder SAS-Laufwerksträger vom ursprünglichen Node zu beherbergen.
 
+
+.Über diese Aufgabe
+Sie können Laufwerke nur innerhalb desselben Clusters verschieben.
 
 .Schritte
 . Entfernen Sie vorsichtig die Blende von der Vorderseite des Systems.

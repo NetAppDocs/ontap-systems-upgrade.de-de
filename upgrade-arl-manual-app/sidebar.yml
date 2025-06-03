@@ -3,10 +3,9 @@ section: upgrade-arl-manual-app
 title: Führen Sie ein manuelles Upgrade der Controller-Hardware mit ONTAP 9.8 oder
   höher durch
 entries:
-- title: Überblick
+- title: Erfahren Sie mehr über dieses ARL-Verfahren
   url: "/upgrade-arl-manual-app/index.html"
-- title: Entscheiden Sie, ob der Inhalt der Aggregatverschiebung verwendet werden
-    soll
+- title: Entscheiden Sie, ob Sie dieses ARL-Verfahren verwenden möchten
   url: "/upgrade-arl-manual-app/decide_to_use_arl_guide.html"
 - title: ARL Upgrade-Workflow
   url: "/upgrade-arl-manual-app/arl_upgrade_workflow.html"
@@ -20,8 +19,6 @@ entries:
   pdf-filename: 'Stufe 1: Upgrade vorbereiten (manuelles Upgrade in ONTAP 9.8 oder
     höher)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-manual-app/stage_1_index.html"
   - title: Ermitteln Sie, ob der Controller über Aggregate auf internen Festplatten
       verfügt
     url: "/upgrade-arl-manual-app/determine_aggregates_on_internal_drives.html"
@@ -37,8 +34,6 @@ entries:
   pdf-filename: 'Stufe 2: Verschiebung und Austausch von Knoten1 (manuelles Upgrade
     in ONTAP 9.8 oder höher)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-manual-app/stage_2_index.html"
   - title: Verschiebung von nicht-Root-Aggregaten von node1 auf node2
     url: "/upgrade-arl-manual-app/relocate_non_root_aggr_node1_node2.html"
   - title: Verschieben Sie NAS-Daten-LIFs von node1 auf node2
@@ -51,8 +46,6 @@ entries:
   pdf-filename: 'Phase 3: Installation und Boot-Node3 (manuelles Upgrade in ONTAP
     9.8 oder höher)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-manual-app/stage_3_index.html"
   - title: Installieren und booten Sie node3
     url: "/upgrade-arl-manual-app/install_boot_node3.html"
   - title: Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest
@@ -73,8 +66,6 @@ entries:
   pdf-filename: 'Phase 4: Notieren Sie Informationen und Mustern Sie node2 aus (manuelles
     Upgrade in ONTAP 9.8 oder höher).'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-manual-app/stage_4_index.html"
   - title: Node2-Informationen aufzeichnen
     url: "/upgrade-arl-manual-app/record_node2_information.html"
   - title: Node2 ausmustern
@@ -83,8 +74,6 @@ entries:
   pdf-filename: 'Phase 5: node4 installieren und booten (manuelles Upgrade in ONTAP
     9.8 oder höher)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-manual-app/stage_5_index.html"
   - title: installieren und booten sie node4
     url: "/upgrade-arl-manual-app/install_boot_node4.html"
   - title: Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest
@@ -103,8 +92,6 @@ entries:
   pdf-filename: 'Phase 6: Führen Sie das Upgrade durch (manuelles Upgrade in ONTAP
     9.8 oder höher).'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-manual-app/stage_6_index.html"
   - title: Authentifizierungsmanagement mit KMIP-Servern
     url: "/upgrade-arl-manual-app/manage_authentication_kmip.html"
   - title: Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet
@@ -121,8 +108,6 @@ entries:
 - title: Fehlerbehebung
   pdf-filename: Fehlerbehebung (manuelles Upgrade in ONTAP 9.8 oder höher)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-manual-app/troubleshoot_index.html"
   - title: Fehler bei der Aggregatverschiebung
     url: "/upgrade-arl-manual-app/aggregate_relocation_failures.html"
   - title: Neustarts, Panikspiele oder Energiezyklen

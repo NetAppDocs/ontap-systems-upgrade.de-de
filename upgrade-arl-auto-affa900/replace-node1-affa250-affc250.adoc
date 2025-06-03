@@ -79,6 +79,9 @@ Stellen Sie sicher, dass Sie das Gewicht des Controller-Moduls halten, wenn Sie 
 
 Installieren, verkabeln und schließen Sie das Ersatzmodul in Knoten 1 an.
 
+.Bevor Sie beginnen
+Stellen Sie sicher, dass sich in Steckplatz 1 auf Knoten 1 eine X60132A-Karte (4-Port 10/25 GbE) befindet. Die X60132A-Karte wird während des Upgrades für die Clusterverbindung in Switchless-Clusterkonfigurationen mit zwei Knoten benötigt.
+
 .Schritte
 . Richten Sie das Ende des Controller-Moduls an der Öffnung im Gehäuse aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
 +

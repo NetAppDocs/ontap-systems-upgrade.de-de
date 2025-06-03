@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: plan, upgrade, consideration, contact, technical, support, recommendation, guidance, cluster, considerations for upgrading controller hardware 
 summary: Bei der Planung des Upgrades sollten Sie sich mit den allgemeinen Überlegungen zum Upgrade vertraut machen. Wenden Sie sich bei Bedarf an den technischen Support, um Empfehlungen und Hinweise zu erhalten, die der Konfiguration Ihres Clusters spezifisch sind. 
 ---
-= Überlegungen für ein Upgrade der Controller-Hardware
+= Überlegungen zum Upgrade der Controller-Hardware durch Verschieben von Volumes oder Speicher
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -30,7 +30,7 @@ NOTE: Bevor Sie mit dem Upgrade des Controllers beginnen, müssen Sie alle Frage
 | Kombiniere ich verschiedene Controller Plattform-Modelle in einem Cluster?  a| 
 link:https://hwu.netapp.com["Stellen Sie sicher, dass Sie die Regeln für die Kombination von Speicherplattformen befolgen"^].
 
-Bei den Controllern in einem HA-Paar muss es sich um zwei AFF-, FAS- oder ASA-Modelle handeln.
+Die Controller in einem HA-Paar müssen zwei AFF-, FAS- oder ASA-Modelle sein.
 
 
 
@@ -67,7 +67,7 @@ NOTE: Wenn Sie ein Cluster mit acht Nodes aktualisieren, das Blockprotokolle wie
 
 
 
-| Rüstet ich ein HA-Paar in einem Cluster mit mehreren HA-Paaren auf? | Verschieben Sie Epsilon auf den Node eines HA-Paars, ohne dass ein Controller-Upgrade durchgeführt wird. Wenn Sie beispielsweise nodeA/nodeB in einem Cluster mit der HA-Paar-Konfiguration nodeA/nodeB und nodeC/nodded aktualisieren, müssen Sie Epsilon auf nodeC oder nodded verschieben. 
+| Aktualisiere ich ein HA-Paar in einem Cluster mit mehreren HA-Paaren? | Verschieben Sie Epsilon zum Knoten eines HA-Paares, bei dem kein Controller-Upgrade durchgeführt wird. Wenn Sie beispielsweise nodeA/nodeB in einem Cluster mit der HA-Paar-Konfiguration nodeA/nodeB und nodeC/nodded aktualisieren, müssen Sie Epsilon auf nodeC oder nodded verschieben. 
 
 
 | Verwende ich ONTAP 9.6P11, 9.7P8 oder höher? | NetApp empfiehlt, die Übernahme von Connectivity, Liveliness und Availability Monitor (CLAM) zu aktivieren, damit der Cluster bei einem Ausfall bestimmter Nodes wieder Quorum-Verfügbarkeit erhält. Der `kernel-service` Für Befehl ist der erweiterte Zugriff auf die Berechtigungsebene erforderlich. Weitere Informationen finden Sie in dem Artikel der NetApp Knowledge Base https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["CLAM Übernahme Standardkonfiguration geändert"^].

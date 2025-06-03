@@ -1,0 +1,51 @@
+= Verbinden Sie die Ports E0M und BMC
+:allow-uri-read: 
+
+
+
+
+== Verbinden Sie die Ports E0M und BMC
+
+Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, werden die E0M und BMC-Ports kombiniert und über den „Schraubenschlüssel“-Port am Ersatzsystem aufgerufen. Sie müssen sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf dem vorhandenen System verbunden sind, bevor Sie eine Verbindung zum Ersatzsystem herstellen.
+
+[cols="35,65"]
+|===
+| Wenn der... | Dann... 
+
+
+| E0M und BMC IP-Adressen befinden sich auf demselben IP-Subnetz | Verbinden Sie entweder den E0M oder den BMC-Port des vorhandenen Systems mit dem „Schraubenschlüssel“-Port des Ersatzsystems. 
+
+
+| E0M und BMC IP-Adressen befinden sich in unterschiedlichen Subnetzen  a| 
+. Führen Sie die IP-Adressen E0M und BMC zu einem IP-Subnetz zusammen.
+. Verbinden Sie entweder den E0M oder den BMC-Port des vorhandenen Systems mit dem „Schraubenschlüssel“-Port des Ersatzsystems.
+
+
+|===
+
+
+== Stellen Sie eine Verbindung zu einem 2-Node-Cluster ohne Switches her
+
+Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfigurationen ohne Switch mit zwei Nodes.
+
+|===
+| Porttyp | AFF A800, AFF C800 | AFF A90 | AFF A70, AFF C80 
+
+
+| Cluster | e0a | e1a | e1a 
+
+
+| Cluster | e1a | E7a (e1b verwenden, wenn kein e7a vorhanden ist) | e1b 
+
+
+| HA | e0b | Keine Verbindung herstellen | Keine Verbindung herstellen 
+
+
+| HA | e1b | Keine Verbindung herstellen | Keine Verbindung herstellen 
+
+
+| SAS-Storage-Ports (sofern vorhanden und verwendet) | Jeder verfügbare Port | Jeder verfügbare Port | Jeder verfügbare Port 
+
+
+| Ethernet-Storage-Ports für NS224-Shelfs | Jeder verfügbare Port | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher 
+|===

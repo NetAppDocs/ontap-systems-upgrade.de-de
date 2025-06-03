@@ -4,20 +4,18 @@ permalink: upgrade-arl-auto-app/index.html
 keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
 summary: 'Sie können ein Controller-Hardware mit ONTAP 9.8 oder höher mithilfe von aktualisieren `system controller replace` Befehle, Verlagerung des Besitzes von nicht-Root-Aggregaten.' 
 ---
-= Überblick
+= Erfahren Sie mehr über dieses ARL-Upgradeverfahren
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
-Dieses Verfahren beschreibt das Upgrade der Controller-Hardware mithilfe von Aggregate Relocation (ARL) für die folgenden Systemkonfigurationen:
+Es gibt verschiedene Methoden zur Aggregate Relocation (ARL) für die Aktualisierung der Controller-Hardware. Dieses Verfahren beschreibt die Aktualisierung der Controller-Hardware mittels Aggregate Relocation (ARL) mit „System Controller Replace Commands“ auf Systemen mit ONTAP 9.8 oder höher.
 
-[cols="40,20,40"]
-|===
-| Methode | ONTAP-Version | Unterstützte Systeme 
-
-
-| Wird Verwendet `system controller replace` Befehle | 9.8 oder höher | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_98_supported_systems["Link zur unterstützten Systemmatrix"] 
-|===
 Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren Aggregate mehrmals von Node zu Node, um zu bestätigen, dass mindestens ein Node während des Upgrades Daten von den Aggregaten bereitstellt. Außerdem migrieren Sie Daten-logische Schnittstellen (LIFs) und weisen Sie die Netzwerk-Ports auf dem neuen Controller den Schnittstellengruppen zu, während Sie fortfahren.
 
 .In diesen Informationen verwendete Terminologie
@@ -26,7 +24,7 @@ In dieser Information werden die ursprünglichen Knoten „node1“ und „node2
 Während dieser Informationen bezieht sich der Begriff „Systeme mit FlexArray-Virtualisierungssoftware“ auf Systeme, die zu diesen neuen Plattformen gehören. Der Begriff „V-Series System“ bezieht sich auf getrennte Hardwaresysteme, die an Storage Arrays angeschlossen werden können.
 
 .Wichtige Informationen:
-* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen auch lesen und verstehen, die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien für das Controller-Upgrade mit ARL"] Und das link:overview_of_the_arl_upgrade.html["Überblick über das ARL Upgrade"] Abschnitte vor Beginn der Aktualisierung.
+* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen außerdem die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien zum Upgraden von Controllern mit ARL"] und die link:overview_of_the_arl_upgrade.html["ARL-Upgradesequenz"] bevor Sie mit dem Upgrade beginnen.
 * Bei dieser Vorgehensweise wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Wenn Sie zuvor die Ersatz-Controller-Hardware verwendet haben, müssen Sie sich an den technischen Support wenden, insbesondere wenn auf den Controllern Data ONTAP im 7-Mode ausgeführt wurde.
 * Sie können mithilfe von ARL ein unterbrechungsfreies, vereinfachtes Controller-Upgrade auf einen neuen Controller mit einer neueren ONTAP Version durchführen als die auf dem Cluster ausgeführte Version. Die ONTAP Versionskombinationen für alte und neue Controller werden durch das NDU Trittfrequenzmodell der ONTAP Software bestimmt. Wenn beispielsweise ein Controller ausgeführt ONTAP wird und 9.8 zwar die letzte unterstützte Version für diesen Controller ist, können Sie ein Upgrade auf einen neuen Controller mit einer ONTAP-Version später als ONTAP 9.8 durchführen.
 +

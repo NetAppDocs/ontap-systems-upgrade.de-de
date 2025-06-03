@@ -5,16 +5,18 @@
 sie müssen node4 im Rack installieren, Node2-Verbindungen zu node4 übertragen und node4 booten. Sie müssen auch node2-Spares, alle Festplatten der Root-Partition und alle nicht-Root-Aggregate neu zuweisen, die nicht zu node3 früher verschoben wurden.
 
 .Über diese Aufgabe
-Sie müssen node4 als Netzboot fahren, wenn nicht die gleiche Version von ONTAP 9 auf node2 installiert ist. Nachdem sie node4 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien auf das Boot-Medium für den späteren Systemstart herunterladen, indem Sie den Anweisungen unter folgen link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"]
+Sie müssen Knoten4 per Netboot starten, wenn dort nicht die gleiche Version von ONTAP 9 installiert ist wie auf Knoten2. Nachdem Sie node4 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Sie können dann die korrekten Dateien für nachfolgende Systemstarts auf das Bootmedium herunterladen, indem Sie den Anweisungen in link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"] .
 
-Sie sind jedoch nicht verpflichtet, Netboot node4 zu starten, wenn es die gleiche oder eine höhere Version von ONTAP 9 hat, die auf node2 installiert ist.
+Sie müssen jedoch keinen Netboot für Knoten4 durchführen, wenn dort dieselbe oder eine neuere Version von ONTAP 9 installiert ist wie auf Knoten2.
 
-* Wichtige Informationen:*
+[IMPORTANT]
+====
+* Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 2 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
+* Wenn Sie ein V-Series-System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, das mit Speicher-Arrays verbunden ist, müssen Sie Folgendes durchführen: <<man_install4_Step1,Schritt 1>> durch <<man_install4_Step7,Schritt 7>> , verlassen Sie diesen Abschnitt bei <<man_install4_Step8,Schritt 8>> und befolgen Sie die Anweisungen in link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Geben Sie die Befehle bei Bedarf im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und den Vorgang bei <<man_install4_Step9,Schritt 9>> .
+* Wenn Sie ein System mit Speicherplatten aktualisieren, müssen Sie diesen Abschnitt vollständig ausfüllen und dann mit dem Abschnitt fortfahren. link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] , indem Sie Befehle an der Cluster-Eingabeaufforderung eingeben.
 
-* Wenn Sie ein V-Series System oder ein System mit mit mit FlexArray Virtualisierungssoftware aktualisieren, die mit Storage-Arrays verbunden ist, müssen Sie diese vollständig ausführen <<man_install4_Step1,Schritt 1>> Bis <<man_install4_Step7,Schritt 7>>, Lassen Sie diesen Abschnitt bei <<man_install4_Step8,Schritt 8>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Geben Sie bei Bedarf die Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und den Vorgang unter fortsetzen <<man_install4_Step9,Schritt 9>>.
-* Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt abschließen und dann mit dem Abschnitt fortfahren link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
 
-
+====
 .Schritte
 . [[man_install4_Step1]]Nehmen Sie eine der folgenden Aktionen:
 +

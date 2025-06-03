@@ -2,9 +2,16 @@
 :allow-uri-read: 
 
 
+[NOTE]
+====
+* . Dieses ARL-Verfahren umfasst die Schritte, die sicherstellen, dass die internen Festplatten sicher im Gehäuse bleiben, wenn Sie während des Upgrade-Vorgangs die Controller entfernen und installieren
++
+link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Erfahren Sie mehr über die unterstützten System-Upgrade-Kombinationen mit ARL, wobei das vorhandene Systemgehäuse und die Festplatten erhalten bleiben"].
 
-NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
+* Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 
+
+====
 Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
 Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _ONTAP 9_, wo Sie auf die Produktdokumentation zu ONTAP 9 zugreifen können.

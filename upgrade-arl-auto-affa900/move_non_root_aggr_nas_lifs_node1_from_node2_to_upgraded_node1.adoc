@@ -63,7 +63,7 @@ Vergewissern Sie sich, dass alle verbundenen Ports, einschließlich der Schnitts
 | AFF A800 | AFF A70, AFF A90 
 
 
-| AFF C800 | C80 
+| AFF C800 | AFF C80 
 |===
 +
 Bei allen anderen System-Upgrades fahren Sie mit <<resume_relocation_step4,Schritt 4>>fort.

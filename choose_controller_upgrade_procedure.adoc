@@ -21,21 +21,16 @@ Wählen Sie ein Upgrade-Verfahren für ein System mit internen Laufwerken aus, d
 
 * FAS2720, FAS2750, FAS2720 UND FAS2750
 * AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s und AFF A800
-+
-
-NOTE: Sie können auch ein Upgrade einer AFF A800 auf eine AFF A70 oder AFF A90 mithilfe der Aggregatverschiebung durchführen. link:upgrade-arl-auto-affa900/index.html["Weitere Informationen ."].
-
 * AFF C190, AFF C250 und AFF C800
-+
-
-NOTE: Sie können auch Upgrades für eine AFF A250 und AFF C250 mithilfe von Aggregatverschiebung durchführen. link:upgrade-arl-auto-affa900/index.html["Weitere Informationen ."].
-
 * ASA A150, ASA A250, ASA A800 und ASA AFF A220
 +
 
 NOTE: ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von einem ASA auf ein ASA r2-System finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
 
 
+
+
+NOTE: Bei bestimmten Controller-Upgrades können Sie die Aggregatverlagerung verwenden, um ein System mit internen Laufwerken zu aktualisieren. link:upgrade-arl/index.html["Weitere Informationen ."].
 
 Wenn Ihr System nicht aufgeführt ist, lesen Sie die https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
 

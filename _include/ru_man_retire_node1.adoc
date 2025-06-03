@@ -78,7 +78,7 @@ Das folgende Beispiel zeigt die Ausgabe von `storage failover show` Befehl, wenn
 `network interface show -role data -curr-node _node2_ -home-node _node1_`
 
 +
-Sehen Sie in der Spalte *Status Admin/Oper* nach, ob LIFs nicht verfügbar sind. Wenn LIFs ausgefallen sind, lesen Sie das link:troubleshoot_index.html["Troublehsoot"] Abschnitt.
+Sehen Sie in der Spalte *Status Admin/Oper* nach, ob LIFs nicht verfügbar sind. Wenn LIFs ausgefallen sind, wenden Sie sich an den link:aggregate_relocation_failures.html["Troublehsoot"] Abschnitt.
 
 . Führen Sie eine der folgenden Aktionen durch:
 +
@@ -123,7 +123,7 @@ Da in einem Cluster mit einer geraden Anzahl von Nodes eine Krawatte möglich is
 ====
 Wenn Sie ein Cluster mit vier Nodes haben, liegt das Epsilon auf einem Node in einem anderen HA-Paar im Cluster.
 
-Wenn Sie ein HA-Paar in einem Cluster mit mehreren HA-Paaren aktualisieren, müssen Sie Epsilon auf den Node eines HA-Paars verschieben, ohne ein Controller-Upgrade durchführen zu müssen. Wenn Sie beispielsweise nodeA/nodeB in einem Cluster mit der HA-Paar-Konfiguration nodeA/nodeB und nodeC/nodded aktualisieren, müssen Sie Epsilon auf nodeC oder nodded verschieben.
+Wenn Sie ein HA-Paar in einem Cluster mit mehreren HA-Paaren aktualisieren, müssen Sie Epsilon auf den Knoten eines HA-Paares verschieben, bei dem kein Controller-Upgrade durchgeführt wird. Wenn Sie beispielsweise nodeA/nodeB in einem Cluster mit der HA-Paar-Konfiguration nodeA/nodeB und nodeC/nodded aktualisieren, müssen Sie Epsilon auf nodeC oder nodded verschieben.
 
 ====
 +

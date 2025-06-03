@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/overview_of_the_arl_upgrade.html
 keywords: aggregate relocation, upgrade, process, overview, stages 
 summary: 'Erfahren Sie, wie Sie ein Controller-Upgrade mit ONTAP 9.5 auf 9.7 mit durchführen `system controller replace` Befehle funktionieren.' 
 ---
-= Überblick über das ARL Upgrade
+= Erfahren Sie mehr über die ARL-Upgradesequenz
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -37,7 +37,7 @@ Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einze
 | Stufe | Schritte 
 
 
-| link:stage_1_index.html["Stufe 1: Bereiten Sie sich auf das Upgrade vor"]  a| 
+| link:prepare_nodes_for_upgrade.html["Stufe 1: Bereiten Sie sich auf das Upgrade vor"]  a| 
 In Phase 1 führen Sie Vorabprüfungen durch und korrigieren, falls erforderlich, die Eigentümerschaft für die Aggregate. Sie müssen bestimmte Informationen aufzeichnen, wenn Sie Storage-Verschlüsselung mit dem Onboard Key Manager managen und die SnapMirror Beziehungen stilllegen möchten.
 
 Gesamteigentum am Ende von Phase 1:
@@ -48,7 +48,7 @@ Gesamteigentum am Ende von Phase 1:
 
 
 
-| link:stage_2_index.html["Stufe 2: Knoten1 verschieben und ausmustern"]  a| 
+| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["Stufe 2: Knoten1 verschieben und ausmustern"]  a| 
 Während Phase 2 werden node1-Aggregate und NAS-Daten-LIFs in Knoten 2 verschoben. Dieser Prozess ist weitgehend automatisiert; der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Bei Bedarf verschieben Sie fehlerhafte oder Vetos Aggregate. Sie müssen die erforderlichen Node1-Informationen für die spätere Verwendung im Verfahren notieren und dann Node1 ausmustern. Sie können sich auch später beim Verfahren auf den Netzboot node3 und node4 vorbereiten.
 
 Gesamteigentum am Ende von Phase 2:
@@ -59,7 +59,7 @@ Gesamteigentum am Ende von Phase 2:
 
 
 
-| link:stage_3_index.html["Phase 3: Installieren und booten Sie node3"]  a| 
+| link:install_boot_node3.html["Phase 3: Installieren und booten Sie node3"]  a| 
 In Phase 3 installieren und starten Sie Node 3, ordnen Sie die Cluster- und Node-Management-Ports von Node 1 zu Node 3 zu, weisen Sie die Node 1-Festplatten Node 3 neu zu und überprüfen Sie die Node 3-Installation. Wenn erforderlich, legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest und bestätigen, dass node3 Quorum beigetreten ist. Außerdem werden die LIFs für NAS-Daten-LIFs und nicht-Root-Aggregate von node2 auf node3 verschoben und Sie überprüfen, ob die SAN-LIFs auf node3 vorhanden sind.
 
 Gesamteigentum am Ende von Stufe 3:
@@ -70,7 +70,7 @@ Gesamteigentum am Ende von Stufe 3:
 
 
 
-| link:stage_4_index.html["Phase 4: Knoten2 verschieben und ausmustern"]  a| 
+| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Phase 4: Knoten2 verschieben und ausmustern"]  a| 
 Während Phase 4 werden node2-Aggregate ohne Root-Root-Fehler und logische Daten-LIFs außerhalb des SAN in Knoten 3 verschoben. Sie notieren auch die notwendigen node2 Informationen und setzen dann node2 in den Ruhestand.
 
 Gesamteigentum am Ende von Stufe 4:
@@ -82,7 +82,7 @@ Gesamteigentum am Ende von Stufe 4:
 
 
 
-| link:stage_5_index.html["Phase 5: installieren und booten sie node4"]  a| 
+| link:install_boot_node4.html["Phase 5: installieren und booten sie node4"]  a| 
 Während Phase 5 installieren und starten Sie node4, ordnen Sie die Cluster- und Node-Management-Ports von node2 zu node4 zu, weisen Sie die Node-2-Laufwerke node4 zu und überprüfen Sie die node-4-Installation. Wenn erforderlich, legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest und bestätigen, dass node4 Quorum beigetreten ist. Außerdem werden Knoten2-NAS-Daten-LIFs und nicht-Root-Aggregate von node3 auf node4 verschoben und überprüft, ob die SAN-LIFs auf node4 vorhanden sind.
 
 Gesamteigentum am Ende von Stufe 5:
@@ -93,7 +93,7 @@ Gesamteigentum am Ende von Stufe 5:
 
 
 
-| link:stage_6_index.html["Phase 6: Schließen Sie das Upgrade ab"]  a| 
+| link:manage-authentication-using-kmip-servers.html["Phase 6: Schließen Sie das Upgrade ab"]  a| 
 In Phase 6 bestätigen Sie, dass die neuen Nodes ordnungsgemäß eingerichtet wurden. Bei aktivierter Verschlüsselung konfigurieren und einrichten Sie Storage Encryption bzw. NetApp Volume Encryption. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
 |===

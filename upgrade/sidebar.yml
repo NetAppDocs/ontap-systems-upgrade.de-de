@@ -2,7 +2,7 @@
 section: upgrade
 title: Upgrade durch Verschieben von Volumes oder Storage
 entries:
-- title: Überblick
+- title: Entscheiden Sie sich für ein Upgrade durch Verschieben von Volumes oder Speicher
   url: "/upgrade/upgrade-decide-to-use-this-guide.html"
 - title: Überlegungen
   url: "/upgrade/upgrade-considerations.html"
@@ -24,8 +24,6 @@ entries:
     url: "/upgrade/upgrade-set-up-new-nodes.html"
   - title: 'Optional: Verschieben Sie internen Speicher oder konvertieren Sie zu Laufwerk-Shelf'
     entries:
-    - title: Überblick
-      url: "/upgrade/upgrade-optional-move-internal-storage.html"
     - title: Verschieben Sie interne Laufwerke
       url: "/upgrade/upgrade-move-internal-drives.html"
     - title: Konvertieren von Node zu Laufwerk-Shelf
@@ -36,20 +34,16 @@ entries:
     url: "/upgrade/upgrade-restore-root-volume-config.html"
   - title: Upgrade abgeschlossen
     entries:
-    - title: Überblick
+    - title: Workflow
       url: "/upgrade/upgrade-complete.html"
     - title: Abgeschlossen in ONTAP 9.8 oder höher
       entries:
-      - title: Überblick
-        url: "/upgrade/upgrade-complete-ontap-9-8.html"
       - title: Zuordnen von Netzwerk-Ports mit ONTAP 9.8
         url: "/upgrade/upgrade-map-network-ports-ontap-9-8.html"
       - title: Führen Sie die letzten Schritte in ONTAP 9.8 durch
         url: "/upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html"
     - title: Abgeschlossen in ONTAP 9.7 oder früher
       entries:
-      - title: Überblick
-        url: "/upgrade/upgrade-complete-ontap-9-7-or-earlier.html"
       - title: Netzwerkports mit ONTAP 9.7 oder einer älteren Version zuordnen
         url: "/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html"
       - title: Führen Sie die letzten Schritte in ONTAP 9.7 oder früher durch
@@ -69,15 +63,7 @@ entries:
   - title: Verschieben Sie LIFs für nicht-SAN-Daten und LIFs für das Cluster-Management
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
   - title: Verschieben, löschen oder erstellen Sie SAN-LIFS
-    entries:
-    - title: Überblick
-      url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
-    - title: Überlegungen zum Verschieben von SAN-LIFs
-      url: "/upgrade/upgrade_considerations_move_san_lifs.html"
-    - title: San-LIFs löschen
-      url: "/upgrade/upgrade-delete-san-lifs.html"
-    - title: Erstellung neuer SAN-LIFs oder erneuter Erstellung gelöschter SAN-LIFs
-      url: "/upgrade/upgrade_create_recreate_san_lifs.html"
+    url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
   - title: Aufheben der Verbindung zu ursprünglichen Nodes
     url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
   - title: Upgrade abgeschlossen

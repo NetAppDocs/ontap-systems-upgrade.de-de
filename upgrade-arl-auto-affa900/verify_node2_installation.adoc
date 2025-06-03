@@ -29,7 +29,36 @@ An diesem Punkt des Verfahrens wird die Operation angehalten, während node2 dem
 +
 Die Ausgabe des `health` Feld muss sein `true`.
 
-. Vergewissern Sie sich, dass node2 Teil desselben Clusters wie node1 ist und dass er sich in einem ordnungsgemäßen Zustand befindet:
+. Dieser Schritt gilt für die folgenden Upgrade-Konfigurationen. Für alle anderen System-Upgrades überspringen Sie diesen Schritt und fahren Sie mit fort. <<verify-node2-step3,Schritt 3>> :
++
+** Switchless-Cluster mit zwei Knoten
+** An den Switch angeschlossene AFF A250- oder AFF C250-Systeme, die auf ein AFF A50-, AFF A30-, AFF C30- oder AFF C60-System aktualisiert werden.
+
+
++
+--
+Wenn Knoten2 dem Quorum nicht automatisch beitritt:
+
+.. Überprüfen Sie den IPspace der Ports e1a und e1b:
++
+`network port show`
+
+.. Wenn der IP-Bereich nicht „Cluster“ ist, ändern Sie den IP-Bereich auf e1a und e1b in „Cluster“:
++
+`network port modify -node <node_name> -port <port> -ipspace Cluster`
+
+.. Überprüfen Sie, ob der IP-Bereich der Ports e1a und e1b „Cluster“ ist:
++
+`network port show`
+
+.. Migrieren Sie die LIFs des Node2-Clusters nach e1a und e1b:
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node2_name> -destination-port <port_name`
+
+
+
+--
+. [[verify-node2-step3]]Überprüfen Sie, ob Knoten2 und Knoten1 Teil desselben Clusters sind und ob der Cluster fehlerfrei ist:
 +
 `cluster show`
 
@@ -37,7 +66,46 @@ Die Ausgabe des `health` Feld muss sein `true`.
 +
 `set advanced`
 
-. Überprüfen Sie den Status des Controller-Austauschvorgangs und vergewissern Sie sich, dass er sich in einem Pause-Zustand befindet und sich im gleichen Zustand wie zuvor in node2 befindet, um die physischen Aufgaben beim Installieren neuer Controller und Verschieben von Kabeln auszuführen:
+. Dieser Schritt gilt nur für Upgrades der Switchless-Konfiguration mit zwei Knoten von einer AFF A250 oder AFF C250 auf eine AFF A50, AFF A30, AFF C60 oder AFF C30. Für alle anderen Systemupgrades überspringen Sie diesen Schritt und fahren Sie mit fort. <<verify-node2-step6,Schritt 6>> :
++
+Überprüfen Sie, ob die Ports e4a, e2a, e1a, e1b oder e4a, e4b, e1a, e1b die Cluster-Ports in der Broadcast-Domäne „Cluster“ sind.
+
++
+Die Systeme AFF A50, AFF A30, AFF C30 und AFF C60 nutzen Cluster- und HA-Ports gemeinsam. Sie können alle Cluster-LIFs sicher auf e4a, e4b oder e4a, e2a auf Knoten1 und Knoten2 migrieren:
+
++
+.. Listen Sie die Home-Ports und aktuellen Ports für alle Cluster-LIFs auf:
++
+`network interface show -role Cluster -fields home-port,curr-port`
+
+.. [[migrate-cluster-lif-step-4b]]Migrieren Sie auf Knoten1 und Knoten2 die Cluster-LIFs, die e1a als Home-Port verwenden, nach e4a:
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node> -destination-port e4a`
+
+.. Ändern Sie auf Knoten1 und Knoten2 die migrierten Cluster-LIFs <<migrate-cluster-lif-step-4b,Teilschritt b>> So verwenden Sie e4a als Heimathafen:
++
+`network  interface modify -vserver Cluster -lif <cluster_lif> -home-port e4a`
+
+.. Überprüfen Sie, ob der Cluster im Quorum ist:
++
+`cluster show`
+
+.. Wiederholen <<migrate-cluster-lif-step-4b,Unterschritt b und Unterschritt c>> So migrieren und ändern Sie den zweiten Cluster-LIF auf jedem Knoten auf e2a oder e4b:
++
+Wenn e2a vorhanden ist und ein 100-GbE-Netzwerkport ist, ist dies der standardmäßige zweite Clusterport. Wenn e2a kein 100-GbE-Netzwerkport ist, verwendet ONTAP e4b als zweiten Cluster- und HA-Port.
+
+.. Entfernen Sie e1a und e1b aus der Broadcastdomäne „Cluster“:
++
+`broadcast-domain remove-ports -broadcast-domain Cluster -ipspace Cluster -ports <node_name>:e1a`
+
+.. Stellen Sie sicher, dass sich nur die Cluster-Ports e4a, e2a oder e4a, e4b in der Broadcast-Domäne „Cluster“ befinden.
++
+`broadcast domain show`
+
+.. Entfernen Sie die Kabelverbindungen zwischen e1a node1 und e1a node2 sowie e1b node1 und e1b node2, um sicherzustellen, dass nur gültige Cluster-HA-Verbindungen verwendet werden und keine redundante Konnektivität besteht.
+
+
+. [[verify-node2-step6]]Überprüfen Sie den Status des Controller-Austauschvorgangs und stellen Sie sicher, dass er angehalten wurde und sich im selben Zustand befindet, in dem er sich befand, bevor Knoten2 angehalten wurde, um die physischen Aufgaben der Installation neuer Controller und des Verlegens von Kabeln durchzuführen:
 +
 `system controller replace show`
 

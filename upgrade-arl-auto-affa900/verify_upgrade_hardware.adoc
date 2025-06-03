@@ -21,7 +21,11 @@ Vergewissern Sie sich vor dem Upgrade, dass Sie über die richtigen Module für 
 | Wenn Sie ein Upgrade von ... | Ersatzsystem muss ... 
 
 
-| AFF A250, AFF C250 | Zwei Controller-Module und neue I/O-Module 
+| AFF A250, AFF C250  a| 
+* Zwei Controller-Module und neue I/O-Module
+* Eine X60132A, 4-Port 10/25GbE-Karte für Switchless-Upgrade-Konfigurationen mit zwei Knoten
+
+
 
 
 | AFF A800, AFF C800 | Zwei Controller-Module, zwei NVRAMs und neue I/O-Module 

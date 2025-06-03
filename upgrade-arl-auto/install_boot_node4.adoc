@@ -21,11 +21,14 @@ Der Umzugsvorgang wird zu Beginn dieser Phase angehalten. Dieser Vorgang wird gr
 
 Sie müssen node4 als Netzboot ausführen, wenn es nicht die gleiche Version von ONTAP 9 hat, die auf node2 installiert ist. Nachdem sie node4 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien auf das Boot-Medium für nachfolgende Systemstarts herunterladen, indem Sie den Anweisungen in folgen link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"].
 
-.Wichtig:
+[IMPORTANT]
+====
+* Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 2 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
 * Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<auto_install4_step1,Schritt 1>> Bis <<auto_install4_step21,Schritt 21>>, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen zu link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Konfigurieren Sie FC-Ports auf node4"] Und nach link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["UTA/UTA2-Ports auf node4 prüfen und konfigurieren"], Eingabe von Befehlen im Wartungsmodus. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<auto_install4_step23,Schritt 23>>.
-* Wenn Sie jedoch ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt ausfüllen und mit fortfahren link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"], Eingabe von Befehlen an der Cluster-Eingabeaufforderung.
+* Wenn Sie ein System mit Speicherplatten aktualisieren, müssen Sie diesen Abschnitt vollständig ausfüllen und dann mit link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] , indem Sie Befehle an der Cluster-Eingabeaufforderung eingeben.
 
 
+====
 .Schritte
 . [[Auto_install4_step1]]stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt.
 +

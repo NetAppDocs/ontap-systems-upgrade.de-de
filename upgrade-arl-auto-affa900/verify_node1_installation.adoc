@@ -31,7 +31,36 @@ An diesem Punkt in der Prozedur sollte der Upgrade-Vorgang des Controllers angeh
 +
 Die Ausgabe des `health` Feld muss sein `true`.
 
-. Vergewissern Sie sich, dass node1 Teil desselben Clusters wie node2 ist und dass er sich in einem ordnungsgemäßen Zustand befindet:
+. Dieser Schritt gilt für die folgenden Upgrade-Konfigurationen. Für alle anderen System-Upgrades überspringen Sie diesen Schritt und fahren Sie mit fort. <<verify-node1-step3,Schritt 3>> :
++
+** Switchless-Cluster mit zwei Knoten
+** Switch-angeschlossene AFF A250- oder AFF C250-Systeme, die auf ein AFF A50-, AFF A30-, AFF C30- oder AFF C60-System aufgerüstet werden
+
+
++
+--
+Wenn Knoten1 dem Quorum nicht automatisch beitritt:
+
+.. Überprüfen Sie den IPspace der Ports e1a und e1b:
++
+`network port show`
+
+.. Wenn der IP-Bereich nicht „Cluster“ ist, ändern Sie den IP-Bereich auf e1a und e1b in „Cluster“:
++
+`network port modify -node <node_name> -port <port> -ipspace Cluster`
+
+.. Überprüfen Sie, ob der IP-Bereich der Ports e1a und e1b „Cluster“ ist:
++
+`network port show`
+
+.. Migrieren Sie die LIFs des Knoten1-Clusters nach e1a und e1b:
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node1_name> -destination-port <port_name>`
+
+
+
+--
+. [[verify-node1-step3]]Überprüfen Sie, ob Knoten1 und Knoten2 Teil desselben Clusters sind und ob der Cluster fehlerfrei ist:
 +
 `cluster show`
 

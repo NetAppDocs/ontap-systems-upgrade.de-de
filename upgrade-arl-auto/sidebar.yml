@@ -3,12 +3,11 @@ section: upgrade-arl-auto
 title: Verwenden Sie „System Controller replace“-Befehle, um ein Upgrade der Controller-Hardware
   mit ONTAP 9.5 auf 9.7 durchzuführen
 entries:
-- title: Überblick
+- title: Erfahren Sie mehr über dieses ARL-Verfahren
   url: "/upgrade-arl-auto/index.html"
 - title: Automatisierung des Controller-Upgrades
   url: "/upgrade-arl-auto/automate_the_controller_upgrade_process.html"
-- title: Entscheiden Sie, ob der Inhalt der Aggregatverschiebung verwendet werden
-    soll
+- title: Entscheiden Sie, ob Sie dieses ARL-Verfahren verwenden möchten
   url: "/upgrade-arl-auto/decide_to_use_the_aggregate_relocation_guide.html"
 - title: Die erforderlichen Tools und Dokumentationen
   url: "/upgrade-arl-auto/required_tools_and_documentation.html"
@@ -20,14 +19,12 @@ entries:
   url: "/upgrade-arl-auto/check_metrocluster_config_errors.html"
 - title: Überprüfung von UmschalttaFunktionen, Healing und Switchback
   url: "/upgrade-arl-auto/verify_switchover_healing_switchback.html"
-- title: Überblick über das ARL Upgrade
+- title: Erfahren Sie mehr über die ARL-Upgradesequenz
   url: "/upgrade-arl-auto/overview_of_the_arl_upgrade.html"
 - title: 'Stufe 1: Upgrade vorbereiten'
   pdf-filename: 'Stufe 1: Vorbereitung auf die Aktualisierung (Upgrade mit ‘s„Systemcontroller
     ersetzen“ in ONTAP 9.5 bis 9.7)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto/stage_1_index.html"
   - title: Bereiten Sie die Knoten für ein Upgrade vor
     url: "/upgrade-arl-auto/prepare_nodes_for_upgrade.html"
   - title: Managen Sie die Storage-Verschlüsselung mit dem Onboard Key Manager
@@ -36,8 +33,6 @@ entries:
   pdf-filename: 'Stufe 2: Verlegung und Außerbetriebnahme von node1 (Aktualisierung
     mit ‘s„System Controller replace“ in ONTAP 9.5 bis 9.7)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto/stage_2_index.html"
   - title: Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich
       im Besitz von node1 befinden, auf Knoten 2
     url: "/upgrade-arl-auto/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html"
@@ -51,8 +46,6 @@ entries:
   pdf-filename: 'Phase 3: Installation und Boot node3 (Upgrade mit ‘sSystem Controller
     replace’ in ONTAP 9.5 bis 9.7)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto/stage_3_index.html"
   - title: Installieren und booten Sie node3
     url: "/upgrade-arl-auto/install_boot_node3.html"
   - title: Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest
@@ -73,8 +66,6 @@ entries:
   pdf-filename: 'Phase 4: Verlegung und Außerbetriebnahme von node2 (Aktualisierung
     mit ‘s„System Controller replace“ in ONTAP 9.5 bis 9.7)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto/stage_4_index.html"
   - title: Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten
       2 auf Knoten 3
     url: "/upgrade-arl-auto/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html"
@@ -84,8 +75,6 @@ entries:
   pdf-filename: 'Phase 5: node4 installieren und booten (Upgrade ‘sSystem Controller
     replace’ in ONTAP 9.5 bis 9.7)'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto/stage_5_index.html"
   - title: installieren und booten sie node4
     url: "/upgrade-arl-auto/install_boot_node4.html"
   - title: Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest
@@ -106,8 +95,6 @@ entries:
   pdf-filename: 'Phase 6: Führen Sie die Aktualisierung durch (Upgrade mit ‘s„System
     Controller replace“ in ONTAP 9.5 bis 9.7).'
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto/stage_6_index.html"
   - title: Authentifizierungsmanagement mit KMIP-Servern
     url: "/upgrade-arl-auto/manage-authentication-using-kmip-servers.html"
   - title: Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet
@@ -125,8 +112,6 @@ entries:
   pdf-filename: Fehlerbehebung (Aktualisierung mit ‘s„Systemcontroller ersetzen“ in
     ONTAP 9.5 bis 9.7)
   entries:
-  - title: Überblick
-    url: "/upgrade-arl-auto/troubleshoot_index.html"
   - title: Fehler bei der Aggregatverschiebung
     url: "/upgrade-arl-auto/aggregate_relocation_failures.html"
   - title: Neustarts, Panikspiele oder Energiezyklen

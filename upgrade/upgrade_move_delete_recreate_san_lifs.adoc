@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cluster, san, environment, delete, lif, re-create, move san lifs, create 
 summary: Abhängig von Ihren Cluster-Inhalten und Ihrer Cluster-Umgebung müssen Sie SAN-LIFs verschieben, löschen oder erstellen oder gelöschte SAN-LIFs neu erstellen. 
 ---
-= Überblick
+= Verschieben, Löschen oder Erstellen von SAN-LIFs
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,82 @@ summary: Abhängig von Ihren Cluster-Inhalten und Ihrer Cluster-Umgebung müssen
 [role="lead"]
 Abhängig von Ihren Cluster-Inhalten und Ihrer Cluster-Umgebung müssen Sie SAN-LIFs verschieben, löschen oder erstellen oder gelöschte SAN-LIFs neu erstellen.
 
-* link:upgrade_considerations_move_san_lifs.html["Überlegungen zum Verschieben VON SAN-LIFS"]
-* link:upgrade-delete-san-lifs.html["Das Löschen von SAN LIFs ist von den ursprünglichen Nodes nicht mehr erforderlich"]
-* link:upgrade_create_recreate_san_lifs.html["Erstellung neuer SAN-LIFs oder erneuter Erstellung gelöschter SAN-LIFs"]
 
+
+== Überlegungen zum Verschieben von SAN-LIFs
+
+Sie müssen nur die SAN-LIFs verschieben, wenn Sie beispielsweise den Inhalt des Clusters ändern, indem Sie dem Cluster Nodes hinzufügen oder Nodes aus dem Cluster löschen. Wenn Sie ein LIF verschieben, müssen Sie Ihre FC-Fabric nicht erneut Zone zuweisen oder neue iSCSI-Sitzungen zwischen den verbundenen Hosts des Clusters und der neuen Zielschnittstelle erstellen.
+
+Sie können ein SAN-LIF mit verschieben `network interface modify` Befehl. Zum Verschieben einer SAN-LIF müssen Sie die LIF offline schalten, die LIF auf einen anderen Home-Node oder -Port verschieben und sie anschließend an ihrem neuen Speicherort wieder in den Online-Modus versetzen. ALUA (Asymmetric Logical Unit Access) bietet redundante Pfade und automatische Pfadauswahl als Teil einer ONTAP SAN-Lösung. Wenn also die LIF für die Verschiebung offline geschaltet wird, gibt es keine I/O-Unterbrechung. Der Host versucht einfach erneut, und verschiebt I/O dann zu einer anderen LIF.
+
+Während der LIF-Bewegungen können Sie die folgenden Aufgaben unterbrechungsfrei ausführen:
+
+* Ersetzen Sie ein HA-Paar eines Clusters durch ein aktualisiertes HA-Paar, das für die Hosts, die auf LUN-Daten zugreifen, transparent ist
+* Aktualisieren einer Zielschnittstellenkarte
+* Verschieben Sie die Ressourcen einer Storage Virtual Machine (SVM) von einem Node-Satz in einem Cluster auf eine andere Gruppe von Nodes im selben Cluster
+* Wenn der Host-Server online ist, können Sie eine SAN-LUN auf ein neues HA-Paar verschieben, ohne den Zugriff auf die LUN-Daten vom Host-Server zu unterbrechen
+
+
+Weitere Informationen finden Sie im https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["SAN LIF-Verschiebung"^] Verfahren in der Dokumentation _SAN Storage Management_.
+
+
+
+== Löschen Sie nicht mehr benötigte SAN-LIFs
+
+Wenn sich das Cluster in einer SAN-Umgebung befindet, müssen Sie alle SAN-LIFs löschen, die Sie nicht mehr von den ursprünglichen Nodes benötigen, bevor Sie die ursprünglichen Nodes aus dem Cluster entfernen können.
+
+.Schritte
+. Wenn Sie iSCSI-Initiatoren haben, führen Sie die folgenden Schritte aus:
++
+.. Eine Liste der aktiven Initiatoren anzeigen, die derzeit auf den ursprünglichen Nodes mit einer SVM verbunden sind, einmal für jeden der alten LIFs: +
+`iscsi connection show -vserver _Vserver_name_ -lif _old_lif_`
++
+Im folgenden Beispiel wird die Ausgabe des Befehls mit einem aktiven Initiator, der mit SVM vs1 verbunden ist, angezeigt:
+
++
+[listing]
+----
+cluster::> iscsi connection show -vserver vs1 -lif data2
+          Tpgroup        Conn  Local           Remote          TCP Recv
+Vserver   Name     TSIH  ID    Address         Address         Size
+--------- -------- ----- ----- --------------- --------------- --------
+vs1       data         9     1 10.229.226.166  10.229.136.188    131400
+----
+.. Wenn noch Initiatoren bei einem Originalknoten angemeldet sind, melden Sie sich von Ihrem Hostcomputer aus bei den Sitzungen ab.
+
+
+. Zeigen Sie die Port-Set-Liste an, um zu ermitteln, ob iSCSI oder FC LIFs auf den ursprünglichen Nodes zu einem Port-Satz gehören:
++
+`lun portset show`
+
++
+Das folgende Beispiel zeigt die Ausgabe von `lun portset show` Befehl:
+
++
+[listing]
+----
+cluster:> lun portset show
+Virtual
+Server    Portset      Protocol Port Names              Igroups
+--------- ------------ -------- ----------------------- ------------
+js11      ps0          mixed    LIF1,                   igroup1
+                                LIF2
+          ps1          iscsi    LIF3                    igroup2
+          ps2          fcp      LIF4                    -
+3 entries were displayed.
+----
+. Wenn iSCSIs oder FC LIFs an einem ursprünglichen Node zu einem Portsatz gehören, entfernen Sie diese aus dem Portsatz:
++
+`lun portset remove -vserver _vserver_name_ -portset _portset_name_ -port-name _lif_name_`
+
+. Löschen Sie die LIFs auf den ursprünglichen Nodes:
++
+`network interface delete -vserver _vserver_name_ -lif _lif_name_`
+
+
+
+
+
+== Erstellung neuer SAN-LIFs oder erneuter Erstellung gelöschter SAN-LIFs
+
+Je nach den Anforderungen Ihrer Cluster-Umgebung können Sie sich möglicherweise entscheiden, neue SAN LIFs zu erstellen oder SAN LIFs neu zu erstellen, die Sie bereits in diesem Verfahren gelöscht haben. Sie können SAN-LIFs mit dem erstellen oder neu erstellen https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html["Erstellung von Netzwerkschnittstellen"^] Vorgehensweise in der Dokumentation _Clusterverwaltung mit OnCommand® System Manager_.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
 summary: 'Um das Upgrade durch Verschieben von Volumes abzuschließen, müssen Sie den Serviceprozessor \(SP\) konfigurieren, neue Lizenzen installieren und AutoSupport einrichten. Möglicherweise müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder NCA-Ports konfigurieren.' 
 ---
-= Schließen Sie das Upgrade ab
+= Schließen Sie das Upgrade der Move-Volumes ab
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -38,7 +38,7 @@ Je nachdem, ob Sie integriertes oder externes Verschlüsselungsmanagement verwen
 ** „`Wiederherstellen der externen Verschlüsselungsschlüssel für das Verschlüsselungsmanagement`“
 
 
-. Wenn die neuen Nodes FC-Ports (Onboard oder auf FC-Adaptern), integrierte CNA-Ports oder eine CNA-Karte aufweisen, konfigurieren Sie die FC- oder CNA-Ports, geben Sie an der Eingabeaufforderung des Storage-Systems den folgenden Befehl ein:
+. Wenn die neuen Knoten über FC-Ports (integriert oder auf FC-Adaptern), integrierte CNA-Ports oder eine CNA-Karte verfügen, konfigurieren Sie die FC- oder CNA-Ports, indem Sie in der Eingabeaufforderung des Speichersystems den folgenden Befehl eingeben:
 +
 `system node hardware unified-connect modify -node node-name -adapter adapter-name -mode {fc|cna} -type {target|initiator}`
 

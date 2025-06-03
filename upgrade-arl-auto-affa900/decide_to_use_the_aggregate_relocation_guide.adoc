@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
 summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Modellen im selben Chassis anwenden. 
 ---
-= Entscheiden Sie, ob Sie das Verfahren zur Aggregatverschiebung verwenden
+= Entscheiden Sie, ob Sie dieses Verfahren zur Aggregatverlagerung verwenden möchten
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,15 +14,17 @@ summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Mo
 
 
 [role="lead"]
-Dieser Inhalt beschreibt, wie Sie ein Upgrade von Storage Controllern in einem HA-Paar durchführen, ohne dabei alle vorhandenen Daten und Festplatten zu beeinträchtigen. Dies ist ein komplexes Verfahren, das nur von erfahrenen Administratoren verwendet werden sollte.
+Es gibt verschiedene Methoden zur Aggregate Relocation (ARL) für die Aktualisierung von Controller-Hardware. Dieser Artikel beschreibt die Aktualisierung von Speichercontrollern in einem HA-Paar durch Konvertierung des vorhandenen Systems in das Ersatzsystem unter Beibehaltung des vorhandenen Systemgehäuses und der vorhandenen Festplatten. Sie sollten dieses komplexe Verfahren nur anwenden, wenn Sie ein erfahrener ONTAP-Administrator sind.
+
+Um Ihnen bei der Entscheidung zu helfen, ob dieses ARL-Verfahren für Ihr Controller-Hardware-Upgrade geeignet ist, sollten Sie alle folgenden Umstände für unterstützte und nicht unterstützte Upgrades überprüfen.
 
 
 
-== Unterstützt für ARL-Upgrades
+== Unterstützt für dieses ARL-Upgrade
 
-Sie können dieses Verfahren unter folgenden Umständen verwenden:
+Sie können dieses ARL-Verfahren unter folgenden Umständen verwenden:
 
-* Die Aktualisierung Ihres Controllers wird in der Liste aufgeführtlink:index.html#supported-systems,["Unterstützte Systeme Matrix"].
+* Ihr Controller-Upgrade ist aufgeführt in der <<supported-systems,Unterstützte Systeme Matrix>> .
 * Sie haben mit Ihrem NetApp Vertriebsmitarbeiter verifiziert, dass Sie die Hardware erhalten haben, die Sie für das Controller-Upgrade benötigen:
 +
 ** Zwei AFF A90-, AFF A70- oder AFF C80-Controller und alle I/O-Module. Die erforderlichen Längen von 100-GbE-Kabeln.
@@ -31,7 +33,7 @@ Sie können dieses Verfahren unter folgenden Umständen verwenden:
 ** ASA A900-, AFF A900- oder FAS9500-Controller und NVRAM-Module und -Teile
 
 
-* Sie verwenden die minimale ONTAP-Version für Ihr Upgrade. Weitere Informationen finden Sie unter link:index.html["Überblick"].
+* Sie verwenden die minimale ONTAP-Version für Ihr Upgrade. Weitere Informationen finden Sie im <<supported-systems,unterstützte System-Upgrade-Kombinationen>>.
 * Sie verfügen über viel Erfahrung in der Administration von ONTAP und sind mit den Risiken vertraut, die mit der Arbeit im Diagnosemodus verbunden sind.
 * Auf Ihren Systemen wird ONTAP 9.15.1 oder höher ausgeführt, und sie verwenden Ethernet-Switches für die Verbindung mit Ethernet-Attached Storage.
 
@@ -41,9 +43,9 @@ NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryptio
 
 
 
-== Nicht unterstützt bei ARL-Upgrades
+== Wird für dieses ARL-Upgrade nicht unterstützt
 
-Sie können dieses Verfahren unter folgenden Umständen nicht verwenden:
+Unter folgenden Umständen können Sie dieses ARL-Verfahren nicht verwenden:
 
 * Sie möchten dem Cluster die neuen Controller als neues HA-Paar hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
 * Sie verwenden die FlexArray Virtualisierungssoftware auf dem zu aktualisierenden System.
@@ -53,6 +55,82 @@ Informationen zum Upgrade einer MetroCluster-IP-Konfiguration finden Sie unter l
 
 
 
-Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
-Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _ONTAP 9_, wo Sie auf die Produktdokumentation zu ONTAP 9 zugreifen können.
+
+== Unterstützte System-Upgrade-Kombinationen
+
+Die folgende Tabelle zeigt die Matrix der unterstützten Systeme für die Durchführung eines Controller-Upgrades durch Konvertieren des vorhandenen Systems in das Ersatzsystem, wobei das vorhandene Systemgehäuse und die vorhandenen Festplatten beibehalten werden.
+
+
+CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle finden link:other_references.html["Quellen"] Sie einen Link zu den Befehlen „ System Controller ersetzen“ verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und „ Aggregatverschiebung verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher manuell zu aktualisieren_.
+
+[cols="20,20,40"]
+|===
+| Vorhandenes System | Austauschsystem | Unterstützte ONTAP-Versionen 
+
+
+| AFF C250 ^1^ | AFF C30, AFF C60 | 9.16.1 
+
+
+| AFF A250 ^1^ | AFF A30, AFF A50 | 9.16.1 
+
+
+| AFF C800 ^1^ | AFF C80 | 9.16.1 
+
+
+| AFF A800 ^1^ | AFF A90 oder AFF A70 | 9.15.1 und höher 
+
+
+| AFF A220 als All-SAN-Array (ASA) konfiguriert | ASA A150 | 9.13.1P1 und höher 
+
+
+| AFF A220 | AFF A150 | 9.10.1P15, 9.11.1P11, 9.12.1P5 und höher 
+
+
+| AFF A200 | AFF A150  a| 
+9.10.1P15, 9.11.1P11 und höher ^2^
+
+
+
+| AFF C 190 | AFF A150 | 9.10.1P15, 9.11.1P11, 9.12.1P5 und höher 
+
+
+| FAS2620 | FAS2820  a| 
+9.11.1P7 oder höher Patch Releases (FAS2620) ^2^
+
+9.13.1 und höher (FAS2820)
+
+
+
+| FAS2720 | FAS2820 | 9.13.1 und höher 
+
+
+| AFF A700 – als ASA konfiguriert | ASA A900 | 9.13.1P1 und höher 
+
+
+| AFF A700 | AFF A900 | 9.10.1P10, 9.11.1P6 und höher 
+
+
+| FAS9000 | FAS9500 | 9.10.1P10, 9.11.1P6 und höher 
+|===
+^1^ Wenn Sie ein Upgrade auf ein in ONTAP 9.15.1 oder höher eingeführtes System durchführen, konvertiert ONTAP die Storage-Effizienz aller vorhandenen Thin Provisioning Volumes, einschließlich solcher, die die Storage-Effizienz nicht nutzen, und wendet die neuen Storage-Effizienzfunktionen an, die die Hardware-Offload-Funktion nutzen. Dies ist ein automatischer Hintergrundprozess, ohne sichtbare Auswirkungen auf die Leistung des Systems. https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["Weitere Informationen ."^]
+
+^2^ Die Systeme AFF A200 und FAS2620 unterstützen keine ONTAP-Versionen höher als 9.11.1.
+
+[NOTE]
+====
+NetApp empfiehlt Ihnen, wenn möglich, auf den alten und den Ersatzsystemen die gleiche ONTAP-Version zu verwenden.
+
+Die ONTAP-Mindestversionen in der vorstehenden Tabelle sind obligatorisch. Diese ONTAP-Versionen verfügen über die Firmware-Version des Service-Prozessors oder des Baseboard Management Controller (BMC), die erforderlich ist, um während eines Upgrades gemischte Controller-Typen innerhalb eines Chassis zu unterstützen.
+
+====
+
+
+== Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
+
+* link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].
+* Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+
+
+.Verwandte Informationen
+Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.
