@@ -55,25 +55,25 @@ Wenn weder Node1 noch node2 Daten-LIFs Eigentümer anderer Nodes im Cluster sind
 
 . Vergewissern Sie sich, dass die Aggregate den jeweiligen Home-Nodes gehören.
 +
-`storage aggregate show -owner-name _node1_`
+`storage aggregate show -owner-name <node1>`
 
 +
-`storage aggregate show -owner-name _node2_`
+`storage aggregate show -owner-name <node2>`
 
 . Legen Sie fest, ob Volumes offline sind:
 +
-`volume show -node _node1_ -state offline`
+`volume show -node <node1> -state offline`
 
 +
-`volume show -node _node2_ -state offline`
+`volume show -node <node2> -state offline`
 
 . Wenn Volumes offline sind, vergleichen Sie sie mit der Liste der Offline-Volumes, die Sie im Abschnitt erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"], Und Online-Laufwerk eines der Offline-Volumes, nach Bedarf, durch Verwendung des folgenden Befehls, einmal für jedes Volume:
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . Installieren Sie neue Lizenzen für die neuen Nodes mithilfe des folgenden Befehls für jeden Node:
 +
-`system license add -license-code _license_code,license_code,license_code..._`
+`system license add -license-code <license_code,license_code,license_code...>`
 
 +
 Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschlüsseln für Großbuchstaben. Sie können jeweils eine Lizenz hinzufügen, oder Sie können mehrere Lizenzen gleichzeitig hinzufügen, indem Sie jeden Lizenzschlüssel durch ein Komma trennen.
@@ -83,7 +83,7 @@ Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschl
 `system license clean-up -unused -expired`
 
 +
-`system license delete -serial-number _node_serial_number_ -package _licensable_package_`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 --
@@ -97,8 +97,8 @@ Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschl
 
 ** Löschen Sie eine bestimmte Lizenz von einem Cluster mit den folgenden Befehlen auf den Nodes:
 +
-`system license delete -serial-number _node1_serial_number_ -package *`
-`system license delete -serial-number _node2_serial_number_ -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 
 
@@ -125,11 +125,11 @@ Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie im erfasst haben li
 
 . [[unset_maxwait]] Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off` (Beispiel: In _Boot node2 mit den Ersatz-Systemmodulen_ link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Schritt 1"]), Sie müssen die Einstellung der Variable aufheben:
 +
-`set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
+`set diag; systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
 
 . Konfigurieren Sie die SPs mit dem folgenden Befehl auf beiden Knoten:
 +
-`system service-processor network modify -node _node_name_`
+`system service-processor network modify -node <node_name>`
 
 +
 Siehe link:other_references.html["Quellen"] Link zur _Systemverwaltungsreferenz_ für Informationen zu den SPs und den Befehlen _ONTAP 9: Manual Page Reference_ für detaillierte Informationen zum System `service-processor network modify` Befehl.

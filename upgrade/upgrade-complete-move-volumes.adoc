@@ -29,13 +29,10 @@ Um das Upgrade durch Verschieben von Volumes abzuschließen, müssen Sie den Ser
 +
 `system node autosupport invoke -node node_name -type all -message "node_name successfully upgraded from platform_old to platform_new"`
 
-. Stellen Sie die Speicher- oder Volume Encryption-Funktionalität mithilfe des entsprechenden Verfahrens im wieder herhttps://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["Management der Verschlüsselung über CLI"^] Inhalt:
+. Stellen Sie die Speicher- oder Volume-Verschlüsselungsfunktionalität mithilfe eines der folgenden Verfahren wieder her, je nachdem, ob Sie integriertes oder externes Schlüsselmanagement verwenden:
 +
-Je nachdem, ob Sie integriertes oder externes Verschlüsselungsmanagement verwenden, sollten Sie eines der folgenden Verfahren verwenden:
-
-+
-** „`Wiederherstellung der integrierten Verschlüsselungsschlüssel für das Verschlüsselungsmanagement`“
-** „`Wiederherstellen der externen Verschlüsselungsschlüssel für das Verschlüsselungsmanagement`“
+** link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["Wiederherstellung der integrierten Verschlüsselungsschlüssel für das Verschlüsselungsmanagement"^]
+** link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["Wiederherstellung der externen Verschlüsselungsschlüssel für das Verschlüsselungsmanagement"^]
 
 
 . Wenn die neuen Knoten über FC-Ports (integriert oder auf FC-Adaptern), integrierte CNA-Ports oder eine CNA-Karte verfügen, konfigurieren Sie die FC- oder CNA-Ports, indem Sie in der Eingabeaufforderung des Speichersystems den folgenden Befehl eingeben:

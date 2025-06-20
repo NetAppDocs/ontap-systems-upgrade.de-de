@@ -7,7 +7,7 @@ Um die korrekte Einrichtung zu bestätigen, aktivieren Sie das HA-Paar. Außerde
 .Schritte
 . Aktivieren Sie Storage Failover, indem Sie auf einem der Nodes den folgenden Befehl eingeben:
 +
-`storage failover modify -enabled true -node _node3_`
+`storage failover modify -enabled true -node <node3>`
 
 . Vergewissern Sie sich, dass Storage-Failover aktiviert ist:
 +
@@ -55,21 +55,21 @@ Wenn Node3 oder node4 im Besitz von Daten-LIFs sind, die sich im Besitz anderer 
 
 . Überprüfen Sie, ob node3 die Aggregate von node1 besitzt und dass node4 die Aggregate von node2 besitzt:
 +
-`storage aggregate show -owner-name _node3_`
-`storage aggregate show -owner-name _node4_`
+`storage aggregate show -owner-name <node3>`
+`storage aggregate show -owner-name <node4>`
 
 . Legen Sie fest, ob Volumes offline sind:
 +
-`volume show -node _node3_ -state offline`
-`volume show -node _node4_ -state offline`
+`volume show -node <node3> -state offline`
+`volume show -node <node4> -state offline`
 
 . Wenn Volumes offline sind, vergleichen Sie sie mit der Liste der Offline-Volumes, die Sie in erfasst haben  link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step19["Schritt 19 (d)"] In _die Nodes für Upgrade_ vorbereiten und jedes der Offline-Volumes nach Bedarf durch Eingabe des folgenden Befehls ein Mal für jedes Volume den Online-Modus versetzen:
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . Installieren Sie neue Lizenzen für die neuen Nodes, indem Sie den folgenden Befehl für jeden Node eingeben:
 +
-`system license add -license-code _license_code,license_code,license_code..._`
+`system license add -license-code <license_code,license_code,license_code...>`
 
 +
 Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschlüsseln für Großbuchstaben. Sie können jeweils eine Lizenz hinzufügen, oder Sie können mehrere Lizenzen gleichzeitig hinzufügen, jeden Lizenzschlüssel durch ein Komma getrennt.
@@ -81,7 +81,7 @@ Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschl
 . Geben Sie einen der folgenden Befehle ein, um alle alten Lizenzen von den ursprünglichen Nodes zu entfernen:
 +
 `system license clean-up -unused -expired`
-`system license delete -serial-number _node_serial_number_ -package _licensable_package_`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 ** Um alle abgelaufenen Lizenzen zu löschen, geben Sie Folgendes ein:
@@ -94,8 +94,8 @@ Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschl
 
 ** Geben Sie zum Löschen einer bestimmten Lizenz von einem Cluster die folgenden Befehle auf den Nodes ein:
 +
-`system license delete -serial-number _node1_serial_number_ -package *`
-`system license delete -serial-number _node2_serial_number_ -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 +
 Die folgende Ausgabe wird angezeigt:
@@ -121,7 +121,7 @@ Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie in erfasst haben li
 
 . Konfigurieren Sie die SPs, indem Sie auf beiden Knoten den folgenden Befehl ausführen:
 +
-`system service-processor network modify -node _node_name_`
+`system service-processor network modify -node <node_name>`
 
 +
 Gehen Sie zu link:other_references.html["Quellen"] Link zur _Systemverwaltungsreferenz_ für Informationen über die SPs und die Befehle _ONTAP 9: Manual Page Reference_ für detaillierte Informationen zum `system service- processor network modify` Befehl.

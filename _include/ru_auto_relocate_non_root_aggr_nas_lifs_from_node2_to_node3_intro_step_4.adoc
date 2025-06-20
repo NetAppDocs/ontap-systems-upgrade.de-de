@@ -18,7 +18,7 @@ NOTE: Der Home-Inhaber für die Aggregate und LIFs werden nicht geändert, nur d
 .Schritte
 . Vergewissern Sie sich, dass alle nicht-Root-Aggregate online sind und ihren Status auf node3:
 +
-`storage aggregate show -node _node3_ -state online -root false`
+`storage aggregate show -node <node3> -state online -root false`
 
 +
 Das folgende Beispiel zeigt, dass die nicht-Root-Aggregate auf node2 online sind:
@@ -37,24 +37,21 @@ aggr_2         825.0GB      825.0GB      0%     online  1      node2  raid_dp  n
 Wenn die Aggregate offline sind oder in node3 offline sind, bringen Sie sie mit dem folgenden Befehl auf node3 online, einmal für jedes Aggregat:
 
 +
-`storage aggregate online -aggregate _aggr_name_`
+`storage aggregate online -aggregate <aggregate_name>`
 
 . Überprüfen Sie, ob alle Volumes auf node3 online sind, indem Sie den folgenden Befehl auf node3 verwenden und die Ausgabe überprüfen:
 +
-`volume show -node _node3_ -state offline`
+`volume show -node <node3> -state offline`
 
 +
 Wenn ein Volume auf node3 offline ist, schalten Sie sie online. Verwenden Sie dazu den folgenden Befehl auf node3, einmal für jedes Volume:
 
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
-
-+
-Der `_vserver_name_` Die Verwendung mit diesem Befehl ist in der Ausgabe des vorherigen gefunden `volume show` Befehl.
+`volume online -vserver <vserver_name> -volume <volume_name>` < Die  `vserver_name` Die Verwendung mit diesem Befehl finden Sie in der Ausgabe des vorherigen  `volume show` Befehl.
 
 . Überprüfen Sie, ob die LIFs zu den richtigen Ports verschoben wurden und über den Status von verfügen `up`. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
 +
-`network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -home-node <node_name> -status-admin up`
 
 . Wenn die Ports, die derzeit Daten-LIFs hosten, nicht auf der neuen Hardware vorhanden sind, entfernen Sie diese aus der Broadcast-Domäne:
 +

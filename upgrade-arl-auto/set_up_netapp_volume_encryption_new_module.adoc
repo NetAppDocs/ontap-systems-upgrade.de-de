@@ -139,4 +139,4 @@ Weitere Informationen finden Sie im Knowledge Base-Artikel https://kb.netapp.com
 --
 ====
 .Nachdem Sie fertig sind
-Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder externe Schlüsselverwaltungsserver nicht erreicht werden konnten. Stellen Sie diese Volumes mit der wieder online `volume online` Befehl.
+Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder externe Schlüsselverwaltungsserver nicht erreicht werden konnten. Bringen Sie diese Volumes wieder online, indem Sie die  `volume online` Befehl.

@@ -54,25 +54,25 @@ Wenn keine der Knoten „Node3“ oder „node4“ Daten-LIFs besitzt, die sich 
 
 . Überprüfen Sie, ob node3 die Aggregate von node1 besitzt und dass node4 die Aggregate von node2 besitzt:
 +
-`storage aggregate show -owner-name _node3_`
+`storage aggregate show -owner-name <node3>`
 
 +
-`storage aggregate show -owner-name _node4_`
+`storage aggregate show -owner-name <node4>`
 
 . Legen Sie fest, ob Volumes offline sind:
 +
-`volume show -node _node3_ -state offline`
+`volume show -node <node3> -state offline`
 
 +
-`volume show -node _node4_ -state offline`
+`volume show -node <node4> -state offline`
 
 . Wenn Volumes offline sind, vergleichen Sie sie mit der Liste der Offline-Volumes, die Sie im Abschnitt erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"], Und Online-Laufwerk eines der Offline-Volumes, nach Bedarf, durch Verwendung des folgenden Befehls, einmal für jedes Volume:
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . Installieren Sie neue Lizenzen für die neuen Nodes mithilfe des folgenden Befehls für jeden Node:
 +
-`system license add -license-code _license_code,license_code,license_code…_`
+`system license add -license-code <license_code,license_code,license_code…>`
 
 +
 Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschlüsseln für Großbuchstaben. Sie können jeweils eine Lizenz hinzufügen, oder Sie können mehrere Lizenzen gleichzeitig hinzufügen, indem Sie jeden Lizenzschlüssel durch ein Komma trennen.
@@ -82,7 +82,7 @@ Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschl
 `system license clean-up -unused -expired`
 
 +
-`system license delete -serial-number _node_serial_number_ -package _licensable_package_`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 --
@@ -96,10 +96,10 @@ Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschl
 
 ** Löschen Sie eine bestimmte Lizenz von einem Cluster mit den folgenden Befehlen auf den Nodes:
 +
-`system license delete -serial-number _node1_serial_number_ -package *`
+`system license delete -serial-number <node1_serial_number> -package *`
 
 +
-`system license delete -serial-number _node2_serial_number_ -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 
 

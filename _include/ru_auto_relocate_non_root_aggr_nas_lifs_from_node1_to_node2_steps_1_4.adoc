@@ -22,7 +22,7 @@ Der Vorgang angehalten, damit Sie überprüfen können, ob alle node1-Aggregate 
 
 . Wenn der Vorgang noch angehalten wird, vergewissern Sie sich, dass alle nicht-Root-Aggregate online sind, damit ihr Status bei node2 lautet:
 +
-`storage aggregate show -node _node2_ -state online -root false`
+`storage aggregate show -node <node2> -state online -root false`
 
 +
 Das folgende Beispiel zeigt, dass die nicht-Root-Aggregate auf node2 online sind:
@@ -42,19 +42,19 @@ aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
 Wenn die Aggregate offline gegangen sind oder in node2 fremd geworden sind, bringen Sie sie mit dem folgenden Befehl auf node2, einmal für jedes Aggregat online:
 
 +
-`storage aggregate online -aggregate _aggr_name_`
+`storage aggregate online -aggregate <aggregate_name>`
 
 . Überprüfen Sie, ob alle Volumes auf node2 online sind, indem Sie den folgenden Befehl auf node2 verwenden und seine Ausgabe überprüfen:
 +
-`volume show -node _node2_ -state offline`
+`volume show -node <node2> -state offline`
 
 +
 Wenn ein Volume auf node2 offline ist, bringen Sie sie mit dem folgenden Befehl auf node2 für jedes Volume online:
 
 +
-`volume online -vserver _vserver_name_ -volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 +
-Der `_vserver_name_` Die Verwendung mit diesem Befehl ist in der Ausgabe des vorherigen gefunden `volume show` Befehl.
+Der  `vserver_name` Die Verwendung mit diesem Befehl finden Sie in der Ausgabe des vorherigen  `volume show` Befehl.
 
 

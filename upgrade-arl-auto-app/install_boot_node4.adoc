@@ -284,13 +284,13 @@ Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geän
 . Wenn die Konfiguration das Switch-basierte Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
 
 
-. [[Auto_install4_step27]]Wenn Sie NSE-Laufwerke (NetApp Storage Encryption) installiert haben, führen Sie die folgenden Schritte aus.
+. [[auto_install4_step27]]Wenn Sie NetApp Storage Encryption (NSE)-Laufwerke installiert haben, führen Sie die folgenden Schritte aus:
 +
 
 NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
 
 +
-.. Einstellen `bootarg.storageencryption.support` Bis `true` Oder `false`.
+.. Einstellen `bootarg.storageencryption.support` Bis `true` Oder `false`:
 +
 [cols="35,65"]
 |===

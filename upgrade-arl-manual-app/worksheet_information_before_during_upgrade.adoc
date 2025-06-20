@@ -46,7 +46,7 @@ Sie können das folgende Arbeitsblatt verwenden, um die Informationen für eine 
 | Lizenzschlüssel | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Stufe 6: _Bestätigen Sie, dass die neuen Controller korrekt eingerichtet sind_ |  
 
 
-| IP-Adresse für den externen Schlüsselverwaltungsserver | Phase 1: _Rekey Disks für Speicherverschlüsselung_ | Phase 6: _Storage Encryption auf den neuen Nodes einrichten_ |  
+| IP-Adresse für den External Key Management-Server | Phase 1: _Rekey Disks für Speicherverschlüsselung_ | Phase 6: _Storage Encryption auf den neuen Nodes einrichten_ |  
 
 
 | Name und Pfad des per Web zugänglichen Verzeichnisses, bei dem Sie Dateien auf die Nodes als Netzboot herunterladen | Stufe 1: _Netzboot vorbereiten_ | Stufe 3: _Installieren und Booten node3_ Stufe 5: _Installieren und Booten von node4_ |  

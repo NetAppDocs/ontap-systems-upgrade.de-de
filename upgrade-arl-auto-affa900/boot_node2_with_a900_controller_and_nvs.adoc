@@ -20,7 +20,7 @@ Node2 mit den Ersatzmodulen ist nun startbereit. Die unterstützten Austauschmod
 NOTE: Sie verschieben die Konsolen- und Verwaltungsverbindungen nur, wenn Sie ein Upgrade durchführen, indem Sie die Systemmodule austauschen.
 
 .Schritte
-. [[Boot_node2_step1]]Wenn Sie NetApp Storage Encryption (NSE) Laufwerke installiert haben, führen Sie die folgenden Schritte aus.
+. [[boot_node2_step1]]Wenn Sie NetApp Storage Encryption (NSE)-Laufwerke installiert haben, führen Sie die folgenden Schritte aus:
 +
 
 NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
