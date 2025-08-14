@@ -14,7 +14,7 @@ summary: 'Fahren Sie node2 herunter und entfernen Sie ihn beim Upgrade von Contr
 
 
 [role="lead"]
-Um node2 außer Betrieb zu nehmen, schalten Sie node2 zunächst ordnungsgemäß aus und entfernen Sie es aus dem Rack oder Gehäuse.
+Um Knoten2 außer Betrieb zu nehmen, fahren Sie Knoten2 ordnungsgemäß herunter und entfernen ihn dann aus dem Rack oder Gehäuse.
 
 .Schritte
 . Vorgang fortsetzen:

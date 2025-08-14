@@ -14,7 +14,7 @@ summary: 'Deaktivieren Sie das HA-Paar mit Knoten 2 und fahren Sie Knoten 1 heru
 
 
 [role="lead"]
-Um „node1“ außer Betrieb zu nehmen, setzen Sie den automatischen Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 ordnungsgemäß herunterzufahren. Später im Verfahren entfernen Sie Knoten 1 aus dem Rack oder Gehäuse.
+Um Knoten1 außer Betrieb zu nehmen, setzen Sie den automatisierten Vorgang fort, um das HA-Paar mit Knoten2 zu deaktivieren und Knoten1 ordnungsgemäß herunterzufahren.  Später im Verfahren entfernen Sie Knoten1 aus dem Rack oder Gehäuse.
 
 .Schritte
 . Vorgang fortsetzen:
@@ -28,4 +28,4 @@ Um „node1“ außer Betrieb zu nehmen, setzen Sie den automatischen Vorgang fo
 
 
 .Nachdem Sie fertig sind
-Sie können Node1 nach Abschluss des Upgrades außer Betrieb nehmen. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].
+Stellen Sie nach der Außerbetriebnahme von Knoten1 sicher, dass er ausgeschaltet und nicht mit dem Netzwerk verbunden ist.  Belassen Sie die alte Hardware von Knoten1 in diesem Zustand, bis Sie das Upgrade von Knoten1 und Knoten2 abgeschlossen haben.  Sie können dann Knoten1 währendlink:manage-authentication-using-kmip-servers.html["Phase 6: Schließen Sie das Upgrade ab"] .

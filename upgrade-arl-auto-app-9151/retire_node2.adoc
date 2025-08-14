@@ -14,7 +14,7 @@ summary: 'Fahren Sie node2 herunter, und entfernen Sie es aus dem Rack oder Chas
 
 
 [role="lead"]
-Um node2 außer Betrieb zu nehmen, schalten Sie node2 zunächst ordnungsgemäß aus und entfernen Sie es aus dem Rack oder Gehäuse.
+Um Knoten2 außer Betrieb zu nehmen, fahren Sie Knoten2 ordnungsgemäß herunter und entfernen ihn dann aus dem Rack oder Gehäuse.
 
 .Schritte
 . Vorgang fortsetzen:
@@ -27,4 +27,4 @@ Der Knoten wird automatisch angehalten.
 
 
 .Nachdem Sie fertig sind
-Sie können nach Abschluss des Upgrades die Decommission node2 deaktivieren. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].
+Stellen Sie nach der Außerbetriebnahme von Knoten2 sicher, dass er ausgeschaltet und nicht mit dem Netzwerk verbunden ist.  Belassen Sie die alte Hardware von Knoten2 in diesem Zustand, bis Sie das Upgrade von Knoten1 und Knoten2 abgeschlossen haben.  Sie können dann Knoten2 währendlink:manage-authentication-using-kmip-servers.html["Phase 6: Schließen Sie das Upgrade ab"] .

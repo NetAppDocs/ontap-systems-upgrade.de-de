@@ -88,6 +88,8 @@ entries:
     url: "/upgrade-arl-auto-affa900/verify_node2_installation.html"
   - title: Wiederherstellen der Key-Manager-Konfiguration auf node2
     url: "/upgrade-arl-auto-affa900/restore_key_manager_config_node2.html"
+  - title: Überprüfen der RCF-Konfiguration auf Cluster-Switches
+    url: "/upgrade-arl-auto-affa900/verify-rcf-configuration.html"
   - title: Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2
     url: "/upgrade-arl-auto-affa900/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html"
 - title: 'Phase 7: Schließen Sie das Upgrade ab'
