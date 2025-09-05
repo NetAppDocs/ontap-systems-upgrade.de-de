@@ -44,6 +44,6 @@ Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist.
 
 NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft anwenden.
 
-. Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
+. Schließen Sie die serielle Konsole an, sobald das Modul sitzt, und seien Sie bereit, den AUTOBOOT von Knoten2 zu unterbrechen.
 . Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node2 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node2 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
 

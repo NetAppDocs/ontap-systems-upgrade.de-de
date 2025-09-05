@@ -31,7 +31,7 @@ Entfernen Sie das Kabelverwaltungsgerät aus dem vorhandenen Modul, und bewegen 
 .Schritte
 . Bereiten Sie vor, das Controller-Modul zu entfernen:
 +
-.. Drücken Sie auf der Vorderseite des Gehäuses die Daumen, um jedes Laufwerk fest einzuschieben, bis Sie einen positiven Stopp spüren. Dadurch wird sichergestellt, dass die Laufwerke fest an der Mittelplatine des Gehäuses sitzen.
+.. Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
 +
 image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
 
@@ -87,6 +87,14 @@ image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["Installieren Sie einen AFF A
 +
 
 NOTE: Da das Chassis bereits EINGESCHALTET ist, startet Node 1 die BIOS-Initialisierung, gefolgt von AUTOBOOT, sobald Sie das neue Controller-Modul einsetzen. Um diesen AUTOBOOT ZU vermeiden, empfiehlt NetApp, die seriellen und die Konsolenkabel anzuschließen, bevor Sie das Controller-Modul einsetzen.
+
+. Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
++
+image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
+
++
+.. Gehen Sie zur Rückseite des Gehäuses.
+
 
 . Schieben Sie das Steuermodul bei geöffnetem Nockengriff fest hinein, bis es auf die Mittelplatine trifft und vollständig eingesetzt ist. Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist. Schließen Sie den Nockengriff in die verriegelte Position.
 +

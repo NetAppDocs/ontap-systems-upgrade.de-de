@@ -14,9 +14,17 @@ summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-
 
 
 [role="lead"]
-Installieren Sie das AFF A90- oder AFF A70-Controller-Modul, das Sie für das Upgrade auf Knoten2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
+Installieren Sie das AFF A90 oder AFF A70 -Controllermodul, das Sie für das Upgrade erhalten haben, auf Knoten2.  Knoten2 ist Controller B, der sich im unteren Schacht des Gehäuses befindet, wenn man von der Rückseite des Systems auf die Controller blickt.
 
 .Schritte
+. Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
++
+image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
+
++
+.. Gehen Sie zur Rückseite des Gehäuses.
+
+
 . Richten Sie das Ende des Controller-Moduls an der Öffnung im Gehäuse aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
 +
 
@@ -25,24 +33,32 @@ NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Gehäuse ein
 +
 image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["Installieren Sie einen AFF A90 oder AFF A70"]
 
-. Verkabeln Sie die Management- und Konsolen-Ports mit dem Node1-Controller-Modul.
+. Verkabeln Sie die Management- und Konsolen-Ports mit dem node2-Controller-Modul.
 +
 
-NOTE: Da das Gehäuse bereits EINGESCHALTET ist, startet node1 die BIOS-Initialisierung, gefolgt von AUTOBOOT, sobald es vollständig eingesetzt ist. Um den node1-Boot zu unterbrechen, bevor das Controller-Modul vollständig in den Steckplatz eingesetzt wird, wird empfohlen, die serielle Konsole und die Verwaltungskabel mit dem node1-Controller-Modul zu verbinden.
+NOTE: Da das Gehäuse bereits eingeschaltet ist, startet Knoten 2 die BIOS-Initialisierung und anschließend den AUTOBOOT, sobald es vollständig eingesetzt ist.  Um den Bootvorgang von Node2 zu unterbrechen, wird empfohlen, vor dem vollständigen Einsetzen des Controllermoduls in den Steckplatz die seriellen Konsolen- und Verwaltungskabel an das Controllermodul von Node2 anzuschließen.
 
 . Schieben Sie das Steuermodul bei geöffnetem Nockengriff fest hinein, bis es auf die Mittelplatine trifft und vollständig eingesetzt ist. Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist. Schließen Sie den Nockengriff in die verriegelte Position.
 +
 
 NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft anwenden.
 
-. Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
-. Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
-. Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
+. Schließen Sie die serielle Konsole an, sobald das Modul sitzt, und seien Sie bereit, den AUTOBOOT von Knoten2 zu unterbrechen.
+. Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node2 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node2 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
+. Legen Sie an der Eingabeaufforderung LOADER> von node2 die Standardumgebungsvariablen fest:
 +
 `set-defaults`
 
 . Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
 +
 `saveenv`
+
+. Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
++
+image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
+
++
+.. Gehen Sie zur Rückseite des Gehäuses.
+
 
 

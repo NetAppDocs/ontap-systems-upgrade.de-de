@@ -16,6 +16,10 @@ summary: Fahren Sie node2 herunter und entfernen Sie es aus dem Rack oder Chassi
 [role="lead"]
 Um Knoten2 außer Betrieb zu nehmen, fahren Sie Knoten2 ordnungsgemäß herunter und entfernen ihn dann aus dem Rack oder Gehäuse.
 
+
+
+== Fortsetzen des Systemcontroller-Austauschvorgangs
+
 .Schritte
 . Vorgang fortsetzen:
 +
@@ -23,6 +27,38 @@ Um Knoten2 außer Betrieb zu nehmen, fahren Sie Knoten2 ordnungsgemäß herunter
 
 +
 Der Knoten wird automatisch angehalten.
+
+
+
+
+
+== Entfernen Sie das AFF A800- oder AFF C800-Controller-Modul
+
+Entfernen Sie das Kabelverwaltungsgerät aus dem vorhandenen Modul, und bewegen Sie den Controller leicht aus dem Gehäuse.
+
+.Bevor Sie beginnen
+Wenn du nicht bereits geerdet bist, beground dich richtig.
+
+.Schritte
+. Bereiten Sie vor, das Controller-Modul zu entfernen:
++
+.. Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
++
+image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
+
+.. Gehen Sie zur Rückseite des Gehäuses.
+
+
+. Trennen Sie die Netzteile des Node2-Controllermoduls von der Quelle.
+. Lösen Sie die Netzkabelhalter, und ziehen Sie anschließend die Kabel von den Netzteilen ab.
+. Lösen Sie den Haken- und Schlaufenriemen, mit dem die Kabel an das Kabelmanagement-Gerät gebunden sind, und ziehen Sie dann die Systemkabel und SFP- und QSFP-Module (falls erforderlich) vom Controller-Modul ab, um zu verfolgen, wo die Kabel angeschlossen waren.
++
+Lassen Sie die Kabel im Kabelverwaltungs-Gerät so, dass bei der Neuinstallation des Kabelverwaltungsgeräts die Kabel organisiert sind.
+
+. Entfernen Sie das Kabelführungs-Gerät aus dem Controller-Modul und legen Sie es beiseite.
+. Drücken Sie beide Verriegelungsriegel nach unten, und drehen Sie dann beide Verriegelungen gleichzeitig nach unten.
++
+Das Controller-Modul wird leicht aus dem Chassis entfernt.
 
 
 
