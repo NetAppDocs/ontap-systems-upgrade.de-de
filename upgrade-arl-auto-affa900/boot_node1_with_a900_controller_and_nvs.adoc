@@ -29,7 +29,7 @@ Wenn Sie den Controller und die NVRAM-Module austauschen, verschieben Sie nur di
 `boot_ontap maint`
 
 +
-.. Anser `y` auf die Bestätigungsaufforderung für gemischte Plattformen.
+.. Antwort `y` zur Bestätigungsaufforderung für gemischte Plattformen.
 .. Beantworten Sie `yes` die Bestätigungsaufforderung.
 .. Zeigen Sie den Status der 100-GbE-Schnittstellen an:
 +
@@ -89,7 +89,10 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 +
 `boot_ontap menu`
 
-. Weisen Sie die alten node1-Festplatten dem Ersatznode1 neu zu, indem Sie „22/7“ eingeben und die versteckte Option auswählen `boot_after_controller_replacement` Wenn der Node im Boot-Menü angehalten wird.
+. Wenn der Knoten beim Startmenü stoppt, weisen Sie die alten Knoten1-Festplatten dem Ersatzknoten1 neu zu, indem Sie den folgenden Befehl auf Knoten1 ausführen:
++
+`boot_after_controller_replacement`
+
 +
 Nach einer kurzen Verzögerung werden Sie aufgefordert, den Namen des Node einzugeben, der ersetzt wird. Wenn gemeinsam genutzte Festplatten vorhanden sind (auch Advanced Disk Partitioning (ADP) oder partitionierte Festplatten), werden Sie aufgefordert, den Node-Namen des HA-Partners einzugeben.
 
@@ -196,6 +199,7 @@ This will replace all flash-based configuration with the last backup to disks. A
 .
 .
 Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node node1 disks.
 Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
 Partner sysid = 4294967295, owner sysid = 536940063

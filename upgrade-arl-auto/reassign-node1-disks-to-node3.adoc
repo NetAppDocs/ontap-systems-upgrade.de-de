@@ -16,11 +16,17 @@ summary: 'Konfigurieren Sie node3 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/
 [role="lead"]
 Sie müssen die Festplatten, die zu node1 gehörten, zu node3 neu zuweisen, bevor Sie die Installation von node3 überprüfen.
 
-.Über diese Aufgabe
-Sie führen die Schritte in diesem Abschnitt auf Knoten 3 aus.
-
 .Schritte
-. [[reassign-node1-node3-step1]]Gehen Sie zum Boot-Menü und verwenden Sie 22/7 und wählen Sie die versteckte Option `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node1 ein, um die Festplatten von node1 node3 wie im folgenden Beispiel neu zuzuweisen.
+. [[reassign-node1-node3-step1]]Überprüfen Sie, ob Knoten1 im Bootmenü angehalten wurde, und weisen Sie die Festplatten von Knoten1 Knoten3 neu zu:
++
+`boot_after_controller_replacement`
+
++
+Nach einer kurzen Verzögerung werden Sie aufgefordert, den Namen des Node einzugeben, der ersetzt wird. Wenn gemeinsam genutzte Festplatten vorhanden sind (auch Advanced Disk Partitioning (ADP) oder partitionierte Festplatten), werden Sie aufgefordert, den Node-Namen des HA-Partners einzugeben.
+
++
+Diese Eingabeaufforderungen sind möglicherweise in den Konsolenmeldungen verborgen. Wenn Sie keinen Node-Namen eingeben oder einen falschen Namen eingeben, werden Sie aufgefordert, den Namen erneut einzugeben.
+
 +
 .Erweitern Sie das Ausgabebeispiel der Konsole
 [%collapsible]
@@ -74,8 +80,7 @@ disks. Are you sure you want to continue?: yes
 .
 .
 Controller Replacement: Provide name of the node you would like to replace: <name of the node being replaced>
-.
-.
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node <node being replaced> disks.
 Fetched sanown old_owner_sysid = 536953334 and calculated old sys id = 536953334
 Partner sysid = 4294967295, owner sysid = 536953334
@@ -103,7 +108,7 @@ Login:
 ...
 ----
 ====
-. Wenn das System mit der Meldung in eine Reboot-Schleife geht `no disks found`, liegt dies daran, dass es die Ports wieder in den Zielmodus zurückgesetzt hat und daher keine Festplatten sehen kann. Fahren Sie mit fort<<auto_check3_step3,Schritt 3>>, <<auto_check3_step8,Schritt 8>> um dies zu beheben.
+. Wenn das System in eine Neustartschleife gerät und die Meldung `no disks found` , liegt dies daran, dass die Ports wieder auf den Zielmodus zurückgesetzt wurden und daher keine Festplatten erkannt werden können.  Ausführen<<auto_check3_step3,Schritt 3>> Zu<<auto_check3_step8,Schritt 8>> auf Knoten3, um dieses Problem zu beheben.
 . [[Auto_check3_step3]]Drücken Sie während des AUTOBOOTS Strg-C, um den Knoten an der Eingabeaufforderung Loader> anzuhalten.
 . [[step18]]wechseln Sie an der LOADER-Eingabeaufforderung in den Wartungsmodus:
 +
@@ -186,7 +191,7 @@ NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehle
 
 
 
-. [[Auto_check3_step9]]Wenn Sie ein Upgrade von einem System mit externen Festplatten auf ein System durchführen, das interne und externe Festplatten unterstützt (z. B. AFF A800-Systeme), legen Sie das node1-Aggregat als Root-Aggregat fest, um zu bestätigen, dass node3 vom Root-Aggregat von node1 startet. Zum Festlegen des Root-Aggregats wechseln Sie im Boot-Menü und wählen Sie Option, um in den Wartungsmodus zu wechseln `5`.
+. [[auto_check3_step9]]Wenn Sie von einem System mit externen Festplatten auf ein System aktualisieren, das interne und externe Festplatten unterstützt (z. B. AFF A800 -Systeme), legen Sie das Knoten1-Aggregat als Root-Aggregat fest, um zu bestätigen, dass Knoten3 vom Root-Aggregat von Knoten1 bootet.  Um das Root-Aggregat festzulegen, gehen Sie zum Boot-Menü auf Knoten3 und wählen Sie die Option `5` um in den Wartungsmodus zu wechseln.
 +
 
 CAUTION: *Die folgenden Teilschritte müssen in der angegebenen Reihenfolge ausgeführt werden; andernfalls kann es zu einem Ausfall oder sogar zu Datenverlust kommen.*

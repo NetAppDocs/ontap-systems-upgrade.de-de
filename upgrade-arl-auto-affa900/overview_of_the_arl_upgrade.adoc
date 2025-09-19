@@ -93,7 +93,7 @@ Gesamteigentum am Ende von Stufe 5:
 
 
 | link:boot_node2_with_a900_controller_and_nvs.html["Stufe 6: Starten Sie Node2 mit den Ersatz-Systemmodulen"]  a| 
-In Phase 6 booten Sie Knoten2 mit aktualisierten Systemmodulen und überprüfen die aktualisierte Knoten2-Installation.  Wenn Sie NVE verwenden, stellen Sie die Schlüsselmanagerkonfiguration wieder her.  Wenn Sie eine Konfiguration mit Switch-verbundenen Clustern aktualisieren, müssen Sie die Switch-Konfiguration für die neuen Controller validieren.  Sie verschieben außerdem Nicht-Root-Aggregate und NAS-Daten-LIFs von Knoten1 von Knoten1 auf den aktualisierten Knoten2 und überprüfen, ob die SAN-LIFs auf Knoten2 vorhanden sind.
+In Phase 6 booten Sie Knoten2 mit aktualisierten Systemmodulen und überprüfen die aktualisierte Knoten2-Installation. Wenn Sie NVE verwenden, stellen Sie die Schlüsselmanagerkonfiguration wieder her. Bei Upgrades von Switch-verbundenen Clustern müssen Sie überprüfen, ob die Cluster-Switch-Referenzkonfigurationsdatei (RCF) die gemeinsam genutzten Cluster-/HA-Ports unterstützt. Sie verschieben außerdem Nicht-Root-Aggregate und NAS-Daten-LIFs von Knoten1 von Knoten1 auf den aktualisierten Knoten2 und überprüfen, ob die SAN-LIFs auf Knoten2 vorhanden sind.
 
 
 

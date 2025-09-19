@@ -28,7 +28,7 @@ entries:
       im Besitz von node1 befinden, auf Knoten 2
     url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html"
   - title: Verschiebung ausgefallener oder Vetos von Aggregaten
-    url: "/upgrade-arl-auto-affa900/relocate_failed_or_vetoed_aggr.html"
+    url: "/upgrade-arl-auto-affa900/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Node1 ausmustern
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
   - title: Ersetzen Sie die node1-Systemmodule
@@ -62,6 +62,8 @@ entries:
   - title: Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs von Knoten
       2 auf Knoten 1
     url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html"
+  - title: Verschiebung ausgefallener oder Vetos von Aggregaten
+    url: "/upgrade-arl-auto-affa900/relocate-failed-or-vetoed-aggr-node1.html"
   - title: Node2 ausmustern
     url: "/upgrade-arl-auto-affa900/retire_node2.html"
 - title: Phase 5. Installieren Sie die Ersatz-Systemmodule auf Knoten 2

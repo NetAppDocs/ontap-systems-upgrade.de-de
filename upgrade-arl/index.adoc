@@ -194,8 +194,53 @@ Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgef�
 
 Wenn Ihr Upgrade-Szenario nicht mit „Systembefehlen“ unterstützt wird, können Sie ein ARL-Upgrade mit manuellen Befehlen durchführen.
 
-Wählen Sie das Verfahren für Ihre ONTAP-Version aus, um das Upgrade zu starten:
+.Unterstützte Systeme anzeigen
+[%collapsible]
+====
+[role="tabbed-block"]
+=====
+.ONTAP 9.8 oder höher
+--
+Manuelle ARL-Upgrades werden für die folgenden Systeme mit ONTAP 9.8 und höher unterstützt:
 
-* link:../upgrade-arl-manual-app/index.html["Führen Sie ein manuelles Upgrade der Controller-Hardware mit ONTAP 9.8 oder höher durch"]
-* link:../upgrade-arl-manual/index.html["Manuelles Upgrade der Controller-Hardware mit ONTAP 9.7 oder einer älteren Version"]
+* FAS System zu FAS System
+* AFF System zu AFF System
++
+Sie können nur ein Upgrade auf ein Ersatzsystem derselben Serie durchführen:
 
++
+** System der AFF A-Series auf einem System der AFF A-Series
+** System der AFF C-Serie auf ein System der AFF C-Serie übertragen
+
+
+* ASA System zu ASA System
++
+
+NOTE: ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von ASA auf ASA r2 finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
+
++
+Sie können nur ein Upgrade auf ein Ersatzsystem derselben Serie durchführen:
+
++
+** System der ASA A-Series auf einem System der ASA A-Series
+** System der ASA C-Serie auf ein System der ASA C-Serie übertragen
+
+
+
+
+link:../upgrade-arl-manual-app/index.html["Führen Sie ein manuelles Upgrade der Controller-Hardware mit ONTAP 9.8 oder höher durch"]
+
+--
+.ONTAP 9.7 oder früher
+--
+Manuelle ARL-Upgrades werden für die folgenden Systeme mit ONTAP 9.7 und früher unterstützt:
+
+* FAS System zu FAS System
+* AFF System zu AFF System
+
+
+link:../upgrade-arl-manual/index.html["Manuelles Upgrade der Controller-Hardware mit ONTAP 9.7 oder einer älteren Version"]
+
+--
+=====
+====

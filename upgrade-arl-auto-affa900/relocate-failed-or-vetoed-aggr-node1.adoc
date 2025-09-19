@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/relocate-failed-or-vetoed-aggr-node1.html 
+keywords: relocating, failed, vetoed, aggregates, relocation, operation 
+summary: 'Manuelles Verschieben von fehlgeschlagenen oder abgelehnten Aggregaten auf Knoten1 beim Upgrade von Controllern mit ONTAP 9.15.1 oder höher mithilfe von `system controller replace` Befehle.' 
+---
+= Verschieben Sie fehlgeschlagene oder abgelehnte Aggregate nach Knoten1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn die Verlagerung von Aggregaten fehlschlägt oder ein Veto eingelegt wird, müssen Sie die Aggregate manuell zu Knoten1 verlagern oder bei Bedarf entweder die Vetos oder Zielprüfungen außer Kraft setzen.
+
+.Über diese Aufgabe
+Das System unterbricht den Umzugsvorgang aufgrund des Fehlers.
+
+.Schritte
+. Überprüfen Sie die EMS-Protokolle (Event Management System), um festzustellen, warum das Aggregat nicht verschoben oder gegen ein Vetos eingesetzt wurde.
+. Verschiebung ausgefallener oder Vetos von Aggregaten:
++
+`storage aggregate relocation start -node <node2> -destination <node1> -aggregate-list <aggregate_name> -ndo-controller-upgrade true`
+
+. Geben Sie bei der entsprechenden Aufforderung ein `y`.
+. Sie können die Verschiebung mit einer der folgenden Methoden erzwingen:
++
+[cols="35,65"]
+|===
+| Option | Beschreibung 
+
+
+| Veto-Prüfungen werden überschrieben | Verwenden Sie den folgenden Befehl:
+`storage aggregate relocation start -node node2 -destination node1 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true` 
+
+
+| Zielprüfungen überschreiben | Verwenden Sie den folgenden Befehl:
+`storage aggregate relocation start -node node2 -destination node1 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
+|===
+

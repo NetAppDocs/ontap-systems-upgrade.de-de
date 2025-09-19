@@ -31,7 +31,7 @@ entries:
       im Besitz von node1 befinden, auf Knoten 2
     url: "/upgrade-arl-auto-app-9151/relocate_non_root_aggr_nas_data_lifs_node1_node2.html"
   - title: Verschiebung ausgefallener oder Vetos von Aggregaten
-    url: "/upgrade-arl-auto-app-9151/relocate_failed_or_vetoed_aggr.html"
+    url: "/upgrade-arl-auto-app-9151/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Node1 ausmustern
     url: "/upgrade-arl-auto-app-9151/retire_node1.html"
   - title: Vorbereitungen für den Netzboot
@@ -56,6 +56,8 @@ entries:
   - title: Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten
       2 auf Knoten 3
     url: "/upgrade-arl-auto-app-9151/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html"
+  - title: Verschiebung ausgefallener oder Vetos von Aggregaten
+    url: "/upgrade-arl-auto-app-9151/relocate-failed-or-vetoed-aggr-node3.html"
   - title: Node2 ausmustern
     url: "/upgrade-arl-auto-app-9151/retire_node2.html"
 - title: 'Phase 5: installieren und booten sie node4'

@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+Wenn die Verlagerung von Aggregaten fehlschlägt oder ein Veto eingelegt wird, müssen Sie die Aggregate manuell auf Knoten 3 verlagern oder bei Bedarf entweder die Vetos oder Zielprüfungen außer Kraft setzen.
+
+.Über diese Aufgabe
+Das System unterbricht den Umzugsvorgang aufgrund des Fehlers.
+
+.Schritte
+. Überprüfen Sie die EMS-Protokolle (Event Management System), um festzustellen, warum das Aggregat nicht verschoben oder gegen ein Vetos eingesetzt wurde.
+. Verschiebung ausgefallener oder Vetos von Aggregaten:
++
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list <aggregate_name> -ndo-controller-upgrade true`
+
+. Geben Sie bei der entsprechenden Aufforderung ein `y`.
+. Sie können die Verschiebung mit einer der folgenden Methoden erzwingen:
++
+[cols="35,65"]
+|===
+| Option | Beschreibung 
+
+
+| Veto-Prüfungen werden überschrieben | Verwenden Sie den folgenden Befehl:
+`storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true` 
+
+
+| Zielprüfungen überschreiben | Verwenden Sie den folgenden Befehl:
+`storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
+|===
+

@@ -1,7 +1,19 @@
-= 
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/relocate-failed-or-vetoed-aggr-node2.html 
+keywords: relocating, failed, vetoed, aggregates, relocation, operation 
+summary: 'Manuelles Verschieben von fehlgeschlagenen oder abgelehnten Aggregaten auf Knoten2 beim Upgrade von Controllern mit ONTAP 9.8 oder höher mithilfe von `system controller replace` Befehle.' 
+---
+= Verschieben Sie fehlgeschlagene oder abgelehnte Aggregate auf Knoten2
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
+[role="lead"]
 Wenn die Verlagerung von Aggregaten fehlschlägt oder ein Veto eingelegt wird, müssen Sie die Aggregate manuell auf Knoten 2 verlagern oder bei Bedarf entweder die Vetos oder Zielprüfungen außer Kraft setzen.
 
 .Über diese Aufgabe

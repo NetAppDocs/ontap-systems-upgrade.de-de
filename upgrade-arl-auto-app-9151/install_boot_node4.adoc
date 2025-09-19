@@ -274,9 +274,18 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 
 . Starten Sie den Node im Boot-Menü:
 +
-`boot_ontap menu`.
+`boot_ontap menu`
 
-. [[Auto_Check_4_step11]]auf node4, gehen Sie zum Boot-Menü und mit 22/7, wählen Sie die versteckte Option `boot_after_controller_replacement`. Geben Sie an der Eingabeaufforderung node2 ein, um die Festplatten von node2 node4 wie im folgenden Beispiel neu zuzuweisen.
+. [[auto_check_4_step11]]Wenn Knoten4 beim Startmenü stoppt, weisen Sie die Knoten2-Festplatten Knoten4 neu zu, indem Sie den folgenden Befehl auf Knoten4 ausführen:
++
+`boot_after_controller_replacement`
+
++
+Nach einer kurzen Verzögerung werden Sie aufgefordert, den Namen des Node einzugeben, der ersetzt wird. Wenn gemeinsam genutzte Festplatten vorhanden sind (auch Advanced Disk Partitioning (ADP) oder partitionierte Festplatten), werden Sie aufgefordert, den Node-Namen des HA-Partners einzugeben.
+
++
+Diese Eingabeaufforderungen sind möglicherweise in den Konsolenmeldungen verborgen. Wenn Sie keinen Node-Namen eingeben oder einen falschen Namen eingeben, werden Sie aufgefordert, den Namen erneut einzugeben.
+
 +
 .Erweitern Sie das Ausgabebeispiel der Konsole
 [%collapsible]
@@ -354,6 +363,7 @@ you want to continue?: yes
 .
 Controller Replacement: Provide name of the node you would like to replace:
 <nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node node2 disks.
 Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
 Partner sysid = 4294967295, owner sysid = 536940063
