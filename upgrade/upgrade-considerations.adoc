@@ -110,7 +110,6 @@ Der Transfer des internen Speichers ist eine optionale Aufgabe im Workflow für 
 
 == Situationen, in denen Sie möglicherweise zusätzliche Schritte benötigen
 
-* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Sie führen ein Upgrade von einer AFF A250 auf eine AFF A400 durch"] (Ein unterbrechungsfreies Verfahren).
 * Wenn das neue System weniger Steckplätze als das ursprüngliche System hat oder weniger oder unterschiedliche Porttypen vorhanden sind, müssen Sie dem neuen System möglicherweise einen Adapter hinzufügen. Siehe https://hwu.netapp.com["NetApp Hardware Universe"^].
 * Wenn die ursprünglichen oder neuen Knoten die FlexArray-Virtualisierungssoftware verwenden, lesen Sie den Knowledge Base-Artikel https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["Welche spezifischen Schritte werden in FlexArray für NetApp Controller-Upgrades und -Austausch durchgeführt"^].
 * Wenn Ihr Cluster über SAN Hosts verfügt, müssen Sie möglicherweise Schritte Unternehmen, um Probleme mit den Änderungen der LUN-Seriennummer zu beheben. Weitere Informationen finden Sie im Knowledge Base-Artikel https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["So können Probleme während des Austauschs der Storage Controller-Hauptplatine und des Upgrades mit iSCSI und FCP behoben werden"^].
@@ -118,6 +117,8 @@ Der Transfer des internen Speichers ist eine optionale Aufgabe im Workflow für 
 
 
 .Verwandte Informationen
+* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Konvertieren Sie AFF A250 in ein Laufwerksregal und aktualisieren Sie auf AFF A400"](unterbrechungsfreies Verfahren)
+* link:convert-fas2820-to-drive-shelf.html["Upgrade von FAS2820 durch Umbau auf ein Laufwerksregal"](unterbrechungsfreies Verfahren)
 * link:../choose_controller_upgrade_procedure.html["Wählen Sie Methoden zum Upgrade der Controller-Hardware"]
 * link:upgrade-by-moving-storage-parent.html["Upgrade von Controller Hardware durch Storage-Verschiebung"]
 * link:upgrade-by-moving-volumes-parent.html["Aktualisieren Sie die Controller Hardware durch Verschieben von Volumes"]

@@ -1,0 +1,29 @@
+---
+permalink: upgrade/convert-fas2820-node2-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas8280, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: 'Wandeln Sie Knoten 2 (FAS2820) in ein DS212C-Laufwerksregal um und stellen Sie dann eine Verbindung zu Knoten 4 her.' 
+---
+= Konvertieren Sie FAS2820 Knoten2 in ein Laufwerksregal und verbinden Sie es mit Knoten4
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Konvertieren Sie FAS2820 Node2 in ein DS212C-Laufwerksregal.  Stellen Sie eine Verbindung zu Knoten4 her, bevor Sie Laufwerke von Knoten2 zu Knoten4 neu zuweisen.  Knoten1 und Knoten2 sind die Controller im DS212C-Regal.
+
+.Schritte
+. Trennen Sie alle Netzwerkkabel von Knoten 2.
+. Entfernen Sie Knoten2 aus dem FAS2820 Gehäuse.
+. Setzen Sie das IOM12- oder IOM12B-Modul in den Schacht von Knoten2 ein.
+. Verkabeln Sie den Serial-Attached SCSI (SAS)-Port von Node4 mit einem freien Port am IOM12- oder IOM12B-Modul.  Siehe dielink:https://hwu.netapp.com["Hardware Universe"^] um die SAS-Ports für Ihr System zu überprüfen.
+. Erstellen Sie temporäre Clusterverbindungen, indem Sie die Ports e0a und e0b von Knoten 1 mit zwei beliebigen 25-GbE-Ports auf Knoten 4 verbinden.
++
+
+NOTE: Wenn Knoten 4 nur 10-GbE-Clusterverbindungen unterstützt, müssen Sie über eine 10-GbE-Verkabelung verfügen, um temporäre Clusterverbindungen zu erstellen.
+
+
+
+.Was kommt als Nächstes?
+link:reassign-fas2820-node2-drives.html["Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu"]

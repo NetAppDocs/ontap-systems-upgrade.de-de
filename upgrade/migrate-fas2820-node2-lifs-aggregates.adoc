@@ -1,0 +1,147 @@
+---
+permalink: upgrade/migrate-fas2820-node2-lifs-aggregates.html 
+sidebar: sidebar 
+keywords: fas2820, ndu, nondisruptive, upgrade, node1, node2, migrate, aggregates, lifs 
+summary: 'Migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf FAS2820 Knoten2 zu Knoten1, bevor Sie Knoten2 in ein Laufwerksregal konvertieren.' 
+---
+= Migrieren Sie LIFs und Datenaggregate auf FAS2820 -Knoten2 nach Knoten1
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf FAS2820 Knoten2 zu Knoten1, bevor Sie Knoten2 in ein Laufwerksregal konvertieren.
+
+.Bevor Sie beginnen
+Vergewissern Sie sich, dass Sie die folgenden Anforderungen erfüllen:
+
+* Der FAS2820 und die Ersatzcontroller verfügen, wenn möglich, über dieselbe ONTAP Version und Patch-Version.  Weitere Informationen finden Sie im https://hwu.netapp.com["NetApp Hardware Universe"^] für unterstützte ONTAP Versionen.
+
+
+[NOTE]
+====
+* Sie müssen einen Netboot durchführen und die ONTAP Version auf Knoten3 und Knoten4 installieren, damit sie mit der ONTAP Version auf den FAS2820 Systemen übereinstimmt.  Knoten3 und Knoten4 sind die Ersatzcontroller.
+* Sowohl das primäre als auch das Backup-Boot-Image der Node3- und Node4-Controller müssen dieselbe ONTAP Version haben.
+* Sie müssen alle verbleibenden Clusterkonfigurationen auf Knoten3 und Knoten4 löschen, indem Sie Folgendes ausführen: `wipeconfig` aus dem Bootmenü.
+
+
+====
+* Beide Ersatzcontroller sind bei der LOADER-Eingabeaufforderung im Standby-Modus.
+* Alle erforderlichen Kabel sind vorhanden.
+
+
+.Über diese Aufgabe
+Die folgenden Schritte werden auf FAS2820 Knoten1 ausgeführt.
+
+.Schritte
+. Zugriff auf die erweiterte Berechtigungsebene:
++
+[source, cli]
+----
+set -privilege advanced
+----
+. Automatisches Giveback für Storage Failover deaktiviert:
++
+[source, cli]
+----
+storage failover modify -node node1 -auto-giveback false
+----
+. Deaktivieren Sie die automatische Zurücksetzung der LIFs über beide Nodes des HA-Paars hinweg:
++
+[source, cli]
+----
+network interface modify -lif * -auto-revert false
+----
+. Status aller Datennetzwerk-LIFs anzeigen:
++
+[source, cli]
+----
+network interface show -role data
+----
+. Status der Cluster-Management-LIFs anzeigen:
++
+[source, cli]
+----
+network interface show -role cluster-mgmt
+----
+. Migrieren Sie alle Daten-LIFs von den Storage Virtual Machines, die auf Knoten2 gehostet werden:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif <lif_name> -destination-node <node1> -destination-port <port_name>
+----
++
+
+NOTE: Mit diesem Befehl werden nur nicht-SAN-LIFs migriert. Sie können sie nicht zum Migrieren von iSCSI- und FCP-LIFs verwenden.
+
+. Status aller Daten-LIFs im Cluster anzeigen:
++
+[source, cli]
+----
+network interface show -role data
+----
+. Wenn LIFs ausgefallen sind, setzen Sie ihren Verwaltungsstatus auf `up` indem Sie für jedes LIF einmal den folgenden Befehl eingeben:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -status-admin up
+----
+. Status aller Datenaggregate im Cluster anzeigen:
++
+[source, cli]
+----
+storage aggregate show
+----
+. Failover-Berechtigung anzeigen:
++
+[source, cli]
+----
+storage failover show
+----
+. Migrieren Sie die Datenaggregate auf Knoten2 zu Knoten1:
++
+[source, cli]
+----
+storage aggregate relocation start -aggregate <aggregate_name> -node <node2> -destination <node1>
+----
+. Status aller Datenaggregate im Cluster anzeigen:
++
+[source, cli]
+----
+storage aggregate show
+----
+. Status aller Daten-Volumes im Cluster anzeigen:
++
+[source, cli]
+----
+volume show
+----
+. Zeigen Sie das an `ha` Status und Eigentum von epsilon:
++
+[source, cli]
+----
+cluster show
+----
+. Cluster ha deaktivieren:
++
+[source, cli]
+----
+cluster ha modify -configured false
+----
+. Zeigen Sie das an `ha` Status und Eigentum von epsilon:
++
+[source, cli]
+----
+cluster show
+----
+. Stopp-Nr. 2:
++
+[source, cli]
+----
+halt -node <node2> -inhibit-takeover true -ignore-quorum-warnings true
+----
+
+
+.Was kommt als Nächstes?
+link:convert-fas2820-node2-drive-shelf.html["Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit node 4"]

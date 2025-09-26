@@ -48,6 +48,8 @@ Ein Upgrade durch Verschiebung von Volumes ist unterbrechungsfrei.
 Informationen zum Aktualisieren einer MetroCluster-Konfiguration finden Sie unter https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^].
 
 .Verwandte Informationen
+* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Konvertieren Sie AFF A250 in ein Laufwerksregal und aktualisieren Sie auf AFF A400"](unterbrechungsfreies Verfahren)
+* link:convert-fas2820-to-drive-shelf.html["Upgrade von FAS2820 durch Umbau auf ein Laufwerksregal"](unterbrechungsfreies Verfahren)
 * link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]
 * link:../choose_controller_upgrade_procedure.html["Wählen Sie Methoden zum Upgrade der Controller-Hardware"]
 * https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["Hier finden Sie Verfahren für MetroCluster-Wartungsarbeiten"^]

@@ -1,0 +1,201 @@
+---
+permalink: upgrade/migrate-fas2820-node4-lIfs-aggregates.html 
+sidebar: sidebar 
+keywords: fas2820, ndu, nondisruptive, upgrade, node3, node4, migrate, aggregates, lif 
+summary: 'Um das Upgrade abzuschließen, verbinden Sie FAS2820node3 mit Knoten4 und migrieren dann die logischen Datenschnittstellen (LIFs) und Datenaggregate auf Knoten4 zu Knoten3.' 
+---
+= Migrieren Sie LIFs und Datenaggregate auf FAS2820 Knoten4 zu Knoten3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um das Upgrade abzuschließen, verbinden Sie FAS2820 Knoten3 mit Knoten4 und migrieren dann die logischen Datenschnittstellen (LIFs) und Datenaggregate auf Knoten4 zu Knoten3.
+
+.Über diese Aufgabe
+Führen Sie die folgenden Schritte auf Knoten3 aus.
+
+.Schritte
+. Booten Sie den Node an der LOADER-Eingabeaufforderung für Node 3 im Boot-Menü:
++
+[source, cli]
+----
+boot_ontap menu
+----
+. Wählen Sie die Option `6 Update flash from backup config` Um das /var-Dateisystem auf node3 wiederherzustellen.
++
+Dadurch wird die gesamte Flash-basierte Konfiguration durch das letzte Backup auf Festplatten ersetzt.
+
+. Eingabe `y` Um fortzufahren.
+. Lassen Sie den Node wie gewohnt booten.
++
+[NOTE]
+====
+Der Knoten startet automatisch neu, um die neue Kopie des Dateisystems /var zu laden.
+
+Der Knoten gibt eine Warnung aus, dass eine nicht übereinstimmende System-ID vorliegt. Eingabe `y` Um die System-ID zu überschreiben.
+
+====
+. Überprüfen Sie, ob die Cluster- und HA-Ports zwischen Knoten3 und Knoten4 verbunden sind.
+. Zeigen Sie die Cluster- und HA-Ports auf Knoten3 und Knoten4 an:
++
+[source, cli]
+----
+set -privilege advanced
+----
++
+[source, cli]
+----
+network port show
+----
+. Ändern Sie die Cluster-Broadcast-Domäne, um die gewünschten Cluster-Ports aufzunehmen:
++
+[source, cli]
+----
+network port broadcast-domain remove-ports -broadcast-domain <broadcast_domain_name> -ports <port_names>
+----
++
+[source, cli]
+----
+network port broadcast-domain add-ports -broadcast-domain Cluster -ports <port_names>
+----
++
+
+NOTE: Ab ONTAP 9.8 können neue IPspaces und eine oder mehrere Broadcast-Domänen den vorhandenen physischen Ports zugewiesen werden, die für die Cluster-Konnektivität vorgesehen sind.
+
+. Ändern Sie den Cluster-IPspace, um die gewünschten Cluster-Ports aufzunehmen, und setzen Sie die maximale Übertragungseinheit auf 9000, falls nicht bereits festgelegt:
++
+[source, cli]
+----
+network port modify -node <node_name> -port <port_name> -mtu 9000 -ipspace Cluster
+----
+. Alle Cluster-Netzwerk-LIFs anzeigen:
++
+[source, cli]
+----
+network interface show -role cluster
+----
+. Migrieren Sie alle Cluster-Netzwerk-LIFs auf beiden Knoten zu ihren geplanten Home-Ports:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif <lif_name> -destination-node <node_name> -destination-port <port_name>
+----
+. Alle Cluster-Netzwerk-LIFs anzeigen:
++
+[source, cli]
+----
+network interface show -role cluster
+----
+. Konfigurieren Sie die Home-Ports für die Cluster-Netzwerk-LIFs:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -home-port <port_name>
+----
+. Migrieren Sie alle für Knoten3 bestimmten Daten-LIFs zurück zu Knoten3:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif <lif_name> -destination-node <node3> -destination-port <port_name>
+----
+. Alle Datennetzwerk-LIFs anzeigen:
++
+[source, cli]
+----
+network interface show -role data
+----
+. Konfigurieren Sie den Home-Knoten und den Home-Port für alle Daten-LIFs.  Wenn LIFs ausgefallen sind, setzen Sie ihren Verwaltungsstatus auf `up` indem Sie für jedes LIF einmal den folgenden Befehl eingeben:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -home-node <node_name> -home-port <port_name> -status-admin up
+----
+. Migration der Cluster-Management-LIF:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif <cluster_mgmt_lif> -destination-node <node3> -destination-port <port_name>
+----
+. Status der Cluster-Management-LIF anzeigen:
++
+[source, cli]
+----
+network interface show -role cluster-mgmt
+----
+. Status aller Datenaggregate im Cluster anzeigen:
++
+[source, cli]
+----
+storage aggregate show
+----
+. Aktivieren Sie die Cluster-Hochverfügbarkeit im Zwei-Knoten-Cluster:
++
+[source, cli]
+----
+cluster ha modify -configured true
+----
+. Aktivieren und überprüfen Sie das Speicher-Failover für Knoten3 und Knoten4:
++
+[source, cli]
+----
+storage failover modify -node <node3> -enabled true
+----
++
+[source, cli]
+----
+storage failover modify -node <node4> -enabled true
+----
++
+[source, cli]
+----
+storage failover show
+----
+. Migrieren Sie Datenaggregate, die Knoten4 gehören und Knoten3 gehören sollten:
++
+[source, cli]
+----
+storage aggregate relocation start -aggregate <aggregate_name> -node <node4> -destination <node3>
+----
+. Status aller Datenaggregate im Cluster anzeigen:
++
+[source, cli]
+----
+storage aggregate show
+----
+. Aktivieren Sie die automatische Zurücksetzung der Netzwerk-LIFs über die Nodes hinweg:
++
+[source, cli]
+----
+network interface modify -lif * -auto-revert true
+----
+. Automatisches Giveback für Storage Failover aktivieren:
++
+[source, cli]
+----
+storage failover modify -node * -auto-giveback true
+----
+. Anzeigen des Cluster-Status:
++
+[source, cli]
+----
+cluster show
+----
+. Failover-Berechtigung anzeigen:
++
+[source, cli]
+----
+storage failover show
+----
++
+
+NOTE: In der Clusterberichtsausgabe kann es vorkommen, dass ein Knoten fälschlicherweise Eigentümer von Aggregaten ist, die einem anderen Knoten gehören.  Wenn dies eintritt, führen Sie eine Übernahme und Rückgabe von beiden Seiten des Clusters durch.
+
+. Status aller Datenaggregate im Cluster anzeigen:
++
+[source, cli]
+----
+storage aggregate show
+----
+

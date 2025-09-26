@@ -1,0 +1,78 @@
+---
+permalink: upgrade/reassign-fas2820-node1-drives.html 
+sidebar: sidebar 
+keywords: fas2820, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: Nachdem Sie FAS2820 Knoten1 in ein DS212C-Laufwerk konvertiert und eine Verbindung mit Knoten3 hergestellt haben, weisen Sie die Laufwerke, die zuvor zu Knoten1 gehörten, Knoten3 neu zu. 
+---
+= Laufwerke von FAS2820 Knoten1 zu Knoten3 neu zuweisen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Weisen Sie die Laufwerke, die zuvor FAS2820 Knoten1 zugewiesen waren, Knoten3 neu zu.
+
+.Über diese Aufgabe
+Führen Sie die folgenden Schritte auf Knoten3 aus.
+
+.Schritte
+. Booten Sie an der EINGABEAUFFORDERUNG DES LOADERS Node 3 im Wartungsmodus:
++
+[source, cli]
+----
+boot_ontap maint
+----
++
+Die Eingabeaufforderung „Wartungsmodus“ wird angezeigt.
+
+. Alle angeschlossenen Laufwerke anzeigen:
++
+[source, cli]
+----
+disk show -v
+----
+. Notieren Sie den Wert der lokalen System-ID. Dies ist die System-ID von Knoten3.  Notieren Sie sich außerdem die System-IDs von Knoten1 und Knoten4 aus der Spalte „EIGENTÜMER“.
+. Neuzuweisung aller Laufwerke von Knoten 1 zu Knoten 3:
++
+[role="tabbed-block"]
+====
+.Wenn Sie ganze Festplatten verwenden
+--
+Führen Sie den folgenden Befehl aus:
+
+[source, cli]
+----
+disk reassign -s <node1_system_ID> -d <node3_system_ID>
+----
+--
+.Wenn Sie partitionierte Festplatten verwenden
+--
+Führen Sie den folgenden Befehl aus:
+
+[source, cli]
+----
+disk reassign -s <node1_system_ID> -d <node3_system_ID> -p <node4_system_ID>
+----
+--
+====
+. Überprüfen Sie, ob alle neu zugewiesenen Laufwerke der neuen System-ID angezeigt werden:
++
+[source, cli]
+----
+disk show -s <node3_system_ID>
+----
++
+
+CAUTION: Wenn die Laufwerke nicht angezeigt werden können, *stoppen* Sie und wenden Sie sich an den technischen Support, um Hilfe zu erhalten.
+
+. Wartungsmodus Beenden:
++
+[source, cli]
+----
+halt
+----
+
+
+.Was kommt als Nächstes?
+link:migrate-fas2820-node4-lIfs-aggregates.html["Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3"]
