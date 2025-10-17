@@ -28,12 +28,6 @@ Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufge
 | link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Festplatten- und Aggregatmanagement mit CLI"^] | Beschreibt das Verwalten von physischem ONTAP Storage mit der CLI. Hier erfahren Sie, wie Sie Aggregate erstellen, erweitern und managen, wie Sie mit Flash Pool Aggregaten arbeiten, Festplatten managen und RAID-Richtlinien managen. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["Installation und Konfiguration von Fabric-Attached MetroCluster"^] | Beschreibt die Installation und Konfiguration der MetroCluster Hardware- und Softwarekomponenten in einer Fabric-Konfiguration. 
-
-
-| link:https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["Installationsanforderungen für die FlexArray Virtualisierung und Referenz"^] | Enthält Verkabelungsanweisungen und andere Informationen für FlexArray-Virtualisierungssysteme. 
-
-
 | link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA-Paar-Management"^] | Beschreibt die Installation und das Management von hochverfügbaren geclusterten Konfigurationen, einschließlich Storage Failover und Takeover/Giveback. 
 
 

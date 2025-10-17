@@ -13,12 +13,12 @@
 | Wenn das System, das Sie aktualisieren... | Dann... 
 
 
-| Verfügt nicht über die richtige oder aktuelle ONTAP-Version unter node4 | Gehen Sie zu <<man_install4_Step20,Schritt 20>>. 
+| Verfügt nicht über die richtige oder aktuelle ONTAP-Version unter node4 | Gehe zu<<man_install4_Step13,Schritt 13>> . 
 
 
-| Hat die richtige oder aktuelle Version von ONTAP auf node4 | Gehen Sie zu <<man_install4_Step25,Schritt 25>>. 
+| Hat die richtige oder aktuelle Version von ONTAP auf node4 | Gehe zu<<man_install4_Step18,Schritt 18>> . 
 |===
-. [[man_install4_Step20]]Konfigurieren Sie die Netzboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
+. [[man_install4_Step13]]Konfigurieren Sie die Netboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
 +
 
 NOTE: Sie müssen den Management-Port und die IP-Adresse als Netzboot-Verbindung verwenden. Verwenden Sie keine LIF-IP-Adresse von Daten, oder es kann während des Upgrades ein Datenausfall auftreten.
@@ -109,8 +109,8 @@ Das Controller-Modul wird neu gestartet, stoppt aber im Startmenü, da das Boot-
 
 
 
-. [[man_install4_Step25]]Wählen Sie den Wartungsmodus `5` Öffnen Sie das Startmenü, und geben Sie ein `y` Wenn Sie aufgefordert werden, den Startvorgang fortzusetzen.
-. [[man_install4_Step26]]bevor Sie fortfahren, fahren Sie mit fort link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Um alle erforderlichen Änderungen an den FC- oder UTA/UTA2-Ports auf dem Node vorzunehmen. Nehmen Sie die in diesen Abschnitten empfohlenen Änderungen vor, starten Sie den Node neu, und wechseln Sie in den Wartungsmodus.
+. [[man_install4_Step18]]Wartungsmodus auswählen `5` aus dem Boot-Menü und geben Sie `y` wenn Sie aufgefordert werden, mit dem Booten fortzufahren.
+. [[man_install4_Step19]]Bevor Sie fortfahren, gehen Sie zulink:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] um alle notwendigen Änderungen an den FC- oder UTA/UTA2-Ports auf dem Knoten vorzunehmen.  Nehmen Sie die in diesen Abschnitten empfohlenen Änderungen vor, starten Sie den Knoten neu und wechseln Sie in den Wartungsmodus.
 . Geben Sie den folgenden Befehl ein und überprüfen Sie die Ausgabe, um die System-ID von node4 zu finden:
 +
 `disk show -a`
@@ -296,7 +296,7 @@ Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 +
 `set time _hh:mm:ss_`
 
-. Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in beschrieben <<man_install4_Step26,Schritt 26>> Unter Option.
+. Überprüfen Sie, ob die Partnersystem-ID korrekt eingestellt ist, wie in<<man_install4_Step19,Schritt 19>> unter Option.
 +
 `printenv partner-sysid`
 

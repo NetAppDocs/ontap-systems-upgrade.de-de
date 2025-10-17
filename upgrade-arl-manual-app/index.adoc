@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/index.html 
-keywords: controller, aggregate, relocation, flexarray, manual, upgrade, metrocluster 
+keywords: controller, aggregate, relocation, manual, upgrade, metrocluster 
 summary: Mithilfe des manuellen ARL-Upgrade-Verfahrens für ein Upgrade der Controller-Hardware mit ONTAP 9.8 oder höher; die Eigentümerschaft von Aggregaten außerhalb der Root-Ebene wird verschoben. 
 ---
 = Erfahren Sie mehr über dieses ARL-Upgradeverfahren
@@ -18,7 +18,6 @@ Dieses Verfahren beschreibt, wie Sie die Controller-Hardware mithilfe der manuel
 Sie können dieses ARL-Verfahren verwenden, wenn Sie eines der folgenden Upgrades durchführen:
 
 * FAS System zu FAS System
-* FAS System auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System
 * AFF System zu AFF System
 +
 Sie können nur ein Upgrade auf ein Ersatzsystem derselben Serie durchführen:
@@ -40,20 +39,17 @@ Sie können nur ein Upgrade auf ein Ersatzsystem derselben Serie durchführen:
 ** System der ASA C-Serie auf ein System der ASA C-Serie übertragen
 
 
-* System mit FlexArray Virtualisierungssoftware oder einem V-Series System auf einem FAS System, vorausgesetzt, dass das System mit FlexArray Virtualisierungssoftware oder V-Series System keine Array-LUNs besitzt.
-* V-Series Systeme auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System
 
 
 Während des Verfahrens führen Sie ein Upgrade der ursprünglichen Controller Hardware mit der Ersatz-Controller-Hardware durch. Hierbei werden die Eigentumsrechte an Aggregaten verschoben, die nicht mit Root-Berechtigungen verbunden sind. Sie migrieren Aggregate mehrmals von Node zu Node, um zu bestätigen, dass mindestens ein Node während des Upgrades Daten von den Aggregaten bereitstellt. Außerdem migrieren Sie Daten-logische Schnittstellen (LIFs) und weisen Sie die Netzwerk-Ports auf dem neuen Controller den Schnittstellengruppen zu, während Sie fortfahren.
 
 
-NOTE: In diesem Dokument werden die ursprünglichen Knoten _node1_ und _node2_ genannt, und die neuen Knoten werden _node3_ und _node4_ genannt. Während des beschriebenen Verfahrens wird node1 durch node3 ersetzt und node2 durch node4 ersetzt. Die Begriffe _node1_, _node2_, _node3_ und _node4_ werden nur verwendet, um zwischen den ursprünglichen und neuen Knoten zu unterscheiden. Wenn Sie das Verfahren befolgen, müssen Sie die richtigen Namen Ihrer ursprünglichen und neuen Knoten ersetzen. In der Realität ändern sich jedoch die Namen der Nodes nicht: node3 hat den Namen node1 und node4 hat nach dem Upgrade der Controller-Hardware den Namen node2. In diesem Dokument wird der Begriff „ Systems with FlexArray Virtualization Software_“ verwendet, um sich auf Systeme zu beziehen, die zu diesen neuen Plattformen gehören. Dabei wird der Begriff _V-Series System_ verwendet, um sich auf die separaten Hardware-Systeme zu beziehen, die an Storage-Arrays angeschlossen werden können
+NOTE: In diesem Dokument werden die ursprünglichen Knoten als _node1_ und _node2_ und die neuen Knoten als _node3_ und _node4_ bezeichnet.  Während des beschriebenen Vorgangs wird Knoten1 durch Knoten3 und Knoten2 durch Knoten4 ersetzt.  Die Begriffe _Knoten1_, _Knoten2_, _Knoten3_ und _Knoten4_ werden nur verwendet, um zwischen den ursprünglichen und neuen Knoten zu unterscheiden.  Wenn Sie das Verfahren befolgen, müssen Sie die tatsächlichen Namen Ihrer ursprünglichen und neuen Knoten ersetzen.  In Wirklichkeit ändern sich die Namen der Knoten jedoch nicht: Knoten3 hat den Namen Knoten1 und Knoten4 den Namen Knoten2, nachdem die Controller-Hardware aktualisiert wurde.
 
 .Wichtige Informationen:
 * Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen außerdem die link:guidelines_upgrade_with_arl.html["Richtlinien zum Upgraden von Controllern mit ARL"] und die link:arl_upgrade_workflow.html["ARL Upgrade-Workflow"] bevor Sie mit dem Upgrade beginnen.
 * Bei dieser Vorgehensweise wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Wenn bereits die Ersatz-Controller-Hardware verwendet wurde, müssen Sie sich an den technischen Support wenden, insbesondere wenn auf den Controllern Data ONTAP in 7-Mode ausgeführt wurde.
 * Mit diesem Verfahren können Sie die Controller-Hardware in Clustern mit mehr als zwei Nodes aktualisieren. Sie müssen jedoch für jedes Hochverfügbarkeitspaar (HA) im Cluster separat vorgehen.
-* Dieses Verfahren gilt für FAS Systeme, V-Series Systeme, AFF Systeme und Systeme mit FlexArray Virtualisierungssoftware. FAS Systeme, die nach ONTAP 9 freigegeben wurden, können an Speicher-Arrays angebunden werden, wenn die erforderliche Lizenz installiert ist. Die vorhandenen Systeme der V-Serie werden von ONTAP 9 unterstützt. Informationen zu den Modellen Storage Array und V-Series finden Sie unter link:other_references.html["Quellen"] Um zu _Hardware Universe_ zu verlinken und eine Support-Matrix zur _V-Serie_ zu erhalten.
 
 
 * Neben Konfigurationen, die nicht von MetroCluster stammen, gilt dieses Verfahren für Fabric MetroCluster Konfigurationen mit vier und acht Nodes mit ONTAP 9.8 und höher.

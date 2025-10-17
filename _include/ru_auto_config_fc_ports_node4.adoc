@@ -6,7 +6,7 @@
 
 == Konfigurieren Sie FC-Ports auf node4
 
-Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.
+Wenn Knoten 4 über FC-Ports verfügt (entweder integriert oder auf einem zusätzlichen FC-Adapter), müssen Sie die Portkonfigurationen auf dem Knoten festlegen, bevor Sie ihn in Betrieb nehmen, da die Ports bei der Auslieferung der Systeme nicht vorkonfiguriert sind.  Wenn Sie die Ports nicht wie erforderlich konfigurieren, kann es zu einer Dienstunterbrechung kommen.
 
 .Bevor Sie beginnen
 Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
@@ -15,61 +15,36 @@ Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Absc
 Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
 
-IMPORTANT: Wenn im System Storage-Festplatten vorhanden sind, müssen Sie an der Cluster-Eingabeaufforderung in diesem Abschnitt die Befehle eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
+IMPORTANT: Geben Sie die Befehle in diesem Abschnitt an der Shell-Eingabeaufforderung im Wartungsmodus ein.
 
 .Schritte
-. Führen Sie eine der folgenden Aktionen durch:
+. Zeigen Sie Informationen zu allen FC- und konvergenten Netzwerkadaptern auf dem System an:
 +
-[cols="30,70"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden | `system node hardware unified-connect show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `ucadmin show` 
-|===
-+
-Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im System an.
+`system node hardware unified-connect show`
 
 . Vergleichen Sie die FC-Einstellungen auf node4 mit den Einstellungen, die Sie zuvor aus node1 erfasst haben.
-. Führen Sie eine der folgenden Aktionen durch:
+. Ändern Sie die FC-Ports auf node4 nach Bedarf:
 +
-[cols="30,70"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden  a| 
-Ändern Sie die FC-Ports auf node4 nach Bedarf:
-
-** So programmieren Sie Zielanschlüsse:
+** So programmieren Sie als Zielports:
 +
 `ucadmin modify -m fc -t target _adapter_`
+
++
+Zum Beispiel: `ucadmin modify -m fc -t target 2a`
 
 ** So programmieren Sie Initiator-Ports:
 +
 `ucadmin modify -m fc -t initiator _adapter_`
 
-
-
++
 `-t` Ist der FC4-Typ: Target oder Initiator.
 
++
+Zum Beispiel: `ucadmin modify -m fc -t initator 2b`
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-Ändern Sie die FC-Ports auf node4 nach Bedarf:
 
-`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
-
-`-t` Ist der FC4-Typ, das Ziel oder der Initiator.
-
-
-NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
-
-|===
-. Beenden des Wartungsmodus:
+. Stoppen Sie den Knoten:
 +
 `halt`
 

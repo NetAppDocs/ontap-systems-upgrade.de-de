@@ -25,9 +25,6 @@ Sie können das folgende Arbeitsblatt verwenden, um die Informationen für eine 
 | (Nur SAN-Umgebungen) Standardkonfiguration von FC-Ports | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Beim Konfigurieren von FC-Ports auf den neuen Nodes |  
 
 
-| (Systeme der V-Series oder Systeme mit FlexArray-Virtualisierungssoftware) Topologie für V-Series Systeme oder Systeme mit FlexArray Virtualisierungssoftware | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Stufe 3: _Installieren und Booten node3_ Stufe 5: _Installieren und Booten von node4_ |  
-
-
 | IP-Adresse der SPs | Phase 1: _Die Nodes für das Upgrade vorbereiten_ | Stufe 6: _Bestätigen Sie, dass die neuen Controller korrekt eingerichtet sind_ |  
 
 

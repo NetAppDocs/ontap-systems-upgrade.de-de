@@ -1,8 +1,0 @@
-= 
-:allow-uri-read: 
-
-
-.Wahlmöglichkeiten
-* <<Konfigurieren Sie FC-Ports auf node3>>
-* <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>
-

@@ -135,36 +135,4 @@ Für Knoten 3, `partner-sysid` Muss der von node2 sein.
 +
 `printenv partner-sysid`
 
-. [[steep22]]Nehmen Sie eine der folgenden Aktionen:
-+
-[cols="30,70"]
-|===
-| Wenn Ihr System... | Beschreibung 
-
-
-| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install3_step27,Schritt 27>> 
-
-
-| Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
-.. Weiter mit Abschnitt link:set_fc_or_uta_uta2_config_on_node3.html["Einstellen der FC- oder UTA/UTA2-Konfiguration auf node3"] Und vervollständigen Sie die Unterabschnitte in diesem Abschnitt.
-.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<auto_install3_step23,Schritt 23>>.
-
-
-
-IMPORTANT: Sie müssen die integrierten FC-Ports, die integrierten CNA-Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Series oder dem System mit FlexArray Virtualisierungssoftware booten.
-
-|===
-. [[Auto_install3_steep23]]Fügen Sie die FC-Initiator-Ports des neuen Node zu den Switch-Zonen hinzu.
-+
-Wenn Ihr System über ein Tape-SAN verfügt, müssen Sie das Zoning für die Initiatoren benötigen. Ändern Sie gegebenenfalls die integrierten Ports an den Initiator, indem Sie auf das verweisen link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Konfigurieren von FC-Ports auf node3"]. Weitere Anweisungen zum Zoning finden Sie in der Dokumentation des Storage-Arrays und des Zoning.
-
-. [[steep24]]Fügen Sie die FC-Initiator-Ports dem Speicher-Array als neue Hosts hinzu, und ordnen Sie die Array-LUNs den neuen Hosts zu.
-+
-Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. [[Schritt25]]Ändern Sie die WWPN-Werte (Worldwide Port Name) in den Host- oder Volume-Gruppen, die mit Array-LUNs auf dem Speicher-Array verknüpft sind.
-+
-Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geändert, die den einzelnen integrierten FC-Ports zugeordnet sind.
-
-. [[Schritt26]]Wenn Ihre Konfiguration ein Switch-basiertes Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
 

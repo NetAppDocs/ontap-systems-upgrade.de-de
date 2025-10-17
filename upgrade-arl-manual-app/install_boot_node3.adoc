@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/install_boot_node3.html 
-keywords: install, boot, node3, rack, transfer connections, v-series, flexarray, storage disks 
+keywords: install, boot, node3, rack, transfer connections, storage disks 
 summary: Installieren und booten Sie node3 und installieren Sie die ONTAP Software während eines manuellen ARL Upgrades auf Controllern mit ONTAP 9.8 oder höher. 
 ---
 = Installieren und booten Sie node3
@@ -24,7 +24,6 @@ Sie müssen Knoten3 jedoch nicht per Netboot starten, wenn dort dieselbe oder ei
 [IMPORTANT]
 ====
 * Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 1 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
-* Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>.
 * Wenn Sie ein System mit Speicherplatten aktualisieren, müssen Sie diesen Abschnitt vollständig ausfüllen und dann zu link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] , indem Sie Befehle an der Cluster-Eingabeaufforderung eingeben.
 
 
@@ -44,7 +43,7 @@ NOTE: Wenn Sie ein Upgrade auf ein System mit beiden Nodes im selben Chassis dur
 Die folgenden Referenzen helfen Ihnen dabei, geeignete Kabelverbindungen zu machen. Gehen Sie zu link:other_references.html["Quellen"] Um eine Verbindung zu ihnen zu machen.
 
 +
-** _Installations- und Setup-Anleitung_ oder _Installationsanforderungen für die FlexArray-Virtualisierung und Referenz_ für die node3-Plattform
+** _Installations- und Einrichtungsanweisungen_ für die node3-Plattform
 ** Das entsprechende Verfahren für das Festplatten-Shelf
 ** Die _HA-Paar-Management_ Dokumentation
 
@@ -86,65 +85,25 @@ To override this delay, press 'c' followed by 'Enter'
 .. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
 +
 
-NOTE: *Achtung*: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht geladen werden kann, kann dies zu einem Datenverlust führen.
+WARNING: *Überschreiben Sie die Verzögerung nicht. Wenn Sie den Akku nicht aufladen, kann dies zu Datenverlust führen.*
 
 
 
-. [[man_install3_step6]]Nehmen Sie eine der folgenden Aktionen:
-+
-[cols="35,65"]
-|===
-| Wenn Ihr System... | Dann... 
-
-
-| Verfügt über Festplatten und keinen Back-End-Speicher | Überspringen Sie Schritt 7 bis Schritt 12, und fahren Sie mit fort <<man_install3_step13,Schritt 13>>. 
-
-
-| Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
-.. Gehen Sie zu link:set_fc_uta_uta2_config_node3.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest"] Und vervollständigen Sie die Unterabschnitte link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Je nach Ihrem System.
-.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<man_install3_step7,Schritt 7>>.
-
-
-
-IMPORTANT: Sie müssen die integrierten FC-Ports, die integrierten CNA-Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Series oder dem System mit FlexArray Virtualisierungssoftware booten.
-
-|===
-. [[man_install3_step7]]Fügen Sie die FC-Initiator-Ports des neuen Knotens zu den Switch-Zonen hinzu.
-+
-Wenn Ihr System über ein Tape-SAN verfügt, müssen Sie das Zoning für die Initiatoren benötigen. Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. [[man_install3_step8]]Fügen Sie die FC-Initiator-Ports zum Speicher-Array als neue Hosts hinzu, und ordnen Sie die Array-LUNs den neuen Hosts zu.
-+
-Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. [[man_install3_step9]] Ändern Sie die WWPN-Werte (World Wide Port Name) in den Host- oder Volume-Gruppen, die mit Array LUNs auf dem Speicher-Array verknüpft sind.
-+
-Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geändert, die den einzelnen integrierten FC-Ports zugeordnet sind.
-
-. [[man_install3_step10]]Wenn Ihre Konfiguration ein Switch-basiertes Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
-. [[man_install3_step11]]Überprüfen Sie, ob die Array-LUNs jetzt für node3 sichtbar sind:
-+
-`sysconfig -v`
-
-+
-Das System zeigt alle Array-LUNs an, die für jeden FC-Initiator-Port sichtbar sind. Wenn die Array-LUNs nicht sichtbar sind, können Sie Festplatten von node1 zu node3 später in diesem Abschnitt nicht neu zuweisen.
-
-. [[man_install3_step12]]Drücken Sie Strg-C, um das Boot-Menü anzuzeigen und den Wartungsmodus auszuwählen.
-. [[man_install3_step13]]Geben Sie in der Eingabeaufforderung für den Wartungsmodus den folgenden Befehl ein:
+. Geben Sie an der Eingabeaufforderung für den Wartungsmodus den folgenden Befehl ein:
 +
 `halt`
 
 +
 Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 
-. [[man_install3_step14]]Nehmen Sie eine der folgenden Aktionen:
+. Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="35,65"]
 |===
 | Wenn das System, auf das Sie aktualisieren, in einem ist... | Dann... 
 
 
-| Dual-Chassis-Konfiguration (mit Controllern in anderem Chassis) | Gehen Sie zu <<man_install3_step15,Schritt 15>>. 
+| Dual-Chassis-Konfiguration (mit Controllern in anderem Chassis) | Gehe zu<<man_install3_step8,Schritt 8>> . 
 
 
 | Einzel-Chassis-Konfiguration (mit Controllern im selben Chassis)  a| 
@@ -159,11 +118,11 @@ NOTE: verlassen sie node4 an der Boot-Umgebung Eingabeaufforderung; Sie kehren n
 
 .. Wenn die Warnmeldung in angezeigt wird <<man_install3_step4,Schritt 4>>, Folgen Sie den Anweisungen in <<man_install3_step5,Schritt 5>>
 .. Schalten Sie das Konsolenkabel von node4 nach node3 zurück.
-.. Gehen Sie zu <<man_install3_step15,Schritt 15>>.
+.. Gehe zu<<man_install3_step8,Schritt 8>> .
 
 
 |===
-. [[man_install3_step15]]node3 für ONTAP konfigurieren:
+. [[man_install3_step8]]Konfigurieren Sie node3 für ONTAP:
 +
 `set-defaults`
 
@@ -207,7 +166,7 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 
 WARNING: Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausgeführt werden `wipeconfig` Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
 
-. [[man_install3_step18]]Drücken Sie STRG-C, um das Startmenü anzuzeigen.
+. Drücken Sie STRG+C, um das Startmenü anzuzeigen.
 . [[man_install3_step19]]Nehmen Sie eine der folgenden Aktionen:
 +
 [cols="35,65"]
@@ -215,12 +174,12 @@ WARNING: Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verw
 | Wenn das System, das Sie aktualisieren... | Dann... 
 
 
-| Hat _Not_ die richtige oder aktuelle ONTAP-Version auf node3 | Gehen Sie zu <<man_install3_step20,Schritt 20>>. 
+| Hat _Not_ die richtige oder aktuelle ONTAP-Version auf node3 | Gehe zu<<man_install3_step13,Schritt 13>> . 
 
 
-| Verfügt über die richtige oder aktuelle Version von ONTAP auf node3 | Gehen Sie zu <<man_install3_step25,Schritt 25>>. 
+| Verfügt über die richtige oder aktuelle Version von ONTAP auf node3 | Gehe zu<<man_install3_step18,Schritt 18>> . 
 |===
-. [[man_install3_step20]]Konfigurieren Sie die Netzboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
+. [[man_install3_step13]]Konfigurieren Sie die Netboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
 +
 
 NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwenden. Verwenden Sie keine Daten-LIF-IP, oder sonst kann während des Upgrades ein Datenausfall auftreten.
@@ -249,7 +208,7 @@ Konfigurieren Sie die Verbindung manuell, indem Sie an der Eingabeaufforderung d
 NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung.
 
 |===
-. [[man_install3_step21]]Netzboot auf node3 ausführen:
+. Führen Sie einen Netboot auf Knoten3 durch:
 +
 [cols="35,65"]
 |===
@@ -268,7 +227,7 @@ Der `<path_to_the_web-accessible_directory>` Führt zu der Stelle, an der Sie da
 
 NOTE: Unterbrechen Sie den Startvorgang nicht.
 
-. [[man_install3_step22]]Wählen Sie im Startmenü die Option *(7) Neue Software installieren* zuerst.
+. Wählen Sie im Bootmenü zunächst die Option *(7) Neue Software installieren*.
 +
 Mit dieser Menüoption wird das neue ONTAP-Image auf das Startgerät heruntergeladen und installiert.
 
@@ -285,11 +244,11 @@ Der Hinweis gilt für unterbrechungsfreie Upgrades der ONTAP und keine Upgrades 
 
 NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle Versionen von ONTAP. Das Netzboot wird mit der Option kombiniert `(7) Install new software` Entfernt die Startmedien und platziert dieselbe ONTAP-Version-ONTAP auf beiden Bildpartitionen.
 
-. [[man_install3_steep23]] Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie ein `y`, Und wenn Sie dazu aufgefordert werden, das Paket einzugeben, geben Sie die folgende URL ein:
+. Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie `y` , und geben Sie bei der Aufforderung zur Eingabe des Pakets die folgende URL ein:
 +
 `\http://<web_server_ip>/<path_to_web-accessible_directory>/<ontap_version_image>.tgz`
 
-. [[man_install3_step24]]führen Sie die folgenden Teilschritte durch:
+. Führen Sie die folgenden Teilschritte durch:
 +
 .. Eingabe `n` So überspringen Sie die Backup-Recovery, wenn folgende Eingabeaufforderung angezeigt wird:
 +
@@ -308,12 +267,12 @@ Das Controller-Modul wird neu gestartet, stoppt aber im Startmenü, da das Boot-
 
 
 
-. [[man_install3_step25]]Wählen Sie *(5) Boot im Wartungsmodus* aus, indem Sie eingeben `5`, Und geben Sie dann ein `y` Wenn Sie dazu aufgefordert werden, den Startvorgang fortzusetzen.
+. [[man_install3_step18]]Wählen Sie *(5) Wartungsmodus-Boot* durch Eingabe `5` und geben Sie dann ein `y` wenn Sie aufgefordert werden, mit dem Booten fortzufahren.
 . [[man_install3_step26]]bevor Sie fortfahren, fahren Sie mit fort link:set_fc_uta_uta2_config_node3.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest"] Um alle erforderlichen Änderungen an den FC- oder UTA/UTA2-Ports auf dem Node vorzunehmen.
 +
 Nehmen Sie die in diesen Abschnitten empfohlenen Änderungen vor, booten Sie den Node neu und wechseln Sie in den Wartungsmodus.
 
-. [[man_install3_step27]]Suche nach der System-ID von node3:
+. Suchen Sie die System-ID von Knoten3:
 +
 `disk show -a`
 
@@ -339,7 +298,7 @@ Das System zeigt die System-ID des Node sowie Informationen über seine Festplat
 
 NOTE: Möglicherweise wird die Meldung angezeigt `disk show: No disks match option -a.` Nach Eingabe des Befehls. Dies ist keine Fehlermeldung, sodass Sie mit dem Verfahren fortfahren können.
 
-. [[man_install3_step28]]Spares des Rasign node1, alle Festplatten, die zum Root gehören, und alle nicht-Root-Aggregate, die früher in node2 verschoben wurden link:relocate_non_root_aggr_node1_node2.html["Verschiebung von nicht-Root-Aggregaten von node1 auf node2"].
+. [[man_install3_step21]]Weisen Sie die Ersatzfestplatten von Knoten1, alle zum Root gehörenden Festplatten und alle Nicht-Root-Aggregate, die nicht zuvor zu Knoten2 verschoben wurden, neu zulink:relocate_non_root_aggr_node1_node2.html["Verschiebung von nicht-Root-Aggregaten von node1 auf node2"] .
 +
 Geben Sie das entsprechende Formular des ein `disk reassign` Befehl basierend auf der Frage, ob Ihr System freigegebene Festplatten hat:
 
@@ -528,7 +487,7 @@ Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 +
 `set time _hh:mm:ss_`
 
-. [[man_install3_step42]]Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in angegeben <<man_install3_step28,Schritt 28>> Schalter unter -p:
+. [[man_install3_step42]]Überprüfen Sie, ob die Partnersystem-ID korrekt eingestellt ist, wie in<<man_install3_step21,Schritt 21>> unter dem Schalter -p:
 +
 `printenv partner-sysid`
 

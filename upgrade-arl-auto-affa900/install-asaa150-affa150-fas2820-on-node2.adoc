@@ -25,7 +25,7 @@ Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controller-Modul, das Sie f
 . Richten Sie das Ende des Controller-Moduls an Schacht B im Chassis aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
 +
 
-TIP: Bay B befindet sich auf dem Chassis unten.
+TIP: Schacht B befindet sich auf der rechten Seite des Gehäuses.
 
 +
 
@@ -34,7 +34,7 @@ WARNING: Setzen Sie das Controller-Modul erst dann vollständig in das Gehäuse 
 . Verkabeln Sie die Management- und Konsolen-Ports mit dem node2-Controller-Modul.
 +
 
-NOTE: Da das Chassis bereits eingeschaltet ist, startet node2, sobald es vollständig eingesetzt ist. Um das Booten von node2 zu vermeiden, empfiehlt NetApp, die Konsole und die Managementkabel an das node2-Controller-Modul anzuschließen, bevor Sie das Controller-Modul vollständig in den Steckplatz einsetzen.
+NOTE: Da das Gehäuse bereits eingeschaltet ist, beginnt Knoten2 mit dem Booten, sobald es vollständig eingesetzt ist. Um das Booten von Knoten2 zu verhindern, schließen Sie die Konsolen- und Verwaltungskabel an, bevor Sie das Controllermodul vollständig einsetzen.
 
 . Drücken Sie das Controller-Modul fest in das Gehäuse, bis es auf die Mittelebene trifft und vollständig sitzt.
 +

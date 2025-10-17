@@ -65,7 +65,7 @@ To override this delay, press 'c' followed by 'Enter'
 .. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
 +
 
-WARNING: *Achtung: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht geladen werden darf, kann dies zu einem Datenverlust führen.*
+WARNING: *Überschreiben Sie die Verzögerung nicht. Wenn Sie den Akku nicht aufladen, kann dies zu Datenverlust führen.*
 
 +
 

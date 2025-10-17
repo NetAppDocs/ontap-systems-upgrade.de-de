@@ -7,7 +7,6 @@ Sie müssen node4 als Netzboot ausführen, wenn es nicht die gleiche Version von
 [IMPORTANT]
 ====
 * Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 2 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
-* Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<auto_install4_step1,Schritt 1>> Bis <<auto_install4_step21,Schritt 21>>, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen zu link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Konfigurieren Sie FC-Ports auf node4"] Und nach link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["UTA/UTA2-Ports auf node4 prüfen und konfigurieren"], Eingabe von Befehlen im Wartungsmodus. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<auto_install4_step23,Schritt 23>>.
 * Wenn Sie ein System mit Speicherplatten aktualisieren, müssen Sie diesen Abschnitt vollständig ausfüllen und dann mit link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] , indem Sie Befehle an der Cluster-Eingabeaufforderung eingeben.
 
 
@@ -20,10 +19,10 @@ Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4
 . installieren sie node4 im Rack gemäß den Anweisungen in der Anleitung _Installation and Setup Instructions_ für das Node-Modell.
 . Kabel node4, ziehen Sie die Verbindungen von node2 nach node4.
 +
-Verkabeln Sie die folgenden Verbindungen gemäß der Anleitung in den Installationsanweisungen_ oder den Installationsanforderungen und Referenz_ für die FlexArray-Plattform, dem entsprechenden Festplatten-Shelf-Dokument und „_HA-Paar-Management_“.
+Verkabeln Sie die folgenden Verbindungen mithilfe der _Installations- und Einrichtungsanweisungen_ für die Node4-Plattform, des entsprechenden Disk-Shelf-Dokuments und der _HA-Paarverwaltung_-Dokumentation.
 
 +
-Unter link:other_references.html["Quellen"] finden Sie einen Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und zu Referenz_ und _HA-Paar-Management_.
+Siehelink:other_references.html["Quellen"] zur Verknüpfung mit _HA-Paarverwaltung_.
 
 +
 ** Konsole (Remote-Management-Port)
@@ -58,7 +57,7 @@ WARNING: The battery is unfit to retain data during a power outage. This is like
 .. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
 +
 
-WARNING: *Achtung: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht geladen werden darf, kann dies zu einem Datenverlust führen.*
+WARNING: *Überschreiben Sie die Verzögerung nicht. Wenn Sie den Akku nicht aufladen, kann dies zu Datenverlust führen.*
 
 +
 

@@ -27,10 +27,7 @@ Unter den folgenden Umständen können Sie ein Upgrade eines Node-Paars mit ARL 
 * Sie können die folgenden Systemtypen aktualisieren:
 +
 ** Einem FAS System auf ein FAS System.
-** Ein FAS System auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System.
 ** Einem AFF System auf ein AFF System.
-** Ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System auf einem FAS System, vorausgesetzt, dass das System mit FlexArray Virtualisierungssoftware oder V-Series System keine Array-LUNs besitzt.
-** Eines V-Series Systems auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System
 
 
 * Bei einigen Upgrades des ARL-Controllers können Sie für das Upgrade temporäre Cluster-Ports auf dem Ersatz-Controller verwenden. Wenn Sie beispielsweise je nach Konfiguration der AFF A400 ein Upgrade von einem AFF A300 auf ein AFF A400 System durchführen, können Sie einen der beiden Mezzanine-Ports verwenden oder eine 10-GbE-Netzwerkschnittstellenkarte mit vier Ports für temporäre Cluster-Ports hinzufügen. Nachdem Sie ein Controller-Upgrade über temporäre Cluster-Ports abgeschlossen haben, können Sie Cluster unterbrechungsfrei zu 100-GbE-Ports auf dem Ersatz-Controller migrieren.
@@ -79,12 +76,12 @@ Dieses Dokument wird an folgende Annahmen geschrieben:
 * Die Ersatz-Controller-Hardware ist neu und wurde nicht verwendet.
 +
 
-WARNING: *Achtung*: Da dieses Verfahren davon ausgeht, dass die Hardware des Ersatzcontrollers neu ist und nicht verwendet wurde, werden die erforderlichen Schritte zur Vorbereitung gebrauchter Controller mit dem ausgeführt `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Wenn bereits die Ersatz-Controller-Hardware verwendet wurde, müssen Sie sich an den technischen Support wenden, insbesondere wenn auf den Controllern Data ONTAP in 7-Mode ausgeführt wurde.
+WARNING: Da dieses Verfahren davon ausgeht, dass die Ersatz-Controller-Hardware neu und unbenutzt ist, werden die Schritte zur Vorbereitung gebrauchter Controller mit den `wipeconfig` Befehl sind in diesem Verfahren nicht enthalten.  Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor verwendet wurde, insbesondere wenn auf den Controllern Data ONTAP im 7-Modus ausgeführt wurde.
 
 * Die Richtlinien zum Upgrade des Knotenpaars werden gelesen und verstanden.
 +
 
-WARNING: *Achtung*: Versuchen Sie nicht, den NVRAM-Inhalt zu löschen. Wenn Sie den Inhalt des NVRAM löschen müssen, wenden Sie sich an den technischen Support von NetApp.
+WARNING: Versuchen Sie nicht, den NVRAM Inhalt zu löschen.  Wenn Sie den Inhalt des NVRAM löschen müssen, wenden Sie sich an den technischen Support von NetApp .
 
 * Sie führen den entsprechenden Befehl vor und nach dem aus `modify` Und die Ausgabe von beiden vergleichen `show` Befehle, um zu überprüfen, dass das `modify` Befehl erfolgreich.
 * Wenn Sie über eine SAN-Konfiguration verfügen, stehen Ihnen auf dem HA-Paar lokale LIFs und Partner-LIFs für jede Storage Virtual Machine (SVM) zur Verfügung. Wenn Sie keine lokalen LIFs für jede SVM haben und keine Partner-LIFs haben, sollten Sie vor dem Upgrade die SAN-Daten-LIF auf dem Remote- und lokalen Node für diese SVM hinzufügen.

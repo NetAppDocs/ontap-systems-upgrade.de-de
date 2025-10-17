@@ -24,7 +24,6 @@ Sie müssen node4 als Netzboot ausführen, wenn es nicht die gleiche Version von
 [IMPORTANT]
 ====
 * Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 2 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
-* Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<auto_install4_step1,Schritt 1>> Bis <<auto_install4_step21,Schritt 21>>, Dann verlassen Sie diesen Abschnitt und folgen Sie den Anweisungen zu link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Konfigurieren Sie FC-Ports auf node4"] Und nach link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["UTA/UTA2-Ports auf node4 prüfen und konfigurieren"], Eingabe von Befehlen im Wartungsmodus. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<auto_install4_step23,Schritt 23>>.
 * Wenn Sie ein System mit Speicherplatten aktualisieren, müssen Sie diesen Abschnitt vollständig ausfüllen und dann mit link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] , indem Sie Befehle an der Cluster-Eingabeaufforderung eingeben.
 
 
@@ -37,10 +36,10 @@ Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4
 . installieren sie node4 im Rack gemäß den Anweisungen in der Anleitung _Installation and Setup Instructions_ für das Node-Modell.
 . Kabel node4, ziehen Sie die Verbindungen von node2 nach node4.
 +
-Verkabeln Sie die folgenden Verbindungen gemäß der Anleitung in den Installationsanweisungen_ oder den Installationsanforderungen und Referenz_ für die FlexArray-Plattform, dem entsprechenden Festplatten-Shelf-Dokument und „_HA-Paar-Management_“.
+Verkabeln Sie die folgenden Verbindungen mithilfe der _Installations- und Einrichtungsanweisungen_ für die Node4-Plattform, des entsprechenden Disk-Shelf-Dokuments und der _HA-Paarverwaltung_-Dokumentation.
 
 +
-Unter link:other_references.html["Quellen"] finden Sie einen Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und zu Referenz_ und _HA-Paar-Management_.
+Siehelink:other_references.html["Quellen"] zur Verknüpfung mit _HA-Paarverwaltung_.
 
 +
 ** Konsole (Remote-Management-Port)
@@ -75,7 +74,7 @@ WARNING: The battery is unfit to retain data during a power outage. This is like
 .. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
 +
 
-WARNING: *Achtung: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht geladen werden darf, kann dies zu einem Datenverlust führen.*
+WARNING: *Überschreiben Sie die Verzögerung nicht. Wenn Sie den Akku nicht aufladen, kann dies zu Datenverlust führen.*
 
 +
 
@@ -248,43 +247,9 @@ Einstellungen speichern:
 +
 `printenv partner-sysid`
 
-. [[steep22]]Nehmen Sie eine der folgenden Aktionen:
-+
-[cols="30,70"]
-|===
-| Wenn Ihr System... | Dann... 
 
 
-| Verfügt über Festplatten und keinen Back-End-Speicher | Gehen Sie zu <<auto_install4_step27,Schritt 27>>. 
-
-
-| Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
-.. Weiter mit Abschnitt link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Und vervollständigen Sie die Unterabschnitte in diesem Abschnitt.
-.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<auto_install4_step23,Schritt 23>>.
-
-
-
-IMPORTANT: Sie müssen die integrierten FC-Ports, die integrierten CNA-Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Series oder dem System mit FlexArray Virtualisierungssoftware booten.
-
-|===
-
-
-. [[Auto_install4_steep23]]Fügen Sie die FC-Initiator-Ports des neuen Node zu den Switch-Zonen hinzu.
-+
-Wenn Ihr System über ein Tape-SAN verfügt, müssen Sie das Zoning für die Initiatoren benötigen. Ändern Sie gegebenenfalls die integrierten Ports an den Initiator, indem Sie auf das verweisen link:set_fc_or_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Konfigurieren Sie FC-Ports auf node4"]. Weitere Anweisungen zum Zoning finden Sie in der Dokumentation des Storage-Arrays und des Zoning.
-
-. Fügen Sie die FC-Initiator-Ports dem Speicher-Array als neue Hosts hinzu, und ordnen Sie die Array-LUNs den neuen Hosts zu.
-+
-Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. Ändern Sie die WWPN-Werte (Worldwide Port Name) in den Host- oder Volume-Gruppen, die den Array-LUNs auf dem Speicher-Array zugeordnet sind.
-+
-Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geändert, die den einzelnen integrierten FC-Ports zugeordnet sind.
-
-. Wenn die Konfiguration das Switch-basierte Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
-
-
-. [[auto_install4_step27]]Wenn Sie NetApp Storage Encryption (NSE)-Laufwerke installiert haben, führen Sie die folgenden Schritte aus:
+. [[auto_install4_step22]]Wenn Sie NetApp Storage Encryption (NSE)-Laufwerke installiert haben, führen Sie die folgenden Schritte aus:
 +
 
 NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie den Artikel in der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der verwendeten Self-Encrypting Drives.
@@ -319,7 +284,10 @@ Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgeze
 `boot_ontap menu`
 
 +
-Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben, sollten Sie vorab  so konfigurierenlink:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["Weisen Sie Node2-Festplatten node4, Schritt 1, neu zu"], dass node4 die Festplatten von Node 2 erkennen kann.
+.Was kommt als Nächstes?
+** Wenn Sie eine FC- oder UTA/UTA2-Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Ports auf Knoten 4 fest und konfigurieren Sie sie."] .
+** Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["Neuzuweisung der Node2-Festplatten zu Node4, Schritt 1"] damit Knoten4 die Festplatten von Knoten2 erkennen kann.
+** Wenn Sie eine MetroCluster Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Ports auf Knoten 4 fest und konfigurieren Sie sie."] um die an den Knoten angeschlossenen Festplatten zu erkennen.
 
-. [[Schritt29]]für die MetroCluster Konfiguration, V-Series Systeme und Systeme mit FlexArray-Virtualisierungssoftware, die an Storage-Arrays angeschlossen ist, müssen Sie die FC- oder UTA/UTA2-Ports auf node4 einrichten und konfigurieren, um die mit dem Node verbundenen Festplatten zu erkennen. Um diese Aufgabe abzuschließen, gehen Sie zu Abschnitt link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UT2-Konfiguration auf node4 fest"].
+
 

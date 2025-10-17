@@ -38,7 +38,7 @@ Wenn sich die Konfiguration für node4 unterscheidet, kann es zu einem späteren
 . Überprüfen Sie, ob der ersetzte Controller für MetroCluster-Konfiguration und nicht im Switch-Over-Modus korrekt konfiguriert ist.
 +
 
-CAUTION: *Achtung:* in dieser Phase befindet sich die MetroCluster-Konfiguration nicht im normalen Zustand, und es können Fehler auftreten, die behoben werden können. Siehe link:verify_health_of_metrocluster_config.html["Überprüfen Sie den Systemzustand der MetroCluster-Konfiguration"].
+CAUTION: Zu diesem Zeitpunkt befindet sich die MetroCluster Konfiguration nicht im Normalzustand und es müssen möglicherweise Fehler behoben werden. Sehenlink:verify_health_of_metrocluster_config.html["Überprüfen Sie den Systemzustand der MetroCluster-Konfiguration"] .
 
 
 

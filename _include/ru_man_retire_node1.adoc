@@ -187,7 +187,7 @@ Der Wert dieses Befehls muss mit dem physischen Status des Systems übereinstimm
 
 +
 
-WARNING: *Achtung*: Wenn sich Node1 im selben Gehäuse wie node2 befindet, schalten Sie das Gehäuse nicht über den Netzschalter oder durch Ziehen des Netzkabels aus. Wenn Sie das tun, wird node2, der Daten bereitstellt, ausfallen.
+WARNING: Wenn sich Knoten1 im selben Gehäuse wie Knoten2 befindet, schalten Sie das Gehäuse nicht über den Netzschalter oder durch Ziehen des Netzkabels aus.  Wenn Sie dies tun, wird Knoten2, der Daten bereitstellt, ausfallen.
 
 . Wenn Sie vom System aufgefordert werden, zu bestätigen, dass Sie das System anhalten möchten, geben Sie ein `y`.
 +

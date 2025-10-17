@@ -59,7 +59,6 @@ Unter den folgenden Umständen können Sie dieses ARL-Verfahren nicht zum Upgrad
 +
 Um ein Upgrade durchzuführen, das in der obigen Tabelle aufgeführt ist, siehe link:other_references.html["Quellen"]Link zu den Befehlen „ System Controller ersetzen “ verwenden, um Controller-Modelle im gleichen Chassis zu aktualisieren_.
 
-* Sie aktualisieren ein V-Series System oder ein FlexArray Virtualisierungs-Storage-System mit einem externen Array als Back-End Storage. Wenden Sie sich an den technischen Support, wenn Sie Optionen zum Upgrade eines V-Series oder FlexArray Systems benötigen.
 * Sie führen ein Upgrade einer MetroCluster FC- oder IP-Konfiguration durch. Informationen zum Upgrade einer MetroCluster-Konfiguration finden Sie unter, um eine link:other_references.html["Quellen"] Verknüpfung zur _MetroCluster-Upgrade- und Erweiterungsdokumentation_ zu erhalten.
 
 

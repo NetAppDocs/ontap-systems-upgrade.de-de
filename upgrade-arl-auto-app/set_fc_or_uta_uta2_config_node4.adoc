@@ -17,13 +17,11 @@ summary: 'Konfigurieren sie node4 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/
 Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
 .Über diese Aufgabe
-Möglicherweise müssen Sie den Abschnitt oder oder beide Abschnitte ausfüllen <<Konfigurieren Sie FC-Ports auf node4>> <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> .
+Möglicherweise müssen Sie Folgendes ausfüllen:<<Konfigurieren Sie FC-Ports auf node4>> oder<<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> oder beide Abschnitte.
 
 [NOTE]
 ====
-Wenn node4 nicht über integrierte FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt und Sie ein System mit Storage-Festplatten aktualisieren, können Sie zu überspringenlink:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"].
-
-Wenn Sie jedoch über ein V-Series System oder FlexArray Virtualisierungssoftware verfügen und an Storage-Arrays angeschlossen sind und node4 keine integrierten FC-Ports, Onboard UTA-/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie zu _Install und Boot node4_ zurückkehren und das Verfahren unter fortsetzenlink:install_boot_node4.html#step22["Schritt 22"].
+Wenn Node4 keine integrierten FC-Ports, integrierten UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat (z. B. AFF und FAS -Systeme, die ab ONTAP 9.15.1 eingeführt wurden) und Sie ein System mit Speicherplatten aktualisieren, können Sie mit fortfahren.link:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"] .
 
 stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt. Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4 an der gleichen Stelle wie node3 platzieren. Wenn sich Node2 und node4 im selben Chassis befinden, befindet sich node4 bereits in der entsprechenden Rack-Position.
 
@@ -32,7 +30,7 @@ stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt. Wenn node4
 
 == Konfigurieren Sie FC-Ports auf node4
 
-Wenn node4 FC-Ports hat, entweder Onboard oder auf einem FC-Adapter, müssen Sie Port-Konfigurationen auf dem Node festlegen, bevor Sie ihn in den Dienst stellen, da die Ports nicht vorkonfiguriert sind. Wenn die Ports nicht konfiguriert sind, kann es zu einer Serviceunterbrechung kommen.
+Wenn Knoten 4 über FC-Ports verfügt (entweder integriert oder auf einem zusätzlichen FC-Adapter), müssen Sie die Portkonfigurationen auf dem Knoten festlegen, bevor Sie ihn in Betrieb nehmen, da die Ports bei der Auslieferung der Systeme nicht vorkonfiguriert sind.  Wenn Sie die Ports nicht wie erforderlich konfigurieren, kann es zu einer Dienstunterbrechung kommen.
 
 .Bevor Sie beginnen
 Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
@@ -41,61 +39,36 @@ Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Absc
 Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
 
-IMPORTANT: Wenn im System Storage-Festplatten vorhanden sind, müssen Sie an der Cluster-Eingabeaufforderung in diesem Abschnitt die Befehle eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
+IMPORTANT: Geben Sie die Befehle in diesem Abschnitt an der Shell-Eingabeaufforderung im Wartungsmodus ein.
 
 .Schritte
-. Führen Sie eine der folgenden Aktionen durch:
+. Zeigen Sie Informationen zu allen FC- und konvergenten Netzwerkadaptern auf dem System an:
 +
-[cols="30,70"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden | `system node hardware unified-connect show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `ucadmin show` 
-|===
-+
-Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im System an.
+`system node hardware unified-connect show`
 
 . Vergleichen Sie die FC-Einstellungen auf node4 mit den Einstellungen, die Sie zuvor aus node1 erfasst haben.
-. Führen Sie eine der folgenden Aktionen durch:
+. Ändern Sie die FC-Ports auf node4 nach Bedarf:
 +
-[cols="30,70"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden  a| 
-Ändern Sie die FC-Ports auf node4 nach Bedarf:
-
-** So programmieren Sie Zielanschlüsse:
+** So programmieren Sie als Zielports:
 +
 `ucadmin modify -m fc -t target _adapter_`
+
++
+Zum Beispiel: `ucadmin modify -m fc -t target 2a`
 
 ** So programmieren Sie Initiator-Ports:
 +
 `ucadmin modify -m fc -t initiator _adapter_`
 
-
-
++
 `-t` Ist der FC4-Typ: Target oder Initiator.
 
++
+Zum Beispiel: `ucadmin modify -m fc -t initator 2b`
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-Ändern Sie die FC-Ports auf node4 nach Bedarf:
 
-`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
-
-`-t` Ist der FC4-Typ, das Ziel oder der Initiator.
-
-
-NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
-
-|===
-. Beenden des Wartungsmodus:
+. Stoppen Sie den Knoten:
 +
 `halt`
 
@@ -109,23 +82,10 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 
 . [[Schritt8]]Nehmen Sie eine der folgenden Aktionen:
 +
-[cols="30,70"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden  a| 
-** Überspringen Sie diesen Abschnitt und gehen Sie zulink:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"], wenn node4 nicht über eine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports verfügt.
-
-
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
 ** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
-** Skip _Prüfen und konfigurieren Sie UTA/UTA2-Ports auf node4_ Wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports hat, kehren Sie zu _Install zurück und starten node4_, und setzen Sie das Verfahren unter fortlink:install_boot_node4.html#auto_install4_step23["Schritt 23"].
+** Wenn Knoten4 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports hat, überspringen Sie _Überprüfen und Konfigurieren der UTA/UTA2-Ports auf Knoten4_ und gehen Sie zulink:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"] .
 
 
-|===
 
 
 
@@ -153,21 +113,13 @@ UTA2-Ports können an einem Adapter oder auf dem Controller mit den folgenden Ko
 Sie sollten jedoch die Konfiguration der UTA/UTA2-Ports auf node4 überprüfen und sie gegebenenfalls ändern.
 
 
-WARNING: *Achtung*: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein, sofern nicht dazu aufgefordert wird, in den Wartungsmodus zu wechseln. Wenn Sie über ein MetroCluster FC-System, ein V-Series System oder ein System mit FlexArray-Virtualisierungssoftware verfügen, die mit Storage-Arrays verbunden ist, müssen Sie sich im Wartungsmodus befinden, um UTA/UTA2-Ports zu konfigurieren.
+WARNING: Geben Sie die Befehle in diesem Abschnitt an der Shell-Eingabeaufforderung im Wartungsmodus ein.
 
 .Schritte
-. Überprüfen Sie, wie die Ports derzeit mit einem der folgenden Befehle auf node4 konfiguriert werden:
+. Überprüfen Sie, wie die Ports derzeit auf Knoten4 konfiguriert sind:
 +
-[cols="30,70"]
-|===
-| Wenn das System... | Dann… 
+`system node hardware unified-connect show`
 
-
-| Festplatten sind vorhanden | `system node hardware unified-connect show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `ucadmin show` 
-|===
 +
 Das System zeigt eine Ausgabe wie im folgenden Beispiel an:
 
@@ -191,67 +143,13 @@ f-a    0h       cna      target     -          -        online
 +
 Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu erhalten.
 
-. Überprüfen Sie die Ausgabe des `ucadmin show` Führen Sie einen Befehl aus, und bestimmen Sie, ob die UTA/UTA2-Ports die gewünschte Persönlichkeit haben.
-. Führen Sie eine der folgenden Aktionen durch:
-+
-[cols="30,70"]
-|===
-| Wenn die CNA-Ports... | Dann… 
-
-
-| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu <<auto_check_4_step5,Schritt 5>>. 
-
-
-| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <<auto_check_4_step13,Schritt 13>>. 
-|===
-. [[Auto_Check_4_step5]]Nehmen Sie eine der folgenden Aktionen:
-+
-[cols="30,70"]
-|===
-| Wenn Sie konfigurieren... | Dann… 
-
-
-| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu <<auto_check_4_step7,Schritt 7>> 
-
-
-| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort <<auto_check_4_step8,Schritt 8>>. 
-|===
-. Wenn sich der Adapter im Initiator-Modus befindet und der UTA/UTA2-Port online ist, versetzen Sie den UTA/UTA2-Port in den Offline-Modus:
-+
-`storage disable adapter _adapter_name_`
-
-+
-Adapter im Zielmodus sind im Wartungsmodus automatisch offline.
-
-. [[Auto_Check_4_step7]]Wenn die aktuelle Konfiguration nicht mit der gewünschten Verwendung übereinstimmt, ändern Sie die Konfiguration nach Bedarf:
-+
-`ucadmin modify -m fc|cna -t initiator|target _adapter_name_`
-
-+
-** `-m` Ist der Personality-Modus, FC oder 10GbE UTA.
-** `-t` Ist der Typ FC4, `target` Oder `initiator`.
-+
-
-NOTE: Sie müssen FC Initiator für Tape-Laufwerke, FlexArray Virtualisierungssysteme und MetroCluster Konfigurationen verwenden. Sie müssen das FC-Ziel für SAN-Clients verwenden.
-
-
-
-. [[Auto_Check_4_step8]]Überprüfen Sie die Einstellungen mit dem folgenden Befehl und prüfen Sie die Ausgabe:
+. Überprüfen Sie die Einstellungen:
 +
 `ucadmin show`
 
-. Überprüfen Sie die Einstellungen:
 +
-[cols="40,60"]
-|===
-| Wenn das System... | Dann… 
+Überprüfen Sie die Ausgabe des `ucadmin show` Führen Sie einen Befehl aus, und bestimmen Sie, ob die UTA/UTA2-Ports die gewünschte Persönlichkeit haben.
 
-
-| Festplatten sind vorhanden | `ucadmin show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `ucadmin show` 
-|===
 +
 Die Ausgabe in den folgenden Beispielen zeigt, dass sich der Adaptertyp „1b“ in ändert `initiator` Und dass sich der Modus der Adapter „2a“ und „2b“ in ändert `cna`:
 
@@ -267,42 +165,68 @@ f-a   2b       fc             target       cna           -             online
 4 entries were displayed.
 *>
 ....
-. Platzieren Sie alle Ziel-Ports online, indem Sie einen der folgenden Befehle eingeben, einmal für jeden Port:
+. Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="30,70"]
 |===
-| Wenn das System... | Dann… 
+| Wenn die CNA-Ports... | Dann… 
 
 
-| Festplatten sind vorhanden | `network fcp adapter modify -node _node_name_ -adapter _adapter_name_ -state up` 
+| Haben Sie nicht die Persönlichkeit, die Sie wollen | Gehen Sie zu <<auto_check_4_step5,Schritt 5>>. 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `fcp config _adapter_name_ up` 
+| Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 9 und gehen Sie zu<<auto_check_4_step10,Schritt 10>> . 
 |===
+. [[Auto_Check_4_step5]]Nehmen Sie eine der folgenden Aktionen:
++
+[cols="30,70"]
+|===
+| Wenn Sie konfigurieren... | Dann… 
+
+
+| Ports auf einer UTA/UTA2-Karte | Gehe zu<<auto_check_4_step6,Schritt 6>> 
+
+
+| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 6 und gehen Sie zu<<auto_check_4_step7,Schritt 7>> . 
+|===
+. [[auto_check_4_step6]]Wenn sich der Adapter im Initiatormodus befindet und der UTA/UTA2-Port online ist, schalten Sie den UTA/UTA2-Port offline:
++
+`storage disable adapter _adapter_name_`
+
++
+Adapter im Zielmodus sind im Wartungsmodus automatisch offline.
+
+. [[Auto_Check_4_step7]]Wenn die aktuelle Konfiguration nicht mit der gewünschten Verwendung übereinstimmt, ändern Sie die Konfiguration nach Bedarf:
++
+`ucadmin modify -m fc|cna -t initiator|target <adapter_name>`
+
++
+** `-m` Ist der Personality-Modus, FC oder 10GbE UTA.
+** `-t` Ist der Typ FC4, `target` Oder `initiator`.
++
+
+NOTE: Sie müssen den FC-Initiator für Bandlaufwerke und MetroCluster -Konfigurationen verwenden.  Sie müssen das FC-Ziel für SAN-Clients verwenden.
+
+
+
+. Schalten Sie alle Zielports online, indem Sie den folgenden Befehl einmal für jeden Port eingeben:
++
+`storage enable adapter <adapter_name>`
+
 . Verkabeln Sie den Port.
 
 
-. [[Schritt12]]Nehmen Sie eine der folgenden Aktionen:
-+
-[cols="30,70"]
-|===
-| Wenn das System... | Dann… 
-
-
-| Festplatten sind vorhanden | Gehen Sie zu link:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"]. 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zu _Install und Boot node4_ zurück, und fahren Sie mit fortlink:install_boot_node4.html#auto_install4_step23["Schritt 23"]. 
-|===
-. [[Auto_Check_4_steep13]]Wartungsmodus beenden:
+. [[auto_check_4_step10]]Wartungsmodus beenden:
 +
 `halt`
 
 . [[step14]]Starten Sie den Knoten im Startmenü:
 +
-`boot_ontap menu`.
+`boot_ontap menu`
 
-+
-Wenn Sie ein Upgrade auf ein AFF A800-System durchführen, gehen Sie zu link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["Weisen Sie Node 2-Festplatten Node 4, Schritt 9, neu zu"].
 
+
+.Was kommt als Nächstes?
+* Wenn Sie ein Upgrade auf ein AFF A800-System durchführen, gehen Sie zu link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["Weisen Sie Node 2-Festplatten Node 4, Schritt 9, neu zu"].
+* Für alle anderen System-Upgrades gehen Sie zulink:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4, Schritt 1, neu zu"] .
 

@@ -17,16 +17,11 @@ summary: Konfiguration von node4 integrierten FC-Ports, UTA/UTA2-Ports oder UTA/
 Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
 .Über diese Aufgabe
-Möglicherweise müssen Sie den Abschluss abschließen <<Konfigurieren Sie FC-Ports auf node4>>, Das <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>, Oder beide Abschnitte.
+Möglicherweise müssen Sie Folgendes ausfüllen:<<Konfigurieren Sie FC-Ports auf node4>> oder<<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> oder beide Abschnitte.
 
-Wenn node4 keine integrierten FC-Ports, Onboard-UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat und Sie ein System mit Storage-Festplatten aktualisieren, können Sie weiter gehen link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
+Wenn Node4 keine integrierten FC-Ports, integrierten UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat (z. B. AFF und FAS -Systeme, die ab ONTAP 9.15.1 eingeführt wurden) und Sie ein System mit Speicherplatten aktualisieren, können Sie mit fortfahren.link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] .
 
 Wenn Sie jedoch ein V-Series System oder FlexArray-Virtualisierungssoftware haben und mit Storage-Arrays verbunden sind und node4 keine integrierten FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie zum Abschnitt _Installation and Boot node4_ zurückkehren und wieder aufnehmen link:install_boot_node4.html#man_install4_Step9["Schritt 9"]. stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt. Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4 an der gleichen Stelle wie node3 platzieren. Wenn sich Node2 und node4 im selben Chassis befinden, befindet sich node4 bereits in der entsprechenden Rack-Position.
-
-.Wahlmöglichkeiten
-* <<Konfigurieren Sie FC-Ports auf node4>>
-* <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>
-
 
 
 
@@ -41,90 +36,33 @@ Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Absc
 Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
 
-IMPORTANT: Wenn im System Storage-Festplatten vorhanden sind, müssen Sie an der Cluster-Eingabeaufforderung in diesem Abschnitt die Befehle eingeben. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware haben, die mit Storage-Arrays verbunden sind, geben Sie in diesem Abschnitt im Wartungsmodus Befehle ein.
+IMPORTANT: Geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein.
 
 .Schritte
-. Führen Sie eine der folgenden Aktionen durch:
+. Zeigen Sie Informationen zu allen FC- und konvergenten Netzwerkadaptern auf dem System an:
 +
-[cols="35,65"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden | Gehen Sie zu <<man_config_4_Step5,Schritt 5>>. 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu <<man_config_4_Step2,Schritt 2>>. 
-|===
-. [[man_config_4_Step2]]Zugriff auf den Wartungsmodus:
-+
-`boot_ontap maint`
-
-. Führen Sie eine der folgenden Aktionen durch:
-+
-[cols="35,65"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden | `system node hardware unified-connect show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `ucadmin show` 
-|===
-+
-Das System zeigt Informationen zu allen FC- und konvergenten Netzwerkadaptern im System an.
+`system node hardware unified-connect show`
 
 . Vergleichen Sie die FC-Einstellungen auf den neuen Nodes mit den Einstellungen, die Sie zuvor vom ursprünglichen Node erfasst haben.
-. [[man_config_4_Step5]]Nehmen Sie eine der folgenden Aktionen:
+. Ändern Sie die FC-Ports auf node4 nach Bedarf:
 +
-[cols="35,65"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden  a| 
-Ändern Sie die FC-Ports auf node4 nach Bedarf:
-
 ** So programmieren Sie Zielanschlüsse:
-
-
-`system node hardware unified-connect modify -type | -t target -adapter _port_name_`
++
+`system node hardware unified-connect modify -type \| -t target -adapter _port_name_`
 
 ** So programmieren Sie Initiator-Ports:
++
+`system node unified-connect modify type \| -t initiator -adapter _port_name_`
 
-
-`system node unified-connect modify type | -t initiator -adapter _port_name_`
-
++
 `-type` Ist der FC4-Typ, das Ziel oder der Initiator.
 
 
 
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-Ändern Sie die FC-Ports auf node4 nach Bedarf:
-
-`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
-
-`-t` Ist der FC4-Typ, das Ziel oder der Initiator.
-
-
-NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
-
-|===
-. Führen Sie eine der folgenden Aktionen durch:
+. Überprüfen Sie die neuen Einstellungen, indem Sie den folgenden Befehl eingeben und die Ausgabe prüfen:
 +
-[cols="35,65"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
+`system node unified-connect show`
 
-
-| Festplatten sind vorhanden | Überprüfen Sie die neuen Einstellungen, indem Sie den folgenden Befehl eingeben und die Ausgabe überprüfen:
-`system node unified-connect show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Überprüfen Sie die neuen Einstellungen, indem Sie den folgenden Befehl eingeben und die Ausgabe überprüfen:
-`ucadmin show` 
-|===
 . Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="35,65"]
@@ -132,50 +70,26 @@ NOTE: Die FC-Ports müssen als Initiatoren programmiert werden.
 | Wenn die FC-Standardeinstellungen auf den neuen Nodes sind... | Dann… 
 
 
-| Das gleiche wie diejenigen, die Sie auf den ursprünglichen Knoten erfasst | Gehen Sie zu <<man_config_4_Step11,Schritt 11>>. 
+| Das gleiche wie diejenigen, die Sie auf den ursprünglichen Knoten erfasst | Gehe zu<<man_config_4_Step9,Schritt 9>> . 
 
 
-| Anders als jene, die Sie auf den ursprünglichen Knoten erfasst haben | Gehen Sie zu <<man_config_4_Step8,Schritt 8>>. 
+| Anders als jene, die Sie auf den ursprünglichen Knoten erfasst haben | Gehe zu<<man_config_4_Step6,Step6>> . 
 |===
-. [[man_config_4_Step8]]Wartungsmodus beenden:
+. [[man_config_4_Step6]]Wartungsmodus beenden:
 +
 `halt`
 
 . Nachdem Sie den Befehl eingegeben haben, warten Sie, bis das System an der Eingabeaufforderung der Boot-Umgebung angehalten wird.
-. Führen Sie eine der folgenden Aktionen durch:
+. Booten Sie Knoten4, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
 +
-[cols="35,65"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
+`boot_ontap`
 
-
-| Ist ein V-Series System oder verfügt über FlexArray Virtualisierungssoftware mit Data ONTAP 8.3.0 oder höher | Greifen Sie auf den Wartungsmodus zu, indem Sie an der Eingabeaufforderung der Boot-Umgebung den folgenden Befehl eingeben:
-`boot_ontap maint` 
-
-
-| Ist kein V-Series System und verfügt nicht über FlexArray Virtualisierungssoftware | Boot node4 durch Eingabe des folgenden Befehls an der Eingabeaufforderung der Boot-Umgebung:
-`boot_ontap` 
-|===
-. [[man_config_4_Step11]]Nehmen Sie eine der folgenden Aktionen:
+. [[man_config_4_Step9]]Führen Sie eine der folgenden Aktionen aus:
 +
-[cols="35,65"]
-|===
-| Wenn das System, das Sie aktualisieren... | Dann… 
-
-
-| Festplatten sind vorhanden  a| 
 ** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
 ** Überspringen Sie den Abschnitt und gehen Sie zu link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] Wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat.
 
 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
-** Überspringen Sie den Abschnitt _UTA/UTA2-Ports auf node4_ überprüfen und konfigurieren, wenn node4 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, kehren Sie zum Abschnitt _Installieren und Booten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#man_install4_Step9["Schritt 9"].
-
-
-|===
 
 
 
@@ -202,40 +116,14 @@ UTA2-Ports können an einem Adapter oder auf dem Controller mit den folgenden Ko
 
 Sie können jedoch die Konfiguration der UTA/UTA2-Ports auf node4 überprüfen und sie gegebenenfalls ändern.
 
-*Achtung*: Wenn Ihr System über Speicherfestplatten verfügt, geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein, sofern nicht dazu aufgefordert wird, in den Wartungsmodus zu wechseln. Wenn Sie über ein MetroCluster FC-System, ein V-Series System oder ein System mit FlexArray-Virtualisierungssoftware verfügen, die mit Storage-Arrays verbunden ist, müssen Sie sich im Wartungsmodus befinden, um UTA/UTA2-Ports zu konfigurieren.
+
+WARNING: Geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeaufforderung ein, sofern Sie nicht aufgefordert werden, in den Wartungsmodus zu wechseln.  Wenn Sie über ein MetroCluster FC-System verfügen, müssen Sie sich im Wartungsmodus befinden, um UTA/UTA2-Ports zu konfigurieren.
 
 .Schritte
-. Überprüfen Sie, wie die Ports derzeit mit einem der folgenden Befehle auf node4 konfiguriert werden:
+. Überprüfen Sie, wie die Ports derzeit auf Knoten4 konfiguriert sind:
 +
-[cols="35,65"]
-|===
-| Wenn das System... | Dann… 
+`system node hardware unified-connect show`
 
-
-| Festplatten sind vorhanden | `system node hardware unified-connect show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `ucadmin show` 
-|===
-+
-Das System zeigt eine Ausgabe wie im folgenden Beispiel an:
-
-+
-....
-*> ucadmin show
-                Current  Current    Pending   Pending   Admin
-Node   Adapter  Mode     Type       Mode      Type      Status
-----   -------  ---      ---------  -------   --------  -------
-f-a    0e       fc       initiator  -          -        online
-f-a    0f       fc       initiator  -          -        online
-f-a    0g       cna      target     -          -        online
-f-a    0h       cna      target     -          -        online
-f-a    0e       fc       initiator  -          -        online
-f-a    0f       fc       initiator  -          -        online
-f-a    0g       cna      target     -          -        online
-f-a    0h       cna      target     -          -        online
-*>
-....
 . Wenn das aktuelle SFP+-Modul nicht mit der gewünschten Verwendung übereinstimmt, ersetzen Sie es durch das richtige SFP+-Modul.
 +
 Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu erhalten.
@@ -253,39 +141,34 @@ Wenden Sie sich an Ihren NetApp Ansprechpartner, um das richtige SFP+ Modul zu e
 
 | Haben Sie die Persönlichkeit, die Sie wollen | Überspringen Sie Schritt 5 bis Schritt 12, und fahren Sie mit fort <<man_check_4_Step13,Schritt 13>>. 
 |===
-. [[man_Check_4_Step5]]Nehmen Sie eine der folgenden Aktionen:
+. [[man_check_4_Step5]]Wenn das System über Speicherfestplatten verfügt und Data ONTAP 8.3 ausführt, booten Sie Knoten 4 und wechseln Sie in den Wartungsmodus:
 +
-[cols="35,65"]
-|===
-| Wenn das System... | Dann... 
+`boot_ontap maint`
 
+. Überprüfen Sie die Einstellungen, indem Sie den folgenden Befehl eingeben und seine Ausgabe überprüfen:
++
+`ucadmin show`
 
-| Verfügt über Speicherfestplatten und führt Data ONTAP 8.3 aus | Boot-node4 und wechseln in den Wartungsmodus:
-`boot_ontap maint` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Gehen Sie zu <<man_check_4_Step6,Schritt 6>>. Sie sollten sich bereits im Wartungsmodus befinden. 
-|===
-. [[man_Check_4_Step6]]Nehmen Sie eine der folgenden Aktionen:
+. Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="35,65"]
 |===
 | Wenn Sie konfigurieren... | Dann... 
 
 
-| Ports auf einer UTA/UTA2-Karte | Gehen Sie zu <<man_check_4_Step7,Schritt 7>>. 
+| Ports auf einer UTA/UTA2-Karte | Gehe zu<<man_check_4_Step8,Schritt 8>> . 
 
 
-| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 7, und fahren Sie mit fort <<man_check_4_Step8,Schritt 8>>. 
+| Onboard UTA/UTA2-Ports | Überspringen Sie Schritt 8 und gehen Sie zu<<man_check_4_Step9,Schritt 9>> . 
 |===
-. [[man_Check_4_Step7]]Wenn sich der Adapter im Initiator-Modus befindet und der UTA/UTA2-Port online ist, versetzen Sie den UTA/UTA2-Port in den Offline-Modus:
+. [[man_check_4_Step8]]Wenn sich der Adapter im Initiatormodus befindet und der UTA/UTA2-Port online ist, schalten Sie den UTA/UTA2-Port offline:
 +
 `storage disable adapter _adapter_name_`
 
 +
 Adapter im Zielmodus sind im Wartungsmodus automatisch offline.
 
-. [[man_Check_4_Step8]]Wenn die aktuelle Konfiguration nicht mit der gewünschten Verwendung übereinstimmt, geben Sie den folgenden Befehl ein, um die Konfiguration nach Bedarf zu ändern:
+. [[man_check_4_Step9]]Wenn die aktuelle Konfiguration nicht der gewünschten Verwendung entspricht, geben Sie den folgenden Befehl ein, um die Konfiguration nach Bedarf zu ändern:
 +
 `ucadmin modify -m fc|cna -t initiator|target _adapter_name_`
 
@@ -296,52 +179,26 @@ Adapter im Zielmodus sind im Wartungsmodus automatisch offline.
 
 +
 
-NOTE: Sie müssen FC Initiator für Tape-Laufwerke und FlexArray-Virtualisierungssysteme verwenden. Sie müssen das FC-Ziel für SAN-Clients verwenden.
+NOTE: Sie müssen den FC-Initiator für Bandlaufwerke und das FC-Ziel für SAN-Clients verwenden.
 
-. Überprüfen Sie die Einstellungen, indem Sie den folgenden Befehl eingeben und seine Ausgabe überprüfen:
-+
-`ucadmin show`
-
-. Führen Sie eine der folgenden Aktionen aus:
-+
-[cols="35,65"]
-|===
-| Wenn das System... | Dann... 
-
-
-| Festplatten sind vorhanden  a| 
-.. Geben Sie den folgenden Befehl ein:
+. Wenn das System über Speicherplatten verfügt, geben Sie den folgenden Befehl ein:
 +
 `halt`
 
 +
 Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 
++
 .. Geben Sie den folgenden Befehl ein:
 +
 `boot_ontap`
 
 
 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden und läuft Data ONTAP 8.3 | Neustart in Wartungsmodus:
-`boot_ontap maint` 
-|===
-. Überprüfen Sie die Einstellungen:
+. Wenn das System über Speicherplatten verfügt, geben Sie den folgenden Befehl ein:
 +
-[cols="35,65"]
-|===
-| Wenn das System... | Dann... 
+`system node hardware unified-connect show`
 
-
-| Festplatten sind vorhanden | Geben Sie den folgenden Befehl ein:
-`system node hardware unified-connect show` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Geben Sie den folgenden Befehl ein:
-`ucadmin show` 
-|===
 +
 Die Ausgabe in den folgenden Beispielen zeigt, dass sich der Adaptertyp „1b“ in ändert `initiator` Und dass sich der Modus der Adapter „2a“ und „2b“ in ändert `cna`.
 
@@ -358,43 +215,9 @@ f-a    2a      fc       target    cna      -          online
 f-a    2b      fc       target    cna      -          online
 4 entries were displayed.
 ----
-+
-[listing]
-----
-*> ucadmin show
-               Current Current   Pending  Pending    Admin
-Node  Adapter  Mode    Type      Mode     Type       Status
-----  -------  ------- --------- -------  -------    -----
-f-a    1a      fc      initiator -        -          online
-f-a    1b      fc      target    -        initiator  online
-f-a    2a      fc      target    cna      -          online
-f-a    2b      fc      target    cna      -          online
-4 entries were displayed.
-*>
-----
 . Platzieren Sie alle Ziel-Ports online, indem Sie einen der folgenden Befehle eingeben, einmal für jeden Port:
 +
-[cols="35,65"]
-|===
-| Wenn das System... | Dann... 
+`network fcp adapter modify -node _node_name_ -adapter _adapter_name_ -state up`
 
-
-| Festplatten sind vorhanden | `network fcp adapter modify -node _node_name_ -adapter _adapter_name_ -state up` 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | `fcp config _adapter_name_ up` 
-|===
 . [[man_Check_4_Step13]]Anschluss verkabeln.
-. Führen Sie eine der folgenden Aktionen aus:
-+
-[cols="35,65"]
-|===
-| Wenn das System... | Dann... 
-
-
-| Festplatten sind vorhanden | Gehen Sie zu link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"]. 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden | Kehren Sie zum Abschnitt _Installieren und Starten von node4_ zurück, und setzen Sie den Abschnitt unter fort link:install_boot_node4.html#man_install4_Step9["Schritt 9"]. 
-|===
 

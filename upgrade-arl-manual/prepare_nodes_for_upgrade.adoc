@@ -49,7 +49,7 @@ Sie müssen Node 3 und node4 physisch überprüfen, um zu ermitteln, ob die NVME
 
 +
 
-WARNING: *Achtung* Versuchen Sie nicht, den NVRAM-Inhalt zu löschen. Wenn der Inhalt des NVRAM gelöscht werden muss, wenden Sie sich an den technischen Support von NetApp.
+WARNING: Versuchen Sie nicht, den NVRAM Inhalt zu löschen.  Wenn der Inhalt des NVRAM gelöscht werden muss, wenden Sie sich an den technischen Support von NetApp .
 
 . Überprüfen Sie die Version von ONTAP auf node3 und node4.
 +
@@ -356,7 +356,7 @@ NOTE: Sie verwenden die Informationen, um Festplatten neu zuzuweisen und die urs
 
 +
 
-NOTE: Sie können die Informationen verwenden, um Teile oder Zubehör zu identifizieren, die Sie auf node3 oder node4 übertragen möchten. Wenn Sie nicht wissen, ob die Nodes V-Series Systeme sind oder über FlexArray-Virtualisierungssoftware verfügen, können Sie das auch aus der Ausgabe lernen.
+NOTE: Mithilfe der Informationen können Sie Teile oder Zubehör identifizieren, die Sie möglicherweise auf Knoten3 oder Knoten4 übertragen möchten.
 
 .. Geben Sie sowohl bei node1 als auch bei node2 den folgenden Befehl ein und notieren Sie die Aggregate, die auf beiden Nodes online sind:
 +
@@ -587,32 +587,7 @@ node2   0d      fc      initiator -       -         online
 +
 Sie können die Informationen nach dem Upgrade verwenden, um die Konfiguration von FC-Ports auf den neuen Nodes einzustellen.
 
-. Wenn Sie ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware aktualisieren, erfassen Sie Informationen über die Topologie der Original-Nodes, indem Sie den folgenden Befehl eingeben und die Ausgabe aufzeichnen:
-+
-`storage array config show -switch`
-
-+
-Das System zeigt Topologieinformationen wie im folgenden Beispiel dargestellt an:
-
-+
-....
-cluster::> storage array config show -switch
-
-      LUN LUN                                  Target Side Initiator Side Initi-
-Node  Grp Cnt Array Name    Array Target Port  Switch Port Switch Port    ator
------ --- --- ------------- ------------------ ----------- -------------- ------
-node1 0   50  I_1818FAStT_1
-                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:3  0d
-                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:4  2b
-                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:1  0c
-node2 0   50  I_1818FAStT_1
-                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:1  0d
-                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:2  2b
-                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:3  0c
-                            208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
-7 entries were displayed.
-....
-. [[man_prepare_Nodes_steep29]]die folgenden Teilschritte ausführen:
+. [[man_prepare_nodes_step28]]Führen Sie die folgenden Unterschritte aus:
 +
 .. Geben Sie an einem der Original-Nodes den folgenden Befehl ein und notieren Sie die Ausgabe:
 +
@@ -629,7 +604,7 @@ Möglicherweise möchten Sie die Netzwerkparameter der Remote-Verwaltungsgeräte
 
 
 
-. [[man_prepare_Nodes_step30]]Wenn die neuen Nodes dieselben lizenzierten Funktionen wie die ursprünglichen Knoten haben sollen, geben Sie den folgenden Befehl ein, um die Clusterlizenzen auf dem ursprünglichen System anzuzeigen:
+. [[man_prepare_nodes_step29]]Wenn die neuen Knoten über die gleiche lizenzierte Funktionalität wie die ursprünglichen Knoten verfügen sollen, geben Sie den folgenden Befehl ein, um die Cluster-Lizenzen auf dem ursprünglichen System anzuzeigen:
 +
 `system license show -owner *`
 

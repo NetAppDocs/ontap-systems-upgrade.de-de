@@ -1,8 +1,0 @@
-= 
-:allow-uri-read: 
-
-
-.Wahlmöglichkeiten
-* <<Konfigurieren Sie FC-Ports auf node4>>
-* <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>
-

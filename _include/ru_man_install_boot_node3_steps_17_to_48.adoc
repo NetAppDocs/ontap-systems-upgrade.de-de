@@ -10,7 +10,7 @@
 
 WARNING: Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausgeführt werden `wipeconfig` Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
 
-. [[man_install3_step18]]Drücken Sie STRG-C, um das Startmenü anzuzeigen.
+. Drücken Sie STRG+C, um das Startmenü anzuzeigen.
 . [[man_install3_step19]]Nehmen Sie eine der folgenden Aktionen:
 +
 [cols="35,65"]
@@ -18,12 +18,12 @@ WARNING: Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verw
 | Wenn das System, das Sie aktualisieren... | Dann... 
 
 
-| Hat _Not_ die richtige oder aktuelle ONTAP-Version auf node3 | Gehen Sie zu <<man_install3_step20,Schritt 20>>. 
+| Hat _Not_ die richtige oder aktuelle ONTAP-Version auf node3 | Gehe zu<<man_install3_step13,Schritt 13>> . 
 
 
-| Verfügt über die richtige oder aktuelle Version von ONTAP auf node3 | Gehen Sie zu <<man_install3_step25,Schritt 25>>. 
+| Verfügt über die richtige oder aktuelle Version von ONTAP auf node3 | Gehe zu<<man_install3_step18,Schritt 18>> . 
 |===
-. [[man_install3_step20]]Konfigurieren Sie die Netzboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
+. [[man_install3_step13]]Konfigurieren Sie die Netboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
 +
 
 NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwenden. Verwenden Sie keine Daten-LIF-IP, oder sonst kann während des Upgrades ein Datenausfall auftreten.
@@ -52,7 +52,7 @@ Konfigurieren Sie die Verbindung manuell, indem Sie an der Eingabeaufforderung d
 NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung.
 
 |===
-. [[man_install3_step21]]Netzboot auf node3 ausführen:
+. Führen Sie einen Netboot auf Knoten3 durch:
 +
 [cols="35,65"]
 |===
@@ -71,7 +71,7 @@ Der `<path_to_the_web-accessible_directory>` Führt zu der Stelle, an der Sie da
 
 NOTE: Unterbrechen Sie den Startvorgang nicht.
 
-. [[man_install3_step22]]Wählen Sie im Startmenü die Option *(7) Neue Software installieren* zuerst.
+. Wählen Sie im Bootmenü zunächst die Option *(7) Neue Software installieren*.
 +
 Mit dieser Menüoption wird das neue ONTAP-Image auf das Startgerät heruntergeladen und installiert.
 
@@ -88,11 +88,11 @@ Der Hinweis gilt für unterbrechungsfreie Upgrades der ONTAP und keine Upgrades 
 
 NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle Versionen von ONTAP. Das Netzboot wird mit der Option kombiniert `(7) Install new software` Entfernt die Startmedien und platziert dieselbe ONTAP-Version-ONTAP auf beiden Bildpartitionen.
 
-. [[man_install3_steep23]] Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie ein `y`, Und wenn Sie dazu aufgefordert werden, das Paket einzugeben, geben Sie die folgende URL ein:
+. Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie `y` , und geben Sie bei der Aufforderung zur Eingabe des Pakets die folgende URL ein:
 +
 `\http://<web_server_ip>/<path_to_web-accessible_directory>/<ontap_version_image>.tgz`
 
-. [[man_install3_step24]]führen Sie die folgenden Teilschritte durch:
+. Führen Sie die folgenden Teilschritte durch:
 +
 .. Eingabe `n` So überspringen Sie die Backup-Recovery, wenn folgende Eingabeaufforderung angezeigt wird:
 +
@@ -111,12 +111,12 @@ Das Controller-Modul wird neu gestartet, stoppt aber im Startmenü, da das Boot-
 
 
 
-. [[man_install3_step25]]Wählen Sie *(5) Boot im Wartungsmodus* aus, indem Sie eingeben `5`, Und geben Sie dann ein `y` Wenn Sie dazu aufgefordert werden, den Startvorgang fortzusetzen.
+. [[man_install3_step18]]Wählen Sie *(5) Wartungsmodus-Boot* durch Eingabe `5` und geben Sie dann ein `y` wenn Sie aufgefordert werden, mit dem Booten fortzufahren.
 . [[man_install3_step26]]bevor Sie fortfahren, fahren Sie mit fort link:set_fc_uta_uta2_config_node3.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest"] Um alle erforderlichen Änderungen an den FC- oder UTA/UTA2-Ports auf dem Node vorzunehmen.
 +
 Nehmen Sie die in diesen Abschnitten empfohlenen Änderungen vor, booten Sie den Node neu und wechseln Sie in den Wartungsmodus.
 
-. [[man_install3_step27]]Suche nach der System-ID von node3:
+. Suchen Sie die System-ID von Knoten3:
 +
 `disk show -a`
 
@@ -142,7 +142,7 @@ Das System zeigt die System-ID des Node sowie Informationen über seine Festplat
 
 NOTE: Möglicherweise wird die Meldung angezeigt `disk show: No disks match option -a.` Nach Eingabe des Befehls. Dies ist keine Fehlermeldung, sodass Sie mit dem Verfahren fortfahren können.
 
-. [[man_install3_step28]]Spares des Rasign node1, alle Festplatten, die zum Root gehören, und alle nicht-Root-Aggregate, die früher in node2 verschoben wurden link:relocate_non_root_aggr_node1_node2.html["Verschiebung von nicht-Root-Aggregaten von node1 auf node2"].
+. [[man_install3_step21]]Weisen Sie die Ersatzfestplatten von Knoten1, alle zum Root gehörenden Festplatten und alle Nicht-Root-Aggregate, die nicht zuvor zu Knoten2 verschoben wurden, neu zulink:relocate_non_root_aggr_node1_node2.html["Verschiebung von nicht-Root-Aggregaten von node1 auf node2"] .
 +
 Geben Sie das entsprechende Formular des ein `disk reassign` Befehl basierend auf der Frage, ob Ihr System freigegebene Festplatten hat:
 
@@ -331,7 +331,7 @@ Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 +
 `set time _hh:mm:ss_`
 
-. [[man_install3_step42]]Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in angegeben <<man_install3_step28,Schritt 28>> Schalter unter -p:
+. [[man_install3_step42]]Überprüfen Sie, ob die Partnersystem-ID korrekt eingestellt ist, wie in<<man_install3_step21,Schritt 21>> unter dem Schalter -p:
 +
 `printenv partner-sysid`
 

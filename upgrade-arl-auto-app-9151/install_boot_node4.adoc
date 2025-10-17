@@ -29,10 +29,10 @@ Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4
 . installieren sie node4 im Rack gemäß den Anweisungen in der Anleitung _Installation and Setup Instructions_ für das Node-Modell.
 . Kabel node4, ziehen Sie die Verbindungen von node2 nach node4.
 +
-Verkabeln Sie die folgenden Verbindungen gemäß der Anleitung in den Installationsanweisungen_ oder den Installationsanforderungen und Referenz_ für die FlexArray-Plattform, dem entsprechenden Festplatten-Shelf-Dokument und „_HA-Paar-Management_“.
+Verkabeln Sie die folgenden Verbindungen und befolgen Sie dabei die Anweisungen in den _Installations- und Einrichtungsanweisungen_ für die Node4-Plattform, das entsprechende Disk-Shelf-Dokument und die _HA-Paarverwaltung_.
 
 +
-Unter link:other_references.html["Quellen"] finden Sie einen Link zu den Installationsanforderungen für die FlexArray-Virtualisierung und zu Referenz_ und _HA-Paar-Management_.
+Siehelink:other_references.html["Quellen"] zur Verknüpfung mit _HA-Paarverwaltung_.
 
 +
 ** Konsole (Remote-Management-Port)
@@ -71,7 +71,7 @@ WARNING: The battery is unfit to retain data during a power outage. This is like
 .. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
 +
 
-WARNING: *Achtung: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht geladen werden darf, kann dies zu einem Datenverlust führen.*
+WARNING: *Überschreiben Sie die Verzögerung nicht. Wenn Sie den Akku nicht aufladen, kann dies zu Datenverlust führen.*
 
 +
 

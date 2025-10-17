@@ -6,10 +6,7 @@
 * Sie können die folgenden Systemtypen aktualisieren:
 +
 ** Einem FAS System auf ein FAS System.
-** Ein FAS System auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System.
 ** Einem AFF System auf ein AFF System.
-** Ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System auf einem FAS System, vorausgesetzt, dass das System mit FlexArray Virtualisierungssoftware oder V-Series System keine Array-LUNs besitzt.
-** Eines V-Series Systems auf ein System mit FlexArray Virtualisierungssoftware oder einem V-Series System
 
 
 

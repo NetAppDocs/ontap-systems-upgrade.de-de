@@ -37,7 +37,7 @@ Sie müssen Node 3 und node4 physisch überprüfen, um zu ermitteln, ob die NVME
 
 +
 
-WARNING: *Achtung* Versuchen Sie nicht, den NVRAM-Inhalt zu löschen. Wenn der Inhalt des NVRAM gelöscht werden muss, wenden Sie sich an den technischen Support von NetApp.
+WARNING: Versuchen Sie nicht, den NVRAM Inhalt zu löschen.  Wenn der Inhalt des NVRAM gelöscht werden muss, wenden Sie sich an den technischen Support von NetApp .
 
 . Überprüfen Sie die Version von ONTAP auf node3 und node4.
 +

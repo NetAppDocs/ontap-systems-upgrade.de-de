@@ -12,7 +12,6 @@ Sie müssen Knoten3 jedoch nicht per Netboot starten, wenn dort dieselbe oder ei
 [IMPORTANT]
 ====
 * Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 1 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
-* Wenn Sie ein mit Storage-Arrays verbundenes V-Series System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, die mit Storage Arrays verbunden ist, sind die vollständigen Anforderungen unbedingt zu beachten <<man_install3_step1,Schritt 1>> Bis <<man_install3_step5,Schritt 5>>, Lassen Sie diesen Abschnitt bei <<man_install3_step6,Schritt 6>> Und befolgen Sie die Anweisungen unter link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie nach Bedarf Befehle im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und mit fortfahren <<man_install3_step7,Schritt 7>>.
 * Wenn Sie ein System mit Speicherplatten aktualisieren, müssen Sie diesen Abschnitt vollständig ausfüllen und dann zu link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] , indem Sie Befehle an der Cluster-Eingabeaufforderung eingeben.
 
 
@@ -32,7 +31,7 @@ NOTE: Wenn Sie ein Upgrade auf ein System mit beiden Nodes im selben Chassis dur
 Die folgenden Referenzen helfen Ihnen dabei, geeignete Kabelverbindungen zu machen. Gehen Sie zu link:other_references.html["Quellen"] Um eine Verbindung zu ihnen zu machen.
 
 +
-** _Installations- und Setup-Anleitung_ oder _Installationsanforderungen für die FlexArray-Virtualisierung und Referenz_ für die node3-Plattform
+** _Installations- und Einrichtungsanweisungen_ für die node3-Plattform
 ** Das entsprechende Verfahren für das Festplatten-Shelf
 ** Die _HA-Paar-Management_ Dokumentation
 
@@ -74,65 +73,25 @@ To override this delay, press 'c' followed by 'Enter'
 .. Warten Sie, bis der Akku geladen ist und der Bootvorgang abgeschlossen ist.
 +
 
-NOTE: *Achtung*: Die Verzögerung nicht außer Kraft setzen; wenn der Akku nicht geladen werden kann, kann dies zu einem Datenverlust führen.
+WARNING: *Überschreiben Sie die Verzögerung nicht. Wenn Sie den Akku nicht aufladen, kann dies zu Datenverlust führen.*
 
 
 
-. [[man_install3_step6]]Nehmen Sie eine der folgenden Aktionen:
-+
-[cols="35,65"]
-|===
-| Wenn Ihr System... | Dann... 
-
-
-| Verfügt über Festplatten und keinen Back-End-Speicher | Überspringen Sie Schritt 7 bis Schritt 12, und fahren Sie mit fort <<man_install3_step13,Schritt 13>>. 
-
-
-| Ist ein V-Series System oder ein System mit FlexArray Virtualisierungssoftware, die mit Storage-Arrays verbunden ist  a| 
-.. Gehen Sie zu link:set_fc_uta_uta2_config_node3.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node3 fest"] Und vervollständigen Sie die Unterabschnitte link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"], Je nach Ihrem System.
-.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<man_install3_step7,Schritt 7>>.
-
-
-
-IMPORTANT: Sie müssen die integrierten FC-Ports, die integrierten CNA-Ports und CNA-Karten neu konfigurieren, bevor Sie ONTAP auf der V-Series oder dem System mit FlexArray Virtualisierungssoftware booten.
-
-|===
-. [[man_install3_step7]]Fügen Sie die FC-Initiator-Ports des neuen Knotens zu den Switch-Zonen hinzu.
-+
-Wenn Ihr System über ein Tape-SAN verfügt, müssen Sie das Zoning für die Initiatoren benötigen. Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. [[man_install3_step8]]Fügen Sie die FC-Initiator-Ports zum Speicher-Array als neue Hosts hinzu, und ordnen Sie die Array-LUNs den neuen Hosts zu.
-+
-Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. [[man_install3_step9]] Ändern Sie die WWPN-Werte (World Wide Port Name) in den Host- oder Volume-Gruppen, die mit Array LUNs auf dem Speicher-Array verknüpft sind.
-+
-Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geändert, die den einzelnen integrierten FC-Ports zugeordnet sind.
-
-. [[man_install3_step10]]Wenn Ihre Konfiguration ein Switch-basiertes Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
-. [[man_install3_step11]]Überprüfen Sie, ob die Array-LUNs jetzt für node3 sichtbar sind:
-+
-`sysconfig -v`
-
-+
-Das System zeigt alle Array-LUNs an, die für jeden FC-Initiator-Port sichtbar sind. Wenn die Array-LUNs nicht sichtbar sind, können Sie Festplatten von node1 zu node3 später in diesem Abschnitt nicht neu zuweisen.
-
-. [[man_install3_step12]]Drücken Sie Strg-C, um das Boot-Menü anzuzeigen und den Wartungsmodus auszuwählen.
-. [[man_install3_step13]]Geben Sie in der Eingabeaufforderung für den Wartungsmodus den folgenden Befehl ein:
+. Geben Sie an der Eingabeaufforderung für den Wartungsmodus den folgenden Befehl ein:
 +
 `halt`
 
 +
 Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 
-. [[man_install3_step14]]Nehmen Sie eine der folgenden Aktionen:
+. Führen Sie eine der folgenden Aktionen durch:
 +
 [cols="35,65"]
 |===
 | Wenn das System, auf das Sie aktualisieren, in einem ist... | Dann... 
 
 
-| Dual-Chassis-Konfiguration (mit Controllern in anderem Chassis) | Gehen Sie zu <<man_install3_step15,Schritt 15>>. 
+| Dual-Chassis-Konfiguration (mit Controllern in anderem Chassis) | Gehe zu<<man_install3_step8,Schritt 8>> . 
 
 
 | Einzel-Chassis-Konfiguration (mit Controllern im selben Chassis)  a| 
@@ -147,11 +106,11 @@ NOTE: verlassen sie node4 an der Boot-Umgebung Eingabeaufforderung; Sie kehren n
 
 .. Wenn die Warnmeldung in angezeigt wird <<man_install3_step4,Schritt 4>>, Folgen Sie den Anweisungen in <<man_install3_step5,Schritt 5>>
 .. Schalten Sie das Konsolenkabel von node4 nach node3 zurück.
-.. Gehen Sie zu <<man_install3_step15,Schritt 15>>.
+.. Gehe zu<<man_install3_step8,Schritt 8>> .
 
 
 |===
-. [[man_install3_step15]]node3 für ONTAP konfigurieren:
+. [[man_install3_step8]]Konfigurieren Sie node3 für ONTAP:
 +
 `set-defaults`
 

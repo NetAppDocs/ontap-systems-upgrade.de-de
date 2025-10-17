@@ -48,7 +48,6 @@ NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryptio
 Unter folgenden Umständen können Sie dieses ARL-Verfahren nicht verwenden:
 
 * Sie möchten dem Cluster die neuen Controller als neues HA-Paar hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
-* Sie verwenden die FlexArray Virtualisierungssoftware auf dem zu aktualisierenden System.
 * Sie aktualisieren gerade eine MetroCluster IP-Konfiguration.
 +
 Informationen zum Upgrade einer MetroCluster-IP-Konfiguration finden Sie unter link:other_references.html["Quellen"] zum Link zum _MetroCluster-Upgrade und -Erweiterung_-Inhalt.

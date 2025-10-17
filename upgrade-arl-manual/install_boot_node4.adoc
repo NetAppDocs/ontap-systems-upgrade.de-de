@@ -24,7 +24,6 @@ Sie müssen jedoch keinen Netboot für Knoten4 durchführen, wenn dort dieselbe 
 [IMPORTANT]
 ====
 * Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 2 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
-* Wenn Sie ein V-Series-System oder ein System mit FlexArray-Virtualisierungssoftware aktualisieren, das mit Speicher-Arrays verbunden ist, müssen Sie Folgendes durchführen: <<man_install4_Step1,Schritt 1>> durch <<man_install4_Step7,Schritt 7>> , verlassen Sie diesen Abschnitt bei <<man_install4_Step8,Schritt 8>> und befolgen Sie die Anweisungen in link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Geben Sie die Befehle bei Bedarf im Wartungsmodus ein. Sie müssen dann zu diesem Abschnitt zurückkehren und den Vorgang bei <<man_install4_Step9,Schritt 9>> .
 * Wenn Sie ein System mit Speicherplatten aktualisieren, müssen Sie diesen Abschnitt vollständig ausfüllen und dann mit dem Abschnitt fortfahren. link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] , indem Sie Befehle an der Cluster-Eingabeaufforderung eingeben.
 
 
@@ -52,7 +51,7 @@ Wenn node4 sich in einem separaten Chassis von node3 befindet, können sie node4
 Die folgenden Referenzen helfen Ihnen dabei, geeignete Kabelverbindungen zu machen. Gehen Sie zu link:other_references.html["Quellen"] Um eine Verbindung zu ihnen zu machen.
 
 +
-** _Installations- und Setup-Anleitung_ oder _Installationsanforderungen für die FlexArray-Virtualisierung und Referenz_ für die node4-Plattform
+** _Installations- und Einrichtungsanweisungen_ für die node4-Plattform
 ** Das entsprechende Verfahren für das Festplatten-Shelf
 ** Die _HA-Paar-Management_ Dokumentation
 +
@@ -104,51 +103,11 @@ WARNING: The battery is unfit to retain data during a power
 .. Lassen Sie den Akku laden und den Bootvorgang beenden.
 +
 
-WARNING: *Warnung: Die Verzögerung nicht außer Kraft setzen. Wenn der Akku nicht geladen werden kann, kann dies zu einem Datenverlust führen.*
+WARNING: *Überschreiben Sie die Verzögerung nicht.  Wenn der Akku nicht aufgeladen wird, kann es zu Datenverlust kommen.*
 
 
 
-. [[man_install4_Step8]]Nehmen Sie eine der folgenden Aktionen:
-+
-[cols="35,65"]
-|===
-| Wenn Ihr System... | Dann... 
-
-
-| Verfügt über Festplatten und keinen Back-End-Speicher | Überspringen Sie Schritt 9 bis Schritt 14, und fahren Sie mit fort <<man_install4_Step15,Schritt 15>>. 
-
-
-| Ist ein V-Series System oder hat FlexArray-Virtualisierungssoftware und ist mit Storage-Arrays verbunden  a| 
-.. Gehen Sie zum Abschnitt „ FC- oder UTA/UTA2-Konfiguration auf node4_“ und füllen Sie die Abschnitte aus link:set_fc_uta_uta2_config_node4.html#configure-fc-ports-on-node4["Konfigurieren Sie FC-Ports auf node4"] Und link:set_fc_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["UTA/UTA2-Ports auf node4 prüfen und konfigurieren"], Je nach Ihrem System.
-.. Kehren Sie zu diesem Abschnitt zurück, und führen Sie die verbleibenden Schritte aus. Beginnen Sie mit <<man_install4_Step9,Schritt 9>>.
-
-
-
-IMPORTANT: Vor dem Booten von ONTAP auf dem V-Series System müssen Sie die integrierten FC-Ports, UTA/UTA2-Ports und UTA/UTA2-Karten neu konfigurieren.
-
-|===
-. [[man_install4_Step9]]Fügen Sie die FC-Initiator-Ports des neuen Node zu den Switch-Zonen hinzu.
-+
-Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. Fügen Sie die FC-Initiator-Ports dem Speicher-Array als neue Hosts hinzu, und ordnen Sie die Array-LUNs den neuen Hosts zu.
-+
-Anweisungen finden Sie in der Dokumentation für das Storage-Array und Zoning.
-
-. Ändern Sie die WWPN-Werte (World Wide Port Name) in den Host- oder Volume-Gruppen, die Array-LUNs auf dem Speicher-Array zugeordnet sind.
-+
-Durch die Installation eines neuen Controller-Moduls werden die WWPN-Werte geändert, die den einzelnen integrierten FC-Ports zugeordnet sind.
-
-. Wenn die Konfiguration das Switch-basierte Zoning verwendet, passen Sie das Zoning an die neuen WWPN-Werte an.
-. Überprüfen Sie, ob die Array-LUNs nun für node4 sichtbar sind, indem Sie den folgenden Befehl eingeben und seine Ausgabe prüfen:
-+
-`sysconfig -v`
-
-+
-Das System zeigt alle Array-LUNs an, die für jeden FC-Initiator-Port sichtbar sind. Wenn die Array-LUNs nicht sichtbar sind, können Sie Festplatten von node2 nicht später in diesem Abschnitt neu zuweisen.
-
-. Drücken Sie Strg-C, um das Startmenü anzuzeigen, und wählen Sie Wartungsmodus aus.
-. [[man_install4_Step15]]Geben Sie in der Eingabeaufforderung für den Wartungsmodus den folgenden Befehl ein:
+. [[man_install4_Step8]]Geben Sie an der Eingabeaufforderung für den Wartungsmodus den folgenden Befehl ein:
 +
 `halt`
 
@@ -199,12 +158,12 @@ SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paa
 | Wenn das System, das Sie aktualisieren... | Dann... 
 
 
-| Verfügt nicht über die richtige oder aktuelle ONTAP-Version unter node4 | Gehen Sie zu <<man_install4_Step20,Schritt 20>>. 
+| Verfügt nicht über die richtige oder aktuelle ONTAP-Version unter node4 | Gehe zu<<man_install4_Step13,Schritt 13>> . 
 
 
-| Hat die richtige oder aktuelle Version von ONTAP auf node4 | Gehen Sie zu <<man_install4_Step25,Schritt 25>>. 
+| Hat die richtige oder aktuelle Version von ONTAP auf node4 | Gehe zu<<man_install4_Step18,Schritt 18>> . 
 |===
-. [[man_install4_Step20]]Konfigurieren Sie die Netzboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
+. [[man_install4_Step13]]Konfigurieren Sie die Netboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
 +
 
 NOTE: Sie müssen den Management-Port und die IP-Adresse als Netzboot-Verbindung verwenden. Verwenden Sie keine LIF-IP-Adresse von Daten, oder es kann während des Upgrades ein Datenausfall auftreten.
@@ -295,8 +254,8 @@ Das Controller-Modul wird neu gestartet, stoppt aber im Startmenü, da das Boot-
 
 
 
-. [[man_install4_Step25]]Wählen Sie den Wartungsmodus `5` Öffnen Sie das Startmenü, und geben Sie ein `y` Wenn Sie aufgefordert werden, den Startvorgang fortzusetzen.
-. [[man_install4_Step26]]bevor Sie fortfahren, fahren Sie mit fort link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] Um alle erforderlichen Änderungen an den FC- oder UTA/UTA2-Ports auf dem Node vorzunehmen. Nehmen Sie die in diesen Abschnitten empfohlenen Änderungen vor, starten Sie den Node neu, und wechseln Sie in den Wartungsmodus.
+. [[man_install4_Step18]]Wartungsmodus auswählen `5` aus dem Boot-Menü und geben Sie `y` wenn Sie aufgefordert werden, mit dem Booten fortzufahren.
+. [[man_install4_Step19]]Bevor Sie fortfahren, gehen Sie zulink:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf node4 fest"] um alle notwendigen Änderungen an den FC- oder UTA/UTA2-Ports auf dem Knoten vorzunehmen.  Nehmen Sie die in diesen Abschnitten empfohlenen Änderungen vor, starten Sie den Knoten neu und wechseln Sie in den Wartungsmodus.
 . Geben Sie den folgenden Befehl ein und überprüfen Sie die Ausgabe, um die System-ID von node4 zu finden:
 +
 `disk show -a`
@@ -482,7 +441,7 @@ Das System wird an der Eingabeaufforderung für die Boot-Umgebung angehalten.
 +
 `set time _hh:mm:ss_`
 
-. Überprüfen Sie, ob die Partner-System-ID korrekt festgelegt ist, wie in beschrieben <<man_install4_Step26,Schritt 26>> Unter Option.
+. Überprüfen Sie, ob die Partnersystem-ID korrekt eingestellt ist, wie in<<man_install4_Step19,Schritt 19>> unter Option.
 +
 `printenv partner-sysid`
 
