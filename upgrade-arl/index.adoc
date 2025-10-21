@@ -63,7 +63,7 @@ Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgef�
 
 == Upgrade von Controller-Modellen in demselben Chassis
 
-Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgeführt ist, starten Sie mit link:../upgrade-arl-auto-affa900/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"]das Upgrade-Verfahren.
+Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgeführt ist, gehen Sie zulink:../upgrade-arl-auto-in-chassis/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"] , um den Upgrade-Vorgang zu starten.
 
 .Unterstützte Systeme anzeigen
 [%collapsible]

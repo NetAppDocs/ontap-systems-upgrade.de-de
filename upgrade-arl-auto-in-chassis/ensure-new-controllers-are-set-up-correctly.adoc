@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/ensure-new-controllers-are-set-up-correctly.html 
+keywords: ensure, controllers, new, setup, ha, pair, node1, node2, lif, cluster, high, availability 
+summary: Überprüfen Sie, ob das HA-Paar aktiviert ist, überprüfen Sie Node1- und Node2-Storage-Zugriff und LIF, und bestätigen Sie nach dem Upgrade der Controller-Modelle im selben Chassis die Eigentümerschaft für Aggregate. 
+---
+= Vergewissern Sie sich, dass die neuen Controller ordnungsgemäß eingerichtet sind
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um die korrekte Einrichtung zu überprüfen, überprüfen Sie, ob das HA-Paar aktiviert ist. Außerdem überprüfen Sie, ob Node 1 und Node 2 auf den Storage zugreifen können und ob keine der Daten-LIFs gehören, die zu anderen Nodes im Cluster gehören. Außerdem überprüfen Sie, ob alle Datenaggregate auf den richtigen Home Nodes vorhanden sind und ob die Volumes für beide Nodes online sind. Wenn einer der neuen Nodes über einen Unified Target Adapter verfügt, müssen Sie alle Port-Konfigurationen wiederherstellen. Darüber hinaus muss die Verwendung des Adapters geändert werden.
+
+.Schritte
+. Nach den Tests nach der Prüfung von „node2“ werden das Storage Failover und das Cluster HA-Paar für den node2 Cluster aktiviert. Nach Abschluss des Vorgangs werden beide Nodes als abgeschlossen angezeigt, und das System führt einige Bereinigungsvorgänge aus.
+. Vergewissern Sie sich, dass Storage-Failover aktiviert ist:
++
+`storage failover show`
+
++
+Im folgenden Beispiel wird die Ausgabe des Befehls angezeigt, wenn ein Storage Failover aktiviert ist:
+
++
+[listing]
+----
+cluster::> storage failover show
+                          Takeover
+Node	    Partner       Possible      State Description
+----------  -----------   ------------  ------------------
+node1	    node2         true	        Connected to node2
+node2	    node1         true	        Connected to node1
+----
+. Vergewissern Sie sich, dass node1 und node2 zum gleichen Cluster gehören, indem Sie den folgenden Befehl verwenden und die Ausgabe überprüfen:
++
+`cluster show`
+
+. Vergewissern Sie sich, dass node1 und node2 über den folgenden Befehl und eine Analyse der Ausgabe auf den Storage des jeweils anderen zugreifen können:
++
+`storage failover show -fields local-missing-disks,partner-missing-disks`
+
+. Vergewissern Sie sich, dass weder node1 noch node2 Eigentümer von Daten-LIFs sind, die im Besitz anderer Nodes im Cluster sind. Verwenden Sie dazu den folgenden Befehl und prüfen Sie die Ausgabe:
++
+`network interface show`
+
++
+Wenn weder Node1 noch node2 Daten-LIFs Eigentümer anderer Nodes im Cluster sind, setzen Sie die Daten-LIFs auf ihren Home-Eigentümer zurück:
+
++
+`network interface revert`
+
+. Vergewissern Sie sich, dass die Aggregate den jeweiligen Home-Nodes gehören.
++
+`storage aggregate show -owner-name <node1>`
+
++
+`storage aggregate show -owner-name <node2>`
+
+. Legen Sie fest, ob Volumes offline sind:
++
+`volume show -node <node1> -state offline`
+
++
+`volume show -node <node2> -state offline`
+
+. Wenn Volumes offline sind, vergleichen Sie sie mit der Liste der Offline-Volumes, die Sie im Abschnitt erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"], Und Online-Laufwerk eines der Offline-Volumes, nach Bedarf, durch Verwendung des folgenden Befehls, einmal für jedes Volume:
++
+`volume online -vserver <vserver_name> -volume <volume_name>`
+
+. Installieren Sie neue Lizenzen für die neuen Nodes mithilfe des folgenden Befehls für jeden Node:
++
+`system license add -license-code <license_code,license_code,license_code...>`
+
++
+Der Lizenzcode-Parameter akzeptiert eine Liste von 28 alphabetischen Zeichenschlüsseln für Großbuchstaben. Sie können jeweils eine Lizenz hinzufügen, oder Sie können mehrere Lizenzen gleichzeitig hinzufügen, indem Sie jeden Lizenzschlüssel durch ein Komma trennen.
+
+. Entfernen Sie alle alten Lizenzen mithilfe eines der folgenden Befehle von den ursprünglichen Nodes:
++
+`system license clean-up -unused -expired`
+
++
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
+
++
+--
+** Alle abgelaufenen Lizenzen löschen:
++
+`system license clean-up -expired`
+
+** Alle nicht verwendeten Lizenzen löschen:
++
+`system license clean-up -unused`
+
+** Löschen Sie eine bestimmte Lizenz von einem Cluster mit den folgenden Befehlen auf den Nodes:
++
+`system license delete -serial-number <node1_serial_number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
+
+
+
+--
++
+Die folgende Ausgabe wird angezeigt:
+
++
+[listing]
+----
+Warning: The following licenses will be removed:
+<list of each installed package>
+Do you want to continue? {y|n}: y
+----
++
+Eingabe `y` Um alle Pakete zu entfernen.
+
+. Überprüfen Sie, ob die Lizenzen korrekt installiert sind, indem Sie den folgenden Befehl verwenden und seine Ausgabe überprüfen:
++
+`system license show`
+
++
+Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie im erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt.
+
+. [[unset_maxwait]] Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off` (Beispiel: In _Boot node2 mit den Ersatz-Systemmodulen_ link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Schritt 1"]), Sie müssen die Einstellung der Variable aufheben:
++
+`set diag; systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
+
+. Konfigurieren Sie die SPs mit dem folgenden Befehl auf beiden Knoten:
++
+`system service-processor network modify -node <node_name>`
+
++
+Siehe link:other_references.html["Quellen"] Link zur _Systemverwaltungsreferenz_ für Informationen zu den SPs und den Befehlen _ONTAP 9: Manual Page Reference_ für detaillierte Informationen zum System `service-processor network modify` Befehl.
+
+. Informationen zum Einrichten eines Clusters ohne Switches auf den neuen Nodes finden Sie unter link:other_references.html["Quellen"] Um eine Verbindung zur NetApp Support Site_ zu erhalten, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.
+
+
+.Nachdem Sie fertig sind
+Wenn die Speicherverschlüsselung auf node1 und node2 aktiviert ist, füllen Sie den Abschnitt aus link:set_up_storage_encryption_new_module.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]. Andernfalls füllen Sie den Abschnitt aus link:decommission_old_system.html["Ausmustern des alten Systems"].

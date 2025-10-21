@@ -1,0 +1,145 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/cable-node2-for-shared-cluster-HA-storage.html 
+keywords: cluster, ha, aff, a800, shared, storage, data, management 
+summary: Verbinden Sie die Cluster-, HA-, Speicher- und Datenverbindungen, die zuvor mit dem AFF A800-Knoten2 verbunden waren, mit dem neu installierten AFF A90- oder AFF A70-Knoten1 
+---
+= Kabelknoten2 für gemeinsam genutztes Cluster-HA und Speicher
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie eines der folgenden Upgrades durchführen, müssen Sie die Cluster-, HA-, Speicher-, Daten- und Verwaltungsverbindungen, die zuvor mit dem Knoten2 auf dem vorhandenen System verbunden waren, mit dem neu installierten Knoten2 auf dem Ersatzsystem verbinden.
+
+[cols="35,65"]
+|===
+| Vorhandenes System | Austauschsystem 
+
+
+| AFF A250 | AFF A30, AFF A50 
+
+
+| AFF C250 | AFF C30, AFF C60 
+
+
+| AFF A800 | AFF A70, AFF A90 
+
+
+| AFF C800 | AFF C80 
+|===
+
+
+== Verbinden Sie die Ports E0M und BMC
+
+Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, werden die E0M und BMC-Ports kombiniert und über den „Schraubenschlüssel“-Port am Ersatzsystem aufgerufen. Sie müssen sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf dem vorhandenen System verbunden sind, bevor Sie eine Verbindung zum Ersatzsystem herstellen.
+
+[cols="35,65"]
+|===
+| Wenn der... | Dann... 
+
+
+| E0M und BMC IP-Adressen befinden sich auf demselben IP-Subnetz | Verbinden Sie entweder den E0M oder den BMC-Port des vorhandenen Systems mit dem „Schraubenschlüssel“-Port des Ersatzsystems. 
+
+
+| E0M und BMC IP-Adressen befinden sich in unterschiedlichen Subnetzen  a| 
+. Führen Sie die IP-Adressen E0M und BMC zu einem IP-Subnetz zusammen.
+. Verbinden Sie entweder den E0M oder den BMC-Port des vorhandenen Systems mit dem „Schraubenschlüssel“-Port des Ersatzsystems.
+
+
+|===
+
+
+== Stellen Sie eine Verbindung zu einem 2-Node-Cluster ohne Switches her
+
+Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfigurationen ohne Switch mit zwei Nodes.
+
+|===
+| Porttyp | AFF A800, AFF C800 | AFF A90 | AFF A70, AFF C80 
+
+
+| Cluster | e0a | e1a | e1a 
+
+
+| Cluster | e1a | E7a (e1b verwenden, wenn kein e7a vorhanden ist) | e1b 
+
+
+| HA | e0b | Keine Verbindung herstellen | Keine Verbindung herstellen 
+
+
+| HA | e1b | Keine Verbindung herstellen | Keine Verbindung herstellen 
+
+
+| SAS-Storage-Ports (sofern vorhanden und verwendet) | Jeder verfügbare Port | Jeder verfügbare Port | Jeder verfügbare Port 
+
+
+| Ethernet-Storage-Ports für NS224-Shelfs | Jeder verfügbare Port | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher 
+|===
+|===
+| Porttyp | AFF A250, AFF C250 | AFF A30, AFF C60 | AFF A50 
+
+
+| Cluster | e0c | e1a (Verwenden Sie e1a für die temporäre Clusterverbindung) | e1a (Verwenden Sie e1a für die temporäre Clusterverbindung) 
+
+
+| Cluster | e0d | e1b (Verwenden Sie e1b für die temporäre Clusterverbindung) | e1b (Verwenden Sie e1b für die temporäre Clusterverbindung) 
+
+
+| HA | Der e0c HA-Port wird mit dem Cluster-Port geteilt | e4a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e4a auf Knoten2 verbunden | e4a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e4a auf Knoten2 verbunden 
+
+
+| HA | Der e0d HA-Port wird mit dem Cluster-Port geteilt | e2a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e2a auf Knoten2 verbunden. Wenn e2a nicht vorhanden ist oder 100 GbE nicht unterstützt, verbinden Sie e4b auf Knoten1 über ein 100-GbE-Kabel direkt mit e4b auf Knoten2. | e2a auf Knoten1 ist über ein 100-GbE-Kabel direkt mit e2a auf Knoten2 verbunden. Wenn e2a nicht vorhanden ist oder 100 GbE nicht unterstützt, verbinden Sie e4b auf Knoten1 über ein 100-GbE-Kabel direkt mit e4b auf Knoten2. 
+
+
+| Ethernet-Speicheranschluss | Jeder verfügbare Port | e3a, e3b | e3a, e3b 
+
+
+| SAS-Speicheranschluss | Jeder verfügbare Port | 3 a, 3 b | 3 a, 3 b 
+|===
+
+
+== Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her
+
+Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anforderungen für den Knoten AFF A30, AFF A50, AFF A70, AFF A90, AFF C30, AFF C60 oder AFF C80 (Ersatz) erfüllen:
+
+* Die identischen Cluster-Ports auf dem Ersatz-Node befinden sich auf demselben Switch. Beispiel: Nach Abschluss des Upgrades sollte e1a auf node1 und e1a auf node2 mit einem Cluster-Switch verbunden werden. Gleichermaßen sollte der zweite Cluster-Port beider Nodes mit dem zweiten Cluster-Switch verbunden sein. Die Querverbindung von gemeinsam genutzten Cluster-HA-Ports, bei denen e1a von node1 mit SwitchA und e1a von node2 mit SwitchB verbunden ist, führt zu HA-Kommunikationsfehlern.
+* Der Ersatz-Node verwendet freigegebene Cluster-HA-Ethernet-Ports.
+* Überprüfen Sie, ob die Cluster-Switches mit einer Referenzkonfigurationsdatei (RCF) installiert sind, die freigegebene Cluster-HA-Ports unterstützt:
++
+.. Entfernen Sie die vorhandene Konfiguration auf dem Switch:
++
+[cols="30,70"]
+|===
+| Wenn Ihr Switch-Modell... | Gehe zu... 
+
+
+| Cisco Nexus | Den Knowledge Base Artikel link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Löschen der Konfiguration auf einem Cisco Interconnect Switch bei Beibehaltung der Remote-Verbindung"^] 
+
+
+| Broadcom BES-53248 | Den Knowledge Base Artikel link:https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Löschen der Konfiguration auf einem Broadcom-Interconnect-Switch bei Beibehaltung der Remote-Konnektivität"^] 
+|===
+.. Konfigurieren und überprüfen Sie die Switch-Einrichtung:
++
+[cols="30,70"]
+|===
+| Wenn Ihr Switch-Modell... | Gehe zu... 
+
+
+| Cisco Nexus 9336C-FX2 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html["Aktualisieren der Referenzkonfigurationsdatei (RCF)"^] 
+
+
+| Broadcom BES-53248 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/upgrade-rcf.html["Aktualisieren der Referenzkonfigurationsdatei (RCF)"^] 
+
+
+| NVIDIA SN2100 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html["Installieren oder aktualisieren Sie das RCF-Skript (Reference Configuration File)"^] 
+|===
+
+
+
+
+
+NOTE: Wenn der Cluster-Switch nur 10/25 GbE-Geschwindigkeiten unterstützt, müssen Sie für die Cluster-Verbindung eine X60130A, 4-Port 10/25GbE-Karte in Steckplatz 1 oder Steckplatz 2 auf dem Ersatzsystem verwenden.

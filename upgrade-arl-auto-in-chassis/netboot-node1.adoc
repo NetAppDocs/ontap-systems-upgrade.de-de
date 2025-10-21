@@ -1,0 +1,272 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/netboot-node1.html 
+keywords: preparing, prepare, netboot, ontap, node1 
+summary: Wenn Sie mit ARL Controller-Modelle im gleichen Gehäuse aktualisieren, müssen Sie nach dem Austausch des entsprechenden Systemmoduls netboot node1 ausführen. 
+---
+= Netzboot Nr. 1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach dem Austausch der entsprechenden Ersatz-Systemmodule müssen Sie netboot node1. Der Begriff Netzboot bedeutet, dass Sie über ein ONTAP Image, das auf einem Remote Server gespeichert ist, booten. Bei der Vorbereitung auf Netzboot fügen Sie eine Kopie des ONTAP 9-Startabbilds auf einen Webserver hinzu, auf den das System zugreifen kann.
+
+Die auf dem Bootmedium des Ersatz-Controllermoduls installierte ONTAP-Version kann nur überprüft werden, wenn das Modul in einem Chassis installiert und eingeschaltet ist. Informationen Die ONTAP-Version auf dem Ersatz-System-Boot-Medium muss mit der ONTAP-Version auf dem alten System übereinstimmen, das Sie aktualisieren, und sowohl die primären als auch die Backup-Boot-Images auf dem Boot-Medium müssen übereinstimmen. zur Überprüfung der mindestens unterstützten ONTAP-Version für Ihr Upgrade finden Sie im link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems,["unterstützte System-Upgrade-Kombinationen"] .
+
+Sie können die Images konfigurieren, indem Sie einen Netzboot gefolgt vom ausführen `wipeconfig` Befehl aus dem Startmenü. Wenn das Controller-Modul zuvor in einem anderen Cluster verwendet wurde, führt das aus `wipeconfig` Mit dem Befehl wird die Restkonfiguration auf dem Boot-Medium gelöscht.
+
+Sie können den Netzboot auch über die USB-Boot-Option ausführen. Weitere Informationen finden Sie im Knowledge Base-Artikel link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["So verwenden Sie den Boot_Recovery-LOADER-Befehl zum Installieren von ONTAP für die Ersteinrichtung eines Systems"^].
+
+.Bevor Sie beginnen
+* Vergewissern Sie sich, dass Sie mit dem System auf einen HTTP-Server zugreifen können.
+* Laden Sie die für Ihr System erforderlichen Systemdateien und die korrekte Version von ONTAP von _NetApp Support Site_ herunter. Siehe link:other_references.html["Quellen"] Link zur NetApp Support Site_.
+
+
+.Über diese Aufgabe
+Sie müssen die neuen Controller als Netzboot ansehen, wenn sie nicht die gleiche Version von ONTAP 9 auf ihnen installiert sind, die auf den ursprünglichen Controllern installiert ist. Nachdem Sie jeden neuen Controller installiert haben, starten Sie das System über das auf dem Webserver gespeicherte ONTAP 9-Image. Anschließend können Sie die richtigen Dateien auf das Boot-Medium herunterladen, um später das System zu booten.
+
+.Schritte
+. Siehe link:other_references.html["Quellen"] Um eine Verknüpfung zur NetApp Support Site_ zu erhalten, um die Dateien zum Ausführen des Netzboots des Systems herunterzuladen.
+. [[Netzboot_node1_step2]]Laden Sie die entsprechende ONTAP Software aus dem Bereich zum Software Download der _NetApp Support Site_ herunter und speichern Sie die `<ontap_version>_image.tgz` Datei in einem webbasierten Verzeichnis.
+. Wechseln Sie in das Verzeichnis für den Zugriff über das Internet, und stellen Sie sicher, dass die benötigten Dateien verfügbar sind.
+. Ihre Verzeichnisliste sollte enthalten `<ontap_version>_image.tgz`.
+. Konfigurieren Sie die Netzboot-Verbindung, indem Sie eine der folgenden Aktionen auswählen.
++
+
+NOTE: Sie müssen den Management-Port und die IP als Netzboot-Verbindung verwenden. Verwenden Sie keine Daten-LIF-IP, oder es kann während des Upgrades ein Datenausfall auftreten.
+
++
+[cols="35,65"]
+|===
+| Wenn DHCP (Dynamic Host Configuration Protocol) lautet... | Dann... 
+
+
+| Wird Ausgeführt | Konfigurieren Sie die Verbindung automatisch mit dem folgenden Befehl an der Eingabeaufforderung der Boot-Umgebung:
+`ifconfig e0M -auto` 
+
+
+| Nicht ausgeführt  a| 
+Konfigurieren Sie die Verbindung manuell mit dem folgenden Befehl an der Eingabeaufforderung der Boot-Umgebung:
+`ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
+
+`_filer_addr_` Ist die IP-Adresse des Speichersystems (obligatorisch).
+`_netmask_` Ist die Netzwerkmaske des Storage-Systems (erforderlich).
+`_gateway_` Ist das Gateway für das Speichersystem (erforderlich).
+`_dns_addr_` Ist die IP-Adresse eines Namensservers in Ihrem Netzwerk (optional).
+`_dns_domain_` Ist der Domain-Name (DNS) (optional).
+
+
+NOTE: Andere Parameter können für Ihre Schnittstelle erforderlich sein. Eingabe `help ifconfig` Details finden Sie in der Firmware-Eingabeaufforderung.
+
+|===
+. Ausführen des Netzboots auf Knoten 1:
++
+`netboot \http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
+
++
+
+NOTE: Unterbrechen Sie den Startvorgang nicht.
+
+. (Nur AFF A250- und AFF C250-Upgrades) Wenn Knoten 1 für das Ersatz-Controller-Modul startet, wird die folgende Warnung angezeigt, da die Konfiguration Knoten 2 für den vorhandenen Controller enthält:
++
+[listing]
+----
+*****************************************************
+* WARNING: Partner is not of the same family/model. *
+* Mixing is only allowed when upgrading the system. *
+* The system will shut down in 24 hours.            *
+*****************************************************
+Do you want to continue (y/n):
+----
++
+Antwort `y`.
+
++
+Diese Warnung wird für jeden Systemstart angezeigt, bis Sie node2 aktualisieren. Dies ist das erwartete Verhalten.
+
+. Warten Sie, bis der Knoten 1 auf dem Ersatz-Controller-Modul gestartet wird und die Optionen des Startmenüs wie unten gezeigt angezeigt werden:
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)?
+----
+. Wählen Sie im Startmenü Option `(7) Install new software first`.
++
+Mit dieser Menüoption wird das neue ONTAP-Image auf das Startgerät heruntergeladen und installiert.
+
++
+Ignorieren Sie die folgende Meldung:
+
++
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+
++
+Dieser Hinweis gilt für unterbrechungsfreie ONTAP Software-Upgrades und nicht für Controller-Upgrades.
+
++
+
+NOTE: Aktualisieren Sie den neuen Node immer als Netzboot auf das gewünschte Image. Wenn Sie eine andere Methode zur Installation des Images auf dem neuen Controller verwenden, wird möglicherweise das falsche Image installiert. Dieses Problem gilt für alle ONTAP Versionen. Das Netzboot wird mit der Option kombiniert `(7) Install new software` Entfernt das Boot-Medium und platziert dieselbe ONTAP-Version auf beiden Image-Partitionen.
+
+. Wenn Sie aufgefordert werden, den Vorgang fortzusetzen, geben Sie ein `y`, Und wenn Sie zur Eingabe des Pakets aufgefordert werden, geben Sie die URL ein:
+`\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
++
+Der `<path_to_the_web-accessible_directory>` Sollten Sie dazu führen, wo Sie das heruntergeladen haben `<ontap_version>_image.tgz` In <<netboot_node1_step2,Schritt 2>>.
+
+. Führen Sie die folgenden Teilschritte durch, um das Controller-Modul neu zu booten:
++
+.. Eingabe `n` So überspringen Sie die Backup-Recovery, wenn folgende Eingabeaufforderung angezeigt wird:
++
+[listing]
+----
+Do you want to restore the backup configuration now? {y|n}
+----
+.. Eingabe `y` Um den Neustart zu starten, wenn die folgende Eingabeaufforderung angezeigt wird:
++
+[listing]
+----
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+----
++
+Das Controller-Modul wird neu gestartet, stoppt aber im Startmenü, da das Boot-Gerät neu formatiert wurde und die Konfigurationsdaten wiederhergestellt werden müssen.
+
+
+
+. Löschen Sie alle vorherigen Konfigurationen auf dem Startmedium.
++
+.. Führen Sie an der folgenden Eingabeaufforderung den  `wipeconfig` Befehl und drücken Sie die Eingabetaste:
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? wipeconfig
+----
+.. Wenn die folgende Meldung angezeigt wird, beantworten Sie die Antwort `yes`:
++
+[listing]
+----
+This will delete critical system configuration, including cluster membership.
+Warning: do not run this option on a HA node that has been taken over.
+Are you sure you want to continue?:
+----
+.. Der Node wird neu gebootet, um den abzuschließen `wipeconfig` Und hält dann am Startmenü an.
++
+
+NOTE: Warten Sie, bis der Knoten nach Abschluss des Vorgangs beim Bootmenü stoppt.  `wipeconfig` Betrieb.
+
+
+
+. Wählen Sie die Option `5` Wechseln Sie vom Boot-Menü zum Wartungsmodus. Antwort `yes` Zu den Aufforderungen, bis der Node im Wartungsmodus und mit der Eingabeaufforderung angehalten wird `*>`.
+. Vergewissern Sie sich, dass Controller und Chassis als konfiguriert sind `ha`:
++
+`ha-config show`
+
++
+Das folgende Beispiel zeigt die Ausgabe von `ha-config show` Befehl:
+
++
+[listing]
+----
+Chassis HA configuration: ha
+Controller HA configuration: ha
+----
+. Wenn Controller und Chassis nicht als konfiguriert wurden `ha`, Verwenden Sie die folgenden Befehle, um die Konfiguration zu korrigieren:
++
+`ha-config modify controller ha`
+
++
+`ha-config modify chassis ha`
+
+. Überprüfen Sie die `ha-config` Einstellungen:
++
+`ha-config show`
+
++
+[listing]
+----
+Chassis HA configuration: ha
+Controller HA configuration: ha
+----
+. Stopp-Nr. 1:
++
+`halt`
+
++
+Node1 sollte an der LOADER-Eingabeaufforderung angehalten werden.
+
+. Überprüfen Sie in node2 das Systemdatum, die Uhrzeit und die Zeitzone:
++
+`date`
+
+. Überprüfen Sie bei node1 das Datum mithilfe des folgenden Befehls an der Eingabeaufforderung der Boot-Umgebung:
++
+`show date`
+
+. Legen Sie bei Bedarf das Datum auf Knoten 1 fest:
++
+`set date _mm/dd/yyyy_`
+
++
+
+NOTE: Legen Sie das entsprechende UTC-Datum auf Knoten 1 fest.
+
+. Überprüfen Sie bei node1 die Zeit mit dem folgenden Befehl an der Eingabeaufforderung der Boot-Umgebung:
++
+`show time`
+
+. Stellen Sie bei Bedarf die Zeit auf node1 ein:
++
+`set time _hh:mm:ss_`
+
++
+
+NOTE: Legen Sie die entsprechende UTC-Zeit auf node1 fest.
+
+. Legen Sie die Partner-System-ID auf node1 fest:
++
+`setenv partner-sysid _node2_sysid_`
+
++
+Für node1, die `partner-sysid` Muss der von node2 sein. Sie können die System-ID node2 vom beziehen `node show -node _node2_` Befehlsausgabe auf node2.
+
++
+.. Einstellungen speichern:
++
+`saveenv`
+
+
+
+. Überprüfen Sie bei node1 an der LOADER-Eingabeaufforderung den `partner-sysid` Für Knoten 1:
++
+`printenv partner-sysid`
+
+

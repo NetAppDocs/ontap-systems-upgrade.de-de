@@ -11,7 +11,7 @@ Sie müssen als Netzboot node3 wechseln, wenn nicht die gleiche Version von ONTA
 
 [IMPORTANT]
 ====
-* Bei einem AFF A800- oder AFF C800-Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 1 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
+* Bei einem AFF A800 oder AFF C800 -Controller-Upgrade müssen Sie sicherstellen, dass alle Laufwerke im Gehäuse fest an der Mittelplatine sitzen, bevor Sie Knoten 1 entfernen. Weitere Informationen finden Sie unter link:../upgrade-arl-auto-in-chassis/replace-node1-affa800.html["Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module"].
 * Wenn Sie ein System mit Speicherfestplatten aktualisieren, müssen Sie diesen gesamten Abschnitt abschließen und anschließend mit den fortfahren link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["Konfigurieren Sie FC-Ports auf node3"] Und link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["UTA/UTA2-Ports in node3 prüfen und konfigurieren"] Geben Sie Abschnitte ein, und geben Sie Befehle an der Cluster-Eingabeaufforderung ein.
 
 

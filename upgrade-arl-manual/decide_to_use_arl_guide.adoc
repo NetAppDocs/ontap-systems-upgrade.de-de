@@ -26,9 +26,9 @@ Verwenden Sie diese Inhalte unter folgenden Umständen:
 
 [NOTE]
 ====
-* . Dieses ARL-Verfahren umfasst die Schritte, die sicherstellen, dass die internen Festplatten sicher im Gehäuse bleiben, wenn Sie während des Upgrade-Vorgangs die Controller entfernen und installieren
+* Wenn Sie ein System aktualisieren, indem Sie Controller-Module im selben Gehäuse austauschen, wie z. B. AFF A800 oder AFF C800, empfiehlt NetApp dringend, das Upgrade-Verfahren zu verwenden, daslink:../upgrade-arl-auto-in-chassis/index.html["Upgrades von Controller-Modellen mit ARL, wobei das vorhandene Systemgehäuse und die Festplatten erhalten bleiben"] .  Dieses ARL-Verfahren umfasst die Schritte, die sicherstellen, dass die internen Festplatten sicher im Gehäuse bleiben, wenn Sie die Controller während des Upgrade-Vorgangs entfernen und installieren.
 +
-link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Erfahren Sie mehr über die unterstützten System-Upgrade-Kombinationen mit ARL, wobei das vorhandene Systemgehäuse und die Festplatten erhalten bleiben"].
+link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["Erfahren Sie mehr über die unterstützten System-Upgrade-Kombinationen mit ARL, wobei das vorhandene Systemgehäuse und die Festplatten erhalten bleiben"].
 
 * Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 

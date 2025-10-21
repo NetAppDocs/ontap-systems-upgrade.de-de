@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/verify-rcf-configuration.html 
+keywords: aggregate, relocation, cluster, switch, rcf, shared 
+summary: Überprüfen Sie, ob der RCF des Cluster-Switches die gemeinsam genutzten Cluster-/HA-Ports für die neuen Controller für Upgrades von Switch-verbundenen Clustern unterstützt. 
+---
+= Überprüfen der RCF-Konfiguration auf Cluster-Switches
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+In dieser Phase des Upgrade-Vorgangs sollten sich alle Datenaggregate auf Knoten1 befinden.  Wenn Sie eine Konfiguration mit Switch-verbundenen Clustern aktualisieren, müssen Sie überprüfen, ob die Cluster-Switch-Referenzkonfigurationsdatei (RCF) die gemeinsam genutzten Cluster-/HA-Ports für die neuen Controller unterstützt.
+
+Wenn Sie auf eine Switchless-Clusterkonfiguration mit zwei Knoten aktualisieren, können Sie diesen Abschnitt überspringen und zulink:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"] .
+
+.Schritte
+. Wechseln in den erweiterten Berechtigungsmodus:
++
+`set advanced`
+
+. Überprüfen Sie den Status von „IC RDMA“:
++
+`ha interconnect status show`
+
++
+In der Ausgabe sollte die "IC RDMA Connection" den Status haben `Up` .
+
++
+[cols="50,50"]
+|===
+| Wenn der Status „IC RDMA-Verbindung“ ... ist. | Dann… 
+
+
+| `Up` | Gehe zulink:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"] . 
+
+
+| `Down` | Gehe zu<<verify-rcf-step3,Schritt 3>> . 
+|===
+. Überprüfen Sie die Cluster-Ports und wechseln Sie RCF.
++
+Weitere Informationen finden Sie unter link:cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her"].
+
+. Überprüfen Sie, ob der Status „IC RDMA-Verbindung“ geändert wurde in `Up` :
++
+`ha interconnect status show`
+
+
+
+.Was kommt als nächstes
+link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"]

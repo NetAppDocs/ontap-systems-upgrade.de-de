@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/retire-node1.html 
+keywords: retiring, node1, node, retire 
+summary: Deaktivieren Sie das HA-Paar mit Node 2 und beenden Sie Node 1, wenn Sie Controller-Modelle im selben Chassis mit ARL aktualisieren. 
+---
+= Node1 ausmustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um node1 auszumustern, setzen Sie den automatisierten Vorgang fort, um das HA-Paar mit node2 zu deaktivieren und node1 ordnungsgemäß herunterzufahren.
+
+.Schritte
+. Vorgang fortsetzen:
++
+`system controller replace resume`
+
+. Vergewissern Sie sich, dass node1 angehalten wurde:
++
+`system controller replace show-details`
+
++
+Nachdem node1 vollständig angehalten wurde, sollte node1 an DER LOADER>-Eingabeaufforderung sein. Um die LOADER>-Eingabeaufforderung anzuzeigen, stellen Sie eine Verbindung mit der seriellen Konsole von node1 her.
+
+

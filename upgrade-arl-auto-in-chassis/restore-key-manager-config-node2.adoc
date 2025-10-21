@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/restore-key-manager-config-node2.html 
+keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption 
+summary: Stellen Sie bei Bedarf die Key-Manager-Konfiguration auf Node 2 wieder her, wenn Sie mithilfe von ARL Controller-Modelle im gleichen Chassis aktualisieren. 
+---
+= Wiederherstellen der Key-Manager-Konfiguration auf node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie mit NetApp Aggregate Encryption (NAE) oder NetApp Volume Encryption (NVE) Volumes auf dem System, das ein Upgrade ausführt, wird die Verschlüsselungskonfiguration mit den neuen Nodes synchronisiert. Wenn Sie den Key-Manager nicht neu synchronisieren, wenn Sie die node2-Aggregate mithilfe von ARL vom aktualisierten Node1 zum aktualisierten Node2 verschieben, können Ausfälle auftreten, da node2 nicht über die erforderlichen Schlüssel zum Online-Zugriff verschlüsselter Volumes und Aggregate verfügt.
+
+.Über diese Aufgabe
+Die Verschlüsselungskonfiguration mit den neuen Nodes synchronisieren, indem Sie die folgenden Schritte durchführen:
+
+.Schritte
+. Führen Sie den folgenden Befehl aus node2:
++
+`security key-manager onboard sync`
+
+. Überprüfen Sie, ob der SVM-KEK-Schlüssel auf „true“ in node2 wiederhergestellt wird, bevor Sie die Datenaggregate verschieben:
++
+[listing]
+----
+::> security key-manager key query -node node2 -fields restored -key-type SVM-KEK
+----
++
+.Beispiel
+[listing]
+----
+::> security key-manager key query -node node2 -fields restored -key-type SVM-KEK
+
+node     vserver   key-server   key-id                                  restored
+-------- --------- -----------  --------------------------------------- --------
+node2    svm1      ""           00000000000000000200000000000a008a81976 true
+                                2190178f9350e071fbb90f00000000000000000
+----
+
