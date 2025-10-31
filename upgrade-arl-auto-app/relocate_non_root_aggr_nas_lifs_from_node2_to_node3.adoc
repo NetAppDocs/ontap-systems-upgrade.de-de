@@ -59,7 +59,10 @@ Wenn die Aggregate offline sind oder in node3 offline sind, bringen Sie sie mit 
 Wenn ein Volume auf node3 offline ist, schalten Sie sie online. Verwenden Sie dazu den folgenden Befehl auf node3, einmal für jedes Volume:
 
 +
-`volume online -vserver <vserver_name> -volume <volume_name>` < Die  `vserver_name` Die Verwendung mit diesem Befehl finden Sie in der Ausgabe des vorherigen  `volume show` Befehl.
+`volume online -vserver <vserver_name> -volume <volume_name>`
+
++
+Der  `vserver_name` Die Verwendung mit diesem Befehl finden Sie in der Ausgabe des vorherigen  `volume show` Befehl.
 
 . Überprüfen Sie, ob die LIFs zu den richtigen Ports verschoben wurden und über den Status von verfügen `up`. Wenn irgendwelche LIFs ausgefallen sind, setzen Sie den Administratorstatus der LIFs auf `up` Geben Sie den folgenden Befehl ein, einmal für jede LIF:
 +

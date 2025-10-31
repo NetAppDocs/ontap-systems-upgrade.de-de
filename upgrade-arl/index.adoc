@@ -44,6 +44,9 @@ Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgef�
 | AFF A220, AFF A150 | AFF A20 | 9.16.1 
 
 
+| AFF C400 | AFF C60, AFF C80 | 9.16.1 
+
+
 | FAS8200, FAS8300 UND FAS9000 | FAS70, FAS90 UND FAS50 | 9.15.1P3 für FAS70, FAS90 9.16.1P2 für FAS50 
 
 

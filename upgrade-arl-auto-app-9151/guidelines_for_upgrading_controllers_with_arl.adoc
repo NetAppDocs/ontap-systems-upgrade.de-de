@@ -59,6 +59,6 @@ Wenn Sie Controller der Einstiegsklasse mit internen Laufwerken aktualisieren m�
 
 == Fehlerbehebung
 
-Wenn beim Aktualisieren der Controller Probleme auftreten, finden Sie weitere Informationen und mögliche Lösungen unter link:aggregate_relocation_failures.htmll["Fehlerbehebung"] .
+Sollten beim Aktualisieren der Controller Probleme auftreten, siehelink:aggregate_relocation_failures.html["Fehlerbehebung"] für weitere Informationen und mögliche Lösungen.
 
 Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.

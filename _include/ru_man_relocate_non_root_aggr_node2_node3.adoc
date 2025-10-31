@@ -9,7 +9,7 @@ CAUTION: Verschieben Sie Aggregate während dieses Verfahrens nicht von Knoten 3
 
 [[verify-partner-sys-id]]
 .Schritte
-. Überprüfen Sie, ob die Partner-System-ID auf Knoten 3 korrekt eingestellt ist:
+. Überprüfen Sie, ob die Partnersystem-ID auf Knoten 3 korrekt eingestellt ist:
 +
 .. Geben Sie die erweiterte Berechtigungsebene ein:
 +
@@ -78,7 +78,7 @@ Die node3 "Partner-sysid" ist die System ID von node2, die Sie in der Ausgabe in
 +
 Die Felder „Letzter Betreff gesendet:“ und „Letzter Zeitpunkt gesendet:“ enthalten den Nachrichtentitel der letzten gesendeten Nachricht und den Zeitpunkt, zu dem die Nachricht gesendet wurde.
 
-. Verschieben Sie die nicht-Root-Aggregate:
+. [[relocate-step5]]Verschieben der Nicht-Root-Aggregate:
 +
 .. Legen Sie die Berechtigungsebene auf erweitert fest:
 +

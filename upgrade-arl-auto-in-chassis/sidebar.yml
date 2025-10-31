@@ -28,7 +28,7 @@ entries:
       im Besitz von node1 befinden, auf Knoten 2
     url: "/upgrade-arl-auto-in-chassis/relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html"
   - title: Verschiebung ausgefallener oder Vetos von Aggregaten
-    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node1.html"
+    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node2.html"
   - title: Node1 ausmustern
     url: "/upgrade-arl-auto-in-chassis/retire-node1.html"
   - title: Ersetzen Sie die node1-Systemmodule
@@ -63,7 +63,7 @@ entries:
       2 auf Knoten 1
     url: "/upgrade-arl-auto-in-chassis/relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html"
   - title: Verschiebung ausgefallener oder Vetos von Aggregaten
-    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node2.html"
+    url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node1.html"
   - title: Node2 ausmustern
     url: "/upgrade-arl-auto-in-chassis/retire-node2.html"
 - title: Phase 5. Installieren Sie die Ersatz-Systemmodule auf Knoten 2

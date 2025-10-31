@@ -34,7 +34,7 @@ WARNING: Setzen Sie das Controller-Modul erst dann vollständig in das Gehäuse 
 . Verkabeln Sie die Management- und Konsolen-Ports mit dem node2-Controller-Modul.
 +
 
-NOTE: Da das Gehäuse bereits eingeschaltet ist, beginnt Knoten2 mit dem Booten, sobald es vollständig eingesetzt ist. Um das Booten von Knoten2 zu verhindern, schließen Sie die Konsolen- und Verwaltungskabel an, bevor Sie das Controllermodul vollständig einsetzen.
+NOTE: Da das Chassis bereits eingeschaltet ist, beginnt Node2 zu booten, sobald er vollständig eingesetzt ist.  Um zu verhindern, dass Node2 hochfährt, schließen Sie die Konsolen- und Managementkabel an, bevor Sie das Controller-Modul vollständig einsetzen.
 
 . Drücken Sie das Controller-Modul fest in das Gehäuse, bis es auf die Mittelebene trifft und vollständig sitzt.
 +

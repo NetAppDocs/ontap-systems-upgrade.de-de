@@ -16,10 +16,6 @@ summary: 'Referenzinhalte und Websites, die zur Unterstützung eines Controller-
 [role="lead"]
 Wenn Sie die Verfahren in diesem Inhalt ausführen, müssen Sie möglicherweise Referenzinhalt konsultieren oder zu Referenzwebsites gehen.
 
-* <<Referenzinhalt>>
-* <<Referenzstandorte>>
-
-
 
 
 == Referenzinhalt
@@ -40,46 +36,46 @@ Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufge
 | link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["Festplatten- und Aggregatmanagement mit CLI"^] | Beschreibt das Verwalten von physischem ONTAP Storage mit der CLI. Hier erfahren Sie, wie Sie Aggregate erstellen, erweitern und managen, wie Sie mit Flash Pool Aggregaten arbeiten, Festplatten managen und RAID-Richtlinien managen. 
 
 
-| Link:https://docs.netapp.com/us-en/ontap-/install/index.html | link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA-Paar-Management"^] 
+| link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA-Paar-Management"^] | Beschreibt die Installation und das Management von hochverfügbaren geclusterten Konfigurationen, einschließlich Storage Failover und Takeover/Giveback. 
 
 
-| Beschreibt die Installation und das Management von hochverfügbaren geclusterten Konfigurationen, einschließlich Storage Failover und Takeover/Giveback. | link:https://docs.netapp.com/us-en/ontap/volumes/index.html["Logisches Storage-Management mit der CLI"^] 
+| link:https://docs.netapp.com/us-en/ontap/volumes/index.html["Logisches Storage-Management mit der CLI"^] | Beschreibt, wie Sie Ihre logischen Storage-Ressourcen mithilfe von Volumes, FlexClone Volumes, Dateien und LUNs effizient managen FlexCache Volumes, Deduplizierung, Komprimierung, qtrees und Quotas. 
 
 
-| Beschreibt, wie Sie Ihre logischen Storage-Ressourcen mithilfe von Volumes, FlexClone Volumes, Dateien und LUNs effizient managen FlexCache Volumes, Deduplizierung, Komprimierung, qtrees und Quotas. | link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster Upgrade und Erweiterung"^] 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster Upgrade und Erweiterung"^] | Bietet Verfahren zum Upgrade von Controller- und Storage-Modellen in der MetroCluster Konfiguration, zum Wechsel von einer MetroCluster FC- zu einer MetroCluster IP-Konfiguration und zum erweitern der MetroCluster-Konfiguration durch Hinzufügen weiterer Nodes 
 
 
-| Bietet Verfahren zum Upgrade von Controller- und Storage-Modellen in der MetroCluster Konfiguration, zum Wechsel von einer MetroCluster FC- zu einer MetroCluster IP-Konfiguration und zum erweitern der MetroCluster-Konfiguration durch Hinzufügen weiterer Nodes | link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Netzwerkmanagement"^] 
+| link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Netzwerkmanagement"^] | Beschreibt die Konfiguration und das Management von physischen und virtuellen Netzwerk-Ports (VLANs und Schnittstellengruppen), LIFs, Routing- und Host-Resolution-Services in Clustern; Optimierung des Netzwerk-Traffic durch Lastenausgleich; und Überwachung des Clusters mit SNMP 
 
 
-| Beschreibt die Konfiguration und das Management von physischen und virtuellen Netzwerk-Ports (VLANs und Schnittstellengruppen), LIFs, Routing- und Host-Resolution-Services in Clustern; Optimierung des Netzwerk-Traffic durch Lastenausgleich; und Überwachung des Clusters mit SNMP | link:https://docs.netapp.com/us-en/ontap-cli-9131/index.html["ONTAP 9.13.1 Befehle: Manuelle Seitenreferenz"^] 
+| link:https://docs.netapp.com/us-en/ontap-cli-9131/index.html["ONTAP 9.13.1 Befehle: Manuelle Seitenreferenz"^] | Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.13.1-Befehle. 
 
 
-| Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.13.1-Befehle. | link:https://docs.netapp.com/us-en/ontap-cli-9141/index.html["ONTAP 9.14.1 Befehle: Manuelle Seitenreferenz"^] 
+| link:https://docs.netapp.com/us-en/ontap-cli-9141/index.html["ONTAP 9.14.1 Befehle: Manuelle Seitenreferenz"^] | Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.14.1-Befehle. 
 
 
-| Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.14.1-Befehle. | link:https://docs.netapp.com/us-en/ontap-cli/index.html["ONTAP 9.15.1 Befehle: Manuelle Seitenreferenz"^] 
+| link:https://docs.netapp.com/us-en/ontap-cli/index.html["ONTAP 9.15.1 Befehle: Manuelle Seitenreferenz"^] | Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.15.1-Befehle. 
 
 
-| Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.15.1-Befehle. | link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN-Management mit CLI"^] 
+| link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN-Management mit CLI"^] | In wird beschrieben, wie LUNs, Initiatorgruppen und Ziele mithilfe der iSCSI- und FC-Protokolle sowie Namespaces und Subsysteme mit dem NVMe/FC-Protokoll konfiguriert und gemanagt werden. 
 
 
-| In wird beschrieben, wie LUNs, Initiatorgruppen und Ziele mithilfe der iSCSI- und FC-Protokolle sowie Namespaces und Subsysteme mit dem NVMe/FC-Protokoll konfiguriert und gemanagt werden. | link:https://docs.netapp.com/us-en/ontap/san-config/index.html["Referenz zur SAN-Konfiguration"^] 
+| link:https://docs.netapp.com/us-en/ontap/san-config/index.html["Referenz zur SAN-Konfiguration"^] | Hier finden Sie Informationen zu FC- und iSCSI-Topologien sowie Kabelschemata. 
 
 
-| Hier finden Sie Informationen zu FC- und iSCSI-Topologien sowie Kabelschemata. | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes oder Storage"^] 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes oder Storage"^] | Beschreibt das schnelle Upgrade von Controller Hardware in einem Cluster durch Verschieben von Storage oder Volumes. Beschreibt zudem, wie ein unterstütztes Modell in ein Festplatten-Shelf konvertiert wird. 
 
 
-| Beschreibt das schnelle Upgrade von Controller Hardware in einem Cluster durch Verschieben von Storage oder Volumes. Beschreibt zudem, wie ein unterstütztes Modell in ein Festplatten-Shelf konvertiert wird. | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Upgrade von ONTAP"^] 
+| link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Upgrade von ONTAP"^] | Die Anleitungen zum Herunterladen und Aktualisieren von ONTAP. 
 
 
-| Die Anleitungen zum Herunterladen und Aktualisieren von ONTAP. | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-in-chassis/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"^] 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-in-chassis/index.html["Aktualisieren Sie Controller-Modelle im selben Chassis mit Befehlen „System-Controller ersetzen“"^] | Beschreibt die Verfahren zur Aggregatverschiebung, die für ein unterbrechungsfreies Upgrade eines Systems erforderlich sind, wobei das alte System-Chassis und die alten Festplatten erhalten bleiben. 
 
 
-| Beschreibt die Verfahren zur Aggregatverschiebung, die für ein unterbrechungsfreies Upgrade eines Systems erforderlich sind, wobei das alte System-Chassis und die alten Festplatten erhalten bleiben. | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Verwenden Sie „System Controller Replace“-Befehle, um das Upgrade der Controller Hardware mit ONTAP 9.8 oder höher durchzuführen"^] 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["Verwenden Sie „System Controller Replace“-Befehle, um das Upgrade der Controller Hardware mit ONTAP 9.8 oder höher durchzuführen"^] | Beschreibt die Verfahren für Aggregatverschiebung, die nötig sind, um Controller, die ONTAP 9.8 ausführen, durch den „System-Controller-Austausch“-Befehl unterbrechungsfrei zu aktualisieren. 
 
 
-| Beschreibt die Verfahren für Aggregatverschiebung, die nötig sind, um Controller, die ONTAP 9.8 ausführen, durch den „System-Controller-Austausch“-Befehl unterbrechungsfrei zu aktualisieren. | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["Nutzen Sie die Aggregatverschiebung, um manuell ein Upgrade der Controller-Hardware mit ONTAP 9.8 oder höher durchzuführen"^] 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["Nutzen Sie die Aggregatverschiebung, um manuell ein Upgrade der Controller-Hardware mit ONTAP 9.8 oder höher durchzuführen"^] | Beschreibt das Verfahren für die Aggregatverschiebung, die erforderlich sind, um manuelle, unterbrechungsfreie Controller-Upgrades mit ONTAP 9.8 oder höher durchzuführen. 
 |===
 
 

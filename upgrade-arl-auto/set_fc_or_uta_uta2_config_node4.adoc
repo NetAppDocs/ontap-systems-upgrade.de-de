@@ -80,7 +80,12 @@ Zum Beispiel: `ucadmin modify -m fc -t initator 2b`
 . Wählen Sie die Option `5` Wählen Sie im Bootmenü für den Wartungsmodus aus.
 
 
-. [[step8]]Überspringen Sie diesen Abschnitt und gehen Sie zulink:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"] wenn Knoten 4 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports hat.
+. [[Schritt8]]Nehmen Sie eine der folgenden Aktionen:
++
+** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
+** Wenn Knoten4 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports hat, überspringen Sie _Überprüfen und Konfigurieren der UTA/UTA2-Ports auf Knoten4_ und gehen Sie zulink:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"] .
+
+
 
 
 

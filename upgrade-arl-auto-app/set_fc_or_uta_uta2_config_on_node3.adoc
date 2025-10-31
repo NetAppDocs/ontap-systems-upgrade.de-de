@@ -124,7 +124,7 @@ Adapter  Mode     Type       Mode      Type         Status
 ....
 DIE UTA2-Ports können im nativen FC-Modus oder im UTA/UTA2-Modus konfiguriert werden. Der FC-Modus unterstützt FC Initiator und FC Target. Der UTA-/UTA2-Modus ermöglicht gleichzeitige NIC- und FCoE-Traffic über die gleiche 10-GbE-SFP+-Schnittstelle und unterstützt FC-Ziele.
 
-UTA/UTA2-Ports können sich auf einem Zusatzadapter oder auf der Hauptplatine des Controllers befinden und haben die folgenden Konfigurationen. Sie sollten jedoch die Konfiguration der UTA/UTA2-Ports auf dem Knoten 3 überprüfen und gegebenenfalls ändern:
+Möglicherweise finden Sie UTA/UTA2-Anschlüsse auf einem Zusatzadapter oder auf dem Controller-Motherboard und diese weisen die folgenden Konfigurationen auf. Sie sollten jedoch die Konfiguration der UTA/UTA2-Anschlüsse auf dem Node3 überprüfen und diese gegebenenfalls ändern:
 
 * UTA-/UTA2-Karten, die bestellt werden, werden vor dem Versand konfiguriert, um die von Ihnen geforderte Persönlichkeit zu erhalten.
 * DIE UTA2-Karten, die separat vom Controller bestellt werden, werden mit der standardmäßigen FC-Zielgruppe ausgeliefert.

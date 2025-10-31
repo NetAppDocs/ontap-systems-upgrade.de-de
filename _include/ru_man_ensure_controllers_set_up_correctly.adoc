@@ -117,7 +117,7 @@ Eingabe `y` Um alle Pakete zu entfernen.
 `system license show`
 
 +
-Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie in erfasst haben link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step30["Schritt 30"] Von _die Nodes für Upgrade vorbereiten_.
+Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie inlink:prepare_nodes_for_upgrade.html#man_prepare_nodes_step29["Schritt 29"] von _Knoten für das Upgrade vorbereiten_.
 
 . Konfigurieren Sie die SPs, indem Sie auf beiden Knoten den folgenden Befehl ausführen:
 +

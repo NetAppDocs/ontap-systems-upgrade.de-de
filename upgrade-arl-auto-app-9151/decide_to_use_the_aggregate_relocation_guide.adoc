@@ -81,6 +81,9 @@ Die folgende Tabelle zeigt die unterstützten Controller-Upgrade-Kombinationen m
 | AFF A220, AFF A150 | AFF A20 ^2^ | 9.16.1 ^1^ 
 
 
+| AFF C400 | AFF C60, AFF C80 | 9.16.1 
+
+
 | FAS8200, FAS8300 UND FAS9000 | FAS70, FAS90 UND FAS50 | 9.15.1P3 für FAS70, FAS90 9.16.1P2 für FAS50 
 
 

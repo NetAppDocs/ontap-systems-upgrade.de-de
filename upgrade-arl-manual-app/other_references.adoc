@@ -16,10 +16,6 @@ summary: Zur Unterstützung eines manuellen ARL Upgrades bei Controllern mit ONT
 [role="lead"]
 Wenn Sie die Verfahren in diesem Inhalt ausführen, müssen Sie möglicherweise Referenzinhalt konsultieren oder zu Referenzwebsites gehen.
 
-* <<Referenzinhalt>>
-* <<Referenzstandorte>>
-
-
 
 
 == Referenzinhalt

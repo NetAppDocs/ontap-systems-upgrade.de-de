@@ -16,10 +16,6 @@ summary: 'Erforderliche Referenzinhalte und Websites zur Unterstützung eines Co
 [role="lead"]
 Wenn Sie die Verfahren in diesem Inhalt ausführen, müssen Sie möglicherweise Referenzinhalt konsultieren oder zu Referenzwebsites gehen.
 
-* <<Referenzinhalt>>
-* <<Referenzstandorte>>
-
-
 
 
 == Referenzinhalt

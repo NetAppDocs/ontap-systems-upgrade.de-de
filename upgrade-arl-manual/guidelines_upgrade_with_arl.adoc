@@ -83,7 +83,7 @@ Dieses Dokument wird an folgende Annahmen geschrieben:
 * Die Ersatz-Controller-Hardware ist neu und wurde nicht verwendet.
 +
 
-WARNING: Da dieses Verfahren davon ausgeht, dass die Ersatz-Controller-Hardware neu und unbenutzt ist, werden die Schritte zur Vorbereitung gebrauchter Controller mit den `wipeconfig` Befehl sind in diesem Verfahren nicht enthalten.  Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor verwendet wurde, insbesondere wenn auf den Controllern Data ONTAP im 7-Modus ausgeführt wurde.
+WARNING: Die erforderlichen Schritte zur Vorbereitung gebrauchter Steuergeräte mit dem `wipeconfig` Befehle sind in diesem Verfahren nicht enthalten, da dieses Verfahren davon ausgeht, dass die Ersatzcontroller-Hardware neu und unbenutzt ist. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor verwendet wurde, insbesondere wenn auf den Controllern Data ONTAP im 7-Modus ausgeführt wurde.
 
 * Die Richtlinien zum Upgrade des Knotenpaars werden gelesen und verstanden.
 +

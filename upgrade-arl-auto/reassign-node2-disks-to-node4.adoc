@@ -185,7 +185,7 @@ NOTE: Sie müssen die Passphrase und Sicherungsdaten im erhalten haben link:prep
 .. Nachdem das System wieder zum speziellen Startmenü gestartet wurde, führen Sie die Option *(1) Normal Boot* aus
 +
 
-NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehler auftritt, wiederholen Sie die Teilschritte in <<auto_check_4_step22,Schritt 22>> Bis das System ordnungsgemäß gebootet wird.
+NOTE: Es könnte in dieser Phase ein Fehler auftreten.  Falls ein Fehler auftritt, wiederholen Sie die Teilschritte in<<auto_check_4_step8,Schritt 8>> bis das System normal hochfährt.
 
 
 

@@ -34,7 +34,7 @@ Einige oder alle Aggregate wurden von node1 in node2 verschoben und die HA ist n
 Das Eigentum an verlagerten Aggregaten sieht mit dem Eigentum nicht-Root-Aggregaten identisch aus, die übernommen wurden, da sich der Home-Eigentümer nicht geändert hat. Wenn node1 in den eintritt `waiting for giveback state`, Node2 wird alle node1 nicht-Root-Aggregate zurückgeben.
 
 .Schritte
-. Vollständig link:relocate_non_root_aggr_node1_node2.html#step1["Schritt 1"] Im Abschnitt _Non-Root-Aggregate wieder von node1 nach node2_ verschieben.
+. Vollständiglink:relocate_non_root_aggr_node1_node2.html#relocate-step1["Schritt 1"] im Abschnitt _Nicht-Root-Aggregate von Knoten 1 zu Knoten 2 verschieben_ erneut.
 . Fahren Sie mit dem Upgrade des Node-Paars fort.
 
 
@@ -62,7 +62,7 @@ Node1 hat einige oder alle seine Aggregate in node2 verschoben. HA ist aktiviert
 Node1 wird alle Aggregate node2 sowie alle eigenen Aggregate übernehmen, die es auf node2 verlagert hatte. Wenn node2 in den eintritt `Waiting for Giveback` Zustand: Node1 gibt alle Aggregate node2 zurück.
 
 .Schritte
-. Vollständig link:relocate_non_root_aggr_node1_node2.html#step1["Schritt 1"] Im Abschnitt _Non-Root-Aggregate wieder von node1 nach node2_ verschieben.
+. Vollständiglink:relocate_non_root_aggr_node1_node2.html#relocate-step1["Schritt 1"] im Abschnitt _Nicht-Root-Aggregate von Knoten 1 zu Knoten 2 verschieben_ erneut.
 . Fahren Sie mit dem Upgrade des Node-Paars fort.
 
 
@@ -111,7 +111,7 @@ Es wird ein Client-Ausfall für Aggregate geben, die nicht verlagert wurden.
 
 .Schritte
 . Knoten 2 aufbring.
-. Verschieben Sie die verbleibenden Aggregate durch Abschluss link:relocate_non_root_aggr_node2_node3.html#step1["Schritt 1"] Bis link:relocate_non_root_aggr_node2_node3.html#step3["Schritt 3"] Im Abschnitt _Non-Root-Aggregate von node2 auf node3_ verschieben.
+. Die restlichen Zuschlagstoffe werden durch folgende Schritte umgelagert:link:relocate_non_root_aggr_node2_node3.html#verify-partner-sys-id["Schritt 1"] durchlink:relocate_non_root_aggr_node2_node3.html#relocate-step5["Schritt 5"] im Abschnitt _Nicht-Root-Aggregate von Knoten 2 nach Knoten 3 verschieben_.
 . Fahren Sie mit dem Upgrade des Node-Paars fort.
 
 
@@ -137,7 +137,7 @@ Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in K
 
 .Schritte
 . Knoten 3 aufbring.
-. Vollständig link:relocate_non_root_aggr_node2_node3.html#step3["Schritt 3"] Wieder im Abschnitt _Verschiebung von nicht-Root-Aggregaten von node2 zu node3_.
+. Vollständiglink:relocate_non_root_aggr_node2_node3.html#relocate-step5["Schritt 5"] erneut im Abschnitt _Nicht-Root-Aggregate von Knoten 2 nach Knoten 3 verschieben_.
 . Fahren Sie mit dem Upgrade des Node-Paars fort.
 
 
@@ -208,6 +208,6 @@ Es gibt einen Ausfall für nicht-Root-Aggregate, die bereits verschoben wurden, 
 
 .Schritte
 . bringen sie node4 auf.
-. Verschiebung der verbleibenden Aggregate, die zu node2 gehörten, durch erneute Fertigstellung link:relocate_node2_non_root_aggr_node3_node4.html#Step1["Schritt 1"] Bis link:relocate_node2_non_root_aggr_node3_node4.html#step3["Schritt 3"] In _Verschiebung der nicht-Root-Aggregate von node2 nach node4_.
+. Verschieben Sie die verbleibenden Aggregate, die zu Knoten 2 gehörten, indem Sie den Vorgang erneut abschließen.link:relocate_node2_non_root_aggr_node3_node4.html#man_relocate_3_4_Step1["Schritt 1"] durchlink:relocate_node2_non_root_aggr_node3_node4.html#step3["Schritt 3"] in _Verschieben der Nicht-Root-Aggregate von Knoten 2 von Knoten 3 nach Knoten 4_.
 . Fahren Sie mit dem Upgrade des Node-Paars fort.
 

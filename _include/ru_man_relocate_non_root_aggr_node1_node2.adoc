@@ -5,7 +5,7 @@
 Bevor Sie node1 durch node3 ersetzen können, müssen Sie die nicht-Root-Aggregate von node1 auf node2 verschieben, indem Sie den Befehl Storage Aggregate Relocation verwenden und dann die Verschiebung überprüfen.
 
 .Schritte
-. [[Schritt1]]Verschieben der nicht-Root-Aggregate durch Ausfüllen der folgenden Teilschritte:
+. [[relocate-step1]]Verschieben Sie die Nicht-Root-Aggregate, indem Sie die folgenden Teilschritte ausführen:
 +
 .. Legen Sie die Berechtigungsebene auf erweitert fest:
 +

@@ -280,5 +280,5 @@ FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder 
 .Was kommt als Nächstes?
 * Wenn Sie ein System mit einer FC- oder UTA/UTA2-Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf Knoten4 fest"] .
 * Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["Neuzuweisung der Node2-Festplatten zu Node4, Schritt 1"] damit Knoten4 die Festplatten von Knoten2 erkennen kann.
-* Wenn Sie eine MetroCluster Konfiguration haben,link:reassign-node1-disks-to-node3.html#reassign-node1-node3-step1["weisen Sie die Datenträger von Knoten1 Knoten3 neu zu"] .
+* Wenn Sie eine MetroCluster Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf Knoten4 fest"] um die an den Knoten angeschlossenen Festplatten zu erkennen.
 

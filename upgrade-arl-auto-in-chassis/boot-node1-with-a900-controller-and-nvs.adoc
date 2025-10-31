@@ -14,7 +14,7 @@ summary: Starten Sie Node 1 mit den Ersatz-Controller-Modulen, wenn Sie Controll
 
 
 [role="lead"]
-Node1 mit den Ersatzmodulen ist nun startbereit. Die unterstützten Austauschmodule sind in der aufgeführtlink:index.html#supported-systems,["Unterstützte Systeme Matrix"].
+Node1 mit den Ersatzmodulen ist nun startbereit.  Die unterstützten Ersatzmodule sind in der folgenden Liste aufgeführt:link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Unterstützte Systeme Matrix"] Die
 
 [NOTE]
 ====

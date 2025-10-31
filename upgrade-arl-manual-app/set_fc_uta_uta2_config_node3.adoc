@@ -22,9 +22,7 @@ Möglicherweise müssen Sie Folgendes ausfüllen:<<Konfigurieren Sie FC-Ports au
 
 NOTE: Für das NetApp Marketingmaterial wird möglicherweise der Begriff „UTA2“ verwendet, um CNA-Adapter und Ports zu beziehen. Die CLI verwendet jedoch den Begriff „CNA“.
 
-* Wenn Knoten3 keine integrierten FC-Ports, integrierten UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat (z. B. AFF und FAS -Systeme, die ab ONTAP 9.15.1 eingeführt wurden) und Sie ein System mit Speicherplatten aktualisieren, können Sie mit dem nächsten Schritt fortfahren.link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"] .
-* Wenn Sie jedoch ein V-Series System oder ein System mit FlexArray-Virtualisierungssoftware mit Storage-Arrays haben und node3 keine integrierten FC-Ports, Onboard UTA/UTA-Ports oder eine UTA/UTA2-Karte haben, kehren Sie zurück zu _Install and Boot node3_ und fahren Sie fort link:install_boot_node3.html#man_install3_step22["Schritt 22"].
-
+Wenn Knoten3 keine integrierten FC-Ports, integrierten UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat (z. B. AFF und FAS -Systeme, die ab ONTAP 9.15.1 eingeführt wurden) und Sie ein System mit Speicherplatten aktualisieren, können Sie mit dem nächsten Schritt fortfahren.link:map_ports_node1_node3.html["Ports von node1 nach node3 zuordnen"] .
 
 
 

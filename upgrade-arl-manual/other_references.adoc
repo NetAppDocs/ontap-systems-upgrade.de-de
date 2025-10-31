@@ -16,10 +16,6 @@ summary: Referenzinhalte und Websites, die erforderlich sind, um ein manuelles A
 [role="lead"]
 Wenn Sie die Verfahren in diesem Inhalt ausführen, müssen Sie möglicherweise Referenzinhalt konsultieren oder zu Referenzwebsites gehen.
 
-* <<Referenzinhalt>>
-* <<Referenzstandorte>>
-
-
 
 
 == Referenzinhalt

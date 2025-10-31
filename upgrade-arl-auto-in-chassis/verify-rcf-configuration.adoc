@@ -41,7 +41,7 @@ In der Ausgabe sollte die "IC RDMA Connection" den Status haben `Up` .
 
 | `Down` | Gehe zu<<verify-rcf-step3,Schritt 3>> . 
 |===
-. Überprüfen Sie die Cluster-Ports und wechseln Sie RCF.
+. [[verify-rcf-step3]]Überprüfen Sie die Cluster-Ports und den Switch-RCF.
 +
 Weitere Informationen finden Sie unter link:cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her"].
 

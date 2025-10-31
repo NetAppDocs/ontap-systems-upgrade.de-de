@@ -13,68 +13,97 @@ summary: 'Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Ha
 [role="lead"]
 Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von den Plattformmodellen der ursprünglichen Nodes ab. Sie aktualisieren entweder durch Verschieben von Aggregaten oder Volumes (unterbrechungsfreie Verfahren) oder durch Verschieben des Storage (mit Unterbrechungen). Falls auf den ursprünglichen und den neuen Nodes unterschiedliche ONTAP-Versionen ausgeführt werden, müssen Sie vor dem Start des Hardware-Upgrades möglicherweise ein Software-Upgrade durchführen.
 
-[role="tabbed-block"]
-====
-.Systeme mit internen Laufwerken
---
-Wählen Sie ein Upgrade-Verfahren für ein System mit internen Laufwerken aus, die unten aufgeführt sind:
-
-* FAS2720, FAS2750, FAS2720 UND FAS2750
-* AFF A150, AFF A200, AFF A220, AFF A250, AFF A700s und AFF A800
-* AFF C190, AFF C250 und AFF C800
-* ASA A150, ASA A250, ASA A800 und ASA AFF A220
-+
 
 NOTE: ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von einem ASA auf ein ASA r2-System finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
 
 
 
+== Welches Upgrade-Verfahren soll ich anwenden?
 
-NOTE: Bei bestimmten Controller-Upgrades können Sie die Aggregatverlagerung verwenden, um ein System mit internen Laufwerken zu aktualisieren. link:upgrade-arl/index.html["Weitere Informationen ."].
+Um das geeignete Upgrade-Verfahren auszuwählen, gehen Sie alle in der folgenden Tabelle aufgeführten Fragen durch.
 
-Wenn Ihr System nicht aufgeführt ist, lesen Sie die https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es interne Laufwerke hat.
+[cols="30,70"]
+|===
+| Fragen Sie sich selbst… | Wenn Ihre Antwort Ja lautet, können Sie Folgendes tun… 
 
-image:workflow_internal_drives.png["Entscheidungsworkflow für die Auswahl eines Upgrade-Verfahrens"]
 
---
-.Systeme mit nur externen Laufwerken
---
-Wählen Sie ein Upgrade-Verfahren für ein System mit nur externen Laufwerken aus, die unten aufgeführt sind:
+| Läuft auf dem ursprünglichen und dem neuen Knoten eine unterschiedliche Softwareversion? | Aktualisieren Sie die ONTAP Version auf den ursprünglichen Knoten auf die höchste unterstützte Version.  Wenn möglich, müssen die neuen Knoten die ONTAP Version unterstützen, die auf den ursprünglichen Knoten läuft.  Falls dies nicht möglich ist,link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aktualisieren Sie die ONTAP-Version"^] auf den ursprünglichen Knoten auf die höchste unterstützte Version aktualisieren.  Der Versionsunterschied zwischen dem ursprünglichen und dem neuen Knoten darf nicht größer als vier sein.  Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt; ONTAP 9.8 und 9.13.1 werden jedoch nicht unterstützt. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^]. 
 
-* FAS8200, FAS8300, FAS8700, FAS9000 UND FAS9500
-* AFF A300, AFF A320, AFF A400, AFF A700 und AFF A900
-* AFF C400
-* ASA A400, ASA A900 und ASA AFF A700
+
+| Möchte ich ein disruptives Upgrade durchführen? | link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrades durch Storage-Verschiebung"]. Hierfür wird ein neues System mit eigenem Speicher und eigenen Regalen benötigt, um die Daten aus dem ursprünglichen System zu speichern.  Bei bestimmten Upgrades ist eine Umrüstung von einem Controller-Regal möglich. 
+
+
+| Möchte ich ein Upgrade ohne Unterbrechung durchführen?  a| 
+Führen Sie das Upgrade mit einer der folgenden Methoden durch:
+
+* link:upgrade/upgrade-decide-to-use-this-guide.html["Datenträger verschieben"]
 +
+Dazu müssen die neuen Knoten hinzugefügt, die Volumes und LIFs auf die neuen Knoten verschoben und die Knoten, die Sie aus dem Cluster entfernen möchten, wieder entfernt werden.  Wenn Sie einen Zwei-Knoten-Cluster ohne Switches aufrüsten, wandeln Sie ihn vor dem Hinzufügen neuer Knoten mithilfe eines Paares von Cluster-Switches in einen Cluster mit Switches um.
 
-NOTE: ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von ASA auf ASA r2 finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
-
-
-
-Wenn Ihr System nicht aufgeführt ist, lesen Sie die https://hwu.netapp.com["NetApp Hardware Universe"^] Um zu überprüfen, ob es nur externe Laufwerke hat.
-
-image:workflow_external_drives.png["Entscheidungsworkflow für die Auswahl eines Upgrade-Verfahrens"]
-
---
-====
-Erfahren Sie mehr über die Upgrade-Verfahren für die Controller-Hardware:
-
-* link:upgrade-arl/index.html["Upgrade durch Aggregatverschiebung"]
+* link:upgrade-arl/index.html["Aggregatverlagerung nutzen"]
 +
-Aggregatverschiebung ist ein Ersatzverfahren. Sie müssen den Cluster nicht mit den neuen Nodes erweitern und verkleinern. Davon profitieren zwei-Node-Cluster ohne Switches. Das Verschieben von Daten durch Verschieben von Aggregaten ist schneller als das Kopieren von Daten zwischen Aggregaten beim Verschieben von Volumes.
-
-* link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes oder Storage"]
+ARL ist ein Austauschverfahren.  Sie müssen Ihren Cluster nicht mit den neuen Knoten erweitern und verkleinern, was für Zwei-Knoten-Switchless-Cluster von Vorteil ist.  Beim Verschieben von Datenvolumen ist das Verschieben von Daten durch Umstrukturieren von Aggregaten schneller als das Kopieren von Daten zwischen Aggregaten.
 
 
-[NOTE]
-====
-*Hinweis1*: Die auf den ursprünglichen Knoten laufende ONTAP-Version muss von den neuen Knoten unterstützt werden. Bei Bedarf link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aktualisieren Sie die ONTAP-Version"^] Auf den ursprünglichen Knoten auf die maximal unterstützte Version. Der Versionsunterschied zwischen dem ursprünglichen und dem neuen Knoten darf nicht größer als vier sein. Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt, ONTAP 9.8 und 9.13.1 jedoch nicht unterstützt. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^].
 
-*Hinweis2*: Für ein unterbrechungsfreies Upgrade ist ein neues System mit eigenem Speicher und Regalen erforderlich, um die Daten vom Originalsystem zu speichern.
 
-*Hinweis3*: Beim Upgrade durch Verschieben von Volumes verbinden Sie die neuen Nodes, verschieben die Volumes und LIFs zu den neuen Nodes und heben dann die Verknüpfung der Nodes auf, die Sie aus dem Cluster entfernen möchten. Wenn Sie ein Cluster mit zwei Nodes ohne Switches aktualisieren, konvertieren Sie es mithilfe eines Cluster-Switch-Paars in einen Switch-Attached-Cluster, bevor Sie neue Nodes hinzufügen.
 
-====
-Informationen zum Aktualisieren einer MetroCluster-Konfiguration finden Sie unter https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^].
+| Habe ich ein modulares System?  *Hinweis*: In einem modularen System verfügt der Controller über keine internen Festplatten; der gesamte Speicher befindet sich in extern angeschlossenen Gehäusen. | link:upgrade-arl/index.html["Upgrade durch Aggregatverschiebung"]. 
 
-Wenn Sie eine einzelne Komponente ersetzen, lesen Sie die Informationen im https://docs.netapp.com/us-en/ontap-systems/index.html["Dokumentation zu ONTAP Hardwaresystemen"^] Und suchen Sie den Flyer für die Field-Replaceable Unit (FRU) für diese Komponente.
+
+| Habe ich ein integriertes System und möchte es durch Verschieben von Datenträgern erweitern?  *Hinweis*: In einem integrierten System verfügt der Controller über interne Festplatten, und der Speicher befindet sich im Controller-Gehäuse und in extern angeschlossenen Gehäusen.  Externe Regale dienen der Speichererweiterung und sind möglicherweise nicht in jeder Systemkonfiguration enthalten.  a| 
+. link:https://hwu.netapp.com/DetailViews/Home.aspx["Vergewissern Sie sich, dass Ihr System unterstützt wird."^].
+. link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrade durch Verschieben von Volumes"].
+
+
+
+
+| Habe ich ein integriertes System und möchte ich es aufrüsten, indem ich nur das Controller-Modul austausche und das vorhandene Gehäuse und die Festplatten beibehalte? | link:upgrade-arl-auto-affa900/index.html["Durch ein Upgrade mit ARL können Sie das gleiche Gehäuse und die gleichen Festplatten beibehalten."]. 
+
+
+| Versetze ich einen SVM? | Siehelink:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html#svm-migration-workflow["SVM-Datenmobilitätsübersicht"^] . 
+
+
+| Führe ich ein Upgrade einer MetroCluster -Konfiguration durch? | Siehelink:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^] . 
+
+
+| Ersetze ich eine einzelne Komponente? | Siehe dielink:https://docs.netapp.com/us-en/ontap-systems/index.html["Dokumentation zu ONTAP Hardwaresystemen"^] und suchen Sie den Flyer mit der vor Ort austauschbaren Einheit (FRU) für diese Komponente. 
+|===
+
+
+== Beispiel: Upgrade von FAS9500 auf FAS90
+
+Dieses Beispiel zeigt die möglichen Antworten für ein Upgrade von einem FAS9500 auf einen FAS90-Controller.
+
+[cols="30,70"]
+|===
+| Frage | Beispielantwort 
+
+
+| Läuft auf dem ursprünglichen und dem neuen Knoten eine unterschiedliche Softwareversion? | Nein. Sowohl FAS9500 als auch FAS90 laufen mit ONTAP 9.15.1. 
+
+
+| Möchte ich ein disruptives Upgrade durchführen? | Nein. Ich möchte meine Produktionsumgebung während des Upgrades online halten. 
+
+
+| Möchte ich ein Upgrade ohne Unterbrechung durchführen? | Ja. Je nachdem, ob mein System modular oder integriert ist, kann ich es durch Verschieben von Datenträgern oder mithilfe der Aggregatrelocation (ARL) erweitern. 
+
+
+| Habe ich ein modulares System? | Ja. Das FAS9500 ist ein modulares System mit externen Ablagefächern.  Ich kann ein Upgrade mit ARL durchführen. 
+
+
+| Habe ich ein integriertes System und möchte es durch Verschieben von Datenträgern erweitern? | Nein. Das FAS9500 ist ein modulares System, daher trifft dies nicht zu. 
+
+
+| Habe ich ein integriertes System und möchte ich es aufrüsten, indem ich nur das Controller-Modul austausche und das vorhandene Gehäuse und die Festplatten beibehalte? | Nein. Das FAS9500 ist ein modulares System, daher trifft dies nicht zu. 
+
+
+| Versetze ich einen SVM? | Nein. Ich rüste die Hardware auf, behalte aber die gleichen SVMs bei. 
+
+
+| Führe ich ein Upgrade einer MetroCluster -Konfiguration durch? | Nein. Dies ist ein Standard-HA-Pair-Cluster. 
+
+
+| Ersetze ich eine einzelne Komponente? | Nein. Ich rüste das gesamte Steuerungssystem auf. 
+|===
+*Empfohlener Upgrade-Pfad für dieses Beispiel:*link:upgrade-arl/index.html["Upgrade mithilfe von ARL"] weil es sich beim FAS9500 um ein modulares System handelt und ARL eine unterbrechungsfreie Upgrade-Methode bietet.

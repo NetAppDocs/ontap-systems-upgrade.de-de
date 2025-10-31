@@ -13,6 +13,7 @@ summary: Mithilfe des manuellen ARL-Upgrade-Verfahrens für ein Upgrade der Cont
 :imagesdir: ../media/
 
 
+[role="lead"]
 Dieses Verfahren beschreibt, wie Sie die Controller-Hardware mithilfe der manuellen Aggregatverlagerung (ARL) auf Systemen mit ONTAP 9.8 oder höher aktualisieren.
 
 Sie können dieses ARL-Verfahren verwenden, wenn Sie eines der folgenden Upgrades durchführen:

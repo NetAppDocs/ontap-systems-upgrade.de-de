@@ -111,7 +111,7 @@ Eingabe `y` Um alle Pakete zu entfernen.
 +
 Sie können die Ausgabe mit der im Abschnitt erfassten Ausgabe vergleichen link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
 
-. [[unset_maxwait_System_commands]]Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie die eingestellt haben `kmip.init.maxwait` Variabel auf `off` (Beispiel in link:install_boot_node4.html#auto_install4_step27["installieren und booten sie node4, Schritt 27"]), Sie müssen die Einstellung der Variable aufheben:
+. [[unset_maxwait_system_commands]]Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie die folgende Einstellung vorgenommen haben: `kmip.init.maxwait` Variable zu `off` (zum Beispiel inlink:install_boot_node4.html#auto_install4_step22["Installieren und starten Sie Node4, Schritt 22"] ), müssen Sie die Variable löschen:
 +
 `set diag; systemshell -node _node_name_ -command sudo kenv -u -p kmip.init.maxwait`
 
