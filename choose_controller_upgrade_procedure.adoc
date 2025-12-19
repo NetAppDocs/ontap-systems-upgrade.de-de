@@ -38,7 +38,7 @@ Führen Sie das Upgrade mit einer der folgenden Methoden durch:
 
 * link:upgrade/upgrade-decide-to-use-this-guide.html["Datenträger verschieben"]
 +
-Dazu müssen die neuen Knoten hinzugefügt, die Volumes und LIFs auf die neuen Knoten verschoben und die Knoten, die Sie aus dem Cluster entfernen möchten, wieder entfernt werden.  Wenn Sie einen Zwei-Knoten-Cluster ohne Switches aufrüsten, wandeln Sie ihn vor dem Hinzufügen neuer Knoten mithilfe eines Paares von Cluster-Switches in einen Cluster mit Switches um.
+Dazu müssen die neuen Knoten hinzugefügt, die Volumes und LIFs auf die neuen Knoten verschoben und die Knoten, die Sie aus dem Cluster entfernen möchten, wieder entfernt werden. Wenn Sie einen Zwei-Knoten-Cluster ohne Switches aufrüsten, wandeln Sie ihn vor dem Hinzufügen neuer Knoten mithilfe eines Paares von Cluster-Switches in einen Cluster mit Switches um.
 
 * link:upgrade-arl/index.html["Aggregatverlagerung nutzen"]
 +

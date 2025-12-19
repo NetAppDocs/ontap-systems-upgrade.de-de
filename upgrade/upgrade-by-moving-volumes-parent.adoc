@@ -17,7 +17,7 @@ Das Upgrade der Controller-Hardware durch Verschieben von Volumes ist unterbrech
 * link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]
 
 
-Zum Upgrade durch Verschieben von Volumes bereiten Sie die ursprünglichen Nodes vor und verbinden die neuen Nodes mit dem Cluster. Sie verschieben Volumes zu den neuen Nodes, konfigurieren LIFs und heben die Join der Original-Nodes vom Cluster ab.
+Um ein Upgrade durch Verschieben von Volumes durchzuführen, bereiten Sie die ursprünglichen Knoten vor und fügen die neuen Knoten dem Cluster hinzu. Sie verschieben Volumes auf die neuen Knoten, konfigurieren LIFs und entfernen die ursprünglichen Knoten aus dem Cluster.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]link:upgrade-prepare-when-moving-volumes.html["Vorbereitung auf das Upgrade beim Verschieben von Volumes"]
 [role="quick-margin-para"]
@@ -43,9 +43,9 @@ Nachdem Sie die Volumes von den ursprünglichen Nodes verschoben haben, migriere
 [role="quick-margin-para"]
 Abhängig von Ihren Cluster-Inhalten und der Cluster-Umgebung können Sie SAN-LIFs verschieben, löschen oder erstellen oder gelöschte SAN-LIFs neu erstellen.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]link:upgrade-unjoin-original-nodes-move-volumes.html["Heben Sie die Verbindung der ursprünglichen Nodes vom Cluster auf"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]link:upgrade-remove-original-nodes.html["Entfernen Sie die ursprünglichen Knoten aus dem Cluster."]
 [role="quick-margin-para"]
-Nachdem die Volumes zu den neuen Nodes verschoben wurden, werden die ursprünglichen Nodes aus dem Cluster entfernt. Wenn Sie einem Node nicht beitreten, wird die Konfiguration des Node gelöscht und alle Festplatten werden initialisiert.
+Nachdem die Volumes auf die neuen Knoten verschoben wurden, entfernen Sie die ursprünglichen Knoten aus dem Cluster. Wenn Sie einen Knoten entfernen, wird die Konfiguration des Knotens gelöscht und alle Festplatten werden initialisiert.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Acht"]link:upgrade-complete-move-volumes.html["Schließen Sie das Upgrade ab"]
 [role="quick-margin-para"]

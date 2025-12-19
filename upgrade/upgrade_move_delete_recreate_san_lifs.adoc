@@ -35,7 +35,7 @@ Weitere Informationen finden Sie im https://docs.netapp.com/us-en/ontap/san-admi
 
 == Löschen Sie nicht mehr benötigte SAN-LIFs
 
-Wenn sich das Cluster in einer SAN-Umgebung befindet, müssen Sie alle SAN-LIFs löschen, die Sie nicht mehr von den ursprünglichen Nodes benötigen, bevor Sie die ursprünglichen Nodes aus dem Cluster entfernen können.
+Befindet sich der Cluster in einer SAN-Umgebung, müssen Sie alle SAN LIFs, die Sie nicht mehr benötigen, von den ursprünglichen Knoten löschen, bevor Sie die ursprünglichen Knoten aus dem Cluster entfernen können.
 
 .Schritte
 . Wenn Sie iSCSI-Initiatoren haben, führen Sie die folgenden Schritte aus:
@@ -92,3 +92,6 @@ js11      ps0          mixed    LIF1,                   igroup1
 == Erstellung neuer SAN-LIFs oder erneuter Erstellung gelöschter SAN-LIFs
 
 Je nach den Anforderungen Ihrer Cluster-Umgebung können Sie sich möglicherweise entscheiden, neue SAN LIFs zu erstellen oder SAN LIFs neu zu erstellen, die Sie bereits in diesem Verfahren gelöscht haben. Sie können SAN-LIFs mit dem erstellen oder neu erstellen https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html["Erstellung von Netzwerkschnittstellen"^] Vorgehensweise in der Dokumentation _Clusterverwaltung mit OnCommand® System Manager_.
+
+.Was kommt als Nächstes?
+link:upgrade-remove-original-nodes.html["Entfernen Sie die ursprünglichen Knoten aus dem Cluster."]

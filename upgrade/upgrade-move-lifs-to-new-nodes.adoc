@@ -92,3 +92,6 @@ network interface migrate -vserver <vserver_name> -lif cluster-mgmt -destination
 
 
 
+
+.Was kommt als Nächstes?
+link:upgrade_move_delete_recreate_san_lifs.html["Verschieben, Löschen oder Erstellen von SAN-LIFs"]

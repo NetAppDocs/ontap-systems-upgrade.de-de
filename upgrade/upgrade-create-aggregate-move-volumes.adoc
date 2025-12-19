@@ -112,3 +112,6 @@ Wenn der Vorgang zum Verschieben eines Volumes beendet wird, kann der Client-Zug
 `volume show -vserver _svm_name_`
 
 
+
+.Was kommt als Nächstes?
+link:upgrade-move-lifs-to-new-nodes.html["Verschieben Sie nicht-SAN-Daten-LIFs und Cluster-Management-LIFs auf die neuen Nodes"]
