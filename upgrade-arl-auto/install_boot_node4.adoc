@@ -19,7 +19,7 @@ Sie müssen node4 im Rack installieren, die node2-Verbindungen nach node4 übert
 .Über diese Aufgabe
 Der Umzugsvorgang wird zu Beginn dieser Phase angehalten. Dieser Vorgang wird größtenteils automatisch durchgeführt. Der Vorgang hält an, damit Sie seinen Status überprüfen können. Sie müssen den Vorgang manuell fortsetzen. Außerdem müssen Sie überprüfen, ob die NAS-Daten-LIFs erfolgreich in node4 verschoben wurden.
 
-Sie müssen node4 als Netzboot ausführen, wenn es nicht die gleiche Version von ONTAP 9 hat, die auf node2 installiert ist. Nachdem sie node4 installiert haben, starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien auf das Boot-Medium für nachfolgende Systemstarts herunterladen, indem Sie den Anweisungen in folgen link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"].
+Sie müssen node4 neu starten, wenn die ONTAP Version auf node4 von der ONTAP Version auf node2 abweicht. Nach der Installation von node4 starten Sie es vom ONTAP 9-Image, das auf dem Webserver gespeichert ist. Anschließend können Sie die richtigen Dateien für nachfolgende Systemstarts auf das Startmedium herunterladen, indem Sie den Anweisungen in link:prepare_for_netboot.html["Vorbereitungen für den Netzboot"]Die
 
 [IMPORTANT]
 ====

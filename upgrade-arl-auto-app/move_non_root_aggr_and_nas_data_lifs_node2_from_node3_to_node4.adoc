@@ -14,10 +14,12 @@ summary: 'Überprüfen Sie, ob die NAS-Daten-LIFs von node2, die sich auf node3 
 
 
 [role="lead"]
-Nachdem Sie die Netzwerkkonfiguration auf node4 überprüft und bevor Sie Aggregate von node3 auf node4 verschieben, müssen Sie überprüfen, ob die NAS-Daten-LIFs, die zu node2 gehören und sich derzeit auf node3 befinden, von node3 nach node4 verschoben werden. Sie müssen außerdem überprüfen, ob die SAN-LIFs auf node4 vorhanden sind.
+Nachdem Sie die Netzwerkkonfiguration auf Knoten 4 überprüft haben, müssen Sie die NAS-Daten-LIFs, die Knoten 2 gehören, von Knoten 3 auf Knoten 4 verschieben und bestätigen, dass die SAN-LIFs auf Knoten 4 vorhanden sind.
 
 .Über diese Aufgabe
-Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs ordnungsgemäß sind und sich in den entsprechenden Ports befinden, nachdem Sie node4 in den Online-Modus versetzt haben.
+Remote LIFs verarbeiten den Datenverkehr zu SAN LUNs während des Upgrade-Vorgangs. Das Verschieben von SAN LIFs ist für die Integrität des Clusters oder der Dienste während des Upgrades nicht erforderlich. SAN LIFs werden nur dann verschoben, wenn sie neuen Ports zugeordnet werden müssen.
+
+Sie überprüfen, ob die LIFs intakt sind und sich an den richtigen Ports befinden, nachdem Sie Knoten 4 online geschaltet haben.
 
 
 NOTE: Wenn Sie die Portgeschwindigkeit der T6-basierten Ethernet-Netzwerkkarten oder Motherboard-Ports ändern, können Sie nach der Geschwindigkeitskonvertierung fehlerhafte Pakete beobachten. Siehe https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp Bugs Online Fehler-ID 1570339"^] Und den Knowledge Base Artikel https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["CRC-Fehler auf T6-Ports nach der Konvertierung von 40GbE zu 100GbE"^] Für eine Anleitung.
@@ -25,8 +27,10 @@ NOTE: Wenn Sie die Portgeschwindigkeit der T6-basierten Ethernet-Netzwerkkarten 
 .Schritte
 . Wiederaufnahme des Betriebs der Versetzung:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt die folgenden Aufgaben aus:
 
@@ -39,12 +43,14 @@ Das System führt die folgenden Aufgaben aus:
 
 
 +
-Der Vorgang unterbricht in dieser Phase in der Überprüfung der Netzwerknachprüfbarkeit.
+Das System unterbricht den Vorgang an dieser Stelle während der Überprüfung der Netzwerkverfügbarkeit.
 
 . Wiederaufnahme des Betriebs der Versetzung:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt folgende Prüfungen durch:
 
@@ -58,25 +64,58 @@ Nach Durchführung dieser Prüfungen werden die nicht-Root-Aggregate und NAS-Dat
 
 . Überprüfen Sie den Status der Aggregatverschiebung und der LIF-Verschiebung von NAS-Daten:
 +
-`system controller replace show-details`
-
+[source, cli]
+----
+system controller replace show-details
+----
 +
 Wenn der Austausch des Controllers unterbrochen wird, prüfen und korrigieren Sie den Fehler, falls zutreffend, und führen Sie das Problem anschließend aus `resume` Um den Vorgang fortzusetzen.
 
-. Falls erforderlich, stellen Sie alle vertriebenen LIFs wieder her. Liste aller vertriebenen LIFs:
+. Falls erforderlich, stellen Sie verschobene LIFs wieder her und setzen Sie sie zurück oder migrieren und modifizieren Sie die node2 LIFs, die nicht automatisch zu node4 verschoben wurden, manuell.
 +
-`cluster controller-replacement network displaced-interface show`
-
+[role="tabbed-block"]
+====
+.Versetzte LIFs wiederherstellen und zurücksetzen
+--
+.. Liste aller verschobenen LIFs:
 +
-Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in node4 wieder her:
-
+[source, cli]
+----
+cluster controller-replacement network displaced-interface show
+----
+.. Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in node4 wieder her:
 +
-`cluster controller-replacement network displaced-interface restore-home-node`
+[source, cli]
+----
+cluster controller-replacement network displaced-interface restore-home-node -node <node4_nodename> -vserver <vserver name> -lif-name <lif_name>
+----
 
+
+--
+.Manuelle Migration und Modifizierung von LIFs
+--
+.. Migrieren Sie die LIFs, die nicht automatisch auf Knoten 4 verschoben wurden:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver name> -lif <lif_name> -destination-node <node4_nodename> -destination-port <port_on_node4>
+----
+.. Ändern Sie den Home-Knoten und den Home-Port für die migrierten LIFs:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <data_lif_name> -home-node <node4_nodename> -home-port <home_port>
+----
+
+
+--
+====
 . Setzen Sie den Vorgang fort, um das System zur Durchführung der erforderlichen Nachprüfungen zu auffordern:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt die folgenden Nachprüfungen durch:
 

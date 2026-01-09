@@ -27,30 +27,44 @@ Prüfen Sie die SAN LIFs auf Knoten3:
 +
 .. Ändern Sie alle iSCSI SAN LIFs, die über einen „down“-Status für die neuen Daten-Ports verfügen:
 +
-`network interface modify -vserver <vserver> -lif <iscsi_san_lif> admin down`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <iscsi_san_lif> admin down
+----
 +
-`network interface modify -vserver <vserver> -lif <iscsi_san_lif> port <new_port> node <node>`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <iscsi_san_lif> port <new_port> node <node>
+----
 +
-`network interface modify -vserver <vserver> -lif <iscsi_san_lif>`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <iscsi_san_lif>
+----
 .. Ändern Sie alle FC- und NVMe/FC-SAN-LIFs, die den neuen Controller Zuhause haben, und melden Sie den Betriebsstatus der FCP-Ports am neuen Controller an:
 +
-`network interface modify -vserver <vserver> -lif <fc_san_lif> admin down`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <fc_san_lif> admin down
+----
 +
-`network interface modify -vserver <vserver> -lif <fc_san_lif> port <new_port> node <node>`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <fc_san_lif> port <new_port> node <node>
+----
 +
-`network interface modify -vserver <vserver> -lif <fc_san_lif>`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <fc_san_lif>
+----
 
 
 . Wiederaufnahme des Betriebs der Versetzung:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt die folgenden Aufgaben aus:
 
@@ -67,8 +81,10 @@ Der Vorgang unterbricht in dieser Phase in der Überprüfung der Netzwerknachpr�
 
 . Wiederaufnahme des Betriebs der Versetzung:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt folgende Prüfungen durch:
 
@@ -82,25 +98,58 @@ Nach Durchführung dieser Prüfungen verschiebt das System die nicht-Root-Aggreg
 
 . Überprüfen Sie den Status der Aggregatverschiebung und der LIF-Verschiebung von NAS-Daten:
 +
-`system controller replace show-details`
-
+[source, cli]
+----
+system controller replace show-details
+----
 +
 Wenn der Austausch des Controllers unterbrochen wird, prüfen und korrigieren Sie den Fehler, falls zutreffend, und führen Sie das Problem anschließend aus `resume` Um den Vorgang fortzusetzen.
 
-. Falls erforderlich, stellen Sie alle vertriebenen LIFs wieder her. Liste aller vertriebenen LIFs:
+. Falls erforderlich, stellen Sie verschobene LIFs wieder her und setzen Sie sie zurück oder migrieren und modifizieren Sie die node1 LIFs, die nicht automatisch zu node3 verschoben wurden, manuell.
 +
-`cluster controller-replacement network displaced-interface show`
-
+[role="tabbed-block"]
+====
+.Versetzte LIFs wiederherstellen und zurücksetzen
+--
+.. Liste aller verschobenen LIFs:
 +
-Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in Knoten 3 wieder her:
-
+[source, cli]
+----
+cluster controller-replacement network displaced-interface show
+----
+.. Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in Knoten 3 wieder her:
 +
-`cluster controller-replacement network displaced-interface restore-home-node`
+[source, cli]
+----
+cluster controller-replacement network displaced-interface restore-home-node -node <node3_nodename> -vserver <vserver name> -lif-name <lif_name>
+----
 
+
+--
+.Manuelle Migration und Modifizierung von LIFs
+--
+.. Migrieren Sie die LIFs, die nicht automatisch auf Knoten 3 verschoben wurden:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver name> -lif <lif_name> -destination-node <node3_nodename> -destination-port <port_on_node3>
+----
+.. Ändern Sie den Home-Knoten und den Home-Port für die migrierten LIFs:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <data_lif_name> -home-node <node3_nodename> -home-port <home_port>
+----
+
+
+--
+====
 . Setzen Sie den Vorgang fort, um das System zur Durchführung der erforderlichen Nachprüfungen zu auffordern:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt die folgenden Nachprüfungen durch:
 

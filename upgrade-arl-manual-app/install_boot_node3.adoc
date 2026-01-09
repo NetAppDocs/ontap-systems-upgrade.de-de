@@ -36,7 +36,7 @@ Wenn sich Node1 und Node2 in einem separaten Chassis befanden, können Sie Node3
 . [[Schritt2]]Installieren Sie Node3 im Rack gemäß der _Installations- und Setup-Anleitung_ für Ihr Node-Modell.
 +
 
-NOTE: Wenn Sie ein Upgrade auf ein System mit beiden Nodes im selben Chassis durchführen, installieren sie node4 sowohl im Chassis als auch in node3. Wenn Sie dies nicht tun, verhält sich der Node, wenn Sie node3 booten, wie in einer Dual-Chassis-Konfiguration. Und wenn Sie node4 booten, wird der Interconnect zwischen den Nodes nicht gestartet.
+NOTE: Wenn Sie auf ein System upgraden, bei dem sich beide Knoten im selben Chassis befinden, installieren Sie Knoten 4 und Knoten 3 im Chassis. Wenn Sie nicht beide Knoten im selben Chassis installieren, verhält sich Knoten 3 beim Starten so, als ob er sich in einer Dual-Chassis-Konfiguration befände, und beim Starten von Knoten 4 wird die Verbindung zwischen den Knoten nicht hergestellt.
 
 . [[Schritt3]]Kabelnode3, Verschieben der Verbindungen von node1 zu node3.
 +

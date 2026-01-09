@@ -14,16 +14,20 @@ summary: Vergewissern Sie sich, dass die node1 NAS-Daten-LIFs auf Node 2 von Nod
 
 
 [role="lead"]
-Nachdem Sie die Netzwerkkonfiguration auf Knoten 1 überprüft und bevor Sie Aggregate von Knoten 2 zu Knoten 1 verschieben, überprüfen Sie, ob die NAS-Daten-LIFs, die zu Knoten 1 gehören, die sich derzeit auf Knoten 2 befinden, von Knoten 2 zu Knoten 1 verschoben werden. Sie müssen außerdem überprüfen, ob die SAN LIFs auf Knoten1 vorhanden sind.
+Nachdem Sie die Netzwerkkonfiguration auf Knoten 1 überprüft haben, müssen Sie die zu Knoten 1 gehörenden NAS-Daten-LIFs von Knoten 2 auf Knoten 1 verschieben und bestätigen, dass die SAN-LIFs auf Knoten 1 vorhanden sind.
 
 .Über diese Aufgabe
-Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Nachdem Sie node1 in den Online-Modus versetzt haben, müssen Sie überprüfen, ob sich die LIFs in einem ordnungsgemäßen Zustand und auf den entsprechenden Ports befinden.
+Remote LIFs verarbeiten den Datenverkehr zu SAN LUNs während des Upgrade-Vorgangs. Das Verschieben von SAN LIFs ist für die Integrität des Clusters oder der Dienste während des Upgrades nicht erforderlich. SAN LIFs werden nur dann verschoben, wenn sie neuen Ports zugeordnet werden müssen.
+
+Sie überprüfen, ob die LIFs intakt sind und sich an den richtigen Ports befinden, nachdem Sie Knoten 1 online geschaltet haben.
 
 .Schritte
 . Wiederaufnahme des Betriebs der Versetzung:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt die folgenden Aufgaben aus:
 
@@ -38,12 +42,14 @@ Das System führt die folgenden Aufgaben aus:
 
 --
 +
-Der Vorgang unterbricht in dieser Phase in der Überprüfung der Netzwerknachprüfbarkeit.
+Das System unterbricht den Vorgang an dieser Stelle während der Netzwerkerreichbarkeitsprüfung.
 
 . Durchführen einer Prüfung der Netzwerkfähigkeit:
 +
-`network port reachability show -node node1`
-
+[source, cli]
+----
+network port reachability show -node node1
+----
 +
 Vergewissern Sie sich, dass alle verbundenen Ports, einschließlich der Schnittstellengruppe und VLAN-Ports, ihren Status als anzeigen `OK`.
 
@@ -71,8 +77,10 @@ Bei allen anderen System-Upgrades fahren Sie mit <<resume_relocation_step4,Schri
 +
 .. Neuzuweisung von FCP-SAN-LIFs für FCP- oder FC-NVMe-Datenzugriff an die korrekten Home Ports:
 +
-`network interface show -vserver <vserver_hosting_fcp_lifs>`
-
+[source, cli]
+----
+network interface show -vserver <vserver_hosting_fcp_lifs>
+----
 .. Bei LIFs, deren aktueller Node als aktualisierter node1 angegeben wird und der aktuelle Port den Status „oper“ als „-“ meldet (da der Port auf dem AFF A800 Node vorhanden war, jedoch nicht auf dem AFF A90 Node vorhanden ist), ändern Sie den aktuellen Port, bevor er online geschaltet werden kann.
 +
 Überprüfen Sie, ob die physische Konnektivität zum FC-Zielport hergestellt ist, an den die FC-LIF verschoben werden muss:
@@ -81,16 +89,22 @@ Bei allen anderen System-Upgrades fahren Sie mit <<resume_relocation_step4,Schri
 --
 ... Legen Sie den LIF-Status auf „down“ fest:
 +
-`network interface modify -vserver <vserver_name> -lif <lif_name>  -status-admin down`
-
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name>  -status-admin down
+----
 ... Ändern Sie den Home Port des LIF:
 +
-`network interface modify -vserver <vserver_name> -lif <lif_name> - home-node <node1> -home-port <FC_target_port>`
-
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> - home-node <node1> -home-port <FC_target_port>
+----
 ... Legen Sie den LIF-Status auf „up“ fest:
 +
-`network interface modify -vserver <vserver> -lif <lif_name>  -status-admin up`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <lif_name>  -status-admin up
+----
 
 
 --
@@ -101,8 +115,10 @@ Wiederholen Sie die Teilschritte a und b für jede FC-SAN-LIF, die sich als Home
 
 . [[resume_Relocation_step4]]Umzugsvorgang fortsetzen:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt folgende Prüfungen durch:
 
@@ -121,25 +137,58 @@ Der Controller-Ersatzvorgang hält nach Abschluss der Ressourcenverschiebung die
 
 . Überprüfen Sie den Status der Aggregatverschiebung und der LIF-Verschiebung von NAS-Daten:
 +
-`system controller replace show-details`
-
+[source, cli]
+----
+system controller replace show-details
+----
 +
 Wenn der Austausch des Controllers unterbrochen wird, prüfen und korrigieren Sie den Fehler, falls zutreffend, und führen Sie das Problem anschließend aus `resume` Um den Vorgang fortzusetzen.
 
-. Falls erforderlich, stellen Sie alle vertriebenen LIFs wieder her. Liste aller vertriebenen LIFs:
+. Falls erforderlich, stellen Sie verschobene LIFs wieder her und setzen Sie sie zurück oder migrieren und modifizieren Sie die node1 LIFs manuell, die nicht automatisch auf node1 verschoben wurden.
 +
-`cluster controller-replacement network displaced-interface show`
-
+[role="tabbed-block"]
+====
+.Versetzte LIFs wiederherstellen und zurücksetzen
+--
+.. Liste aller verschobenen LIFs:
 +
-Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in node1 wieder her:
-
+[source, cli]
+----
+cluster controller-replacement network displaced-interface show
+----
+.. Wenn LIFs verschoben werden, stellen Sie den Home-Node wieder in node1 wieder her:
 +
-`cluster controller-replacement network displaced-interface restore-home-node`
+[source, cli]
+----
+cluster controller-replacement network displaced-interface restore-home-node -node <node1_nodename> -vserver <vserver name> -lif-name <lif_name>
+----
 
+
+--
+.Manuelle Migration und Modifizierung von LIFs
+--
+.. Migrieren Sie die LIFs, die nicht automatisch auf Knoten 1 verschoben wurden:
++
+[source, cli]
+----
+network interface migrate -vserver <vserver name> -lif <lif_name> -destination-node <node1_nodename> -destination-port <port_on_node1>
+----
+.. Ändern Sie den Home-Knoten und den Home-Port für die migrierten LIFs:
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <data_lif_name> -home-node <node1_nodename> -home-port <home_port>
+----
+
+
+--
+====
 . Setzen Sie den Vorgang fort, um das System zur Durchführung der erforderlichen Nachprüfungen zu auffordern:
 +
-`system controller replace resume`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 Das System führt die folgenden Nachprüfungen durch:
 
