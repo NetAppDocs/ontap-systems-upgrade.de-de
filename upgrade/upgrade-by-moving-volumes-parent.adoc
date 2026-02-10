@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-by-moving-volumes-parent.html 
 sidebar: sidebar 
 keywords: upgrade by moving volumes 
-summary: Bei einem Upgrade durch Verschieben von Volumes bereiten Sie die ursprünglichen Nodes vor und fügen die neuen Nodes dem Cluster hinzu. Sie verschieben Volumes zu den neuen Nodes, konfigurieren LIFs und heben die Join der Original-Nodes vom Cluster ab. Das Upgrade durch Verschieben von Volumes erfolgt unterbrechungsfrei. 
+summary: Bei einem Upgrade durch Verschieben von Volumes bereiten Sie die ursprünglichen Knoten vor und fügen die neuen Knoten dem Cluster hinzu. Sie verschieben die Volumes auf die neuen Knoten, konfigurieren die LIFs und entfernen die ursprünglichen Knoten aus dem Cluster. Ein Upgrade durch Verschieben von Volumes ist ein unterbrechungsfreies Verfahren. 
 ---
 = Upgrade durch Verschieben von Volumes
 :allow-uri-read: 

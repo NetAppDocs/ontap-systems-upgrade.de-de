@@ -11,35 +11,42 @@ summary: Führen Sie ein unterbrechungsfreies Upgrade auf ein FAS2820 durch, ind
 
 
 [role="lead"]
-Sie können ein unterbrechungsfreies Upgrade eines NetApp FAS2820 durchführen, indem Sie jeden Knoten in ein DS212C-Laufwerksregal umwandeln und es dann mit den Ersatzknoten verbinden.
+Führen Sie ein unterbrechungsfreies Upgrade eines NetApp FAS2820 Systems durch, indem Sie jeden Knoten in ein DS212C-Laufwerksgehäuse umwandeln. Verbinden Sie anschließend die Laufwerksgehäuse mit den Ersatzknoten. Dadurch wird der FAS2820 Onboard-Speicher in das Ersatzsystem übernommen.
+
+.Bevor Sie beginnen
+Prüfen Sie die allgemeinen Upgrade-Szenarien und Upgrade-Überlegungen für das Upgrade durch Verschieben von Volumes oder Storage:
+
+* link:upgrade-decide-to-use-this-guide.html["Entscheiden Sie, ob Sie ein Upgrade durch Verschieben von Volumes oder Storage durchführen"]
+* link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]
+
 
 .Über diese Aufgabe
-In diesem Verfahren werden die FAS2820 Hochverfügbarkeits-(HA)-Paar-Controller als Knoten1 und Knoten2 bezeichnet und die Ersatz-HA-Paar-Controller als Knoten3 und Knoten4.
+Die FAS2820 High-Availability-(HA)-Paar-Controller sind node1 und node2 und die Ersatz-HA-Paar-Controller sind node3 und node4.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]xref:migrate-fas2820-node2-lifs-aggregates.adoc[Migrieren Sie LIFs und Datenaggregate auf Knoten2 zu Knoten1]
 [role="quick-margin-para"]
-Bevor Sie FAS2820 Knoten2 in ein Laufwerksregal konvertieren, migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf Knoten2 zu Knoten1.
+Bevor Sie FAS2820 node2 in ein Laufwerksgehäuse umwandeln, migrieren Sie die logischen Schnittstellen (LIFs) und Daten-Aggregate auf node2 zu node1.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]xref:convert-fas2820-node2-drive-shelf.adoc[Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit node 4]
 [role="quick-margin-para"]
-Sie konvertieren FAS8280-Knoten2 in ein DS212C-Laufwerksregal und stellen dann eine Verbindung zu Knoten4 her, bevor Sie Laufwerke von Knoten2 zu Knoten4 neu zuweisen.
+Konvertieren Sie FAS2820 node2 in ein DS212C-Laufwerksgehäuse und verbinden Sie es dann mit node4, bevor Sie die Laufwerke von node2 zu node4 neu zuweisen.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"]xref:reassign-fas2820-node2-drives.adoc[Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu]
 [role="quick-margin-para"]
-Nachdem Sie FAS2820 Knoten2 in ein DS212C-Laufwerksregal konvertiert und eine Verbindung mit Knoten4 hergestellt haben, weisen Sie die Laufwerke, die zuvor zu Knoten2 gehörten, Knoten4 neu zu.
+Nachdem Sie FAS2820 node2 in ein DS212C-Laufwerksgehäuse umgewandelt und mit node4 verbunden haben, weisen Sie die zuvor zu node2 gehörenden Laufwerke node4 neu zu.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"]xref:migrate-fas2820-aggregates-epsilon-lifs.adoc[Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4]
 [role="quick-margin-para"]
-Bevor Sie FAS2820 Knoten1 in ein Laufwerksregal konvertieren, migrieren Sie die Datenaggregate, Epsilon und LIFs auf Knoten1 zu Knoten4.
+Bevor Sie FAS2820 node1 in ein Laufwerksgehäuse umwandeln, migrieren Sie die Datenaggregate, epsilon und LIFs auf node1 zu node4.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"]xref:convert-fas2820-node1-drive-shelf.html[Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3]
 [role="quick-margin-para"]
-Sie konvertieren FAS2820 Knoten1 in ein DS212C-Laufwerksregal und stellen eine Verbindung zu Knoten3 her, bevor Sie Laufwerke von Knoten1 zu Knoten3 neu zuweisen.
+Konvertieren Sie FAS2820 node1 in ein DS212C-Laufwerksgehäuse und verbinden Sie es mit node3, bevor Sie die Laufwerke von node1 zu node3 neu zuweisen.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"]xref:reassign-fas2820-node1-drives.adoc[Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3]
 [role="quick-margin-para"]
-Nachdem Sie FAS2820 Knoten1 in ein DS212C-Laufwerk konvertiert und eine Verbindung mit Knoten3 hergestellt haben, weisen Sie die Laufwerke, die zuvor zu Knoten1 gehörten, Knoten3 neu zu.
+Nach der Umwandlung von FAS2820 node1 in ein DS212C-Laufwerksgehäuse und dem Anschluss an node3, ordnen Sie die Laufwerke, die zuvor zu node1 gehörten, node3 neu zu.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]xref:migrate-fas2820-node4-lIfs-aggregates.adoc[Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3]
 [role="quick-margin-para"]
-Zum Abschluss des Upgrades verbinden Sie Node 3 mit Node 4 und migrieren dann die Daten-LIFs und Datenaggregate von node 4 auf Node 3.
+Um das Upgrade abzuschließen, verbinden Sie node3 mit node4 und migrieren Sie dann die Daten-LIFs und Daten-Aggregate auf node4 zu node3.

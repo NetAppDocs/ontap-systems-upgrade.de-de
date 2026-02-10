@@ -27,10 +27,10 @@ Um das geeignete Upgrade-Verfahren auszuwählen, gehen Sie alle in der folgenden
 | Fragen Sie sich selbst… | Wenn Ihre Antwort Ja lautet, können Sie Folgendes tun… 
 
 
-| Läuft auf dem ursprünglichen und dem neuen Knoten eine unterschiedliche Softwareversion? | Aktualisieren Sie die ONTAP Version auf den ursprünglichen Knoten auf die höchste unterstützte Version.  Wenn möglich, müssen die neuen Knoten die ONTAP Version unterstützen, die auf den ursprünglichen Knoten läuft.  Falls dies nicht möglich ist,link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aktualisieren Sie die ONTAP-Version"^] auf den ursprünglichen Knoten auf die höchste unterstützte Version aktualisieren.  Der Versionsunterschied zwischen dem ursprünglichen und dem neuen Knoten darf nicht größer als vier sein.  Beispielsweise werden ONTAP 9.8 und 9.12.1 unterstützt; ONTAP 9.8 und 9.13.1 werden jedoch nicht unterstützt. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^]. 
+| Läuft auf dem ursprünglichen und dem neuen Knoten eine unterschiedliche Softwareversion? | Aktualisieren Sie die ONTAP-Version auf den ursprünglichen Knoten auf die höchste unterstützte Version. Wenn möglich, müssen die neuen Knoten die auf den ursprünglichen Knoten laufende ONTAP-Version unterstützen. Ist dies nicht möglich, link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["Aktualisieren Sie die ONTAP-Version"^] auf den ursprünglichen Knoten auf die höchste unterstützte Version. Der Versionsunterschied zwischen den ursprünglichen und den neuen Knoten darf nicht größer als vier sein. Zum Beispiel werden ONTAP 9.8 und 9.12.1 unterstützt; jedoch werden ONTAP 9.8 und 9.13.1 nicht unterstützt. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["Erfahren Sie mehr über ONTAP-Cluster verschiedener Versionen"^]. 
 
 
-| Möchte ich ein disruptives Upgrade durchführen? | link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrades durch Storage-Verschiebung"]. Hierfür wird ein neues System mit eigenem Speicher und eigenen Regalen benötigt, um die Daten aus dem ursprünglichen System zu speichern.  Bei bestimmten Upgrades ist eine Umrüstung von einem Controller-Regal möglich. 
+| Möchte ich ein disruptives Upgrade durchführen? | link:upgrade/upgrade-decide-to-use-this-guide.html["Upgrades durch Storage-Verschiebung"]. Dies erfordert ein neues System mit eigenem Speicher und eigenen Regalen zur Speicherung der Daten des ursprünglichen Systems. Für bestimmte Upgrades kann ein Controller-Regal umgerüstet werden. 
 
 
 | Möchte ich ein Upgrade ohne Unterbrechung durchführen?  a| 
@@ -44,11 +44,15 @@ Dazu müssen die neuen Knoten hinzugefügt, die Volumes und LIFs auf die neuen K
 +
 ARL ist ein Austauschverfahren.  Sie müssen Ihren Cluster nicht mit den neuen Knoten erweitern und verkleinern, was für Zwei-Knoten-Switchless-Cluster von Vorteil ist.  Beim Verschieben von Datenvolumen ist das Verschieben von Daten durch Umstrukturieren von Aggregaten schneller als das Kopieren von Daten zwischen Aggregaten.
 
+* link:upgrade/upgrade-decide-to-use-this-guide.html["Speicher verschieben"]
++
+Sie können unterbrechungsfrei von einem AFF A250 auf ein AFF A400 oder von einem FAS2820 auf ein Ersatzsystem upgraden, indem Sie die ursprünglichen Knoten in Laufwerksschächte umwandeln und dann die Laufwerksschächte mit den Ersatzknoten verbinden, um den Onboard-Speicher zu verschieben.
 
 
 
 
-| Habe ich ein modulares System?  *Hinweis*: In einem modularen System verfügt der Controller über keine internen Festplatten; der gesamte Speicher befindet sich in extern angeschlossenen Gehäusen. | link:upgrade-arl/index.html["Upgrade durch Aggregatverschiebung"]. 
+
+| Habe ich ein modulares System? *Hinweis*: Bei einem modularen System verfügt der Controller über keine internen Festplatten; der gesamte Speicher befindet sich in extern angeschlossenen Gehäusen. | link:upgrade-arl/index.html["Upgrade durch Aggregatverschiebung"]. 
 
 
 | Habe ich ein integriertes System und möchte es durch Verschieben von Datenträgern erweitern?  *Hinweis*: In einem integrierten System verfügt der Controller über interne Festplatten, und der Speicher befindet sich im Controller-Gehäuse und in extern angeschlossenen Gehäusen.  Externe Regale dienen der Speichererweiterung und sind möglicherweise nicht in jeder Systemkonfiguration enthalten.  a| 
@@ -73,7 +77,7 @@ ARL ist ein Austauschverfahren.  Sie müssen Ihren Cluster nicht mit den neuen K
 
 == Beispiel: Upgrade von FAS9500 auf FAS90
 
-Dieses Beispiel zeigt die möglichen Antworten für ein Upgrade von einem FAS9500 auf einen FAS90-Controller.
+Dieses Beispiel liefert mögliche Antworten für ein FAS9500-zu-FAS90-Controller-Upgrade.
 
 [cols="30,70"]
 |===

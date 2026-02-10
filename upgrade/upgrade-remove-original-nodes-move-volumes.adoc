@@ -16,16 +16,24 @@ Nachdem die Volumes von den ursprünglichen Knoten auf die neuen Knoten verschob
 .Schritte
 . [[disable-ha]]Deaktiviert die Hochverfügbarkeitskonfiguration (HA) auf den ursprünglichen Knoten:
 +
-`storage failover modify -node <original_node_name> -enabled false`
+[source, cli]
+----
+storage failover modify -node <original_node_name> -enabled false
+----
 
-. Zugriff auf die erweiterte Berechtigungsebene:
+
+. Ändern Sie die Berechtigungsstufe auf „advanced“:
 +
-`set -privilege advanced`
-
-. Identifizieren Sie den Knoten mit Epsilon:
+[source, cli]
+----
+set -privilege advanced
+----
+. Identifizieren Sie den Knoten im Cluster, der epsilon hat:
 +
-`cluster show`
-
+[source, cli]
+----
+cluster show
+----
 +
 Im folgenden Beispiel enthält „node0“ derzeit Epsilon:
 
@@ -40,65 +48,90 @@ node1                true    true         false
 node2                true    true         false
 node3                true    true         false
 ----
-. [[epsilon-true]]Wenn einer der ursprünglichen Knoten Epsilon enthält, verschieben Sie Epsilon auf einen Knoten, den Sie nicht aus dem Cluster entfernen:
+. [[epsilon-true]]Wenn der Knoten, den Sie entfernen, Epsilon enthält:
 +
-.. Entferne Epsilon vom ursprünglichen Knoten:
+.. Verschiebe epsilon von dem Knoten, den du entfernst:
 +
-`cluster modify -node <original_node_name> -epsilon false`
-
-.. Weisen Sie Epsilon einem anderen Knoten zu:
+[source, cli]
+----
+cluster modify -node <name_of_node_to_be_removed> -epsilon false
+----
+.. Verschieben Sie epsilon auf einen Knoten, den Sie nicht entfernen:
 +
-`cluster modify -node <new_node_name> -epsilon true`
-
+[source, cli]
+----
+cluster modify -node <node_name> -epsilon true
+----
 
 
 . Identifizieren Sie den aktuellen Masterknoten:
 +
-`cluster ring show`
-
+[source, cli]
+----
+cluster ring show
+----
 +
 Der Master-Knoten ist der Knoten, der Prozesse wie beispielsweise … enthält. `mgmt`, `vldb`, `vifmgr`, `bcomd`, Und `crs`Die
 
-. Wenn der zu entfernende Knoten der aktuelle Masterknoten ist, muss ein im Cluster verbleibender Knoten als Masterknoten gewählt werden:
+. Wenn der Knoten, den Sie entfernen, der aktuelle Master-Knoten ist, aktivieren Sie einen anderen Knoten im Cluster, damit er als Master-Knoten gewählt werden kann:
 +
 .. Den aktuellen Masterknoten von der Teilnahme am Cluster ausschließen:
 +
-`cluster modify -node <original_node_name> -eligibility false`
-
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility false
+----
 +
-Der Knoten wird als fehlerhaft markiert, bis die Berechtigung wiederhergestellt ist. Wenn der Master-Knoten nicht mehr als Master geeignet ist, wird einer der verbleibenden Knoten vom Cluster-Quorum zum neuen Master gewählt.
+Der Knoten wird als fehlerhaft markiert, bis die Eignung wiederhergestellt ist. Wenn der Master-Knoten seine Eignung verliert, wird einer der verbleibenden Knoten vom Cluster-Quorum zum neuen Master gewählt.
 
 +
 [NOTE]
 ====
-Wenn Sie diesen Schritt am ersten Knoten eines HA-Paares durchführen, sollten Sie nur diesen Knoten als nicht geeignet markieren. Ändern Sie den Status des HA-Partners nicht.
+Wenn Sie diesen Schritt auf dem ersten Knoten eines HA-Paares durchführen, sollten Sie nur diesen Knoten als nicht geeignet markieren. Ändern Sie nicht den Status des HA-Partners.
 
-Wenn der Partnerknoten als neuer Master ausgewählt wird, müssen Sie überprüfen, ob er Epsilon enthält. Wenn der Partnerknoten Epsilon enthält, müssen Sie Epsilon auf einen anderen Knoten verschieben, der im Cluster verbleibt, bevor Sie ihn für ungültig erklären. Dies tun Sie, wenn Sie diese Schritte wiederholen, um den Partnerknoten zu entfernen.
+Wenn der Partnerknoten als neuer Master ausgewählt wird, müssen Sie überprüfen, ob er Epsilon hält, bevor Sie ihn für nicht berechtigt erklären. Wenn der Partnerknoten Epsilon hält, müssen Sie Epsilon auf einen anderen, im Cluster verbleibenden Knoten verschieben, bevor Sie ihn für nicht berechtigt erklären. Sie tun dies, wenn Sie diese Schritte wiederholen, um den Partnerknoten zu entfernen.
 
 ====
 .. Den vorherigen Masterknoten wieder für die Teilnahme am Cluster zulassen:
 +
-`cluster modify -node <node_name> -eligibility true`
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility true
+----
 
 
-
-. Melden Sie sich auf einem Knoten, der im Cluster verbleibt, an der Remote-Knotenverwaltungs-LIF oder der Clusterverwaltungs-LIF an und entfernen Sie jeden ursprünglichen Knoten aus dem Cluster (erweiterte Berechtigungsstufe):
+. Melden Sie sich bei der Remote-Knotenverwaltungs-LIF oder der Clusterverwaltungs-LIF auf einem Knoten an, den Sie nicht aus dem Cluster entfernen.
+. Entfernen Sie die Knoten aus dem Cluster:
 +
+|===
+| Für diese ONTAP Version... | Befehl 
+
+
+ a| 
+ONTAP 9.3
+ a| 
+[source, cli]
+----
+cluster unjoin
+----
+
+
+ a| 
+ONTAP 9.4 und höher
+ a| 
 Mit Knotennamen:
 
-+
 [source, cli]
 ----
-cluster remove-node -node <original_node_name>
+cluster remove-node -node <node_name>
 ----
-+
 Mit Knoten-IP:
 
-+
 [source, cli]
 ----
-cluster remove-node -cluster_ip <original_node_ip>
+cluster remove-node -cluster_ip <node_ip>
 ----
+|===
 +
 Wenn Sie einen Cluster mit gemischten Versionen haben und den letzten Knoten mit der niedrigeren Version entfernen, verwenden Sie die `-skip-last-low-version-node-check` Parameter mit diesen Befehlen.
 
@@ -112,13 +145,13 @@ Das System informiert Sie über Folgendes:
 Es wird eine Fehlermeldung generiert, wenn Bedingungen vorliegen, die vor dem Entfernen des Knotens erfüllt werden müssen. Die Meldung könnte beispielsweise darauf hinweisen, dass der Knoten über gemeinsam genutzte Ressourcen verfügt, die Sie entfernen müssen, oder dass sich der Knoten in einer Cluster-HA-Konfiguration oder einer Speicherausfallkonfiguration befindet, die Sie deaktivieren müssen.
 
 +
-Wenn der Knoten der Quorum-Master ist, verliert der Cluster kurzzeitig das Quorum und erreicht es dann wieder. Dieser Quorumverlust ist vorübergehend und hat keine Auswirkungen auf Datenoperationen.
+Wenn der Knoten der Quorum-Master ist, verliert der Cluster kurzzeitig das Quorum und stellt es anschließend wieder her. Dieser Quorumverlust ist temporär und hat keine Auswirkungen auf Datenoperationen.
 
 
 
 . Wenn eine Fehlermeldung auf Fehlerbedingungen hinweist, beheben Sie diese und führen Sie den Vorgang erneut aus. `cluster remove-node` oder `cluster unjoin` Befehl.
 +
-Nachdem ein Knoten erfolgreich aus dem Cluster entfernt wurde, startet er automatisch neu.
+Der Knoten startet nach erfolgreicher Entfernung aus dem Cluster automatisch neu.
 
 . Wenn Sie den Knoten für einen anderen Zweck verwenden, löschen Sie die Knotenkonfiguration und initialisieren Sie alle Festplatten:
 +
@@ -126,17 +159,21 @@ Nachdem ein Knoten erfolgreich aus dem Cluster entfernt wurde, startet er automa
 .. Wählen Sie im Bootmenü die Option *(4) Konfiguration bereinigen und alle Festplatten initialisieren*.
 
 
-. [[return-admin]]Zurück zur Administratorberechtigungsstufe auf einem der neuen Knoten im Cluster:
+. [[return-admin]]Zurück zur Administrator-Berechtigungsstufe:
 +
 [source, cli]
 ----
 set -privilege admin
 ----
+
+
 . Schritte wiederholen <<disable-ha,1>> Zu <<return-admin,10>> um den Failover-Partner aus dem Cluster zu entfernen.
 . Wenn nur noch zwei Nodes vorhanden sind, konfigurieren Sie Hochverfügbarkeit für das Cluster mit zwei Nodes:
 +
-`cluster ha modify -configured true`
-
+[source, cli]
+----
+cluster ha modify -configured true
+----
 
 
 .Was kommt als Nächstes?
