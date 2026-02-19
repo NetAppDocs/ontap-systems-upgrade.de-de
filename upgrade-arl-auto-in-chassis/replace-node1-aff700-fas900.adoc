@@ -14,6 +14,8 @@ summary: Ersetzen Sie die AFF A700- oder FAS9000 node1-Systemmodule, wenn Sie mi
 
 
 [role="lead"]
+Ersetzen Sie die AFF A700 oder FAS9000 Controller- und NVRAM-Module von Node1 durch ASA A900, AFF A900 oder FAS9500 Controller- und NVRAM-Module.
+
 An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Achten Sie darauf, nur das Node1-Controller-Modul und das node1-NVRAM-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
 
 
@@ -24,9 +26,9 @@ Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
 
-== Entfernen Sie das AFF A700 oder das FAS9000 Controller-Modul
+== Schritt 1: Entfernen Sie das AFF A700 oder FAS9000 Controller-Modul
 
-Trennen Sie das AFF A700- oder FAS9000-Controller-Modul von Knoten1, und entfernen Sie es.
+Trennen und entfernen Sie das node1 AFF A700 oder FAS9000 Controller-Modul.
 
 .Schritte
 . Trennen Sie gegebenenfalls das Konsolenkabel und das Managementkabel vom Knoten 1-Controller-Modul.
@@ -64,9 +66,9 @@ Stellen Sie sicher, dass Sie die Unterseite des Controller-Moduls unterstützen,
 
 
 
-== Entfernen Sie das AFF A700 oder FAS9000 NVRAM-Modul
+== Schritt 2: Entfernen Sie das AFF A700 oder FAS9000 NVRAM Modul
 
-Entsperren und entfernen Sie das AFF A700 oder FAS9000 NVRAM-Modul aus Knoten1.
+Entsperren und entfernen Sie das Node1 AFF A700 oder FAS9000 NVRAM Modul.
 
 
 NOTE: Das AFF A700 oder FAS9000 NVRAM-Modul befindet sich in Steckplatz 6 und hat die doppelte Höhe der anderen Module im System.
@@ -106,26 +108,18 @@ image:black_circle_two.png["Nummer zwei"]
 
 
 
-== Installieren Sie die NVRAM- und Controller-Module ASA A900, AFF A900 oder FAS9500
+== Schritt 3: Installieren Sie das ASA A900, AFF A900 oder FAS9500 NVRAM-Modul
 
-Installieren, verkabeln und verbinden Sie die NVRAM-Module ASA A900, AFF A900 oder FAS9500 in Knoten 1.
+Installieren, verkabeln und verbinden Sie das ASA A900, AFF A900 oder FAS9500 NVRAM-Modul in node1.
 
-Bei der Installation müssen Sie Folgendes beachten:
-
+[NOTE]
+====
 * Verschieben Sie alle Leereinfüllmodule in den Steckplätzen 6-1 und 6-2 vom alten NVRAM-Modul in das neue NVRAM-Modul.
 * Verschieben Sie das coredump-Gerät NICHT aus dem AFF A700 NVRAM-Modul in das ASA A900- oder AFF A900 NVRAM-Modul.
 * Verschieben Sie alle Flash Cache Module, die im FAS9000 NVRAM-Modul installiert sind, auf das FAS9500 NVRAM-Modul.
 
 
-.Bevor Sie beginnen
-Wenn du nicht bereits geerdet bist, beground dich richtig.
-
-
-
-=== Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500
-
-Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500 in Steckplatz 6 von Knoten1.
-
+====
 .Schritte
 . Richten Sie das NVRAM-Modul an den Kanten der Gehäuseöffnung in Steckplatz 6 aus.
 . Schieben Sie das NVRAM-Modul vorsichtig in den Steckplatz, bis der vorletzte und nummerierte E/A-Nockenriegel mit dem E/A-Nockenstift einrastet. Drücken Sie dann den E/A-Nockenverschluss bis zum Verriegeln des NVRAM-Moduls.
@@ -150,9 +144,9 @@ image:black_circle_two.png["Nummer zwei"]
 
 
 
-=== Installieren Sie das Controller-Modul ASA A900, AFF A900 oder FAS9500 auf Knoten1.
+== Schritt 4: Installieren Sie das ASA A900, AFF A900 oder FAS9500 Controller-Modul auf node1.
 
-Gehen Sie wie folgt vor, um das Controller-Modul ASA A900, AFA A900 oder FAS9500 in Knoten1 zu installieren.
+Installieren, verkabeln und verbinden Sie das ASA A900, AFF A900 oder FAS9500 Controller-Modul in node1.
 
 .Schritte
 . Richten Sie das Ende des Controller-Moduls an der Öffnung A im Gehäuse aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
@@ -194,10 +188,14 @@ image:black_circle_two.png["Nummer zwei"]
 . Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
 . Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 

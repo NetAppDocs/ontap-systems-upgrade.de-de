@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-in-chassis/install-affa90-affa70-on-node2.html 
 keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
-summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-Upgrades von Controller-Modellen im selben Chassis. 
+summary: Installieren Sie die Ersatzsystemmodule in node2 während eines ARL-Upgrades von Controller-Modellen im selben Chassis. 
 ---
-= Installieren Sie das AFF A90- oder AFF A70-Modul auf Knoten 2
+= Installieren Sie das AFF A90 oder AFF A70-Modul in node2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-
 
 
 [role="lead"]
-Installieren Sie das AFF A90 oder AFF A70 -Controllermodul, das Sie für das Upgrade erhalten haben, auf Knoten2.  Knoten2 ist Controller B, der sich im unteren Schacht des Gehäuses befindet, wenn man von der Rückseite des Systems auf die Controller blickt.
+Installieren Sie das AFF A90 oder AFF A70 Controller-Modul, das Sie für das Upgrade erhalten haben, in node2. Node2 ist Controller B und befindet sich im unteren Einschub des Gehäuses, wenn Sie von der Rückseite des Systems auf die Controller blicken.
 
 .Schritte
 . Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
@@ -47,12 +47,16 @@ NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einsc
 . Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node2 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node2 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
 . Legen Sie an der Eingabeaufforderung LOADER> von node2 die Standardumgebungsvariablen fest:
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 . Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
 +
 image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]

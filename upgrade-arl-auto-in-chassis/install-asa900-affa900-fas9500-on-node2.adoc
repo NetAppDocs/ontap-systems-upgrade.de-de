@@ -16,19 +16,20 @@ summary: Installieren Sie die Ersatz-Systemmodule auf Node 2 während eines ARL-
 [role="lead"]
 Installieren Sie die ASA A900, AFF A900 oder FAS9500 NVRAM- und Controller-Module, die Sie für das Upgrade auf Node2 erhalten haben. Node2 ist Controller B auf der rechten Seite des Chassis, wenn man sich die Controller von der Rückseite des Systems ansieht.
 
-Bei der Installation müssen Sie Folgendes beachten:
-
+[NOTE]
+====
 * Verschieben Sie alle Leereinfüllmodule in den Steckplätzen 6-1 und 6-2 vom alten NVRAM-Modul in das neue NVRAM-Modul.
 * Verschieben Sie das coredump-Gerät NICHT aus dem AFF A700 NVRAM-Modul in das ASA A900- oder AFF A900 NVRAM-Modul.
 * Verschieben Sie alle Flash Cache Module, die im FAS9000 NVRAM-Modul installiert sind, auf das FAS9500 NVRAM-Modul.
 
 
+====
 .Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
 
-== Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500
+== Schritt 1: Installieren Sie das ASA A900, AFF A900 oder FAS9500 NVRAM Modul
 
 Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500 in Steckplatz 6 von Knoten2.
 
@@ -39,7 +40,7 @@ Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500 in Steckplatz 6
 
 
 
-== Installieren Sie das Controller-Modul ASA A900, AFF A900 oder FAS9500 in Knoten2
+== Schritt 2: Installieren Sie das ASA A900, AFF A900 oder FAS9500 Controller-Modul
 
 Installieren, verkabeln und verbinden Sie das ASA A900-, AFF A900- oder FAS9500-Controller-Modul in Knoten2.
 
@@ -70,10 +71,14 @@ WARNING: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Ei
 . Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node2 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node2 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
 . Legen Sie an der Eingabeaufforderung LOADER> von node2 die Standardumgebungsvariablen fest:
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 

@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-in-chassis/replace-node1-affa800.html
 keywords: aff, asa, fas, replace, node1, system, modules 
 summary: Ersetzen Sie die AFF A800 oder AFF C800 Node 1-Systemmodule, wenn Sie zum Upgrade von Controller-Modellen im selben Chassis ARL verwenden. 
 ---
-= Ersetzen Sie die AFF A800- oder AFF C800-Controller-Module
+= Ersetzen Sie das Controller-Modul AFF A800 oder AFF C800 von node1
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,9 @@ summary: Ersetzen Sie die AFF A800 oder AFF C800 Node 1-Systemmodule, wenn Sie z
 
 
 [role="lead"]
-An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Sie müssen darauf achten, nur das Knoten 1-Controller-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
+Ersetzen Sie das AFF A800 oder AFF C800 Controller-Modul von Knoten 1 durch ein AFF A90, AFF A70 oder AFF C80 Controller-Modul.
+
+In diesem Stadium ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Sie müssen darauf achten, nur das node1 Controller-Modul zu entfernen. Wenn Sie die Controller von der Rückseite des Systems aus betrachten, sind die Controller gestapelt, wobei sich Controller A typischerweise oben befindet. Das Controller-Etikett befindet sich am Gehäuse direkt über dem Controller-Modul.
 
 
 CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und an dieselben Netzteile angeschlossen sind.
@@ -24,20 +26,55 @@ Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
 
-== Entfernen Sie das AFF A800- oder AFF C800-Controller-Modul
+== Schritt 1: Entfernen Sie das AFF A800 oder AFF C800 Controller-Modul
 
-Entfernen Sie das Kabelverwaltungsgerät aus dem vorhandenen Modul, und bewegen Sie den Controller leicht aus dem Gehäuse.
+Entfernen Sie die Kabelmanagementvorrichtung vom vorhandenen node1-Modul und schieben Sie den Controller leicht aus dem Gehäuse heraus.
 
 .Schritte
-. Bereiten Sie vor, das Controller-Modul zu entfernen:
+. Stellen Sie sicher, dass alle Laufwerke im Chassis fest an der Mittelebene anliegen, indem Sie mit den Daumen jedes Laufwerk so lange andrücken, bis Sie einen deutlichen Anschlag spüren.
 +
-.. Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
+.Video – Laufwerkssitz bestätigen
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image:drw_a800_drive_seated_IEOPS-960.svg["Setzen Sie die Laufwerke ein"]
+
+. Überprüfen Sie die Controller-Laufwerke anhand des Systemstatus:
++
+.. Überprüfen Sie auf dem fehlerfreien Controller, ob sich eine aktive RAID-Gruppe in einem beeinträchtigten Zustand, einem Fehlerzustand oder in beiden Zuständen befindet:
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** Wenn der Befehl  `There are no entries matching your query.` zurückgibt, fahren Sie mit <<Check-missing-drives,Gehen Sie zum nächsten Teilschritt, um nach fehlenden Laufwerken zu suchen>> fort.
+*** Falls der Befehl andere Ergebnisse liefert, sammeln Sie die AutoSupport Daten von beiden Controllern und wenden Sie sich an NetApp Support, um weitere Unterstützung zu erhalten.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]Prüfen Sie auf fehlende Laufwerke sowohl im Dateisystem als auch bei Ersatzlaufwerken:
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** Wenn der Befehl  `There are no entries matching your query.` zurückgibt, fahren Sie mit <<remove-power-cables,Gehen Sie zum nächsten Schritt>> fort.
+*** Falls der Befehl andere Ergebnisse liefert, sammeln Sie die AutoSupport Daten von beiden Controllern und wenden Sie sich an NetApp Support, um weitere Unterstützung zu erhalten.
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
 
 
 
 
-image:drw_a800_drive_seated_IEOPS-960.png["Schieben Sie den Antrieb fest an die Mittelplatine des Chassis"]
-
+. [[remove-power-cables]]Entfernen Sie die Halterungen der Stromkabel, dann ziehen Sie die Kabel von den Netzteilen ab.
 . Trennen Sie die Netzteile des node1-Controller-Moduls von der Quelle.
 . Lösen Sie die Netzkabelhalter, und ziehen Sie anschließend die Kabel von den Netzteilen ab.
 . Lösen Sie den Haken- und Schlaufenriemen, mit dem die Kabel an das Kabelmanagement-Gerät gebunden sind, und ziehen Sie dann die Systemkabel und SFP- und QSFP-Module (falls erforderlich) vom Controller-Modul ab, um zu verfolgen, wo die Kabel angeschlossen waren.
@@ -68,7 +105,11 @@ image:black_circle_two.png["Nummer zwei"]
 |===
 
 
-Installieren Sie das AFF A90, AFF A70 oder AFF C80 Controller-Modul. Installieren, verkabeln und verbinden Sie das AFF A90, AFF A70 oder AFF C80 Controller-Modul in node1.
+
+
+== Schritt 2: Installieren Sie das AFF A90-, AFF A70- oder AFF C80-Controller-Modul
+
+Installieren, verkabeln und verbinden Sie das AFF A90, AFF A70 oder AFF C80 Controller-Modul in node1.
 
 .Schritte
 . Richten Sie das Ende des Controller-Moduls an der Öffnung im Gehäuse aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
@@ -82,7 +123,7 @@ image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["Installieren Sie einen AFF A
 . Verkabeln Sie die Management- und Konsolen-Ports mit dem Node1-Controller-Modul.
 +
 
-NOTE: Da das Chassis bereits EINGESCHALTET ist, startet Node 1 die BIOS-Initialisierung, gefolgt von AUTOBOOT, sobald Sie das neue Controller-Modul einsetzen. Um diesen AUTOBOOT ZU vermeiden, empfiehlt NetApp, die seriellen und die Konsolenkabel anzuschließen, bevor Sie das Controller-Modul einsetzen.
+NOTE: Wenn Sie das node1 Controller-Modul im nächsten Schritt einsetzen, startet node1 sofort die BIOS-Initialisierung, gefolgt von AUTOBOOT, da das Gehäuse bereits eingeschaltet ist. Sie vermeiden dieses AUTOBOOT, indem Sie die seriellen und Konsolenkabel anschließen, bevor Sie das Modul einsetzen.
 
 . Drücken Sie an der Vorderseite des Gehäuses mit Ihren Daumen jedes Laufwerk fest in den oberen und unteren Festplattenschacht, bis Sie einen festen Anschlag spüren.  Dadurch wird sichergestellt, dass die Laufwerke fest auf der Mittelplatine des Gehäuses sitzen.
 +
@@ -104,10 +145,14 @@ Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-
 
 . Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 

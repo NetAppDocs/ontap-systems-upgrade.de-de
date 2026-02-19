@@ -14,6 +14,8 @@ summary: Ersetzen Sie die Node-1-Module AFF A220, AFF A200, AFF C190, FAS2720 od
 
 
 [role="lead"]
+Ersetzen Sie das Controller-Modul node1 AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720 durch ein Controller-Modul ASA A150, AFF A150 oder FAS2820.
+
 An dieser Stelle ist node1 ausgefallen und alle Daten werden von node2 bereitgestellt. Sie müssen darauf achten, nur das Knoten 1-Controller-Modul zu entfernen. Normalerweise ist node1 Controller A, der sich auf der linken Seite des Chassis befindet, wenn man sich die Controller von der Rückseite des Systems ansieht. Das Controller-Etikett befindet sich direkt über dem Controller-Modul auf dem Chassis.
 
 
@@ -24,9 +26,9 @@ Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
 
-== Entfernen Sie das Controller-Modul AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
+== Schritt 1: Entfernen Sie das AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720 Controller-Modul
 
-Um auf Komponenten im Controller zuzugreifen, entfernen Sie das Controller-Modul aus dem System und entfernen Sie dann die Abdeckung am Controller-Modul.
+Um auf die Komponenten im Inneren des node1 Controllers zuzugreifen, entfernen Sie das Controller-Modul aus dem System und nehmen Sie dann die Abdeckung des Controller-Moduls ab.
 
 .Schritte
 . Lösen Sie den Haken- und Schlaufenriemen, mit dem die Kabel am Kabelführungsgerät befestigt sind, und ziehen Sie dann die Systemkabel und SFPs (falls erforderlich) vom Controller-Modul ab, um zu verfolgen, wo die Kabel angeschlossen waren.
@@ -70,10 +72,14 @@ NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einsc
 . Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
 . Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 
