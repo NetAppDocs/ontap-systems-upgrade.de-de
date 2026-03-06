@@ -44,9 +44,11 @@ Dazu müssen die neuen Knoten hinzugefügt, die Volumes und LIFs auf die neuen K
 +
 ARL ist ein Austauschverfahren.  Sie müssen Ihren Cluster nicht mit den neuen Knoten erweitern und verkleinern, was für Zwei-Knoten-Switchless-Cluster von Vorteil ist.  Beim Verschieben von Datenvolumen ist das Verschieben von Daten durch Umstrukturieren von Aggregaten schneller als das Kopieren von Daten zwischen Aggregaten.
 
-* link:upgrade/upgrade-decide-to-use-this-guide.html["Speicher verschieben"]
+* Das ursprüngliche System in ein Laufwerksgehäuse umwandeln und den Speicher verschieben:
 +
-Sie können unterbrechungsfrei von einem AFF A250 auf ein AFF A400 oder von einem FAS2820 auf ein Ersatzsystem upgraden, indem Sie die ursprünglichen Knoten in Laufwerksschächte umwandeln und dann die Laufwerksschächte mit den Ersatzknoten verbinden, um den Onboard-Speicher zu verschieben.
+** link:upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["AFF A250 in ein Laufwerksgehäuse umwandeln und Speicher auf AFF A400 verschieben"]
+** link:upgrade/convert-to-drive-shelf.html["Konvertieren Sie AFF A150, AFF A220 oder FAS2820 in ein Laufwerksgehäuse und verschieben Sie den Speicher auf ein unterstütztes Ersatzsystem"]
+
 
 
 
@@ -62,7 +64,7 @@ Sie können unterbrechungsfrei von einem AFF A250 auf ein AFF A400 oder von eine
 
 
 
-| Habe ich ein integriertes System und möchte ich es aufrüsten, indem ich nur das Controller-Modul austausche und das vorhandene Gehäuse und die Festplatten beibehalte? | link:upgrade-arl-auto-affa900/index.html["Durch ein Upgrade mit ARL können Sie das gleiche Gehäuse und die gleichen Festplatten beibehalten."]. 
+| Habe ich ein integriertes System und möchte ich es aufrüsten, indem ich nur das Controller-Modul austausche und das vorhandene Gehäuse und die Festplatten beibehalte? | link:upgrade-arl-auto-in-chassis/index.html["Durch ein Upgrade mit ARL können Sie das gleiche Gehäuse und die gleichen Festplatten beibehalten."]. 
 
 
 | Versetze ich einen SVM? | Siehelink:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html#svm-migration-workflow["SVM-Datenmobilitätsübersicht"^] . 

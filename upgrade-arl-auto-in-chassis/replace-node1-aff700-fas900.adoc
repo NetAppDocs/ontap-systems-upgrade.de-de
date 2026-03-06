@@ -144,7 +144,7 @@ image:black_circle_two.png["Nummer zwei"]
 
 
 
-== Schritt 4: Installieren Sie das ASA A900, AFF A900 oder FAS9500 Controller-Modul auf node1.
+== Schritt 4: Installieren Sie das ASA A900, AFF A900 oder FAS9500 Controller-Modul in node1
 
 Installieren, verkabeln und verbinden Sie das ASA A900, AFF A900 oder FAS9500 Controller-Modul in node1.
 

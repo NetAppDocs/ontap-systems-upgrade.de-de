@@ -14,7 +14,7 @@ summary: Sie können Controller-Hardware aufrüsten, indem Sie ein altes System 
 
 
 [role="lead"]
-Es gibt verschiedene Methoden zur Aggregatverlagerung (ARL) für die Aktualisierung der Controller-Hardware. Dieses Verfahren beschreibt die Aktualisierung der Speichercontroller in einem HA-Paar durch Konvertierung des vorhandenen Systems in das Ersatzsystem unter Beibehaltung des vorhandenen Systemgehäuses und der vorhandenen Festplatten.
+Es gibt mehrere Methoden zur Aggregate-Umverlagerung (ARL) für die Aktualisierung der Controller-Hardware. Dieses Verfahren beschreibt, wie Speichercontroller in einem HA-Paar aktualisiert werden, indem das bestehende System in das Ersatzsystem umgewandelt wird, wobei das bestehende Systemgehäuse, die Festplatten und die darauf gespeicherten Daten erhalten bleiben.
 
 ARL nutzt die HA-Konfiguration und die Cluster Interconnect-Kommunikation. So können Sie Eigentum von nicht-Root-Aggregaten von einem Node zu einem anderen verschieben, wenn sie Storage innerhalb desselben Clusters gemeinsam nutzen.
 
@@ -39,18 +39,18 @@ Die Controller-Hardware, die Sie ersetzen, hängt vom vorhandenen Systemmodellty
 | AFF A700 ODER FAS9000 | Tauschen Sie den Controller und die NVRAM-Module auf jedem Node des alten Controllers gegen die neuen Module aus. *Hinweis*: Sie müssen die I/O-Karten, Datenkabel, Platten-Shelfs und Festplatten nicht verschieben, trennen oder wieder anschließen. 
 |===
 
-NOTE: Die Begriffe *node1* und *node2* werden nur als Hinweis auf Knotennamen in diesem Dokument verwendet. Wenn Sie das Verfahren befolgen, müssen Sie die tatsächlichen Namen Ihrer Knoten ersetzen.
+NOTE: Die Bezeichnungen *node1* und *node2* werden in diesem Dokument nur als Referenz für Knotennamen verwendet. Wenn Sie dem Verfahren folgen, müssen Sie die tatsächlichen Namen Ihrer Knoten verwenden.
 
 
 
 == Anforderungen und Einschränkungen zu erfüllen
 
-Sie müssen wichtige Faktoren berücksichtigen, bevor Sie mit dem Upgrade-Vorgang beginnen.
+Sie müssen wichtige Faktoren berücksichtigen, bevor Sie mit dem Upgrade beginnen.
 
 
-NOTE: Sie müssen alle folgenden wichtigen Informationen überprüfen, bevor Sie mit dem Upgrade-Vorgang beginnen.
+NOTE: Sie müssen alle folgenden wichtigen Informationen überprüfen.
 
-* Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie sollten auch die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien zum Upgraden von Controllern"] Und link:overview_of_the_arl_upgrade.html["ARL-Upgradesequenz"] bevor Sie mit dem Upgrade beginnen.
+* Dieses Verfahren ist komplex und setzt fortgeschrittene ONTAP Administrationskenntnisse voraus. Sie sollten die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien zum Upgraden von Controllern"] und link:overview_of_the_arl_upgrade.html["ARL-Upgradesequenz"] sorgfältig lesen und verstehen, bevor Sie mit dem Upgrade beginnen.
 * Bei diesem Verfahren wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht in einem anderen System verwendet wurde. Die erforderlichen Schritte zur Vorbereitung gebrauter Controller mit dem `wipeconfig` Befehl ist in dieser Prozedur nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor als Teil eines anderen ONTAP Clusters oder als Standalone-System mit einem einzelnen Node verwendet wurde.
 * Sie können dieses Verfahren zum Upgrade der Controller Hardware in Clustern mit mehr als zwei Nodes verwenden. Sie müssen jedoch die Verfahren für jedes HA-Paar im Cluster separat durchführen.
 * Wenn Sie über einen Switch verfügen, der von der ONTAP-Version und dem Ersatzsystem, auf das Sie aktualisieren, nicht unterstützt wird, finden Sie weitere Informationen unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
@@ -72,7 +72,7 @@ Wenn Sie auf dem vorhandenen Node keine e0a oder e0b Cluster-Ports mit den Clust
 
 
 * Die ASA Systeme A900, AFF A900 und FAS9500 unterstützen nur eine hohe Netzspannung (200 V bis 240 V). Wenn Ihr AFF A700 oder FAS9000 System mit niedriger Netzspannung (100 V bis 120 V) ausgeführt wird, müssen Sie vor diesem Verfahren die Eingangsspannung der AFF A700 oder FAS9000 konvertieren.
-* Wenn Sie von einem bestehenden System mit Ausfallzeiten aktualisieren, die in derlink:decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["Unterstützte Systeme Matrix"] Sie können die Controller-Hardware aufrüsten, indem Sie den Speicher verlagern oder sich an den technischen Support wenden.  Siehelink:other_references.html["Quellen"] um eine Verbindung zu _Upgrade durch Verschieben von Volumes oder Speicher_ herzustellen.
+* Wenn Sie ein Upgrade von einem bestehenden System mit Ausfallzeit durchführen, die im link:decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["Unterstützte Systeme Matrix"] enthalten ist, können Sie die Controller-Hardware aktualisieren, indem Sie Speicher verschieben oder den technischen Support kontaktieren. Siehe link:other_references.html["Quellen"], um auf _Upgrade durch Verschieben von Volumes oder Speicher_ zu verlinken.
 
 
 

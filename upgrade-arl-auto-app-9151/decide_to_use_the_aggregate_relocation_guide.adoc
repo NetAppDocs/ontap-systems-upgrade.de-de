@@ -14,7 +14,7 @@ summary: 'Entscheiden Sie mithilfe von Befehlen, ob Sie Controller, die ONTAP 9.
 
 
 [role="lead"]
-Es gibt verschiedene Methoden zur Aggregate Relocation (ARL) für die Aktualisierung der Controller-Hardware. Dieses ARL-Verfahren beschreibt, wie Sie ein HA-Controller-Paar in AFF- und FAS-Speichersystemen, die in ONTAP 9.15.1 oder höher eingeführt wurden, mit neuen Controllern aktualisieren und dabei die vorhandenen Daten und Festplatten beibehalten. Dies ist ein komplexes Verfahren, das nur von erfahrenen ONTAP-Administratoren verwendet werden sollte.
+Für die Aktualisierung der Controller-Hardware stehen verschiedene Methoden zur Aggregate-Umverlagerung (ARL) zur Verfügung. Dieses ARL-Verfahren beschreibt, wie ein HA-Controller-Paar in AFF und FAS Speichersystemen, die in ONTAP 9.15.1 oder später eingeführt wurden, mit neuen Controllern aktualisiert wird, wobei die vorhandenen Festplatten und gespeicherten Daten erhalten bleiben. Dies ist ein komplexes Verfahren, das nur von erfahrenen ONTAP Administratoren verwendet werden sollte.
 
 Um Ihnen bei der Entscheidung zu helfen, ob dieses ARL-Verfahren für Ihr Controller-Hardware-Upgrade geeignet ist, sollten Sie alle folgenden Umstände für unterstützte und nicht unterstützte Upgrades überprüfen.
 

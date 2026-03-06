@@ -30,10 +30,9 @@ Vergewissern Sie sich, dass Sie die folgenden Anforderungen erfüllen:
 * Sie haben alle entsprechenden Kabel zur Hand.
 
 
-.Über diese Aufgabe
-Die folgenden Schritte werden auf AFF A250 node1 durchgeführt.
-
 .Schritte
+Führen Sie diese Schritte auf AFF A250 node1 aus.
+
 . Zugriff auf die erweiterte Berechtigungsebene:
 +
 `set -privilege advanced`

@@ -1,25 +1,24 @@
 ---
-permalink: upgrade/reassign-fas2820-node2-drives.html 
+permalink: upgrade/reassign-node2-drives.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
-summary: Nachdem Sie FAS2820 Knoten2 in ein DS212C-Laufwerksregal konvertiert und eine Verbindung mit Knoten4 hergestellt haben, weisen Sie die Laufwerke, die zuvor zu Knoten2 gehörten, Knoten4 neu zu. 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: Nachdem Sie node2 in ein Laufwerksgehäuse umgewandelt und mit node4 verbunden haben, weisen Sie die Laufwerke, die zuvor zu node2 gehörten, node4 neu zu. 
 ---
-= Laufwerke von FAS2820 -Knoten2 zu Knoten4 neu zuweisen
+= Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Weisen Sie die Laufwerke, die zuvor zu FAS2820 Knoten2 gehörten, Knoten4 neu zu.
+Weisen Sie die Laufwerke, die zuvor zu node2 gehörten, node4 zu.
 
 .Bevor Sie beginnen
 Vergewissern Sie sich, dass sich an der LOADER-Eingabeaufforderung sowohl Knoten 3 als auch knoten 4 im Standby-Modus befinden.
 
-.Über diese Aufgabe
-Führen Sie die folgenden Schritte auf Knoten4 aus.
-
 .Schritte
+Führen Sie diese Schritte auf node4 durch.
+
 . Booten sie node 4 an der LOADER-Eingabeaufforderung im Wartungsmodus:
 +
 [source, cli]
@@ -84,4 +83,4 @@ halt
 
 
 .Was kommt als Nächstes?
-link:migrate-fas2820-aggregates-epsilon-lifs.html["Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4"]
+link:migrate-aggregates-epsilon-lifs.html["Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4"]

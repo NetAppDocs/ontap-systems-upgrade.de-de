@@ -1,22 +1,21 @@
 ---
-permalink: upgrade/migrate-fas2820-node4-lIfs-aggregates.html 
+permalink: upgrade/migrate-node4-lifs-aggregates.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node3, node4, migrate, aggregates, lif 
-summary: 'Um das Upgrade abzuschließen, verbinden Sie FAS2820node3 mit Knoten4 und migrieren dann die logischen Datenschnittstellen (LIFs) und Datenaggregate auf Knoten4 zu Knoten3.' 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node3, node4, migrate, aggregates, lif 
+summary: 'Um das Upgrade abzuschließen, verbinden Sie node3 mit node4 und migrieren Sie dann die logischen Datenschnittstellen (LIFs) und Datenaggregate von node4 zu node3.' 
 ---
-= Migrieren Sie LIFs und Datenaggregate auf FAS2820 Knoten4 zu Knoten3
+= Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Um das Upgrade abzuschließen, verbinden Sie FAS2820 Knoten3 mit Knoten4 und migrieren dann die logischen Datenschnittstellen (LIFs) und Datenaggregate auf Knoten4 zu Knoten3.
-
-.Über diese Aufgabe
-Führen Sie die folgenden Schritte auf Knoten3 aus.
+Um das Upgrade abzuschließen, verbinden Sie node3 mit node4 und migrieren Sie dann die logischen Datenschnittstellen (LIFs) und Datenaggregate von node4 zu node3.
 
 .Schritte
+Führen Sie diese Schritte auf node3 durch.
+
 . Booten Sie den Node an der LOADER-Eingabeaufforderung für Node 3 im Boot-Menü:
 +
 [source, cli]

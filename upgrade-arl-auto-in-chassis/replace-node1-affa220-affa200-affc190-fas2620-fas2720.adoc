@@ -48,7 +48,7 @@ image:drw_2240_x_opening_cam_latch.png["Öffnen des Nockengriffs"]
 
 
 
-== Installieren Sie das Controller-Modul ASA A150, AFF A150 oder FAS2820
+== Schritt 2: Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controller-Modul
 
 Installieren, verkabeln und verbinden Sie das ASA A150-, AFF A150- oder FAS2820-Controller-Modul in Knoten1.
 

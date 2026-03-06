@@ -1,22 +1,21 @@
 ---
-permalink: upgrade/migrate-fas2820-aggregates-epsilon-lifs.html 
+permalink: upgrade/migrate-aggregates-epsilon-lifs.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node1, node4, migrate, aggregates, lifs 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node1, node4, migrate, aggregates, lifs 
 summary: 'Migrieren Sie die Datenaggregate, Epsilon und logischen Schnittstellen (LIFs) auf Knoten1 zu Knoten4.' 
 ---
-= Migrieren Sie Datenaggregate, Epsilon und LIFs auf FAS2820 Knoten1 nach Knoten4
+= Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Migrieren Sie die Datenaggregate, Epsilon und logischen Schnittstellen (LIFs) auf dem FAS2820 Knoten1 zu Knoten4.
-
-.Über diese Aufgabe
-Führen Sie die folgenden Schritte auf Knoten4 aus.
+Migrieren Sie die Datenaggregate, Epsilon und logischen Schnittstellen (LIFs) auf Knoten1 zu Knoten4.
 
 .Schritte
+Führen Sie diese Schritte auf node4 durch.
+
 . Legen Sie an der LOADER-Eingabeaufforderung für Knoten4 die Partnersystem-ID fest:
 +
 [source, cli]
@@ -208,4 +207,4 @@ halt -node <node1> -inhibit-takeover true -ignore-quorum-warnings true
 
 
 .Was kommt als Nächstes?
-link:convert-fas2820-node1-drive-shelf.html["Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3"]
+link:convert-node1-to-drive-shelf.html["Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3"]

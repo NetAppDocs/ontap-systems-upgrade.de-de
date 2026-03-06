@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide.html 
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
-summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Modellen im selben Chassis anwenden. 
+summary: Entscheiden Sie, ob Sie das ARL-Verfahren verwenden, das Controllermodelle im selben Chassis, auf denselben Festplatten und die auf den Festplatten gespeicherten Daten aktualisiert. 
 ---
 = Entscheiden Sie, ob Sie dieses Verfahren zur Aggregatverlagerung verwenden möchten
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Entscheiden Sie, ob Sie das ARL-Verfahren zum Upgrade von Controller-Mo
 
 
 [role="lead"]
-Es gibt verschiedene Methoden zur Aggregate Relocation (ARL) für die Aktualisierung von Controller-Hardware. Dieser Artikel beschreibt die Aktualisierung von Speichercontrollern in einem HA-Paar durch Konvertierung des vorhandenen Systems in das Ersatzsystem unter Beibehaltung des vorhandenen Systemgehäuses und der vorhandenen Festplatten. Sie sollten dieses komplexe Verfahren nur anwenden, wenn Sie ein erfahrener ONTAP-Administrator sind.
+Es gibt mehrere Methoden zur Aggregate-Umverteilung (ARL) für die Aktualisierung der Controller-Hardware. Dieser Inhalt beschreibt, wie Speichercontroller in einem HA-Paar aktualisiert werden, indem das bestehende System auf das Ersatzsystem umgestellt wird, wobei das bestehende Systemgehäuse, die Festplatten und die auf den Festplatten gespeicherten Daten erhalten bleiben. Sie sollten dieses komplexe Verfahren nur anwenden, wenn Sie ein erfahrener ONTAP Administrator sind.
 
 Um Ihnen bei der Entscheidung zu helfen, ob dieses ARL-Verfahren für Ihr Controller-Hardware-Upgrade geeignet ist, sollten Sie alle folgenden Umstände für unterstützte und nicht unterstützte Upgrades überprüfen.
 
@@ -58,7 +58,7 @@ Informationen zum Upgrade einer MetroCluster-IP-Konfiguration finden Sie unter l
 
 == Unterstützte System-Upgrade-Kombinationen
 
-Die folgende Tabelle zeigt die Matrix der unterstützten Systeme für die Durchführung eines Controller-Upgrades durch Konvertieren des vorhandenen Systems in das Ersatzsystem, wobei das vorhandene Systemgehäuse und die vorhandenen Festplatten beibehalten werden.
+Die folgende Tabelle zeigt die unterstützte Systemmatrix für die Durchführung eines Controller-Upgrades durch Umwandlung des bestehenden Systems in das Ersatzsystem, wobei das bestehende Systemgehäuse, die Festplatten und die darauf gespeicherten Daten beibehalten werden.
 
 
 CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle finden link:other_references.html["Quellen"] Sie einen Link zu den Befehlen „ System Controller ersetzen“ verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und „ Aggregatverschiebung verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher manuell zu aktualisieren_.

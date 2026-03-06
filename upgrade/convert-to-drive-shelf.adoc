@@ -1,0 +1,58 @@
+---
+permalink: upgrade/convert-to-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, FAS, systems, entry, level 
+summary: Führen Sie ein unterbrechungsfreies Upgrade durch, indem Sie jeden Knoten in ein Laufwerksgehäuse umwandeln und ihn mit dem Ersatzknoten verbinden. 
+---
+= Erfahren Sie mehr über die Umrüstung von AFF A150, AFF A220 oder FAS2820 zu einem Laufwerksschacht und das Verschieben von Storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Führen Sie ein unterbrechungsfreies Upgrade eines AFF A150, AFF A220 oder FAS2820 Systems durch. Konvertieren Sie zunächst jeden Knoten im AFF A150, AFF A220 oder FAS2820 System in ein Laufwerksgehäuse. Verbinden Sie sie dann mit den Ersatzknoten. Dadurch wird der Onboard-Speicher auf das Ersatzsystem übertragen.
+
+.Über diese Aufgabe
+Dieses Verfahren unterstützt die folgenden Systemumstellungen:
+
+* Konvertierung eines AFF A150 oder AFF A220 in ein DS224C-Laufwerksgehäuse
+* Umbau eines FAS2820 zu einem DS212C Drive Shelf
+
+
+Die Hochverfügbarkeits-(HA)-Paar-Controller sind node1 und node2 und die Ersatz-HA-Paar-Controller sind node3 und node4.
+
+.Bevor Sie beginnen
+Prüfen Sie die allgemeinen Upgrade-Szenarien und Upgrade-Überlegungen für das Upgrade durch Verschieben von Volumes oder Storage:
+
+* link:upgrade-decide-to-use-this-guide.html["Entscheiden Sie, ob Sie ein Upgrade durch Verschieben von Volumes oder Storage durchführen"]
+* link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]xref:migrate-node2-lifs-aggregates.adoc[Migrieren Sie LIFs und Datenaggregate auf Knoten2 zu Knoten1]
+[role="quick-margin-para"]
+Bevor Sie node2 in ein Laufwerksgehäuse umwandeln, migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate von node2 zu node1.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]xref:convert-node2-to-drive-shelf.adoc[Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit node 4]
+[role="quick-margin-para"]
+Konvertieren Sie node2 in ein Laufwerksgehäuse und verbinden Sie es anschließend mit node4, bevor Sie die Laufwerke von node2 zu node4 neu zuweisen.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"]xref:reassign-node2-drives.adoc[Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu]
+[role="quick-margin-para"]
+Nachdem node2 in ein Laufwerksgehäuse umgewandelt und mit node4 verbunden wurde, weisen Sie die Laufwerke, die zuvor zu node2 gehörten, node4 neu zu.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"]xref:migrate-aggregates-epsilon-lifs.adoc[Migrieren Sie Datenaggregate, Epsilon und LIFs auf Node 1 nach node 4]
+[role="quick-margin-para"]
+Bevor Sie node1 in ein Laufwerksgehäuse umwandeln, migrieren Sie die Datenaggregate, epsilon und LIFs von node1 zu node4.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"]xref:convert-node1-to-drive-shelf.adoc[Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3]
+[role="quick-margin-para"]
+Konvertieren Sie node1 in ein Laufwerksgehäuse und verbinden Sie es mit node3, bevor Sie die Laufwerke von node1 zu node3 neu zuweisen.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"]xref:reassign-node1-drives.adoc[Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3]
+[role="quick-margin-para"]
+Nachdem node1 in ein Laufwerksgehäuse umgewandelt und mit node3 verbunden wurde, weisen Sie die Laufwerke, die zuvor zu node1 gehörten, node3 neu zu.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]xref:migrate-node4-lIfs-aggregates.adoc[Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3]
+[role="quick-margin-para"]
+Um das Upgrade abzuschließen, verbinden Sie node3 mit node4 und migrieren Sie die Daten-LIFs und Datenaggregate von node4 zu node3.

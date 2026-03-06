@@ -25,7 +25,7 @@ CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im se
 
 == Schritt 1: Entfernen Sie das AFF A250 oder AFF C250 Controller-Modul
 
-Um das node1 Controller-Modul zu entfernen, entfernen Sie die Kabelverwaltungsvorrichtung und entriegeln Sie die Verriegelungsklinken. Entfernen Sie dann das Controller-Modul aus dem Chassis.
+Um das Controller-Modul node1 zu entfernen, entfernen Sie die Kabelmanagement-Vorrichtung und entriegeln Sie die Verriegelungsriegel. Entfernen Sie dann das Controller-Modul aus dem Chassis.
 
 .Bevor Sie beginnen
 Wenn du nicht bereits geerdet bist, beground dich richtig.
@@ -77,7 +77,7 @@ Stellen Sie sicher, dass Sie das Gewicht des Controller-Moduls halten, wenn Sie 
 
 
 
-== Installieren Sie das Controller-Modul AFF A30, AFF A50, AFF C30 oder AFF C60
+== Schritt 2: Installieren Sie das AFF A30, AFF A50, AFF C30 oder AFF C60 Controllermodul
 
 Installieren, verkabeln und schließen Sie das Ersatzmodul in Knoten 1 an.
 

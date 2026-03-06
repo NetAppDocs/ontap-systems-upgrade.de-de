@@ -1,21 +1,21 @@
 ---
-permalink: upgrade/convert-fas2820-node2-drive-shelf.html 
+permalink: upgrade/convert-node2-to-drive-shelf.html 
 sidebar: sidebar 
-keywords: fas8280, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
-summary: 'Wandeln Sie Knoten 2 (FAS2820) in ein DS212C-Laufwerksregal um und stellen Sie dann eine Verbindung zu Knoten 4 her.' 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: Konvertieren Sie node2 in ein Laufwerksgehäuse und verbinden Sie es mit node4, bevor Sie die Laufwerke von node2 zu node4 neu zuweisen. 
 ---
-= Konvertieren Sie FAS2820 Knoten2 in ein Laufwerksregal und verbinden Sie es mit Knoten4
+= Konvertieren Sie Node 2 in ein Laufwerk-Shelf und verbinden Sie ihn mit node 4
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Konvertieren Sie FAS2820 Node2 in ein DS212C-Laufwerksregal.  Stellen Sie eine Verbindung zu Knoten4 her, bevor Sie Laufwerke von Knoten2 zu Knoten4 neu zuweisen.  Knoten1 und Knoten2 sind die Controller im DS212C-Regal.
+Konvertieren Sie node2 in ein Laufwerksgehäuse und verbinden Sie es mit node4, bevor Sie die Laufwerke von node2 zu node4 neu zuweisen. node1 und node2 sind die Controller innerhalb des Laufwerksgehäuses.
 
 .Schritte
 . Trennen Sie alle Netzwerkkabel von Knoten 2.
-. Entfernen Sie Knoten2 aus dem FAS2820 Gehäuse.
+. Entfernen Sie node2 aus dem AFF A150, AFF A220 oder FAS2820 Chassis.
 . Setzen Sie das IOM12- oder IOM12B-Modul in den Schacht von Knoten2 ein.
 . Verkabeln Sie den Serial-Attached SCSI (SAS)-Port von Node4 mit einem freien Port am IOM12- oder IOM12B-Modul.  Siehe dielink:https://hwu.netapp.com["Hardware Universe"^] um die SAS-Ports für Ihr System zu überprüfen.
 . Erstellen Sie temporäre Clusterverbindungen, indem Sie die Ports e0a und e0b von Knoten 1 mit zwei beliebigen 25-GbE-Ports auf Knoten 4 verbinden.
@@ -26,4 +26,4 @@ NOTE: Wenn Knoten 4 nur 10-GbE-Clusterverbindungen unterstützt, müssen Sie üb
 
 
 .Was kommt als Nächstes?
-link:reassign-fas2820-node2-drives.html["Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu"]
+link:reassign-node2-drives.html["Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu"]

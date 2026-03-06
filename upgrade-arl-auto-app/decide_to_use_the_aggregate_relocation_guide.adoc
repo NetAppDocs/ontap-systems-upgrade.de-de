@@ -29,9 +29,9 @@ Informationen zum Aktualisieren von MetroCluster-IP-Konfigurationen finden  Sie 
 
 [NOTE]
 ====
-* Wenn Sie ein System aktualisieren, indem Sie Controller-Module im selben Gehäuse austauschen, wie z. B. AFF A800 oder AFF C800, empfiehlt NetApp dringend, das Upgrade-Verfahren zu verwenden, daslink:../upgrade-arl-auto-in-chassis/index.html["Upgrades von Controller-Modellen mit ARL, wobei das vorhandene Systemgehäuse und die Festplatten erhalten bleiben"] .  Dieses ARL-Verfahren umfasst die Schritte, die sicherstellen, dass die internen Festplatten sicher im Gehäuse bleiben, wenn Sie die Controller während des Upgrade-Vorgangs entfernen und installieren.
+* Wenn Sie ein System durch den Austausch von Controllermodulen im selben Gehäuse aufrüsten, wie zum Beispiel AFF A800 oder AFF C800, empfiehlt NetApp dringend, das Upgrade-Verfahren zu verwenden, das link:../upgrade-arl-auto-in-chassis/index.html["aktualisiert Controller-Modelle mit ARL, wobei das bestehende Systemgehäuse, die Festplatten und die Daten beibehalten werden"]. Dieses ARL-Verfahren beinhaltet die Schritte, die sicherstellen, dass die internen Festplatten während des Aus- und Einbaus der Controller im Gehäuse sicher verbleiben.
 +
-link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["Erfahren Sie mehr über die unterstützten System-Upgrade-Kombinationen mit ARL, wobei das vorhandene Systemgehäuse und die Festplatten erhalten bleiben"].
+link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide.html#supported-systems-in-chassis["Erfahren Sie mehr über die unterstützten System-Upgrade-Kombinationen mit ARL, wobei das vorhandene Systemgehäuse, die Festplatten und die Daten beibehalten werden"].
 
 * Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryption (NVE) und NetApp Aggregate Encryption (NAE) verwenden.
 
@@ -72,6 +72,9 @@ Die folgende Tabelle zeigt die unterstützte Systemmatrix für die Durchführung
 
 
 | AFF A400, AFF A700 | AFF A900 
+
+
+| FAS2620^4^, FAS2720^4^ | FAS2820 
 |===
 
 NOTE: Wenn Ihre Kombination aus Controller-Upgrade-Modellen nicht in der obigen Tabelle aufgeführt ist, wenden Sie sich an den technischen Support.
@@ -87,7 +90,7 @@ NOTE: Wenn Ihre Kombination aus Controller-Upgrade-Modellen nicht in der obigen 
 
 ^3^für FAS8020, FAS8040, AFF8020 und AFF8040 System-Upgrades zu den in der Tabelle oben aufgeführten Zielaustausch-Controllern müssen die Ersatz-Controller dieselbe ONTAP-Version wie der alte Controller ausführen. Hinweis: FAS8020, FAS8040, AFF8020 und AFF8040 Systeme unterstützen ONTAP Versionen nicht später als ONTAP 9.8.
 
-^4^die folgende Tabelle zeigt die minimal- und später unterstützten ONTAP-Versionen für diese Controller-Upgrade-Kombinationen.
+^4^Die folgende Tabelle zeigt die unterstützten ONTAP Versionen für die Controller-Upgrade-Kombinationen.
 
 [cols="20,30,20,30"]
 |===
@@ -97,7 +100,10 @@ NOTE: Wenn Ihre Kombination aus Controller-Upgrade-Modellen nicht in der obigen 
 | System | ONTAP-Version | System | ONTAP-Version 
 
 
-| AFF A320 | 9.9.1 oder höher | AFF A400 | 9.9.1 oder höher 
+| FAS2720 | 9.13.1 oder später | FAS2820 | 9.13.1 oder später 
+
+
+| FAS2760 | 9.11.1P7 oder früher | FAS2820 | 9.13.1 oder später 
 
 
 | AFF8060 | 9.8P13 oder höher Patches | AFF A900 | 9.10.1 bis 9.12.1 
@@ -110,6 +116,9 @@ NOTE: Wenn Ihre Kombination aus Controller-Upgrade-Modellen nicht in der obigen 
 
 
 | FAS8080 | Patches ab 9.8P12 | FAS9500 | 9.10.1P3 bis 9.12.1 
+
+
+| AFF A320 | 9.9.1 oder höher | AFF A400 | 9.9.1 oder höher 
 |===
 [NOTE]
 ====

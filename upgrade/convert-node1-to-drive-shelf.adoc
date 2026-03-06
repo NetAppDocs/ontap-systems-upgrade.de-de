@@ -1,0 +1,29 @@
+---
+permalink: upgrade/convert-node1-to-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: Konvertieren Sie node1 in ein Laufwerksgehäuse und verbinden Sie es mit node3, bevor Sie die Laufwerke von node1 zu node3 neu zuweisen. 
+---
+= Konvertieren Sie Knoten 1 in ein Laufwerk-Shelf und verbinden Sie es mit Knoten 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Konvertieren Sie node1 in ein Laufwerksgehäuse und verbinden Sie es mit node3, bevor Sie die Laufwerke von node1 zu node3 neu zuweisen.
+
+.Schritte
+. Trennen Sie alle Netzwerkkabel von Knoten 1.
+. Entfernen Sie node1 aus dem AFF A150, AFF A220 oder FAS2820 Chassis.
+. Setzen Sie das IOM12- oder IOM12B-Modul in den Schacht von Knoten1 ein.
+. Verbinden Sie den SAS-Anschluss von node3 mit einem freien Anschluss des IOM12- oder IOM12B-Moduls. Siehe die link:https://hwu.netapp.com["Hardware Universe"^] zur Überprüfung der SAS-Anschlüsse Ihres Systems.
+. Erstellen Sie temporäre Clusterverbindungen, indem Sie die Cluster-Ports von Knoten 4 mit beliebigen Cluster-Ports auf Knoten 3 verbinden.
++
+
+NOTE: Wenn Knoten3 nur 10-GbE-Clusterverbindungen unterstützt, müssen Sie über eine 10-GbE-Verkabelung verfügen, um temporäre Clusterverbindungen zu erstellen.
+
+
+
+.Was kommt als Nächstes?
+link:reassign-node1-drives.html["Neuzuweisung von Laufwerken von Knoten 1 zu Knoten 3"]

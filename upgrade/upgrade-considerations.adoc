@@ -117,7 +117,7 @@ Der Transfer des internen Speichers ist eine optionale Aufgabe im Workflow für 
 
 .Verwandte Informationen
 * link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["Konvertieren Sie AFF A250 in ein Laufwerksregal und aktualisieren Sie auf AFF A400"](unterbrechungsfreies Verfahren)
-* link:convert-fas2820-to-drive-shelf.html["Upgrade von FAS2820 durch Umbau auf ein Laufwerksregal"](unterbrechungsfreies Verfahren)
+* link:convert-to-drive-shelf.html["Upgrade von AFF A150, AFF A220 oder FAS2820 durch Umwandlung in ein Laufwerksgehäuse"] (unterbrechungsfreies Verfahren)
 * link:../choose_controller_upgrade_procedure.html["Wählen Sie Methoden zum Upgrade der Controller-Hardware"]
 * link:upgrade-by-moving-storage-parent.html["Upgrade von Controller Hardware durch Storage-Verschiebung"]
 * link:upgrade-by-moving-volumes-parent.html["Aktualisieren Sie die Controller Hardware durch Verschieben von Volumes"]

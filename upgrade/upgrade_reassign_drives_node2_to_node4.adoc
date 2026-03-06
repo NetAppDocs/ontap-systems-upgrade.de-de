@@ -16,10 +16,9 @@ Nach dem Konvertieren von AFF A250 Knoten 2 in ein NS224 Laufwerk-Shelf und Ansc
 .Bevor Sie beginnen
 Vergewissern Sie sich, dass sich an der LOADER-Eingabeaufforderung sowohl Knoten 3 als auch knoten 4 im Standby-Modus befinden.
 
-.Über diese Aufgabe
-Sie führen die folgenden Schritte auf knoten 4 aus.
-
 .Schritte
+Führen Sie diese Schritte auf AFF A400 node4 durch.
+
 . Booten sie node 4 an der LOADER-Eingabeaufforderung im Wartungsmodus:
 +
 `boot_ontap maint`

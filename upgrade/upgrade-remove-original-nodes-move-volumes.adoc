@@ -20,8 +20,6 @@ Nachdem die Volumes von den ursprünglichen Knoten auf die neuen Knoten verschob
 ----
 storage failover modify -node <original_node_name> -enabled false
 ----
-
-
 . Ändern Sie die Berechtigungsstufe auf „advanced“:
 +
 [source, cli]
@@ -167,7 +165,7 @@ set -privilege admin
 ----
 
 
-. Schritte wiederholen <<disable-ha,1>> Zu <<return-admin,10>> um den Failover-Partner aus dem Cluster zu entfernen.
+. Wiederholen Sie die Schritte <<disable-ha,2>> bis <<return-admin,11>>, um den Failover-Partner aus dem Cluster zu entfernen.
 . Wenn nur noch zwei Nodes vorhanden sind, konfigurieren Sie Hochverfügbarkeit für das Cluster mit zwei Nodes:
 +
 [source, cli]
