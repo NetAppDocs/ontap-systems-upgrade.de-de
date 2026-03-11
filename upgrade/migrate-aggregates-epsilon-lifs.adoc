@@ -11,7 +11,7 @@ summary: 'Migrieren Sie die Datenaggregate, Epsilon und logischen Schnittstellen
 
 
 [role="lead"]
-Migrieren Sie die Datenaggregate, Epsilon und logischen Schnittstellen (LIFs) auf Knoten1 zu Knoten4.
+Migrieren Sie die Datenaggregate, Epsilon und logischen Schnittstellen (LIFs) auf AFF A150, AFF A220 oder FAS2820 node1 zu node4.
 
 .Schritte
 Führen Sie diese Schritte auf node4 durch.

@@ -179,7 +179,7 @@ Bei Bedarf können Sie die Verschiebung mit einer der folgenden Methoden erzwing
 
 
 
-Weitere Informationen zu den Befehlen für die Verschiebung des Storage-Aggregats finden Sie unter link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregat-Management mit den Befehlen CLI_ und _ONTAP 9: Manual Page Reference_.
+Weitere Informationen zu den Befehlen für die Speicheraggregatverschiebung finden Sie unter link:other_references.html["Quellen"] _Disk and aggregate management with the CLI_ und der _ONTAP 9 Command reference_.
 
 |===
 . [[man_relocate_2_3_step8]]Stellen Sie sicher, dass alle nicht-Root-Aggregate online sind auf node3:

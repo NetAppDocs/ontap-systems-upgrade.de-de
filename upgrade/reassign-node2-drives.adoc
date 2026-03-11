@@ -2,7 +2,7 @@
 permalink: upgrade/reassign-node2-drives.html 
 sidebar: sidebar 
 keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
-summary: Nachdem Sie node2 in ein Laufwerksgehäuse umgewandelt und mit node4 verbunden haben, weisen Sie die Laufwerke, die zuvor zu node2 gehörten, node4 neu zu. 
+summary: Nach der Umwandlung von AFF A150, AFF A220 oder FAS2820 node2 in ein Laufwerksgehäuse und dem Anschluss an node4 ordnen Sie die Laufwerke, die zuvor zu node2 gehörten, node4 neu zu. 
 ---
 = Weisen Sie Laufwerke von Knoten 2 zu knoten 4 neu zu
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Nachdem Sie node2 in ein Laufwerksgehäuse umgewandelt und mit node4 ve
 
 
 [role="lead"]
-Weisen Sie die Laufwerke, die zuvor zu node2 gehörten, node4 zu.
+Weisen Sie die Laufwerke, die zuvor zu AFF A150, AFF A220 oder FAS2820 node2 gehörten, node4 zu.
 
 .Bevor Sie beginnen
 Vergewissern Sie sich, dass sich an der LOADER-Eingabeaufforderung sowohl Knoten 3 als auch knoten 4 im Standby-Modus befinden.

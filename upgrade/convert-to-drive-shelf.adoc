@@ -16,14 +16,19 @@ Führen Sie ein unterbrechungsfreies Upgrade eines AFF A150, AFF A220 oder FAS28
 .Über diese Aufgabe
 Dieses Verfahren unterstützt die folgenden Systemumstellungen:
 
-* Konvertierung eines AFF A150 oder AFF A220 in ein DS224C-Laufwerksgehäuse
-* Umbau eines FAS2820 zu einem DS212C Drive Shelf
+|===
+| Dieses System umstellen... | Zu diesem Laufwerksschacht... 
 
 
+| AFF A150 oder AFF A220 | DS224C 
+
+
+| FAS2820 | DS212C 
+|===
 Die Hochverfügbarkeits-(HA)-Paar-Controller sind node1 und node2 und die Ersatz-HA-Paar-Controller sind node3 und node4.
 
 .Bevor Sie beginnen
-Prüfen Sie die allgemeinen Upgrade-Szenarien und Upgrade-Überlegungen für das Upgrade durch Verschieben von Volumes oder Storage:
+Überprüfen Sie alle Überlegungen für ein Upgrade durch das Verschieben von Volumes oder Storage:
 
 * link:upgrade-decide-to-use-this-guide.html["Entscheiden Sie, ob Sie ein Upgrade durch Verschieben von Volumes oder Storage durchführen"]
 * link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]

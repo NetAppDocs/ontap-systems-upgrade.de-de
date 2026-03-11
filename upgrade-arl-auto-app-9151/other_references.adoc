@@ -48,13 +48,7 @@ Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufge
 | link:https://docs.netapp.com/us-en/ontap/network-management/index.html["Netzwerkmanagement"^] | Beschreibt die Konfiguration und das Management von physischen und virtuellen Netzwerk-Ports (VLANs und Schnittstellengruppen), LIFs, Routing- und Host-Resolution-Services in Clustern; Optimierung des Netzwerk-Traffic durch Lastenausgleich; und Überwachung des Clusters mit SNMP 
 
 
-| link:https://docs.netapp.com/us-en/ontap-cli-9131/index.html["ONTAP 9.13.1 Befehle: Manuelle Seitenreferenz"^] | Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.13.1-Befehle. 
-
-
-| link:https://docs.netapp.com/us-en/ontap-cli-9141/index.html["ONTAP 9.14.1 Befehle: Manuelle Seitenreferenz"^] | Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.14.1-Befehle. 
-
-
-| link:https://docs.netapp.com/us-en/ontap-cli/index.html["ONTAP 9.15.1 Befehle: Manuelle Seitenreferenz"^] | Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9.15.1-Befehle. 
+| link:https://docs.netapp.com/us-en/ontap-cli/index.html["ONTAP 9 Befehlsreferenz"^] | Beschreibt die Syntax und Verwendung der unterstützten ONTAP 9-Befehle. 
 
 
 | link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN-Management mit CLI"^] | In wird beschrieben, wie LUNs, Initiatorgruppen und Ziele mithilfe der iSCSI- und FC-Protokolle sowie Namespaces und Subsysteme mit dem NVMe/FC-Protokoll konfiguriert und gemanagt werden. 

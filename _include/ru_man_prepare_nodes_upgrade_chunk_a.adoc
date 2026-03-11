@@ -315,7 +315,7 @@ vs0
 `network interface revert -vserver * -lif *`
 
 +
-Ausführliche Informationen zum `network interface revert` Befehl, siehe link:other_references.html["Quellen"] Link zu den Befehlen _ONTAP 9: Manual Page Reference_.
+Für detaillierte Informationen zum  `network interface revert` Befehl verweisen Sie sich auf link:other_references.html["Quellen"] den Link zur _ONTAP 9 Command reference_.
 
 . Überprüfen Sie, ob node1 oder node2 ausgefallene Festplatten besitzt:
 +

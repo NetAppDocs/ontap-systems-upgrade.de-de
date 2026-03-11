@@ -64,7 +64,7 @@ ARL ist ein Austauschverfahren.  Sie müssen Ihren Cluster nicht mit den neuen K
 
 
 
-| Habe ich ein integriertes System und möchte ich es aufrüsten, indem ich nur das Controller-Modul austausche und das vorhandene Gehäuse und die Festplatten beibehalte? | link:upgrade-arl-auto-in-chassis/index.html["Durch ein Upgrade mit ARL können Sie das gleiche Gehäuse und die gleichen Festplatten beibehalten."]. 
+| Habe ich ein integriertes System und möchte ich es aufrüsten, indem ich nur das Controller-Modul austausche und das vorhandene Gehäuse und die Festplatten beibehalte? | link:upgrade-arl-auto-in-chassis/index.html["Upgrade mittels ARL unter Beibehaltung des gleichen Gehäuses, der gleichen Festplatten und der auf den Festplatten gespeicherten Daten"]. 
 
 
 | Versetze ich einen SVM? | Siehelink:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html#svm-migration-workflow["SVM-Datenmobilitätsübersicht"^] . 

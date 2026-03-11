@@ -154,7 +154,7 @@ SEDs können mit Laufwerken ohne Verschlüsselung auf demselben Node oder HA-Paa
 ====
 .. Gehen Sie zum speziellen Startmenü und wählen Sie Option `(10) Set Onboard Key Manager recovery secrets`.
 +
-Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgezeichnet haben. Siehe link:manage_authentication_okm.html["Verwaltung von Authentifizierungsschlüssel mit dem Onboard Key Manager"].
+Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im Verfahren notiert haben. Siehe link:manage_authentication_okm.html["Verwaltung von Authentifizierungsschlüssel mit dem Onboard Key Manager"].
 
 
 

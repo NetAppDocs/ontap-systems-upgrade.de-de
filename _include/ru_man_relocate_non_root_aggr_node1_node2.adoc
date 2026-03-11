@@ -63,7 +63,7 @@ NOTE: Warten Sie, bis alle nicht-Root-Aggregate im Besitz von node1 in node2 ver
 
 
 
-Siehe link:other_references.html["Quellen"] Link zum _Disk- und Aggregatmanagement mit dem CLI_ Inhalt und den _ONTAP 9 Befehlen: Manual Page Reference_ Weitere Informationen zu den Befehlen zum Verlegen von Speicheraggregaten.
+Weitere Informationen zu Befehlen zur Speicheraggregatverschiebung finden Sie unter link:other_references.html["Quellen"] dem Link zum Abschnitt „Disk- und Aggregatverwaltung mit der CLI“ und der „ONTAP 9 Command reference“.
 
 |===
 . [[man_relocate_1_2_step4]] Überprüfen Sie, ob alle nicht-Root-Aggregate online sind und ihren Status auf node2:

@@ -260,7 +260,7 @@ Das System zeigt auf beiden Nodes detaillierte Informationen zum SP an.
 . Vergewissern Sie sich, dass das SP-Netzwerk konfiguriert ist.
 . Notieren Sie die IP-Adresse und andere Informationen zum SP.
 +
-Möglicherweise möchten Sie die Netzwerkparameter der Remote-Verwaltungsgeräte, in diesem Fall die SPs, vom ursprünglichen System für die SPs auf den neuen Knoten wieder verwenden. Ausführliche Informationen zum SP finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _Systemadministration Reference_ und _ONTAP 9: Manual Page Reference_.
+Möglicherweise möchten Sie die Netzwerkparameter der Remote-Management-Geräte, in diesem Fall die SPs, vom ursprünglichen System für die SPs auf den neuen Knoten wiederverwenden. Detaillierte Informationen zu den SP finden Sie unter link:other_references.html["Quellen"] dem Link zur _System Administration Reference_ und der _ONTAP 9 Command reference_.
 
 +
 .. [[man_prepare_nodes_step29]]Wenn die neuen Knoten über die gleiche lizenzierte Funktionalität wie die ursprünglichen Knoten verfügen sollen, geben Sie den folgenden Befehl ein, um die Cluster-Lizenzen auf dem ursprünglichen System anzuzeigen:
@@ -331,7 +331,7 @@ Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsre
 `system node autosupport show -node node_name -instance`
 
 +
-Ausführliche Informationen zu AutoSupport finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _Systemadministration Reference_ und _ONTAP 9: Manual Page Reference_.
+Detaillierte Informationen zu AutoSupport finden Sie unter link:other_references.html["Quellen"] zum Verweis auf die _System Administration Reference_ und die _ONTAP 9 Command reference_.
 
 .. [[man_prepare_Nodes_step35,Schritt 35]] Senden Sie eine AutoSupport-Nachricht für node1 an NetApp, indem Sie den folgenden Befehl eingeben:
 +

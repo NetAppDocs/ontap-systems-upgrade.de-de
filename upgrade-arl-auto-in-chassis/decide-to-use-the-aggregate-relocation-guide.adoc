@@ -50,7 +50,7 @@ Unter folgenden Umständen können Sie dieses ARL-Verfahren nicht verwenden:
 * Sie möchten dem Cluster die neuen Controller als neues HA-Paar hinzufügen und die Daten mithilfe von Volume-Verschiebungen migrieren.
 * Sie aktualisieren gerade eine MetroCluster IP-Konfiguration.
 +
-Informationen zum Upgrade einer MetroCluster-IP-Konfiguration finden Sie unter link:other_references.html["Quellen"] zum Link zum _MetroCluster-Upgrade und -Erweiterung_-Inhalt.
+Um eine MetroCluster IP-Konfiguration zu aktualisieren, siehe link:other-references.html["Quellen"] zum Verlinken auf den Inhalt _MetroCluster Upgrade und Expansion_.
 
 
 
@@ -61,7 +61,7 @@ Informationen zum Upgrade einer MetroCluster-IP-Konfiguration finden Sie unter l
 Die folgende Tabelle zeigt die unterstützte Systemmatrix für die Durchführung eines Controller-Upgrades durch Umwandlung des bestehenden Systems in das Ersatzsystem, wobei das bestehende Systemgehäuse, die Festplatten und die darauf gespeicherten Daten beibehalten werden.
 
 
-CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen: Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle finden link:other_references.html["Quellen"] Sie einen Link zu den Befehlen „ System Controller ersetzen“ verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und „ Aggregatverschiebung verwenden, um die Controller-Hardware mit ONTAP 9.8 oder höher manuell zu aktualisieren_.
+CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen. Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle siehe link:other-references.html["Quellen"] zum Verlinken auf _Verwenden Sie „system controller replace“-Befehle, um Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und _Verwenden Sie die Aggregatverlagerung, um Controller-Hardware mit ONTAP 9.8 oder höher manuell zu aktualisieren_.
 
 [cols="20,20,40"]
 |===

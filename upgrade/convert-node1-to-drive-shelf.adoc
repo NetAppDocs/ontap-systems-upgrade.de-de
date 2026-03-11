@@ -11,7 +11,7 @@ summary: Konvertieren Sie node1 in ein Laufwerksgehäuse und verbinden Sie es mi
 
 
 [role="lead"]
-Konvertieren Sie node1 in ein Laufwerksgehäuse und verbinden Sie es mit node3, bevor Sie die Laufwerke von node1 zu node3 neu zuweisen.
+Konvertieren Sie AFF A150, AFF A220 oder FAS2820 node1 in ein Laufwerksgehäuse und verbinden Sie es mit node3, bevor Sie die Laufwerke von node1 zu node3 neu zuweisen.
 
 .Schritte
 . Trennen Sie alle Netzwerkkabel von Knoten 1.

@@ -24,14 +24,14 @@ Sie können den Netzboot auch über die USB-Boot-Option ausführen. Weitere Info
 
 .Bevor Sie beginnen
 * Vergewissern Sie sich, dass Sie mit dem System auf einen HTTP-Server zugreifen können.
-* Laden Sie die für Ihr System erforderlichen Systemdateien und die korrekte Version von ONTAP von _NetApp Support Site_ herunter. Siehe link:other_references.html["Quellen"] Link zur NetApp Support Site_.
+* Laden Sie die benötigten Systemdateien für Ihr System und die richtige Version von ONTAP von der _NetApp Support Site_ herunter. Siehe link:other-references.html["Quellen"] zum Verlinken auf die _NetApp Support Site_.
 
 
 .Über diese Aufgabe
 Sie müssen die neuen Controller als Netzboot ansehen, wenn sie nicht die gleiche Version von ONTAP 9 auf ihnen installiert sind, die auf den ursprünglichen Controllern installiert ist. Nachdem Sie jeden neuen Controller installiert haben, starten Sie das System über das auf dem Webserver gespeicherte ONTAP 9-Image. Anschließend können Sie die richtigen Dateien auf das Boot-Medium herunterladen, um später das System zu booten.
 
 .Schritte
-. Siehe link:other_references.html["Quellen"] Um eine Verknüpfung zur NetApp Support Site_ zu erhalten, um die Dateien zum Ausführen des Netzboots des Systems herunterzuladen.
+. Siehe link:other-references.html["Quellen"] zum Verlinken auf die _NetApp Support Site_, um die für den Netboot des Systems verwendeten Dateien herunterzuladen.
 . [[Netzboot_node1_step2]]Laden Sie die entsprechende ONTAP Software aus dem Bereich zum Software Download der _NetApp Support Site_ herunter und speichern Sie die `<ontap_version>_image.tgz` Datei in einem webbasierten Verzeichnis.
 . Wechseln Sie in das Verzeichnis für den Zugriff über das Internet, und stellen Sie sicher, dass die benötigten Dateien verfügbar sind.
 . Ihre Verzeichnisliste sollte enthalten `<ontap_version>_image.tgz`.

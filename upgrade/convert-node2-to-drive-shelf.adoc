@@ -11,7 +11,7 @@ summary: Konvertieren Sie node2 in ein Laufwerksgehäuse und verbinden Sie es mi
 
 
 [role="lead"]
-Konvertieren Sie node2 in ein Laufwerksgehäuse und verbinden Sie es mit node4, bevor Sie die Laufwerke von node2 zu node4 neu zuweisen. node1 und node2 sind die Controller innerhalb des Laufwerksgehäuses.
+Konvertieren Sie AFF A150, AFF A220 oder FAS2820 node2 in ein Laufwerksgehäuse und verbinden Sie es mit node4, bevor Sie die Laufwerke von node2 zu node4 neu zuweisen. Node1 und node2 sind die Controller innerhalb des Laufwerksgehäuses.
 
 .Schritte
 . Trennen Sie alle Netzwerkkabel von Knoten 2.

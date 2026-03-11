@@ -38,7 +38,7 @@ Der `storage aggregate relocation show` Der Befehl zeigt Ihnen, welche Aggregate
 
 
 +
-Ausführliche Informationen zum `storage aggregate relocation start`, `override-vetoes`, und `override-destination-checks` Optionen finden Sie unter link:other_references.html["Quellen"] Link zu den Befehlen _ONTAP 9: Manual Page Reference_.
+Für detaillierte Informationen zu den  `storage aggregate relocation start`, `override-vetoes` und  `override-destination-checks` Optionen verweisen Sie auf link:other-references.html["Quellen"] zur Verlinkung auf die _ONTAP 9 Command reference_.
 
 
 
@@ -69,9 +69,9 @@ Nach Phase 6 können Sie das falsche Eigentümerproblem beheben, nachdem Sie das
 `storage aggregate show -nodes _node2_ -is-home true`
 
 +
-Informationen zur Identifizierung von Aggregaten, die nicht korrekt verschoben wurden, finden Sie in der Liste der Aggregate mit dem Home-Inhaber von node1, die Sie im Abschnitt erhalten haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Und vergleichen Sie ihn mit der Ausgabe des obigen Befehls.
+Um Aggregate zu identifizieren, die nicht korrekt verschoben wurden, konsultieren Sie die Liste der Aggregate mit dem Home Owner von node1, die Sie im Abschnitt link:prepare-nodes-for-upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] erhalten haben, und vergleichen Sie diese mit der Ausgabe des obigen Befehls.
 
-. Vergleichen Sie die Ausgabe von Schritt 1 mit der Ausgabe, die Sie für Knoten 1 im Abschnitt aufgenommen haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Und beachten Sie alle Aggregate, die nicht korrekt verschoben wurden.
+. Vergleichen Sie die Ausgabe von Schritt 1 mit der Ausgabe, die Sie für node1 im Abschnitt link:prepare-nodes-for-upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] erfasst haben, und notieren Sie alle Aggregate, die nicht korrekt verschoben wurden.
 . Verschiebung der Aggregate links hinter Knoten2:
 +
 `storage aggregate relocation start -node _node2_ -aggr _aggr_node_1_ -destination _node1_`

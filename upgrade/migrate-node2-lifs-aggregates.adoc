@@ -11,7 +11,7 @@ summary: 'Migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate a
 
 
 [role="lead"]
-Migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf node2 zu node1, bevor Sie node2 in ein Laufwerksgehäuse umwandeln.
+Migrieren Sie die logischen Schnittstellen (LIFs) und Datenaggregate auf AFF A150, AFF A220 oder FAS2820 node2 zu node1, bevor Sie node2 in ein Laufwerksgehäuse umwandeln.
 
 .Bevor Sie beginnen
 Vergewissern Sie sich, dass Sie die folgenden Anforderungen erfüllen:

@@ -124,7 +124,7 @@ Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie inlink:prepare_node
 `system service-processor network modify -node <node_name>`
 
 +
-Gehen Sie zu link:other_references.html["Quellen"] Link zur _Systemverwaltungsreferenz_ für Informationen über die SPs und die Befehle _ONTAP 9: Manual Page Reference_ für detaillierte Informationen zum `system service- processor network modify` Befehl.
+Gehen Sie zu link:other_references.html["Quellen"], um auf die _System Administration Reference_ für Informationen zu den SPs und auf die _ONTAP 9 Command reference_ für detaillierte Informationen zum  `system service- processor network modify` Befehl zu verlinken.
 
 . Wenn Sie ein Cluster ohne Switches auf den neuen Nodes einrichten möchten, fahren Sie mit fort link:other_references.html["Quellen"] Um eine Verbindung zur _Network Support Site_ herzustellen, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.
 

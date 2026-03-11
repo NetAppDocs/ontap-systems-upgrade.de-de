@@ -67,7 +67,7 @@ Wenn weder Node1 noch node2 Daten-LIFs Eigentümer anderer Nodes im Cluster sind
 +
 `volume show -node <node2> -state offline`
 
-. Wenn Volumes offline sind, vergleichen Sie sie mit der Liste der Offline-Volumes, die Sie im Abschnitt erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"], Und Online-Laufwerk eines der Offline-Volumes, nach Bedarf, durch Verwendung des folgenden Befehls, einmal für jedes Volume:
+. Falls Volumes offline sind, vergleichen Sie diese mit der Liste der offline Volumes, die Sie im Abschnitt link:prepare-nodes-for-upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] erfasst haben, und bringen Sie alle offline Volumes nach Bedarf online, indem Sie für jedes Volume einmal den folgenden Befehl verwenden:
 +
 `volume online -vserver <vserver_name> -volume <volume_name>`
 
@@ -121,9 +121,9 @@ Eingabe `y` Um alle Pakete zu entfernen.
 `system license show`
 
 +
-Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie im erfasst haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt.
+Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie im link:prepare-nodes-for-upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"] Abschnitt erfasst haben.
 
-. [[unset_maxwait]] Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie den festgelegt haben `kmip.init.maxwait` Variabel auf `off` (Beispiel: In _Boot node2 mit den Ersatz-Systemmodulen_ link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["Schritt 1"]), Sie müssen die Einstellung der Variable aufheben:
+. [[unset_maxwait]] Wenn in der Konfiguration selbstverschlüsselnde Laufwerke verwendet werden und Sie die  `kmip.init.maxwait` Variable auf  `off` gesetzt haben (zum Beispiel in _Boot node2 mit den Ersatzsystemmodulen_, link:boot-node2-with-a900-controller-and-nvs.html#boot_node2_step1["Schritt 1"]), müssen Sie die Variable entfernen:
 +
 `set diag; systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
 
@@ -132,10 +132,10 @@ Sie können die Ausgabe mit der Ausgabe vergleichen, die Sie im erfasst haben li
 `system service-processor network modify -node <node_name>`
 
 +
-Siehe link:other_references.html["Quellen"] Link zur _Systemverwaltungsreferenz_ für Informationen zu den SPs und den Befehlen _ONTAP 9: Manual Page Reference_ für detaillierte Informationen zum System `service-processor network modify` Befehl.
+Siehe link:other-references.html["Quellen"], um auf die _System Administration Reference_ für Informationen zu den SPs und die _ONTAP 9 Command reference_ für detaillierte Informationen zum System `service-processor network modify`-Befehl zu verweisen.
 
-. Informationen zum Einrichten eines Clusters ohne Switches auf den neuen Nodes finden Sie unter link:other_references.html["Quellen"] Um eine Verbindung zur NetApp Support Site_ zu erhalten, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.
+. Wenn Sie einen Cluster ohne Switches auf den neuen Knoten einrichten möchten, lesen Sie link:other-references.html["Quellen"], um zur _NetApp Support Site_ zu gelangen, und befolgen Sie die Anweisungen unter _Transitioning to a two-node switchless cluster_.
 
 
 .Nachdem Sie fertig sind
-Wenn die Speicherverschlüsselung auf node1 und node2 aktiviert ist, füllen Sie den Abschnitt aus link:set_up_storage_encryption_new_module.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"]. Andernfalls füllen Sie den Abschnitt aus link:decommission_old_system.html["Ausmustern des alten Systems"].
+Wenn Storage Encryption auf node1 und node2 aktiviert ist, füllen Sie den Abschnitt link:set-up-storage-encryption-new-module.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"] aus. Andernfalls füllen Sie den Abschnitt link:decommission-old-system.html["Ausmustern des alten Systems"] aus.

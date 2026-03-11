@@ -218,7 +218,7 @@ Mit dem folgenden Befehl wird die Failover-Richtlinie auf festgelegt `broadcast-
 `network interface modify -vserver node4 -lif data1 failover-policy broadcast-domain-wide -failover-group fg1`
 
 +
-Weitere Informationen finden Sie unter link:other_references.html["Quellen"] Um zu _Netzwerkverwaltung_ oder den Befehlen _ONTAP 9 zu verlinken: Manual Page Reference_, und gehen Sie zu _Failover-Einstellungen auf einem LIF_ konfigurieren.
+Weitere Informationen finden Sie, indem Sie link:other_references.html["Quellen"] auf _Network Management_ oder die _ONTAP 9 Command reference_ verlinken und zu _Configuring failover settings on a LIF_ gehen.
 
 . Überprüfen Sie die Änderungen auf node4:
 +

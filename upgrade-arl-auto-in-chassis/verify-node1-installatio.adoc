@@ -122,7 +122,7 @@ NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Br
 Nachdem Sie bestätigt haben, dass node1 sich im Quorum befindet und mit node2 kommunizieren kann, überprüfen Sie, dass node1 VLANs, Interface Groups und Broadcast-Domains auf node1 gesehen werden. Überprüfen Sie außerdem, ob alle node1-Netzwerk-Ports in ihren richtigen Broadcast-Domänen konfiguriert sind.
 
 .Über diese Aufgabe
-Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit dem Inhalt _Network Management_.
+Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other-references.html["Quellen"] zum Inhalt _Network Management_.
 
 .Schritte
 . Listen Sie alle physischen Ports auf, die auf Upgrade-Knoten1 stehen:

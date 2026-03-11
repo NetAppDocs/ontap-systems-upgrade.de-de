@@ -16,7 +16,7 @@ summary: Überprüfen Sie, ob der RCF des Cluster-Switches die gemeinsam genutzt
 [role="lead"]
 In dieser Phase des Upgrade-Vorgangs sollten sich alle Datenaggregate auf Knoten1 befinden.  Wenn Sie eine Konfiguration mit Switch-verbundenen Clustern aktualisieren, müssen Sie überprüfen, ob die Cluster-Switch-Referenzkonfigurationsdatei (RCF) die gemeinsam genutzten Cluster-/HA-Ports für die neuen Controller unterstützt.
 
-Wenn Sie auf eine Switchless-Clusterkonfiguration mit zwei Knoten aktualisieren, können Sie diesen Abschnitt überspringen und zulink:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"] .
+Wenn Sie auf eine Zwei-Knoten Cluster ohne Switches-Konfiguration upgraden, können Sie diesen Abschnitt überspringen und zu link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"] gehen.
 
 .Schritte
 . Wechseln in den erweiterten Berechtigungsmodus:
@@ -36,7 +36,7 @@ In der Ausgabe sollte die "IC RDMA Connection" den Status haben `Up` .
 | Wenn der Status „IC RDMA-Verbindung“ ... ist. | Dann… 
 
 
-| `Up` | Gehe zulink:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"] . 
+| `Up` | Gehe zu link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"]. 
 
 
 | `Down` | Gehe zu<<verify-rcf-step3,Schritt 3>> . 
@@ -52,4 +52,4 @@ Weitere Informationen finden Sie unter link:cable-node1-for-shared-cluster-HA-st
 
 
 .Was kommt als nächstes
-link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"]
+link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"]

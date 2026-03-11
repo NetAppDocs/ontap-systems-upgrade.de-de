@@ -239,7 +239,7 @@ Im folgenden Beispiel wird die Failover-Richtlinie auf „Broadcast-Domain-wide�
 network interface modify -vserver node3 -lif data1 failover-policy broadcast-domainwide -failover-group fg1
 ----
 +
-Gehen Sie zu link:other_references.html["Quellen"] Link zu _Netzwerkverwaltung_ oder den Befehlen _ONTAP 9: Manual Page Reference_ für weitere Informationen.
+Gehen Sie zu link:other_references.html["Quellen"], um eine Verknüpfung zu _Netzwerkmanagement_ oder der _ONTAP 9 Command reference_ für weitere Informationen herzustellen.
 
 . Überprüfen Sie die Änderungen auf node3:
 +

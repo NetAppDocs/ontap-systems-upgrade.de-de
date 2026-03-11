@@ -81,7 +81,7 @@ FIPS-Laufwerke können nicht mit anderen Laufwerkstypen auf demselben Node oder 
 ====
 .. Gehen Sie zum speziellen Startmenü und wählen Sie Option `(10) Set Onboard Key Manager recovery secrets`.
 +
-Geben Sie die Passphrase und die Backup-Informationen ein, die Sie zuvor aufgezeichnet haben. Siehe link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"].
+Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im Verfahren notiert haben. Siehe link:manage-storage-encryption-using-okm.html["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"].
 
 
 

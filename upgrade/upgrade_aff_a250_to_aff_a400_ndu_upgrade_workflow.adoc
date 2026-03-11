@@ -17,7 +17,7 @@ Führen Sie ein unterbrechungsfreies Upgrade von einem AFF A250 System auf ein A
 Die AFF A250 High-Availability-(HA)-Paar-Controller sind node1 und node2 und die Ersatz-AFF A400 HA-Paar-Controller sind node3 und node4.
 
 .Bevor Sie beginnen
-Prüfen Sie die allgemeinen Upgrade-Szenarien und Upgrade-Überlegungen für das Upgrade durch Verschieben von Volumes oder Storage:
+Überprüfen Sie alle Überlegungen für ein Upgrade durch das Verschieben von Volumes oder Storage:
 
 * link:upgrade-decide-to-use-this-guide.html["Entscheiden Sie, ob Sie ein Upgrade durch Verschieben von Volumes oder Storage durchführen"]
 * link:upgrade-considerations.html["Überlegungen für ein Upgrade der Controller-Hardware"]

@@ -134,7 +134,7 @@ Sie können die Ausgabe mit der im Abschnitt erfassten Ausgabe vergleichen link:
 `system service-processor network modify -node _node_name_`
 
 +
-Siehe link:other_references.html["Quellen"] Link zur _Systemverwaltungsreferenz_ für Informationen zu den SPs und den Befehlen _ONTAP 9.8: Manual Page Reference_ für detaillierte Informationen zum System `service-processor network modify` Befehl.
+Siehe link:other_references.html["Quellen"] zur _System Administration Reference_ für Informationen zu den SPs und zur _ONTAP 9 Command reference_ für detaillierte Informationen zum System `service-processor network modify`-Befehl.
 
 . Informationen zum Einrichten eines Clusters ohne Switches auf den neuen Nodes finden Sie unter link:other_references.html["Quellen"] Um eine Verbindung zur NetApp Support Site_ zu erhalten, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.
 
