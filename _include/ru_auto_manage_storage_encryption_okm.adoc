@@ -9,5 +9,19 @@ Sie können den Onboard Key Manager (OKM) zur Verwaltung der Schlüssel verwende
 +
 Dies ist die Passphrase, die eingegeben wurde, als das OKM mit der CLI oder REST-API konfiguriert oder aktualisiert wurde.
 
-. Sichern Sie die Key-Manager-Informationen, indem Sie den ausführen `security key-manager onboard show-backup` Befehl.
+. Überprüfen Sie die Passphrase und den Schlüsselmanager-Vorgang:
++
+`security key-manager onboard sync`
+
++
+Geben Sie bei Aufforderung die clusterweite OKM-Passphrase ein, die Sie im vorherigen Schritt aufgezeichnet haben.
+
+. Vergewissern Sie sich, dass cc-mode aktiviert ist, indem Sie die Ausgabe des folgenden Befehls überprüfen:
++
+`security key-manager config show`
+
+. Sichern Sie die Key-Manager-Informationen:
++
+`security key-manager onboard show-backup`
+
 
