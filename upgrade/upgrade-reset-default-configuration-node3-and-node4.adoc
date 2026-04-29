@@ -20,9 +20,9 @@ Sie müssen die folgenden Schritte auf node3 und node4 ausführen. Sie können d
 +
 `boot_ontap menu`
 
-. Geben Sie an der Eingabeaufforderung des Startmenüs ein `wipeconfig` Und drücken Sie dann die Eingabetaste.
+. Geben Sie an der Bootmenü-Eingabeaufforderung  `wipeconfig` ein und drücken Sie anschließend die Eingabetaste.
 +
-Auf dem folgenden Bildschirm wird die Eingabeaufforderung des Startmenüs angezeigt
+Sie sehen folgende Ausgabe:
 
 +
 [listing]
@@ -50,7 +50,7 @@ Are you sure you want to continue?: yes
 Rebooting to finish wipeconfig request.
 ----
 +
-Das System initiiert den `wipeconfig` Verfahren und starten Sie neu. Nach Abschluss des Vorgangs kehrt das System zum Startmenü zurück.
+Das System startet das `wipeconfig` Verfahren und fährt neu hoch. Nach Abschluss des Verfahrens kehrt das System zum Startmenü zurück.
 
-. Geben Sie im Boot-Menü den Befehl 8 ein, um den Node neu zu booten, und drücken Sie während des AUTOBOOTS Strg-C, um den Node an der LOADER-Eingabeaufforderung zu beenden.
+. Geben Sie im Bootmenü 8 ein, um den Knoten neu zu starten, und drücken Sie während des AUTOBOOT Strg+C, um den Knoten an der LOADER-Eingabeaufforderung anzuhalten.
 

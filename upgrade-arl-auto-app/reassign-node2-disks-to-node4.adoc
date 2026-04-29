@@ -152,7 +152,7 @@ Login:
 ====
 +
 
-NOTE: Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Namen des Partner-Node anzugeben, wenn das System ADP-Festplatten (Advanced Disk Partitioning) verwendet.
+NOTE: Im obigen Beispiel der Konsolenausgabe fordert ONTAP Sie zur Eingabe des Partner-Node-Namens auf, wenn das System Advanced Disk Partitioning (ADP)-Festplatten verwendet.
 
 . Wenn das System in eine Neustartschleife gerät und die Meldung `no disks found` , bedeutet dies, dass das System die FC- oder UTA/UTA2-Ports wieder in den Zielmodus zurückgesetzt hat und daher keine Festplatten erkennen kann.  Wählen Sie eine der folgenden Aufgaben aus, um dieses Problem zu beheben:
 +
@@ -305,3 +305,6 @@ aggr0 offline                    raid_dp, aggr        diskroot
 ---------------------------------------------------------------------
 ....
 
+
+.Was kommt als Nächstes?
+Nach der Neuzuordnung der Festplatten von Node2 zu Node4, link:verify_node4_installation.html["Überprüfen Sie die Installation von Node4."].

@@ -16,6 +16,12 @@ summary: 'Bereiten Sie die Nodes vor und führen Sie eine Reihe von Vorabprüfun
 [role="lead"]
 Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfungen. Sie sammeln auch Informationen über die ursprünglichen Nodes, die Sie später verwenden können. Falls erforderlich, ermitteln Sie den Typ der verwendeten Self-Encrypting Drives.
 
+
+
+== Schritt 1: Die Knoten vorbereiten
+
+Starten Sie den Controller-Austausch und führen Sie Vorabprüfungen durch. Ermitteln Sie gegebenenfalls den Typ der verwendeten selbstverschlüsselnden Laufwerke.
+
 .Schritte
 . Starten Sie den Controller-Ersatzprozess, indem Sie den folgenden Befehl in die ONTAP-Befehlszeile eingeben:
 +
@@ -36,7 +42,7 @@ Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfunge
 
 ====
 +
-Sie sehen die folgende Ausgabe:
+Sie sehen folgende Ausgabe:
 
 +
 ....
@@ -52,7 +58,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 
 Do you want to continue? {y|n}: y
 ....
-. Drücken Sie `y`, Sie sehen die folgende Ausgabe:
+. Wählen Sie  `y`, dann wird folgende Ausgabe angezeigt:
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -165,7 +171,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+== Schritt 2: Korrigieren Sie den Aggregatbesitz, falls eine ARL-Vorprüfung fehlschlägt
 
 Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
 
@@ -194,24 +200,10 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Starten Sie den Controller-Austauschprozess neu:
 
-
-
-
-=== Nachdem Sie fertig sind
-
-Sie müssen den Controller-Ersatzprozess neu starten:
 
 `system controller replace start -nodes _node_names_`
 
-
-
-== Lizenz
-
-Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
-
-Wenn Sie keine neuen Lizenzschlüssel haben, stehen dem neuen Controller derzeit lizenzierte Funktionen im Cluster zur Verfügung. Durch die Verwendung nicht lizenzierter Funktionen auf dem Controller können Sie jedoch möglicherweise die Einhaltung Ihrer Lizenzvereinbarung verschließen. Sie sollten daher nach Abschluss des Upgrades den neuen Lizenzschlüssel oder die neuen Schlüssel für den neuen Controller installieren.
-
-Siehe link:other_references.html["Quellen"] Link zur _NetApp-Support-Website_, auf der Sie neue 28-stellige Lizenzschlüssel für ONTAP erhalten können. Die Schlüssel sind im Abschnitt „_My Support_“ unter „_Software licenses_“ verfügbar. Wenn auf der Website nicht die erforderlichen Lizenzschlüssel vorhanden sind, können Sie sich an Ihren NetApp Ansprechpartner wenden.
-
-Ausführliche Informationen zur Lizenzierung finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+.Was kommt als Nächstes?
+Nach der Vorbereitung der Knoten, link:complete-preparation-for-upgrade.html["Die Vorbereitungen für das Upgrade abschließen"].

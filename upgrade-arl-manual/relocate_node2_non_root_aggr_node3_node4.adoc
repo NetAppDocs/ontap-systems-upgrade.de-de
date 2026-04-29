@@ -49,7 +49,7 @@ Umzüge finden im Hintergrund statt. Um ein Aggregat verschieben zu können, dau
 `storage aggregate relocation show -node _node3_`
 
 +
-Die Ausgabe wird angezeigt `Done` Für ein Aggregat, nachdem es verlegt wurde.
+Die Ausgabe zeigt  `Done` für ein Aggregat an, nachdem es verschoben wurde.
 
 +
 

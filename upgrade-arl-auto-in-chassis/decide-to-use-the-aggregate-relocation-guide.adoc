@@ -128,8 +128,11 @@ Die ONTAP-Mindestversionen in der vorstehenden Tabelle sind obligatorisch. Diese
 == Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
 * link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].
-* Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+* Falls Sie eine andere Methode zum Aufrüsten der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen vorzunehmen, lesen Sie link:other-references.html["Quellen"], um zu _Upgrade durch Verschieben von Volumes oder Speicher_ zu gelangen.
 
 
 .Verwandte Informationen
-Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.
+Siehe link:other-references.html["Quellen"], um auf die _ONTAP 9 Documentation_ zu verlinken.
+
+.Was kommt als Nächstes?
+Nachdem Sie sich für die Anwendung dieses ARL-Verfahrens entschieden haben, link:required-tools-and-documentation.html["Informieren Sie sich über die benötigten Werkzeuge und die Dokumentation"].

@@ -81,7 +81,7 @@ Gesamteigentum am Ende von Stufe 4:
 
 
 
-| link:install-aff-a30-a50-c30-c50-node2.html["Stufe 5: Installieren Sie die Ersatz-Systemmodule auf Knoten 2"]  a| 
+| link:install-aff-a30-a50-c30-c50-node2.html["Phase 5: Installieren Sie die Ersatzsystemmodule für node2"]  a| 
 In Phase 5 installieren Sie die neuen Systemmodule, die Sie für den aktualisierten Knoten 2 erhalten haben, und dann Netboot Knoten 2.
 
 Gesamteigentum am Ende von Stufe 5:
@@ -92,7 +92,7 @@ Gesamteigentum am Ende von Stufe 5:
 
 
 
-| link:boot-node2-with-a900-controller-and-nvs.html["Stufe 6: Starten Sie Node2 mit den Ersatz-Systemmodulen"]  a| 
+| link:cable-node2-for-shared-cluster-HA-storage.html["Stufe 6: Starten Sie Node2 mit den Ersatz-Systemmodulen"]  a| 
 In Phase 6 booten Sie Knoten2 mit aktualisierten Systemmodulen und überprüfen die aktualisierte Knoten2-Installation. Wenn Sie NVE verwenden, stellen Sie die Schlüsselmanagerkonfiguration wieder her. Bei Upgrades von Switch-verbundenen Clustern müssen Sie überprüfen, ob die Cluster-Switch-Referenzkonfigurationsdatei (RCF) die gemeinsam genutzten Cluster-/HA-Ports unterstützt. Sie verschieben außerdem Nicht-Root-Aggregate und NAS-Daten-LIFs von Knoten1 von Knoten1 auf den aktualisierten Knoten2 und überprüfen, ob die SAN-LIFs auf Knoten2 vorhanden sind.
 
 
@@ -101,3 +101,5 @@ In Phase 6 booten Sie Knoten2 mit aktualisierten Systemmodulen und überprüfen 
 In Phase 7 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden. Und wenn die neuen Nodes verschlüsselt sind, konfigurieren und einrichten Sie Storage Encryption oder NVE. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
 |===
+.Was kommt als Nächstes?
+Nachdem ich mich über die ARL-Upgrade-Sequenz informiert hatte, link:verify-upgrade-hardware.html["Überprüfen Sie die Upgrade-Hardware"].

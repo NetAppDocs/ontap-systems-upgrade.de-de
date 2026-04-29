@@ -12,7 +12,8 @@ Um Knoten2 außer Betrieb zu nehmen, fahren Sie Knoten2 ordnungsgemäß herunter
 +
 Der Knoten wird automatisch angehalten.
 
++
+.. Optional kann node2 nach Abschluss des Upgrades außer Betrieb genommen werden. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].
 
 
-.Nachdem Sie fertig sind
-Sie können nach Abschluss des Upgrades die Decommission node2 deaktivieren. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].
+

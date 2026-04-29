@@ -78,3 +78,5 @@ Sie können das folgende Arbeitsblatt verwenden, um die Informationen für eine 
 
 | Private und öffentliche SSL-Zertifikate für das Storage-System und private SSL-Zertifikate für jeden Schlüsselmanagementserver | Phase 6: _Storage Encryption auf den neuen Nodes einrichten_ | Später im Abschnitt |  
 |===
+.Was kommt als Nächstes?
+Nach der Aufzeichnung der ursprünglichen Knoteninformationen, link:determine_aggregates_on_internal_drives.html["feststellen, ob der Controller Aggregate auf internen Festplattenlaufwerken hat"].

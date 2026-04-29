@@ -268,7 +268,7 @@ NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie d
 |===
 .. Gehen Sie zum speziellen Startmenü und wählen Sie Option `(10) Set Onboard Key Manager recovery secrets`.
 +
-Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im Verfahren notiert haben. Siehe link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"].
+Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im Verfahren notiert haben. Siehe link:complete-preparation-for-upgrade.html#manage_storage_encryption_using_okm["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"].
 
 
 
@@ -411,9 +411,9 @@ Login:
 ====
 +
 
-NOTE: Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Namen des Partner-Node anzugeben, wenn das System ADP-Festplatten (Advanced Disk Partitioning) verwendet.
+NOTE: Im obigen Beispiel der Konsolenausgabe fordert ONTAP Sie zur Eingabe des Partner-Node-Namens auf, wenn das System Advanced Disk Partitioning (ADP)-Festplatten verwendet.
 
-. [[Auto_Check_4_step27]]Starten Sie an der LOADER-Eingabeaufforderung:
+. [[auto_check_4_step27]]Starten Sie den Knoten an der LOADER-Eingabeaufforderung:
 +
 `boot_ontap menu`
 
@@ -466,3 +466,6 @@ NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehle
 
 
 
+
+.Was kommt als Nächstes?
+Nach der Installation und dem Start von Node4, link:verify_node4_installation.html["Überprüfen Sie die Installation von Node4."].

@@ -110,3 +110,6 @@ NOTE: Bei MetroCluster Konfigurationen können Sie die Broadcast-Domäne eines P
 `network interface show -curr-node _node1_ -role data`
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben von NAS-Daten-LIFs, die Knoten1 gehören, auf Knoten2, link:record_node1_information.html["Informationen zu node1 aufzeichnen"].

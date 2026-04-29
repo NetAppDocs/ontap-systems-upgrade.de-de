@@ -308,7 +308,7 @@ Für das `<node2_sysid>` Wert: Verwenden Sie die in erfassten Informationen link
 NOTE: Der `-p` Die Option ist nur im Wartungsmodus erforderlich, wenn freigegebene Festplatten vorhanden sind.
 
 +
-Der `disk reassign` Befehl weist nur die Festplatten zu, für die es erforderlich ist `_node2_sysid_` Ist der aktuelle Eigentümer.
+Der  `disk reassign`Befehl weist nur diejenigen Datenträger neu zu, für die  `_node2_sysid_`der aktuelle Besitzer ist.
 
 +
 Vom System wird die folgende Meldung angezeigt:
@@ -483,3 +483,6 @@ NOTE: Das System wird möglicherweise zweimal neu gestartet, bevor die Warnmeldu
 . Bestätigen Sie die Diskrepanz. Der Node kann vor dem normalen Booten eine Runde des Neubootens abschließen.
 . Melden Sie sich bei node4 an.
 
+
+.Was kommt als Nächstes?
+Nach der Installation und dem Start von Node4, link:set_fc_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf Knoten4 fest"].

@@ -29,3 +29,12 @@ Um node1 auszumustern, setzen Sie den automatisierten Vorgang fort, um das HA-Pa
 Nachdem node1 vollständig angehalten wurde, sollte node1 an DER LOADER>-Eingabeaufforderung sein. Um die LOADER>-Eingabeaufforderung anzuzeigen, stellen Sie eine Verbindung mit der seriellen Konsole von node1 her.
 
 
+
+.Was kommt als Nächstes?
+Nach der Außerbetriebnahme von node1 wählen Sie je nach Ihrer Upgrade-Konfiguration eines der folgenden Verfahren zum Austausch des Controllers aus:
+
+* link:replace-node1-affa250-affc250.html["Ersetzen Sie das node1 AFF A250 oder AFF C250 Controller-Modul"]
+* link:replace-node1-affa800.html["Ersetzen Sie das Controller-Modul AFF A800 oder AFF C800 von node1"]
+* link:replace-node1-affa220-affa200-affc190-fas2620-fas2720.html["Ersetzen Sie das Controller-Modul von Node1 AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720"]
+* link:replace-node1-aff700-fas900.html["Ersetzen Sie die AFF A700 oder FAS9000 Controller- und NVRAM-Module von Node1"]
+

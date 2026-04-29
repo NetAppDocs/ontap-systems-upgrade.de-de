@@ -58,6 +58,6 @@ Konvertieren Sie node1 in ein Laufwerksgehäuse und verbinden Sie es mit node3, 
 [role="quick-margin-para"]
 Nachdem node1 in ein Laufwerksgehäuse umgewandelt und mit node3 verbunden wurde, weisen Sie die Laufwerke, die zuvor zu node1 gehörten, node3 neu zu.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]xref:migrate-node4-lIfs-aggregates.adoc[Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sieben"]xref:migrate-node4-lifs-aggregates.adoc[Migrieren Sie LIFs und Datenaggregate auf node 4 auf Node 3]
 [role="quick-margin-para"]
 Um das Upgrade abzuschließen, verbinden Sie node3 mit node4 und migrieren Sie die Daten-LIFs und Datenaggregate von node4 zu node3.

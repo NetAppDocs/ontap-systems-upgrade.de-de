@@ -14,7 +14,7 @@ summary: Überprüfen Sie, ob die physischen Ports auf node1 bei einem manuellen
 
 
 [role="lead"]
-Sie müssen sicherstellen, dass die physischen Ports auf node1 den physischen Ports auf node3 korrekt zugeordnet werden. Somit kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
+Sie müssen sicherstellen, dass die physischen Ports auf node1 korrekt den physischen Ports auf node3 zugeordnet sind. Dadurch kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Bevor Sie beginnen
 Sie müssen von _Hardware Universe_ bereits über die Ports auf den neuen Nodes verfügen. (Gehen Sie zu link:other_references.html["Quellen"] Zum Verknüpfen mit dem _Hardware Universe_). Sie verwenden die Informationen später in diesem Abschnitt und in link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
@@ -24,9 +24,9 @@ Die Softwarekonfiguration von node3 muss mit der physischen Konnektivität von n
 .Über diese Aufgabe
 Die Port-Einstellungen können je nach Modell der Nodes variieren.
 
-Sie müssen den Port des ursprünglichen Node und die LIF-Konfiguration mit dem kompatibel machen, was Sie planen, die Konfiguration des neuen Node zu verwenden. Dies liegt daran, dass der neue Node beim Booten der gleichen Konfiguration wiedergibt. Dies bedeutet, dass ONTAP beim Booten von node3 versuchen wird, LIFs auf den gleichen Ports zu hosten, die in node1 verwendet wurden.
+Sie müssen die Port- und LIF-Konfiguration des ursprünglichen Knotens mit der geplanten Konfiguration des neuen Knotens kompatibel machen. Dies liegt daran, dass der neue Knoten beim Start dieselbe Konfiguration erneut abruft, was bedeutet, dass beim Booten von node3 ONTAP versucht, LIFs auf denselben Ports zu hosten, die auf node1 verwendet wurden.
 
-Wenn also die physischen Ports auf node1 nicht direkt den physischen Ports auf node3 zugeordnet werden, sind daher Änderungen der Software-Konfiguration erforderlich, um nach dem Booten die Cluster-, Management- und Netzwerkkonnektivität wiederherzustellen. Wenn die Cluster-Ports auf node1 zudem nicht direkt den Cluster-Ports auf node3 zugeordnet werden, wird node3 möglicherweise nicht automatisch dem Quorum beitreten, wenn es neu gestartet wird, bis eine Software-Konfiguration geändert wird, um die Cluster LIFs auf den korrekten physischen Ports zu hosten.
+Wenn die physischen Ports von node1 nicht direkt den physischen Ports von node3 zugeordnet sind, sind daher Softwarekonfigurationsänderungen erforderlich, um die Cluster-, Management- und Netzwerkverbindung nach dem Neustart wiederherzustellen. Wenn die Cluster-Ports von node1 nicht direkt den Cluster-Ports von node3 zugeordnet sind, kann node3 nach einem Neustart möglicherweise nicht automatisch wieder dem Quorum beitreten, bis eine Softwarekonfigurationsänderung vorgenommen wurde, um die Cluster-LIFs auf den korrekten physischen Ports zu hosten.
 
 .Schritte
 . [[Schritt1]]in der folgenden Tabelle alle Kabelinformationen node1 für node1, die Ports, Broadcast-Domänen und IPspaces erfassen:
@@ -78,7 +78,7 @@ Wenn also die physischen Ports auf node1 nicht direkt den physischen Ports auf n
 | Intercluster-Port |  |  |  |  |  |  
 |===
 +
-Siehe link:record_node1_information.html["Node1-Informationen aufzeichnen"] Für die Schritte zum Einerhalten dieser Informationen.
+Weitere Informationen zu den Schritten zum Erhalt dieser Informationen finden Sie unter link:record_node1_information.html["Node1-Informationen aufzeichnen"].
 
 . [[Schritt2]]Alle Verkabelungsinformationen für node3, die Ports, Broadcast-Domänen und IPspaces in der vorherigen Tabelle mit demselben Verfahren in erfassen link:record_node1_information.html["Node1-Informationen aufzeichnen"].
 . [[Schritt3]]Überprüfen Sie anhand der folgenden Schritte, ob es sich bei dem Setup um ein Cluster mit zwei Nodes ohne Switches handelt:

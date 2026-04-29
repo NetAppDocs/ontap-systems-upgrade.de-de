@@ -143,3 +143,6 @@ Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anfor
 
 
 NOTE: Wenn der Cluster-Switch nur 10/25 GbE-Geschwindigkeiten unterstützt, müssen Sie für die Cluster-Verbindung eine X60130A, 4-Port 10/25GbE-Karte in Steckplatz 1 oder Steckplatz 2 auf dem Ersatzsystem verwenden.
+
+.Was kommt als Nächstes?
+Nach der Verkabelung von Node2 für gemeinsam genutztes Cluster-HA und Storage, link:boot-node2-with-a900-controller-and-nvs.html["Booten Sie Node2 mit den Ersatzsystemmodulen"].

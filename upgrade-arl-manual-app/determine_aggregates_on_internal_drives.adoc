@@ -157,3 +157,6 @@ NOTE: Bevor Sie fortfahren, müssen Sie die Volumes zu einem externen Festplatte
 | Enthalten nicht-Root-Volumes auf den internen Laufwerken und Sie können die Volumes nicht in einen externen Speicher verschieben | Fahren Sie mit diesem Verfahren nicht fort. Sie können die Controller mithilfe des Verfahrens _aktualisieren Sie die Controller-Hardware auf einem Node-Paar, auf dem Clustered Data ONTAP ausgeführt wird, indem Sie Volumes_ verschieben. Siehe link:other_references.html["Quellen"] Um auf die _NetApp Support Site_ zu verlinken, auf die Sie Zugriff haben. 
 |===
 
+
+.Was kommt als Nächstes?
+Nachdem festgestellt wurde, ob der Controller Aggregate auf internen Festplattenlaufwerken hat link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für das Upgrade vor"].

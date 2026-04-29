@@ -17,7 +17,7 @@ summary: 'Überprüfen Sie, ob die node1 NAS-Daten-LIFs auf node2 beim Upgrade d
 Nachdem Sie die Netzwerkkonfiguration auf node3 und bevor Sie Aggregate von node2 auf node3 verschoben haben, müssen Sie überprüfen, ob die NAS-Daten-LIFs, die zu node1 gehören und sich derzeit auf node2 befinden, von node2 in node3 verschoben werden. Sie müssen außerdem überprüfen, ob die SAN-LIFs auf node3 vorhanden sind.
 
 .Über diese Aufgabe
-Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs sich in einem ordnungsgemäßen Zustand befinden und sich auf den entsprechenden Ports befinden, nachdem Sie node3 in den Online-Modus versetzt haben.
+Remote LIFs verarbeiten den Datenverkehr zu den SAN LUNs während des Upgrade-Vorgangs. Das Verschieben von SAN LIFs ist für die Cluster- oder Service-Integrität während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs funktionsfähig sind und sich an den richtigen Ports befinden, nachdem Sie node3 in Betrieb genommen haben.
 
 
 NOTE: Wenn Sie die Portgeschwindigkeit der T6-basierten Ethernet-Netzwerkkarten oder Motherboard-Ports ändern, können Sie nach der Geschwindigkeitskonvertierung fehlerhafte Pakete beobachten. Siehe https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp Bugs Online Fehler-ID 1570339"^] Und den Knowledge Base Artikel https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["CRC-Fehler auf T6-Ports nach der Konvertierung von 40GbE zu 100GbE"^] Für eine Anleitung.
@@ -128,3 +128,6 @@ Das System führt die folgenden Nachprüfungen durch:
 
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben von Nicht-Root-Aggregaten und NAS-Daten-LIFs, die sich im Besitz von node1 befinden, von node2 zu node3, link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Nicht-Root-Aggregate und NAS-Daten-LIFs von node2 auf node3 verschieben"].

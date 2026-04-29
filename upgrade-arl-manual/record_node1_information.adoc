@@ -123,7 +123,7 @@ Das System zeigt die physischen Ports auf dem Node an, wie im folgenden Beispiel
 ----
 . Notieren Sie die Ports und ihre Broadcast-Domänen.
 +
-Die Broadcast-Domänen müssen später im Verfahren den neuen Ports auf dem neuen Controller zugeordnet werden.
+Die Broadcast-Domänen müssen im weiteren Verlauf des Verfahrens den neuen Ports auf dem neuen Controller zugeordnet werden.
 
 . Geben Sie den folgenden Befehl für node1 ein:
 +

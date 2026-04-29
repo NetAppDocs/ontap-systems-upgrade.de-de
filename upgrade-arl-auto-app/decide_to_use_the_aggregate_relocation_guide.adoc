@@ -140,3 +140,6 @@ Für die in der vorherigen Tabelle aufgeführten Upgrade-Kombinationen:
 
 .Verwandte Informationen
 Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.
+
+.Was kommt als Nächstes?
+Nachdem Sie entschieden haben, ob Sie dieses ARL-Verfahren anwenden möchten, informieren Sie sich über die link:required_tools_and_documentation.html["benötigte Werkzeuge und Dokumentation"].

@@ -29,3 +29,6 @@ Um Knoten1 außer Betrieb zu nehmen, setzen Sie den automatisierten Vorgang fort
 
 .Nachdem Sie fertig sind
 Stellen Sie nach der Außerbetriebnahme von Knoten1 sicher, dass er ausgeschaltet und nicht mit dem Netzwerk verbunden ist.  Belassen Sie die alte Hardware von Knoten1 in diesem Zustand, bis Sie das Upgrade von Knoten1 und Knoten2 abgeschlossen haben.  Sie können dann Knoten1 währendlink:manage-authentication-using-kmip-servers.html["Phase 6: Schließen Sie das Upgrade ab"] .
+
+.Was kommt als Nächstes?
+Nach der Außerbetriebnahme von node1, link:prepare_for_netboot.html["Vorbereitung auf den Netzwerkstart"].

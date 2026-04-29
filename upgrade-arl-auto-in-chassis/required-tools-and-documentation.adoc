@@ -19,3 +19,6 @@ Sie müssen über ein Erdungsband verfügen, um das Upgrade durchführen zu kön
 Bei einem AFF A800 Upgrade auf eine AFF A90 oder AFF A70 stellen Sie sicher, dass die 100-GbE-Kabel eine Länge von mindestens einem Meter haben.
 
 Siehe link:other-references.html["Quellen"] für den Zugriff auf die Liste der für dieses Upgrade erforderlichen Referenzdokumente und Referenzseiten.
+
+.Was kommt als Nächstes?
+Nach Durchsicht der benötigten Werkzeuge und Dokumentation link:guidelines-for-upgrading-controllers-with-arl.html["Informieren Sie sich über die Richtlinien für die Aufrüstung von Controllern"].

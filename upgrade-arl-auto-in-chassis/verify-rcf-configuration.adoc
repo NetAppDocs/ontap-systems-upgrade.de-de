@@ -51,5 +51,5 @@ Weitere Informationen finden Sie unter link:cable-node1-for-shared-cluster-HA-st
 
 
 
-.Was kommt als nächstes
-link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Verschieben Sie Aggregate und NAS-Daten-LIFs zurück auf node2"]
+.Was kommt als Nächstes?
+Nach Überprüfung der RCF-Konfiguration link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["Nicht-Root-Aggregate und NAS-Daten-LIFs zurück zu node2 verschieben"].

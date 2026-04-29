@@ -14,18 +14,24 @@ summary: 'Überprüfen Sie, ob die physischen Ports von node2 node4 korrekt zuge
 
 
 [role="lead"]
-Sie müssen überprüfen, ob die physischen Ports von node2 den physischen Ports auf node4 korrekt zugeordnet sind. Dadurch kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
+Sie müssen überprüfen, ob die physischen Ports von node2 korrekt den physischen Ports von node4 zugeordnet sind. Dadurch kann node4 nach dem Upgrade mit anderen Nodes im Cluster und mit dem Netzwerk kommunizieren.
 
 .Über diese Aufgabe
 Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
 
-Abhängig vom Modell der Nodes kann das physische Port-Layout variieren. Wenn der neue Node gestartet wird, versucht ONTAP, zu ermitteln, welche Ports die Cluster LIFs hosten sollten, damit es automatisch zu Quorum kommt.
+Die physische Portbelegung kann je nach Knotenmodell variieren. Wenn der neue Node hochfährt, versucht ONTAP zu ermitteln, welche Ports Cluster-LIFs hosten sollen, um automatisch ein Quorum zu erreichen.
 
-Wenn die physischen Ports auf node2 nicht direkt den physischen Ports auf node4 zugeordnet werden, wird der folgende Abschnitt angezeigt <<Stellen Sie die Netzwerkkonfiguration auf node4 wieder her>> Muss zur Reparatur der Netzwerkverbindung verwendet werden.
+Falls die physischen Ports auf Node2 nicht direkt den physischen Ports auf Node4 zugeordnet werden können, muss der nachfolgende Abschnitt <<restore_network_configuration_on_node4,Stellen Sie die Netzwerkkonfiguration auf node4 wieder her>> verwendet werden, um die Netzwerkverbindung wiederherzustellen.
 
 Nachdem sie node4 installiert und gestartet haben, müssen Sie überprüfen, ob es ordnungsgemäß installiert wurde. sie müssen warten, bis node4 dem Quorum beitreten und dann den Umzugsvorgang fortsetzen kann.
 
-An diesem Punkt des Verfahrens wird der Vorgang angehalten, da node4 dem Quorum beitritt.
+An diesem Punkt des Verfahrens wird die Operation unterbrochen, da node4 dem Quorum beitritt.
+
+
+
+== Schritt 1: Überprüfen Sie, ob node4 im Quorum ist.
+
+Überprüfen Sie, ob node4 im Quorum ist. Setzen Sie anschließend den Controller-Austausch fort.
 
 .Schritte
 . Vergewissern Sie sich, dass node4 dem Quorum beigetreten ist:
@@ -102,7 +108,7 @@ Konfigurieren Sie die Intercluster-LIFs auf dem MetroCluster-Node node4 neu, und
 +
 `system controller replace resume`
 
-. Der Austausch des Controllers wird anhand der folgenden Meldung unterbrochen:
+. Der Austausch des Controllers wird aufgrund eines Eingriffs mit folgender Meldung unterbrochen:
 +
 ....
 Cluster::*> system controller replace show
@@ -137,7 +143,7 @@ NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Br
 
 
 
-== Stellen Sie die Netzwerkkonfiguration auf node4 wieder her
+== Schritt 2: Netzwerkkonfiguration auf node4 wiederherstellen
 
 Nachdem Sie bestätigt haben, dass node4 sich im Quorum befindet und mit node3 kommunizieren kann, überprüfen Sie, ob node2 VLANs, Interface Groups und Broadcast-Domains auf node4 zu sehen sind. Überprüfen Sie außerdem, ob alle node4-Netzwerkports in ihren richtigen Broadcast-Domänen konfiguriert sind.
 
@@ -224,7 +230,7 @@ Wie oben dargestellt, wird eine Warnmeldung für Ports mit einem Wiederanmeldung
 `network port reachability show`
 
 +
-Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn jedoch die Erreichbarkeit eines Ports nicht ermittelt werden kann und keiner der bestehenden Broadcast-Domänen angehört, wird ONTAP neue Broadcast-Domains für diese Ports erstellen.
+Während der Erreichbarkeitsreparatur versucht ONTAP, die Ports den korrekten Broadcast-Domänen zuzuordnen. Kann ONTAP die Erreichbarkeit eines Ports nicht ermitteln und gehört dieser keiner der bestehenden Broadcast-Domänen an, erstellt ONTAP neue Broadcast-Domänen für diese Ports.
 
 . Wenn die Konfiguration der Schnittstellengruppe nicht mit dem physischen Portlayout des neuen Controllers übereinstimmt, ändern Sie diese mit den folgenden Schritten.
 +
@@ -359,3 +365,6 @@ Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzug
 `network interface show -fields home-port, status-admin`
 
 
+
+.Was kommt als Nächstes?
+Nach Überprüfung der Node4-Installation, link:restore_key-manager_config_node4.html["Die Key-Manager-Konfiguration auf node4 wiederherstellen"].

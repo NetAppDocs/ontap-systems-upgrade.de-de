@@ -1,0 +1,174 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/replace-node2-aff700-fas900.html 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
+summary: Tauschen Sie während eines ARL-Upgrades von Controller-Modellen im selben Chassis den node2 AFF A700 oder FAS9000 Controller und die NVRAM-Module aus. 
+---
+= Ersetzen Sie die node2 AFF A700 oder FAS9000 Controller und NVRAM Module
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ersetzen Sie die node2 AFF A700 oder FAS9000 Controller- und NVRAM-Module durch ASA A900, AFF A900 oder FAS9500 Controller- und NVRAM-Module.
+
+In diesem Stadium ist node2 ausgefallen und alle Daten werden von node1 bereitgestellt. Achten Sie darauf, nur das node2 Controller-Modul und das node2 NVRAM Modul zu entfernen. Normalerweise ist node2 Controller B und befindet sich auf der rechten Seite des Gehäuses, wenn Sie von der Rückseite des Systems auf die Controller blicken. Das Controller-Etikett befindet sich direkt über dem Controller-Modul am Gehäuse.
+
+
+CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und an dieselben Netzteile angeschlossen sind.
+
+.Bevor Sie beginnen
+Wenn du nicht bereits geerdet bist, beground dich richtig.
+
+
+
+== Schritt 1: Entfernen Sie das AFF A700 oder FAS9000 Controller-Modul
+
+Trennen und entfernen Sie das node2 AFF A700 oder FAS9000 Controller-Modul.
+
+.Schritte
+. Trennen Sie gegebenenfalls das Konsolenkabel und das Managementkabel vom Node2-Controllermodul.
++
+
+WARNING: Bei der Arbeit an Knoten2 dürfen Sie lediglich die Konsolen- und e0M-Kabel von Knoten2 entfernen. Während dieses Vorgangs dürfen Sie keine anderen Kabel oder Verbindungen an Knoten1 oder Knoten2 entfernen oder verändern.
+
+. Entriegeln und entfernen Sie das Controller-Modul A aus dem Gehäuse.
++
+.. Schieben Sie die orangefarbene Taste am Nockengriff nach unten, bis sie entsperrt ist.
++
+image:drw_9500_remove_PCM.png["Entfernen Sie das Controller-Modul"]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image:black_circle_one.png["Nummer eins"]
+| Freigabetaste für den CAM-Griff 
+
+
+ a| 
+image:black_circle_two.png["Nummer zwei"]
+| CAM-Griff 
+|===
+.. Drehen Sie den Nockengriff so, dass er das Controller-Modul vollständig aus dem Gehäuse herausrückt, und schieben Sie dann das Controller-Modul aus dem Gehäuse.
++
+Stellen Sie sicher, dass Sie die Unterseite des Controller-Moduls unterstützen, während Sie es aus dem Gehäuse schieben.
+
+
+
+
+
+
+
+== Schritt 2: Entfernen Sie das AFF A700 oder FAS9000 NVRAM Modul
+
+Entsperren und entfernen Sie das node2 AFF A700 oder FAS9000 NVRAM Modul.
+
+
+NOTE: Das AFF A700 oder FAS9000 NVRAM-Modul befindet sich in Steckplatz 6 und hat die doppelte Höhe der anderen Module im System.
+
+.Schritte
+. Entriegeln und entfernen Sie das NVRAM Modul aus Steckplatz 6 von node2.
++
+.. Drücken Sie die Taste mit der Nummerierung und dem Buchstaben.
++
+Die Nockentaste bewegt sich vom Gehäuse weg.
+
+.. Drehen Sie die Nockenverriegelung nach unten, bis sie sich in horizontaler Position befindet.
++
+Das NVRAM-Modul geht aus dem Chassis aus und verschiebt ein paar Zentimeter.
+
+.. Entfernen Sie das NVRAM-Modul aus dem Gehäuse, indem Sie an den Zuglaschen an den Seiten der Modulfläche ziehen.
++
+image:drw_a900_move-remove_NVRAM_module.png["Entfernen Sie das NVRAM-Modul"]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image:black_circle_one.png["Nummer eins"]
+| Gerettete und nummerierte E/A-Nockenverriegelung 
+
+
+ a| 
+image:black_circle_two.png["Nummer zwei"]
+| E/A-Riegel vollständig entriegelt 
+|===
+
+
+
+
+
+
+== Schritt 3: Installieren Sie das ASA A900, AFF A900 oder FAS9500 NVRAM-Modul
+
+Installieren Sie das NVRAM-Modul ASA A900, AFF A900 oder FAS9500 in Steckplatz 6 von Knoten2.
+
+[NOTE]
+====
+* Verschieben Sie alle Leereinfüllmodule in den Steckplätzen 6-1 und 6-2 vom alten NVRAM-Modul in das neue NVRAM-Modul.
+* Verschieben Sie das coredump-Gerät NICHT aus dem AFF A700 NVRAM-Modul in das ASA A900- oder AFF A900 NVRAM-Modul.
+* Verschieben Sie alle Flash Cache Module, die im FAS9000 NVRAM-Modul installiert sind, auf das FAS9500 NVRAM-Modul.
+
+
+====
+.Schritte
+. Richten Sie das NVRAM-Modul an den Kanten der Gehäuseöffnung in Steckplatz 6 aus.
+. Schieben Sie das NVRAM-Modul vorsichtig in den Steckplatz, bis der vorletzte und nummerierte E/A-Nockenriegel mit dem E/A-Nockenstift einrastet. Drücken Sie dann den E/A-Nockenverschluss bis zum Verriegeln des NVRAM-Moduls.
+
+
+
+
+== Schritt 4: Installieren Sie das ASA A900, AFF A900 oder FAS9500 Controller-Modul
+
+Installieren, verkabeln und verbinden Sie das ASA A900-, AFF A900- oder FAS9500-Controller-Modul in Knoten2.
+
+.Schritte
+. Richten Sie das Ende des Controller-Moduls an Schacht B im Chassis aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
++
+
+TIP: Das Bay-Etikett befindet sich auf dem Chassis direkt über dem Controller-Modul.
+
++
+
+NOTE: Setzen Sie das Controller-Modul erst dann vollständig in das Gehäuse ein, wenn Sie dazu später im Verfahren aufgefordert werden.
+
+. Verkabeln Sie die Management- und Konsolen-Ports mit dem node2-Controller-Modul.
++
+
+NOTE: Da das Chassis bereits eingeschaltet ist, startet node2, sobald es vollständig eingesetzt ist. Um das Booten von node2 zu vermeiden, wird empfohlen, die Konsole und die Managementkabel mit dem node2-Controller-Modul zu verbinden, bevor das Controller-Modul vollständig in den Steckplatz eingesetzt wird.
+
+. Drücken Sie das Controller-Modul fest in das Gehäuse, bis es auf die Mittelebene trifft und vollständig sitzt.
++
+Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist.
+
++
+
+WARNING: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft anwenden.
+
+. Schließen Sie die serielle Konsole an, sobald das Modul sitzt, und seien Sie bereit, den AUTOBOOT von Knoten2 zu unterbrechen.
+. Nachdem Sie AUTOBOOT unterbrochen haben, bleibt node2 an der LOADER-Eingabeaufforderung stehen. Wenn Sie AUTOBOOT nicht rechtzeitig unterbrechen und node2 mit dem Booten beginnt, warten Sie auf die Eingabeaufforderung und drücken Sie Strg+C, um in das Bootmenü zu gelangen. Nachdem der Node im Bootmenü angehalten hat, verwenden Sie Option `8`, um den Node neu zu starten und AUTOBOOT während des Neustarts zu unterbrechen.
+. Legen Sie an der Eingabeaufforderung LOADER> von node2 die Standardumgebungsvariablen fest:
++
+[source, cli]
+----
+set-defaults
+----
+. Speichern Sie die Standardeinstellungen für Umgebungsvariablen:
++
+[source, cli]
+----
+saveenv
+----
+
+
+.Was kommt als Nächstes?
+Nach der Installation der ASA A900, AFF A900 oder FAS9500 NVRAM und Controller-Module, link:netboot-node2.html["netboot node2"].

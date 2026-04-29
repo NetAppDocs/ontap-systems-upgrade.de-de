@@ -23,3 +23,6 @@ Für die Durchführung des Upgrades benötigen Sie die folgenden Tools:
 
 
 Wechseln Sie zum link:other_references.html["Quellen"] Abschnitt für den Zugriff auf die Liste der für dieses Upgrade erforderlichen Referenzdokumente und Referenzsites
+
+.Was kommt als Nächstes?
+Nach Durchsicht der benötigten Werkzeuge und Dokumentation, link:guidelines_for_upgrading_controllers_with_arl.html["Informieren Sie sich über die Richtlinien für die Aufrüstung von Controllern mit ARL"].

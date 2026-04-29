@@ -157,7 +157,7 @@ Wenn sich einer der Knoten im Teilrückgeben befindet, verwenden Sie `storage fa
 `storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
 
 +
-Wenn weder node1 noch node2 besitzt Aggregate, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer), gibt das System eine Meldung ähnlich dem folgenden Beispiel zurück:
+Wenn weder node1 noch node2 Aggregate besitzt, für die sie der aktuelle Eigentümer (aber nicht der Home-Eigentümer) sind, gibt das System eine Meldung ähnlich dem folgenden Beispiel zurück:
 
 +
 ....

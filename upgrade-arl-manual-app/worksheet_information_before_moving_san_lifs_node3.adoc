@@ -69,3 +69,5 @@ Notieren Sie nach Abschluss der Migration zu node3 die LIF `adapter` Und `switch
 
 |  |  |  |  |  |  
 |===
+.Was kommt als Nächstes?
+Nach der Aufzeichnung der  `adapter` und  `switch-port` Informationen für jedes LIF, link:relocate_non_root_aggr_node2_node3.html["Nicht-Root-Aggregate von node2 zu node3 verschieben"].

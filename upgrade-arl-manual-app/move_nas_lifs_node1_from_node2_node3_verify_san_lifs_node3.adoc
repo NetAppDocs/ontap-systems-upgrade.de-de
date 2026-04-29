@@ -17,7 +17,7 @@ summary: Verschieben Sie während eines manuellen ARL Upgrades auf Controllern m
 Bevor Sie Aggregate von node2 auf node3 verschieben, müssen Sie die NAS-Daten-LIFs, die zu node1 gehören, verschieben, die sich zurzeit in node2 von node2 nach node3 befinden. Sie müssen außerdem die SAN-LIFs auf node3 überprüfen.
 
 .Über diese Aufgabe
-Remote-LIFs verarbeiten den Datenverkehr zu SAN-LUNs während des Upgrades. Das Verschieben von SAN-LIFs ist für den Zustand des Clusters oder des Service während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie überprüfen, ob die LIFs sich in einem ordnungsgemäßen Zustand befinden und sich auf den entsprechenden Ports befinden, nachdem Sie node3 in den Online-Modus versetzt haben.
+Remote LIFs verarbeiten den Datenverkehr zu SAN LUNs während des Upgrade-Vorgangs. Das Verschieben von SAN LIFs ist für die Cluster- oder Service-Integrität während des Upgrades nicht erforderlich. SAN LIFs werden nicht verschoben, es sei denn, sie müssen neuen Ports zugeordnet werden. Sie müssen überprüfen, ob die LIFs funktionsfähig sind und sich nach der Inbetriebnahme von node3 an den richtigen Ports befinden.
 
 .Schritte
 . [[Schritt1]]Listen Sie alle NAS-Daten-LIFs auf, die nicht im Besitz von node2 sind, indem Sie auf einem der beiden Knoten den folgenden Befehl eingeben und die Ausgabe erfassen:
@@ -270,3 +270,6 @@ NOTE: Sie müssen SAN-LIFs zu einem Port verschieben, der die gleiche Verbindung
 `system node autosupport invoke -node _node3_ -type all -message "node1 successfully upgraded from _platform_old_ to _platform_new_"`
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben der NAS-Daten-LIFs, die sich im Besitz von node1 befinden, von node2 auf node3 und der Überprüfung der SAN-LIFs auf node3, .

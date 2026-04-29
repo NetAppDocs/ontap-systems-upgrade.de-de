@@ -141,7 +141,7 @@ NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einsc
 . Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
 . Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten.
 +
-Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
+Wenn Sie den automatischen Startvorgang nicht rechtzeitig unterbrechen und node1 mit dem Hochfahren beginnt, warten Sie auf die Eingabeaufforderung und drücken Sie Strg+C, um das Startmenü aufzurufen. Nachdem der Knoten im Startmenü angehalten hat, verwenden Sie Option `8`, um den Knoten neu zu starten und den automatischen Startvorgang während des Neustarts zu unterbrechen.
 
 . Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
 +
@@ -156,3 +156,6 @@ set-defaults
 saveenv
 ----
 
+
+.Was kommt als Nächstes?
+Nach der Installation des AFF A90, AFF A70 oder AFF C80 Steuermoduls, link:netboot-node1.html["netboot node1"].

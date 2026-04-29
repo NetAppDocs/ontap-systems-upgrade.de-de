@@ -49,3 +49,6 @@ Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _
 
 .Verwandte Informationen
 Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.
+
+.Was kommt als Nächstes?
+Nachdem entschieden wurde, ob dieses ARL-Verfahren angewendet werden soll, link:arl_upgrade_workflow.html["Überprüfen Sie den ARL-Upgrade-Workflow"].

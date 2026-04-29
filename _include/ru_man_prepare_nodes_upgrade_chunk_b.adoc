@@ -79,7 +79,7 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 `network port vlan show -node _node_name_`
 
 +
-VLANs werden über physische Ports konfiguriert. Wenn sich die physischen Ports ändern, müssen die VLANs später im Verfahren neu erstellt werden.
+VLANs werden über physische Ports konfiguriert. Wenn sich die physischen Ports ändern, müssen die VLANs im weiteren Verlauf des Verfahrens neu erstellt werden.
 
 +
 Das System zeigt VLANs an, die auf dem Knoten konfiguriert sind, wie im folgenden Beispiel dargestellt:
@@ -112,7 +112,7 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 `network interface show -vserver _vserver_name_ -data-protocol iscsi|fcp`
 
 +
-Wenn iSCSI oder FC für die SVM konfiguriert ist, wird mit dem Befehl eine Meldung wie das folgende Beispiel angezeigt:
+Wenn weder iSCSI noch FC für die SVM konfiguriert ist, zeigt der Befehl eine Meldung ähnlich dem folgenden Beispiel an:
 
 +
 ....
@@ -123,7 +123,7 @@ There are no entries matching your query.
 Sie können bestätigen, dass sich der Knoten in einer NAS-Umgebung befindet, indem Sie den verwenden `network interface show` Befehl mit dem `-data-protocol nfs|cifs` Parameter.
 
 +
-Wenn iSCSI oder FC für die SVM konfiguriert ist, wird mit dem Befehl eine Meldung wie das folgende Beispiel angezeigt:
+Wenn entweder iSCSI oder FC für die SVM konfiguriert ist, zeigt der Befehl eine Meldung ähnlich dem folgenden Beispiel an:
 
 +
 ....

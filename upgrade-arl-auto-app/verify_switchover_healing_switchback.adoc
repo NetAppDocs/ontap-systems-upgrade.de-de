@@ -17,3 +17,6 @@ summary: 'Überprüfen Sie beim Upgrade von Controllern mit ONTAP 9.8 oder höhe
 Sie sollten die Umschalttavorgänge, die Reparatur und den Wechsel der MetroCluster Konfiguration überprüfen.
 
 Siehe link:other_references.html["Quellen"] Verbinden mit Inhalten für _MetroCluster Management and Disaster Recovery_ und Verwenden der genannten Verfahren für ausgehandelte Umschaltung, Heilung und Umschalten.
+
+.Was kommt als Nächstes?
+Nach Überprüfung von Umschaltung, Heilung und Rückschaltung, link:overview_of_the_arl_upgrade.html["Erfahren Sie mehr über die ARL-Upgrade-Sequenz"].

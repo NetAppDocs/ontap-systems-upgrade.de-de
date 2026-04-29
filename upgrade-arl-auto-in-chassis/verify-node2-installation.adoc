@@ -21,6 +21,12 @@ Nachdem Sie node1 mit dem Ersatz-Systemmodul gestartet haben, überprüfen Sie, 
 
 An diesem Punkt des Verfahrens wird die Operation angehalten, während node2 dem Quorum beitritt.
 
+
+
+== Schritt 1: Überprüfen Sie, ob node2 im Quorum ist.
+
+Überprüfen Sie, ob node2 im Quorum ist. Setzen Sie anschließend den Controller-Austausch fort.
+
 .Schritte
 . Vergewissern Sie sich, dass node2 dem Quorum beigetreten ist:
 +
@@ -141,12 +147,12 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 
 NOTE: In diesem Verfahren wurde der Abschnitt _Neuerstellen von VLANs, ifgrps und Broadcast-Domänen_ unter node2_ umbenannt.
 
-. Wenn sich der Controller-Austausch im Status „Pause“ befindet, fahren Sie mit fort <<Stellen Sie die Netzwerkkonfiguration auf node2 wieder her>>.
+. Während der Austausch des Controllers pausiert ist, fahren Sie mit <<restore_network_configuration_on_node2,Stellen Sie die Netzwerkkonfiguration auf node2 wieder her>> fort.
 
 
 
 
-== Stellen Sie die Netzwerkkonfiguration auf node2 wieder her
+== Schritt 2: Netzwerkkonfiguration auf node2 wiederherstellen
 
 Nachdem Sie bestätigt haben, dass node2 sich im Quorum befindet und mit node1 kommunizieren kann, überprüfen Sie, dass node1 VLANs, Interface Groups und Broadcast-Domains auf node2 gesehen werden. Überprüfen Sie außerdem, ob alle node2-Netzwerk-Ports in ihren richtigen Broadcast-Domänen konfiguriert sind.
 
@@ -239,7 +245,7 @@ Eine Warnmeldung, wie im vorhergehenden Beispiel dargestellt, wird für Ports mi
 `network port reachability show`
 
 +
-Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn jedoch die Erreichbarkeit eines Ports nicht ermittelt werden kann und keiner der bestehenden Broadcast-Domänen angehört, wird ONTAP neue Broadcast-Domains für diese Ports erstellen.
+Während der Erreichbarkeitsreparatur versucht ONTAP, die Ports den korrekten Broadcast-Domänen zuzuordnen. Kann ONTAP die Erreichbarkeit eines Ports nicht ermitteln und gehört der Port keiner der bestehenden Broadcast-Domänen an, erstellt ONTAP neue Broadcast-Domänen für diese Ports.
 
 . Überprüfen der Port-Erreichbarkeit:
 +
@@ -273,3 +279,6 @@ Wenn alle Ports korrekt konfiguriert und den richtigen Broadcast-Domänen hinzug
 `network interface show -fields home-port,status-admin`
 
 
+
+.Was kommt als Nächstes?
+Nach Überprüfung der Node2-Installation, link:restore-key-manager-config-node2.html["Schlüsselverwaltungskonfiguration auf node2 wiederherstellen"].

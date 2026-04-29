@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-in-chassis/replace-node1-aff700-fas900.html
 keywords: aff, asa, fas, replace, node1, system, modules 
 summary: Ersetzen Sie die AFF A700- oder FAS9000 node1-Systemmodule, wenn Sie mittels ARL Controller-Modelle im selben Chassis durch ein Upgrade aufrüsten. 
 ---
-= Ersetzen Sie den AFF A700- oder FAS9000-Controller und die NVRAM-Module
+= Ersetzen Sie die Controller- und NVRAM-Module von Node1 AFF A700 oder FAS9000
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -185,7 +185,7 @@ image:black_circle_two.png["Nummer zwei"]
 | Nockengriff in der nicht entriegeln Position 
 |===
 . Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
-. Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
+. Nachdem Sie AUTOBOOT unterbrochen haben, bleibt node1 an der LOADER-Eingabeaufforderung stehen. Falls Sie AUTOBOOT nicht rechtzeitig unterbrechen und node1 bereits startet, warten Sie auf die Eingabeaufforderung und drücken Sie Strg+C, um ins Bootmenü zu gelangen. Nachdem der Knoten im Bootmenü angehalten hat, verwenden Sie Option `8`, um den Knoten neu zu starten und AUTOBOOT während des Neustarts zu unterbrechen.
 . Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
 +
 [source, cli]
@@ -199,3 +199,6 @@ set-defaults
 saveenv
 ----
 
+
+.Was kommt als Nächstes?
+Nach der Installation der ASA A900, AFF A900 oder FAS9500 Controller- und NVRAM-Module link:netboot-node1.html["netboot node1"].

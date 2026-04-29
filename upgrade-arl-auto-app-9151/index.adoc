@@ -26,7 +26,7 @@ In dieser Information werden die ursprünglichen Knoten „node1“ und „node2
 
 Die Begriffe "node1", "node2", "node3" und "node4" werden nur verwendet, um zwischen den ursprünglichen und den neuen Knoten zu unterscheiden. Wenn Sie das Verfahren befolgen, müssen Sie die richtigen Namen Ihrer ursprünglichen und neuen Knoten ersetzen. In der Realität ändern sich jedoch die Namen der Nodes nicht: node3 hat den Namen node1 und node4 hat nach dem Upgrade der Controller-Hardware den Namen node2.
 
-.Wichtige Informationen:
+.Wichtige Informationen
 * Diese Vorgehensweise ist komplex und setzt voraus, dass Sie über erweiterte ONTAP-Administrationsfähigkeiten verfügen. Sie müssen außerdem die link:guidelines_for_upgrading_controllers_with_arl.html["Richtlinien zum Upgraden von Controllern mit ARL"] und die link:overview_of_the_arl_upgrade.html["ARL-Upgradesequenz"] bevor Sie mit dem Upgrade beginnen.
 * Bei dieser Vorgehensweise wird vorausgesetzt, dass die Ersatz-Controller-Hardware neu ist und nicht verwendet wurde. Die erforderlichen Schritte zum Vorbereiten gebrauchter Controller mit dem `wipeconfig` Befehl sind in diesem Verfahren nicht enthalten. Sie müssen sich an den technischen Support wenden, wenn die Ersatz-Controller-Hardware zuvor verwendet wurde.
 * Mit diesem Verfahren können Sie die Controller-Hardware in Clustern mit mehr als zwei Nodes aktualisieren. Sie müssen jedoch für jedes Hochverfügbarkeitspaar (HA) im Cluster separat vorgehen.
@@ -54,3 +54,9 @@ Das AFF A20 System verwendet 10-GbE- und 25-GbE-Netzwerk-Ports sowohl für Clust
 Wenn Sie e0a oder e0b Cluster-Ports auf dem vorhandenen Node nicht mit den Cluster-Ports auf dem neuen Node verbinden können, finden Sie unter link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["NetApp Bugs Online Fehler-ID CONTAP-166978"^].
 
 
+
+.Automatisierter Controller-Upgrade-Prozess
+Bei einem Controller-Upgrade wird der vorhandene Controller durch einen anderen Controller mit einer neueren oder leistungsstärkeren Plattform ersetzt. Dieser Artikel beschreibt die Schritte des teilautomatisierten Verfahrens, das automatische Netzwerkport-Erreichbarkeitsprüfungen nutzt, um das Controller-Upgrade weiter zu vereinfachen.
+
+.Was kommt als Nächstes?
+Nachdem Sie sich über dieses ARL-Upgrade-Verfahren informiert haben, link:decide_to_use_the_aggregate_relocation_guide.html["entscheiden, ob dieses Verfahren angewendet werden soll"].

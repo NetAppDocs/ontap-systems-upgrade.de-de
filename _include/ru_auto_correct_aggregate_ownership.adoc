@@ -1,10 +1,10 @@
-= Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+= Schritt 2: Korrigieren Sie den Aggregatbesitz, falls eine ARL-Vorprüfung fehlschlägt
 :allow-uri-read: 
 
 
 
 
-== Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+== Schritt 2: Korrigieren Sie den Aggregatbesitz, falls eine ARL-Vorprüfung fehlschlägt
 
 Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
 
@@ -33,12 +33,7 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Starten Sie den Controller-Austauschprozess neu:
 
-
-
-
-=== Nachdem Sie fertig sind
-
-Sie müssen den Controller-Ersatzprozess neu starten:
 
 `system controller replace start -nodes _node_names_`

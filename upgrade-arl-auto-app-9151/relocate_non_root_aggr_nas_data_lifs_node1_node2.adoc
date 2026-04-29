@@ -84,3 +84,6 @@ Der  `vserver_name` Die Verwendung mit diesem Befehl finden Sie in der Ausgabe d
 `network interface modify -vserver _vserver_name_ -lif _LIF_name_ -home-node _nodename_ -status-admin up`
 
 
+
+.Was kommt als Nächstes?
+Nach der Verschiebung der Nicht-Root-Aggregate und der NAS-Daten-LIFs, die sich im Besitz von node1 befinden, zu node2, link:relocate-failed-or-vetoed-aggr-node2.html["Fehlgeschlagene oder abgelehnte Aggregate auf node2 verschieben"].

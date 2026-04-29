@@ -77,6 +77,9 @@ Wenn Sie auf dem vorhandenen Node keine e0a oder e0b Cluster-Ports mit den Clust
 
 
 
-== Automatisierung des Controller-Upgrades
+== Automatisierter Controller-Upgrade-Prozess
 
 Dieses Verfahren enthält die Schritte für das automatisierte Verfahren. Hierbei werden die automatische Festplattenzuordnung und die Überprüfung der Erreichbarkeit von Netzwerk-Ports verwendet, um das Upgrade des Controllers zu vereinfachen.
+
+.Was kommt als Nächstes?
+Nachdem ich von diesem ARL-Upgrade-Verfahren erfahren hatte, link:decide-to-use-the-aggregate-relocation-guide.html["entscheiden, ob dieses Verfahren angewendet werden soll"].

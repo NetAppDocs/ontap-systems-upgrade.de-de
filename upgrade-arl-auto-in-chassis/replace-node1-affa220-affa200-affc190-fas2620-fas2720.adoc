@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-in-chassis/replace-node1-affa220-affa200-affc190-fas
 keywords: aff, asa, fas, replace, node1, system, modules 
 summary: Ersetzen Sie die Node-1-Module AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720, wenn Sie Controller-Modelle mithilfe von ARL im selben Chassis aktualisieren. 
 ---
-= Austausch des Controller-Moduls AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
+= Ersetzen Sie das Controller-Modul von Node1 AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -69,7 +69,7 @@ NOTE: Da das Gehäuse bereits EINGESCHALTET ist, startet node1 die BIOS-Initiali
 NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft anwenden.
 
 . Schließen Sie die serielle Konsole an, sobald das Modul eingesetzt ist und bereit ist, DEN AUTOSTART von node1 zu unterbrechen.
-. Nachdem Sie DEN AUTOBOOT unterbrochen haben, wird node1 an der LOADER-Eingabeaufforderung angehalten. Wenn Sie das AUTOBOOT nicht rechtzeitig unterbrechen und node1 startet den Boot-Vorgang, warten Sie auf die Eingabeaufforderung und drücken Sie Strg-C, um zum Boot-Menü zu gelangen. Nachdem der Node im Boot-Menü angehalten wurde, verwenden Sie Option `8` , um den Node neu zu booten und DAS AUTOBOOT während des Neubootens zu unterbrechen.
+. Nachdem Sie AUTOBOOT unterbrochen haben, bleibt node1 an der LOADER-Eingabeaufforderung stehen. Falls Sie AUTOBOOT nicht rechtzeitig unterbrechen und node1 bereits startet, warten Sie auf die Eingabeaufforderung und drücken Sie Strg+C, um ins Bootmenü zu gelangen. Nachdem der Knoten im Bootmenü angehalten hat, verwenden Sie Option `8`, um den Knoten neu zu starten und AUTOBOOT während des Neustarts zu unterbrechen.
 . Legen Sie an der Eingabeaufforderung „LOADER> von node1“ die Standardvariablen für die Umgebung fest:
 +
 [source, cli]
@@ -83,3 +83,6 @@ set-defaults
 saveenv
 ----
 
+
+.Was kommt als Nächstes?
+Nach der Installation des ASA A150, AFF A150 oder FAS2820 Controller-Moduls, link:netboot-node1.html["netboot node1"].

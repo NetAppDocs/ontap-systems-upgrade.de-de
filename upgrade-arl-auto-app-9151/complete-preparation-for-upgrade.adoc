@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-app/manage_storage_encryption_using_okm.html 
+permalink: upgrade-arl-auto-app-9151/complete-preparation-for-upgrade.html 
 keywords: ip, address, external, key, management, server, storage, encryption, upgrading, authentication 
-summary: 'Konfiguration und Management der Storage-Verschlüsselung, Management der Authentifizierungsschlüssel und Stilllegung der SnapMirror Beziehungen, wenn Sie ein Upgrade von Controllern mit ONTAP 9.8 oder höher durchführen `system controller replace` Befehl.' 
+summary: 'Storage-Verschlüsselung konfigurieren und managen, Authentifizierungsschlüssel managen und die SnapMirror Beziehungen beim Upgrade von Controllern, auf denen ONTAP 9.15.1 oder höher ausgeführt wird, stilllegen. `system controller replace`' 
 ---
-= Management der Storage-Verschlüsselung mit dem Onboard Key Manager
+= Schließen Sie die Vorbereitung für das Upgrade ab
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,22 @@ summary: 'Konfiguration und Management der Storage-Verschlüsselung, Management 
 
 
 [role="lead"]
-Sie können den Onboard Key Manager (OKM) zur Verwaltung der Schlüssel verwenden. Wenn Sie das OKM eingerichtet haben, müssen Sie die Passphrase und das Sicherungsmaterial aufzeichnen, bevor Sie mit dem Upgrade beginnen.
+Erfahren Sie mehr über ONTAP-Lizenzierung und die Verwaltung der Speicherverschlüsselung mithilfe des Onboard Key Manager (OKM). Optional können Sie die SnapMirror-Beziehungen stilllegen.
+
+
+
+== Erfahren Sie mehr über ONTAP-Lizenzierung
+
+Ausführliche Informationen zur ONTAP-Lizenzierung finden Sie unter https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Lizenzmanagement"^].
+
+
+NOTE: Wenn Sie nicht lizenzierte Funktionen auf dem Controller verwenden, kann es sein, dass Sie Ihre Lizenzvereinbarung nicht einhalten.
+
+
+
+== Management der Storage-Verschlüsselung mit dem Onboard Key Manager
+
+Verwenden Sie den Onboard Key Manager (OKM) zur Verwaltung der Verschlüsselungsschlüssel. Wenn Sie den OKM eingerichtet haben, müssen Sie die Passphrase und die Sicherungsdaten vor Beginn des Upgrades notieren.
 
 .Schritte
 . Notieren Sie die Cluster-weite Passphrase.
@@ -40,7 +55,7 @@ Geben Sie bei Aufforderung die clusterweite OKM-Passphrase ein, die Sie im vorhe
 
 
 
-== Stilllegen der SnapMirror Beziehungen (optional)
+== Optional können die SnapMirror-Beziehungen angehalten werden
 
 Bevor Sie mit dem Verfahren fortfahren, müssen Sie bestätigen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.
 
@@ -64,3 +79,6 @@ Der Abbruch schlägt fehl, wenn sich die SnapMirror-Beziehung nicht im Zustand �
 `snapmirror quiesce -destination-vserver *`
 
 
+
+.Was kommt als Nächstes?
+Nach der Vorbereitung des Upgrades, link:relocate_non_root_aggr_nas_data_lifs_node1_node2.html["Nicht-Root-Aggregate und NAS-Daten-LIFs, die Knoten1 gehören, zu Knoten2 verschieben"].

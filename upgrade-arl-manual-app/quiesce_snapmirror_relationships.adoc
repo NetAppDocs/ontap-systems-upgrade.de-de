@@ -34,3 +34,6 @@ Der Abbruch schlägt fehl, wenn die SnapMirror-Beziehung sich nicht im befindet 
 `snapmirror quiesce -destination-vserver *`
 
 
+
+.Was kommt als Nächstes?
+Nachdem die SnapMirror-Beziehungen angehalten wurden, link:prepare_for_netboot.html["Vorbereitung auf den Netzwerkstart"].

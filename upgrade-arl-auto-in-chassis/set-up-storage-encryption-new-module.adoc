@@ -57,3 +57,6 @@ Sie müssen dieselben Key Management-Server installieren, die auf dem vorhandene
 `security key-manager external restore -node _new_controller_name_`
 
 
+
+.Was kommt als Nächstes?
+Nach der Einrichtung der Speicherverschlüsselung auf dem neuen Controller-Modul, link:set-up-netapp-volum-encryption-new-module.html["Richten Sie die NetApp Volume- oder Aggregatverschlüsselung auf dem neuen Controller-Modul ein"].

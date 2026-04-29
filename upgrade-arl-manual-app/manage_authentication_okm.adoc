@@ -37,3 +37,6 @@ Geben Sie bei Aufforderung die clusterweite OKM-Passphrase ein, die Sie im vorhe
 `security key-manager onboard show-backup`
 
 
+
+.Was kommt als Nächstes?
+Nach der Verwaltung von Authentifizierungsschlüsseln mithilfe des Onboard Key Managers, link:quiesce_snapmirror_relationships.html["die SnapMirror-Beziehungen beruhigen"].

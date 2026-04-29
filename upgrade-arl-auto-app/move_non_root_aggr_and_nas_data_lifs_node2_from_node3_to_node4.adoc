@@ -130,3 +130,6 @@ Das System führt die folgenden Nachprüfungen durch:
 
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben von Nicht-Root-Aggregaten und NAS-Daten-LIFs, die sich im Besitz von node2 befinden, von node3 zu node4, link:manage-authentication-using-kmip-servers.html["Authentifizierung mit KMIP-Servern verwalten"].

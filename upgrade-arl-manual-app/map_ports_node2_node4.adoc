@@ -14,7 +14,7 @@ summary: Überprüfen Sie, ob die physischen Ports auf node2 während eines manu
 
 
 [role="lead"]
-Sie müssen sicherstellen, dass die physischen Ports auf node2 den physischen Ports auf node4 korrekt zugeordnet werden. damit kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
+Sie müssen sicherstellen, dass die physischen Ports auf Knoten2 korrekt den physischen Ports auf Knoten4 zugeordnet sind. Dadurch kann Knoten4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Bevor Sie beginnen
 Sie müssen bereits über die Ports auf den neuen Nodes verfügen, um auf diese Informationen zuzugreifen, siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Informationen werden später in diesem Abschnitt verwendet.
@@ -147,7 +147,7 @@ Warning: Repairing port "node_name:port" may cause it to move into a different b
 +
 `network port broadcast-domain show`
 
-.. Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn jedoch die Erreichbarkeit eines Ports nicht ermittelt werden kann und keiner der vorhandenen Broadcast-Domänen entspricht, erstellt ONTAP neue Broadcast-Domains für diese Ports. Bei Bedarf können Sie die neu erstellten Broadcast-Domänen löschen, wenn alle deren Mitgliedsports zu Mitgliedsports der Interface Groups werden. Broadcast-Domänen löschen:
+.. Während der Erreichbarkeitsreparatur versucht ONTAP, die Ports den korrekten Broadcast-Domänen zuzuordnen. Kann ONTAP die Erreichbarkeit eines Ports nicht ermitteln und entspricht der Port keiner der vorhandenen Broadcast-Domänen, versucht ONTAP, neue Broadcast-Domänen für diese Ports zu erstellen. Bei Bedarf können Sie die neu erstellten Broadcast-Domänen löschen, wenn alle ihre Mitgliedsports zu Mitgliedsports der Schnittstellengruppen werden. Broadcast-Domänen löschen:
 +
 `broadcast-domain delete -broadcast-domain _broadcast_domain_`
 
@@ -200,7 +200,7 @@ NOTE: Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierte
 
 
 
-. [[man_map_2_Step5]]ab ONTAP 9.8 ändert ONTAP automatisch die Home Ports der LIFs, wenn die Ports während der Reparatur des Netzwerkports zwischen Broadcast-Domänen verschoben werden. Wenn der Home Port einer LIF auf einen anderen Knoten verschoben wurde oder nicht zugewiesen ist, wird diese LIF als vertriebene LIF dargestellt. Stellen Sie die Home-Ports der vertriebenen LIFs wieder her, deren Home-Ports nicht mehr vorhanden sind oder in einen anderen Node verschoben wurden.
+. [[man_map_2_Step5]]Ab ONTAP 9.8 ändert ONTAP die Home-Ports von LIFs automatisch, wenn die Ports während der Reparaturprozedur zur Netzwerkport-Erreichbarkeit zwischen Broadcast-Domänen verschoben werden. Wurde der Home-Port eines LIFs auf einen anderen Knoten verschoben oder ist er nicht zugewiesen, wird dieser LIF als verschobener LIF angezeigt. Stellen Sie die Home-Ports verschobener LIFs wieder her, deren Home-Ports entweder nicht mehr existieren oder auf einen anderen Knoten verschoben wurden.
 +
 .. Zeigen Sie die LIFs an, deren Home-Ports möglicherweise zu einem anderen Node verschoben oder nicht mehr vorhanden sind:
 +
@@ -244,3 +244,6 @@ NOTE: Für iSCSI LIFs muss die Modifikation des Home Ports die LIF administrativ
 
 
 
+
+.Was kommt als Nächstes?
+Nach der Portzuordnung von Knoten2 zu Knoten4, link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["Verschieben Sie die NAS-Daten-LIFs, die sich im Besitz von node2 befinden, von node3 zu node4 und überprüfen Sie die SAN-LIFs auf node4."].

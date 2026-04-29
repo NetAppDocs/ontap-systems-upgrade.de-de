@@ -139,3 +139,6 @@ Siehe link:other-references.html["Quellen"], um auf die _System Administration R
 
 .Nachdem Sie fertig sind
 Wenn Storage Encryption auf node1 und node2 aktiviert ist, füllen Sie den Abschnitt link:set-up-storage-encryption-new-module.html["Richten Sie Storage Encryption auf dem neuen Controller-Modul ein"] aus. Andernfalls füllen Sie den Abschnitt link:decommission-old-system.html["Ausmustern des alten Systems"] aus.
+
+.Was kommt als Nächstes?
+Nachdem bestätigt wurde, dass die neuen Controller korrekt eingerichtet sind, link:set-up-storage-encryption-new-module.html["Speicherverschlüsselung auf dem neuen Controllermodul einrichten"].

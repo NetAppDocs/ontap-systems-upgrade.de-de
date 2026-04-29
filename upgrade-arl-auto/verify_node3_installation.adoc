@@ -17,7 +17,7 @@ summary: 'Stellen Sie sicher, dass node3 dem Quorum beitreten, VLANs, Schnittste
 Nach der Installation und dem Booten von node3 müssen Sie überprüfen, ob die Installation korrekt ist. Sie müssen warten, bis Knoten 3 dem Quorum beitreten und dann den Umzugsvorgang fortsetzen.
 
 .Über diese Aufgabe
-An diesem Punkt des Verfahrens wird der Vorgang angehalten, da node3 dem Quorum beitritt.
+An diesem Punkt des Verfahrens wird die Operation unterbrochen, da node3 dem Quorum beitritt.
 
 .Schritte
 . Vergewissern Sie sich, dass node3 dem Quorum beigetreten ist:
@@ -70,7 +70,7 @@ Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengr
 
 == Wiederherstellung der Key-Manager-Konfiguration auf Knoten 3
 
-Wenn Sie NetApp Aggregate Encryption (NAE) oder NetApp Volume Encryption (NVE) zur Verschlüsselung von Volumes auf dem System verwenden, das Sie aktualisieren, muss die Verschlüsselungskonfiguration mit den neuen Nodes synchronisiert werden. Wenn Sie den Schlüsselmanager nicht wiederherstellen, werden beim Verschieben der Node1-Aggregate mit ARL von node2 auf Knoten 3 verschlüsselte Volumes offline geschaltet.
+Wenn Sie NetApp Aggregate Encryption (NAE) oder NetApp Volume Encryption (NVE) zur Verschlüsselung von Volumen auf dem zu aktualisierenden System verwenden, muss die Verschlüsselungskonfiguration mit den neuen Knoten synchronisiert werden. Wenn Sie den Schlüsselmanager nicht wiederherstellen, werden beim Verschieben der node1-Aggregate mithilfe von ARL von node2 auf node3 die verschlüsselten Volumen offline genommen.
 
 .Schritte
 . Führen Sie zum Synchronisieren der Verschlüsselungskonfiguration für Onboard Key Manager den folgenden Befehl an der Cluster-Eingabeaufforderung aus:

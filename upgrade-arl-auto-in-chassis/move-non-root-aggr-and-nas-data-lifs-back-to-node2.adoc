@@ -134,3 +134,6 @@ Das System führt die folgenden Nachprüfungen durch:
 
 
 
+
+.Was kommt als Nächstes?
+Nachdem die Nicht-Root-Aggregate und die NAS-Daten-LIFs zurück auf node2 verschoben wurden, link:manage-authentication-using-kmip-servers.html["Authentifizierung mit KMIP-Servern verwalten"].

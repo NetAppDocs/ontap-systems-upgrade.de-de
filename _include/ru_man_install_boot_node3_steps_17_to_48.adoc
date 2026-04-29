@@ -10,7 +10,7 @@
 
 WARNING: Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausgeführt werden `wipeconfig` Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
 
-. Drücken Sie STRG+C, um das Startmenü anzuzeigen.
+. Drücken Sie STRG-C, um das Bootmenü anzuzeigen.
 . [[man_install3_step19]]Nehmen Sie eine der folgenden Aktionen:
 +
 [cols="35,65"]

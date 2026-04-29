@@ -263,7 +263,7 @@ NOTE: Falls Sie dies noch nicht bereits in der Prozedur getan haben, lesen Sie d
 |===
 .. Gehen Sie zum speziellen Startmenü und wählen Sie Option `(10) Set Onboard Key Manager recovery secrets`.
 +
-Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im Verfahren notiert haben. Siehe link:manage_storage_encryption_using_okm.html["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"].
+Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im Verfahren notiert haben. Siehe link:complete-preparation-for-upgrade.html#manage_storage_encryption_using_okm["Management der Storage-Verschlüsselung mit dem Onboard Key Manager"].
 
 
 
@@ -384,10 +384,10 @@ Login:
 ====
 +
 
-NOTE: Im obigen Beispiel der Konsolenausgabe werden Sie von ONTAP aufgefordert, den Namen des Partner-Node anzugeben, wenn das System ADP-Festplatten (Advanced Disk Partitioning) verwendet.
+NOTE: Im obigen Beispiel der Konsolenausgabe fordert ONTAP Sie zur Eingabe des Partner-Node-Namens auf, wenn das System Advanced Disk Partitioning (ADP)-Festplatten verwendet.
 
 . Wenn das System in eine Reboot-Schleife mit der Meldung geht `no disks found`, zeigt dies an, dass ein Problem mit der Neuzuweisung der Festplatte aufgetreten ist. Informationen zur Behebung des Problems finden Sie unter link:aggregate_relocation_failures.html["Fehlerbehebung"] .
-. Drücken Sie `Ctrl-C` während des Autoboots, um den Knoten an der Eingabeaufforderung anzuhalten `LOADER>` .
+. Geben Sie  `Ctrl-C` während des automatischen Startvorgangs ein, um den Node am  `LOADER>`-Prompt anzuhalten.
 . Wechseln Sie an der LOADER-Eingabeaufforderung in den Wartungsmodus:
 +
 `boot_ontap maint`
@@ -451,3 +451,6 @@ NOTE: In dieser Phase ist möglicherweise ein Fehler aufgetreten. Wenn ein Fehle
 
 
 
+
+.Was kommt als Nächstes?
+Nach der Installation und dem Start von Node3, link:verify_node3_installation.html["Überprüfen Sie die Installation von node3."].

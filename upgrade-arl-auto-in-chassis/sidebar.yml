@@ -21,7 +21,7 @@ entries:
   - title: Bereiten Sie die Knoten für ein Upgrade vor
     url: "/upgrade-arl-auto-in-chassis/prepare-nodes-for-upgrade.html"
   - title: Management der Storage-Verschlüsselung mit dem Onboard Key Manager
-    url: "/upgrade-arl-auto-in-chassis/manage-storage-encryption-using-okm.html"
+    url: "/upgrade-arl-auto-in-chassis/complete-preparation-for-upgrade.html"
 - title: Phase 2. Verschieben von Ressourcen und Ausmustern von Knoten1
   entries:
   - title: Verschieben von Aggregaten ohne Root-Wurzeln und NAS-Daten-LIFs, die sich
@@ -66,18 +66,18 @@ entries:
     url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node1.html"
   - title: Node2 ausmustern
     url: "/upgrade-arl-auto-in-chassis/retire-node2.html"
-- title: Phase 5. Installieren Sie die Ersatz-Systemmodule auf Knoten 2
+- title: Schritt 5. Installieren Sie die Node2-Ersatzsystemmodule
   entries:
-  - title: Installieren Sie die Ersatz-Systemmodule auf Knoten 2
+  - title: Ersetzen Sie die Node2-Systemmodule
     entries:
-    - title: Installieren Sie AFF A30, AFF A50, AFF C30 oder AFF C60
-      url: "/upgrade-arl-auto-in-chassis/install-aff-a30-a50-c30-c50-node2.html"
-    - title: Installieren Sie AFF A90 oder AFF A70
-      url: "/upgrade-arl-auto-in-chassis/install-affa90-affa70-on-node2.html"
-    - title: Installation von ASA A150, AFF A150 oder FAS2820
-      url: "/upgrade-arl-auto-in-chassis/install-asa150-affa150-fas2820-on-node2.html"
-    - title: Installation von ASA A900, AFF A900 oder FAS9500
-      url: "/upgrade-arl-auto-in-chassis/install-asa900-affa900-fas9500-on-node2.html"
+    - title: Ersetzen Sie AFF A250 oder AFF C250
+      url: "/upgrade-arl-auto-in-chassis/replace-node2-affa250-affc250.html"
+    - title: Ersetzen Sie AFF A800 oder AFF C800
+      url: "/upgrade-arl-auto-in-chassis/replace-node2-affa800-affc800.html"
+    - title: Ersetzen Sie AFF A220, AFF A200, AFF C190, FAS2720 oder FAS2720
+      url: "/upgrade-arl-auto-in-chassis/replace-node2-affa220-affa200-affc190-fas2620-fas2720.html"
+    - title: AFF A700 oder FAS9000 ersetzen
+      url: "/upgrade-arl-auto-in-chassis/replace-node2-aff700-fas900.html"
   - title: Netzboot Nr. 2
     url: "/upgrade-arl-auto-in-chassis/netboot-node2.html"
 - title: Phase 6. Starten Sie Knoten2 mit den Ersatz-Systemmodulen

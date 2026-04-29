@@ -156,7 +156,7 @@ vsa_1 iscsi_lf__n4_p1_ 1 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02
 .Ergebnis
 Am Ende dieser Aufgabe kann der Host alle iSCSI-Schnittstellen sehen (auf den alten und neuen Knoten) und ist bei allen diesen Schnittstellen angemeldet.
 
-LUNs und Volumes werden weiterhin physisch auf den alten Knoten gehostet. Da LUNs nur für die alten Node-Schnittstellen gemeldet werden, zeigt der Host nur Pfade über den alten Node an. Um dies zu sehen, führen Sie den aus `sanlun lun show -p` Und `multipath -ll -d` Befehle auf dem Host und überprüfen Sie die Befehlsausgaben.
+LUNs und Volumes befinden sich weiterhin physisch auf den alten Knoten. Da LUNs nur über die Schnittstellen der alten Knoten gemeldet werden, zeigt der Host nur Pfade über die alten Knoten an. Um dies zu sehen, führen Sie die `sanlun lun show -p` und `multipath -ll -d` Befehle auf dem Host aus und analysieren Sie die Befehlsausgaben.
 
 [listing]
 ----

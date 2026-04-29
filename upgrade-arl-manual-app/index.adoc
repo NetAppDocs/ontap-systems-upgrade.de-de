@@ -60,3 +60,6 @@ NOTE: In diesem Dokument werden die ursprünglichen Knoten als _node1_ und _node
 
 
 
+
+.Was kommt als Nächstes?
+Nachdem ich von diesem ARL-Verfahren erfahren hatte, link:decide_to_use_arl_guide.html["entscheiden, ob dieses ARL-Verfahren angewendet werden soll"].

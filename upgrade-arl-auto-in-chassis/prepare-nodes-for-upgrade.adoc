@@ -16,6 +16,12 @@ summary: Wenn Sie mit ARL Controller-Modelle im selben Chassis aktualisieren, be
 [role="lead"]
 Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfungen. Sie sammeln auch Informationen über die ursprünglichen Nodes, die Sie später verwenden können. Falls erforderlich, ermitteln Sie den Typ der verwendeten Self-Encrypting Drives.
 
+
+
+== Schritt 1: Die Knoten vorbereiten
+
+Starten Sie den Controller-Austausch und führen Sie Vorabprüfungen durch. Ermitteln Sie gegebenenfalls den Typ der verwendeten selbstverschlüsselnden Laufwerke.
+
 .Schritte
 . Listen Sie die Firmware-Version des Service-Prozessors (SP) oder des Baseboard Management Controller (BMC) auf, die auf dem alten Controller ausgeführt wird:
 +
@@ -55,7 +61,7 @@ Vergewissern Sie sich, dass Sie über eine unterstützte SP- oder BMC-Firmware-V
 `system controller replace start -nodes _node_names_`
 
 +
-Es wird eine Ausgabe wie im folgenden Beispiel angezeigt. In der Ausgabe wird die auf dem Cluster ausgeführte ONTAP-Version angezeigt:
+Die Ausgabe sieht ähnlich aus wie im folgenden Beispiel. Die Ausgabe zeigt die auf Ihrem Cluster ausgeführte ONTAP-Version an:
 
 +
 ....
@@ -72,7 +78,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 
 Do you want to continue? {y|n}: y
 ....
-. Wählen Sie `y`. Sie sehen die folgende Ausgabe:
+. Wählen Sie  `y`. Sie sehen die folgende Ausgabe:
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -183,7 +189,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+== Schritt 2: Korrigieren Sie den Aggregatbesitz, falls eine ARL-Vorprüfung fehlschlägt
 
 Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
 
@@ -212,24 +218,10 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Starten Sie den Controller-Austauschprozess neu:
 
-
-
-
-=== Nachdem Sie fertig sind
-
-Sie müssen den Controller-Ersatzprozess neu starten:
 
 `system controller replace start -nodes _node_names_`
 
-
-
-== Lizenz
-
-Jeder Knoten im Cluster muss über eine eigene NetApp-Lizenzdatei (NLF) verfügen.
-
-Wenn Sie nicht über eine Lizenzdatei verfügen, stehen dem neuen Controller derzeit lizenzierte Funktionen im Cluster zur Verfügung. Wenn Sie jedoch nicht lizenzierte Funktionen auf dem Controller verwenden, unterläuft dies möglicherweise die Einhaltung Ihrer Lizenzvereinbarung. Daher sollten Sie nach Abschluss des Upgrades die Lizenzdatei für den neuen Controller installieren.
-
-Siehe link:other-references.html["Quellen"] für einen Link zur _NetApp Support Site_, wo Sie Ihre NLF erhalten können. Die NLFs sind im Bereich _My Support_ unter _Software licenses_ verfügbar. Wenn die Seite die benötigten NLFs nicht enthält, wenden Sie sich an Ihren NetApp Vertriebsmitarbeiter.
-
-Detaillierte Informationen zur Lizenzierung finden Sie unter link:other-references.html["Quellen"] dem Link _System Administration Reference_.
+.Was kommt als Nächstes?
+Nach der Vorbereitung der Knoten, link:complete-preparation-for-upgrade.html["Die Vorbereitungen für das Upgrade abschließen"].

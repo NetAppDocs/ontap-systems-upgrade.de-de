@@ -41,3 +41,6 @@ Das System unterbricht den Umzugsvorgang aufgrund des Fehlers.
 `storage aggregate relocation start -node node2 -destination node3 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===
 
+
+.Was kommt als Nächstes?
+Nach der Verlagerung fehlgeschlagener oder abgelehnter Aggregate, link:retire_node2.html["Node2 außer Betrieb nehmen"].

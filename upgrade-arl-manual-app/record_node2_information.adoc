@@ -41,7 +41,7 @@ node2
 ----
 +
 
-NOTE: Das System verfügt möglicherweise über keine Intercluster-LIFs. Sie erhalten eine Cluster-Management-LIF nur auf einem Node eines Node-Paars. Eine LIF zum Cluster-Management wird in der Beispielausgabe von angezeigt link:record_node1_information.html#step1["Schritt 1"] In _Port-Informationen für Node1 aufzeichnen_.
+NOTE: Ihr System verfügt möglicherweise nicht über Intercluster-LIFs. Sie haben eine Cluster-Management-LIF nur auf einem Knoten eines Knotenpaares. Eine Cluster-Management-LIF wird in der Beispielausgabe von link:record_node1_information.html#step1["Schritt 1"] in _Record node1 port information_ angezeigt.
 
 . Erfassen Sie die Informationen in der Ausgabe, die im Abschnitt verwendet werden sollen link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
 +
@@ -75,7 +75,7 @@ node2
 ----
 . Notieren Sie die Ports und ihre Broadcast-Domänen.
 +
-Die Broadcast-Domänen müssen später im Verfahren den Ports auf dem neuen Controller zugeordnet werden.
+Die Broadcast-Domänen müssen im weiteren Verlauf des Verfahrens den Ports des neuen Controllers zugeordnet werden.
 
 . Bestimmen Sie die FC-Ports auf node2:
 +
@@ -141,3 +141,6 @@ cluster::> system node show -instance -node node2
 ----
 . [[man_record_2_steep10]]notieren Sie die im Abschnitt zu verwendende NVRAM-System-ID link:install_boot_node4.html["installieren und booten sie node4"].
 
+
+.Was kommt als Nächstes?
+Nach der Aufzeichnung der node2-Informationen, link:retire_node2.html["Node2 außer Betrieb nehmen"].

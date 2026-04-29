@@ -13,7 +13,5 @@ Um „node1“ außer Betrieb zu nehmen, setzen Sie den automatischen Vorgang fo
 +
 `system controller replace show-details`
 
+. Optional kann node1 nach Abschluss des Upgrades außer Betrieb genommen werden. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].
 
-
-.Nachdem Sie fertig sind
-Sie können Node1 nach Abschluss des Upgrades außer Betrieb nehmen. Siehe link:decommission_old_system.html["Ausmustern des alten Systems"].

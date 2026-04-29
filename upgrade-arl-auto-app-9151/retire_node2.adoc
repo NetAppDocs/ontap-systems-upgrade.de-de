@@ -28,3 +28,6 @@ Der Knoten wird automatisch angehalten.
 
 .Nachdem Sie fertig sind
 Stellen Sie nach der Außerbetriebnahme von Knoten2 sicher, dass er ausgeschaltet und nicht mit dem Netzwerk verbunden ist.  Belassen Sie die alte Hardware von Knoten2 in diesem Zustand, bis Sie das Upgrade von Knoten1 und Knoten2 abgeschlossen haben.  Sie können dann Knoten2 währendlink:manage-authentication-using-kmip-servers.html["Phase 6: Schließen Sie das Upgrade ab"] .
+
+.Was kommt als Nächstes?
+Nach der Außerbetriebnahme von node2, link:install_boot_node4.html["Node4 installieren und starten"].

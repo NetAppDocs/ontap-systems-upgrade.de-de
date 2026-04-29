@@ -1,10 +1,10 @@
-= UTA/UTA2-Ports in node3 prüfen und konfigurieren
+= Schritt 2: UTA/UTA2-Ports auf node3 prüfen und konfigurieren
 :allow-uri-read: 
 
 
 
 
-== UTA/UTA2-Ports in node3 prüfen und konfigurieren
+== Schritt 2: UTA/UTA2-Ports auf node3 prüfen und konfigurieren
 
 Wenn node3 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie möglicherweise neu konfigurieren, je nachdem, wie Sie das aktualisierte System verwenden möchten.
 

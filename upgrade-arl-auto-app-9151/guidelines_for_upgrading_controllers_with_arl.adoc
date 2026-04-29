@@ -62,3 +62,6 @@ Wenn Sie Controller der Einstiegsklasse mit internen Laufwerken aktualisieren m�
 Sollten beim Aktualisieren der Controller Probleme auftreten, siehelink:aggregate_relocation_failures.html["Fehlerbehebung"] für weitere Informationen und mögliche Lösungen.
 
 Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.
+
+.Was kommt als Nächstes?
+Nach Durchsicht der Richtlinien für die Aufrüstung von Controllern mit ARL, link:overview_of_the_arl_upgrade.html["Erfahren Sie mehr über die ARL-Upgrade-Sequenz"].

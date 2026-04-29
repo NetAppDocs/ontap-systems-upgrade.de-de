@@ -83,3 +83,6 @@ Weitere Informationen finden Sie im Knowledge Base-Artikel https://kb.netapp.com
 ====
 .Nachdem Sie fertig sind
 Überprüfen Sie, ob Volumes offline geschaltet wurden, da Authentifizierungsschlüssel nicht verfügbar waren oder EKM-Server nicht erreicht werden konnten. Stellen Sie diese Volumes mithilfe der wieder online `volume online` Befehl.
+
+.Was kommt als Nächstes?
+Nach der Einrichtung der NetApp Volumen- oder Aggregatverschlüsselung auf dem neuen Controller-Modul, link:decommission_old_system.html["Das alte System außer Betrieb nehmen"].

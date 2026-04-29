@@ -29,7 +29,7 @@ Bevor Sie node1 durch node3 ersetzen können, müssen Sie die nicht-Root-Aggrega
 
 .. Geben Sie bei der entsprechenden Aufforderung ein `y`.
 +
-Umzüge werden im Hintergrund stattfinden. Um ein Aggregat verschieben zu können, dauerte der Vorgang einige Sekunden oder Minuten. Die Zeit umfasst sowohl einen Client-Ausfall als auch Teile ohne Ausfälle. Mit dem Befehl werden keine Offline- oder eingeschränkten Aggregate verschoben.
+Umzüge finden im Hintergrund statt. Um ein Aggregat verschieben zu können, dauerte der Vorgang einige Sekunden oder Minuten. Die Zeit umfasst sowohl einen Client-Ausfall als auch Teile ohne Ausfälle. Mit dem Befehl werden keine Offline- oder eingeschränkten Aggregate verschoben.
 
 .. Kehren Sie zur Administratorebene zurück, indem Sie den folgenden Befehl eingeben:
 +
@@ -42,7 +42,7 @@ Umzüge werden im Hintergrund stattfinden. Um ein Aggregat verschieben zu könne
 `storage aggregate relocation show -node _node1_`
 
 +
-Die Ausgabe wird angezeigt `Done` Für ein Aggregat, nachdem es verlegt wurde.
+Die Ausgabe zeigt  `Done` für ein Aggregat an, nachdem es verschoben wurde.
 
 +
 
@@ -137,3 +137,6 @@ Node owns partner's aggregates as part of the nondisruptive controller upgrade p
 Die Ausgabe sollte keine online nicht-Root-Aggregate anzeigen, die bereits in node2 verschoben wurden.
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben der Nicht-Root-Aggregate von node1 zu node2, link:move_nas_lifs_node1_node2.html["Verschieben Sie NAS-Daten-LIFs, die node1 gehören, nach node2"].

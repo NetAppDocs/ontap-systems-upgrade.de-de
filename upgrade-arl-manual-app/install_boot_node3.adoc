@@ -166,7 +166,7 @@ Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im V
 
 WARNING: Wenn dieser neue Node jemals in einem anderen Cluster oder HA-Paar verwendet wurde, müssen Sie ausgeführt werden `wipeconfig` Bevor Sie fortfahren. Andernfalls kann es zu Serviceausfällen oder Datenverlusten kommen. Wenden Sie sich an den technischen Support, wenn der Ersatz-Controller zuvor verwendet wurde, insbesondere dann, wenn auf den Controllern ONTAP im 7-Mode ausgeführt wurde.
 
-. Drücken Sie STRG+C, um das Startmenü anzuzeigen.
+. Drücken Sie STRG-C, um das Bootmenü anzuzeigen.
 . [[man_install3_step19]]Nehmen Sie eine der folgenden Aktionen:
 +
 [cols="35,65"]
@@ -534,3 +534,6 @@ Der Node kann vor dem normalen Booten eine Runde des Neubootens durchlaufen.
 
 . [[man_install3_step48]]Einloggen in node3.
 
+
+.Was kommt als Nächstes?
+Nach der Installation und dem Start von Node3, link:set_fc_uta_uta2_config_node3.html["Legen Sie die FC- oder UTA/UTA2-Konfiguration auf Knoten3 fest"].

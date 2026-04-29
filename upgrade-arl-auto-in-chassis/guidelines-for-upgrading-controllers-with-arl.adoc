@@ -49,3 +49,6 @@ Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node ka
 Sollten Probleme auftreten, lesen Sie den Abschnitt link:aggregate-relocation-failures.html["Fehlerbehebung"] am Ende der Verfahrensanleitung für weitere Informationen und mögliche Lösungen. Informationen über die Fehler, die auftreten können, sind nach Phase des Verfahrens im link:overview-of-the-arl-upgrade.html["ARL-Upgradesequenz"] aufgeführt.
 
 Wenn Sie keine Lösung für das aufgetretene Problem finden, wenden Sie sich an den technischen Support.
+
+.Was kommt als Nächstes?
+Nach Durchsicht der Richtlinien für die Aufrüstung von Controllern, link:overview-of-the-arl-upgrade.html["Erfahren Sie mehr über die ARL-Upgrade-Sequenz"].

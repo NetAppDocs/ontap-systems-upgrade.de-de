@@ -41,9 +41,9 @@ Wenn Ihr System nicht oben aufgeführt ist, lesen Sie den https://hwu.netapp.com
 +
 `boot_ontap menu`
 
-. Geben Sie an der Eingabeaufforderung des Startmenüs ein `9a` Und drücken Sie dann die Eingabetaste.
+. Geben Sie an der Bootmenü-Eingabeaufforderung  `9a` ein und drücken Sie dann die Eingabetaste.
 +
-Auf dem folgenden Bildschirm wird die Eingabeaufforderung des Startmenüs angezeigt.
+Sie sehen folgende Ausgabe:
 
 +
 [listing]

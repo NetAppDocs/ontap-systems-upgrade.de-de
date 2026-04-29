@@ -1,8 +1,12 @@
-= 
+= Management der Storage-Verschlüsselung mit dem Onboard Key Manager
 :allow-uri-read: 
 
 
-Sie können den Onboard Key Manager (OKM) zur Verwaltung der Schlüssel verwenden. Wenn Sie das OKM eingerichtet haben, müssen Sie die Passphrase und das Sicherungsmaterial aufzeichnen, bevor Sie mit dem Upgrade beginnen.
+
+
+== Management der Storage-Verschlüsselung mit dem Onboard Key Manager
+
+Verwenden Sie den Onboard Key Manager (OKM) zur Verwaltung der Verschlüsselungsschlüssel. Wenn Sie den OKM eingerichtet haben, müssen Sie die Passphrase und die Sicherungsdaten vor Beginn des Upgrades notieren.
 
 .Schritte
 . Notieren Sie die Cluster-weite Passphrase.

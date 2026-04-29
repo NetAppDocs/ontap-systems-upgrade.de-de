@@ -210,3 +210,6 @@ Wenn Volumes auf Knoten3 offline sind, müssen Sie sie einmal für jedes Volume 
 Die Befehlsausgabe sollte nicht online nicht-Root-Aggregate anzeigen, da alle nicht-Root-Online-Aggregate bereits in node3 verschoben wurden.
 
 
+
+.Was kommt als Nächstes?
+Nach der Verschiebung der Nicht-Root-Aggregate von Knoten2 zu Knoten3 link:move_nas_lifs_node2_node3.html["Verschieben Sie NAS-Daten-LIFs, die zu node2 gehören, zu node3"].

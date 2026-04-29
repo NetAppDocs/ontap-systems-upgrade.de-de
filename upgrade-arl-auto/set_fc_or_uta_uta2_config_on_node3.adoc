@@ -17,7 +17,7 @@ summary: 'Konfigurieren Sie node3 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/
 Wenn node3 integrierte FC-Ports, Onboard Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
 .Über diese Aufgabe
-Möglicherweise müssen Sie den Abschnitt ausfüllen <<Konfigurieren Sie FC-Ports auf node3>>, Der Abschnitt <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>, Oder beide Abschnitte.
+Möglicherweise müssen Sie <<configure-fc-ports-on-node3,Konfigurieren Sie FC-Ports auf node3>> oder <<check-config-uta-uta2-node3,UTA/UTA2-Ports in node3 prüfen und konfigurieren>> oder beide Abschnitte ausfüllen.
 
 
 NOTE: Unter Umständen bezieht sich bei den Marketingmaterialien von NetApp der Begriff UTA2 auf Adapter und Ports des konvergierten Netzwerkadapters (CNA). Allerdings verwendet die CLI den Begriff CNA.
@@ -26,7 +26,7 @@ Wenn Knoten 3 nicht über Onboard FC-Ports, Onboard UTA/UTA2-Ports oder eine UTA
 
 
 
-== Konfigurieren Sie FC-Ports auf node3
+== Schritt 1: FC-Ports auf node3 konfigurieren
 
 Wenn Knoten3 über FC-Ports verfügt (entweder integriert oder auf einem zusätzlichen FC-Adapter), müssen Sie die Portkonfigurationen auf dem Knoten festlegen, bevor Sie ihn in Betrieb nehmen, da die Ports bei der Auslieferung der Systeme nicht vorkonfiguriert sind.  Wenn Sie die Ports nicht konfigurieren, kann es zu einer Dienstunterbrechung kommen.
 
@@ -34,7 +34,7 @@ Wenn Knoten3 über FC-Ports verfügt (entweder integriert oder auf einem zusätz
 Sie müssen die Werte der FC-Port-Einstellungen von node1 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
 
 .Über diese Aufgabe
-Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
+Sie können diesen Abschnitt überspringen, wenn Ihr System keine FC-Konfigurationen aufweist. Wenn Ihr System über integrierte UTA/UTA2-Ports oder eine UTA/UTA2-Karte verfügt, konfigurieren Sie diese in <<check-config-uta-uta2-node3,UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
 
 
 IMPORTANT: Geben Sie die Befehle in diesem Abschnitt an der Shell-Eingabeaufforderung im Wartungsmodus ein.
@@ -80,15 +80,15 @@ Zum Beispiel: `ucadmin modify -m fc -t initator 2b`
 
 . Führen Sie eine der folgenden Aktionen aus:
 +
-** Wenn node3 eine UTA/UTA2-Karte oder Onboard-Ports zu UTA/UTA2 hat, gehen Sie zu <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
-** Wenn node3 keine UTA/UTA2-Karte oder UTA/UTA2 Onboard-Ports hat, überspringen sie <<UTA/UTA2-Ports in node3 prüfen und konfigurieren>>den link:reassign-node1-disks-to-node3.html["Weisen Sie node1-Festplatten Knoten 3 neu zu"]Bus und gehen Sie zu .
+** Falls Knoten 3 über eine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports verfügt, gehen Sie zu <<check-config-uta-uta2-node3,UTA/UTA2-Ports in node3 prüfen und konfigurieren>>.
+** Falls node3 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports besitzt, überspringen Sie <<check-config-uta-uta2-node3,UTA/UTA2-Ports in node3 prüfen und konfigurieren>> und fahren Sie mit link:reassign-node1-disks-to-node3.html["Weisen Sie node1-Festplatten Knoten 3 neu zu"] fort.
 
 
 
 
 
 
-== UTA/UTA2-Ports in node3 prüfen und konfigurieren
+== Schritt 2: UTA/UTA2-Ports auf node3 prüfen und konfigurieren
 
 Wenn node3 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie möglicherweise neu konfigurieren, je nachdem, wie Sie das aktualisierte System verwenden möchten.
 

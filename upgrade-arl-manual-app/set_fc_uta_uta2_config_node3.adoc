@@ -259,3 +259,6 @@ Die Ausgabe in den folgenden Beispielen zeigt, dass sich der Adaptertyp „1b“
 
 . [[man_check_3_step14]]Verkabeln Sie den Port.
 
+
+.Was kommt als Nächstes?
+Nachdem die FC- oder UTA/UTA2-Konfiguration auf node3 eingerichtet wurde, link:map_ports_node1_node3.html["Ports von node1 zu node3 zuordnen"].

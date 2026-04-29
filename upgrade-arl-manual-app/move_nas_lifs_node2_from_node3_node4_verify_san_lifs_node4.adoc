@@ -314,3 +314,6 @@ NOTE: Sie müssen SAN-LIFs zu einem Port verschieben, der die gleiche Verbindung
 `network interface modify -vserver _vserver_name_ -lif _lif_name_ -status-admin up`
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben der NAS-Daten-LIFs, die Knoten2 gehören, von Knoten3 zu Knoten4 und der Überprüfung der SAN-LIFs auf Knoten4, .

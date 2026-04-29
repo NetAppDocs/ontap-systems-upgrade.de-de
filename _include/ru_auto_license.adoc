@@ -1,10 +1,10 @@
-= Lizenz
+= Erfahren Sie mehr über ONTAP-Lizenzierung
 :allow-uri-read: 
 
 
 
 
-== Lizenz
+== Erfahren Sie mehr über ONTAP-Lizenzierung
 
 Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
 
@@ -12,4 +12,4 @@ Wenn Sie keine neuen Lizenzschlüssel haben, stehen dem neuen Controller derzeit
 
 Siehe link:other_references.html["Quellen"] Link zur _NetApp-Support-Website_, auf der Sie neue 28-stellige Lizenzschlüssel für ONTAP erhalten können. Die Schlüssel sind im Abschnitt „_My Support_“ unter „_Software licenses_“ verfügbar. Wenn auf der Website nicht die erforderlichen Lizenzschlüssel vorhanden sind, können Sie sich an Ihren NetApp Ansprechpartner wenden.
 
-Ausführliche Informationen zur Lizenzierung finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+Detaillierte Informationen zur ONTAP-Lizenzierung finden Sie in link:other_references.html["Quellen"] der _System Administration Reference_.

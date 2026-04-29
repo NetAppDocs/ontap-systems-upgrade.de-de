@@ -70,3 +70,6 @@ Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node ka
 Sollten Probleme auftreten, lesen Sie bitte die link:aggregate_relocation_failures.html["Fehlerbehebung"] Weitere Informationen und mögliche Lösungen finden Sie im Abschnitt am Ende des Verfahrens. Informationen zu den möglichen Fehlern finden Sie in der nach Phasen des Verfahrens sortierten Liste im link:overview_of_the_arl_upgrade.html["ARL-Upgradesequenz"] .
 
 Wenn Sie keine Lösung für das Problem finden, wenden Sie sich an den technischen Support.
+
+.Was kommt als Nächstes?
+Nach Durchsicht der Richtlinien für die Aufrüstung von Controllern mit ARL, link:verify_health_of_metrocluster_config.html["Überprüfen Sie den Zustand der MetroCluster Konfiguration"].

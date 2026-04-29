@@ -98,7 +98,7 @@ Gesamteigentum am Ende von Stufe 5:
 In Phase 6 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden und Storage Encryption oder NetApp Volume Encryption einrichten, wenn die neuen Nodes verschlüsselt sind. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
 
-NOTE: Die Disaster-Recovery-Updates für Storage Virtual Machine (SVM) werden nicht gemäß den zugewiesenen Zeitplänen unterbrochen.
+NOTE: Die Aktualisierungen der Storage Virtual Machine (SVM) im Rahmen der Notfallwiederherstellung werden gemäß den zugewiesenen Zeitplänen nicht unterbrochen.
 
 Es findet keine Änderungen am Aggregateigentum statt.
 

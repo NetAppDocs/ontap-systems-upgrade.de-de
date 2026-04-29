@@ -97,3 +97,5 @@ Gesamteigentum am Ende von Stufe 5:
 In Phase 6 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden. Und wenn die neuen Nodes verschlüsselt sind, konfigurieren und einrichten Sie Storage Encryption oder NVE. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
 |===
+.Was kommt als Nächstes?
+Nachdem ich mich über die ARL-Upgrade-Sequenz informiert hatte, link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für das Upgrade vor"].

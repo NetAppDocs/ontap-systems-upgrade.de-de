@@ -132,7 +132,7 @@ Das Controller-Modul wird neu gestartet, stoppt aber im Startmenü, da das Boot-
 
 . Löschen Sie alle vorherigen Konfigurationen auf dem Startmedium.
 +
-.. Führen Sie an der folgenden Eingabeaufforderung den  `wipeconfig` Befehl und drücken Sie die Eingabetaste:
+.. Führen Sie an der folgenden Eingabeaufforderung den  `wipeconfig` Befehl aus. Drücken Sie anschließend die Eingabetaste:
 +
 [listing]
 ----
@@ -241,3 +241,6 @@ Für node2, die `partner-sysid` Muss der Knoten 1 sein, den Sie aktualisieren.
 `printenv partner-sysid`
 
 
+
+.Was kommt als Nächstes?
+Nach dem Netzwerkstart von node2, link:cable-node2-for-shared-cluster-HA-storage.html["Kabelknoten 2 für gemeinsam genutztes Cluster-HA und Speicher"].

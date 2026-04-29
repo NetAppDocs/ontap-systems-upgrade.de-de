@@ -286,3 +286,6 @@ Im Folgenden wird ein Beispiel für die Befehlsausgabe angezeigt:
 
 
 
+
+.Was kommt als Nächstes?
+Nach der Neuzuordnung der Festplatten von node1 zu node3, link:verify_node3_installation.html["Überprüfen Sie die Installation von node3."].

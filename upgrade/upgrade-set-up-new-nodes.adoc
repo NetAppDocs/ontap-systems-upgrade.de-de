@@ -19,7 +19,7 @@ Wenn sich die Version der auf den neuen Nodes ausgeführten ONTAP von der Versio
 Sie können auch die USB-Boot-Option verwenden, um einen Netzboot durchzuführen. Weitere Informationen finden Sie im Knowledge Base-Artikel link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["So verwenden Sie den Boot_Recovery-LOADER-Befehl zum Installieren von ONTAP für die Ersteinrichtung eines Systems"^].
 
 .Schritte
-. Schalten Sie den Netzschalter auf node3 ein, und drücken Sie dann sofort Strg-C an der Konsole, um auf die LOADER-Eingabeaufforderung zuzugreifen.
+. Schalten Sie die Stromversorgung von node3 ein und geben Sie dann sofort Strg+C am Konsolenterminal ein, um auf die LOADER-Eingabeaufforderung zuzugreifen.
 +
 Wenn sich Node3 und node4 im selben Chassis befinden, fahren Sie mit Schritt 2 fort. Falls nicht, fahren Sie mit Schritt 3 fort.
 
@@ -82,7 +82,7 @@ Ignorieren Sie die folgende Meldung: `"This procedure is not supported for NonDi
 `/http://web_server_ip/path_to_web-accessible_directory/<ontap_version>_image.tgz`
 
 +
-Geben Sie ggf. Benutzernamen/Passwort ein, oder drücken Sie die Eingabetaste, um fortzufahren.
+Geben Sie gegebenenfalls Benutzernamen und Passwort ein oder wählen Sie Enter, um fortzufahren.
 
 . Eingabe `n` So überspringen Sie die Backup-Recovery, wenn eine Eingabeaufforderung wie die folgende angezeigt wird:
 +

@@ -58,3 +58,6 @@ NOTE: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` D
 Sie verwenden die Informationen in den Verzeichnissen in link:install_boot_node3.html["Phase 3"].
 
 
+
+.Was kommt als Nächstes?
+Nach der Vorbereitung des Netzwerkstarts, link:install_boot_node3.html["Node3 installieren und booten"].

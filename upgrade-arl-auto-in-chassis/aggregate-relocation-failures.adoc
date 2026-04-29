@@ -57,7 +57,7 @@ Einige der verlagerten Aggregate haben die Nr. 1 als Home-Node. Ein solches Aggr
 
 * Nach Phase 4, wenn node2 durch die neuen Systemmodule ersetzt wird.
 +
-Wenn node2 ersetzt wird, kommt aggr_Node_1 mit node1 als Home-Node statt node2 online.
+Wenn node2 ersetzt wird, kommt aggr_node_1 mit node1 als seinem Home-Node statt node2 online.
 
 
 

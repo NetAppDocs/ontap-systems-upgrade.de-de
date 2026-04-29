@@ -17,7 +17,7 @@ summary: 'Konfigurieren sie node4 Onboard FC-Ports, UTA/UTA2-Ports oder die UTA/
 Wenn node4 über integrierte FC-Ports, integrierte Unified Target Adapter (UTA/UTA2)-Ports oder eine UTA/UTA2-Karte verfügt, müssen Sie die Einstellungen konfigurieren, bevor Sie den Rest des Verfahrens abschließen.
 
 .Über diese Aufgabe
-Möglicherweise müssen Sie Folgendes ausfüllen:<<Konfigurieren Sie FC-Ports auf node4>> oder<<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> oder beide Abschnitte.
+Möglicherweise müssen Sie <<configure-fc-ports-on-node4,Konfigurieren Sie FC-Ports auf node4>> oder <<check-config-uta-uta2-node4,UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> oder beide Abschnitte ausfüllen.
 
 [NOTE]
 ====
@@ -28,7 +28,7 @@ stellen Sie sicher, dass node4 über ausreichend Rack-Platz verfügt. Wenn node4
 ====
 
 
-== Konfigurieren Sie FC-Ports auf node4
+== Schritt 1: FC-Ports auf node4 konfigurieren
 
 Wenn Knoten 4 über FC-Ports verfügt (entweder integriert oder auf einem zusätzlichen FC-Adapter), müssen Sie die Portkonfigurationen auf dem Knoten festlegen, bevor Sie ihn in Betrieb nehmen, da die Ports bei der Auslieferung der Systeme nicht vorkonfiguriert sind.  Wenn Sie die Ports nicht wie erforderlich konfigurieren, kann es zu einer Dienstunterbrechung kommen.
 
@@ -36,7 +36,7 @@ Wenn Knoten 4 über FC-Ports verfügt (entweder integriert oder auf einem zusät
 Sie müssen die Werte der FC-Port-Einstellungen von node2 haben, die Sie im Abschnitt gespeichert haben link:prepare_nodes_for_upgrade.html["Bereiten Sie die Knoten für ein Upgrade vor"].
 
 .Über diese Aufgabe
-Sie können diesen Abschnitt überspringen, wenn Ihr System über keine FC-Konfigurationen verfügt. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie sie in <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
+Sie können diesen Abschnitt überspringen, wenn Ihr System keine FC-Konfigurationen aufweist. Wenn Ihr System über integrierte UTA/UTA2-Ports oder einen UTA/UTA2-Adapter verfügt, konfigurieren Sie diese in <<check-config-uta-uta2-node4,UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>.
 
 
 IMPORTANT: Geben Sie die Befehle in diesem Abschnitt an der Shell-Eingabeaufforderung im Wartungsmodus ein.
@@ -82,7 +82,7 @@ Zum Beispiel: `ucadmin modify -m fc -t initator 2b`
 
 . [[Schritt8]]Nehmen Sie eine der folgenden Aktionen:
 +
-** Gehen Sie zu <<UTA/UTA2-Ports auf node4 prüfen und konfigurieren>> Bei node4 mit einer UTA/UTA2-Karte oder Onboard-Ports UTA/UTA2:
+** Gehen Sie zu <<check-config-uta-uta2-node4,UTA/UTA2-Ports auf node4 prüfen und konfigurieren>>, wenn Node4 über eine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports verfügt.
 ** Wenn Knoten4 keine UTA/UTA2-Karte oder UTA/UTA2-Onboard-Ports hat, überspringen Sie _Überprüfen und Konfigurieren der UTA/UTA2-Ports auf Knoten4_ und gehen Sie zulink:reassign-node2-disks-to-node4.html["Weisen Sie Node2-Festplatten node4 neu zu"] .
 
 
@@ -90,7 +90,7 @@ Zum Beispiel: `ucadmin modify -m fc -t initator 2b`
 
 
 
-== UTA/UTA2-Ports auf node4 prüfen und konfigurieren
+== Schritt 2: UTA/UTA2-Ports auf node4 prüfen und konfigurieren
 
 Wenn node4 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie je nach Nutzung des aktualisierten Systems konfigurieren.
 

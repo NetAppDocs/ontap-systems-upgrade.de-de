@@ -34,7 +34,7 @@ NOTE: NetApp empfiehlt für jede SVM (Storage Virtual Machine), alle nicht-Root-
 `vserver add-aggregates`
 
 +
-Sowohl das neue Aggregat als auch das alte Aggregat, aus dem das Volume verschoben werden soll, müssen sich in derselben SVM befinden.
+Sowohl das neue Aggregat als auch das alte Aggregat, aus dem das Volumen verschoben wird, müssen sich im selben SVM befinden.
 
 . Vergewissern Sie sich, dass das neue Aggregat nun derselben SVM wie das Aggregat auf dem ursprünglichen Node zugewiesen ist:
 +

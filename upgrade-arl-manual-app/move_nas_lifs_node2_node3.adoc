@@ -149,3 +149,6 @@ Distribution Function: ip
 
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben von NAS-Daten-LIFs, die Knoten2 gehören, auf Knoten3 link:record_node2_information.html["Informationen zu node2 aufzeichnen"].

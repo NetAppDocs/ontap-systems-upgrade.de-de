@@ -14,7 +14,7 @@ summary: Überprüfen Sie, ob die physischen Ports auf node2 während eines manu
 
 
 [role="lead"]
-Sie müssen sicherstellen, dass die physischen Ports auf node2 den physischen Ports auf node4 korrekt zugeordnet werden. damit kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
+Die physischen Ports auf node2 müssen korrekt den physischen Ports auf node4 zugeordnet werden. Dadurch kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Bevor Sie beginnen
 Sie müssen bereits über die Ports auf den neuen Nodes verfügen, um auf diese Informationen zuzugreifen, siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Informationen werden später in diesem Abschnitt verwendet.
@@ -22,9 +22,9 @@ Sie müssen bereits über die Ports auf den neuen Nodes verfügen, um auf diese 
 die Softwarekonfiguration von node4 muss mit der physischen Konnektivität von node4 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
 
 .Über diese Aufgabe
-Die Port-Einstellungen können je nach Modell der Nodes variieren. Sie müssen den Port des ursprünglichen Node und die LIF-Konfiguration mit dem kompatibel machen, was Sie planen, die Konfiguration des neuen Node zu verwenden. Dies liegt daran, dass der neue Node beim Booten die gleiche Konfiguration wiedergibt. Dies bedeutet, wenn Sie node4 booten, wird Data ONTAP versuchen, LIFs auf den gleichen Ports zu hosten, die in node2 verwendet wurden.
+Die Porteinstellungen können je nach Knotenmodell variieren. Sie müssen die Port- und LIF-Konfiguration des ursprünglichen Knotens mit der geplanten Konfiguration des neuen Knotens kompatibel machen. Dies liegt daran, dass der neue Knoten beim Start dieselbe Konfiguration erneut abruft. Das bedeutet, wenn Sie node4 starten, versucht Data ONTAP, LIFs auf denselben Ports zu hosten, die auf node2 verwendet wurden.
 
-Wenn die physischen Ports auf node2 also nicht direkt den physischen Ports auf node4 zugeordnet werden, sind daher Änderungen der Software-Konfiguration erforderlich, um nach dem Booten die Cluster-, Management- und Netzwerkkonnektivität wiederherzustellen. Wenn die Cluster-Ports auf node2 nicht direkt den Cluster-Ports auf node4 zugeordnet werden, kann node4 das Quorum auch dann nicht automatisch erneut verbinden, wenn es neu gestartet wird, bis eine Softwarekonfiguration geändert wird, um die Cluster LIFs auf den korrekten physischen Ports zu hosten.
+Wenn die physischen Ports von Knoten 2 nicht direkt den physischen Ports von Knoten 4 zugeordnet sind, sind daher Softwarekonfigurationsänderungen erforderlich, um die Cluster-, Management- und Netzwerkverbindung nach dem Neustart wiederherzustellen. Wenn die Cluster-Ports von Knoten 2 nicht direkt den Cluster-Ports von Knoten 4 zugeordnet sind, kann Knoten 4 nach einem Neustart möglicherweise nicht automatisch wieder dem Quorum beitreten, bis eine Softwarekonfigurationsänderung vorgenommen wurde, um die Cluster-LIFs auf den korrekten physischen Ports zu hosten.
 
 .Schritte
 . Notieren Sie alle node2-Verkabelungsinformationen für node2, die Ports, Broadcast-Domänen und IPspaces in dieser Tabelle:

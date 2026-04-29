@@ -36,3 +36,11 @@ Dieses Upgrade-Verfahren gilt in erster Linie für Upgrade-Szenarien, in denen d
 * Bei Systemen außerhalb von MetroCluster, z. B. HA-Cluster, ist das ARL-Upgrade die einzige unterstützte Prozedur.
 * Wenn Sie ein Upgrade von einem AFF A320 System durchführen, können Sie das Upgrade der Controller-Hardware durch Volume-Verschiebung durchführen oder den technischen Support kontaktieren. Siehe link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
 
+
+.Automatisierung des Controller-Upgrades
+Während eines Controller-Upgrades wird der Controller durch einen anderen Controller ersetzt, auf dem eine neuere oder leistungsstärkere Plattform läuft. In früheren Versionen dieses Inhalts enthielten Anweisungen für einen unterbrechungsfreien Controller-Update, der vollständig manuell ausgeführt wurde. Dieser Inhalt enthält die Schritte für das neue automatisierte Verfahren, bei dem automatische Überprüfungen der Netzwerkanschlüsse eingesetzt werden, um das Upgrade-Erlebnis für die Controller weiter zu vereinfachen.
+
+Der manuelle Prozess war langwierig und komplex, aber in diesem vereinfachten Verfahren können Sie ein Controller-Update mithilfe von Aggregatverschiebung implementieren, sodass effizientere, unterbrechungsfreie Upgrades für HA-Paare möglich sind. Vor allem in Bezug auf Validierung, Sammlung von Informationen und Nachprüfungen sind deutlich weniger manuelle Schritte erforderlich.
+
+.Was kommt als Nächstes?
+Nachdem Sie sich über dieses ARL-Verfahren informiert haben, link:decide_to_use_the_aggregate_relocation_guide.html["entscheiden, ob dieses ARL-Verfahren angewendet werden soll"].

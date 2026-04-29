@@ -305,7 +305,7 @@ Für das `<node2_sysid>` Wert: Verwenden Sie die in erfassten Informationen link
 NOTE: Der `-p` Die Option ist nur im Wartungsmodus erforderlich, wenn freigegebene Festplatten vorhanden sind.
 
 +
-Der `disk reassign` Befehl weist nur die Festplatten zu, für die es erforderlich ist `_node2_sysid_` Ist der aktuelle Eigentümer.
+Der  `disk reassign`Befehl weist nur diejenigen Datenträger neu zu, für die  `_node2_sysid_`der aktuelle Besitzer ist.
 
 +
 Vom System wird die folgende Meldung angezeigt:

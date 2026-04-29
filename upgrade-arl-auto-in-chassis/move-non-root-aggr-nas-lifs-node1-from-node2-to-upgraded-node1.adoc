@@ -203,3 +203,6 @@ Das System führt die folgenden Nachprüfungen durch:
 
 
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben der Nicht-Root-Aggregate von node1 und der NAS-Daten-LIFs von node2 auf den aktualisierten node1, link:relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html["Nicht-Root-Aggregate und NAS-Daten-LIFs von node2 zu node1 verschieben"].

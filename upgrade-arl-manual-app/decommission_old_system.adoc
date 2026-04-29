@@ -34,3 +34,6 @@ In einer Tabelle werden Cluster-Informationen, einschließlich der Seriennummern
 
 . Suchen Sie den Cluster in der Tabelle und wählen Sie im Dropdown-Menü Product Tool Set die Option *Decommission this System* aus.
 
+
+.Was kommt als Nächstes?
+Nach der Stilllegung des alten Systems, link:resume_snapmirror_ops.html["Wiederaufnahme der SnapMirror-Vorgänge"].

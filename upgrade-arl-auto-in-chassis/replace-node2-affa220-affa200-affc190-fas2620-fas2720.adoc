@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/replace-node2-affa220-affa200-affc190-fas2620-fas2720.html 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
+summary: Ersetzen Sie das node2 AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720 Controller-Modul während eines ARL-Upgrades von Controller-Modellen im selben Chassis. 
+---
+= Ersetzen Sie das Controller-Modul von Node2 AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ersetzen Sie das Controller-Modul node2 AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720 durch ein Controller-Modul ASA A150, AFF A150 oder FAS2820.
+
+In diesem Stadium ist Knoten2 ausgefallen und alle Daten werden von Knoten1 bereitgestellt. Achten Sie darauf, nur das Controller-Modul von Knoten2 zu entfernen. Normalerweise ist Knoten2 Controller B und befindet sich auf der rechten Seite des Gehäuses, wenn Sie von der Rückseite des Systems auf die Controller blicken. Das Controller-Etikett befindet sich direkt über dem Controller-Modul am Gehäuse.
+
+
+CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im selben Chassis befinden und an dieselben Netzteile angeschlossen sind.
+
+.Bevor Sie beginnen
+Wenn du nicht bereits geerdet bist, beground dich richtig.
+
+
+
+== Schritt 1: Entfernen Sie das AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720 Controller-Modul
+
+Um auf die Komponenten im Inneren des node2 Controllers zuzugreifen, entfernen Sie das Controller-Modul aus dem System und nehmen Sie dann die Abdeckung des Controller-Moduls ab.
+
+.Schritte
+. Lösen Sie den Haken- und Schlaufenriemen, mit dem die Kabel am Kabelführungsgerät befestigt sind, und ziehen Sie dann die Systemkabel und SFPs (falls erforderlich) vom Controller-Modul ab, um zu verfolgen, wo die Kabel angeschlossen waren.
++
+Lassen Sie die Kabel im Kabelverwaltungs-Gerät so, dass bei der Neuinstallation des Kabelverwaltungsgeräts die Kabel organisiert sind.
+
+. Entfernen Sie die Kabelführungsgeräte von der linken und rechten Seite des Controller-Moduls und stellen Sie sie zur Seite.
++
+image:drw_25xx_cable_management_arm.png["Entfernen der Kabelverwaltungs-ARM"]
+
+. Drücken Sie die Verriegelung am Nockengriff, bis sie loslässt, öffnen Sie den Nockengriff vollständig, um das Controller-Modul aus der Mittelplatine zu lösen, und ziehen Sie das Controller-Modul anschließend mit zwei Händen aus dem Gehäuse heraus.
++
+image:drw_2240_x_opening_cam_latch.png["Öffnen des Nockengriffs"]
+
+. Drehen Sie das Controller-Modul um und legen Sie es auf eine flache, stabile Oberfläche.
+
+
+
+
+== Schritt 2: Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controller-Modul
+
+Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controllermodul, das Sie für das Upgrade erhalten haben, in node2.
+
+.Bevor Sie beginnen
+* Wenn du nicht bereits geerdet bist, beground dich richtig.
+* Trennen Sie alle Kabel, einschließlich Konsole, Management, SAS Storage und Datennetzwerkkabel, vom entfernten Controller.
+
+
+.Schritte
+. Richten Sie das Ende des Controller-Moduls an Schacht B im Chassis aus, und drücken Sie dann vorsichtig das Controller-Modul zur Hälfte in das System.
++
+
+TIP: Schacht B befindet sich auf der rechten Seite des Gehäuses.
+
++
+
+WARNING: Setzen Sie das Controller-Modul erst dann vollständig in das Gehäuse ein, wenn Sie dazu später im Verfahren aufgefordert werden.
+
+. Verkabeln Sie die Management- und Konsolen-Ports mit dem node2-Controller-Modul.
++
+
+NOTE: Da das Chassis bereits eingeschaltet ist, beginnt Node2 zu booten, sobald er vollständig eingesetzt ist.  Um zu verhindern, dass Node2 hochfährt, schließen Sie die Konsolen- und Managementkabel an, bevor Sie das Controller-Modul vollständig einsetzen.
+
+. Drücken Sie das Controller-Modul fest in das Gehäuse, bis es auf die Mittelebene trifft und vollständig sitzt.
++
+Die Verriegelung steigt, wenn das Controller-Modul voll eingesetzt ist.
+
++
+
+NOTE: Um eine Beschädigung der Anschlüsse zu vermeiden, sollten Sie beim Einschieben des Controller-Moduls in das Gehäuse keine übermäßige Kraft anwenden.
+
+. Schließen Sie die serielle Konsole an, sobald das Modul sitzt, und seien Sie bereit, den AUTOBOOT von Knoten2 zu unterbrechen.
+. Nachdem Sie AUTOBOOT unterbrochen haben, bleibt node2 an der LOADER-Eingabeaufforderung stehen. Wenn Sie AUTOBOOT nicht rechtzeitig unterbrechen und node2 mit dem Booten beginnt, warten Sie auf die Eingabeaufforderung und drücken Sie Strg+C, um in das Bootmenü zu gelangen. Nachdem der Node im Bootmenü angehalten hat, verwenden Sie Option `8`, um den Node neu zu starten und AUTOBOOT während des Neustarts zu unterbrechen.
+
+
+.Was kommt als Nächstes?
+Nach der Installation des ASA A150, AFF A150 oder FAS2820 Controller-Moduls, link:netboot-node2.html["netboot node2"].

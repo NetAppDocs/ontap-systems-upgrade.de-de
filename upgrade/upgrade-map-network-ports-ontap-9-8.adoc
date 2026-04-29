@@ -126,7 +126,7 @@ from the port. Are you sure you want to continue? {y|n}:
 +
 `network port broadcast-domain show`
 
-.. Während die Reparatur der Erreichbarkeit durchgeführt wird, versucht ONTAP, die Ports in die richtigen Broadcast-Domänen zu platzieren. Wenn die Erreichbarkeit eines Ports jedoch nicht ermittelt werden kann und keiner der vorhandenen Broadcast-Domänen entspricht, erstellt ONTAP neue Broadcast-Domänen für diese Ports. Bei Bedarf können Sie die neu erstellten Broadcast-Domänen löschen, wenn alle deren Mitgliedsports zu Mitgliedsports der Interface Groups werden. Broadcast-Domänen löschen:
+.. Während der Erreichbarkeitsreparatur versucht ONTAP, die Ports den korrekten Broadcast-Domänen zuzuordnen. Kann ONTAP die Erreichbarkeit eines Ports nicht ermitteln und entspricht der Port keiner der vorhandenen Broadcast-Domänen, erstellt ONTAP neue Broadcast-Domänen für diese Ports. Bei Bedarf können Sie die neu erstellten Broadcast-Domänen löschen, wenn alle ihre Mitgliedsports zu Mitgliedsports der Schnittstellengruppen werden. Broadcast-Domänen löschen:
 +
 `broadcast-domain delete -broadcast-domain _broadcast_domain_`
 
@@ -176,7 +176,7 @@ NOTE: Abhängig von der Komplexität der Netzwerkkonfiguration des aktualisierte
 
 
 
-. [[map_98_7]]ab ONTAP 9.8 ändert ONTAP automatisch die Home Ports der LIFs, wenn die Ports während der Reparatur des Netzwerkports zwischen Broadcast-Domänen verschoben werden. Wenn der Home Port einer LIF zu einem anderen Node verschoben oder nicht zugewiesen ist, wird diese LIF als vertriebene LIF angezeigt. Stellen Sie die Home-Ports der vertriebenen LIFs wieder her, deren Home-Ports nicht mehr vorhanden sind oder in einen anderen Node verschoben wurden.
+. [[map_98_7]]Ab ONTAP 9.8 ändert ONTAP die Home-Ports von LIFs automatisch, wenn die Ports während der Reparatur der Netzwerkport-Erreichbarkeit zwischen Broadcast-Domänen verschoben werden. Wurde der Home-Port eines LIFs auf einen anderen Knoten verschoben oder ist er nicht zugewiesen, wird dieser LIF als verschobener LIF angezeigt. Stellen Sie die Home-Ports verschobener LIFs wieder her, deren Home-Ports entweder nicht mehr existieren oder auf einen anderen Knoten verschoben wurden.
 +
 .. Zeigen Sie die LIFs an, deren Home-Ports möglicherweise zu einem anderen Node verschoben oder nicht mehr vorhanden sind:
 +

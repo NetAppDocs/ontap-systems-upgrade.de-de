@@ -71,3 +71,6 @@ Der `_vserver-name_` Die Verwendung mit diesem Befehl ist in der Ausgabe des vor
 `network interface show -curr-node _node2_ -role data`
 
 
+
+.Was kommt als Nächstes?
+Nach der Verschiebung der Nicht-Root-Aggregate und der NAS-Daten-LIFs von Knoten 2 auf Knoten 1, link:relocate-failed-or-vetoed-aggr-node1.html["Fehlgeschlagene oder abgelehnte Aggregate auf node1 verschieben"].

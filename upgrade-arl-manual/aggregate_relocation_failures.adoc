@@ -51,8 +51,8 @@ Beim Abschluss des Upgrade-Verfahrens muss die Knoten3 der neue Home-Node von Ag
 .Über diese Aufgabe
 Unter den folgenden Umständen kann es nicht gelingen, Aggregate ordnungsgemäß zu verschieben und Node 1 als Home Node anstelle von Knoten3 zu verwenden:
 
-* In Phase 3, wenn Aggregate von node2 auf node3 verschoben werden. Einige der verlagerten Aggregate haben die Nr. 1 als Home-Node. Ein solches Aggregat könnte zum Beispiel „aggr_Node_1“ heißen. Wenn die Verlagerung von aggr_Node_1 während Phase 3 fehlschlägt und eine Verlagerung nicht erzwungen werden kann, dann wird das Aggregat auf node2 zurückgelassen.
-* Nach Stufe 4, wenn node2 durch node4 ersetzt wird. Wenn node2 ersetzt wird, kommt aggr_Node_1 mit node4 als Home-Node statt node3 online.
+* In Phase 3 werden Aggregate von node2 zu node3 verschoben. Einige der verschobenen Aggregate haben node1 als ihren Heimatknoten. Ein solches Aggregat könnte beispielsweise aggr_node_1 heißen. Schlägt die Verschiebung von aggr_node_1 in Phase 3 fehl und kann sie nicht erzwungen werden, verbleibt das Aggregat auf node2.
+* Nach Phase 4, wenn node2 durch node4 ersetzt wird. Wenn node2 ersetzt wird, geht aggr_node_1 mit node4 als seinem Heimatknoten online, anstatt mit node3.
 
 
 Sie können das falsche Eigentümerproblem nach Phase 6 beheben, wenn ein Storage-Failover aktiviert wurde, indem Sie die folgenden Schritte durchführen:

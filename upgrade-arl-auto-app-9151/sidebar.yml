@@ -21,8 +21,8 @@ entries:
   entries:
   - title: Bereiten Sie die Knoten für ein Upgrade vor
     url: "/upgrade-arl-auto-app-9151/prepare_nodes_for_upgrade.html"
-  - title: Management der Storage-Verschlüsselung mit dem Onboard Key Manager
-    url: "/upgrade-arl-auto-app-9151/manage_storage_encryption_using_okm.html"
+  - title: Schließen Sie die Vorbereitung für das Upgrade ab
+    url: "/upgrade-arl-auto-app-9151/complete-preparation-for-upgrade.html"
 - title: 'Stufe 2: Knoten1 verschieben und ausmustern'
   pdf-filename: Phase 2. Verschieben und Ausmustern von Knoten1 (Upgrade mit „System-Controller-Austausch“
     in ONTAP 9.15.1 oder höher)

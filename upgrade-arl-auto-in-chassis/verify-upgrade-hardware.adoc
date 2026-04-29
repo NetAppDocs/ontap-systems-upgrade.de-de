@@ -50,3 +50,5 @@ Wenn Sie das bestehende System in ein Storage Shelf konvertieren, sodass Sie es 
 
 | Zwei Controller und zwei NVRAM-Module 
 |===
+.Was kommt als Nächstes?
+Nach Überprüfung der aufgerüsteten Hardware, link:prepare-nodes-for-upgrade.html["Bereiten Sie die Knoten für das Upgrade vor"].

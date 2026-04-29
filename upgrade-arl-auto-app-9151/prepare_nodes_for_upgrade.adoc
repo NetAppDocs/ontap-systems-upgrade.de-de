@@ -14,7 +14,13 @@ summary: 'Bereiten Sie die Nodes vor und führen Sie mithilfe von Befehlen eine 
 
 
 [role="lead"]
-Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfungen. Sie sammeln auch Informationen über die ursprünglichen Nodes, die Sie später verwenden können. Falls erforderlich, ermitteln Sie den Typ der verwendeten Self-Encrypting Drives.
+Der Austausch des Controllers beginnt mit einer Reihe von Vorprüfungen. Sie erfassen außerdem Informationen über die ursprünglichen Nodes, die später im Verfahren verwendet werden. Wenn Vorprüfungen fehlschlagen, müssen Sie die Aggregatzugehörigkeit korrigieren, bevor Sie mit dem Upgrade fortfahren können.
+
+
+
+== Schritt 1: Die Knoten vorbereiten
+
+Starten Sie den Controller-Austausch und führen Sie Vorabprüfungen durch. Ermitteln Sie gegebenenfalls den Typ der verwendeten selbstverschlüsselnden Laufwerke.
 
 .Schritte
 . Starten Sie den Controller-Ersatzprozess, indem Sie den folgenden Befehl in die ONTAP-Befehlszeile eingeben:
@@ -26,7 +32,7 @@ Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfunge
 NOTE: Sie können den Befehl „Ersetzen des System-Controllers“ nur auf der erweiterten Berechtigungsebene ausführen: `set -privilege advanced`
 
 +
-Es wird eine Ausgabe wie im folgenden Beispiel angezeigt. In der Ausgabe wird die auf dem Cluster ausgeführte ONTAP-Version angezeigt:
+Die Ausgabe sieht ähnlich aus wie im folgenden Beispiel. Die Ausgabe zeigt die auf Ihrem Cluster ausgeführte ONTAP-Version an:
 
 +
 ....
@@ -41,7 +47,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 4. Note: This is not a MetroCluster configuration. Controller replacement supports only ARL based procedure.
 Do you want to continue? {y|n}: y
 ....
-. Drücken Sie `y`, Sie sehen die folgende Ausgabe:
+. Wählen Sie  `y`, dann wird folgende Ausgabe angezeigt:
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -154,7 +160,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== Korrigieren Sie die Aggregateigentümer bei Ausfall einer ARL-Vorabprüfung
+== Schritt 2: Korrigieren Sie den Aggregatbesitz, falls eine ARL-Vorprüfung fehlschlägt
 
 Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
 
@@ -183,21 +189,10 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. Starten Sie den Controller-Austauschprozess neu:
 
-
-
-
-=== Nachdem Sie fertig sind
-
-Sie müssen den Controller-Ersatzprozess neu starten:
 
 `system controller replace start -nodes _node_names_`
 
-
-
-== Lizenz
-
-Ausführliche Informationen zur ONTAP-Lizenzierung finden Sie unter https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Lizenzmanagement"^].
-
-
-NOTE: Wenn Sie nicht lizenzierte Funktionen auf dem Controller verwenden, kann es sein, dass Sie Ihre Lizenzvereinbarung nicht einhalten.
+.Was kommt als Nächstes?
+Nach der Vorbereitung der Knoten, link:complete-preparation-for-upgrade.html["Die Vorbereitungen für das Upgrade abschließen"].
