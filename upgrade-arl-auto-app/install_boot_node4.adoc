@@ -283,11 +283,10 @@ Geben Sie die Passphrase und die Sicherungsinformationen ein, die Sie zuvor im V
 +
 `boot_ontap menu`
 
-+
+
+
 .Was kommt als Nächstes?
-** Wenn Sie eine FC- oder UTA/UTA2-Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Ports auf Knoten 4 fest und konfigurieren Sie sie."] .
-** Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["Neuzuweisung der Node2-Festplatten zu Node4, Schritt 1"] damit Knoten4 die Festplatten von Knoten2 erkennen kann.
-** Wenn Sie eine MetroCluster Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Ports auf Knoten 4 fest und konfigurieren Sie sie."] um die an den Knoten angeschlossenen Festplatten zu erkennen.
-
-
+* Wenn Sie eine FC- oder UTA/UTA2-Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Ports auf Knoten 4 fest und konfigurieren Sie sie."] .
+* Wenn Sie keine FC- oder UTA/UTA2-Konfiguration haben,link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["Neuzuweisung der Node2-Festplatten zu Node4, Schritt 1"] damit Knoten4 die Festplatten von Knoten2 erkennen kann.
+* Wenn Sie eine MetroCluster Konfiguration haben,link:set_fc_or_uta_uta2_config_node4.html["Legen Sie die FC- oder UTA/UTA2-Ports auf Knoten 4 fest und konfigurieren Sie sie."] um die an den Knoten angeschlossenen Festplatten zu erkennen.
 

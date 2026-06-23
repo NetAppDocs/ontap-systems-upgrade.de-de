@@ -76,6 +76,21 @@ Wenn Ihr Upgrade-Szenario in der folgenden Matrix unterstützter Systeme aufgef�
 | Altes System | Austauschsystem | Unterstützte ONTAP-Versionen 
 
 
+| AFF A70 | AFF A90 | 9.18.1 und später 
+
+
+| AFF A30 | AFF A50 | 9.18.1 und später 
+
+
+| AFF A20 | AFF A30, AFF A50 | 9.18.1 und später 
+
+
+| AFF C30 | AFF C60 | 9.18.1 und später 
+
+
+| FAS70 | FAS90 | 9.18.1 und später 
+
+
 | AFF C250 | AFF C30, AFF C60 | 9.16.1 und höher 
 
 

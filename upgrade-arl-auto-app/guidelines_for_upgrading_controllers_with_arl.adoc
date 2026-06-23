@@ -49,7 +49,7 @@ Sie können die folgenden Aktualisierungen nicht ausführen:
 +
 Siehe link:other_references.html["Quellen"] Um Informationen zur Hardware Universe Festplattenunterstützung zu erhalten.
 
-* Um Controller der Einstiegsklasse mit internen Laufwerken zu erhalten, beispielsweise eine FAS 2500.
+* Zu Einstiegs-Controllern mit internen Laufwerken, zum Beispiel ein FAS2750.
 +
 Informationen zum Upgrade von Controllern der Einstiegsklasse mit internen Laufwerken finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade durch Verschiebung von Volumes oder Storage_ und Vorgang _Upgrade eines Node-Paares, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird.
 
