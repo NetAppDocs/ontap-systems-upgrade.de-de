@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/reboots_panics_or_power_cycles.html 
 keywords: reboots, panics, power, cycles, node, crash 
-summary: 'Das System stürzt möglicherweise während verschiedener Phasen ab, wenn Sie die Controller mit ONTAP 9.15.1 oder höher mithilfe von Befehlen aktualisieren, wenn ein Neustart, eine Panik ausgelöst oder ein aus- und Wiedereinschalten erforderlich ist. `system controller replace`' 
+summary: 'Das System kann während verschiedener Phasen beim Upgrade auf Controller, die in ONTAP 9.15.1 oder später eingeführt wurden, mithilfe von  `system controller replace` Befehlen abstürzen, neu starten, in Panik geraten oder einen Stromzyklus durchlaufen.' 
 ---
 = Neustarts, Panikspiele oder Energiezyklen
 :hardbreaks:
@@ -20,10 +20,12 @@ Die Lösung dieser Probleme hängt davon ab, wann sie auftreten.
 
 
 
+[[reboots-panics-or-power-cycles-during-the-pre-check-phase]]
 == Neustarts, Panikzugänge oder Energiezyklen während der Vorprüfphase
 
 
 
+[[node1-or-node2-crashes-before-the-pre-check-phase-with-ha-pair-still-enabled]]
 === Node1 oder node2 stürzt vor der Pre-Check-Phase ab, während das HA-Paar noch aktiviert ist
 
 Wenn node1 oder node2 vor der Pre-Check-Phase abstürzt, wurden noch keine Aggregate verschoben und die HA-Paar-Konfiguration ist noch aktiviert.
@@ -38,10 +40,12 @@ Takeover und Giveback können normal fortgesetzt werden.
 
 
 
+[[reboots-panics-or-power-cycles-during-first-resource-release-phase]]
 == Neustarts, Panikzugänge oder Energiezyklen während der ersten Ressourcenfreigabephase
 
 
 
+[[node1-crashes-during-the-first-resource-release-phase-with-ha-pair-still-enabled]]
 === Node1 stürzt während der ersten Resource-Release-Phase ab, während das HA-Paar noch aktiviert ist
 
 Einige oder alle Aggregate wurden von node1 in node2 verschoben und das HA-Paar ist noch aktiviert. Node2 übernimmt das Root-Volume von node1 und alle nicht-Root-Aggregate, die nicht verschoben wurden.
@@ -59,6 +63,7 @@ Wenn node1 in den eintritt `waiting for giveback` Status, node2 gibt alle node1 
 
 
 
+[[node1-crashes-during-the-first-resource-release-phase-while-ha-pair-is-disabled]]
 === Node1 stürzt während der ersten Ressourcen-Release-Phase ab, während das HA-Paar deaktiviert ist
 
 Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
@@ -70,6 +75,7 @@ Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Agg
 
 
 
+[[node2-fails-during-the-first-resource-release-phase-with-ha-pair-still-enabled]]
 === Node2 schlägt während der ersten Phase der Ressourcenfreigabe fehl, während das HA-Paar noch aktiviert ist
 
 Node1 hat einige oder alle seine Aggregate in node2 verschoben. Das HA-Paar ist aktiviert.
@@ -84,6 +90,7 @@ Node1 übernimmt alle node2 Aggregate sowie jedes seiner eigenen Aggregate, die 
 
 
 
+[[node2-crashes-during-the-first-resource-release-phase-and-after-ha-pair-is-disabled]]
 === Node2 stürzt während der ersten Resource-Release-Phase ab und nachdem HA-Paar deaktiviert ist
 
 Node1 übernimmt nicht.
@@ -98,10 +105,12 @@ Ein Client-Ausfall tritt für alle Aggregate auf, während node2 gestartet wird.
 
 
 
+[[reboots-panics-or-power-cycles-during-the-first-verification-phase]]
 == Startet während der ersten Verifikationsphase neu, erzeugt eine Panik oder schaltet die Stromversorgung aus
 
 
 
+[[node2-crashes-during-the-first-verification-phase-with-ha-pair-disabled]]
 === Node2 stürzt in der ersten Überprüfungsphase ab, wobei das HA-Paar deaktiviert ist
 
 Node3 übernimmt nach einem Absturz nach einem node2 nicht, da das HA-Paar bereits deaktiviert ist.
@@ -116,6 +125,7 @@ Ein Client-Ausfall tritt für alle Aggregate auf, während node2 gestartet wird.
 
 
 
+[[node3-crashes-during-the-first-verification-phase-with-ha-pair-disabled]]
 === Node3 stürzt in der ersten Verifizierungsphase ab, wobei das HA-Paar deaktiviert ist
 
 Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
@@ -127,10 +137,12 @@ Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Agg
 
 
 
+[[reboots-panics-or-power-cycles-during-first-resource-regain-phase]]
 == Neustarts, Panikzucken oder Energiezyklen während der ersten Ressourcen-Wiederholen-Phase
 
 
 
+[[node2-crashes-during-the-first-resource-regain-phase-during-aggregate-relocation]]
 === Knoten 2 stürzt während der ersten Ressourcen-Wiederholen Phase während der Aggregat-Verschiebung ab
 
 Node2 hat einige oder alle seine Aggregate von node1 in node3 verschoben. Node3 stellt Daten von Aggregaten bereit, die verlagert wurden. Das HA-Paar ist deaktiviert und somit gibt es keine Übernahme.
@@ -145,6 +157,7 @@ Es gibt einen Client-Ausfall für Aggregate, die nicht verschoben wurden. Beim B
 
 
 
+[[node3-crashes-during-the-first-resource-regain-phase-during-aggregate-relocation]]
 === Node3 stürzt während der ersten Phase zur Ressourcenrückgewinnung während der Aggregatverschiebung ab
 
 Falls node3 abstürzt, während node2 Aggregate zu node3 verschoben wird, wird die Aufgabe nach dem Booten von node3 fortgesetzt.
@@ -159,10 +172,12 @@ Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in K
 
 
 
+[[reboots-panics-or-power-cycles-during-post-check-phase]]
 == Neustarts, Panikspiele oder Energiezyklen während der Nachprüfphase
 
 
 
+[[node2-or-node3-crashes-during-the-post-check-phase]]
 === Node2 oder node3 stürzt während der Post-Check-Phase ab
 
 Das HA-Paar ist deaktiviert, damit dies keine Übernahme ist. Es gibt einen Client-Ausfall für Aggregate, die zum neu gebooteten Node gehören.
@@ -174,10 +189,12 @@ Das HA-Paar ist deaktiviert, damit dies keine Übernahme ist. Es gibt einen Clie
 
 
 
+[[reboots-panics-or-power-cycles-during-second-resource-release-phase]]
 == Neustarts, Panikzucken oder Energiezyklen während der zweiten Ressourcenfreigabephase
 
 
 
+[[node3-crashes-during-the-second-resource-release-phase]]
 === Node3 stürzt während der zweiten Resource-Release-Phase ab
 
 Wenn node3 abstürzt, während node2 Aggregate verschoben, wird die Aufgabe nach dem Booten von node3 fortgesetzt.
@@ -192,6 +209,7 @@ Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in N
 
 
 
+[[node2-crashes-during-the-second-resource-release-phase]]
 === Node2 stürzt während der zweiten Resource-Release-Phase ab
 
 Wenn node2 während der Aggregatverschiebung abstürzt, wird node2 nicht übernommen.
@@ -206,10 +224,12 @@ Node3 dient weiterhin den Aggregaten, die verschoben wurden, doch die Aggregate 
 
 
 
+[[reboots-panics-or-power-cycles-during-the-second-verification-phase]]
 == Startet während der zweiten Verifikationsphase neu, erzeugt eine Panik oder schaltet die Stromversorgung aus
 
 
 
+[[node3-crashes-during-the-second-verification-phase]]
 === Node3 stürzt während der zweiten Verifikationsphase ab
 
 Wenn während dieser Phase node3 abstürzt, wird die Übernahme nicht ausgeführt, da das HA-Paar bereits deaktiviert ist.
@@ -224,6 +244,7 @@ Es gibt einen Client-Ausfall für alle Aggregate, bis node3 neu startet.
 
 
 
+[[node4-crashes-during-the-second-verification-phase]]
 === Node4 stürzt während der zweiten Verifikationsphase ab
 
 Wenn node4 während dieser Phase abstürzt, wird die Übernahme nicht durchgeführt. Node3 stellt Daten aus den Aggregaten bereit.

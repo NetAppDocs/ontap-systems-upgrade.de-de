@@ -18,6 +18,7 @@ Wenn Sie die Verfahren in diesem Inhalt ausführen, müssen Sie möglicherweise 
 
 
 
+[[reference-content]]
 == Referenzinhalt
 
 Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufgeführt.
@@ -73,6 +74,7 @@ Die für dieses Upgrade spezifischen Inhalte sind in der folgenden Tabelle aufge
 |===
 
 
+[[reference-sites]]
 == Referenzstandorte
 
 Der link:https://mysupport.netapp.com["NetApp Support Website"^] Enthält auch Dokumentation zu Netzwerkschnittstellenkarten (NICs) und anderer Hardware, die Sie mit Ihrem System verwenden könnten. Es enthält auch die link:https://hwu.netapp.com["Hardware Universe"^], Die Informationen über die Hardware liefert, die das neue System unterstützt.

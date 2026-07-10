@@ -40,6 +40,7 @@ Siehe link:other_references.html["Quellen"] Zum Link zum Dokumentationszentrum _
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
 * link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].

@@ -4,20 +4,21 @@ sidebar: sidebar
 keywords:  
 summary: 'Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von den Plattformmodellen der ursprünglichen Nodes ab. Sie aktualisieren entweder durch Verschieben von Aggregaten oder Volumes Storage (unterbrechungsfreie Verfahren) oder durch Verschieben von Storage (eine Unterbrechung des Betriebs).' 
 ---
-= Wählen Sie das Upgrade Ihrer Controller-Hardware aus
+= Ein Upgrade-Verfahren für AFF, ASA oder FAS Controller-Hardware auswählen
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-Im Allgemeinen hängt die Art und Weise des Upgrades der Controller-Hardware von den Plattformmodellen der ursprünglichen Nodes ab. Sie aktualisieren entweder durch Verschieben von Aggregaten oder Volumes (unterbrechungsfreie Verfahren) oder durch Verschieben des Storage (mit Unterbrechungen). Falls auf den ursprünglichen und den neuen Nodes unterschiedliche ONTAP-Versionen ausgeführt werden, müssen Sie vor dem Start des Hardware-Upgrades möglicherweise ein Software-Upgrade durchführen.
+Im Allgemeinen hängt die Aktualisierung der NetApp AFF-, ASA- oder FAS-Controller-Hardware von den Plattformmodellen der ursprünglichen Knoten ab. Die Aktualisierung erfolgt entweder durch das Verschieben von Aggregaten oder Volumes (beides unterbrechungsfreie Verfahren) oder durch das Verschieben des Speichers (ein unterbrechendes Verfahren). Wenn auf den ursprünglichen und neuen Knoten unterschiedliche ONTAP-Versionen ausgeführt werden, kann vor Beginn der Hardware-Aktualisierung ein Software-Upgrade erforderlich sein.
 
 
 NOTE: ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Informationen zur Migration von Daten von einem ASA auf ein ASA r2-System finden Sie unter link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["Aktivieren Sie den Datenzugriff von SAN-Hosts auf Ihr ASA r2 Storage-System"^].
 
 
 
+[[which-upgrade-procedure-should-i-use]]
 == Welches Upgrade-Verfahren soll ich anwenden?
 
 Um das geeignete Upgrade-Verfahren auszuwählen, gehen Sie alle in der folgenden Tabelle aufgeführten Fragen durch.
@@ -77,6 +78,7 @@ ARL ist ein Austauschverfahren.  Sie müssen Ihren Cluster nicht mit den neuen K
 |===
 
 
+[[example-fas9500-to-fas90-upgrade]]
 == Beispiel: Upgrade von FAS9500 auf FAS90
 
 Dieses Beispiel liefert mögliche Antworten für ein FAS9500-zu-FAS90-Controller-Upgrade.

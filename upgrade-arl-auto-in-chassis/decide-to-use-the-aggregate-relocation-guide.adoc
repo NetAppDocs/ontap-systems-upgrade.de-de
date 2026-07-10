@@ -20,6 +20,7 @@ Um Ihnen bei der Entscheidung zu helfen, ob dieses ARL-Verfahren für Ihr Contro
 
 
 
+[[supported-for-this-arl-upgrade]]
 == Unterstützt für dieses ARL-Upgrade
 
 Sie können dieses ARL-Verfahren unter folgenden Umständen verwenden:
@@ -43,6 +44,7 @@ NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryptio
 
 
 
+[[not-supported-for-this-arl-upgrade]]
 == Wird für dieses ARL-Upgrade nicht unterstützt
 
 Unter folgenden Umständen können Sie dieses ARL-Verfahren nicht verwenden:
@@ -56,6 +58,8 @@ Um eine MetroCluster IP-Konfiguration zu aktualisieren, siehe link:other-referen
 
 
 
+[[supported-system-upgrade-combinations]]
+[[supported-systems]]
 == Unterstützte System-Upgrade-Kombinationen
 
 Die folgende Tabelle zeigt die unterstützte Systemmatrix für die Durchführung eines Controller-Upgrades durch Umwandlung des bestehenden Systems in das Ersatzsystem, wobei das bestehende Systemgehäuse, die Festplatten und die darauf gespeicherten Daten beibehalten werden.
@@ -63,6 +67,7 @@ Die folgende Tabelle zeigt die unterstützte Systemmatrix für die Durchführung
 
 CAUTION: Dieses Verfahren gilt ausschließlich für die folgenden Upgrade-Konfigurationen. Verwenden Sie dieses Verfahren nicht, um ein Upgrade zwischen anderen Systemkombinationen durchzuführen. Für alle anderen Controller-Modelle siehe link:other-references.html["Quellen"] zum Verlinken auf _Verwenden Sie „system controller replace“-Befehle, um Controller-Hardware mit ONTAP 9.8 oder höher zu aktualisieren_ und _Verwenden Sie die Aggregatverlagerung, um Controller-Hardware mit ONTAP 9.8 oder höher manuell zu aktualisieren_.
 
+[[supported-systems-in-chassis]]
 [cols="20,20,40"]
 |===
 | Vorhandenes System | Austauschsystem | Unterstützte ONTAP-Versionen 
@@ -149,6 +154,7 @@ Die ONTAP-Mindestversionen in der vorstehenden Tabelle sind obligatorisch. Diese
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
 * link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].

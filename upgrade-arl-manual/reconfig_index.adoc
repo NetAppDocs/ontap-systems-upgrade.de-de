@@ -27,7 +27,7 @@ Sie müssen diese Aufgabe ausführen, wenn Ihr vorhandenes FC Switch-Layout vor 
 Dieser Vorgang läuft unterbrechungsfrei ab und dauert etwa vier Stunden (außer Rack und Stack), wenn Festplatten gelöscht werden.
 
 .Schritte
-. link:send_custom_asup_message_prior_reconfig_switches.html["Senden Sie vor der Neukonfiguration der Switches eine benutzerdefinierte AutoSupport Meldung"]
+. link:send_custom_autosupport_message_prior_reconfig_switches.html["Senden Sie vor der Neukonfiguration der Switches eine benutzerdefinierte AutoSupport Meldung"]
 . link:verify_health_mcc_config.html["Überprüfen Sie den Systemzustand der MetroCluster-Konfiguration"]
 . link:check_mcc_config_errors.html["Prüfen Sie auf MetroCluster-Konfigurationsfehler"]
 . link:persist_disable_switches.html["Deaktivieren Sie die Switches dauerhaft"]

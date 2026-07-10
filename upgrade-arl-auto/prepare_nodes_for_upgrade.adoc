@@ -19,13 +19,20 @@ Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfunge
 .Schritte
 . Starten Sie den Controller-Ersatzprozess, indem Sie den folgenden Befehl in die ONTAP-Befehlszeile eingeben:
 +
-`system controller replace start -nodes _node_names_`
-
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 +
+[NOTE]
+====
+Dieser Befehl kann nur auf der erweiterten Berechtigungsebene ausgeführt werden:
 
-NOTE: Sie können diesen Befehl nur auf der erweiterten Berechtigungsebene ausführen:
-`set -privilege advanced`
-
+[source, cli]
+----
+set -privilege advanced
+----
+====
 +
 Sie sehen folgende Ausgabe:
 
@@ -91,7 +98,7 @@ Das System führt die folgenden Vorabprüfungen durch. Notieren Sie die Ausgabe 
 | LIF-Status des Clusters | Überprüft, ob die Cluster-LIFs für beide Nodes aktiv sind. Wenn die Cluster-LIFs ausgefallen sind, schlägt die Aufgabe fehl. 
 
 
-| ASUP-Statusprüfung | Wenn ASUP Benachrichtigungen nicht konfiguriert sind, schlägt die Aufgabe fehl. Sie müssen AutoSupport aktivieren, bevor Sie mit dem Austausch des Controllers beginnen. 
+| AutoSupport Statusprüfung | Wenn AutoSupport-Benachrichtigungen nicht konfiguriert sind, schlägt die Aufgabe fehl. Bevor Sie mit dem Austausch des Controllers beginnen, müssen Sie AutoSupport aktivieren. 
 
 
 | CPU-Auslastungs-Prüfung | Überprüft, ob die CPU-Auslastung bei allen zu ersetzenden Nodes mehr als 50 % beträgt. Wenn die CPU-Nutzung über einen erheblichen Zeitraum mehr als 50 % beträgt, schlägt die Aufgabe fehl. 
@@ -108,23 +115,80 @@ Das System führt die folgenden Vorabprüfungen durch. Notieren Sie die Ausgabe 
 Führen Sie von dem seriellen Port aus, der mit jedem Node verbunden ist, und speichern Sie die Ausgabe der folgenden Befehle einzeln:
 
 +
-** `vserver services name-service dns show`
-** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,clustermgmt, data`
-** `network port show -node _local_ -type physical`
-** `service-processor show -node _local_ -instance`
-** `network fcp adapter show -node _local_`
-** `network port ifgrp show -node _local_`
-** `network port vlan show`
-** `system node show -instance -node _local_`
-** `run -node _local_ sysconfig`
-** `storage aggregate show -node _local_`
-** `volume show -node _local_`
-** `network interface failover-groups show`
-** `storage array config show -switch _switch_name_`
-** `system license show -owner _local_`
-** `storage encryption disk show`
-
-
+[source, cli]
+----
+vserver services name-service dns show
+----
++
+[source, cli]
+----
+network interface show -curr-node <local> -role cluster,intercluster,node-mgmt,clustermgmt, data
+----
++
+[source, cli]
+----
+network port show -node <local> -type physical
+----
++
+[source, cli]
+----
+service-processor show -node <local> -instance
+----
++
+[source, cli]
+----
+network fcp adapter show -node <local>
+----
++
+[source, cli]
+----
+network port ifgrp show -node <local>
+----
++
+[source, cli]
+----
+network port vlan show
+----
++
+[source, cli]
+----
+system node show -instance -node <local>
+----
++
+[source, cli]
+----
+run -node <local> sysconfig
+----
++
+[source, cli]
+----
+storage aggregate show -node <local>
+----
++
+[source, cli]
+----
+volume show -node <local>
+----
++
+[source, cli]
+----
+network interface failover-groups show
+----
++
+[source, cli]
+----
+storage array config show -switch <switch_name>
+----
++
+[source, cli]
+----
+system license show -owner <local>
+----
++
+[source, cli]
+----
+storage encryption disk show
+----
 +
 
 NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) mit Onboard Key Manager verwendet wird, halten Sie die Schlüsselmanager-Passphrase bereit, um die Resynchronisierung des Schlüsselmanagers später im Verfahren durchzuführen.
@@ -150,6 +214,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
+[[step-2-correct-aggregate-ownership-if-an-arl-precheck-fails]]
 == Schritt 2: Korrigieren Sie den Aggregatbesitz, falls eine ARL-Vorprüfung fehlschlägt
 
 Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
@@ -157,12 +222,16 @@ Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Part
 .Schritte
 . Gibt die Aggregate zurück, die derzeit dem Partner-Node gehören, an den Home-Owner-Node:
 +
-`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
-
+[source, cli]
+----
+storage aggregate relocation start -node <source_node> -destination <destination_node> -aggregate-list *
+----
 . Überprüfen Sie, dass weder node1 noch node2 noch Eigentümer von Aggregaten ist, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
 +
-`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
-
+[source, cli]
+----
+storage aggregate show -nodes <node_name> -is-home false -fields owner-name, home-name, state
+----
 +
 Das folgende Beispiel zeigt die Ausgabe des Befehls, wenn ein Node sowohl der aktuelle Eigentümer als auch der Home-Inhaber von Aggregaten ist:
 
@@ -180,12 +249,16 @@ aggr4       node1      node1       online
 4 entries were displayed.
 ----
 . Starten Sie den Controller-Austauschprozess neu:
++
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 
 
-`system controller replace start -nodes _node_names_`
 
 
-
+[[learn-about-ontap-licensing]]
 == Erfahren Sie mehr über ONTAP-Lizenzierung
 
 Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.

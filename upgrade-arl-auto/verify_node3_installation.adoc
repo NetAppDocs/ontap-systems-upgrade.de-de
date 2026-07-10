@@ -40,6 +40,7 @@ Wenn sich die Konfiguration für node3 unterscheidet, kann zu einem späteren Ze
 
 
 
+[[re-create-vlans-interface-groups-and-broadcast-domains-on-node3]]
 == Erneutes Erstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen auf Knoten3
 
 Nachdem Sie bestätigt haben, dass node3 sich im Quorum befindet und mit node2 kommunizieren kann, müssen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen von node1 auf node3 neu erstellen. Sie müssen auch die node3-Ports zu den neu erstellten Broadcast-Domänen hinzufügen.
@@ -68,6 +69,7 @@ Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengr
 
 
 
+[[restore-key-manager-configuration-on-node3]]
 == Wiederherstellung der Key-Manager-Konfiguration auf Knoten 3
 
 Wenn Sie NetApp Aggregate Encryption (NAE) oder NetApp Volume Encryption (NVE) zur Verschlüsselung von Volumen auf dem zu aktualisierenden System verwenden, muss die Verschlüsselungskonfiguration mit den neuen Knoten synchronisiert werden. Wenn Sie den Schlüsselmanager nicht wiederherstellen, werden beim Verschieben der node1-Aggregate mithilfe von ARL von node2 auf node3 die verschlüsselten Volumen offline genommen.

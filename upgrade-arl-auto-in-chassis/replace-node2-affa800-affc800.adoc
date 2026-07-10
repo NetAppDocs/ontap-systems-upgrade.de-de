@@ -26,6 +26,7 @@ Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
 
+[[step-1-remove-the-aff-a800-or-aff-c800-controller-module]]
 == Schritt 1: Entfernen Sie das AFF A800 oder AFF C800 Controller-Modul
 
 Entfernen Sie die Kabelmanagementvorrichtung vom vorhandenen node2-Modul und schieben Sie den Controller leicht aus dem Gehäuse heraus.
@@ -107,6 +108,7 @@ image:black_circle_two.png["Nummer zwei"]
 
 
 
+[[step-2-install-the-aff-a90-aff-a70-or-aff-c80-controller-module]]
 == Schritt 2: Installieren Sie das AFF A90-, AFF A70- oder AFF C80-Controller-Modul
 
 Installieren Sie das AFF A90 oder AFF A70 Controller-Modul, das Sie für das Upgrade erhalten haben, in node2.

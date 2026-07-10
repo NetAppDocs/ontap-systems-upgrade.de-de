@@ -29,6 +29,7 @@ An diesem Punkt des Verfahrens wird die Operation unterbrochen, da node4 dem Quo
 
 
 
+[[step-1-verify-that-node4-is-in-quorum]]
 == Schritt 1: Überprüfen Sie, ob node4 im Quorum ist.
 
 Überprüfen Sie, ob node4 im Quorum ist. Setzen Sie anschließend den Controller-Austausch fort.
@@ -143,6 +144,8 @@ NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Br
 
 
 
+[[step-2-restore-network-configuration-on-node4]]
+[[restore_network_configuration_on_node4]]
 == Schritt 2: Netzwerkkonfiguration auf node4 wiederherstellen
 
 Nachdem Sie bestätigt haben, dass node4 sich im Quorum befindet und mit node3 kommunizieren kann, überprüfen Sie, ob node2 VLANs, Interface Groups und Broadcast-Domains auf node4 zu sehen sind. Überprüfen Sie außerdem, ob alle node4-Netzwerkports in ihren richtigen Broadcast-Domänen konfiguriert sind.

@@ -26,6 +26,7 @@ Wenn Knoten3 keine integrierten FC-Ports, integrierten UTA/UTA2-Ports oder eine 
 
 
 
+[[configure-fc-ports-on-node3]]
 == Konfigurieren Sie FC-Ports auf node3
 
 Wenn Knoten3 über FC-Ports verfügt (entweder integriert oder auf einem zusätzlichen FC-Adapter), müssen Sie die Portkonfigurationen auf dem Knoten festlegen, bevor Sie ihn in Betrieb nehmen, da die Ports bei der Auslieferung der Systeme nicht vorkonfiguriert sind.  Wenn Sie die Ports nicht konfigurieren, kann es zu einer Dienstunterbrechung kommen.
@@ -95,6 +96,8 @@ IMPORTANT: Geben Sie die Befehle in diesem Abschnitt an der Cluster-Eingabeauffo
 
 
 
+[[check-and-configure-utauta2-ports-on-node3]]
+[[uta-ports-node3]]
 == UTA/UTA2-Ports in node3 prüfen und konfigurieren
 
 Wenn node3 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie möglicherweise neu konfigurieren, je nachdem, wie Sie das aktualisierte System verwenden möchten.

@@ -6,12 +6,14 @@ Bevor Sie die Nodes mit ARL aktualisieren, sollten Sie unbedingt verstehen, wie 
 
 
 
+[[upgrade-the-node-pair]]
 == Aktualisieren Sie das Node-Paar
 
 Zum Upgrade des Node-Paars müssen Sie die ursprünglichen Nodes vorbereiten und dann für die ursprünglichen und die neuen Nodes eine Reihe von Schritten ausführen. Anschließend können Sie die ursprünglichen Knoten außer Betrieb nehmen.
 
 
 
+[[arl-upgrade-sequence-overview]]
 == Übersicht über die ARL-Upgrade-Sequenz
 
 Während des Verfahrens aktualisieren Sie die ursprüngliche Controller Hardware mit der Ersatz-Controller-Hardware, einem Controller gleichzeitig. Nutzen Sie die HA-Paar-Konfiguration, um das Eigentum von Aggregaten ohne Root-Berechtigungen zu verschieben. Alle Aggregate außerhalb der Root-Ebene müssen zwei Umlagerungen durchlaufen, um das endgültige Ziel zu erreichen, nämlich den korrekten aktualisierten Node.

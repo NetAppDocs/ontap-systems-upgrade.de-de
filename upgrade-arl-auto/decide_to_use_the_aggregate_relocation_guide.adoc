@@ -37,6 +37,8 @@ link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide
 ====
 
 
+[[supported-system-upgrade-combinations]]
+[[sys_commands_95_97_supported_systems]]
 == Unterstützte System-Upgrade-Kombinationen
 
 Die folgende Tabelle zeigt die unterstützte Modellmatrix für das Controller-Upgrade mit diesem ARL-Verfahren.
@@ -77,6 +79,7 @@ Das automatisierte Upgrade ^4^ARL von einer AFF A300 auf eine AFF A400 und eine 
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
 * link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].

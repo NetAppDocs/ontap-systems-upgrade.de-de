@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/lif_migration_failure.html 
 keywords: lif, migration, failure, mtu 
-summary: 'LIFs sind nach der Migration in Phase 2, Phase 3 oder Phase 5 nicht online, wenn Sie Controller mit ONTAP 9.15.1 oder höher mithilfe von Befehlen aktualisieren `system controller replace` .' 
+summary: 'LIFs sind nach der Migration in Phase 2, Phase 3 oder Phase 5 nicht online, wenn ein Upgrade auf Controller durchgeführt wird, die in ONTAP 9.15.1 oder später eingeführt wurden, durch die Verwendung von  `system controller replace` Befehlen.' 
 ---
 = Fehler bei der LIF-Migration
 :hardbreaks:

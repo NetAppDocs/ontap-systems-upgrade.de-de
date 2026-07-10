@@ -15,6 +15,7 @@ Zur Planung des Upgrades müssen Sie sich mit den allgemeinen Upgrade-Überlegun
 
 
 
+[[requirements-and-limitations]]
 == Anforderungen und Einschränkungen zu erfüllen
 
 Je nach Umgebung müssen Sie bestimmte Faktoren berücksichtigen, bevor Sie mit dem Upgrade beginnen. Sehen Sie sich dazu die folgende Tabelle an, um die Anforderungen und Einschränkungen zu ermitteln, die Sie berücksichtigen müssen.
@@ -79,6 +80,7 @@ NOTE: Sie können ein integriertes System aktualisieren, indem Sie Daten in neue
 
 
 
+[[systems-with-internal-storage]]
 == Systeme mit internem Storage
 
 Die folgenden Systeme verfügen über einen internen Speicher:
@@ -108,6 +110,7 @@ Der Transfer des internen Speichers ist eine optionale Aufgabe im Workflow für 
 
 
 
+[[situations-where-you-might-need-additional-steps]]
 == Situationen, in denen Sie möglicherweise zusätzliche Schritte benötigen
 
 * Wenn das neue System weniger Steckplätze als das ursprüngliche System hat oder weniger oder unterschiedliche Porttypen vorhanden sind, müssen Sie dem neuen System möglicherweise einen Adapter hinzufügen. Siehe https://hwu.netapp.com["NetApp Hardware Universe"^].

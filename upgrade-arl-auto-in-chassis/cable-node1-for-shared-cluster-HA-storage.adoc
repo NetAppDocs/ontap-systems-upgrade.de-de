@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-in-chassis/cable-node1-for-shared-cluster-HA-storage.html 
 keywords: cluster, ha, aff, a800, shared, storage, data, management 
-summary: Cluster, HA, Storage und Datenverbindungen, die zuvor mit dem AFF A800 Knoten 1 verbunden waren, mit dem neu installierten AFF A90 oder AFF A70 Knoten 1 verbinden 
+summary: Die Cluster-, HA-, Speicher- und Datenverbindungen, die zuvor mit dem AFF A800 node1 verbunden waren, werden mit dem neu installierten AFF A90 oder AFF A70 node1 verbunden. 
 ---
 = Kabelnode1 für Shared Cluster-HA und Storage
 :hardbreaks:
@@ -34,6 +34,7 @@ Wenn Sie eines der folgenden Upgrades durchführen, müssen Sie die Cluster-, HA
 |===
 
 
+[[connect-the-e0m-and-bmc-ports]]
 == Verbinden Sie die Ports E0M und BMC
 
 Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, werden die E0M und BMC-Ports kombiniert und über den „Schraubenschlüssel“-Port am Ersatzsystem aufgerufen. Sie müssen sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf dem vorhandenen System verbunden sind, bevor Sie eine Verbindung zum Ersatzsystem herstellen.
@@ -54,6 +55,7 @@ Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, w
 |===
 
 
+[[connect-to-a-two-node-switchless-cluster]]
 == Stellen Sie eine Verbindung zu einem 2-Node-Cluster ohne Switches her
 
 Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfigurationen ohne Switch mit zwei Nodes.
@@ -99,6 +101,8 @@ Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfi
 |===
 
 
+[[connect-to-a-switch-attached-cluster]]
+[[connect-switch-attached-cluster]]
 == Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her
 
 Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anforderungen für den Knoten AFF A30, AFF A50, AFF A70, AFF A90, AFF C30, AFF C60 oder AFF C80 (Ersatz) erfüllen:

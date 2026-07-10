@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-in-chassis/netboot-node2.html 
 keywords: preparing, prepare, netboot, ontap, node2 
-summary: Nachdem Sie die entsprechenden Node2-Ersatzsystemmodule ausgetauscht haben, wenn Sie mit ARL Controller-Modelle im gleichen Gehäuse aktualisieren, müssen Sie sie möglicherweise mit dem Netzboot booten. 
+summary: Wenn ARL verwendet wird, um Controller-Modelle im selben Chassis zu aktualisieren, muss node2 nach dem Austausch des entsprechenden Ersatzsystemmoduls per Netboot gestartet werden. 
 ---
 = Netzboot Nr. 2
 :hardbreaks:

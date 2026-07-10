@@ -18,6 +18,7 @@ Um zu verstehen, ob Sie mithilfe von ARL ein Upgrade für ein Controller-Paar mi
 
 
 
+[[supported-upgrades-for-arl]]
 == Unterstützte Upgrades für ARL
 
 Wenn Sie ein Node-Paar mit diesem ARL-Verfahren für ONTAP 9.8 oder höher aktualisieren, müssen Sie sicherstellen, dass ARL auf den Original- und Austausch-Controllern ausgeführt werden kann.
@@ -35,12 +36,14 @@ Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock 
 
 
 
+[[two-node-switchless-clusters]]
 == 2-Node-Cluster ohne Switches
 
 Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren.
 
 
 
+[[upgrades-not-supported-for-arl]]
 == Upgrades werden für ARL nicht unterstützt
 
 Sie können die folgenden Aktualisierungen nicht ausführen:
@@ -57,12 +60,14 @@ Informationen zum Upgrade von Controllern der Einstiegsklasse mit internen Laufw
 
 
 
+[[metrocluster-fc-configuration]]
 == MetroCluster FC-Konfiguration
 
 In einer MetroCluster FC-Konfiguration müssen die Knoten für Disaster Recovery/Failover-Standort so schnell wie möglich ersetzt werden. Nicht übereinstimmende Controller-Modelle in einem MetroCluster wird nicht unterstützt, weil eine falsche Übereinstimmung des Controller-Modells dazu führen kann, dass Disaster Recovery-Spiegelung offline geht. Umgehen Sie MetroCluster-Überprüfungen mit dem `-skip-metrocluster-check true` Befehl, wenn Sie Nodes am zweiten Standort ersetzen.
 
 
 
+[[troubleshoot]]
 == Fehlerbehebung
 
 Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node kann abstürzen, Aggregate werden möglicherweise nicht verschoben oder LIFs werden nicht migriert. Die Ursache des Fehlers und seiner Lösung hängt davon ab, wann der Fehler während des Aktualisierungsvorgangs aufgetreten ist.

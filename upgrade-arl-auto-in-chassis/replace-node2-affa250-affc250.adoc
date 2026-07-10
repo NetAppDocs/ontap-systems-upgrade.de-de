@@ -23,6 +23,7 @@ CAUTION: Schalten Sie das Chassis nicht aus, da sich Knoten 1 und Knoten 2 im se
 
 
 
+[[step-1-remove-the-aff-a250-or-aff-c250-controller-module]]
 == Schritt 1: Entfernen Sie das AFF A250 oder AFF C250 Controller-Modul
 
 Um das Controller-Modul node2 zu entfernen, entfernen Sie die Kabelmanagement-Vorrichtung und entriegeln Sie die Verriegelungsriegel. Entfernen Sie dann das Controller-Modul aus dem Chassis.
@@ -77,6 +78,7 @@ Stellen Sie sicher, dass Sie das Gewicht des Controller-Moduls halten, wenn Sie 
 
 
 
+[[step-2-install-the-aff-a30-aff-a50-aff-c30-or-aff-c60-controller-module]]
 == Schritt 2: Installieren Sie das AFF A30, AFF A50, AFF C30 oder AFF C60 Controllermodul
 
 Installieren Sie das Ersatz-Controller-Modul, das Sie für das Upgrade erhalten haben, auf node2.

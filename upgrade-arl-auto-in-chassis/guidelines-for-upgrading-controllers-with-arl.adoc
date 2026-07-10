@@ -18,6 +18,7 @@ Ob Sie die Aggregatverschiebung (ARL, Aggregate Relocation) und die alten System
 
 
 
+[[supported-upgrades-for-arl]]
 == Unterstützte Upgrades für ARL
 
 Für bestimmte Systemkonfigurationen werden Controller-Upgrades unterstützt. Siehe die link:decide-to-use-the-aggregate-relocation-guide.html#supported-systems["unterstützte System-Upgrade-Kombinationen"] für eine Liste der unterstützten Systeme und der minimalen ONTAP Version.
@@ -28,12 +29,14 @@ Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock 
 
 
 
+[[two-node-switchless-clusters]]
 == 2-Node-Cluster ohne Switches
 
 Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in einen Switch-Cluster konvertieren.
 
 
 
+[[switch-attached-clusters]]
 == Switch Attached-Cluster
 
 Wenn Sie Nodes in einem Cluster aktualisieren, das mit einem Cluster-Switch verbunden ist, müssen Sie überprüfen, ob die auf dem Switch ausgeführte Version von Make, Model, Firmware, RCF und ONTAP mit denen identisch ist, die nach dem Upgrade auf dem Ersatz-Controller ausgeführt werden. Falls erforderlich, müssen Sie das Switch-Upgrade vor dem Upgrade der Controller mithilfe von ARL durchführen.
@@ -42,6 +45,7 @@ Weitere Informationen finden Sie unter link:cable-node1-for-shared-cluster-HA-st
 
 
 
+[[troubleshoot]]
 == Fehlerbehebung
 
 Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node kann abstürzen, Aggregate werden möglicherweise nicht verschoben oder LIFs werden nicht migriert. Die Ursache des Fehlers und seiner Lösung hängt davon ab, wann der Fehler während des Aktualisierungsvorgangs aufgetreten ist.

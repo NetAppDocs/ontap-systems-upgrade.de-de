@@ -44,6 +44,7 @@ CAUTION: In dieser Phase befindet sich die MetroCluster-Konfiguration nicht im N
 
 
 
+[[re-create-vlans-interface-groups-and-broadcast-domains-on-node4]]
 == VLANs, Schnittstellengruppen und Broadcast-Domänen auf node4 neu erstellen
 
 Nachdem Sie bestätigt haben, dass node4 sich im Quorum befindet und mit node3 kommunizieren kann, müssen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen von node2 auf node4 neu erstellen. Sie müssen auch die node3-Ports zu den neu erstellten Broadcast-Domänen hinzufügen.
@@ -72,6 +73,7 @@ Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengr
 
 
 
+[[restore-key-manager-configuration-on-node4]]
 == Wiederherstellen der Key-Manager-Konfiguration auf node4
 
 Wenn Sie NetApp Aggregate Encryption (NAE) oder NetApp Volume Encryption (NVE) zur Verschlüsselung von Volumen auf dem zu aktualisierenden System verwenden, muss die Verschlüsselungskonfiguration mit den neuen Knoten synchronisiert werden. Wenn Sie den Key-Manager nicht wiederherstellen, werden beim Verschieben der Aggregate von Knoten2 mithilfe von ARL von Knoten3 auf Knoten4 die verschlüsselten Volumen offline genommen.

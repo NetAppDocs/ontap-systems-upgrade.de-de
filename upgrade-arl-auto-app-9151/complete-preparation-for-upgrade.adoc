@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/complete-preparation-for-upgrade.html 
 keywords: ip, address, external, key, management, server, storage, encryption, upgrading, authentication 
-summary: 'Storage-Verschlüsselung konfigurieren und managen, Authentifizierungsschlüssel managen und die SnapMirror Beziehungen beim Upgrade von Controllern, auf denen ONTAP 9.15.1 oder höher ausgeführt wird, stilllegen. `system controller replace`' 
+summary: 'Speicherverschlüsselung konfigurieren und verwalten, Authentifizierungsschlüssel verwalten und die SnapMirror-Beziehungen beim Upgrade auf Controller, die in ONTAP 9.15.1 oder später eingeführt wurden, mithilfe des  `system controller replace` Befehls in den Ruhezustand versetzen.' 
 ---
 = Schließen Sie die Vorbereitung für das Upgrade ab
 :hardbreaks:
@@ -18,6 +18,7 @@ Erfahren Sie mehr über ONTAP-Lizenzierung und die Verwaltung der Speicherversch
 
 
 
+[[learn-about-ontap-licensing]]
 == Erfahren Sie mehr über ONTAP-Lizenzierung
 
 Ausführliche Informationen zur ONTAP-Lizenzierung finden Sie unter https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Lizenzmanagement"^].
@@ -27,6 +28,8 @@ NOTE: Wenn Sie nicht lizenzierte Funktionen auf dem Controller verwenden, kann e
 
 
 
+[[manage-storage-encryption-using-the-onboard-key-manager]]
+[[manage_storage_encryption_using_okm]]
 == Management der Storage-Verschlüsselung mit dem Onboard Key Manager
 
 Verwenden Sie den Onboard Key Manager (OKM) zur Verwaltung der Verschlüsselungsschlüssel. Wenn Sie den OKM eingerichtet haben, müssen Sie die Passphrase und die Sicherungsdaten vor Beginn des Upgrades notieren.
@@ -55,6 +58,7 @@ Geben Sie bei Aufforderung die clusterweite OKM-Passphrase ein, die Sie im vorhe
 
 
 
+[[optionally-quiesce-the-snapmirror-relationships]]
 == Optional können die SnapMirror-Beziehungen angehalten werden
 
 Bevor Sie mit dem Verfahren fortfahren, müssen Sie bestätigen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.

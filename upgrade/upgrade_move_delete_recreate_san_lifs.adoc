@@ -15,6 +15,7 @@ Abhängig von Ihren Cluster-Inhalten und Ihrer Cluster-Umgebung müssen Sie SAN-
 
 
 
+[[considerations-for-moving-san-lifs]]
 == Überlegungen zum Verschieben von SAN-LIFs
 
 Sie müssen nur die SAN-LIFs verschieben, wenn Sie beispielsweise den Inhalt des Clusters ändern, indem Sie dem Cluster Nodes hinzufügen oder Nodes aus dem Cluster löschen. Wenn Sie ein LIF verschieben, müssen Sie Ihre FC-Fabric nicht erneut Zone zuweisen oder neue iSCSI-Sitzungen zwischen den verbundenen Hosts des Clusters und der neuen Zielschnittstelle erstellen.
@@ -33,6 +34,7 @@ Weitere Informationen finden Sie im https://docs.netapp.com/us-en/ontap/san-admi
 
 
 
+[[delete-san-lifs-no-longer-required]]
 == Löschen Sie nicht mehr benötigte SAN-LIFs
 
 Befindet sich der Cluster in einer SAN-Umgebung, müssen Sie alle SAN LIFs, die Sie nicht mehr benötigen, von den ursprünglichen Knoten löschen, bevor Sie die ursprünglichen Knoten aus dem Cluster entfernen können.
@@ -89,6 +91,7 @@ js11      ps0          mixed    LIF1,                   igroup1
 
 
 
+[[create-new-san-lifs-or-re-create-deleted-san-lifs]]
 == Erstellung neuer SAN-LIFs oder erneuter Erstellung gelöschter SAN-LIFs
 
 Je nach den Anforderungen Ihrer Cluster-Umgebung können Sie sich möglicherweise entscheiden, neue SAN LIFs zu erstellen oder SAN LIFs neu zu erstellen, die Sie bereits in diesem Verfahren gelöscht haben. Sie können SAN-LIFs mit dem erstellen oder neu erstellen https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html["Erstellung von Netzwerkschnittstellen"^] Vorgehensweise in der Dokumentation _Clusterverwaltung mit OnCommand® System Manager_.

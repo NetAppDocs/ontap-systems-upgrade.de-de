@@ -18,6 +18,7 @@ Um zu verstehen, ob Sie mithilfe von Aggregate Relocation (ARL) ein Upgrade eine
 
 
 
+[[supported-upgrades-for-arl]]
 == Unterstützte Upgrades für ARL
 
 Unter den folgenden Umständen können Sie ein Upgrade eines Node-Paars mit ARL durchführen:
@@ -48,6 +49,7 @@ Wenn Sie ein System mit mehr als zwei Cluster-Ports pro Node, wie z. B. einem FA
 
 
 
+[[upgrades-not-supported-for-arl]]
 == Upgrades werden für ARL nicht unterstützt
 
 Sie können die folgenden Aktualisierungen nicht ausführen:
@@ -69,6 +71,7 @@ NOTE: Wenn Sie ONTAP auf Nodes in einem Cluster aktualisieren möchten, lesen Si
 
 
 
+[[assumptions-and-terminology]]
 == Annahmen und Terminologie
 
 Dieses Dokument wird an folgende Annahmen geschrieben:
@@ -98,6 +101,7 @@ LOADER>
 ----
 
 
+[[licensing-in-ontap-9-8-or-later]]
 == Lizenzierung in ONTAP 9.8 oder höher
 
 Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
@@ -110,6 +114,7 @@ Ausführliche Informationen zur Lizenzierung finden Sie unter link:other_referen
 
 
 
+[[storage-encryption]]
 == Storage-Verschlüsselung
 
 Die ursprünglichen oder die neuen Nodes sind möglicherweise für die Storage-Verschlüsselung aktiviert. In diesem Fall müssen Sie in diesem Verfahren weitere Schritte durchführen, um zu überprüfen, ob die Speicherverschlüsselung ordnungsgemäß eingerichtet ist.
@@ -118,12 +123,14 @@ Falls Sie Storage Encryption verwenden möchten, müssen alle dem Node zugeordne
 
 
 
+[[two-node-switchless-clusters]]
 == 2-Node-Cluster ohne Switches
 
 Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren
 
 
 
+[[troubleshoot]]
 == Fehlerbehebung
 
 Möglicherweise ist beim Upgrade des Node-Paars ein Fehler auftritt. Der Node kann abstürzen, Aggregate werden möglicherweise nicht verschoben oder LIFs werden nicht migriert. Die Ursache des Fehlers und seiner Lösung hängt davon ab, wann der Fehler während des Aktualisierungsvorgangs aufgetreten ist.

@@ -18,6 +18,7 @@ Der Prozess des Controller-Austauschs beginnt mit einer Reihe von Vorabprüfunge
 
 
 
+[[step-1-prepare-the-nodes]]
 == Schritt 1: Die Knoten vorbereiten
 
 Starten Sie den Controller-Austausch und führen Sie Vorabprüfungen durch. Ermitteln Sie gegebenenfalls den Typ der verwendeten selbstverschlüsselnden Laufwerke.
@@ -25,8 +26,10 @@ Starten Sie den Controller-Austausch und führen Sie Vorabprüfungen durch. Ermi
 .Schritte
 . Listen Sie die Firmware-Version des Service-Prozessors (SP) oder des Baseboard Management Controller (BMC) auf, die auf dem alten Controller ausgeführt wird:
 +
-`service-processor show`
-
+[source, cli]
+----
+service-processor show
+----
 +
 Vergewissern Sie sich, dass Sie über eine unterstützte SP- oder BMC-Firmware-Version verfügen:
 
@@ -55,11 +58,15 @@ Vergewissern Sie sich, dass Sie über eine unterstützte SP- oder BMC-Firmware-V
 |===
 . Starten Sie den Controller-Ersatzprozess, indem Sie den folgenden Befehl im erweiterten Berechtigungsmodus der ONTAP-Befehlszeile eingeben:
 +
-`set -privilege advanced`
-
+[source, cli]
+----
+set -privilege advanced
+----
 +
-`system controller replace start -nodes _node_names_`
-
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 +
 Die Ausgabe sieht ähnlich aus wie im folgenden Beispiel. Die Ausgabe zeigt die auf Ihrem Cluster ausgeführte ONTAP-Version an:
 
@@ -123,7 +130,7 @@ In der Vorabprüfungen-Phase führt das System die folgende Liste der Überprüf
 | LIF-Status des Clusters | Überprüft, ob die Cluster-LIFs für beide Nodes aktiv sind. Wenn die Cluster-LIFs ausgefallen sind, schlägt die Aufgabe fehl. 
 
 
-| ASUP-Statusprüfung | Wenn AutoSupport-Benachrichtigungen nicht konfiguriert sind, schlägt die Aufgabe fehl. Bevor Sie mit dem Austausch des Controllers beginnen, müssen Sie AutoSupport aktivieren. 
+| AutoSupport Statusprüfung | Wenn AutoSupport-Benachrichtigungen nicht konfiguriert sind, schlägt die Aufgabe fehl. Bevor Sie mit dem Austausch des Controllers beginnen, müssen Sie AutoSupport aktivieren. 
 
 
 | CPU-Auslastungs-Prüfung | Überprüft, ob die CPU-Auslastung bei allen zu ersetzenden Nodes mehr als 50 % beträgt. Wenn die CPU-Nutzung über einen erheblichen Zeitraum mehr als 50 % beträgt, schlägt die Aufgabe fehl. 
@@ -140,33 +147,118 @@ In der Vorabprüfungen-Phase führt das System die folgende Liste der Überprüf
 Führen Sie die Befehle an dem seriellen Port aus, der mit den einzelnen Nodes verbunden ist, und speichern Sie die Ausgabe der Befehle einzeln:
 
 +
-** `vserver services name-service dns show`
-** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,cluster-mgmt,data`
-** `network port show -node _local_ -type physical`
-** `service-processor show -node _local_ -instance`
-** `network fcp adapter show -node _local_`
-** `network port ifgrp show -node _local_`
-** `system node show -instance -node _local_`
-** `run -node _local_ sysconfig`
-** `run -node local sysconfig -ac`
-** `run -node local aggr status -r`
-** `vol show -fields type`
-** `run local aggr options _data_aggregate_name_`
-** `vol show -fields type , space-guarantee`
-** `storage aggregate show -node _local_`
-** `volume show -node _local_`
-** `storage array config show -switch _switch_name_`
-** `system license show -owner _local_`
-** `storage encryption disk show`
-** `security key-manager onboard show-backup`
-** `security key-manager external show`
-** `security key-manager external show-status`
-** `network port reachability show -detail -node _local_`
+[source, cli]
+----
+vserver services name-service dns show
+----
++
+[source, cli]
+----
+network interface show -curr-node <local> -role cluster,intercluster,node-mgmt,cluster-mgmt,data
+----
++
+[source, cli]
+----
+network port show -node <local> -type physical
+----
++
+[source, cli]
+----
+service-processor show -node <local> -instance
+----
++
+[source, cli]
+----
+network fcp adapter show -node <local>
+----
++
+[source, cli]
+----
+network port ifgrp show -node <local>
+----
++
+[source, cli]
+----
+system node show -instance -node <local>
+----
++
+[source, cli]
+----
+run -node <local> sysconfig
+----
++
+[source, cli]
+----
+run -node local sysconfig -ac
+----
++
+[source, cli]
+----
+run -node local aggr status -r
+----
++
+[source, cli]
+----
+vol show -fields type
+----
++
+[source, cli]
+----
+run local aggr options <data_aggregate_name>
+----
++
+[source, cli]
+----
+vol show -fields type , space-guarantee
+----
++
+[source, cli]
+----
+storage aggregate show -node <local>
+----
++
+[source, cli]
+----
+volume show -node <local>
+----
++
+[source, cli]
+----
+storage array config show -switch <switch_name>
+----
++
+[source, cli]
+----
+system license show -owner <local>
+----
++
+[source, cli]
+----
+storage encryption disk show
+----
++
+[source, cli]
+----
+security key-manager onboard show-backup
+----
++
+[source, cli]
+----
+security key-manager external show
+----
++
+[source, cli]
+----
+security key-manager external show-status
+----
++
+[source, cli]
+----
+network port reachability show -detail -node <local>
+----
 +
 
 NOTE: Wenn NetApp Volume Encryption (NVE) oder NetApp Aggregate Encryption (NAE) den Onboard Key Manager verwendet, halten Sie die Schlüsselmanager-Passphrase bereit, um später im Verfahren die Neusynchronisierung des Schlüsselmanagers abzuschließen.
-
-
 
 . Wenn Ihr System Self-Encrypting Drives verwendet, lesen Sie den Artikel der Knowledge Base https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["Wie erkennen Sie, ob ein Laufwerk FIPS-zertifiziert ist"^] Ermitteln der Art der Self-Encrypting Drives, die auf dem HA-Paar verwendet werden, das Sie aktualisieren. ONTAP unterstützt zwei Arten von Self-Encrypting Drives:
 +
@@ -189,6 +281,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
+[[step-2-correct-aggregate-ownership-if-an-arl-precheck-fails]]
 == Schritt 2: Korrigieren Sie den Aggregatbesitz, falls eine ARL-Vorprüfung fehlschlägt
 
 Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Partner-Node an den Node „Home-Owner“ zurückgeben und den Vorabprüfvorgang erneut initiieren.
@@ -196,12 +289,16 @@ Wenn die aggregierte Statusprüfung fehlschlägt, müssen Sie Aggregate des Part
 .Schritte
 . Gibt die Aggregate zurück, die derzeit dem Partner-Node gehören, an den Home-Owner-Node:
 +
-`storage aggregate relocation start -node _source_node_ -destination _destination-node_ -aggregate-list *`
-
+[source, cli]
+----
+storage aggregate relocation start -node <source_node> -destination <destination_node> -aggregate-list *
+----
 . Überprüfen Sie, dass weder node1 noch node2 noch Eigentümer von Aggregaten ist, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
 +
-`storage aggregate show -nodes _node_name_ -is-home false -fields owner-name, home-name, state`
-
+[source, cli]
+----
+storage aggregate show -nodes <node_name> -is-home false -fields owner-name, home-name, state
+----
 +
 Das folgende Beispiel zeigt die Ausgabe des Befehls, wenn ein Node sowohl der aktuelle Eigentümer als auch der Home-Inhaber von Aggregaten ist:
 
@@ -219,9 +316,12 @@ aggr4       node1      node1       online
 4 entries were displayed.
 ----
 . Starten Sie den Controller-Austauschprozess neu:
++
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 
-
-`system controller replace start -nodes _node_names_`
 
 .Was kommt als Nächstes?
 Nach der Vorbereitung der Knoten, link:complete-preparation-for-upgrade.html["Die Vorbereitungen für das Upgrade abschließen"].

@@ -4,6 +4,7 @@
 
 
 
+[[connect-the-e0m-and-bmc-ports]]
 == Verbinden Sie die Ports E0M und BMC
 
 Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, werden die E0M und BMC-Ports kombiniert und über den „Schraubenschlüssel“-Port am Ersatzsystem aufgerufen. Sie müssen sicherstellen, dass die Ports E0M und BMC mit demselben Switch und Subnetz auf dem vorhandenen System verbunden sind, bevor Sie eine Verbindung zum Ersatzsystem herstellen.
@@ -24,6 +25,7 @@ Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, w
 |===
 
 
+[[connect-to-a-two-node-switchless-cluster]]
 == Stellen Sie eine Verbindung zu einem 2-Node-Cluster ohne Switches her
 
 Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfigurationen ohne Switch mit zwei Nodes.

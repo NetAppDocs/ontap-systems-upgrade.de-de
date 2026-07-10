@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/verify_node3_installation.html 
 keywords: verifying, verify, node, install, installation 
-summary: 'Überprüfen Sie mithilfe von Befehlen, ob die physischen node1-Ports Knoten3 richtig zugeordnet sind, und stellen Sie die Netzwerkkonfiguration auf Knoten3 wieder her, wenn Sie Controller mit ONTAP 9.15.1 oder höher aktualisieren `system controller replace` .' 
+summary: 'Es sollte überprüft werden, ob die physischen Ports von node1 korrekt node3 zugeordnet sind, und die Netzwerkkonfiguration auf node3 wiederhergestellt werden, wenn beim Upgrade auf Controller, die in ONTAP 9.15.1 oder höher eingeführt wurden,  `system controller replace` Befehle verwendet werden.' 
 ---
 = Überprüfen Sie die Installation von node3
 :hardbreaks:
@@ -29,6 +29,7 @@ An diesem Punkt des Verfahrens wird die Operation unterbrochen, da node3 dem Quo
 
 
 
+[[step-1-verify-that-node3-is-in-quorum]]
 == Schritt 1: Überprüfen Sie, ob node3 im Quorum ist.
 
 Überprüfen Sie, ob node3 im Quorum ist. Setzen Sie anschließend den Controller-Austausch fort.
@@ -89,6 +90,8 @@ NOTE: In diesem Verfahren wurde der Abschnitt _Neuerstellen von VLANs, ifgrps un
 
 
 
+[[step-2-restore-network-configuration-on-node3]]
+[[restore_network_configuration_on_node3_9151]]
 == Schritt 2: Netzwerkkonfiguration auf node3 wiederherstellen
 
 Nachdem Sie bestätigt haben, dass node3 sich im Quorum befindet und mit node2 kommunizieren kann, überprüfen Sie, ob node1 VLANs, Interface Groups und Broadcast-Domains auf node3 zu sehen sind. Überprüfen Sie außerdem, ob alle node3-Netzwerk-Ports in ihren richtigen Broadcast-Domänen konfiguriert sind.

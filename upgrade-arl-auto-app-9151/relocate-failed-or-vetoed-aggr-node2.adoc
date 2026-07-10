@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/relocate-failed-or-vetoed-aggr-node2.html 
 keywords: relocating, failed, vetoed, aggregates, relocation, operation 
-summary: 'Manuelles Verschieben von fehlgeschlagenen oder abgelehnten Aggregaten auf Knoten2 beim Upgrade von Controllern mit ONTAP 9.15.1 oder höher mithilfe von `system controller replace` Befehle.' 
+summary: 'Fehlgeschlagene oder abgelehnte Aggregate werden beim Upgrade auf Controller, die in ONTAP 9.15.1 oder höher eingeführt wurden, mithilfe von  `system controller replace` Befehlen manuell auf node2 verschoben.' 
 ---
 = Verschieben Sie fehlgeschlagene oder abgelehnte Aggregate auf Knoten2
 :hardbreaks:

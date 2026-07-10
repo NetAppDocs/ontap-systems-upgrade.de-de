@@ -4,6 +4,7 @@
 
 
 
+[[check-and-configure-utauta2-ports-on-node4]]
 == UTA/UTA2-Ports auf node4 prüfen und konfigurieren
 
 Wenn node4 Onboard UTA/UTA2-Ports oder eine UTA/UTA2-Karte hat, müssen Sie die Konfiguration der Ports überprüfen und sie je nach Nutzung des aktualisierten Systems konfigurieren.

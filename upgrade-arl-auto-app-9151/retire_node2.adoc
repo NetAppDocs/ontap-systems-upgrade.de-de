@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/retire_node2.html 
 keywords: retire, node2 
-summary: 'Fahren Sie node2 herunter, und entfernen Sie es aus dem Rack oder Chassis, wenn Sie Controller mit ONTAP 9.15.1 oder höher mithilfe von Befehlen aktualisieren `system controller replace` .' 
+summary: 'Node2 muss heruntergefahren und aus dem Rack oder Chassis entfernt werden, wenn auf Controller aktualisiert wird, die in ONTAP 9.15.1 oder höher eingeführt wurden, indem  `system controller replace` Befehle verwendet werden.' 
 ---
 = Node2 ausmustern
 :hardbreaks:

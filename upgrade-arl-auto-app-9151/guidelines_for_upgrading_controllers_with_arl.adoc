@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/guidelines_for_upgrading_controllers_with_arl.html 
 keywords: guidelines, upgrading, controllers, ARL 
-summary: 'Mithilfe von Befehlen können Sie Controller, auf denen ONTAP 9.15.1 oder höher ausgeführt wird, aktualisieren `system controller replace` .' 
+summary: 'Es kann festgestellt werden, ob ein Upgrade auf Controller, die in ONTAP 9.15.1 oder später eingeführt wurden, mithilfe von  `system controller replace` Befehlen möglich ist.' 
 ---
 = Richtlinien für das Controller-Upgrade mit ARL
 :hardbreaks:
@@ -14,10 +14,11 @@ summary: 'Mithilfe von Befehlen können Sie Controller, auf denen ONTAP 9.15.1 o
 
 
 [role="lead"]
-Ob Sie mit ARL ein Controller-Paar mit ONTAP 9.15.1 oder höher aktualisieren können, hängt von der Plattform und der Konfiguration des ursprünglichen Controllers und der Ersatz-Controller ab.
+Ob ARL für ein Upgrade auf ein Controller-Paar verwendet werden kann, das in ONTAP 9.15.1 oder später eingeführt wurde, hängt von der Plattform und der Konfiguration sowohl des ursprünglichen als auch des Ersatz-Controllers ab.
 
 
 
+[[supported-upgrades-for-arl]]
 == Unterstützte Upgrades für ARL
 
 Bevor Sie ein Node-Paar mit diesem ARL-Verfahren aktualisieren, überprüfen Sie die folgenden Anforderungen, um sicherzustellen, dass Ihre Konfiguration unterstützt wird:
@@ -41,12 +42,14 @@ Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock 
 
 
 
+[[two-node-switchless-clusters]]
 == 2-Node-Cluster ohne Switches
 
 Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie die Nodes im Cluster ohne Switches während des Upgrades belassen. Sie müssen sie nicht in ein Switch-Cluster konvertieren.
 
 
 
+[[upgrades-not-supported-for-arl]]
 == Upgrades werden für ARL nicht unterstützt
 
 Sie können keine Ersatz-Controller aufrüsten, die die mit den ursprünglichen Controllern verbundenen Festplatten-Shelfs nicht unterstützen.
@@ -57,6 +60,7 @@ Wenn Sie Controller der Einstiegsklasse mit internen Laufwerken aktualisieren m�
 
 
 
+[[troubleshoot]]
 == Fehlerbehebung
 
 Sollten beim Aktualisieren der Controller Probleme auftreten, siehelink:aggregate_relocation_failures.html["Fehlerbehebung"] für weitere Informationen und mögliche Lösungen.

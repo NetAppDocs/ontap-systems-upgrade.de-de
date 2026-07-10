@@ -6,12 +6,14 @@ Das System kann in verschiedenen Phasen des Upgrades abstürzt, z. B. neu geboot
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-2]]
 == Neustarts, Panikspiele oder Energiezyklen in Phase 2
 
 Abstürze können vor, während oder unmittelbar nach Phase 2 auftreten, während der Sie Aggregate von node1 auf node2 verschieben, Daten-LIFs und SAN-LIFs im Besitz von node1 auf node2 verschieben, node1-Informationen aufzeichnen und Knoten1 ausmustern.
 
 
 
+[[node1-or-node2-crashes-before-stage-2-with-ha-still-enabled]]
 === Node1 oder node2 stürzt vor Phase 2 ab, und HA ist noch aktiviert
 
 Wenn node1 oder node2 vor Phase 2 abstürzt, wurden noch keine Aggregate verschoben und die HA-Konfiguration ist noch aktiviert.
@@ -26,6 +28,7 @@ Takeover und Giveback können normal fortgesetzt werden.
 
 
 
+[[node1-crashes-during-or-just-after-stage-2-with-ha-still-enabled]]
 === Node1 stürzt während oder direkt nach Phase 2 ab, und HA ist noch aktiviert
 
 Einige oder alle Aggregate wurden von node1 auf node2 verschoben, und HA ist weiterhin aktiviert. node2 übernimmt das Root-Volume von node1 sowie alle Nicht-Root-Aggregate, die nicht verschoben wurden.
@@ -40,6 +43,7 @@ Die Eigentumsverhältnisse der verschobenen Aggregate entsprechen denen der übe
 
 
 
+[[node1-crashes-after-stage-2-while-ha-is-disabled]]
 === Node1 stürzt nach Phase 2 ab, während HA deaktiviert ist
 
 Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
@@ -54,6 +58,7 @@ Möglicherweise sehen Sie einige Änderungen in der Ausgabe von `storage failove
 
 
 
+[[node2-fails-during-or-after-stage-2-with-ha-still-enabled]]
 === Node2 fällt während oder nach Phase 2 aus, bei aktiviertem HA
 
 Node1 hat einige oder alle seine Aggregate in node2 verschoben. HA ist aktiviert.
@@ -68,6 +73,7 @@ Knoten 1 übernimmt alle Aggregate von Knoten 2 sowie alle eigenen Aggregate, di
 
 
 
+[[node2-crashes-after-stage-2-and-after-ha-is-disabled]]
 === Node2 stürzt nach Phase 2 ab und nach HA ist deaktiviert
 
 Node1 übernimmt nicht.
@@ -82,12 +88,14 @@ Während des Hochfahrens von node2 kommt es zu einem Clientausfall für alle Agg
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-3]]
 == Neustarts, Panikspiele oder Energiezyklen in Phase 3
 
 Ausfälle können während oder unmittelbar nach Phase 3 auftreten. In dieser Phase installieren und booten Sie Node3, weisen Ports von node1 zu node3 zu, verschieben Daten-LIFs und SAN-LIFs, die zu node1 und node2 zu node3 gehören, und verschieben alle Aggregate von node2 auf node3.
 
 
 
+[[node2-crash-during-stage-3-with-ha-disabled-and-before-relocating-any-aggregates]]
 === Knoten 2 Absturz in Phase 3 mit deaktiviertem HA und vor dem Verschieben von Aggregaten
 
 Knoten 3 übernimmt nach einem Absturz von Knoten 2 nicht, da HA bereits deaktiviert ist.
@@ -102,6 +110,7 @@ Während des Hochfahrens von node2 kommt es zu einem Clientausfall für alle Agg
 
 
 
+[[node2-crashes-during-stage-3-after-relocating-some-or-all-aggregates]]
 === Node2 stürzt während Phase 3 ab, nachdem einige oder alle Aggregate verschoben wurden
 
 Knoten 2 hat einige oder alle seiner Aggregate auf Knoten 3 verschoben, der Daten von den verschobenen Aggregaten bereitstellt. HA ist deaktiviert.
@@ -117,6 +126,7 @@ Es gibt einen Kundenausfall bei Aggregaten, die nicht verlegt wurden.
 
 
 
+[[node3-crashes-during-stage-3-and-before-node2-has-relocated-any-aggregates]]
 === Node3 stürzt während Phase 3 und vor node2 hat alle Aggregate verschoben
 
 Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Aggregaten bereit.
@@ -128,6 +138,7 @@ Node2 übernimmt nicht, aber es stellt immer noch Daten aus allen nicht-Root-Agg
 
 
 
+[[node3-crashes-during-stage-3-during-aggregate-relocation]]
 === Node3 stürzt während der Phase 3 während der Aggregatverschiebung ab
 
 Falls node3 abstürzt, während node2 Aggregate zu node3 verschiebt, bricht node2 die Verschiebung aller verbleibenden Aggregate ab.
@@ -143,6 +154,7 @@ Node2 dient weiterhin verbleibenden Aggregaten, doch Aggregate, die bereits in K
 
 
 
+[[node3-fails-to-boot-after-crashing-in-stage-3]]
 === Node3 startet nach einem Absturz in Phase 3 nicht
 
 Aufgrund eines katastrophalen Ausfalls kann nach einem Absturz in Phase 3 nicht node3 gestartet werden.
@@ -153,6 +165,7 @@ Aufgrund eines katastrophalen Ausfalls kann nach einem Absturz in Phase 3 nicht 
 
 
 
+[[node2-crashes-after-stage-3-but-before-stage-5]]
 === Node2 stürzt nach Phase 3 aber vor Phase 5 ab
 
 Node3 stellt weiterhin Daten für alle Aggregate bereit. Das HA-Paar ist deaktiviert.
@@ -164,6 +177,7 @@ Node3 stellt weiterhin Daten für alle Aggregate bereit. Das HA-Paar ist deaktiv
 
 
 
+[[node3-crashes-after-stage-3-but-before-stage-5]]
 === Node3 stürzt nach Phase 3, aber vor Phase 5 ab
 
 Node3 stürzt nach Phase 3, aber vor Phase 5 ab. Das HA-Paar ist deaktiviert.
@@ -178,12 +192,14 @@ Es liegt ein Clientausfall für alle Aggregate vor.
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-5]]
 == Neustarts, Panikspiele oder Energiezyklen in Phase 5
 
 Es können zu Abstürzen kommen, während Phase 5, in der Sie node4 installieren und booten, Ports von node2 nach node4 abbilden, Daten-LIFs und SAN-LIFs, die zu node2 von node3 nach node4 gehören, und alle Aggregate von node2 in node4 verschieben.
 
 
 
+[[node3-crashes-during-stage-5]]
 === Node3 stürzt in Phase 5 ab
 
 Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node4 übernimmt nicht, dient aber weiterhin nicht-Root-Aggregate, die node3 bereits verschoben hat. Das HA-Paar ist deaktiviert.
@@ -199,6 +215,7 @@ Es gibt einen Ausfall für den Rest der Aggregate, bis node3 wieder hochfährt.
 
 
 
+[[node4-crashes-during-stage-5]]
 === Node4 stürzt in Phase 5 ab
 
 Node3 hat einige oder alle node2 Aggregate in node4 verschoben. Node3 übernimmt nicht die Übernahme, dient aber weiterhin nicht-Root-Aggregate, die Node3 besitzt, sowie solche, die nicht verlagert wurden. HA ist deaktiviert.

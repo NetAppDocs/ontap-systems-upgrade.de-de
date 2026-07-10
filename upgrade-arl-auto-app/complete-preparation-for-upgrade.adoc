@@ -18,6 +18,7 @@ Erfahren Sie mehr über ONTAP-Lizenzierung und die Verwaltung der Speicherversch
 
 
 
+[[learn-about-ontap-licensing]]
 == Erfahren Sie mehr über ONTAP-Lizenzierung
 
 Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.
@@ -30,6 +31,8 @@ Detaillierte Informationen zur ONTAP-Lizenzierung finden Sie in link:other_refer
 
 
 
+[[manage-storage-encryption-using-the-onboard-key-manager]]
+[[manage_storage_encryption_using_okm]]
 == Management der Storage-Verschlüsselung mit dem Onboard Key Manager
 
 Verwenden Sie den Onboard Key Manager (OKM) zur Verwaltung der Verschlüsselungsschlüssel. Wenn Sie den OKM eingerichtet haben, müssen Sie die Passphrase und die Sicherungsdaten vor Beginn des Upgrades notieren.
@@ -58,6 +61,7 @@ Geben Sie bei Aufforderung die clusterweite OKM-Passphrase ein, die Sie im vorhe
 
 
 
+[[optionally-quiesce-the-snapmirror-relationships]]
 == Optional können die SnapMirror-Beziehungen angehalten werden
 
 Bevor Sie mit dem Verfahren fortfahren, müssen Sie bestätigen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.

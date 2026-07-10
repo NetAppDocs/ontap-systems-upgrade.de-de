@@ -18,6 +18,7 @@ Bei der Aggregatverschiebung (ARL, Aggregate Relocation) fallen während des Upg
 
 
 
+[[check-for-aggregate-relocation-failure]]
 == Prüfen Sie, ob Aggregate Relocation Failure vorhanden sind
 
 Während des Verfahrens kann ARL in Phase 2, Phase 3 oder Phase 5 fehlschlagen.
@@ -44,6 +45,7 @@ Für detaillierte Informationen zu den  `storage aggregate relocation start`, `o
 
 
 
+[[aggregates-originally-on-node1-are-owned-by-node2-after-completion-of-the-upgrade]]
 == Aggregate, die ursprünglich auf node1 verwendet wurden, sind nach Abschluss des Upgrades Eigentum von node2
 
 Beim Ende des Upgrade-Verfahrens sollte die Knoten1 der neue Home-Node von Aggregaten sein, die ursprünglich als Home-Node node1 verwendet wurden. Sie können sie nach dem Upgrade verschieben.

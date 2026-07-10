@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/decide_to_use_the_aggregate_relocation_guide.html 
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
-summary: 'Entscheiden Sie mithilfe von Befehlen, ob Sie Controller, die ONTAP 9.15.1 oder höher ausführen, mit ARL aktualisieren `system controller replace` .' 
+summary: 'Es ist zu entscheiden, ob ARL mithilfe von  `system controller replace` Befehlen verwendet werden soll, um auf Controller zu aktualisieren, die in ONTAP 9.15.1 oder später eingeführt wurden.' 
 ---
 = Entscheiden Sie, ob Sie dieses Verfahren zur Aggregatverlagerung verwenden möchten
 :hardbreaks:
@@ -14,12 +14,13 @@ summary: 'Entscheiden Sie mithilfe von Befehlen, ob Sie Controller, die ONTAP 9.
 
 
 [role="lead"]
-Es gibt mehrere Methoden zur aggregierten Umverteilung (ARL) für die Aktualisierung der Controller-Hardware. Dieses ARL-Verfahren beschreibt, wie ein HA-Controller-Paar in AFF und FAS-Speichersystemen, die in ONTAP 9.15.1 oder höher eingeführt wurden, mit neuen Controllern aufgerüstet wird, während die vorhandenen Festplatten und die darauf gespeicherten Daten erhalten bleiben. Dies ist ein komplexes Verfahren, das nur von erfahrenen ONTAP Administratoren verwendet werden sollte.
+Für die Aktualisierung der Controller-Hardware stehen verschiedene Aggregate-Umverlagerungsmethoden (ARL) zur Verfügung. Dieses ARL-Verfahren beschreibt, wie ein HA-Paar von Controllern in AFF und FAS Storage-Systemen auf Controller aktualisiert wird, die in ONTAP 9.15.1 oder höher eingeführt wurden, wobei die vorhandenen Festplatten und die darauf gespeicherten Daten erhalten bleiben. Dies ist ein komplexes Verfahren, das nur von erfahrenen ONTAP Administratoren verwendet werden sollte.
 
 Um Ihnen bei der Entscheidung zu helfen, ob dieses ARL-Verfahren für Ihr Controller-Hardware-Upgrade geeignet ist, sollten Sie alle folgenden Umstände für unterstützte und nicht unterstützte Upgrades überprüfen.
 
 
 
+[[supported-upgrades-for-this-arl-procedure]]
 == Unterstützte Upgrades für dieses ARL-Verfahren
 
 Sie können dieses ARL-Verfahren verwenden, um ein Knotenpaar unter den folgenden Umständen zu aktualisieren:
@@ -35,6 +36,7 @@ NOTE: Dabei können Sie NetApp Storage Encryption (NSE), NetApp Volume Encryptio
 
 
 
+[[upgrades-not-supported-for-this-arl-procedure]]
 == Upgrades werden für dieses ARL-Verfahren nicht unterstützt
 
 Unter den folgenden Umständen können Sie dieses ARL-Verfahren nicht zum Upgrade eines Knotenpaars verwenden:
@@ -57,13 +59,15 @@ Unter den folgenden Umständen können Sie dieses ARL-Verfahren nicht zum Upgrad
 | AFF C800 | AFF C80 
 |===
 +
-Um ein Upgrade durchzuführen, das in der obigen Tabelle aufgeführt ist, siehe link:other_references.html["Quellen"]Link zu den Befehlen „ System Controller ersetzen “ verwenden, um Controller-Modelle im gleichen Chassis zu aktualisieren_.
+Um ein in der obigen Tabelle aufgeführtes Upgrade durchzuführen, siehe link:other_references.html["Quellen"] zum Link zu _Verwenden Sie die Befehle "system controller replace", um Controller-Modelle im selben Chassis zu aktualisieren_.
 
 * Sie führen ein Upgrade einer MetroCluster FC- oder IP-Konfiguration durch. Informationen zum Upgrade einer MetroCluster-Konfiguration finden Sie unter, um eine link:other_references.html["Quellen"] Verknüpfung zur _MetroCluster-Upgrade- und Erweiterungsdokumentation_ zu erhalten.
 
 
 
 
+[[supported-system-upgrade-combinations]]
+[[sys_commands_9151_supported_systems]]
 == Unterstützte System-Upgrade-Kombinationen
 
 Die folgende Tabelle zeigt die unterstützten Controller-Upgrade-Kombinationen mit ARL für AFF- und FAS-Systeme ab ONTAP 9.15.1. Sollte Ihre Controller-Upgrade-Kombination nicht aufgeführt sein, wenden Sie sich an den technischen Support.
@@ -108,6 +112,7 @@ Die folgende Tabelle zeigt die unterstützten Controller-Upgrade-Kombinationen m
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
 * link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].

@@ -4,6 +4,7 @@
 
 
 
+[[learn-about-ontap-licensing]]
 == Erfahren Sie mehr über ONTAP-Lizenzierung
 
 Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die eine oder mehrere Funktionen enthalten. Jeder Node im Cluster muss über seinen eigenen Schlüssel für jede Funktion im Cluster verfügen.

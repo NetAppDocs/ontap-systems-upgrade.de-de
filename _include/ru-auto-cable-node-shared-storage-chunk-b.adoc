@@ -4,6 +4,7 @@
 
 
 
+[[connect-to-a-switch-attached-cluster]]
 == Stellen Sie eine Verbindung zu einem Switch-Attached-Cluster her
 
 Stellen Sie bei einem Switch-Attach-Cluster sicher, dass Sie die folgenden Anforderungen für den Knoten AFF A30, AFF A50, AFF A70, AFF A90, AFF C30, AFF C60 oder AFF C80 (Ersatz) erfüllen:

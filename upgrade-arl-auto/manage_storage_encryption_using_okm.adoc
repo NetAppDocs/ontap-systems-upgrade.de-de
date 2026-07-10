@@ -15,6 +15,7 @@ summary: 'Konfiguration und Management der Storage-Verschlüsselung, Management 
 
 
 
+[[manage-storage-encryption-using-the-onboard-key-manager]]
 == Management der Storage-Verschlüsselung mit dem Onboard Key Manager
 
 Verwenden Sie den Onboard Key Manager (OKM) zur Verwaltung der Verschlüsselungsschlüssel. Wenn Sie den OKM eingerichtet haben, müssen Sie die Passphrase und die Sicherungsdaten vor Beginn des Upgrades notieren.
@@ -43,6 +44,7 @@ Geben Sie bei Aufforderung die clusterweite OKM-Passphrase ein, die Sie im vorhe
 
 
 
+[[optionally-quiesce-the-snapmirror-relationships]]
 == Optional können die SnapMirror-Beziehungen angehalten werden
 
 Bevor Sie mit dem Verfahren fortfahren, müssen Sie bestätigen, dass alle SnapMirror Beziehungen stillgelegt werden. Wenn eine SnapMirror Beziehung stillgelegt wird, bleibt es bei einem Neustart und einem Failover stillgelegt.

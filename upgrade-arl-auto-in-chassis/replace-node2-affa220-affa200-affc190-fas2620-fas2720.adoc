@@ -26,6 +26,7 @@ Wenn du nicht bereits geerdet bist, beground dich richtig.
 
 
 
+[[step-1-remove-the-aff-a220-aff-a200-aff-c190-fas2620-or-fas2720-controller-module]]
 == Schritt 1: Entfernen Sie das AFF A220, AFF A200, AFF C190, FAS2620 oder FAS2720 Controller-Modul
 
 Um auf die Komponenten im Inneren des node2 Controllers zuzugreifen, entfernen Sie das Controller-Modul aus dem System und nehmen Sie dann die Abdeckung des Controller-Moduls ab.
@@ -48,6 +49,7 @@ image:drw_2240_x_opening_cam_latch.png["Öffnen des Nockengriffs"]
 
 
 
+[[step-2-install-the-asa-a150-aff-a150-or-fas2820-controller-module]]
 == Schritt 2: Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controller-Modul
 
 Installieren Sie das ASA A150, AFF A150 oder FAS2820 Controllermodul, das Sie für das Upgrade erhalten haben, in node2.

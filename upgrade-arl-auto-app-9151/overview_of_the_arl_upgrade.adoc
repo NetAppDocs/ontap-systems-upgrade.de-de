@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/overview_of_the_arl_upgrade.html 
 keywords: overview, arl, upgrade, owner, controller, hardware 
-summary: 'Informieren Sie sich über die Funktionsweise des Upgrades von Controllern, die mit ONTAP 9.15.1 oder höher ausgeführt `system controller replace` werden.' 
+summary: 'Es wird erläutert, wie das Verfahren zur Aktualisierung von Controllern, das in ONTAP 9.15.1 oder später durch die Verwendung von  `system controller replace` Befehlen eingeführt wurde, funktioniert.' 
 ---
 = Erfahren Sie mehr über die ARL-Upgradesequenz
 :hardbreaks:
@@ -18,12 +18,14 @@ Bevor Sie die Nodes mit ARL aktualisieren, sollten Sie unbedingt verstehen, wie 
 
 
 
+[[upgrade-the-node-pair]]
 == Aktualisieren Sie das Node-Paar
 
 Zum Upgrade des Node-Paars müssen Sie die ursprünglichen Nodes vorbereiten und dann für die ursprünglichen und die neuen Nodes eine Reihe von Schritten ausführen. Anschließend können Sie die ursprünglichen Knoten außer Betrieb nehmen.
 
 
 
+[[arl-upgrade-sequence-overview]]
 == Übersicht über die ARL-Upgrade-Sequenz
 
 Während des Verfahrens aktualisieren Sie die ursprüngliche Controller Hardware mit der Ersatz-Controller-Hardware, einem Controller gleichzeitig. Nutzen Sie die HA-Paar-Konfiguration, um das Eigentum von Aggregaten ohne Root-Berechtigungen zu verschieben. Alle Aggregate außerhalb der Root-Ebene müssen zwei Umlagerungen durchlaufen, um das endgültige Ziel zu erreichen, nämlich den korrekten aktualisierten Node.

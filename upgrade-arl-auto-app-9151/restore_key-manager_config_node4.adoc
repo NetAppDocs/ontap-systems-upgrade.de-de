@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/restore_key-manager_config_node4.html 
 keywords: restore key-manager, configuration, node4, nve, arl, volume, encryption 
-summary: 'Stellen Sie bei Bedarf die Key-Manager-Konfiguration auf node4 wieder her, wenn Sie Controller mit ONTAP 9.15.1 oder höher mithilfe von Befehlen aktualisieren `system controller replace` .' 
+summary: 'Falls erforderlich, wird die Key-Manager-Konfiguration auf Knoten 4 beim Upgrade auf die in ONTAP 9.15.1 oder höher eingeführten Controller mithilfe von  `system controller replace` Befehlen wiederhergestellt.' 
 ---
 = Wiederherstellen der Key-Manager-Konfiguration auf node4
 :hardbreaks:

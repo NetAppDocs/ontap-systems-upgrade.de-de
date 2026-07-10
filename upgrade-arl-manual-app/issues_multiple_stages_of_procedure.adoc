@@ -18,6 +18,8 @@ Einige Probleme können in verschiedenen Phasen des Verfahrens auftreten.
 
 
 
+[[unexpected-storage-failover-show-command-output]]
+[[storage-failover-command]]
 == Unerwartete Ausgabe des „Storage Failover show“-Befehls
 
 Wenn während der Prozedur der Node, der alle Daten hostet, „Panik und“ oder versehentlich neu gebootet wird, wird möglicherweise die unerwartete Ausgabe für den angezeigt `storage failover show` Befehl vor und nach dem Neubooten, Panic oder aus- und Wiedereinschalten.
