@@ -21,14 +21,14 @@ Bevor Sie die Nodes mit ARL aktualisieren, müssen Sie zunächst verstehen, wie 
 [[upgrade-the-node-pair]]
 == Aktualisieren Sie das Node-Paar
 
-Zum Upgrade des Node-Paars müssen Sie die ursprünglichen Nodes vorbereiten und anschließend eine Reihe von Schritten sowohl auf den ursprünglichen als auch auf den neuen Nodes durchführen. Anschließend können Sie die ursprünglichen Knoten außer Betrieb nehmen.
+Um das Knotenpaar zu aktualisieren, werden die ursprünglichen Knoten vorbereitet und die Aktualisierungsschritte sowohl auf den ursprünglichen als auch auf den neuen Knoten durchgeführt. Anschließend werden die ursprünglichen Knoten außer Betrieb genommen.
 
 
 
 [[arl-upgrade-sequence-overview]]
 == Übersicht über die ARL-Upgrade-Sequenz
 
-Während des Verfahrens aktualisieren Sie die ursprüngliche Controller Hardware mit der Ersatz-Controller-Hardware, einem Controller gleichzeitig. Nutzen Sie die HA-Paar-Konfiguration, um das Eigentum von Aggregaten ohne Root-Berechtigungen zu verschieben. Alle Aggregate außerhalb der Root-Ebene müssen zwei Umlagerungen durchlaufen, um das endgültige Ziel zu erreichen, nämlich den korrekten aktualisierten Node.
+Die ursprüngliche Controller-Hardware wird nacheinander durch die Ersatz-Controller-Hardware aufgerüstet, wobei die HA Pair-Konfiguration genutzt wird, um die Zuständigkeit für Non-Root-Aggregate zu verlagern. Alle Non-Root-Aggregate müssen zweimal verlagert werden, um den korrekt aufgerüsteten Node zu erreichen.
 
 Jedes Aggregat hat einen Hausbesitzer und aktuellen Eigentümer. Der Hausbesitzer ist der eigentliche Eigentümer des Aggregats, und der aktuelle Eigentümer ist der temporäre Eigentümer.
 
@@ -36,7 +36,7 @@ Die folgende Abbildung zeigt die Phasen des Verfahrens. Die dicken, hellgrauen P
 
 image:arl_upgrade_manual_image1.PNG["Darstellung der Phasen des ARL-Verfahrens"]
 
-Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einzelnen Phasen ausführen, und den Zustand der Aggregateigentümer am Ende der Phase. Detaillierte Schritte sind im weiteren Verlauf des Verfahrens aufgeführt:
+Die folgende Tabelle beschreibt die übergeordneten Aufgaben für jede Phase und den Stand des Aggregate-Besitzes am Ende der Phase. Detaillierte Schritte sind später im Verfahren aufgeführt:
 
 [cols="35,65"]
 |===
@@ -44,7 +44,7 @@ Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einze
 
 
 | link:determine_aggregates_on_internal_drives.html["Phase 1: Upgrade vorbereiten"]  a| 
-In Phase 1 bestätigen Sie, dass interne Festplatten keine Root-Aggregate oder Datenaggregate enthalten, die Nodes für das Upgrade vorbereiten und mehrere Vorabprüfungen durchführen. Gegebenenfalls können Sie Festplatten für die Storage-Verschlüsselung neu verschlüsseln und die neuen Controller in Vorbereitung nehmen.
+In Phase 1 wird, falls erforderlich, bestätigt, dass die internen Festplatten keine Root-Aggregate oder Daten-Aggregate enthalten, die Knoten für das Upgrade werden vorbereitet und Vorabprüfungen durchgeführt. Falls erforderlich, werden die Festplatten für Storage Encryption neu verschlüsselt und die neuen Controller für den Netboot vorbereitet.
 
 Gesamteigentum am Ende von Phase 1:
 
@@ -67,7 +67,7 @@ Gesamteigentum am Ende von Phase 2:
 
 
 | link:install_boot_node3.html["Phase 3: Installieren und booten node3"]  a| 
-In Phase 3 installieren und booten Sie Knoten3, ordnen Sie die Cluster- und Node-Management-Ports von node1 zu node3 zu und verschieben Daten-LIFs und SAN-LIFs, die zu node1 gehören, von node2 auf node3. Außerdem werden alle Aggregate von node2 auf node3 verschoben und die Daten-LIFs und SAN-LIFs von node2 auf node3 verschoben.
+In Phase 3 werden Knoten 3 installiert und gestartet, und die Cluster- und Knotenverwaltungsports von Knoten 1 Knoten 3 zugeordnet. Wenn NetApp Volume Encryption (NVE) verwendet wird, wird die Key-Manager-Konfiguration wiederhergestellt. Danach werden die zu Knoten 1 gehörenden Daten-LIFs und SAN-LIFs von Knoten 2 auf Knoten 3 verschoben, alle Aggregate von Knoten 2 auf Knoten 3 verlagert und die zu Knoten 2 gehörenden Daten-LIFs und SAN-LIFs auf Knoten 3 verschoben.
 
 Gesamteigentum am Ende von Stufe 3:
 
@@ -84,7 +84,7 @@ Während Phase 4 notieren Sie die nötigen Node2-Informationen, die später im V
 
 
 | link:install_boot_node4.html["Phase 5: Installieren und booten node4"]  a| 
-In Phase 5 installieren und booten Sie node4, ordnen das Cluster und die Node-Management-Ports von node2 bis node4 zu und verschieben Daten-LIFs und SAN-LIFs, die zu node2 von node3 nach node4 gehören. Außerdem werden node2-Aggregate von node3 nach node4 verschoben und die Daten-LIFs und SAN-LIFs von node2 auf node3 verschoben.
+In Phase 5 werden Knoten 4 installiert und gebootet, und die Cluster- und Knotenverwaltungs-Ports von Knoten 2 auf Knoten 4 zugeordnet. Wenn NetApp Volume Encryption (NVE) verwendet wird, wird die Key-Manager-Konfiguration wiederhergestellt. Danach werden die zu Knoten 2 gehörenden Daten-LIFs und SAN-LIFs von Knoten 3 auf Knoten 4 verschoben, die Knoten-2-Aggregate von Knoten 3 auf Knoten 4 verlagert und die von Knoten 2 besessenen Daten-LIFs und SAN-LIFs auf Knoten 3 verschoben.
 
 Gesamteigentum am Ende von Stufe 5:
 
@@ -95,7 +95,7 @@ Gesamteigentum am Ende von Stufe 5:
 
 
 | link:manage_authentication_kmip.html["Phase 6: Das Upgrade abschließen"]  a| 
-In Phase 6 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden und Storage Encryption oder NetApp Volume Encryption einrichten, wenn die neuen Nodes verschlüsselt sind. Zudem sollten die alten Nodes außer Betrieb gesetzt werden, um den SnapMirror Betrieb fortzusetzen.
+In Phase 6 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden und Storage Encryption oder NetApp Volume Encryption einrichten, wenn die neuen Nodes verschlüsselt sind. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
 
 NOTE: Die Aktualisierungen der Storage Virtual Machine (SVM) im Rahmen der Notfallwiederherstellung werden gemäß den zugewiesenen Zeitplänen nicht unterbrochen.
