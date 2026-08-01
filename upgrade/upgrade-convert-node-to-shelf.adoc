@@ -37,3 +37,6 @@ Jedes Festplatten-Shelf, einschließlich des Chassis, erfordert eine eindeutige 
 . Schalten Sie das umgewandelte Laufwerk-Shelf und alle anderen an die neuen Nodes angeschlossenen Laufwerk-Shelfs ein.
 . Schalten Sie die neuen Nodes ein und unterbrechen Sie dann den Boot-Prozess auf jedem Node, indem Sie Strg-C drücken, um auf die Eingabeaufforderung der Boot-Umgebung zuzugreifen.
 
+
+.Was kommt als Nächstes?
+Nach der Umwandlung eines ursprünglichen Knotens in ein Laufwerksgehäuse, link:upgrade-attach-shelves-reassign-disks.html["Speicherregale anschließen und die Festplattenzugehörigkeit neu zuweisen"].

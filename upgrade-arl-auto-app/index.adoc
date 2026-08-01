@@ -34,7 +34,7 @@ Dieses Upgrade-Verfahren gilt in erster Linie für Upgrade-Szenarien, in denen d
 * Dieses Verfahren gilt für FAS -Systeme und AFF -Systeme.
 * Dieses Verfahren gilt für Systeme mit einer NetApp MetroCluster Konfiguration mit 4 Nodes oder höher. Da sich die MetroCluster-Konfigurationsstandorte an zwei physisch unterschiedlichen Standorten befinden können, muss das automatisierte Controller-Upgrade für ein HA-Paar einzeln an jedem MetroCluster Standort durchgeführt werden.
 * Bei Systemen außerhalb von MetroCluster, z. B. HA-Cluster, ist das ARL-Upgrade die einzige unterstützte Prozedur.
-* Wenn Sie ein Upgrade von einem AFF A320 System durchführen, können Sie das Upgrade der Controller-Hardware durch Volume-Verschiebung durchführen oder den technischen Support kontaktieren. Siehe link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+* Wenn Sie von einem AFF A320 System aktualisieren, können Volume-Verschiebungen zur Aktualisierung der Controller-Hardware genutzt werden oder der technische Support kontaktiert werden. Siehe link:other-references.html["Quellen"] für einen Link zu _Upgrade durch Verschieben von Volumes oder Speicher_.
 
 
 .Automatisierung des Controller-Upgrades

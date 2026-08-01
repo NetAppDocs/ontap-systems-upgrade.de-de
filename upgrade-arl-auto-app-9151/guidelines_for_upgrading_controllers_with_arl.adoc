@@ -24,8 +24,8 @@ Ob ARL für ein Upgrade auf ein Controller-Paar verwendet werden kann, das in ON
 Bevor Sie ein Node-Paar mit diesem ARL-Verfahren aktualisieren, überprüfen Sie die folgenden Anforderungen, um sicherzustellen, dass Ihre Konfiguration unterstützt wird:
 
 * Vergewissern Sie sich, dass ARL auf den Original- und Ersatz-Controllern ausgeführt werden kann.
-* Prüfen Sie die Größe aller definierten Aggregate und die Anzahl der vom Originalsystem unterstützten Festplatten. Vergleichen Sie dann die Aggregatgröße und die Anzahl der unterstützten Festplatten mit der Aggregatgröße und der Anzahl der vom neuen System unterstützten Festplatten. Unter link:other_references.html["Quellen"] finden Sie einen Link zum _Hardware Universe_, wo diese Informationen verfügbar sind. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen gleich oder größer sein als die Aggregatgröße und Anzahl der vom ursprünglichen System unterstützten Festplatten.
-* In den Cluster-Mischungsregeln validieren, ob neue Nodes nach Austausch des ursprünglichen Controllers mit den vorhandenen Nodes Teil des Clusters werden können. Weitere Informationen zu den Mischregeln für Cluster finden Sie unter link:other_references.html["Quellen"] , um mit dem _Hardware Universe_ zu verlinken.
+* Die Größe aller definierten Aggregate und die Anzahl der vom ursprünglichen System unterstützten Festplatten sollten überprüft werden. Anschließend erfolgt ein Vergleich der Aggregatgrößen und der Anzahl der unterstützten Festplatten mit der Aggregatgröße und der Anzahl der unterstützten Festplatten des neuen Systems. Siehe link:other-references.html["Quellen"] für einen Link zum _Hardware Universe_, in dem diese Informationen verfügbar sind. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen mindestens der Aggregatgröße und der Anzahl der vom ursprünglichen System unterstützten Festplatten entsprechen oder diese übertreffen.
+* In den Cluster-Mischregeln wird geprüft, ob neue Knoten nach dem Austausch des ursprünglichen Controllers zusammen mit den bestehenden Knoten Teil des Clusters werden können. Weitere Informationen zu den Cluster-Mischregeln finden sich unter link:other-references.html["Quellen"] dem Link zum _Hardware Universe_.
 * Migrieren Sie die Cluster-LIFs und wechseln Sie zu zwei Cluster-Ports pro Node, wenn Sie über ein System wie z. B. AFF 700 mit der folgenden Konfiguration verfügen:
 * Mehr als zwei Cluster-Ports pro Node
 * Eine Cluster-Interconnect-Karte in Steckplatz 4 im Breakout-Modus zur Erstellung der Ports e4a, e4b, e4c und e4d sowie der Ports e4e, e4f, e4g und e4h
@@ -54,9 +54,9 @@ Wenn Sie Nodes in einem 2-Node-Cluster ohne Switches aktualisieren, können Sie 
 
 Sie können keine Ersatz-Controller aufrüsten, die die mit den ursprünglichen Controllern verbundenen Festplatten-Shelfs nicht unterstützen.
 
-Siehe link:other_references.html["Quellen"] Um Informationen zur Hardware Universe Festplattenunterstützung zu erhalten.
+Siehe link:other-references.html["Quellen"] zum Verweis auf _Hardware Universe_ für Informationen zur Festplattenunterstützung.
 
-Wenn Sie Controller der Einstiegsklasse mit internen Laufwerken aktualisieren möchten, finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade by moving Volumes or Storage_ und gehen Sie zum Verfahren _Upgrade eines Node-Paares, auf dem Clustered Data ONTAP ausgeführt wird, indem Sie Volumes verschieben_.
+Wenn ein Upgrade von Einstiegs-Controllern mit internen Laufwerken vorgesehen ist, siehe link:other-references.html["Quellen"] zum Link _Upgrade durch Verschieben von Volumes oder Storage_ und zur Prozedur _Upgrade eines Knotenpaares mit clustered Data ONTAP durch Verschieben von Volumes_.
 
 
 

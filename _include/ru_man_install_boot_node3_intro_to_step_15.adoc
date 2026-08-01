@@ -28,7 +28,7 @@ NOTE: Wenn Sie auf ein System upgraden, bei dem sich beide Knoten im selben Chas
 
 . [[Schritt3]]Kabelnode3, Verschieben der Verbindungen von node1 zu node3.
 +
-Die folgenden Referenzen helfen Ihnen dabei, geeignete Kabelverbindungen zu machen. Gehen Sie zu link:other_references.html["Quellen"] Um eine Verbindung zu ihnen zu machen.
+Die folgenden Anleitungen helfen Ihnen beim korrekten Anschließen der Kabel. Gehen Sie zu link:other-references.html["Quellen"] , um zu den Anleitungen zu gelangen.
 
 +
 ** _Installations- und Einrichtungsanweisungen_ für die node3-Plattform

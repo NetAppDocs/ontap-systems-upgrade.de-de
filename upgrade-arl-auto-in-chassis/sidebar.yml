@@ -66,7 +66,7 @@ entries:
     url: "/upgrade-arl-auto-in-chassis/relocate-failed-or-vetoed-aggr-node1.html"
   - title: Node2 ausmustern
     url: "/upgrade-arl-auto-in-chassis/retire-node2.html"
-- title: Schritt 5. Installieren Sie die Node2-Ersatzsystemmodule
+- title: Schritt 5. Installation der Node2 Ersatzsystemmodule
   entries:
   - title: Ersetzen Sie die Node2-Systemmodule
     entries:

@@ -170,3 +170,6 @@ NOTE: Sie müssen den Inhalt des nicht extrahieren `<ontap_version>_image.tgz` D
 
 
 Sie werden die Informationen im Verzeichnis verwenden, um link:upgrade-set-up-new-nodes.html["Richten Sie die neuen Nodes ein"].
+
+.Was kommt als Nächstes?
+Nach der Vorbereitung des Upgrades link:upgrade-shutdown-remove-original-nodes.html["Die ursprünglichen Knoten werden heruntergefahren."].

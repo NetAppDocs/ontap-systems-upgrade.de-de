@@ -17,7 +17,7 @@ summary: Überprüfen Sie, ob die physischen Ports auf node2 während eines manu
 Sie müssen sicherstellen, dass die physischen Ports auf Knoten2 korrekt den physischen Ports auf Knoten4 zugeordnet sind. Dadurch kann Knoten4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Bevor Sie beginnen
-Sie müssen bereits über die Ports auf den neuen Nodes verfügen, um auf diese Informationen zuzugreifen, siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Informationen werden später in diesem Abschnitt verwendet.
+Sie müssen bereits Informationen zu den Ports der neuen Knoten haben, um auf diese Informationen zuzugreifen, siehe link:other-references.html["Quellen"] zum Verweis auf das _Hardware Universe_. Diese Informationen werden später in diesem Abschnitt verwendet.
 
 die Softwarekonfiguration von node4 muss mit der physischen Konnektivität von node4 übereinstimmen. Die IP-Konnektivität muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
 

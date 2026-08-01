@@ -51,3 +51,6 @@ Sie müssen den Griff langsam schließen, damit er korrekt an der Vorderseite de
 
 . Wiederholen <<move_int_drive_2,Schritt 2>> Bis <<move_int_drive_5,Schritt 5>> Bei allen Laufwerken, die Sie auf das neue System migrieren.
 
+
+.Was kommt als Nächstes?
+Nach dem Verschieben der internen Laufwerke vom ursprünglichen Knoten, link:upgrade-attach-shelves-reassign-disks.html["Speicherregale anschließen und die Festplattenzugehörigkeit neu zuweisen"].

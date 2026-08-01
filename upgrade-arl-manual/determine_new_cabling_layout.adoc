@@ -22,7 +22,7 @@ Diese Aufgabe muss an jedem MetroCluster Standort ausgeführt werden.
 .Schritt
 Ermitteln Sie mithilfe des Inhalts _Fabric-Attached MetroCluster Installation and Configuration_ das Verkabelungslayout für Ihren Switch-Typ. Verwenden Sie dabei die Portnutzung für eine MetroCluster-Konfiguration mit acht Nodes. Die Nutzung des FC-Switch-Ports muss der in dem Inhalt beschriebenen Nutzung entsprechen, sodass die Referenzkonfigurationsdateien (RCFs) verwendet werden können.
 
-Gehen Sie zu link:other_references.html["Quellen"] Zum Verlinken auf den Content _Fabric-Attached MetroCluster Installation and Configuration_.
+Wechseln Sie zu link:other-references.html["Quellen"], um auf den Inhalt _Fabric-attached MetroCluster Installation und Konfiguration_ zu verlinken.
 
 
 NOTE: Wenn Ihre Umgebung nicht so verkabelt werden kann, wie RCFs verwendet werden können, wenden Sie sich an den technischen Support. Verwenden Sie dieses Verfahren nicht, wenn die Verkabelung keine RCFs verwenden kann.

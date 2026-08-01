@@ -36,7 +36,7 @@ Wenn node4 sich in einem separaten Chassis von node3 befindet, können sie node4
 . installieren sie node4 im Rack gemäß den Anweisungen in der Anleitung _Installation and Setup Instructions_ für das Node-Modell.
 . [[man_install4_Step4]]kabelnode4, die Verbindungen von node2 nach node4 verschieben.
 +
-Die folgenden Referenzen helfen Ihnen dabei, geeignete Kabelverbindungen zu machen. Gehen Sie zu link:other_references.html["Quellen"] Um eine Verbindung zu ihnen zu machen.
+Die folgenden Anleitungen helfen Ihnen beim korrekten Anschließen der Kabel. Gehen Sie zu link:other-references.html["Quellen"] , um zu den Anleitungen zu gelangen.
 
 +
 ** _Installations- und Einrichtungsanweisungen_ für die node4-Plattform

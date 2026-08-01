@@ -55,8 +55,8 @@ NOTE: In diesem Dokument werden die ursprünglichen Knoten als _node1_ und _node
 
 * Neben Konfigurationen, die nicht von MetroCluster stammen, gilt dieses Verfahren für Fabric MetroCluster Konfigurationen mit vier und acht Nodes mit ONTAP 9.8 und höher.
 +
-** Weitere Informationen zu MetroCluster Konfigurationen mit ONTAP 9.7 und früher finden Sie unter link:other_references.html["Quellen"] Verbinden mit _Aggregat-Verlagerung verwenden, um manuell ein Upgrade der Controller-Hardware mit ONTAP 9.7 oder früher_ durchzuführen.
-** Weitere Upgrade-Optionen für MetroCluster IP-Konfigurationen und zusätzliche Upgrade-Optionen für Fabric-MetroCluster-Konfigurationen finden Sie unter link:other_references.html["Quellen"] Zum Verlinken auf den Inhalt _MetroCluster Upgrade und Expansion_.
+** Für MetroCluster Konfigurationen, die ONTAP 9.7 oder früher ausführen, siehe link:other-references.html["Quellen"] zum Link _Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier_.
+** Für MetroCluster IP Konfigurationen und zusätzliche Upgrade-Optionen für Fabric MetroCluster Konfigurationen siehe link:other-references.html["Quellen"] den Link zum Inhalt „MetroCluster Upgrade und Erweiterung“.
 
 
 

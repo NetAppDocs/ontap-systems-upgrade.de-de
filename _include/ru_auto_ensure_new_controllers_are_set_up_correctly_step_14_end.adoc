@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-. Informationen zum Einrichten eines Clusters ohne Switches auf den neuen Nodes finden Sie unter link:other_references.html["Quellen"] Um eine Verbindung zur NetApp Support Site_ zu erhalten, befolgen Sie die Anweisungen unter „ Wechsel zu einem 2-Node-Cluster ohne Switch_“.
+. Wenn Sie einen Cluster ohne Switches auf den neuen Knoten einrichten möchten, lesen Sie link:other-references.html["Quellen"], um zur _NetApp Support Site_ zu gelangen, und befolgen Sie die Anweisungen unter _Transitioning to a two-node switchless cluster_.
 
 
 .Nachdem Sie fertig sind

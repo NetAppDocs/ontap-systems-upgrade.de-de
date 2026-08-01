@@ -7,7 +7,7 @@ Bevor Sie die ursprünglichen Nodes ersetzen können, müssen Sie bestätigen, d
 .Schritte
 . Vergewissern Sie sich, dass jeder der ursprünglichen Nodes über ausreichende Ressourcen verfügt, um den Workload beider Nodes im Übernahmemodus angemessen zu unterstützen.
 +
-Unter link:other_references.html["Quellen"] finden Sie einen Link zum _HA-Paar-Management_ und befolgen Sie die _Best Practices für HA-Paare_ Abschnitt. Keine der ursprünglichen Nodes sollte mit einer Auslastung von über 50 % laufen. Wenn ein Node eine Auslastung von unter 50 % aufweist, kann er die Lasten für beide Nodes während des Controller-Upgrades verarbeiten.
+Siehe link:other-references.html["Quellen"] zum Verlinken auf _HA pair management_ und den Abschnitt _Best practices for HA pairs_. Keiner der ursprünglichen Knoten sollte mit mehr als 50 Prozent Auslastung betrieben werden; wenn ein Knoten mit weniger als 50 Prozent Auslastung läuft, kann er die Lasten beider Knoten während des Controller-Upgrades übernehmen.
 
 . Führen Sie die folgenden Teilschritte durch, um eine Performance-Baseline für die ursprünglichen Nodes zu erstellen:
 +
@@ -17,23 +17,23 @@ Unter link:other_references.html["Quellen"] finden Sie einen Link zum _HA-Paar-M
 ====
 Das diagnostische Benutzerkonto ist nur für diagnostische Zwecke auf niedriger Ebene gedacht und sollte nur unter Anleitung durch den technischen Support verwendet werden.
 
-Informationen zum Entsperren der Benutzerkonten finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+Informationen zum Entsperren der Benutzerkonten sind unter link:other-references.html["Quellen"] im Abschnitt zur _System Administration Reference_ zu finden.
 
 ====
-.. Siehe link:other_references.html["Quellen"] Wenn Sie einen Link zur NetApp Support-Website_ erhalten möchten, können Sie den Performance and Statistics Collector (Perfstat Converged) herunterladen.
+.. Siehe link:other-references.html["Quellen"] für einen Link zur _NetApp Support Site_ und zum Herunterladen des Performance and Statistics Collector (Perfstat Converged).
 +
 Mit dem konvergenten Perfstat Tool können Sie eine Performance-Baseline für den Vergleich nach dem Upgrade erstellen.
 
 .. Erstellen Sie eine Performance-Baseline gemäß den Anweisungen auf der NetApp Support Site.
 
 
-. Siehe link:other_references.html["Quellen"] Einen Link zur NetApp Support Site_ öffnen und einen Support-Case auf der NetApp Support Site eröffnen.
+. Siehe link:other-references.html["Quellen"] für einen Link zur _NetApp Support Site_ und zum Öffnen eines Supportfalls auf der NetApp Support Site.
 +
 Sie können den Fall verwenden, um eventuelle Probleme während des Upgrades zu melden.
 
 . Überprüfen Sie, ob NVMEM oder NVRAM-Batterien der Node3 und node4 geladen sind, und laden Sie sie, falls nicht, auf.
 +
-Sie müssen Node 3 und node4 physisch überprüfen, um zu ermitteln, ob die NVMEM- oder NVRAM-Batterien geladen sind. Informationen zu den LEDs für das Modell node3 und node4 finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+Sie müssen node3 und node4 physisch überprüfen, um festzustellen, ob die NVMEM- oder NVRAM-Batterien geladen sind. Informationen zu den LEDs für das Modell von node3 und node4 finden sich unter link:other-references.html["Quellen"] zum _Hardware Universe_.
 
 +
 
@@ -41,7 +41,7 @@ WARNING: Versuchen Sie nicht, den NVRAM Inhalt zu löschen.  Wenn der Inhalt des
 
 . Überprüfen Sie die Version von ONTAP auf node3 und node4.
 +
-Die neuen Knoten müssen auf ihren ursprünglichen Knoten dieselbe Version von ONTAP 9.x installiert sein. Wenn die neuen Nodes über eine andere Version der ONTAP installiert sind, müssen Sie die neuen Controller nach der Installation neu laden. Anweisungen zum Upgrade von ONTAP finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade ONTAP_.
+Auf den neuen Knoten muss dieselbe Version von ONTAP 9.x installiert sein wie auf den ursprünglichen Knoten. Falls auf den neuen Knoten eine andere Version von ONTAP installiert ist, müssen die neuen Controller nach der Installation per Netzwerkstart gebootet werden. Anweisungen zum Upgrade von ONTAP finden sich unter link:other-references.html["Quellen"] zum Link _Upgrade ONTAP_.
 
 +
 Informationen über die Version von ONTAP auf node3 und node4 sollten in den Versandkartons enthalten sein. Die ONTAP-Version wird angezeigt, wenn der Node hochgefahren wird oder Sie können den Node im Wartungsmodus booten und den Befehl ausführen:
@@ -150,7 +150,7 @@ node1          node2          true     Connected to node2, Partial giveback
 node2          node1          true     Connected to node1
 ....
 +
-Wenn sich einer der Knoten im Teilrückgeben befindet, verwenden Sie `storage failover giveback` den Befehl zum Durchführen des Giveback und verwenden Sie dann den `storage failover show-giveback` Befehl, um sicherzustellen, dass noch keine Aggregate zurückgeben müssen. Ausführliche Informationen zu den Befehlen finden Sie unter link:other_references.html["Quellen"]Link zum _HA-Paar-Management_.
+Befindet sich einer der Knoten in der Phase der teilweisen Rückgabe, kann der  `storage failover giveback` Befehl zur Durchführung der Rückgabe verwendet werden, anschließend stellt der  `storage failover show-giveback` Befehl sicher, dass keine Aggregate mehr zurückgegeben werden müssen. Detaillierte Informationen zu den Befehlen bietet link:other-references.html["Quellen"] der Link zu _HA pair management_.
 
 . [[man_prepare_nodes_step9]]Bestätigen Sie, dass weder node1 noch node2 die Aggregate besitzen, für die es der aktuelle Eigentümer ist (aber nicht der Hausbesitzer):
 +
@@ -239,7 +239,7 @@ node1    None                None
 node2    None                None
 ....
 +
-Falls Festplatten fehlen, lesen Sie link:other_references.html["Quellen"]den Link zu _Festplatten- und Aggregatmanagement mit der CLI_, _logisches Storage Management mit der CLI_ und _HA-Paar-Management_, um den Storage für das HA-Paar zu konfigurieren.
+Falls Festplatten fehlen, lesen Sie link:other-references.html["Quellen"], um auf _Festplatten- und Aggregatverwaltung mit der CLI_, _Logische Speicherverwaltung mit der CLI_ und _HA-Paarverwaltung_ zu verweisen, um den Speicher für das HA-Paar zu konfigurieren.
 
 . Vergewissern Sie sich, dass node1 und node2 gesund sind und am Cluster teilnehmen können:
 +
@@ -315,14 +315,14 @@ vs0
 `network interface revert -vserver * -lif *`
 
 +
-Für detaillierte Informationen zum  `network interface revert` Befehl verweisen Sie sich auf link:other_references.html["Quellen"] den Link zur _ONTAP 9 Command reference_.
+Für detaillierte Informationen zum  `network interface revert` Befehl verweisen Sie sich auf link:other-references.html["Quellen"] den Link zur _ONTAP 9 Command reference_.
 
 . Überprüfen Sie, ob node1 oder node2 ausgefallene Festplatten besitzt:
 +
 `storage disk show -nodelist _node1,node2_ -broken`
 
 +
-Wenn eine der Festplatten ausgefallen ist, entfernen Sie sie gemäß den Anweisungen in _Disk und Aggregat-Management mit der CLI_. (Siehe link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregatmanagement mit CLI_.)
+Falls eine der Festplatten ausgefallen ist, entfernen Sie diese gemäß den Anweisungen unter _Festplatten- und Aggregatverwaltung mit der CLI_. (Siehe link:other-references.html["Quellen"] zum Verweis auf _Festplatten- und Aggregatverwaltung mit der CLI_.)
 
 . Sammeln Sie Informationen über node1 und node2, indem Sie die folgenden Unterschritte ausführen und die Ausgabe jedes Befehls aufzeichnen:
 

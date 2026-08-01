@@ -123,4 +123,4 @@ entries:
   - title: LIFs befinden sich bei ungültigen Ports nach dem Upgrade
     url: "/upgrade-arl-manual-app/lifs_invalid_ports_after_upgrade.html"
 - title: Quellen
-  url: "/upgrade-arl-manual-app/other_references.html"
+  url: "/upgrade-arl-manual-app/other-references.html"

@@ -5,7 +5,7 @@
 Sie müssen sicherstellen, dass die physischen Ports auf node1 korrekt den physischen Ports auf node3 zugeordnet sind. Dadurch kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Bevor Sie beginnen
-Sie müssen von _Hardware Universe_ bereits über die Ports auf den neuen Nodes verfügen. (Gehen Sie zu link:other_references.html["Quellen"] Zum Verknüpfen mit dem _Hardware Universe_). Sie verwenden die Informationen später in diesem Abschnitt und in link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
+Sie müssen bereits Informationen zu den Ports der neuen Knoten aus dem _Hardware Universe_ haben. (Wechseln Sie zu link:other-references.html["Quellen"] , um zum _Hardware Universe_ zu verlinken). Diese Informationen werden später in diesem Abschnitt und in link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] verwendet.
 
 Die Softwarekonfiguration von node3 muss mit der physischen Konnektivität von node3 übereinstimmen, und die Netzwerkverbindung muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
 

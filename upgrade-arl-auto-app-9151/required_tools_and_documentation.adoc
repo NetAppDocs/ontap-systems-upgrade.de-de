@@ -22,7 +22,7 @@ Für die Durchführung des Upgrades benötigen Sie die folgenden Tools:
 * #2 Kreuzschlitzschraubendreher
 
 
-Wechseln Sie zum link:other_references.html["Quellen"] Abschnitt für den Zugriff auf die Liste der für dieses Upgrade erforderlichen Referenzdokumente und Referenzsites
+Wechseln Sie zum link:other-references.html["Quellen"] Abschnitt, um auf die Liste der für dieses Upgrade erforderlichen Referenzdokumente und Referenzseiten zuzugreifen.
 
 .Was kommt als Nächstes?
 Nach Durchsicht der benötigten Werkzeuge und Dokumentation, link:guidelines_for_upgrading_controllers_with_arl.html["Informieren Sie sich über die Richtlinien für die Aufrüstung von Controllern mit ARL"].

@@ -23,7 +23,7 @@ Um zu entscheiden, ob dieses ARL-Verfahren für Ihr Controller-Hardware-Upgrade 
 * Sie verfügen über viel Erfahrung in der Administration von ONTAP und sind mit den Risiken vertraut, die mit der Arbeit im Diagnosemodus verbunden sind.
 * Beim Upgrade einer MetroCluster Konfiguration handelt es sich um eine FC-Konfiguration mit vier Nodes oder mehr. Bei allen Nodes wird ONTAP 9.8 oder höher ausgeführt.
 +
-Informationen zum Aktualisieren von MetroCluster-IP-Konfigurationen finden  Sie unter link:other_references.html["Quellen"]Link zu _MetroCluster-Upgrade und -Erweiterung_.
+Für die Aktualisierung von MetroCluster IP-Konfigurationen siehe link:other-references.html["Quellen"] den Link zu _MetroCluster Upgrade and Expansion_.
 
 
 
@@ -138,11 +138,11 @@ Für die in der vorherigen Tabelle aufgeführten Upgrade-Kombinationen:
 == Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
 * link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].
-* Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+* Falls Sie eine andere Methode zum Aufrüsten der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen vorzunehmen, lesen Sie link:other-references.html["Quellen"], um zu _Upgrade durch Verschieben von Volumes oder Speicher_ zu gelangen.
 
 
 .Verwandte Informationen
-Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.
+Siehe link:other-references.html["Quellen"], um auf die _ONTAP 9 Documentation_ zu verlinken.
 
 .Was kommt als Nächstes?
 Nachdem Sie entschieden haben, ob Sie dieses ARL-Verfahren anwenden möchten, informieren Sie sich über die link:required_tools_and_documentation.html["benötigte Werkzeuge und Dokumentation"].

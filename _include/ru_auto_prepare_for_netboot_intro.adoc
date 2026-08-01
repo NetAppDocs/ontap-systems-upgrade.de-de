@@ -6,7 +6,7 @@ Nachdem Sie später noch Node3 und node4 physisch gerast haben, müssen Sie sie 
 
 .Bevor Sie beginnen
 * Vergewissern Sie sich, dass Sie mit dem System auf einen HTTP-Server zugreifen können.
-* Siehe link:other_references.html["Quellen"] Um eine Verknüpfung zur NetApp Support-Website zu erhalten und die erforderlichen Systemdateien für Ihre Plattform und die richtige Version von ONTAP herunterzuladen.
+* Siehe link:other-references.html["Quellen"] für einen Link zur _NetApp Support Site_ und zum Herunterladen der notwendigen Systemdateien für Ihre Plattform und die richtige Version von ONTAP.
 
 
 .Über diese Aufgabe

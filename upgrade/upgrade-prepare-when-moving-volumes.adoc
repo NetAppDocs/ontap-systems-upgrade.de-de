@@ -51,4 +51,4 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["Migration zu einem
 
 
 .Was kommt als Nächstes?
-link:upgrade-install-and-join-new-nodes-move-vols.html["Installieren Sie die neuen Nodes und fügen Sie sie dem Cluster hinzu"]
+Nach der Vorbereitung des Upgrades, link:upgrade-install-and-join-new-nodes-move-vols.html["Die neuen Knoten werden installiert und dem Cluster hinzugefügt."].

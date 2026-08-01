@@ -26,3 +26,6 @@ Verbinden Sie jetzt keine Festplatten-Shelfs der ursprünglichen Nodes mit den n
 Dazu gehören Fibre-Channel- und Ethernet-Kabel, die nicht zum Anschluss von Storage-Shelfs verwendet werden.
 
 
+
+.Was kommt als Nächstes?
+Nach der Installation der neuen Knoten, link:upgrade-set-up-new-nodes.html["Richten Sie die neuen Nodes ein"].

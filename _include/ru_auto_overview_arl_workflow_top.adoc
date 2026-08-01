@@ -20,4 +20,4 @@ Während des Verfahrens aktualisieren Sie die ursprüngliche Controller Hardware
 
 Jedes Aggregat hat einen Hausbesitzer und aktuellen Eigentümer. Der Hausbesitzer ist der eigentliche Eigentümer des Aggregats, und der aktuelle Eigentümer ist der temporäre Eigentümer.
 
-Die folgende Tabelle beschreibt die grundlegenden Aufgaben, die Sie in den einzelnen Phasen ausführen, und den Zustand der Aggregateigentümer am Ende der Phase. Detaillierte Schritte sind im weiteren Verlauf des Verfahrens aufgeführt:
+Informationen zu den übergeordneten Aufgaben, die während jeder Phase durchgeführt werden, sowie zum Stand des Aggregatbesitzes am Ende der Phase. Detaillierte Schritte sind später im Verfahren aufgeführt.

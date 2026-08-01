@@ -17,7 +17,7 @@ summary: 'Überprüfen Sie, ob die physischen Ports von node2 node4 korrekt zuge
 Sie müssen überprüfen, ob die physischen Ports von node2 korrekt den physischen Ports von node4 zugeordnet sind. Dadurch kann node4 nach dem Upgrade mit anderen Nodes im Cluster und mit dem Netzwerk kommunizieren.
 
 .Über diese Aufgabe
-Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
+Siehe link:other-references.html["Quellen"] für den Link zum _Hardware Universe_, um Informationen zu den Ports der neuen Knoten zu erfassen. Diese Informationen werden später in diesem Abschnitt verwendet.
 
 Die physische Portbelegung kann je nach Knotenmodell variieren. Wenn der neue Node hochfährt, versucht ONTAP zu ermitteln, welche Ports Cluster-LIFs hosten sollen, um automatisch ein Quorum zu erreichen.
 
@@ -151,7 +151,7 @@ NOTE: In diesem Verfahren wurde Abschnitt _Neuerstellen von VLANs, ifgrps und Br
 Nachdem Sie bestätigt haben, dass node4 sich im Quorum befindet und mit node3 kommunizieren kann, überprüfen Sie, ob node2 VLANs, Interface Groups und Broadcast-Domains auf node4 zu sehen sind. Überprüfen Sie außerdem, ob alle node4-Netzwerkports in ihren richtigen Broadcast-Domänen konfiguriert sind.
 
 .Über diese Aufgabe
-Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit _Network Management_.
+Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen sind in link:other-references.html["Quellen"] zu _Network Management_ zu finden.
 
 
 NOTE: Wenn Sie die Portgeschwindigkeit der e0a- und e1a-Cluster-Ports auf AFF A800- oder AFF C800-Systemen ändern, können Sie beobachten, wie fehlerhafte Pakete nach der Geschwindigkeitskonvertierung empfangen werden. Siehe https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp Bugs Online Fehler-ID 1570339"^] Und den Knowledge Base Artikel https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["CRC-Fehler auf T6-Ports nach der Konvertierung von 40GbE zu 100GbE"^] Für eine Anleitung.

@@ -36,72 +36,31 @@ Die folgende Abbildung zeigt die Phasen des Verfahrens. Die dicken, hellgrauen P
 
 image:arl_upgrade_manual_image1.PNG["Darstellung der Phasen des ARL-Verfahrens"]
 
-Die folgende Tabelle beschreibt die übergeordneten Aufgaben für jede Phase und den Stand des Aggregate-Besitzes am Ende der Phase. Detaillierte Schritte sind später im Verfahren aufgeführt:
+Informationen zu den übergeordneten Aufgaben, die in jeder Phase durchgeführt werden, sowie zum Stand der Aggregatzuordnung am Ende der Phase. Detaillierte Schritte sind später im Verfahren aufgeführt.
 
-[cols="35,65"]
-|===
-| Stufe | Schritte 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"]link:determine_aggregates_on_internal_drives.html["Phase 1: Upgrade vorbereiten"]
+[role="quick-margin-para"]
+In Phase 1 bestätigen Sie, dass interne Festplatten keine Root-Aggregate oder Datenaggregate enthalten, die Nodes für das Upgrade vorbereiten und mehrere Vorabprüfungen durchführen. Gegebenenfalls können Sie Festplatten für die Storage-Verschlüsselung neu verschlüsseln und die neuen Controller in Vorbereitung nehmen.
 
-
-| link:determine_aggregates_on_internal_drives.html["Phase 1: Upgrade vorbereiten"]  a| 
-In Phase 1 wird, falls erforderlich, bestätigt, dass die internen Festplatten keine Root-Aggregate oder Daten-Aggregate enthalten, die Knoten für das Upgrade werden vorbereitet und Vorabprüfungen durchgeführt. Falls erforderlich, werden die Festplatten für Storage Encryption neu verschlüsselt und die neuen Controller für den Netboot vorbereitet.
-
-Gesamteigentum am Ende von Phase 1:
-
-* Node1 ist der Hausbesitzer und der aktuelle Besitzer der node1 Aggregate.
-* Node2 ist der Hausbesitzer und der aktuelle Besitzer der node2 Aggregate.
-
-
-
-
-| link:relocate_non_root_aggr_node1_node2.html["Stufe 2: Node1 ausmustern"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"]link:relocate_non_root_aggr_node1_node2.html["Stufe 2: Node1 ausmustern"]
+[role="quick-margin-para"]
 Während Phase 2 verschieben Sie Aggregate ohne Root-Root-Fehler von Knoten1 auf Knoten2 und verschieben Daten-LIFs, die nicht-SAN-Daten-LIFs gehören, die sich im Besitz von node1 befinden, auf Knoten 2, einschließlich fehlgeschlagener oder Vetos. Sie notieren auch die nötigen Node1-Informationen, die Sie später im Verfahren verwenden können, und setzen node1 aus.
 
-Gesamteigentum am Ende von Phase 2:
-
-* Node1 ist der Hausbesitzer von node1 Aggregaten.
-* Node2 ist der aktuelle Besitzer von node1 Aggregaten.
-* Node2 ist der Hausbesitzer und der aktuelle Besitzer von node2 Aggregaten.
-
-
-
-
-| link:install_boot_node3.html["Phase 3: Installieren und booten node3"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"]link:install_boot_node3.html["Phase 3: Installieren und booten node3"]
+[role="quick-margin-para"]
 In Phase 3 werden Knoten 3 installiert und gestartet, und die Cluster- und Knotenverwaltungsports von Knoten 1 Knoten 3 zugeordnet. Wenn NetApp Volume Encryption (NVE) verwendet wird, wird die Key-Manager-Konfiguration wiederhergestellt. Danach werden die zu Knoten 1 gehörenden Daten-LIFs und SAN-LIFs von Knoten 2 auf Knoten 3 verschoben, alle Aggregate von Knoten 2 auf Knoten 3 verlagert und die zu Knoten 2 gehörenden Daten-LIFs und SAN-LIFs auf Knoten 3 verschoben.
 
-Gesamteigentum am Ende von Stufe 3:
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"]link:record_node2_information.html["Stufe 4: Außer Dienst 2"]
+[role="quick-margin-para"]
+Während Phase 4 notieren Sie die nötigen Node2-Informationen, die später im Verfahren verwendet werden sollen, und nehmen dann die Node2-Daten in den Ruhestand.
 
-* Node2 ist der Hausbesitzer von node2 Aggregate, aber nicht der aktuelle Eigentümer.
-* Node3 ist der Hausbesitzer und aktuelle Besitzer von Aggregaten, die ursprünglich zu node1 gehören.
-* Node2 ist der Hausbesitzer und aktuelle Besitzer von Aggregaten, die zu node2 gehören, aber nicht der Hausbesitzer.
-
-
-
-
-| link:record_node2_information.html["Stufe 4: Außer Dienst 2"]  a| 
-Während Phase 4 notieren Sie die nötigen Node2-Informationen, die später im Verfahren verwendet werden sollen, und nehmen dann die Node2-Daten in den Ruhestand. Es findet keine Änderungen am Aggregateigentum statt.
-
-
-
-| link:install_boot_node4.html["Phase 5: Installieren und booten node4"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"]link:install_boot_node4.html["Phase 5: Installieren und booten node4"]
+[role="quick-margin-para"]
 In Phase 5 werden Knoten 4 installiert und gebootet, und die Cluster- und Knotenverwaltungs-Ports von Knoten 2 auf Knoten 4 zugeordnet. Wenn NetApp Volume Encryption (NVE) verwendet wird, wird die Key-Manager-Konfiguration wiederhergestellt. Danach werden die zu Knoten 2 gehörenden Daten-LIFs und SAN-LIFs von Knoten 3 auf Knoten 4 verschoben, die Knoten-2-Aggregate von Knoten 3 auf Knoten 4 verlagert und die von Knoten 2 besessenen Daten-LIFs und SAN-LIFs auf Knoten 3 verschoben.
 
-Gesamteigentum am Ende von Stufe 5:
-
-* Node3 ist der Hausbesitzer und aktuelle Besitzer der Aggregate, die ursprünglich zu node1 gehörten.
-* Node4 ist der Hausbesitzer und aktuelle Besitzer von Aggregaten, die ursprünglich zu node2 gehörten.
-
-
-
-
-| link:manage_authentication_kmip.html["Phase 6: Das Upgrade abschließen"]  a| 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Sechs"]link:manage_authentication_kmip.html["Phase 6: Das Upgrade abschließen"]
+[role="quick-margin-para"]
 In Phase 6 bestätigen Sie, dass die neuen Nodes korrekt eingerichtet wurden und Storage Encryption oder NetApp Volume Encryption einrichten, wenn die neuen Nodes verschlüsselt sind. Zudem sollten die alten Nodes außer Betrieb gesetzt und der SnapMirror Betrieb fortgesetzt werden.
 
-
-NOTE: Die Aktualisierungen der Storage Virtual Machine (SVM) im Rahmen der Notfallwiederherstellung werden gemäß den zugewiesenen Zeitplänen nicht unterbrochen.
-
-Es findet keine Änderungen am Aggregateigentum statt.
-
-|===
 .Was kommt als Nächstes?
 Nach Durchsicht des ARL-Upgrade-Workflows, link:guidelines_upgrade_with_arl.html["Lesen Sie die Richtlinien für die Aufrüstung von Controllern mit ARL"].

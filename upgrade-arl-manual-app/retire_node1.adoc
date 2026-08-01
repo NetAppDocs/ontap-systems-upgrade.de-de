@@ -128,7 +128,7 @@ Wenn Cluster HA nicht deaktiviert wurde, wiederholen Sie den Vorgang <<man_retir
 `cluster show`
 
 +
-Da in einem Cluster mit einer geraden Anzahl von Nodes eine Krawatte möglich ist, verfügt ein Node über eine zusätzliche fraktionale Abstimmungsgewichtung namens epsilon. Siehe link:other_references.html["Quellen"] Um weitere Informationen zur _System Administration Reference_ zu erhalten.
+Da in einem Cluster mit einer geraden Anzahl von Knoten ein Stimmengleichstand möglich ist, erhält ein Knoten ein zusätzliches, bruchstückhaftes Stimmgewicht, genannt Epsilon. Weitere Informationen finden sich in der link:other-references.html["Quellen"]Systemadministrationsreferenz.
 
 +
 [NOTE]

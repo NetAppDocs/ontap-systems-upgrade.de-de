@@ -100,3 +100,6 @@ Die Zuweisung aller aufgeführten Festplatten sollte aufgehoben werden.
 `halt`
 
 
+
+.Was kommt als Nächstes?
+Nach dem Entfernen der Eigentumsrechte an den an die neuen Knoten angeschlossenen Datenträgern, link:upgrade-reset-default-configuration-node3-and-node4.html["Die Standardkonfiguration auf den neuen Knoten zurücksetzen"].

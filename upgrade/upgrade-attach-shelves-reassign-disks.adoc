@@ -14,13 +14,19 @@ summary: Sie müssen die Festplatten, die zu node1 bzw. node2 gehörten, Node3 b
 Sie müssen die Festplatten, die zu node1 bzw. node2 gehörten, Node3 bzw. node4 neu zuweisen.
 
 .Über diese Aufgabe
-Sie führen die Schritte in diesem Abschnitt auf Node3 und node4 durch, führen jeden Schritt auf node3 und dann node4 aus, bevor Sie zum nächsten Schritt weitergehen.
+Die Schritte in diesem Abschnitt werden auf node3 und node4 durchgeführt. Jeder Schritt wird zunächst auf node3 und dann auf node4 abgeschlossen, bevor zum nächsten Schritt übergegangen wird.
 
+[[reassign-spare-disks-step1]]
 .Schritte
-. Verbinden Sie die Storage-Shelf-Kabel von den Shelfs, die zuvor mit Knoten 1/Knoten 2 und knoten 3/knoten 4 verbunden waren.
+. Die Kabel der zuvor angeschlossenen Storage Shelves werden verbunden:
++
+** Die Kabel von Node1 werden mit Node3 verbunden.
+** Die Kabel von Node2 werden mit Node4 verbunden.
 +
 
-CAUTION: Während dieses Aktualisierungsvorgangs dürfen keine neuen Shelfs an Knoten 3/knoten 4 angeschlossen werden. Nach Abschluss des Controller-Upgrades können neue Shelfs unterbrechungsfrei mit dem System verbunden werden.
+CAUTION: Während dieses Upgrade-Vorgangs dürfen keine neuen Shelves an node3 oder node4 angeschlossen werden. Neue Shelves können nach Abschluss des Controller-Upgrades unterbrechungsfrei an das System angeschlossen werden.
+
+
 
 . Stellen Sie die Stromversorgung und die physische Konnektivität der Shelfs sicher.
 . Von der Eingabeaufforderung node3-LOADER, Booten in Wartungsmodus:
@@ -39,26 +45,38 @@ Local System ID: 101268854
 ...
 ----
 +
-Notieren Sie die System-ID von node3 für die Verwendung in Schritt 4 unten.
+Notieren Sie die System-ID von node3 zur Verwendung in <<reassign-disks-and-aggregates,Schritt 5>>.
 
-. Neuzuweisung von node1 der freien Festplatten, Festplatten, die zum Root-Aggregat gehören, und aller Datenaggregate:
+
+
+[[reassign-disks-and-aggregates]]
+. Datenträger und Datenaggregate neu zuweisen:
 +
-`disk reassign -s _node1_sysid_ -d _node3_sysid_ -p _node2_sysID_`
-
-+
---
-** Der Parameter `_node1_sysid_` Ist der Wert, den Sie in _Herunterfahren der ursprünglichen Knoten_, link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Schritt 5"].
-** Geben Sie den Parameter an `_-p partner_sysID_` Nur wenn gemeinsam genutzte Festplatten vorhanden sind.
-
-
-[NOTE]
+[role="tabbed-block"]
 ====
-Bei der Neuzuteilung von node2 der freien Festplatten, Festplatten, die zum Root-Aggregat gehören, und allen Datenaggregaten lautet der Befehl:
-
-`disk reassign -s node2_sysid -d node4_sysid -p node3_sysID`
-
-====
+.Neu zuweisen an node3
 --
+Die Ersatzfestplatten von node1, die zum Root-Aggregat gehören, sowie alle Datenaggregate werden node3 zugewiesen:
+
+`disk reassign -s <node1_sysid> -d <node3_sysid> -p <node4_sysid>`
+
+** Der Parameter  `node1_sysid` ist der Wert, den Sie in _Herunterfahren der ursprünglichen Knoten_ aufgezeichnet haben, link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Schritt 5"].
+** Geben Sie den Parameter  `-p <node2_sysid>` nur an, wenn gemeinsam genutzte Datenträger vorhanden sind.
+
+
+--
+.Neu zuweisen an node4
+--
+Weisen Sie die Ersatzfestplatten von node2, die zum Root-Aggregat gehören, sowie alle Datenaggregate node4 zu:
+
+`disk reassign -s <node2_sysid> -d <node4_sysid> -p <node3_sysid>`
+
+** Der Parameter `node2_sysid` ist der Wert, den Sie in _Herunterfahren der ursprünglichen Knoten_ aufgezeichnet haben,link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Schritt 5"].
+** Geben Sie den Parameter  `-p <node3_sysid>` nur an, wenn gemeinsam genutzte Datenträger vorhanden sind.
+
+
+--
+====
 +
 Vom System wird eine Meldung wie die folgende angezeigt:
 
@@ -100,8 +118,12 @@ Sie sollten eine Ausgabe wie die folgende sehen:
           aggr0 online          raid_dp, aggr         root
                                 64-bit
 ----
-. Beenden des Wartungsmodus:
+. [[reassign-spare-disks-step9]]Wartungsmodus beenden:
 +
 `halt`
 
+. Wiederholen Sie <<reassign-spare-disks-step1,Schritt 1>> bis <<reassign-spare-disks-step9,Schritt 9>> auf Knoten 4.
 
+
+.Was kommt als Nächstes?
+Nach dem Anbringen der Speicherregale und der Neuzuweisung der Festplattenzugehörigkeit link:upgrade-restore-root-volume-config.html["Wiederherstellung der Root-Volume-Konfiguration"].

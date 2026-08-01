@@ -97,4 +97,4 @@ js11      ps0          mixed    LIF1,                   igroup1
 Je nach den Anforderungen Ihrer Cluster-Umgebung können Sie sich möglicherweise entscheiden, neue SAN LIFs zu erstellen oder SAN LIFs neu zu erstellen, die Sie bereits in diesem Verfahren gelöscht haben. Sie können SAN-LIFs mit dem erstellen oder neu erstellen https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html["Erstellung von Netzwerkschnittstellen"^] Vorgehensweise in der Dokumentation _Clusterverwaltung mit OnCommand® System Manager_.
 
 .Was kommt als Nächstes?
-link:upgrade-remove-original-nodes.html["Entfernen Sie die ursprünglichen Knoten aus dem Cluster."]
+Nach dem Verschieben, Löschen oder Erstellen von SAN LIFs, link:upgrade-remove-original-nodes.html["die ursprünglichen Knoten aus dem Cluster entfernen"].

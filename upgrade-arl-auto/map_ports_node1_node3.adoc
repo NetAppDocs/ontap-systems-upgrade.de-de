@@ -17,7 +17,7 @@ summary: 'Überprüfen Sie, ob die physischen Ports auf node1 korrekt zugeordnet
 Sie müssen überprüfen, ob die physischen Ports auf node1 korrekt den physischen Ports auf node3 zugeordnet sind. Dadurch kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Über diese Aufgabe
-Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
+Siehe link:other-references.html["Quellen"] für den Link zum _Hardware Universe_, um Informationen zu den Ports der neuen Knoten zu erfassen. Diese Informationen werden später in diesem Abschnitt verwendet.
 
 Die Porteinstellungen können je nach Knotenmodell variieren. Sie müssen die Port- und LIF-Konfiguration des ursprünglichen Knotens mit der geplanten Nutzung und Konfiguration des neuen Knotens kompatibel machen. Dies liegt daran, dass der neue Knoten beim Start dieselbe Konfiguration abruft, was bedeutet, dass ONTAP beim Starten von node3 versucht, LIFs auf denselben Ports zu hosten, die auf node1 verwendet wurden.
 
@@ -215,7 +215,7 @@ Mit dem folgenden Befehl wird die Failover-Richtlinie auf festgelegt `broadcast-
 `network interface modify -vserver node3 -lif data1 failover-policy broadcast-domainwide -failover-group fg1`
 
 +
-Weitere Informationen finden Sie unter link:other_references.html["Quellen"] dem Link _Network Management_ oder der _ONTAP 9 Command reference_.
+Weitere Informationen finden Sie unter link:other-references.html["Quellen"] dem Link _Network Management_ oder der _ONTAP 9 Command reference_.
 
 . Überprüfen Sie die Änderungen auf node3:
 +

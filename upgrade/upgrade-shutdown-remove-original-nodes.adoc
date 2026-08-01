@@ -125,3 +125,6 @@ Use "storage failover modify -node <nodename> -onreboot false" to turn it OFF.
 . Alle Kabel von Node1 und node2 beschriften und entfernen.
 . Entfernen Sie das Gehäuse mit Node1 und Node2.
 
+
+.Was kommt als Nächstes?
+Nach dem Herunterfahren der ursprünglichen Knoten, link:upgrade-remove-disk-ownership-new-nodes.html["Eigentumsrechte an den an die neuen Knoten angeschlossenen Festplatten entfernen"].

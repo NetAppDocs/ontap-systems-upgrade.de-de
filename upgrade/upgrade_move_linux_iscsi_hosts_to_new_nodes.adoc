@@ -498,4 +498,4 @@ multipath -ll -d
 
 
 .Was kommt als Nächstes?
-link:upgrade-create-aggregate-move-volumes.html["Erstellung eines Aggregats und Verschiebung von Volumes zu den neuen Nodes"]
+Nach dem Verschieben der Linux iSCSI-Hosts auf die neuen Knoten, link:upgrade-create-aggregate-move-volumes.html["Ein Aggregat erstellen und Volumes auf die neuen Nodes verschieben"].

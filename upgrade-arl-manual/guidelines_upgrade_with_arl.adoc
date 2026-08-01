@@ -41,15 +41,15 @@ NOTE: Bevor Sie ein AFF-Systemupgrade durchführen, müssen Sie ONTAP auf Versio
 * Das Controller-Upgrade mit ARL wird auf Systemen unterstützt, die mit SnapLock Enterprise und SnapLock Compliance Volumes konfiguriert sind.
 
 
-Sie müssen überprüfen, ob der ARL-Vorgang auf den Original- und Ersatz-Controllern ausgeführt werden kann. Sie müssen die Größe aller definierten Aggregate und die Anzahl der Festplatten überprüfen, die vom ursprünglichen System unterstützt werden. Vergleichen Sie dann die aggregierte Größe und Anzahl der vom neuen System unterstützten Festplatten. Informationen zum Zugriff auf diese Informationen finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen gleich oder größer sein als die Aggregatgröße und Anzahl der vom ursprünglichen System unterstützten Festplatten.
+Es ist zu überprüfen, ob der ARL auf dem Original- und dem Ersatzcontroller durchgeführt werden kann. Die Größe aller definierten Aggregate sowie die Anzahl der vom Originalsystem unterstützten Festplatten sind zu prüfen. Anschließend erfolgt ein Vergleich mit der Aggregatgröße und der Anzahl der vom neuen System unterstützten Festplatten. Für diese Informationen ist auf link:other-references.html["Quellen"] zu verweisen, um zum _Hardware Universe_ zu gelangen. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen mindestens der Aggregatgröße und der Anzahl der vom Originalsystem unterstützten Festplatten entsprechen oder diese übertreffen.
 
-Sie müssen in den Cluster-Mischregeln validieren, ob neue Nodes zusammen mit den vorhandenen Nodes Teil des Clusters werden können, wenn der ursprüngliche Controller ersetzt wird. Weitere Informationen zu Regeln für die Kombination von Clustern finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+In den Cluster-Mischungsregeln ist zu validieren, ob neue Knoten nach dem Austausch des ursprünglichen Controllers zusammen mit den bestehenden Knoten Teil des Clusters werden können. Weitere Informationen zu den Cluster-Mischungsregeln bietet link:other-references.html["Quellen"] der Link zum _Hardware Universe_.
 
 
 NOTE: Beide Systeme sind entweder hochverfügbarkeits- (HA) oder kein HA-System. Beide Nodes müssen entweder die Persönlichkeit aktiviert oder deaktiviert sein. Sie können einen Node nicht mit der All-Flash-optimierten Persönlichkeit kombinieren, die bei einem Node aktiviert ist, der nicht im gleichen HA-Paar die Persönlichkeit aktiviert hat. Wenn sich die Persönlichkeiten unterscheiden, wenden Sie sich an den technischen Support.
 
 
-NOTE: Wenn das neue System weniger Steckplätze als das ursprüngliche System besitzt oder weniger oder unterschiedliche Ports vorhanden sind, müssen Sie dem neuen System möglicherweise einen Adapter hinzufügen. Siehe link:other_references.html["Quellen"] Link zum _Hardware Universe_ auf der NetApp Support-Website, um Informationen zu bestimmten Plattformen zu erhalten.
+NOTE: Wenn das neue System über weniger Steckplätze als das ursprüngliche System oder über weniger oder andere Ports verfügt, muss dem neuen System möglicherweise ein Adapter hinzugefügt werden. Siehe link:other-references.html["Quellen"] für einen Link zum _Hardware Universe_ auf der NetApp Support Site mit Details zu spezifischen Plattformen.
 
 
 
@@ -60,19 +60,19 @@ Sie können die folgenden Aktualisierungen nicht ausführen:
 
 * Zu bzw. von Controllern, die keine ONTAP Version von ONTAP 9.0 auf ONTAP 9.7 ausführen können
 +
-Informationen zu Controller-Upgrades für Systeme mit Data ONTAP 7-Mode finden Sie unter link:other_references.html["Quellen"] Link zur NetApp Support Site_.
+Informationen zu Controller-Upgrades für Systeme, auf denen Data ONTAP im 7-Mode ausgeführt wird, sind unter link:other-references.html["Quellen"] im _NetApp Support Site_ verfügbar.
 
 * Zum Austausch von Controllern, die die mit den ursprünglichen Controllern verbundenen Platten-Shelfs nicht unterstützen.
 +
-Informationen zur Unterstützung von Festplatten finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+Informationen zur Festplattenunterstützung finden sich unter link:other-references.html["Quellen"] dem Link zum _Hardware Universe_.
 
 * Von Controllern mit Root-Aggregaten oder Datenaggregaten auf internen Laufwerken.
 +
-Wenn Sie Controller mit Root-Aggregaten oder Datenaggregaten auf internen Festplattenlaufwerken aktualisieren möchten, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschiebung von Volumes oder Storage_ und Vorgang _Upgrade eines Node-Paares, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird.
+Wenn ein Upgrade von Controllern mit Root-Aggregaten oder Datenaggregaten auf internen Festplatten durchgeführt werden soll, siehe link:other-references.html["Quellen"] den Link zu _Upgrade durch Verschieben von Volumes oder Storage_ und zur Prozedur _Upgrade eines Node-Paares mit Clustered Data ONTAP durch Verschieben von Volumes_.
 
 +
 
-NOTE: Wenn Sie ONTAP auf Nodes in einem Cluster aktualisieren möchten, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade ONTAP_.
+NOTE: Informationen zur Aktualisierung von ONTAP auf Knoten in einem Cluster finden Sie unter link:other-references.html["Quellen"] dem Link _Upgrade ONTAP_.
 
 
 
@@ -115,9 +115,9 @@ Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die 
 
 Wenn Sie keine neuen Lizenzschlüssel haben, sind für den neuen Controller derzeit lizenzierte Funktionen im Cluster verfügbar und funktionieren weiterhin. Durch die Verwendung nicht lizenzierter Funktionen auf dem Controller können Sie jedoch möglicherweise die Einhaltung Ihrer Lizenzvereinbarung verschließen. Sie müssen daher nach Abschluss des Upgrades den neuen Lizenzschlüssel oder die neuen Schlüssel für den neuen Controller installieren.
 
-Alle Lizenzschlüssel sind 28 Groß-alphabetische Zeichen lang. Siehe link:other_references.html["Quellen"] Um auf die _NetApp Support Site_ zu verlinken, wo Sie neue 28-stellige Lizenzschlüssel für ONTAP 9.7 erhalten. Oder früher. Die Schlüssel sind im Abschnitt „_My Support_“ unter „_Software licenses_“ verfügbar. Falls auf der Website keine Lizenzschlüssel vorhanden ist, wenden Sie sich an Ihren NetApp Ansprechpartner.
+Alle Lizenzschlüssel bestehen aus 28 Großbuchstaben. Siehe link:other-references.html["Quellen"] für einen Link zur _NetApp Support Site_, auf der neue 28-stellige Lizenzschlüssel für ONTAP 9.7 oder ältere Versionen erhältlich sind. Die Schlüssel sind im Bereich _My Support_ unter _Software licenses_ verfügbar. Falls die benötigten Lizenzschlüssel auf der Website nicht vorhanden sind, kann der NetApp Vertriebsmitarbeiter kontaktiert werden.
 
-Ausführliche Informationen zur Lizenzierung finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+Detaillierte Informationen zur Lizenzierung sind unter link:other-references.html["Quellen"] im _System Administration Reference_ verfügbar.
 
 
 

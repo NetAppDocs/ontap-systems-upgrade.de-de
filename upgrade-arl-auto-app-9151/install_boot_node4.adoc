@@ -32,7 +32,7 @@ Wenn node4 sich in einem separaten Chassis von node2 befindet, können sie node4
 Verkabeln Sie die folgenden Verbindungen und befolgen Sie dabei die Anweisungen in den _Installations- und Einrichtungsanweisungen_ für die Node4-Plattform, das entsprechende Disk-Shelf-Dokument und die _HA-Paarverwaltung_.
 
 +
-Siehelink:other_references.html["Quellen"] zur Verknüpfung mit _HA-Paarverwaltung_.
+Siehe link:other-references.html["Quellen"] zum Verweis auf die _HA-Paarverwaltung_.
 
 +
 ** Konsole (Remote-Management-Port)

@@ -59,9 +59,9 @@ Unter den folgenden Umständen können Sie dieses ARL-Verfahren nicht zum Upgrad
 | AFF C800 | AFF C80 
 |===
 +
-Um ein in der obigen Tabelle aufgeführtes Upgrade durchzuführen, siehe link:other_references.html["Quellen"] zum Link zu _Verwenden Sie die Befehle "system controller replace", um Controller-Modelle im selben Chassis zu aktualisieren_.
+Um ein in der obigen Tabelle aufgeführtes Upgrade durchzuführen, siehe link:other-references.html["Quellen"] zum Link zu _Verwenden Sie die Befehle "system controller replace", um Controller-Modelle im selben Chassis zu aktualisieren_.
 
-* Sie führen ein Upgrade einer MetroCluster FC- oder IP-Konfiguration durch. Informationen zum Upgrade einer MetroCluster-Konfiguration finden Sie unter, um eine link:other_references.html["Quellen"] Verknüpfung zur _MetroCluster-Upgrade- und Erweiterungsdokumentation_ zu erhalten.
+* Sie aktualisieren eine MetroCluster FC- oder IP-Konfiguration. Zum Upgrade einer MetroCluster Konfiguration siehe link:other-references.html["Quellen"] in der Dokumentation zu _MetroCluster Upgrade und Expansion_.
 
 
 
@@ -116,11 +116,11 @@ Die folgende Tabelle zeigt die unterstützten Controller-Upgrade-Kombinationen m
 == Wählen Sie ein anderes Verfahren zum Hardware-Upgrade
 
 * link:../upgrade-arl/index.html["Überprüfen Sie die verfügbaren alternativen ARL-Methoden zum Aktualisieren der Controller-Hardware"].
-* Wenn Sie eine andere Methode zum Upgrade der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen durchzuführen, lesen Sie link:other_references.html["Quellen"] Link zu _Upgrade durch Verschieben von Volumes oder Storage_.
+* Falls Sie eine andere Methode zum Aufrüsten der Controller-Hardware bevorzugen und bereit sind, Volume-Verschiebungen vorzunehmen, lesen Sie link:other-references.html["Quellen"], um zu _Upgrade durch Verschieben von Volumes oder Speicher_ zu gelangen.
 
 
 .Verwandte Informationen
-Siehe link:other_references.html["Quellen"] um auf die _ONTAP 9-Dokumentation_ zu verlinken.
+Siehe link:other-references.html["Quellen"], um auf die _ONTAP 9 Documentation_ zu verlinken.
 
 .Was kommt als Nächstes?
 Nachdem wir uns für die Anwendung dieses ARL-Verfahrens entschieden haben, link:required_tools_and_documentation.html["Informieren Sie sich über die benötigten Werkzeuge und die Dokumentation"].

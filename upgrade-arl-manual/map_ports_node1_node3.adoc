@@ -17,7 +17,7 @@ summary: Überprüfen Sie, ob die physischen Ports auf node1 bei einem manuellen
 Sie müssen sicherstellen, dass die physischen Ports auf node1 korrekt den physischen Ports auf node3 zugeordnet sind. Dadurch kann node3 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Bevor Sie beginnen
-Sie müssen von _Hardware Universe_ bereits über die Ports auf den neuen Nodes verfügen. (Gehen Sie zu link:other_references.html["Quellen"] Zum Verknüpfen mit dem _Hardware Universe_). Sie verwenden die Informationen später in diesem Abschnitt und in link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"].
+Sie müssen bereits Informationen zu den Ports der neuen Knoten aus dem _Hardware Universe_ haben. (Wechseln Sie zu link:other-references.html["Quellen"] , um zum _Hardware Universe_ zu verlinken). Diese Informationen werden später in diesem Abschnitt und in link:map_ports_node2_node4.html["Weisen Sie Ports von node2 nach node4 zu"] verwendet.
 
 Die Softwarekonfiguration von node3 muss mit der physischen Konnektivität von node3 übereinstimmen, und die Netzwerkverbindung muss wiederhergestellt werden, bevor Sie mit dem Upgrade fortfahren.
 
@@ -239,7 +239,7 @@ Im folgenden Beispiel wird die Failover-Richtlinie auf „Broadcast-Domain-wide�
 network interface modify -vserver node3 -lif data1 failover-policy broadcast-domainwide -failover-group fg1
 ----
 +
-Gehen Sie zu link:other_references.html["Quellen"], um eine Verknüpfung zu _Netzwerkmanagement_ oder der _ONTAP 9 Command reference_ für weitere Informationen herzustellen.
+Gehen Sie zu link:other-references.html["Quellen"], um eine Verknüpfung zu _Netzwerkmanagement_ oder der _ONTAP 9 Command reference_ für weitere Informationen herzustellen.
 
 . Überprüfen Sie die Änderungen auf node3:
 +

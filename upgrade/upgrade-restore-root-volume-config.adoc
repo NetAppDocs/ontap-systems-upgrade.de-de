@@ -56,3 +56,6 @@ Die Startsequenz wird normal fortgesetzt.
 
 
 Wenn das Controller-Upgrade fehlschlägt und ein meldet `rlib_port_ipspace_assign` Fehlermeldung: Sie müssen das Upgrade zurücksetzen und die LIFs auf den Netzwerk-Ports des Originalsystems löschen, die als HA-Ports auf dem Austausch-System verwendet werden. Weitere Informationen finden Sie unter link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/PANIC_%3A_rlib_port_ipspace_assign%3A_port_e0a_could_not_be_moved_to_HA_ipspace["Diesen KB-Artikel"^].
+
+.Was kommt als Nächstes?
+Nach der Wiederherstellung der Root-Volume-Konfiguration, link:upgrade-complete.html["Den Workflow für die Speichererweiterung abschließen"].

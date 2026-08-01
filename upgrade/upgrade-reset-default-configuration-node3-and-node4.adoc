@@ -54,3 +54,6 @@ Das System startet das `wipeconfig` Verfahren und fährt neu hoch. Nach Abschlus
 
 . Geben Sie im Bootmenü 8 ein, um den Knoten neu zu starten, und drücken Sie während des AUTOBOOT Strg+C, um den Knoten an der LOADER-Eingabeaufforderung anzuhalten.
 
+
+.Was kommt als Nächstes?
+Nach dem Zurücksetzen der Standardkonfiguration auf den neuen Knoten, link:upgrade-install-new-nodes.html["Die neuen Knoten installieren"].

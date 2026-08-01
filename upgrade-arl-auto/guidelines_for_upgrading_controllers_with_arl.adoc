@@ -23,15 +23,15 @@ Um zu verstehen, ob Sie bei einem Controller-Upgrade von ONTAP 9.5 auf ONTAP 9.7
 
 Wenn Sie ein Node-Paar mit diesem ARL-Verfahren für ONTAP 9.5 auf ONTAP 9.7 aktualisieren, müssen Sie sicherstellen, dass ARL an den Original- und Ersatz-Controllern ausgeführt werden kann.
 
-Sie sollten die Größe aller definierten Aggregate und die Anzahl der Festplatten überprüfen, die vom ursprünglichen System unterstützt werden. Dann müssen Sie die Aggregatgröße und Anzahl der unterstützten Festplatten mit der Aggregatgröße und der Anzahl der vom neuen System unterstützten Festplatten vergleichen. Siehe link:other_references.html["Quellen"] Link zum _Hardware Universe_, wo diese Information verfügbar ist. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen gleich oder größer sein als die Aggregatgröße und Anzahl der vom ursprünglichen System unterstützten Festplatten.
+Sie sollten die Größe aller definierten Aggregate und die Anzahl der vom ursprünglichen System unterstützten Festplatten überprüfen. Anschließend sind die Aggregatgrößen und die Anzahl der unterstützten Festplatten mit der Aggregatgröße und der Anzahl der unterstützten Festplatten des neuen Systems zu vergleichen. Siehe link:other-references.html["Quellen"] für einen Link zum _Hardware Universe_, in dem diese Informationen verfügbar sind. Die Aggregatgröße und die Anzahl der vom neuen System unterstützten Festplatten müssen mindestens so groß sein wie die Aggregatgröße und die Anzahl der vom ursprünglichen System unterstützten Festplatten.
 
-Sie sollten in den Cluster-Mischregeln validieren, ob neue Nodes zusammen mit den vorhandenen Nodes in das Cluster integriert werden können, wenn der ursprüngliche Controller ersetzt wird. Weitere Informationen zu Regeln für die Kombination von Clustern finden Sie unter link:other_references.html["Quellen"] Zum Verknüpfen mit der _Hardware Universe_.
+In den Cluster-Mixing-Regeln ist zu prüfen, ob neue Knoten beim Austausch des ursprünglichen Controllers zusammen mit den bestehenden Knoten Teil des Clusters werden können. Weitere Informationen zu Cluster-Mixing-Regeln sind unter link:other-references.html["Quellen"] dem Link zum _Hardware Universe_ zu finden.
 
 
 NOTE: Bevor Sie ein AFF-Systemupgrade durchführen, müssen Sie ONTAP auf Version 9.5P1 oder neuer aktualisieren. Diese Versionsebenen sind für ein erfolgreiches Upgrade erforderlich.
 
 
-NOTE: Informationen zum Upgrade eines Systems, das interne Laufwerke unterstützt (z. B. eine FAS2700 oder AFF A250), aber KEINE internen Laufwerke enthält, finden Sie unter link:other_references.html["Quellen"] Und verwenden Sie das Verfahren in der _Aggregate Relocation, um den für Ihre Version von ONTAP korrekten Controller-Hardware_-Inhalt manuell zu aktualisieren.
+NOTE: Wenn ein System aktualisiert wird, das interne Laufwerke unterstützt (zum Beispiel ein FAS2700 oder AFF A250), aber keine internen Laufwerke besitzt, beachten Sie link:other-references.html["Quellen"] und verwenden Sie das Verfahren im Inhalt _Aggregate-Verschiebung zur manuellen Aktualisierung der Controller-Hardware_, das für Ihre Version von ONTAP korrekt ist.
 
 Wenn Sie ONTAP 9.6P11, 9.7P8 oder neuere Versionen verwenden, wird empfohlen, die Aktivierung von Connectivity, Lebendigkeit und Availability Monitor (CLAM)-Übernahme zu aktivieren, um das Cluster bei bestimmten Node-Ausfällen in Quorum zurückzugeben. Der `kernel-service` Für Befehl ist der erweiterte Zugriff auf die Berechtigungsebene erforderlich. Weitere Informationen finden Sie unter: https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["NetApp KB-Artikel SU436: DIE CLAM-Übernahme hat sich die Standardkonfiguration geändert"^].
 
@@ -53,11 +53,11 @@ Sie können die folgenden Aktualisierungen nicht ausführen:
 
 * Zum Austausch von Controllern, die die mit den ursprünglichen Controllern verbundenen Platten-Shelfs nicht unterstützen
 +
-Siehe link:other_references.html["Quellen"] Um Informationen zur Hardware Universe Festplattenunterstützung zu erhalten.
+Siehe link:other-references.html["Quellen"] zum Verweis auf _Hardware Universe_ für Informationen zur Festplattenunterstützung.
 
 * Zu Einstiegs-Controllern mit internen Laufwerken, zum Beispiel ein FAS2750.
 +
-Informationen zum Upgrade von Controllern der Einstiegsklasse mit internen Laufwerken finden Sie unter link:other_references.html["Quellen"] Link zu _Upgrade durch Verschiebung von Volumes oder Storage_ und Vorgang _Upgrade eines Node-Paares, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird.
+Wenn Sie Einstiegs-Controller mit internen Laufwerken aufrüsten möchten, siehe link:other-references.html["Quellen"] den Link _Upgrade durch Verschieben von Volumes oder Storage_ und gehen Sie zur Prozedur _Upgrade eines Node-Paares mit clustered Data ONTAP durch Verschieben von Volumes_.
 
 
 

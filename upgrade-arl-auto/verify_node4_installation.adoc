@@ -50,7 +50,7 @@ CAUTION: In dieser Phase befindet sich die MetroCluster-Konfiguration nicht im N
 Nachdem Sie bestätigt haben, dass node4 sich im Quorum befindet und mit node3 kommunizieren kann, müssen Sie die VLANs, Schnittstellengruppen und Broadcast-Domänen von node2 auf node4 neu erstellen. Sie müssen auch die node3-Ports zu den neu erstellten Broadcast-Domänen hinzufügen.
 
 .Über diese Aufgabe
-Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen finden Sie unter link:other_references.html["Quellen"] Und Link zu _Network Management_.
+Weitere Informationen zum Erstellen und Neuerstellen von VLANs, Schnittstellengruppen und Broadcast-Domänen sind unter link:other-references.html["Quellen"]_Netzwerkverwaltung_ verfügbar.
 
 .Schritte
 . Erstellen Sie die VLANs auf node4 mithilfe der node2-Informationen, die im aufgezeichnet wurden, neu link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["Verschieben von Aggregaten und NAS-Daten-LIFs ohne Root-Wurzeln von Knoten 2 auf Knoten 3"] Abschnitt:

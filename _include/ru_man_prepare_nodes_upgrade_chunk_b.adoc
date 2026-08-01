@@ -170,7 +170,7 @@ node1         node1         in-quorum     true          operational
 2 entries were displayed.
 ....
 +
-Nodes in einem Cluster sind Quorum, wenn eine einfache Mehrheit der Nodes in einem ordnungsgemäßen Zustand ist und miteinander kommunizieren kann. Weitere Informationen finden Sie unter link:other_references.html["Quellen"] Verknüpfen mit der Referenz _Systemadministration_.
+Knoten in einem Cluster befinden sich im Quorum, wenn die einfache Mehrheit der Knoten fehlerfrei funktioniert und miteinander kommunizieren kann. Weitere Informationen sind unter link:other-references.html["Quellen"] im _System Administration Reference_ zu finden.
 
 . Zurück zur Administratorberechtigungsebene:
 +
@@ -260,7 +260,7 @@ Das System zeigt auf beiden Nodes detaillierte Informationen zum SP an.
 . Vergewissern Sie sich, dass das SP-Netzwerk konfiguriert ist.
 . Notieren Sie die IP-Adresse und andere Informationen zum SP.
 +
-Möglicherweise möchten Sie die Netzwerkparameter der Remote-Management-Geräte, in diesem Fall die SPs, vom ursprünglichen System für die SPs auf den neuen Knoten wiederverwenden. Detaillierte Informationen zu den SP finden Sie unter link:other_references.html["Quellen"] dem Link zur _System Administration Reference_ und der _ONTAP 9 Command reference_.
+Möglicherweise möchten Sie die Netzwerkparameter der Remote-Management-Geräte, in diesem Fall die SPs, vom ursprünglichen System für die SPs auf den neuen Knoten wiederverwenden. Detaillierte Informationen zu den SP finden Sie unter link:other-references.html["Quellen"] dem Link zur _System Administration Reference_ und der _ONTAP 9 Command reference_.
 
 +
 .. [[man_prepare_nodes_step29]]Wenn die neuen Knoten über die gleiche lizenzierte Funktionalität wie die ursprünglichen Knoten verfügen sollen, geben Sie den folgenden Befehl ein, um die Cluster-Lizenzen auf dem ursprünglichen System anzuzeigen:
@@ -286,7 +286,7 @@ FlexClone         site    FlexClone License     -
 SnapVault         site    SnapVault License     -
 6 entries were displayed.
 ....
-.. Beschaffung neuer Lizenzschlüssel für die neuen Nodes auf der _NetApp Support Site_. Siehe link:other_references.html["Quellen"] Zum Link zu _NetApp Support Site_.
+.. Sie erhalten neue Lizenzschlüssel für die neuen Nodes auf der _NetApp Support Site_. Informationen zur Verknüpfung mit der _NetApp Support Site_ finden Sie unter link:other-references.html["Quellen"].
 +
 Falls auf der Website keine Lizenzschlüssel vorhanden ist, wenden Sie sich an Ihren NetApp Ansprechpartner.
 
@@ -321,7 +321,7 @@ Gehen Sie zu <<man_prepare_nodes_step34,Schritt 34>>.
 
 
 | AutoSupport ist nicht aktiviert...  a| 
-Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsreferenz_ folgen. (Siehe link:other_references.html["Quellen"] Zum Verknüpfen mit der Referenz _Systemadministration_.)
+Aktivieren Sie AutoSupport gemäß den Anweisungen in der _System Administration Reference_. (Siehe link:other-references.html["Quellen"] für den Link zur _System Administration Reference_.)
 
 *Hinweis:* AutoSupport ist standardmäßig aktiviert, wenn Sie Ihr Speichersystem zum ersten Mal konfigurieren. Sie können AutoSupport zwar jederzeit deaktivieren, jedoch sollten Sie sie aktiviert lassen. Wenn Sie AutoSupport aktivieren, können Sie erheblich dabei helfen, Probleme und Lösungen zu identifizieren, sollten bei Ihrem Storage-System Probleme auftreten.
 
@@ -331,7 +331,7 @@ Aktivieren Sie AutoSupport, indem Sie den Anweisungen in der Systemverwaltungsre
 `system node autosupport show -node node_name -instance`
 
 +
-Detaillierte Informationen zu AutoSupport finden Sie unter link:other_references.html["Quellen"] zum Verweis auf die _System Administration Reference_ und die _ONTAP 9 Command reference_.
+Detaillierte Informationen zu AutoSupport finden Sie unter link:other-references.html["Quellen"] zum Verweis auf die _System Administration Reference_ und die _ONTAP 9 Command reference_.
 
 .. [[man_prepare_Nodes_step35,Schritt 35]] Senden Sie eine AutoSupport-Nachricht für node1 an NetApp, indem Sie den folgenden Befehl eingeben:
 +

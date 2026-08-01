@@ -50,3 +50,6 @@ Nachdem die Volumes auf die neuen Knoten verschoben wurden, entfernen Sie die ur
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["Acht"]link:upgrade-complete-move-volumes.html["Schließen Sie das Upgrade ab"]
 [role="quick-margin-para"]
 Um das Upgrade durch Verschieben von Volumes abzuschließen, konfigurieren Sie den Serviceprozessor (SP), installieren neue Lizenzen und richten AutoSupport ein. Möglicherweise müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder NCA-Ports konfigurieren.
+
+.Was kommt als Nächstes?
+Nachdem Sie sich über Upgrades durch das Verschieben von Volumes informiert haben, link:upgrade-prepare-when-moving-volumes.html["Vorbereitung auf das Upgrade"].

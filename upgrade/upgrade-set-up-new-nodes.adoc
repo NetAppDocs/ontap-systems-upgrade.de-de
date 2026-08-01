@@ -124,3 +124,6 @@ Der `ha-config modify controller ha` Mit Befehlen wird konfiguriert `ha` Für di
 Das System wird an der LOADER-Eingabeaufforderung angehalten
 
 
+
+.Was kommt als Nächstes?
+Nach dem Einrichten der neuen Knoten optional link:upgrade-move-internal-drives.html["Interne Laufwerke vom ursprünglichen Knoten verschieben"] oder link:upgrade-convert-node-to-shelf.html["Den ursprünglichen Knoten in ein Laufwerksgehäuse konvertieren"]. Dann link:upgrade-attach-shelves-reassign-disks.html["Speicherregale anschließen und die Festplattenzugehörigkeit neu zuweisen"].

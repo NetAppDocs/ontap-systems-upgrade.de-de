@@ -17,7 +17,7 @@ summary: 'Überprüfen Sie, ob die physischen Ports auf node2 korrekt mit node4 
 Sie müssen überprüfen, ob die physischen Ports auf node2 korrekt den physischen Ports auf node4 zugeordnet sind. Dadurch kann node4 nach dem Upgrade mit anderen Knoten im Cluster und mit dem Netzwerk kommunizieren.
 
 .Über diese Aufgabe
-Siehe link:other_references.html["Quellen"] Verknüpfen mit _Hardware Universe_, um Informationen über die Ports auf den neuen Nodes zu erfassen. Die Informationen werden später in diesem Abschnitt verwendet.
+Siehe link:other-references.html["Quellen"] für den Link zum _Hardware Universe_, um Informationen zu den Ports der neuen Knoten zu erfassen. Diese Informationen werden später in diesem Abschnitt verwendet.
 
 die Softwarekonfiguration von node4 muss mit der physischen Konnektivität von node4 übereinstimmen und die IP-Konnektivität muss wiederhergestellt werden, bevor Sie das Upgrade fortsetzen.
 
@@ -203,7 +203,7 @@ Mit dem folgenden Befehl wird die Failover-Richtlinie auf festgelegt `broadcast-
 `network interface modify -vserver node4 -lif data1 failover-policy broadcast-domainwide -failover-group fg1`
 
 +
-Siehe link:other_references.html["Quellen"], um zu _Netzwerkmanagement_ oder der _ONTAP 9 Command reference_ zu verlinken, und siehe _Konfigurieren von Failover-Einstellungen auf einem LIF_ für weitere Informationen.
+Siehe link:other-references.html["Quellen"], um zu _Netzwerkmanagement_ oder der _ONTAP 9 Command reference_ zu verlinken, und siehe _Konfigurieren von Failover-Einstellungen auf einem LIF_ für weitere Informationen.
 
 . Überprüfen Sie die Änderungen auf node4:
 +

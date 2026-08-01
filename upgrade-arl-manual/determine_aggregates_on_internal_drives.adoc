@@ -139,7 +139,7 @@ Basierend auf der Ausgabe in <<man_aggr_step4,Schritt 4>> Schritt 6 verwendet ag
 Fahren Sie mit diesem Verfahren fort.
 
 
-NOTE: Bevor Sie fortfahren, müssen Sie die Aggregate offline setzen und dann die Aggregate auf den internen Festplattenlaufwerken zerstören. Siehe link:other_references.html["Quellen"] Verbinden mit _Disk und Aggregatmanagement mit CLI_ Inhalt für Informationen über das Managen von Aggregaten.
+NOTE: Bevor Sie fortfahren, müssen Sie die Aggregate offline nehmen und anschließend die Aggregate auf den internen Festplatten zerstören. Weitere Informationen zur Verwaltung von Aggregaten enthält link:other-references.html["Quellen"] der Abschnitt _Festplatten- und Aggregatverwaltung über die Befehlszeile_.
 
 
 
@@ -147,13 +147,13 @@ NOTE: Bevor Sie fortfahren, müssen Sie die Aggregate offline setzen und dann di
 Fahren Sie mit diesem Verfahren fort.
 
 
-NOTE: Bevor Sie fortfahren, müssen Sie die Volumes zu einem externen Festplatten-Shelf verschieben, die Aggregate offline platzieren und dann die Aggregate auf den internen Festplattenlaufwerken zerstören. Siehe link:other_references.html["Quellen"] Informationen über das Verschieben von Volumes erhalten Sie unter Verweis auf das Management von _Festplatte und Aggregaten mit dem CLI_ Inhalt.
+NOTE: Bevor Sie fortfahren, müssen Sie die Volumes auf ein externes Festplattengehäuse verschieben, die Aggregate offline nehmen und anschließend die Aggregate auf den internen Festplatten zerstören. Weitere Informationen zum Verschieben von Volumes enthält link:other-references.html["Quellen"] der Abschnitt _Festplatten- und Aggregatverwaltung mit der CLI_.
 
 
 
-| Enthalten Root-Volumes auf den internen Laufwerken | Fahren Sie mit diesem Verfahren nicht fort. Sie können ein Upgrade der Controller durchführen, indem Sie auf verweisen link:other_references.html["Quellen"] Zum Verlinken auf die _NetApp Support Site_ und das Verfahren _Aktualisieren der Controller Hardware auf einem Node-Paar, auf dem Clustered Data ONTAP durch Verschieben von Volumes_ ausgeführt wird. 
+| Enthalten Root-Volumes auf den internen Laufwerken | Fahren Sie mit diesem Verfahren nicht fort. Die Controller können aktualisiert werden, indem auf link:other-references.html["Quellen"] zum _NetApp Support Site_ verwiesen und das Verfahren _Upgrading the controller hardware on a pair of nodes running clustered Data ONTAP by moving volumes_ verwendet wird. 
 
 
-| Enthalten nicht-Root-Volumes auf den internen Laufwerken und Sie können die Volumes nicht in einen externen Speicher verschieben | Fahren Sie mit diesem Verfahren nicht fort. Sie können die Controller mithilfe des Verfahrens _aktualisieren Sie die Controller-Hardware auf einem Node-Paar, auf dem Clustered Data ONTAP ausgeführt wird, indem Sie Volumes_ verschieben. Siehe link:other_references.html["Quellen"] Um auf die _NetApp Support Site_ zu verlinken, auf die Sie Zugriff haben. 
+| Enthalten nicht-Root-Volumes auf den internen Laufwerken und Sie können die Volumes nicht in einen externen Speicher verschieben | Fahren Sie mit diesem Verfahren nicht fort. Die Controller können mit dem Verfahren _Upgrading the controller hardware on a pair of nodes running clustered Data ONTAP by moving volumes_ aktualisiert werden. Siehe link:other-references.html["Quellen"] zum Verweis auf die _NetApp Support Site_, auf der dieses Verfahren verfügbar ist. 
 |===
 

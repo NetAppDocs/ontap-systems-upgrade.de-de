@@ -11,6 +11,6 @@ Einige Funktionen erfordern Lizenzen, die als _Packages_ ausgegeben werden, die 
 
 Wenn Sie keine neuen Lizenzschlüssel haben, stehen dem neuen Controller derzeit lizenzierte Funktionen im Cluster zur Verfügung. Durch die Verwendung nicht lizenzierter Funktionen auf dem Controller können Sie jedoch möglicherweise die Einhaltung Ihrer Lizenzvereinbarung verschließen. Sie sollten daher nach Abschluss des Upgrades den neuen Lizenzschlüssel oder die neuen Schlüssel für den neuen Controller installieren.
 
-Siehe link:other_references.html["Quellen"] Link zur _NetApp-Support-Website_, auf der Sie neue 28-stellige Lizenzschlüssel für ONTAP erhalten können. Die Schlüssel sind im Abschnitt „_My Support_“ unter „_Software licenses_“ verfügbar. Wenn auf der Website nicht die erforderlichen Lizenzschlüssel vorhanden sind, können Sie sich an Ihren NetApp Ansprechpartner wenden.
+Siehe link:other-references.html["Quellen"] für einen Link zur _NetApp Support Site_, auf der neue 28-stellige Lizenzschlüssel für ONTAP erhältlich sind. Die Schlüssel sind im Bereich _My Support_ unter _Software licenses_ verfügbar. Falls die benötigten Lizenzschlüssel auf der Seite nicht vorhanden sind, kann Ihr NetApp Vertriebsmitarbeiter kontaktiert werden.
 
-Detaillierte Informationen zur ONTAP-Lizenzierung finden Sie in link:other_references.html["Quellen"] der _System Administration Reference_.
+Detaillierte Informationen zur ONTAP-Lizenzierung finden Sie in link:other-references.html["Quellen"] dem _System Administration Reference_.

@@ -31,7 +31,7 @@ NOTE: Wenn Sie auf ein System upgraden, bei dem sich beide Knoten im selben Chas
 Verkabeln Sie die folgenden Verbindungen mithilfe der _Installations- und Einrichtungsanweisungen_ für die Node3-Plattform, des entsprechenden Disk-Shelf-Dokuments und der _HA-Paarverwaltung_-Dokumentation.
 
 +
-Siehelink:other_references.html["Quellen"] zur Verknüpfung mit _HA-Paarverwaltung_.
+Siehe link:other-references.html["Quellen"] zum Verweis auf die _HA-Paarverwaltung_.
 
 +
 ** Konsole (Remote-Management-Port)

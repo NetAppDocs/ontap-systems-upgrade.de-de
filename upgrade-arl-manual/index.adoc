@@ -33,5 +33,5 @@ NOTE: In diesem Dokument werden die ursprünglichen Knoten als _node1_ und _node
 * Mit diesem Verfahren können Sie die Controller-Hardware in Clustern mit mehr als zwei Nodes aktualisieren. Sie müssen jedoch für jedes Hochverfügbarkeitspaar (HA) im Cluster separat vorgehen.
 
 
-* Dieses Verfahren gilt für MetroCluster Konfigurationen mit vier und acht Nodes und ONTAP 9.5 und früher. Weitere Informationen zu MetroCluster Konfigurationen mit ONTAP 9.6 und höher finden Sie unter link:other_references.html["Quellen"] Verknüpfung mit den Befehlen „System Controller Replace“ zum Aktualisieren der Controller-Hardware, die ONTAP 9.5 auf ONTAP 9.7_ ausführt.
+* Dieses Verfahren gilt für MetroCluster vier-Node- und acht-Node-Konfigurationen mit ONTAP 9.5 und älteren Versionen. Für MetroCluster Konfigurationen mit ONTAP 9.6 und neueren Versionen siehe link:other-references.html["Quellen"] den Link zu _Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to ONTAP 9.7_.
 
