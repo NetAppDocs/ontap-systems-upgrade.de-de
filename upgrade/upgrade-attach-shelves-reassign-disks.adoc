@@ -47,10 +47,7 @@ Local System ID: 101268854
 +
 Notieren Sie die System-ID von node3 zur Verwendung in <<reassign-disks-and-aggregates,Schritt 5>>.
 
-
-
-[[reassign-disks-and-aggregates]]
-. Datenträger und Datenaggregate neu zuweisen:
+. [[reassign-disks-and-aggregates]]Die Disks und Datenaggregate neu zuordnen:
 +
 [role="tabbed-block"]
 ====

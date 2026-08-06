@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-complete-move-volumes.html 
 sidebar: sidebar 
 keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
-summary: 'Um das Upgrade durch Verschieben von Volumes abzuschließen, müssen Sie den Serviceprozessor \(SP\) konfigurieren, neue Lizenzen installieren und AutoSupport einrichten. Möglicherweise müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder NCA-Ports konfigurieren.' 
+summary: 'Um das Upgrade durch Verschieben von Volumes abzuschließen, ist es erforderlich, den Service Processor (SP) zu konfigurieren, neue Lizenzen zu installieren und AutoSupport einzurichten. Möglicherweise ist auch die Einrichtung von Storage oder Volume Encryption sowie die Konfiguration der FC- oder NCA-Ports erforderlich.' 
 ---
 = Schließen Sie das Upgrade der Move-Volumes ab
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html 
 sidebar: sidebar 
 keywords: complete, procedure, upgrading, upgrade, moving, move, storage, delete, port, lif, re-enable, service, processor, sp, license, autosupport, fc, cna, por, perform final upgrade steps in ontap 9.7 or earlier 
-summary: 'Um das Upgrade durch Verschiebung von Storage abzuschließen, müssen Sie alle nicht verwendeten Ports und LIFs von den neuen Nodes löschen, Storage Failover oder Hochverfügbarkeit neu aktivieren, den Service-Prozessor \ (SP\) konfigurieren, neue Lizenzen installieren und AutoSupport einrichten. Unter Umständen müssen Sie auch Storage oder Volume Encryption einrichten und die FC- oder CNA-Ports konfigurieren.' 
+summary: 'Um das Upgrade durch Verschieben des Speichers abzuschließen, müssen ungenutzte Ports und LIFs von den neuen Knoten gelöscht, das Storage-Failover oder die Hochverfügbarkeit wieder aktiviert, der Service Processor (SP) konfiguriert, neue Lizenzen installiert und AutoSupport eingerichtet werden. Möglicherweise ist auch die Einrichtung von Storage- oder Volume-Verschlüsselung sowie die Konfiguration der FC- oder CNA-Ports erforderlich.' 
 ---
 = Führen Sie die letzten Upgrade-Schritte in ONTAP 9.7 oder früher aus
 :allow-uri-read: 
