@@ -18,8 +18,8 @@ NOTE: ASA-Upgrades auf ein ASA r2-Ersatzsystem werden nicht unterstützt. Inform
 
 
 
-[[which-upgrade-procedure-should-i-use]]
-== Welches Upgrade-Verfahren soll ich anwenden?
+[[step-1-select-the-correct-upgrade-procedure]]
+== Schritt 1: Das richtige Upgrade-Verfahren auswählen
 
 Um das geeignete Upgrade-Verfahren auszuwählen, gehen Sie alle in der folgenden Tabelle aufgeführten Fragen durch.
 
@@ -68,10 +68,24 @@ ARL ist ein Austauschverfahren.  Sie müssen Ihren Cluster nicht mit den neuen K
 | Habe ich ein integriertes System und möchte ich es aufrüsten, indem ich nur das Controller-Modul austausche und das vorhandene Gehäuse und die Festplatten beibehalte? | link:upgrade-arl-auto-in-chassis/index.html["Upgrade mittels ARL unter Beibehaltung des gleichen Gehäuses, der gleichen Festplatten und der auf den Festplatten gespeicherten Daten"]. 
 
 
+| Führe ich ein Upgrade einer MetroCluster -Konfiguration durch? | Siehelink:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^] . 
+|===
+
+
+[[step-2-prepare-for-the-upgrade]]
+== Schritt 2: Vorbereitung auf das Upgrade
+
+Vor Beginn des Upgrade-Vorgangs sollten alle in der folgenden Tabelle aufgeführten Fragen überprüft werden.
+
+[cols="30,70"]
+|===
+| Fragen Sie sich selbst… | Wenn Ihre Antwort Ja ist, ist Folgendes erforderlich… 
+
+
 | Versetze ich einen SVM? | Siehelink:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html#svm-migration-workflow["SVM-Datenmobilitätsübersicht"^] . 
 
 
-| Führe ich ein Upgrade einer MetroCluster -Konfiguration durch? | Siehelink:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["Aktualisieren, Aktualisieren oder erweitern der MetroCluster Konfiguration"^] . 
+| Existiert auf dem Cluster meines ursprünglichen Systems eine FC SAN-Konfiguration? | Die SAN Zoning-Konfiguration für alle Knoten sowohl auf dem ursprünglichen als auch auf dem Ersatzsystem validieren. Siehe link:https://docs.netapp.com/us-en/ontap/san-config/fibre-channel-fcoe-zoning-concept.html["Informationen zu FC- und FCoE-Zoning mit ONTAP Systemen"^] und link:https://docs.netapp.com/us-en/ontap/san-config/fc-fcoe-recommended-zoning-configuration.html["Empfohlene FC- und FCoE-Zoning-Konfigurationen für ONTAP Systeme"^]. 
 
 
 | Ersetze ich eine einzelne Komponente? | Siehe dielink:https://docs.netapp.com/us-en/ontap-systems/index.html["Dokumentation zu ONTAP Hardwaresystemen"^] und suchen Sie den Flyer mit der vor Ort austauschbaren Einheit (FRU) für diese Komponente. 
@@ -88,7 +102,7 @@ Dieses Beispiel liefert mögliche Antworten für ein FAS9500-zu-FAS90-Controller
 | Frage | Beispielantwort 
 
 
-| Läuft auf dem ursprünglichen und dem neuen Knoten eine unterschiedliche Softwareversion? | Nein. Sowohl FAS9500 als auch FAS90 laufen mit ONTAP 9.15.1. 
+| Läuft auf dem ursprünglichen und dem neuen Knoten eine unterschiedliche Softwareversion? | Nein. Sowohl FAS9500 als auch FAS90 laufen mit ONTAP 9.17.1. 
 
 
 | Möchte ich ein disruptives Upgrade durchführen? | Nein. Ich möchte meine Produktionsumgebung während des Upgrades online halten. 
@@ -110,6 +124,9 @@ Dieses Beispiel liefert mögliche Antworten für ein FAS9500-zu-FAS90-Controller
 
 
 | Führe ich ein Upgrade einer MetroCluster -Konfiguration durch? | Nein. Dies ist ein Standard-HA-Pair-Cluster. 
+
+
+| Existiert auf dem Cluster meines ursprünglichen Systems eine FC SAN-Konfiguration? | Ja. Die SAN Zoning-Konfiguration wurde auf allen Knoten sowohl des ursprünglichen als auch des Ersatzsystems validiert. 
 
 
 | Ersetze ich eine einzelne Komponente? | Nein. Ich rüste das gesamte Steuerungssystem auf. 
