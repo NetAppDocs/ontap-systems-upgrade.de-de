@@ -5479,7 +5479,6 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="19c7bb430e4d1bead9d5461984527c74" category="paragraph">Die Ersatzfestplatten von node1, die zum Root-Aggregat gehören, sowie alle Datenaggregate werden node3 zugewiesen:</block>
   <block id="9e1eb9f52027541a9bd23e4f05a40757" category="paragraph"><block ref="3e85ddaa3eb6367e1aff5787943cd287" prefix="" category="inline-code"></block></block>
   <block id="035d80ad446a46c968fcbb0f40e59bff" category="list-text">Der Parameter <block ref="bf8d76ef73f87dbf0d27d6adafc03750" prefix=" " category="inline-code"></block> ist der Wert, den Sie in _Herunterfahren der ursprünglichen Knoten_ aufgezeichnet haben, <block ref="1e1f8cc7c148a6ce0e555a2eab402733" category="inline-link-macro-rx"></block>.</block>
-  <block id="0b0bf670cf9e81b76c1f856decc798dc" category="list-text">Geben Sie den Parameter <block ref="bc4c7d36f25c2b011c9a4e9d44cf69ce" prefix=" " category="inline-code"></block> nur an, wenn gemeinsam genutzte Datenträger vorhanden sind.</block>
   <block id="9c3761bb1f382f977568107f98822095" category="open-title">Neu zuweisen an node4</block>
   <block id="b3223315d463ccaf0b4506447ae447b9" category="paragraph">Weisen Sie die Ersatzfestplatten von node2, die zum Root-Aggregat gehören, sowie alle Datenaggregate node4 zu:</block>
   <block id="358e1893bbf12c04f134205c866ee696" category="paragraph"><block ref="1282cd61a59206d53e5682d1da07e97f" prefix="" category="inline-code"></block></block>
@@ -5602,4 +5601,5 @@ Ab ONTAP 9.8 beginnt der<block ref="5e9ba5cfa6f3b94ec0f02e2b3ea161d9" prefix=" "
   <block id="f835dc79760f269bbfd81a777b78620d" category="cell">Die SAN Zoning-Konfiguration für alle Knoten sowohl auf dem ursprünglichen als auch auf dem Ersatzsystem validieren. Siehe <block ref="b0267be2c10e97b47f1f9bcbc029b474" category="inline-link-macro-rx"></block> und <block ref="0b12576218c74a7268436563b74ec582" category="inline-link-macro-rx"></block>.</block>
   <block id="7fb0d242758a1608211c466843e7f7e8" category="cell">Nein. Sowohl FAS9500 als auch FAS90 laufen mit ONTAP 9.17.1.</block>
   <block id="e051a964e918207a93d794544866c861" category="cell">Ja. Die SAN Zoning-Konfiguration wurde auf allen Knoten sowohl des ursprünglichen als auch des Ersatzsystems validiert.</block>
+  <block id="43dcdbe1e8ea835042c3b1cb3b2fc2ed" category="list-text">Geben Sie den Parameter <block ref="94d835dc16c43f3c9f59b46dd31e5c6f" prefix=" " category="inline-code"></block> nur an, wenn gemeinsam genutzte Datenträger vorhanden sind.</block>
 </blocks>

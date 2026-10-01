@@ -58,7 +58,7 @@ Die Ersatzfestplatten von node1, die zum Root-Aggregat gehören, sowie alle Date
 `disk reassign -s <node1_sysid> -d <node3_sysid> -p <node4_sysid>`
 
 ** Der Parameter  `node1_sysid` ist der Wert, den Sie in _Herunterfahren der ursprünglichen Knoten_ aufgezeichnet haben, link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["Schritt 5"].
-** Geben Sie den Parameter  `-p <node2_sysid>` nur an, wenn gemeinsam genutzte Datenträger vorhanden sind.
+** Geben Sie den Parameter  `-p <node4_sysid>` nur an, wenn gemeinsam genutzte Datenträger vorhanden sind.
 
 
 --
