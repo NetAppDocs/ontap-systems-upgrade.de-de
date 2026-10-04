@@ -48,19 +48,19 @@ Die Ausgabe des `health` Feld muss sein `true`.
 --
 Wenn Knoten1 dem Quorum nicht automatisch beitritt:
 
-.. Überprüfen Sie den IPspace der Ports e1a und e1b:
+.. link:https://docs.netapp.com/us-en/ontap-systems/index.html["Überprüfung der Cluster Ports von node1"^], anschließend erfolgt die Prüfung des IPspace der node1 Cluster-Ports:
 +
 `network port show`
 
-.. Wenn der IP-Bereich nicht „Cluster“ ist, ändern Sie den IP-Bereich auf e1a und e1b in „Cluster“:
+.. Falls der IPspace nicht "Cluster" ist, erfolgt die Änderung des IPspace auf den Cluster-Ports von node1 zu "Cluster":
 +
 `network port modify -node <node_name> -port <port> -ipspace Cluster`
 
-.. Überprüfen Sie, ob der IP-Bereich der Ports e1a und e1b „Cluster“ ist:
+.. Zu überprüfen ist, ob der IPspace der Cluster-Ports von node1 "Cluster" ist:
 +
 `network port show`
 
-.. Migrieren Sie die LIFs des Knoten1-Clusters nach e1a und e1b:
+.. Migration der Cluster-LIFs von node1 zu den Cluster-Ports von node1:
 +
 `network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node1_name> -destination-port <port_name>`
 

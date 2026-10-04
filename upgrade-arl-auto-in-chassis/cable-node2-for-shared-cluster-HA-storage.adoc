@@ -56,30 +56,44 @@ Wenn das vorhandene System einen Management Port (E0M) und einen BMC-Port hat, w
 
 
 [[connect-to-a-two-node-switchless-cluster]]
+[[two-node-switch-ports]]
 == Stellen Sie eine Verbindung zu einem 2-Node-Cluster ohne Switches her
 
 Die folgenden Tabellen zeigen die Verwendung von Switch-Ports für Cluster-Konfigurationen ohne Switch mit zwei Nodes.
 
+[cols="2,2,2,2a"]
 |===
-| Porttyp | AFF A800, AFF C800 | AFF A90 | AFF A70, AFF C80 
+| Porttyp | AFF A800, AFF C800 | AFF A90, AFF A70 | AFF C80 
 
 
-| Cluster | e0a | e1a | e1a 
+| Cluster | e0a | e1a  a| 
+e1a
 
 
-| Cluster | e1a | E7a (e1b verwenden, wenn kein e7a vorhanden ist) | e1b 
+
+| Cluster | e1a | E7a (e1b verwenden, wenn kein e7a vorhanden ist)  a| 
+e1b
 
 
-| HA | e0b | Keine Verbindung herstellen | Keine Verbindung herstellen 
+
+| HA | e0b | Keine Verbindung herstellen  a| 
+Keine Verbindung herstellen
 
 
-| HA | e1b | Keine Verbindung herstellen | Keine Verbindung herstellen 
+
+| HA | e1b | Keine Verbindung herstellen  a| 
+Keine Verbindung herstellen
 
 
-| SAS-Storage-Ports (sofern vorhanden und verwendet) | Jeder verfügbare Port | Jeder verfügbare Port | Jeder verfügbare Port 
+
+| SAS-Storage-Ports (sofern vorhanden und verwendet) | Jeder verfügbare Port | Jeder verfügbare Port  a| 
+Jeder verfügbare Port
 
 
-| Ethernet-Storage-Ports für NS224-Shelfs | Jeder verfügbare Port | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher 
+
+| Ethernet-Storage-Ports für NS224-Shelfs | Jeder verfügbare Port | Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher  a| 
+Weitere Informationen finden Sie unter Verbindungszuordnung für Ethernet-Speicher
+
 |===
 |===
 | Porttyp | AFF A250, AFF C250 | AFF A30, AFF C60 | AFF A50 
