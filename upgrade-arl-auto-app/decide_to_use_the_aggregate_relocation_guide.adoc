@@ -105,7 +105,7 @@ NOTE: Wenn Ihre Kombination aus Controller-Upgrade-Modellen nicht in der obigen 
 | FAS2720 | 9.13.1 oder später | FAS2820 | 9.13.1 oder später 
 
 
-| FAS2760 | 9.11.1P7 oder früher | FAS2820 | 9.13.1 oder später 
+| FAS2620 | 9.11.1 oder später | FAS2820 | 9.13.1 oder später 
 
 
 | AFF8060 | 9.8P13 oder höher Patches | AFF A900 | 9.10.1 bis 9.12.1 
